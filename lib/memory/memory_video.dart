@@ -14,6 +14,7 @@ class MemoryVideo extends StatefulWidget {
 class _MemoryVideo extends State<MemoryVideo> {
   List<Map<String, String>> picked = [];
   late YoutubePlayerController _controller;
+  TextEditingController textController = TextEditingController();
 
   @override
   void initState() {
@@ -89,6 +90,7 @@ class _MemoryVideo extends State<MemoryVideo> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 8, vertical: 8),
                       child: TextField(
+                        controller: textController,
                         style: TextStyle(fontSize: size.width / 24),
                         maxLines: 1,
                         decoration: InputDecoration(
@@ -117,7 +119,7 @@ class _MemoryVideo extends State<MemoryVideo> {
                             title: "MEMORY",
                             description: "Exercise 2 -  Working memory",
                             exercise: 2,
-                            yourScore: 3.5,
+                            yourScore: 5,
                             maximum: 10,
                             page: ImprovementSelection(),
                           ),

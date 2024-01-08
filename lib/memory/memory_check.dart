@@ -128,23 +128,8 @@ class _Memory2 extends State<Memory2> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MemoryQuiz(widget.picked),
+                        builder: (context) => MemoryQuiz(widget.picked, score),
                       ),
-                    );
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          content: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              for (int i = 0; i < conList.length; i++)
-                                Text('conList[$i] text: ${conList[i].text}'),
-                            ],
-                          ),
-                        );
-                      },
                     );
                   },
                   backgroundColor: Colors.blue[400],

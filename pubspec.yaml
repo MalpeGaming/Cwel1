@@ -37,7 +37,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   any_link_preview: ^3.0.1
-  youtube_player_iframe: ^5.0.0
+  youtube_player_iframe: ^4.0.4
   flutter_math_fork: ^0.7.2
   path_provider: ^2.0.15
   geekyants_flutter_gauges: ^1.0.3

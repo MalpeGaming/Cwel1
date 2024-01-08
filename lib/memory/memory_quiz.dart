@@ -5,8 +5,9 @@ import 'memory_video.dart';
 
 class MemoryQuiz extends StatefulWidget {
   final List<Map<String, String>> picked;
+  final int score;
 
-  const MemoryQuiz(this.picked, {super.key});
+  const MemoryQuiz(this.picked, this.score, {super.key});
 
   @override
   State<MemoryQuiz> createState() => _MemoryQuizState();
@@ -14,16 +15,23 @@ class MemoryQuiz extends StatefulWidget {
 
 class _MemoryQuizState extends State<MemoryQuiz> {
   List<Map<String, String>> picked = [];
+  int score = 0;
   List<String> defs = [];
   int? selectedOption;
   int questionIndex = 0;
   String word = "";
+  String definition = "";
+
+  void check(int selected) {
+    if (defs[selected - 1] == definition) ++score;
+  }
 
   void handleContinue() {
     if (questionIndex < 3) {
       if (selectedOption != null) {
         setState(
           () {
+            check(selectedOption!);
             selectedOption = null;
             questionIndex++;
             loadQuestion();
@@ -31,6 +39,21 @@ class _MemoryQuizState extends State<MemoryQuiz> {
         );
       }
     } else {
+      print(score);
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(score.toString()),
+              ],
+            ),
+          );
+        },
+      );
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -38,8 +61,8 @@ class _MemoryQuizState extends State<MemoryQuiz> {
             title: "MEMORY",
             description: "Exercise 1 - Learning",
             exercise: 1,
-            yourScore: 3,
-            maximum: 10,
+            yourScore: score.toDouble(),
+            maximum: 14,
             page: MemoryVideo(picked),
           ),
         ),
@@ -54,7 +77,7 @@ class _MemoryQuizState extends State<MemoryQuiz> {
     }
     var element = picked[questionIndex];
     word = element.keys.toList().first;
-    String definition = element.values.toList().first;
+    definition = element.values.toList().first;
     picked.removeAt(questionIndex);
     defs2.removeAt(questionIndex);
     defs = [definition];
@@ -90,6 +113,7 @@ class _MemoryQuizState extends State<MemoryQuiz> {
   @override
   void initState() {
     picked = widget.picked;
+    score = widget.score;
     super.initState();
     loadQuestion();
   }
