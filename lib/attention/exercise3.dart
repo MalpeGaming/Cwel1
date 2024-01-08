@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 import '../show_score.dart';
-import '../improvement_selection.dart';
+import '../account/login1.dart';
 import 'exercise2.dart';
 
 class ThirdAttentionExercise extends StatefulWidget {
@@ -422,7 +422,7 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
                             exercise: 3,
                             yourScore: countScore(),
                             maximum: 10,
-                            page: const ImprovementSelection(),
+                            page: const Login1(),
                           ),
                         ),
                       );
