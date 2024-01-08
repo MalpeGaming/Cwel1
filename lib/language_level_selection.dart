@@ -133,7 +133,7 @@ class _LanguageLevelSelectionState extends State<LanguageLevelSelection> {
                 child: FloatingActionButton.extended(
                   onPressed: () {
                     if (selectedOption != null) {
-                      writeXML(selectedOption?.toInt() ?? 0);
+                      writeXML(selectedOption!);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
