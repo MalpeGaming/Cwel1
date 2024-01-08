@@ -1,4 +1,4 @@
-# brain_train_app
+# The Brain Train App
 
 App for brain training.
 
