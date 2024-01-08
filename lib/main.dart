@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login_page.dart';
+import 'title_page.dart';
 
 void main() {
   runApp(
@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       themeMode: _themeMode,
-      home: const LoginPage(title: 'The Brain Train App'),
+      home: const TitlePage(title: 'The Brain Train App'),
     );
   }
 
