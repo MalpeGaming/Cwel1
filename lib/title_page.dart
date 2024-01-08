@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'language_level_selection.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key, required this.title});
+class TitlePage extends StatefulWidget {
+  const TitlePage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<TitlePage> createState() => _TitlePageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _TitlePageState extends State<TitlePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
