@@ -18,28 +18,6 @@ class MemoryWords extends StatefulWidget {
 class _MemoryWordsState extends State<MemoryWords> {
   List<String> words = [];
   List<String> defs = [];
-  Future<String> loadAsset() async {
-    return await rootBundle.loadString('assets/words_n_defs.xml');
-  }
-
-  Future<List<Map<String, String>>> getWordDefinitions(String level) async {
-    String data = await loadAsset();
-    var xdoc = xml.XmlDocument.parse(data);
-    List<Map<String, String>> wordDefinitionList = [];
-
-    xdoc.findAllElements(level).forEach(
-      (b1Element) {
-        b1Element.findAllElements('element').forEach(
-          (element) {
-            var word = element.findElements('word').first.innerText;
-            var definition = element.findElements('definition').first.innerText;
-            wordDefinitionList.add({word: definition});
-          },
-        );
-      },
-    );
-    return wordDefinitionList;
-  }
 
   static List<Map<String, String>> getRandomElements(
       List<Map<String, String>> list) {
@@ -107,64 +85,44 @@ class _MemoryWordsState extends State<MemoryWords> {
   List<Map<String, String>> picked = [];
   String level = "";
 
-  @override
-  void initState() {
-    super.initState();
-    loadLevel();
-    loadAndInitMemory();
-  }
-
-  void loadLevel() async {
+  Future<String> loadLevel() async {
     Directory appDocumentsDirectory = await getApplicationDocumentsDirectory();
     String appDocumentsPath = appDocumentsDirectory.path;
 
     String filePath = '$appDocumentsPath/lang_lev.xml';
+    String localLevel = "";
 
     if (!File(filePath).existsSync()) {
-      return;
+      return "";
     }
 
     String data = File(filePath).readAsStringSync();
     var xdoc = xml.XmlDocument.parse(data);
-    xdoc.findAllElements("root").forEach(
-      (element) {
-        level = element.findElements('level').first.innerText;
+    localLevel = xdoc.getElement("root")!.getElement("level")!.innerText;
+    return localLevel;
+  }
+
+  Future<List<Map<String, String>>> getWordDefinitions() async {
+    String data = await rootBundle.loadString('assets/words_n_defs.xml');
+    var xdoc = xml.XmlDocument.parse(data);
+    List<Map<String, String>> wordDefinitionList = [];
+
+    xdoc.findAllElements(level).forEach(
+      (b1Element) {
+        b1Element.findAllElements('element').forEach(
+          (element) {
+            var word = element.findElements('word').first.innerText;
+            var definition = element.findElements('definition').first.innerText;
+
+            words.add(word);
+            defs.add(definition);
+            wordDefinitionList.add({word: definition});
+          },
+        );
       },
     );
-  }
 
-  void loadAndInitMemory() {
-    rootBundle.loadString('assets/words_n_defs.xml').then((data) {
-      var xdoc = xml.XmlDocument.parse(data);
-      List<Map<String, String>> wordDefinitionList = [];
-
-      xdoc.findAllElements(level).forEach(
-        (b1Element) {
-          b1Element.findAllElements('element').forEach(
-            (element) {
-              var word = element.findElements('word').first.innerText;
-              var definition =
-                  element.findElements('definition').first.innerText;
-              wordDefinitionList.add({word: definition});
-              words.add(word);
-              defs.add(definition);
-            },
-          );
-        },
-      );
-
-      setState(() {
-        b1 = wordDefinitionList;
-        picked = getRandomElements(b1);
-        startTimer();
-      });
-    });
-  }
-
-  Future<void> initMemory() async {
-    b1 = await getWordDefinitions("B1");
-    picked = getRandomElements(b1);
-    startTimer();
+    return wordDefinitionList;
   }
 
   void startTimer() {
@@ -185,58 +143,74 @@ class _MemoryWordsState extends State<MemoryWords> {
     });
   }
 
+  Future<void> initMemory() async {
+    level = await loadLevel();
+    b1 = await getWordDefinitions();
+    picked = getRandomElements(b1);
+    setState(() {});
+    startTimer();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    initMemory();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(height: 0.05 * size.height),
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              "MEMORY",
-              style: TextStyle(fontSize: 0.08 * size.height),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          SizedBox(height: 0.02 * size.height),
-          Padding(
-            padding: EdgeInsets.only(
-                left: 0.07 * size.width, right: 0.07 * size.width),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      body: picked.isEmpty
+          ? const Center(child: CircularProgressIndicator())
+          : Column(
               children: [
-                Row(
-                  children: [
-                    Text(
-                      "Exercise 1.1 - Learning",
-                      style: TextStyle(fontSize: 0.025 * size.height),
-                      textAlign: TextAlign.start,
-                    ),
-                    SizedBox(width: 0.05 * size.width),
-                    const Spacer(),
-                    Icon(
-                      Icons.timer,
-                      size: 0.08 * min(size.width, size.height),
-                      color: Colors.blue[400],
-                    ),
-                    const SizedBox(width: 10.0),
-                    Text(
-                      "${_remainingTime.toString()}s",
-                      style: TextStyle(fontSize: 0.025 * size.height),
-                      textAlign: TextAlign.start,
-                    ),
-                  ],
-                ),
                 SizedBox(height: 0.05 * size.height),
-                createPoints(picked, size, context),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "MEMORY",
+                    style: TextStyle(fontSize: 0.08 * size.height),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                SizedBox(height: 0.02 * size.height),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: 0.07 * size.width, right: 0.07 * size.width),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            "Exercise 1.1 - Learning",
+                            style: TextStyle(fontSize: 0.025 * size.height),
+                            textAlign: TextAlign.start,
+                          ),
+                          SizedBox(width: 0.05 * size.width),
+                          const Spacer(),
+                          Icon(
+                            Icons.timer,
+                            size: 0.08 * min(size.width, size.height),
+                            color: Colors.blue[400],
+                          ),
+                          const SizedBox(width: 10.0),
+                          Text(
+                            "${_remainingTime.toString()}s",
+                            style: TextStyle(fontSize: 0.025 * size.height),
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 0.05 * size.height),
+                      createPoints(picked, size, context),
+                    ],
+                  ),
+                ),
               ],
             ),
-          ),
-        ],
-      ),
     );
   }
 }

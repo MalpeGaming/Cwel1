@@ -39,7 +39,6 @@ class _MemoryQuizState extends State<MemoryQuiz> {
         );
       }
     } else {
-      print(score);
       showDialog(
         context: context,
         builder: (context) {
