@@ -65,14 +65,25 @@ class _LanguageLevelSelectionState extends State<LanguageLevelSelection> {
 
   void writeXML(int selectedOption) async {
     String level;
-    if (selectedOption == 1) {
-      level = "b1";
-    } else if (selectedOption == 2) {
-      level = "b2";
-    } else if (selectedOption == 3) {
-      level = "c1";
-    } else {
-      level = "native";
+    switch (selectedOption) {
+      case 1:
+        level = "pet";
+        break;
+
+      case 2:
+        level = "fce";
+        break;
+
+      case 3:
+        level = "cae";
+        break;
+
+      case 4:
+        level = "cpe";
+        break;
+
+      default:
+        level = "pet";
     }
     var builder = XmlBuilder();
     builder.processing('xml', 'version="1.0"');

@@ -113,6 +113,9 @@ class _MemoryWordsState extends State<MemoryWords> {
           (element) {
             var word = element.findElements('word').first.innerText;
             var definition = element.findElements('definition').first.innerText;
+
+            words.add(word);
+            defs.add(definition);
             wordDefinitionList.add({word: definition});
           },
         );
