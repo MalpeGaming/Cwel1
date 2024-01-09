@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'login2.dart';
 
 class Login1 extends StatefulWidget {
@@ -22,6 +23,11 @@ Column createForm(Size size, String label, String hint,
         height: 0.05 * size.height,
         child: TextField(
           controller: textController,
+          inputFormatters: [
+            TextInputFormatter.withFunction((oldValue, newValue) {
+              return newValue;
+            })
+          ],
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(
               vertical: 0.005 * size.height,
@@ -29,16 +35,16 @@ Column createForm(Size size, String label, String hint,
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(0.01 * size.height),
-              borderSide: const BorderSide(
+              borderSide: BorderSide(
                 width: 1.5,
-                color: Colors.blue,
+                color: Colors.blue[400]!,
               ),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(0.01 * size.height),
-              borderSide: const BorderSide(
+              borderSide: BorderSide(
                 width: 2.0,
-                color: Colors.blue,
+                color: Colors.blue[600]!,
               ),
             ),
             hintText: hint,
