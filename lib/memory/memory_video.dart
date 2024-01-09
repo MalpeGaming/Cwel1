@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import '../show_score.dart';
 import '../account/login1.dart';
@@ -15,6 +16,7 @@ class _MemoryVideo extends State<MemoryVideo> {
   List<Map<String, String>> picked = [];
   late YoutubePlayerController _controller;
   TextEditingController textController = TextEditingController();
+  double score = 0;
 
   @override
   void initState() {
@@ -92,6 +94,18 @@ class _MemoryVideo extends State<MemoryVideo> {
                       child: TextField(
                         controller: textController,
                         style: TextStyle(fontSize: size.width / 24),
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                          TextInputFormatter.withFunction((oldValue, newValue) {
+                            String text = newValue.text;
+                            if (text.isEmpty || int.parse(text) <= 10) {
+                              score = double.parse(text);
+                              return newValue;
+                            }
+                            return oldValue;
+                          }),
+                        ],
                         maxLines: 1,
                         decoration: InputDecoration(
                             contentPadding: const EdgeInsets.symmetric(
@@ -115,13 +129,13 @@ class _MemoryVideo extends State<MemoryVideo> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const ShowScore(
+                          builder: (context) => ShowScore(
                             title: "MEMORY",
                             description: "Exercise 2 -  Working memory",
                             exercise: 2,
-                            yourScore: 5,
+                            yourScore: score,
                             maximum: 10,
-                            page: Login1(),
+                            page: const Login1(),
                           ),
                         ),
                       );
