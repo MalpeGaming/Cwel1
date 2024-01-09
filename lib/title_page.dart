@@ -53,7 +53,7 @@ class _TitlePageState extends State<TitlePage> {
                 height: size.height / 8,
                 child: DefaultTextStyle(
                   style: TextStyle(
-                    fontSize: size.height / 8,
+                    fontSize: size.height / 10,
                     fontFamily: 'Horizon',
                     color: Colors.black,
                   ),
