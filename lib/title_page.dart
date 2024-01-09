@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'language_level_selection.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class TitlePage extends StatefulWidget {
   const TitlePage({super.key, required this.title});
@@ -32,13 +33,40 @@ class _TitlePageState extends State<TitlePage> {
                     height: 1),
                 textAlign: TextAlign.center,
               ),
-              Text(
-                "BRAIN",
-                style: TextStyle(
-                    fontSize: size.width / 5,
-                    fontWeight: FontWeight.w400,
-                    height: 1),
-                textAlign: TextAlign.center,
+              /*AnimatedTextKit(
+                animatedTexts: [
+                  TypewriterAnimatedText(
+                    'BRAIN',
+                    textStyle: TextStyle(
+                      fontSize: size.width / 5,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    speed: const Duration(milliseconds: 500),
+                  ),
+                ],
+                totalRepeatCount: 4,
+                pause: const Duration(milliseconds: 5000),
+                displayFullTextOnTap: true,
+                stopPauseOnTap: true,
+              ),*/
+              SizedBox(
+                height: size.height / 8,
+                child: DefaultTextStyle(
+                  style: TextStyle(
+                    fontSize: size.height / 10,
+                    fontFamily: 'Horizon',
+                    color: Colors.black,
+                  ),
+                  child: AnimatedTextKit(
+                    animatedTexts: [
+                      RotateAnimatedText('BRAIN'),
+                      RotateAnimatedText('MIND'),
+                      RotateAnimatedText('BODY'),
+                    ],
+                    totalRepeatCount: 4000000,
+                  ),
+                ),
+                //),
               ),
               SizedBox(height: 0.01 * size.height),
               Text(
