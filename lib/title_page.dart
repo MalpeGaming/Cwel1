@@ -51,7 +51,6 @@ class _TitlePageState extends State<TitlePage> {
                     repeatForever: true,
                   ),
                 ),
-                //),
               ),
               SizedBox(height: 0.01 * size.height),
               Text(
