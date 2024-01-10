@@ -76,7 +76,7 @@ class _TitlePageState extends State<TitlePage> {
               SizedBox(height: 0.05 * size.height),
               Container(
                 margin: EdgeInsets.all(size.width / 14.0),
-                child: Image.asset('assets/brain.png'),
+                child: Image.asset('assets/brain_img.png'),
               ),
               SizedBox(height: 0.1 * size.height),
               RichText(
@@ -121,11 +121,7 @@ class _TitlePageState extends State<TitlePage> {
                     "Click!",
                     style: TextStyle(fontSize: size.width / 16),
                   ),
-                  icon: Icon(
-                    Icons.arrow_forward_rounded,
-                    size: size.width / 16,
-                  ),
-                  backgroundColor: Colors.blue[400],
+                  backgroundColor: Colors.blue[600],
                   hoverColor: Colors.blue[900],
                   autofocus: true,
                   heroTag: "next",
