@@ -33,22 +33,6 @@ class _TitlePageState extends State<TitlePage> {
                     height: 1),
                 textAlign: TextAlign.center,
               ),
-              /*AnimatedTextKit(
-                animatedTexts: [
-                  TypewriterAnimatedText(
-                    'BRAIN',
-                    textStyle: TextStyle(
-                      fontSize: size.width / 5,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    speed: const Duration(milliseconds: 500),
-                  ),
-                ],
-                totalRepeatCount: 4,
-                pause: const Duration(milliseconds: 5000),
-                displayFullTextOnTap: true,
-                stopPauseOnTap: true,
-              ),*/
               SizedBox(
                 height: size.height / 8,
                 child: DefaultTextStyle(
@@ -63,7 +47,8 @@ class _TitlePageState extends State<TitlePage> {
                       RotateAnimatedText('MIND'),
                       RotateAnimatedText('BODY'),
                     ],
-                    totalRepeatCount: 4000000,
+                    pause: const Duration(milliseconds: 400),
+                    repeatForever: true,
                   ),
                 ),
                 //),
