@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'language_level_selection.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'app_bar.dart';
 
 class TitlePage extends StatefulWidget {
   const TitlePage({super.key, required this.title});
@@ -17,7 +16,6 @@ class _TitlePageState extends State<TitlePage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: appBar(context, "title"),
       body: Center(
         child: Container(
           margin: EdgeInsets.only(
@@ -41,7 +39,7 @@ class _TitlePageState extends State<TitlePage> {
                   style: TextStyle(
                     fontSize: size.height / 10,
                     fontFamily: 'Horizon',
-                    color: Theme.of(context).colorScheme.onPrimary,
+                    color: Colors.black,
                   ),
                   child: AnimatedTextKit(
                     animatedTexts: [
@@ -63,7 +61,30 @@ class _TitlePageState extends State<TitlePage> {
               Container(
                 margin: EdgeInsets.all(size.width / 14.0),
                 child: Image.asset('assets/brain_img.png'),
-              ),    
+              ),
+              SizedBox(height: 0.1 * size.height),
+              RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  style: TextStyle(
+                      fontSize: size.width / 23,
+                      color: Theme.of(context).colorScheme.onSecondary),
+                  children: [
+                    const TextSpan(
+                      text: "(CLICK BELOW ",
+                    ),
+                    WidgetSpan(
+                      child: Icon(
+                        Icons.arrow_downward,
+                        size: size.width / 23,
+                      ),
+                    ),
+                    const TextSpan(
+                      text: " TO START \nTHE FREE TEST)",
+                    ),
+                  ],
+                ),
+              ),
               SizedBox(height: size.height / 50),
               SizedBox(
                 height: size.height * 0.05,
@@ -81,11 +102,11 @@ class _TitlePageState extends State<TitlePage> {
                   },
                   tooltip: 'Smart decision',
                   label: Text(
-                    "Test Yourself!",
+                    "Click!",
                     style: TextStyle(fontSize: size.width / 16),
                   ),
-                  backgroundColor: Theme.of(context).colorScheme.primary,
-                  hoverColor: Theme.of(context).colorScheme.secondary,
+                  backgroundColor: Colors.blue[600],
+                  hoverColor: Colors.blue[900],
                   autofocus: true,
                   heroTag: "next",
                 ),

@@ -29,24 +29,20 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         brightness: Brightness.light,
         colorScheme: const ColorScheme.light(
-          primary: Color(0xFF86B6F6),
-          onPrimary: Color.fromARGB(255, 21, 100, 126),
-          secondary: Color.fromARGB(255, 139, 185, 245),
+          primary: Colors.indigo,
+          onPrimary: Color.fromARGB(255, 255, 255, 255),
+          secondary: Colors.red,
           onSecondary: Colors.black,
-          background: Color(0xFFE8F9FD),
         ),
         useMaterial3: true,
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         colorScheme: const ColorScheme.dark(
-            primary: Color.fromARGB(255, 126, 33, 61),
-            onPrimary: Color(0xFFF05941),
-            secondary: Color(0xFFBE3144),
-            onSecondary: Colors.white,
-            background: Color(0xFF22092C),
-            
-            ),
+            primary: Color.fromARGB(255, 34, 57, 190),
+            onPrimary: Color.fromARGB(255, 31, 40, 134),
+            secondary: Colors.red,
+            onSecondary: Colors.white),
         useMaterial3: true,
       ),
       themeMode: _themeMode,
