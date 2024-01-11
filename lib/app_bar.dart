@@ -4,7 +4,7 @@ import 'main.dart';
 AppBar appBar(BuildContext context, String title) {
   Size size = MediaQuery.of(context).size;
   return AppBar(
-    backgroundColor: Theme.of(context).colorScheme.primary,
+    backgroundColor: Theme.of(context).colorScheme.inversePrimary,
     title: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
