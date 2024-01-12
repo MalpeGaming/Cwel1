@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'language_level_selection.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'app_bar.dart';
 
 class TitlePage extends StatefulWidget {
   const TitlePage({super.key, required this.title});
@@ -16,12 +17,14 @@ class _TitlePageState extends State<TitlePage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      //appBar: appBar(context, "title"),
       body: Center(
         child: Container(
           margin: EdgeInsets.only(
               left: size.width / 10,
               right: size.width / 10,
-              top: size.height / 20),
+              top: size.height / 8,
+              bottom: size.height / 10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -55,7 +58,7 @@ class _TitlePageState extends State<TitlePage> {
                   style: TextStyle(
                     fontSize: size.height / 10,
                     fontFamily: 'Horizon',
-                    color: Colors.black,
+                    color: Theme.of(context).colorScheme.onPrimary,
                   ),
                   child: AnimatedTextKit(
                     animatedTexts: [
@@ -66,7 +69,6 @@ class _TitlePageState extends State<TitlePage> {
                     totalRepeatCount: 4000000,
                   ),
                 ),
-                //),
               ),
               SizedBox(height: 0.01 * size.height),
               Text(
@@ -76,32 +78,25 @@ class _TitlePageState extends State<TitlePage> {
               SizedBox(height: 0.05 * size.height),
               Container(
                 margin: EdgeInsets.all(size.width / 14.0),
-                child: Image.asset('assets/brain_img.png'),
-              ),
-              SizedBox(height: 0.1 * size.height),
-              RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  style: TextStyle(
-                      fontSize: size.width / 23,
-                      color: Theme.of(context).colorScheme.onSecondary),
-                  children: [
-                    const TextSpan(
-                      text: "(CLICK BELOW ",
-                    ),
-                    WidgetSpan(
-                      child: Icon(
-                        Icons.arrow_downward,
-                        size: size.width / 23,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color.fromARGB(255, 255, 255, 255)
+                          .withAlpha(60),
+                      blurRadius: 80.0,
+                      spreadRadius: 20.0,
+                      offset: const Offset(
+                        6.0,
+                        6.0,
                       ),
-                    ),
-                    const TextSpan(
-                      text: " TO START \nTHE FREE TEST)",
                     ),
                   ],
                 ),
+                child: Image.asset('assets/brain_img.png'),
               ),
-              SizedBox(height: size.height / 50),
+              //SizedBox(height: size.height / 50),
+              const Spacer(),
               SizedBox(
                 height: size.height * 0.05,
                 width: size.width * 0.75,
@@ -118,11 +113,12 @@ class _TitlePageState extends State<TitlePage> {
                   },
                   tooltip: 'Smart decision',
                   label: Text(
-                    "Click!",
-                    style: TextStyle(fontSize: size.width / 16),
+                    "Test Yourself!",
+                    style: TextStyle(
+                        fontSize: size.width / 16, color: Colors.white),
                   ),
-                  backgroundColor: Colors.blue[600],
-                  hoverColor: Colors.blue[900],
+                  backgroundColor: Theme.of(context).colorScheme.primary,
+                  hoverColor: Theme.of(context).colorScheme.secondary,
                   autofocus: true,
                   heroTag: "next",
                 ),

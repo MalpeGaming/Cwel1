@@ -17,7 +17,7 @@ AppBar appBar(BuildContext context, String title) {
             MyApp.of(context).switchTheme();
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+            backgroundColor: Theme.of(context).colorScheme.primary,
             foregroundColor: Colors.yellow,
           ),
           child: const Icon(
