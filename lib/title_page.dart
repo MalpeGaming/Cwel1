@@ -17,13 +17,13 @@ class _TitlePageState extends State<TitlePage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      //appBar: appBar(context, "title"),
+      appBar: appBar(context, ""),
       body: Center(
         child: Container(
           margin: EdgeInsets.only(
               left: size.width / 10,
               right: size.width / 10,
-              top: size.height / 8,
+              top: size.height / 15,
               bottom: size.height / 10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -36,22 +36,6 @@ class _TitlePageState extends State<TitlePage> {
                     height: 1),
                 textAlign: TextAlign.center,
               ),
-              /*AnimatedTextKit(
-                animatedTexts: [
-                  TypewriterAnimatedText(
-                    'BRAIN',
-                    textStyle: TextStyle(
-                      fontSize: size.width / 5,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    speed: const Duration(milliseconds: 500),
-                  ),
-                ],
-                totalRepeatCount: 4,
-                pause: const Duration(milliseconds: 5000),
-                displayFullTextOnTap: true,
-                stopPauseOnTap: true,
-              ),*/
               SizedBox(
                 height: size.height / 8,
                 child: DefaultTextStyle(
@@ -82,20 +66,18 @@ class _TitlePageState extends State<TitlePage> {
                   borderRadius: BorderRadius.circular(100),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color.fromARGB(255, 255, 255, 255)
-                          .withAlpha(60),
-                      blurRadius: 80.0,
+                      color: Theme.of(context).colorScheme.secondary,
+                      blurRadius: 120.0,
                       spreadRadius: 20.0,
                       offset: const Offset(
-                        6.0,
-                        6.0,
+                        -3.0,
+                        -3.0,
                       ),
                     ),
                   ],
                 ),
-                child: Image.asset('assets/brain_img.png'),
+                child: Image.asset('assets/brain_img3.png'),
               ),
-              //SizedBox(height: size.height / 50),
               const Spacer(),
               SizedBox(
                 height: size.height * 0.05,

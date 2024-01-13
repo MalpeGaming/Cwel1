@@ -31,9 +31,9 @@ class _MyAppState extends State<MyApp> {
         colorScheme: const ColorScheme.light(
           primary: Color.fromARGB(255, 41, 143, 211),
           onPrimary: Color.fromARGB(255, 5, 57, 155),
-          secondary: Color.fromARGB(255, 139, 185, 245),
+          secondary: Color.fromARGB(255, 143, 193, 255),
           onSecondary: Colors.black,
-          background: Color(0xFFE8F9FD),
+          background: Color.fromARGB(255, 236, 252, 255),
         ),
         useMaterial3: true,
       ),
@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
         colorScheme: const ColorScheme.dark(
           primary: Color.fromARGB(255, 15, 121, 219),
           onPrimary: Color.fromARGB(255, 150, 196, 255),
-          secondary: Color(0xFFBE3144),
+          secondary: Color.fromARGB(255, 102, 148, 190),
           onSecondary: Colors.white,
           background: Color.fromARGB(255, 12, 32, 70),
         ),
