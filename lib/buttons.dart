@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'language_level_selection.dart';
@@ -216,39 +217,40 @@ class _ImprovementButtonState extends State<ImprovementButton> {
           );
         },
       
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(widget.imagePath),
-              fit: BoxFit.cover,
-            ),
-            color: hovered
-                ? Theme.of(context).colorScheme.secondary
-                : Theme.of(context).colorScheme.background,
-            borderRadius: BorderRadius.circular(15),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.35),
-                spreadRadius: 2,
-                blurRadius: 5,
-                offset: const Offset(0, 3),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(15),
+          child: Container(
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.35),
+                  spreadRadius: 2,
+                  blurRadius: 5,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+              image: const DecorationImage(
+                image: AssetImage("temp_background.png"),
+                fit: BoxFit.cover,
               ),
-            ],
-          ),
-          child: Padding(
-            padding: EdgeInsets.all(widget.width * 0.02),
-            child: Center(
-              child: Text(
-                widget.text,
-                style: TextStyle(
-                  fontSize: widget.width / 16,
-                  color: Theme.of(context).colorScheme.onSecondary
+            ),
+            child: BackdropFilter(
+              filter: hovered 
+                ? ImageFilter.blur(sigmaX: 0, sigmaY: 0) 
+                : ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+              child: Center(
+                child: Text(
+                  widget.text,
+                  style: TextStyle(
+                    fontSize: widget.width / 16,
+                    color: Theme.of(context).colorScheme.onSecondary
+                  ),
                 ),
               ),
             ),
-          ),
-        ).animate(target: hovered ? 1 : 0)
-          .scaleXY(end: 1.05)
+          ).animate(target: hovered ? 1 : 0)
+            .scaleXY(end: 1.05)
+        ),
       ),
     );
   }
