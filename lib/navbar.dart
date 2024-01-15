@@ -19,10 +19,11 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         context,
         MaterialPageRoute(
           builder: (context) {
-            if (index == 1)
-              return Progress();
-            else
-              return Home();
+            if (index == 1) {
+              return const Progress();
+            } else {
+              return const Home();
+            }
           },
         ),
       );

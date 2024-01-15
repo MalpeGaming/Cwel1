@@ -48,6 +48,7 @@ dependencies:
   pie_chart: ^5.4.0 
   circular_chart_flutter: ^0.0.2
   fl_chart: ^0.66.0
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
