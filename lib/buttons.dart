@@ -173,3 +173,93 @@ class _RedirectButtonState extends State<RedirectButton> {
     );
   }
 }
+
+
+class ImprovementButton extends StatefulWidget {
+  final String text;
+  final double width;
+  final Widget route;
+  final String imagePath;
+  final double height;
+
+  const ImprovementButton({
+    super.key,
+    required this.text,
+    required this.width,
+    required this.route,
+    required this.imagePath,
+    required this.height,
+  });
+
+  @override
+  State<ImprovementButton> createState() => _ImprovementButtonState();
+}
+
+class _ImprovementButtonState extends State<ImprovementButton> {
+  bool hovered = false; 
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onHover: (value) {
+        setState(() {
+          hovered = value;
+        });
+      },
+
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => widget.route,
+          ),
+        );
+      },
+
+      child: Container(
+        decoration: BoxDecoration(
+          image: const DecorationImage(
+            image: AssetImage('path_to_your_image'),
+            fit: BoxFit.cover,
+          ),
+          color: hovered
+              ? Theme.of(context).colorScheme.secondary
+              : Theme.of(context).colorScheme.background,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.35),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Spacer(),
+            Image.asset(
+              widget.imagePath,
+              width: widget.width / 10,
+              height: widget.height / 10,
+            ),
+            const Spacer(),
+            RichText(
+              text: TextSpan(
+                text: widget.text,
+                style: TextStyle(
+                  fontSize: widget.width / 16,
+                  color: Theme.of(context).colorScheme.onSecondary,
+                ),
+              ),
+            ),
+            const Spacer(),
+          ],
+        ),
+      ).animate(target: hovered ? 1 : 0)
+        .scaleXY(end: 1.05)
+    );
+  }
+}
