@@ -59,12 +59,6 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     return BottomNavigationBarItem(
       icon: Stack(
         children: [
-          //CircleAvatar(
-          //radius: 25,
-          /*backgroundColor: _selectedIndex == index
-                ? const Color.fromARGB(255, 251, 128, 255)
-                : Colors.white,*/
-          //child:
           Icon(
             icon,
             size: 35,

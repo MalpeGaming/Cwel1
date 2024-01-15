@@ -1,3 +1,4 @@
+import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
 import 'improvement_selection.dart';
 import 'dart:io';
@@ -5,8 +6,11 @@ import 'package:xml/xml.dart';
 import 'package:path_provider/path_provider.dart';
 
 class LangCheckList extends StatefulWidget {
-  const LangCheckList(
-      {required this.size, required this.onOptionSelected, super.key});
+  const LangCheckList({
+    super.key,
+    required this.size, 
+    required this.onOptionSelected
+  });
 
   final Size size;
   final Function(int?) onOptionSelected;
@@ -143,32 +147,12 @@ class _LanguageLevelSelectionState extends State<LanguageLevelSelection> {
               child: SizedBox(
                 height: size.height * 0.05,
                 width: size.width * 0.75,
-                child: FloatingActionButton.extended(
-                  onPressed: () {
-                    if (selectedOption != null) {
-                      writeXML(selectedOption!);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ImprovementSelection(),
-                        ),
-                      );
-                    }
-                  },
-                  tooltip: 'Continue',
-                  label: Text(
-                    "Continue",
-                    style: TextStyle(
-                        fontSize: size.width / 16, color: Colors.white),
-                  ),
-                  icon: Icon(
-                    Icons.arrow_forward_rounded,
-                    size: size.width / 16,
-                  ),
-                  backgroundColor: Colors.blue[400],
-                  hoverColor: Colors.blue[900],
-                  autofocus: true,
-                  heroTag: "continue",
+                child: RedirectButton(
+                  route: const ImprovementSelection(),
+                  text: 'Continue',
+                  width: size.width,
+                  tooltip: 'Next',
+                  requirement: selectedOption != null,
                 ),
               ),
             ),
