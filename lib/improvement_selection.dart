@@ -1,3 +1,4 @@
+import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
 import 'attention/exercise1.dart';
 import 'memory/memory.dart';
@@ -65,7 +66,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
             ),
             const Spacer(),
             buildInfoSection(
-              "Linguistic intelligence",
+              "Linguistic",
               size,
               "linguisticintelligence",
               "assets/lingint.png",
@@ -73,7 +74,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
             ),
             const Spacer(),
             buildInfoSection(
-              "Logical thinking",
+              "Logical Thinking",
               size,
               "logicalthinking",
               "assets/chess.png",
@@ -104,23 +105,11 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
         SizedBox(
           height: size.height * 0.06,
           width: size.width * 0.6,
-          child: FloatingActionButton.extended(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => page!),
-              );
-            },
+          child: RedirectButton(
+            text: text,
+            width: size.width,
             tooltip: text,
-            label: Text(
-              text,
-              style: TextStyle(
-                fontSize: size.width / 20,
-              ),
-            ),
-              backgroundColor: Theme.of(context).colorScheme.primary,
-              hoverColor: Theme.of(context).colorScheme.secondary,
-            heroTag: tag,
+            route: page!,
           ),
         ),
         const Spacer(),
