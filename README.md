@@ -2,6 +2,8 @@
 
 App for brain training.
 
-## Getting Started
+## About
 
-Idk
+Improve your brain in 30 days!
+
+![Alt text](image.png)

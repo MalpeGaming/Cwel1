@@ -4,7 +4,7 @@ import 'main.dart';
 AppBar appBar(BuildContext context, String title) {
   Size size = MediaQuery.of(context).size;
   return AppBar(
-    backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+    backgroundColor: Theme.of(context).colorScheme.background,
     title: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -17,7 +17,7 @@ AppBar appBar(BuildContext context, String title) {
             MyApp.of(context).switchTheme();
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+            backgroundColor: Theme.of(context).colorScheme.background,
             foregroundColor: Colors.yellow,
           ),
           child: const Icon(

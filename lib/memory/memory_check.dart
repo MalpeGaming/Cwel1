@@ -83,7 +83,7 @@ class _Memory2 extends State<Memory2> {
                   Align(
                     alignment: Alignment.center,
                     child: Text(
-                      "Memory",
+                      "MEMORY",
                       style: TextStyle(fontSize: 0.08 * size.height),
                       textAlign: TextAlign.center,
                     ),

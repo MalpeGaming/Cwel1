@@ -124,7 +124,9 @@ class _LanguageLevelSelectionState extends State<LanguageLevelSelection> {
                   left: size.width / 10, right: size.width / 10),
               child: Text("WHAT IS YOUR CURRENT ENGLISH LEVEL?",
                   style: TextStyle(
-                      fontSize: size.width / 13, fontWeight: FontWeight.bold),
+                      fontSize: size.width / 13,
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.onSecondary),
                   textAlign: TextAlign.center),
             ),
             SizedBox(height: 0.05 * size.height),
@@ -156,7 +158,8 @@ class _LanguageLevelSelectionState extends State<LanguageLevelSelection> {
                   tooltip: 'Continue',
                   label: Text(
                     "Continue",
-                    style: TextStyle(fontSize: size.width / 16),
+                    style: TextStyle(
+                        fontSize: size.width / 16, color: Colors.white),
                   ),
                   icon: Icon(
                     Icons.arrow_forward_rounded,

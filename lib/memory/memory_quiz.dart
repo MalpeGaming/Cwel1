@@ -137,7 +137,7 @@ class _MemoryQuizState extends State<MemoryQuiz> {
                   Align(
                     alignment: Alignment.center,
                     child: Text(
-                      "Memory",
+                      "MEMORY",
                       style: TextStyle(fontSize: 0.08 * size.height),
                       textAlign: TextAlign.center,
                     ),
