@@ -110,7 +110,6 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
           child: RedirectButton(
             text: text,
             width: size.width,
-            tooltip: text,
             route: page!,
           ),
         ),
