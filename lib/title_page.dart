@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'language_level_selection.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'app_bar.dart';
 
 class TitlePage extends StatefulWidget {
   const TitlePage({super.key, required this.title});
@@ -42,7 +41,7 @@ class _TitlePageState extends State<TitlePage> {
                   style: TextStyle(
                     fontSize: size.height / 10,
                     fontFamily: 'Horizon',
-                    color: Theme.of(context).colorScheme.onPrimary,
+                    color: Colors.black,
                   ),
                   child: AnimatedTextKit(
                     animatedTexts: [
@@ -100,8 +99,8 @@ class _TitlePageState extends State<TitlePage> {
                     style: TextStyle(
                         fontSize: size.width / 16, color: Colors.white),
                   ),
-                  backgroundColor: Theme.of(context).colorScheme.primary,
-                  hoverColor: Theme.of(context).colorScheme.secondary,
+                  backgroundColor: Colors.blue[600],
+                  hoverColor: Colors.blue[900],
                   autofocus: true,
                   heroTag: "next",
                 ),
