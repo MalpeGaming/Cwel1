@@ -128,7 +128,9 @@ class _LanguageLevelSelectionState extends State<LanguageLevelSelection> {
                   left: size.width / 10, right: size.width / 10),
               child: Text("WHAT IS YOUR CURRENT ENGLISH LEVEL?",
                   style: TextStyle(
-                      fontSize: size.width / 13, fontWeight: FontWeight.bold),
+                      fontSize: size.width / 13,
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.onSecondary),
                   textAlign: TextAlign.center),
             ),
             SizedBox(height: 0.05 * size.height),

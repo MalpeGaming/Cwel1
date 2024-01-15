@@ -17,13 +17,14 @@ class _TitlePageState extends State<TitlePage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: appBar(context, "title"),
+      appBar: appBar(context, widget.title),
       body: Center(
         child: Container(
           margin: EdgeInsets.only(
               left: size.width / 10,
               right: size.width / 10,
-              top: size.height / 20),
+              top: size.height / 15,
+              bottom: size.height / 10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -62,9 +63,23 @@ class _TitlePageState extends State<TitlePage> {
               SizedBox(height: 0.05 * size.height),
               Container(
                 margin: EdgeInsets.all(size.width / 14.0),
-                child: Image.asset('assets/brain_img.png'),
-              ),    
-              SizedBox(height: size.height / 50),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Theme.of(context).colorScheme.secondary,
+                      blurRadius: 120.0,
+                      spreadRadius: 20.0,
+                      offset: const Offset(
+                        -3.0,
+                        -3.0,
+                      ),
+                    ),
+                  ],
+                ),
+                child: Image.asset('assets/brain_img3.png'),
+              ),
+              const Spacer(),
               SizedBox(
                 height: size.height * 0.05,
                 width: size.width * 0.75,

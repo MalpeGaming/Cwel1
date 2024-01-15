@@ -26,7 +26,9 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
           children: <Widget>[
             Text("WHAT WOULD YOU LIKE TO IMPROVE?",
                 style: TextStyle(
-                    fontSize: size.width / 13, fontWeight: FontWeight.bold),
+                    fontSize: size.width / 13,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.onPrimary),
                 textAlign: TextAlign.center),
             SizedBox(height: 0.03 * size.height),
             Text(
