@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fl_chart/fl_chart.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 import 'navbar.dart';
 
 class Progress extends StatefulWidget {
@@ -9,48 +9,39 @@ class Progress extends StatefulWidget {
   State<Progress> createState() => _Progress();
 }
 
+class ChartData {
+  ChartData(this.x, this.y, this.color);
+  final String x;
+  final double y;
+  final Color color;
+}
+
 class _Progress extends State<Progress> {
   SizedBox buildChart(BuildContext context, int dayNum) {
     Size size = MediaQuery.of(context).size;
     return SizedBox(
-      width: 0.13 * size.width,
-      height: 0.13 * size.width,
+      width: 0.15 * size.width,
+      height: 0.15 * size.width,
       child: Stack(
         alignment: Alignment.center,
         children: [
           Text(
             dayNum.toString(),
-            style: TextStyle(fontSize: 0.05 * size.width),
+            style: TextStyle(fontSize: 0.01 * size.height),
           ),
-          PieChart(
-            PieChartData(
-              startDegreeOffset: 270,
-              sections: [
-                PieChartSectionData(
-                  gradient: const LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment(0.8, 1),
-                    colors: <Color>[
-                      Color.fromARGB(255, 0, 2, 122),
-                      Color.fromARGB(255, 27, 126, 255),
-                    ],
-                    tileMode: TileMode.mirror,
-                  ),
-                  radius: 8,
-                  value: 20,
-                  title: '',
-                  color: Theme.of(context).colorScheme.onPrimary,
-                ),
-                PieChartSectionData(
-                  radius: 8,
-                  value: 80,
-                  title: '',
-                  color: Theme.of(context).colorScheme.secondary,
-                ),
-              ],
-            ),
-            swapAnimationDuration: const Duration(milliseconds: 1000),
-            swapAnimationCurve: Curves.linear,
+          SfCircularChart(
+            series: <CircularSeries>[
+              RadialBarSeries<ChartData, String>(
+                dataSource: chartData,
+                xValueMapper: (ChartData data, _) => data.x,
+                yValueMapper: (ChartData data, _) => data.y,
+                pointColorMapper: (ChartData data, _) => data.color,
+                cornerStyle: CornerStyle.bothCurve,
+                //innerRadius: '50%',
+                trackColor: const Color.fromARGB(255, 201, 225, 255),
+                animationDuration: 700,
+              )
+            ],
           ),
         ],
       ),
@@ -58,19 +49,21 @@ class _Progress extends State<Progress> {
   }
 
   Column buildChartRow(BuildContext context, int i) {
-    Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             for (int j = 1; j <= 5; ++j) buildChart(context, (i - 1) * 5 + j),
           ],
         ),
-        SizedBox(height: 0.03 * size.height),
       ],
     );
   }
+
+  final List<ChartData> chartData = [
+    ChartData('', 38, const Color.fromARGB(255, 0, 175, 44)),
+    ChartData('', 25, const Color.fromARGB(255, 0, 66, 189)),
+  ];
 
   @override
   Widget build(BuildContext context) {
