@@ -15,10 +15,9 @@ class _Home extends State<Home> {
     Size size = MediaQuery.of(context).size;
 
     DateTime now = DateTime.now();
-    var formatter = new DateFormat('E. dd MMM');
+    var formatter = DateFormat('E. dd MMM');
     String formattedDate = formatter.format(now);
 
-    print(now);
     return Scaffold(
       body: Container(
         margin: EdgeInsets.only(
@@ -27,7 +26,6 @@ class _Home extends State<Home> {
           top: size.height / 10,
         ),
         child: Column(
-          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Column(
@@ -45,7 +43,7 @@ class _Home extends State<Home> {
                 ),
                 Center(
                   child: Text(
-                    "DAY " + "1 - " + formattedDate.toString().toUpperCase(),
+                    "DAY 1 - ${formattedDate.toString().toUpperCase()}",
                     style: TextStyle(fontSize: size.width / 17),
                     textAlign: TextAlign.center,
                   ),
@@ -72,7 +70,7 @@ class _Home extends State<Home> {
           ],
         ),
       ),
-      bottomNavigationBar: MyBottomNavigationBar(),
+      bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }
