@@ -136,7 +136,7 @@ class _RedirectButtonState extends State<RedirectButton> {
       child: Container(
         decoration: BoxDecoration(
           color: toRed ? 
-            Colors.redAccent :
+            Theme.of(context).colorScheme.error :
             hovered
               ? Theme.of(context).colorScheme.secondary
               : Theme.of(context).colorScheme.primary,
