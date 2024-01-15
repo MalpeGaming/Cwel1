@@ -235,28 +235,31 @@ class _ImprovementButtonState extends State<ImprovementButton> {
             ),
           ],
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Spacer(),
-            Image.asset(
-              widget.imagePath,
-              width: widget.width / 10,
-              height: widget.height / 10,
-            ),
-            const Spacer(),
-            RichText(
-              text: TextSpan(
-                text: widget.text,
-                style: TextStyle(
-                  fontSize: widget.width / 16,
-                  color: Theme.of(context).colorScheme.onSecondary,
+        child: Padding(
+          padding: EdgeInsets.all(widget.width * 0.02),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Spacer(),
+              Image.asset(
+                widget.imagePath,
+                width: widget.width / 10,
+                height: widget.height / 10,
+              ),
+              const Spacer(),
+              RichText(
+                text: TextSpan(
+                  text: widget.text,
+                  style: TextStyle(
+                    fontSize: widget.width / 16,
+                    color: Theme.of(context).colorScheme.onSecondary,
+                  ),
                 ),
               ),
-            ),
-            const Spacer(),
-          ],
+              const Spacer(),
+            ],
+          ),
         ),
       ).animate(target: hovered ? 1 : 0)
         .scaleXY(end: 1.05)
