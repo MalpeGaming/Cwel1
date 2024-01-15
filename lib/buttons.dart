@@ -48,10 +48,10 @@ class _StartButtonState extends State<StartButton> {
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-              color: Theme.of(context).colorScheme.background.withOpacity(0.5),
+              color: Colors.black.withOpacity(0.35),
               spreadRadius: 2,
               blurRadius: 5,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -65,9 +65,6 @@ class _StartButtonState extends State<StartButton> {
           ),
         ),
       ).animate(target: hovered ? 1 : 0)
-        .shakeY(duration: Duration(milliseconds: 200),
-          amount: 5,
-          hz: 5)
         .scaleXY(end: 1.1)
     );
   }
