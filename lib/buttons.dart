@@ -237,7 +237,7 @@ class _ImprovementButtonState extends State<ImprovementButton> {
             child: BackdropFilter(
               filter: hovered 
                 ? ImageFilter.blur(sigmaX: 0, sigmaY: 0) 
-                : ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+                : ImageFilter.blur(sigmaX: 1.3, sigmaY: 1.3),
               child: Center(
                 child: Text(
                   widget.text,
@@ -248,9 +248,9 @@ class _ImprovementButtonState extends State<ImprovementButton> {
                 ),
               ),
             ),
-          ).animate(target: hovered ? 1 : 0)
-            .scaleXY(end: 1.05)
-        ),
+          ),
+        ).animate(target: hovered ? 1 : 0)
+          .scaleXY(end: 1.05),
       ),
     );
   }
