@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'language_level_selection.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'app_bar.dart';
+import 'buttons.dart';
 
 class TitlePage extends StatefulWidget {
   const TitlePage({super.key, required this.title});
@@ -83,27 +83,10 @@ class _TitlePageState extends State<TitlePage> {
               SizedBox(
                 height: size.height * 0.05,
                 width: size.width * 0.75,
-                child: FloatingActionButton.extended(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => LanguageLevelSelection(
-                          widget.title,
-                        ),
-                      ),
-                    );
-                  },
-                  tooltip: 'Smart decision',
-                  label: Text(
-                    "Test Yourself!",
-                    style: TextStyle(
-                        fontSize: size.width / 16, color: Colors.white),
-                  ),
-                  backgroundColor: Theme.of(context).colorScheme.primary,
-                  hoverColor: Theme.of(context).colorScheme.secondary,
-                  autofocus: true,
-                  heroTag: "next",
+                child: StartButton(
+                  text: "Test Yourself!",
+                  width: size.width,
+                  tooltip: 'Smart Decision!',
                 ),
               ),
             ],
