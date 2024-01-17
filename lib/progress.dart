@@ -1,115 +1,107 @@
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
-import 'navbar.dart';
+import 'package:circular_chart_flutter/circular_chart_flutter.dart';
 
 class Progress extends StatefulWidget {
   const Progress({super.key});
-
   @override
   State<Progress> createState() => _Progress();
 }
 
-class ChartData {
-  ChartData(this.x, this.y, this.color);
-  final String x;
-  final double y;
-  final Color color;
-}
-
 class _Progress extends State<Progress> {
-  SizedBox buildChart(BuildContext context, int dayNum) {
-    Size size = MediaQuery.of(context).size;
-    return SizedBox(
-      width: 0.15 * size.width,
-      height: 0.15 * size.width,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Text(
-            dayNum.toString(),
-            style: TextStyle(fontSize: 0.01 * size.height),
+  final GlobalKey<AnimatedCircularChartState> _chartKey =
+      GlobalKey<AnimatedCircularChartState>();
+  final _chartSize = const Size(400.0, 400.0);
+
+  double summ = 60.0;
+  double value = 60.0;
+  double value2 = 40.0;
+  double value3 = 0.0;
+  double value32 = 60.0;
+  Color? labelColor = Colors.blue[200];
+
+  void _increment1() {
+    Future.delayed(const Duration(seconds: 1), () {
+      setState(() {
+        if (summ + value32 >= 100) {
+          summ += value32;
+          double x = summ - 100;
+          value = summ - x;
+        } else {
+          value += value32;
+          value2 -= value32;
+          summ += value32;
+        }
+        List<CircularStackEntry> data = _generateChartData(value);
+        _chartKey.currentState!.updateData(data);
+      });
+    });
+  }
+
+  void _increment2() {
+    Future.delayed(const Duration(milliseconds: 1300), () {
+      setState(() {
+        if (summ >= 100) {
+          value3 = summ - 100;
+        }
+        List<CircularStackEntry> data = _generateChartData(value);
+        _chartKey.currentState!.updateData(data);
+      });
+    });
+  }
+
+  List<CircularStackEntry> _generateChartData(double value) {
+    Color? dialColor = const Color.fromARGB(255, 0, 60, 255);
+    Color? dialColor2 = const Color.fromARGB(255, 198, 223, 255);
+    Color? dialColor3 = const Color.fromARGB(255, 255, 136, 255);
+
+    List<CircularStackEntry> data = <CircularStackEntry>[
+      CircularStackEntry(
+        <CircularSegmentEntry>[
+          CircularSegmentEntry(
+            value3,
+            dialColor3,
+            rankKey: 'percentage3',
           ),
-          SfCircularChart(
-            series: <CircularSeries>[
-              RadialBarSeries<ChartData, String>(
-                dataSource: chartData,
-                xValueMapper: (ChartData data, _) => data.x,
-                yValueMapper: (ChartData data, _) => data.y,
-                pointColorMapper: (ChartData data, _) => data.color,
-                cornerStyle: CornerStyle.bothCurve,
-                //innerRadius: '50%',
-                trackColor: const Color.fromARGB(255, 201, 225, 255),
-                animationDuration: 700,
-              )
-            ],
+          CircularSegmentEntry(
+            value,
+            dialColor,
+            rankKey: 'percentage1',
+          ),
+          CircularSegmentEntry(
+            value2,
+            dialColor2,
+            rankKey: 'percentage4',
           ),
         ],
+        rankKey: 'percentage4',
       ),
-    );
+    ];
+    return data;
   }
 
-  Column buildChartRow(BuildContext context, int i) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            for (int j = 1; j <= 5; ++j) buildChart(context, (i - 1) * 5 + j),
-          ],
-        ),
-      ],
-    );
+  @override
+  void initState() {
+    super.initState();
+    _increment1();
+    _increment2();
   }
-
-  final List<ChartData> chartData = [
-    ChartData('', 38, const Color.fromARGB(255, 0, 175, 44)),
-    ChartData('', 25, const Color.fromARGB(255, 0, 66, 189)),
-  ];
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Container(
-        margin: EdgeInsets.only(
-          left: size.width / 10,
-          right: size.width / 10,
-          top: size.height / 10,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Center(
-                  child: Text(
-                    "YOUR 30 DAYS",
-                    style: TextStyle(
-                      fontSize: size.width / 9,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Center(
-                  child: Text(
-                    "100% MEANS THAT ALL THE TASKS WERE COMPLETED",
-                    style: TextStyle(fontSize: size.width / 22),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 0.05 * size.height),
-            Column(
-              children: [
-                for (int i = 1; i <= 6; ++i) buildChartRow(context, i)
-              ],
-            )
-          ],
-        ),
+      appBar: AppBar(
+        title: const Text('Percentage Dial'),
       ),
-      bottomNavigationBar: const MyBottomNavigationBar(),
+      body: AnimatedCircularChart(
+        key: _chartKey,
+        size: _chartSize,
+        initialChartData: _generateChartData(value),
+        holeRadius: 40,
+        chartType: CircularChartType.Radial,
+        edgeStyle: SegmentEdgeStyle.round,
+        percentageValues: true,
+        holeLabel: '1',
+      ),
     );
   }
 }
