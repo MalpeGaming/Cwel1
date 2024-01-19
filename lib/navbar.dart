@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
 import 'progress.dart';
+import 'your_activities.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
   const MyBottomNavigationBar({super.key});
@@ -21,6 +22,8 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
           builder: (context) {
             if (index == 1) {
               return const Progress();
+            } else if (index == 0) {
+              return const YourActivities();
             } else {
               return const Home();
             }
@@ -32,11 +35,22 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 70.0,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          colors: <Color>[
+            Theme.of(context).colorScheme.primary,
+            Theme.of(context).colorScheme.onPrimary,
+          ],
+          tileMode: TileMode.decal,
+        ),
+      ),
       child: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Colors.transparent,
         selectedFontSize: 12,
         unselectedFontSize: 12,
         selectedItemColor: Colors.pinkAccent[100],
