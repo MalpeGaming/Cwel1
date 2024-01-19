@@ -155,8 +155,7 @@ class _Progress extends State<Progress> {
                   child: Text(
                     "YOUR 30 DAYS",
                     style: TextStyle(
-                      fontSize: size.width / 9,
-                    ),
+                        fontSize: size.width / 9, fontWeight: FontWeight.w500),
                     textAlign: TextAlign.center,
                   ),
                 ),
