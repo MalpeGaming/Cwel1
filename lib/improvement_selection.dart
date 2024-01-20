@@ -51,71 +51,80 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
                 ),
                 textAlign: TextAlign.center),
             const Spacer(),
-            buildInfoSection(
-              "Memory",
-              size,
-              "memory",
-              "assets/memory.png",
-              const Memory(),
+            ImprovementButton(
+              text: "Memory",
+              width: size.width * 0.8,
+              route: const Memory(),
+              imagePath: "assets/temp_background.jpg",
             ),
             const Spacer(),
-            buildInfoSection(
-              "Attention",
-              size,
-              "attention",
-              "assets/attention.png",
-              const FirstAttentionExercise(),
+            ImprovementButton(
+              text: "Attention",
+              width: size.width,
+              route: const FirstAttentionExercise(),
+              imagePath: "assets/temp_background.jpg",
             ),
             const Spacer(),
-            buildInfoSection(
-              "Linguistic",
-              size,
-              "linguisticintelligence",
-              "assets/lingint.png",
-              const FirstLinguisticExercise(),
+            ImprovementButton(
+              text: "Linguistic",
+              width: size.width,
+              route: const FirstLinguisticExercise(),
+              imagePath: "assets/temp_background.jpg",
             ),
             const Spacer(),
-            buildInfoSection(
-              "Logical Thinking",
-              size,
-              "logicalthinking",
-              "assets/chess.png",
-              const FirstAttentionExercise(),
+            ImprovementButton(
+              text: "Logical Thinking",
+              width: size.width,
+              route: const FirstAttentionExercise(),
+              imagePath: "assets/temp_background.jpg",
             ),
-            const Spacer(
-              flex: 6,
-            ),
+            const Spacer(),
           ],
         ),
       ),
     );
   }
 
-  Row buildInfoSection(
-      String text, Size size, String tag, String imagePath, Widget? page) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        const Spacer(),
-        Image.asset(
-          imagePath,
-          width: size.width / 10,
-          height: size.width / 10,
+  
+  Container buildInfoSection(
+    String text, 
+    Size size, 
+    String tag, 
+    String imagePath, 
+    Widget? page
+  ) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Theme.of(context).colorScheme.primary,
+          width: 5.0,
         ),
-        const Spacer(),
-        SizedBox(
-          height: size.height * 0.06,
-          width: size.width * 0.6,
-          child: RedirectButton(
-            text: text,
-            width: size.width,
-            tooltip: text,
-            route: page!,
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Spacer(),
+          Image.asset(
+            imagePath,
+            width: size.width / 10,
+            height: size.width / 10,
           ),
-        ),
-        const Spacer(),
-      ],
+          const Spacer(),
+          SizedBox(
+            height: size.height * 0.06,
+            width: size.width * 0.6,
+            child: RedirectButton(
+              text: text,
+              width: size.width,
+              tooltip: text,
+              route: page!,
+            ),
+          ),
+          const Spacer(),
+        ],
+      ),
     );
   }
 }
