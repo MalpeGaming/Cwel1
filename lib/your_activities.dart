@@ -74,64 +74,67 @@ class _YourActivities extends State<YourActivities> {
               ],
             ),
           ),
-          SizedBox(height: 0.015 * size.height),
+          SizedBox(height: 0.025 * size.height),
         ],
       );
     }
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          margin: EdgeInsets.only(
-            left: size.width / 15,
-            right: size.width / 15,
-            top: size.height / 10,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Center(
-                child: Text(
-                  "YOUR ACTIVITIES",
-                  style: TextStyle(
-                      fontSize: size.width / 10, fontWeight: FontWeight.w500),
-                  textAlign: TextAlign.center,
-                ),
+      body: Container(
+        margin: EdgeInsets.only(
+          left: size.width / 15,
+          right: size.width / 15,
+          top: size.height / 10,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Center(
+              child: Text(
+                "YOUR ACTIVITIES",
+                style: TextStyle(
+                    fontSize: size.width / 10, fontWeight: FontWeight.w500),
+                textAlign: TextAlign.center,
               ),
-              Center(
-                child: Text(
-                  "DAY 1 - ${formattedDate.toString().toUpperCase()}",
-                  style: TextStyle(fontSize: size.width / 17),
-                  textAlign: TextAlign.center,
-                ),
+            ),
+            Center(
+              child: Text(
+                "DAY 1 - ${formattedDate.toString().toUpperCase()}",
+                style: TextStyle(fontSize: size.width / 17),
+                textAlign: TextAlign.center,
               ),
-              SingleChildScrollView(
-                child: Container(
-                  margin: EdgeInsets.only(
-                    left: size.width / 20,
-                    right: size.width / 20,
-                    top: size.height / 20,
+            ),
+            SizedBox(height: 0.02 * size.height),
+            Expanded(
+              child: ListView(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(
+                      left: size.width / 20,
+                      right: size.width / 20,
+                    ),
+                    child: Column(
+                      children: [
+                        createActivity(
+                            context, "learning_course", "LEARNING", "Course"),
+                        createActivity(
+                            context, "working_memory", "Working", "MEMORY"),
+                        createActivity(
+                            context, "memory_game", "MEMORY", "Game"),
+                        createActivity(context, "sport", "SPORT", "Optional"),
+                        createActivity(
+                            context, "self_reflection", "Self", "Reflection"),
+                        createActivity(context, "good_deed", "GOOD", "Deed"),
+                        createActivity(context, "meditation", "MEDITATION", "",
+                            zero: 0),
+                      ],
+                    ),
                   ),
-                  child: Column(
-                    children: [
-                      createActivity(
-                          context, "learning_course", "LEARNING", "Course"),
-                      createActivity(
-                          context, "working_memory", "Working", "MEMORY"),
-                      createActivity(context, "memory_game", "MEMORY", "Game"),
-                      createActivity(context, "sport", "SPORT", "Optional"),
-                      createActivity(
-                          context, "self_reflection", "Self", "Reflection"),
-                      createActivity(context, "good_deed", "GOOD", "Deed"),
-                      createActivity(context, "meditation", "MEDITATION", "",
-                          zero: 0),
-                    ],
-                  ),
-                ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: const MyBottomNavigationBar(),
