@@ -90,89 +90,90 @@ class RedirectButton extends StatefulWidget {
 }
 
 class _RedirectButtonState extends State<RedirectButton> {
-  bool hovered = false; 
+  bool hovered = false;
   bool accesible = true;
   bool toRed = false;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onHover: (value) {
-        if (widget.requirement) {
-          setState(() {
-            hovered = value;
-          });
-        }
-      },
-
-      onTap: () {
-        if (widget.requirement) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => widget.route,
-            ),
-          );
-        } else if (!toRed) {
-          setState(() {
-            accesible = false;
-            toRed = true;
-          });
-          Future.delayed(const Duration(milliseconds: 250), () {
+        onHover: (value) {
+          if (widget.requirement) {
             setState(() {
-              accesible = true;
+              hovered = value;
             });
-          });
-
-          Future.delayed(const Duration(milliseconds: 650), () {
+          }
+        },
+        onTap: () {
+          if (widget.requirement) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => widget.route,
+              ),
+            );
+          } else if (!toRed) {
             setState(() {
-              toRed = false;
+              accesible = false;
+              toRed = true;
             });
-          });
-        }
-      },
+            Future.delayed(const Duration(milliseconds: 250), () {
+              setState(() {
+                accesible = true;
+              });
+            });
 
-      child: Container(
-        decoration: BoxDecoration(
-          color: toRed ? 
-            Theme.of(context).colorScheme.error :
-            hovered
-              ? Theme.of(context).colorScheme.secondary
-              : Theme.of(context).colorScheme.primary,
-            
-          borderRadius: BorderRadius.circular(15),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.35),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: const Offset(0, 3),
-            ),
-          ],
-        ),
-        child: widget.tooltip != null ? Tooltip(
-          message: widget.tooltip,
-          child: Center(
-            child: Text(
-              widget.text,
-              style: TextStyle(fontSize: widget.width / 16),
-            ),
+            Future.delayed(const Duration(milliseconds: 650), () {
+              setState(() {
+                toRed = false;
+              });
+            });
+          }
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            color: toRed
+                ? Theme.of(context).colorScheme.error
+                : hovered
+                    ? Theme.of(context).colorScheme.secondary
+                    : Theme.of(context).colorScheme.primary,
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.35),
+                spreadRadius: 2,
+                blurRadius: 5,
+                offset: const Offset(0, 3),
+              ),
+            ],
           ),
-        ) : Center(
-            child: Text(
-              widget.text,
-              style: TextStyle(fontSize: widget.width / 16),
-            ),
-          ),
-      ).animate(target: hovered ? 1 : 0)
-        .scaleXY(end: 1.05)
-      .animate(target: accesible ? 0 : 1)
-        .shake(hz: 4, rotation: 0.15, duration: const Duration(milliseconds: 250))
-        .scaleXY(end: 1.2)
-    );
+          child: widget.tooltip != null
+              ? Tooltip(
+                  message: widget.tooltip,
+                  child: Center(
+                    child: Text(
+                      widget.text,
+                      style: TextStyle(fontSize: widget.width / 16),
+                    ),
+                  ),
+                )
+              : Center(
+                  child: Text(
+                    widget.text,
+                    style: TextStyle(fontSize: widget.width / 16),
+                  ),
+                ),
+        )
+            .animate(target: hovered ? 1 : 0)
+            .scaleXY(end: 1.05)
+            .animate(target: accesible ? 0 : 1)
+            .shake(
+                hz: 4,
+                rotation: 0.15,
+                duration: const Duration(milliseconds: 250))
+            .scaleXY(end: 1.2));
   }
 }
-
 
 class ImprovementButton extends StatefulWidget {
   final String text;
@@ -193,7 +194,7 @@ class ImprovementButton extends StatefulWidget {
 }
 
 class _ImprovementButtonState extends State<ImprovementButton> {
-  bool hovered = false; 
+  bool hovered = false;
 
   @override
   Widget build(BuildContext context) {
@@ -205,7 +206,6 @@ class _ImprovementButtonState extends State<ImprovementButton> {
             hovered = value;
           });
         },
-      
         onTap: () {
           Navigator.push(
             context,
@@ -214,7 +214,6 @@ class _ImprovementButtonState extends State<ImprovementButton> {
             ),
           );
         },
-      
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
           child: Container(
@@ -228,27 +227,25 @@ class _ImprovementButtonState extends State<ImprovementButton> {
                 ),
               ],
               image: const DecorationImage(
-                image: AssetImage("temp_background.png"),
+                image: AssetImage("assets/temp_background.png"),
                 fit: BoxFit.cover,
               ),
             ),
             child: BackdropFilter(
-              filter: hovered 
-                ? ImageFilter.blur(sigmaX: 0, sigmaY: 0) 
-                : ImageFilter.blur(sigmaX: 1.3, sigmaY: 1.3),
+              filter: hovered
+                  ? ImageFilter.blur(sigmaX: 0, sigmaY: 0)
+                  : ImageFilter.blur(sigmaX: 1.3, sigmaY: 1.3),
               child: Center(
                 child: Text(
                   widget.text,
                   style: TextStyle(
-                    fontSize: widget.width / 16,
-                    color: Theme.of(context).colorScheme.onSecondary
-                  ),
+                      fontSize: widget.width / 16,
+                      color: Theme.of(context).colorScheme.onSecondary),
                 ),
               ),
             ),
           ),
-        ).animate(target: hovered ? 1 : 0)
-          .scaleXY(end: 1.05),
+        ).animate(target: hovered ? 1 : 0).scaleXY(end: 1.05),
       ),
     );
   }

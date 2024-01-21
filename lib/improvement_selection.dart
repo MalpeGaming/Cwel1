@@ -55,7 +55,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               text: "Memory",
               width: size.width * 0.8,
               route: const Memory(),
-              imagePath: "assets/temp_background.jpg",
+              imagePath: "assets/temp_background.png",
             ),
             const Spacer(),
             ImprovementButton(
@@ -85,14 +85,8 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
     );
   }
 
-  
   Container buildInfoSection(
-    String text, 
-    Size size, 
-    String tag, 
-    String imagePath, 
-    Widget? page
-  ) {
+      String text, Size size, String tag, String imagePath, Widget? page) {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
