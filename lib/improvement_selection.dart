@@ -85,14 +85,8 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
     );
   }
 
-  
   Container buildInfoSection(
-    String text, 
-    Size size, 
-    String tag, 
-    String imagePath, 
-    Widget? page
-  ) {
+      String text, Size size, String tag, String imagePath, Widget? page) {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
