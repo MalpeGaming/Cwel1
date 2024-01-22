@@ -151,7 +151,6 @@ class _LanguageLevelSelectionState extends State<LanguageLevelSelection> {
                   route: const ImprovementSelection(),
                   text: 'Continue',
                   width: size.width,
-                  tooltip: 'Next',
                   requirement: selectedOption != null,
                 ),
               ),
