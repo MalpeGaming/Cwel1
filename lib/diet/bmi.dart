@@ -9,8 +9,12 @@ class BMI extends StatefulWidget {
 }
 
 bool onclick = false;
+double bmi = 0;
 
 class _BMI extends State<BMI> {
+  TextEditingController height = TextEditingController();
+  TextEditingController weight = TextEditingController();
+
   SizedBox buildButton(BuildContext context, bool pressedNum, String text) {
     Size size = MediaQuery.of(context).size;
     return SizedBox(
@@ -48,7 +52,7 @@ class _BMI extends State<BMI> {
   }
 
   Column buildQuery(BuildContext context, String text, int hintText,
-      String txt1, String txt2) {
+      String txt1, String txt2, TextEditingController controller) {
     Size size = MediaQuery.of(context).size;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -69,17 +73,26 @@ class _BMI extends State<BMI> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 4),
                 child: TextField(
+                  onChanged: (String value) {
+                    setState(() {
+                      calcBMI(int.parse(value) / 100.0, int.parse(weight.text));
+                    });
+                  },
+                  controller: controller,
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: size.width / 24),
                   keyboardType: TextInputType.number,
                   maxLines: 1,
                   decoration: InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(
-                          vertical: 0, horizontal: 0.10 * size.width),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      hintText: hintText.toString()),
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: 0,
+                      horizontal: 0.10 * size.width,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    hintText: hintText.toString(),
+                  ),
                 ),
               ),
             ),
@@ -88,9 +101,17 @@ class _BMI extends State<BMI> {
             SizedBox(width: 0.01 * size.height),
             buildButton(context, true, txt2),
           ],
-        )
+        ),
       ],
     );
+  }
+
+  void calcBMI(double height, int weight) {
+    double h = height.toDouble();
+    double w = weight.toDouble();
+    setState(() {
+      bmi = w / (h * h);
+    });
   }
 
   @override
@@ -138,30 +159,50 @@ class _BMI extends State<BMI> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  buildQuery(context, "Height", 167, "cm", "in"),
+                  buildQuery(context, "Height", 167, "cm", "in", height),
                   SizedBox(height: 0.03 * size.height),
-                  buildQuery(context, "Weight", 56, "kg", "lb"),
+                  buildQuery(context, "Weight", 56, "kg", "lb", weight),
                   SizedBox(height: 0.05 * size.height),
                   RichText(
                     text: TextSpan(
                       children: <TextSpan>[
                         TextSpan(
-                          text: 'Your BMI is',
+                          text: 'Your BMI is ',
                           style: TextStyle(
                             fontSize: 0.03 * size.height,
                             color: Colors.black,
                           ),
                         ),
                         TextSpan(
-                          text: ' not bold',
+                          text: () {
+                            try {
+                              // Zwracamy obliczone BMI
+                              return bmi.toStringAsFixed(1);
+                            } catch (e) {
+                              return '?';
+                            }
+                          }(),
                           style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 0.02 * size.height,
+                            color: (() {
+                              try {
+                                // Zmieniamy kolor na podstawie obliczonego BMI
+                                if (bmi > 25) {
+                                  return Colors.red;
+                                } else if (bmi > 20) {
+                                  return Colors.green;
+                                } else {
+                                  return Colors.blue;
+                                }
+                              } catch (e) {
+                                return Colors.black;
+                              }
+                            })(),
+                            fontSize: 0.03 * size.height,
                           ),
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
