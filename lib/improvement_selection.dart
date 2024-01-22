@@ -55,75 +55,32 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               text: "Memory",
               width: size.width * 0.8,
               route: const Memory(),
-              imagePath: "assets/temp_background.jpg",
+              imagePath: "assets/temp_background.png",
             ),
             const Spacer(),
             ImprovementButton(
               text: "Attention",
               width: size.width,
               route: const FirstAttentionExercise(),
-              imagePath: "assets/temp_background.jpg",
+              imagePath: "assets/temp_background.png",
             ),
             const Spacer(),
             ImprovementButton(
               text: "Linguistic",
               width: size.width,
               route: const FirstLinguisticExercise(),
-              imagePath: "assets/temp_background.jpg",
+              imagePath: "assets/temp_background.png",
             ),
             const Spacer(),
             ImprovementButton(
               text: "Logical Thinking",
               width: size.width,
               route: const FirstAttentionExercise(),
-              imagePath: "assets/temp_background.jpg",
+              imagePath: "assets/temp_background.png",
             ),
             const Spacer(),
           ],
         ),
-      ),
-    );
-  }
-
-  
-  Container buildInfoSection(
-    String text, 
-    Size size, 
-    String tag, 
-    String imagePath, 
-    Widget? page
-  ) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Theme.of(context).colorScheme.primary,
-          width: 5.0,
-        ),
-        borderRadius: BorderRadius.circular(15.0),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Spacer(),
-          Image.asset(
-            imagePath,
-            width: size.width / 10,
-            height: size.width / 10,
-          ),
-          const Spacer(),
-          SizedBox(
-            height: size.height * 0.06,
-            width: size.width * 0.6,
-            child: RedirectButton(
-              text: text,
-              width: size.width,
-              tooltip: text,
-              route: page!,
-            ),
-          ),
-          const Spacer(),
-        ],
       ),
     );
   }
