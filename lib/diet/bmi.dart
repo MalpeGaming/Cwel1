@@ -338,9 +338,10 @@ class _BMI extends State<BMI> {
                             double res =
                                 21 * (heightValue / 100) * (heightValue / 100) -
                                     weightValue;
-                            if (onclick)
+                            if (onclick) {
                               res = (21 * heightValue * heightValue) / 703 -
                                   weightValue;
+                            }
                             return "gain ${res.toStringAsFixed(1)}";
                           }
                         } catch (e) {
