@@ -6,11 +6,8 @@ import 'package:xml/xml.dart';
 import 'package:path_provider/path_provider.dart';
 
 class LangCheckList extends StatefulWidget {
-  const LangCheckList({
-    super.key,
-    required this.size, 
-    required this.onOptionSelected
-  });
+  const LangCheckList(
+      {super.key, required this.size, required this.onOptionSelected});
 
   final Size size;
   final Function(int?) onOptionSelected;

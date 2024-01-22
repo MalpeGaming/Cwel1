@@ -240,7 +240,7 @@ class _ImprovementButtonState extends State<ImprovementButton> {
                   widget.text,
                   style: TextStyle(
                       fontSize: widget.width / 16,
-                      color: Theme.of(context).colorScheme.onSecondary),
+                      color: Theme.of(context).colorScheme.tertiary),
                 ),
               ),
             ),
