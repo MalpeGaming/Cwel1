@@ -10,11 +10,10 @@ class BMI extends StatefulWidget {
 
 bool onclick = false;
 double bmi = 0;
+TextEditingController height = TextEditingController();
+TextEditingController weight = TextEditingController();
 
 class _BMI extends State<BMI> {
-  TextEditingController height = TextEditingController();
-  TextEditingController weight = TextEditingController();
-
   SizedBox buildButton(BuildContext context, bool pressedNum, String text) {
     Size size = MediaQuery.of(context).size;
     return SizedBox(
@@ -75,7 +74,10 @@ class _BMI extends State<BMI> {
                 child: TextField(
                   onChanged: (String value) {
                     setState(() {
-                      calcBMI(int.parse(value) / 100.0, int.parse(weight.text));
+                      if (value.isNotEmpty) {
+                        calcBMI(
+                            int.parse(value) / 100.0, int.parse(weight.text));
+                      }
                     });
                   },
                   controller: controller,
@@ -106,12 +108,71 @@ class _BMI extends State<BMI> {
     );
   }
 
-  void calcBMI(double height, int weight) {
+  Column buildQuery2(BuildContext context, String text, int hintText,
+      String txt1, String txt2, TextEditingController controller) {
+    Size size = MediaQuery.of(context).size;
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Please Enter Your $text",
+          style: TextStyle(
+            fontSize: 0.055 * size.width,
+          ),
+        ),
+        SizedBox(height: 0.007 * size.height),
+        Row(
+          children: [
+            SizedBox(
+              width: 0.3 * size.width,
+              height: 0.06 * size.height,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 4),
+                child: TextField(
+                  onChanged: (String value) {
+                    setState(() {
+                      if (value.isNotEmpty) {
+                        calcBMI(
+                            int.parse(height.text) / 100.0, int.parse(value));
+                      }
+                    });
+                  },
+                  controller: controller,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: size.width / 24),
+                  keyboardType: TextInputType.number,
+                  maxLines: 1,
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: 0,
+                      horizontal: 0.10 * size.width,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    hintText: hintText.toString(),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(width: 0.01 * size.height),
+            buildButton(context, false, txt1),
+            SizedBox(width: 0.01 * size.height),
+            buildButton(context, true, txt2),
+          ],
+        ),
+      ],
+    );
+  }
+
+  double calcBMI(double height, int weight) {
     double h = height.toDouble();
     double w = weight.toDouble();
     setState(() {
       bmi = w / (h * h);
     });
+    return bmi;
   }
 
   @override
@@ -161,8 +222,11 @@ class _BMI extends State<BMI> {
                 children: [
                   buildQuery(context, "Height", 167, "cm", "in", height),
                   SizedBox(height: 0.03 * size.height),
-                  buildQuery(context, "Weight", 56, "kg", "lb", weight),
+                  buildQuery2(context, "Weight", 56, "kg", "lb", weight),
                   SizedBox(height: 0.05 * size.height),
+                  //Text(height.text),
+                  //Text(weight.text),
+                  //Text(bmi.toString()),
                   RichText(
                     text: TextSpan(
                       children: <TextSpan>[
@@ -176,8 +240,12 @@ class _BMI extends State<BMI> {
                         TextSpan(
                           text: () {
                             try {
-                              // Zwracamy obliczone BMI
-                              return bmi.toStringAsFixed(1);
+                              if (height.text.isNotEmpty &&
+                                  weight.text.isNotEmpty) {
+                                return bmi.toStringAsFixed(1);
+                              } else {
+                                return '?';
+                              }
                             } catch (e) {
                               return '?';
                             }
@@ -185,8 +253,10 @@ class _BMI extends State<BMI> {
                           style: TextStyle(
                             color: (() {
                               try {
-                                // Zmieniamy kolor na podstawie obliczonego BMI
-                                if (bmi > 25) {
+                                if (height.text.isEmpty ||
+                                    weight.text.isEmpty) {
+                                  return Colors.black;
+                                } else if (bmi > 25) {
                                   return Colors.red;
                                 } else if (bmi > 20) {
                                   return Colors.green;
