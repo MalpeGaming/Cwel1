@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'home.dart';
 import 'progress.dart';
 import 'your_activities.dart';
+import 'diet/nutrition_tips.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
   const MyBottomNavigationBar({super.key});
@@ -10,7 +11,7 @@ class MyBottomNavigationBar extends StatefulWidget {
   _MyBottomNavigationBarState createState() => _MyBottomNavigationBarState();
 }
 
-int _selectedIndex = 0;
+int _selectedIndex = 2;
 
 class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   void _onItemTapped(int index) {
@@ -20,10 +21,12 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         context,
         MaterialPageRoute(
           builder: (context) {
-            if (index == 1) {
-              return const Progress();
-            } else if (index == 0) {
+            if (index == 0) {
               return const YourActivities();
+            } else if (index == 1) {
+              return const Progress();
+            } else if (index == 3) {
+              return const NutritionTips();
             } else {
               return const Home();
             }
@@ -54,7 +57,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         selectedFontSize: 12,
         unselectedFontSize: 12,
         selectedItemColor: Colors.pinkAccent[100],
-        unselectedItemColor: Colors.white,
+        unselectedItemColor: Theme.of(context).colorScheme.background,
         items: [
           buildMenuIcon(Icons.sports_basketball, 0, "Activities"),
           buildMenuIcon(Icons.calendar_today_outlined, 1, "Progress"),
@@ -75,7 +78,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         children: [
           Icon(
             icon,
-            size: 35,
+            size: 30,
             color:
                 _selectedIndex == index ? Colors.pinkAccent[100] : Colors.white,
           ),
