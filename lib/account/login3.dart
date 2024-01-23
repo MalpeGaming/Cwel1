@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '/buttons.dart';
+import '/home.dart';
 
 class Login3 extends StatefulWidget {
   const Login3({super.key});
@@ -99,21 +101,11 @@ class _Login3 extends State<Login3> {
               child: SizedBox(
                 height: size.height * 0.05,
                 width: size.width * 0.75,
-                child: FloatingActionButton.extended(
-                  onPressed: () {},
-                  tooltip: 'Continue',
-                  label: Text(
-                    "Continue",
-                    style: TextStyle(fontSize: size.width / 16),
-                  ),
-                  icon: Icon(
-                    Icons.arrow_forward_rounded,
-                    size: size.width / 16,
-                  ),
-                  backgroundColor: Colors.blue[400],
-                  hoverColor: Colors.blue[900],
-                  autofocus: true,
-                  heroTag: "continue",
+                child: RedirectButton(
+                  route: const Home(),
+                  text: 'Continue',
+                  width: size.width,
+                  requirement: selectedOption != null,
                 ),
               ),
             ),
