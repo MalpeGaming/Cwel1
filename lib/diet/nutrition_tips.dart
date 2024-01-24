@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../navbar.dart';
-import '../your_activities.dart';
+import '/navbar.dart';
+import '/your_activities.dart';
 import 'bmi.dart';
+import 'cal_requirements_calc.dart';
 import 'brain_supplements.dart';
 
 class NutritionTips extends StatefulWidget {
@@ -57,7 +58,7 @@ class _NutritionTips extends State<NutritionTips> {
                 "Estimate your Calorie Requirements.",
                 "",
                 0.025 * size.height,
-                const NutritionTips(),
+                const CalRequirementsCalc(),
                 zero: 0),
             createActivity(
                 context,
