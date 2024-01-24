@@ -1,8 +1,8 @@
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:youtube_player_iframe/youtube_player_iframe.dart';
-import '../show_score.dart';
-import '../home.dart';
+import '/account/login1.dart';
+import '/show_score.dart';
 
 class MemoryVideo extends StatefulWidget {
   final List<Map<String, String>> picked;
@@ -135,7 +135,7 @@ class _MemoryVideo extends State<MemoryVideo> {
                             exercise: 2,
                             yourScore: score,
                             maximum: 10,
-                            page: const Home(),
+                            page: const Login1(),
                           ),
                         ),
                       );
