@@ -4,7 +4,14 @@ import 'main.dart';
 AppBar appBar(BuildContext context, String title) {
   Size size = MediaQuery.of(context).size;
   return AppBar(
+    surfaceTintColor: Theme.of(context).colorScheme.background,
     backgroundColor: Theme.of(context).colorScheme.background,
+    leading: IconButton(
+      icon: const Icon(Icons.close),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    ),
     title: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
