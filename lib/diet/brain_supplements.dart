@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../navbar.dart';
 import '../your_activities.dart';
-import 'bmi.dart';
+import 'omega3.dart';
 import '../app_bar.dart';
 
 class BrainSupplements extends StatefulWidget {
@@ -72,25 +72,25 @@ class _BrainSupplements extends State<BrainSupplements> {
                   ),
                   SizedBox(height: 0.04 * size.height),
                   createActivity(context, "diet/omega3", "Omega-3", "",
-                      0.03 * size.height, const BMI(),
+                      0.03 * size.height, const Omega3(),
                       zero: 0),
                   createActivity(context, "diet/bvitamins", "B-Vitamins", "",
-                      0.025 * size.height, const BrainSupplements(),
+                      0.03 * size.height, const BrainSupplements(),
                       zero: 0),
                   createActivity(context, "diet/flavonoids", "Flavonoids", "",
-                      0.025 * size.height, const BrainSupplements(),
+                      0.03 * size.height, const BrainSupplements(),
                       zero: 0),
                   createActivity(context, "diet/vitamind", "Vitamin D", "",
-                      0.025 * size.height, const BrainSupplements(),
+                      0.03 * size.height, const BrainSupplements(),
                       zero: 0),
                   createActivity(context, "diet/vitamine", "Vitamin E", "",
-                      0.025 * size.height, const BrainSupplements(),
+                      0.03 * size.height, const BrainSupplements(),
                       zero: 0),
                   createActivity(context, "diet/choline", "Choline", "",
-                      0.025 * size.height, const BrainSupplements(),
+                      0.03 * size.height, const BrainSupplements(),
                       zero: 0),
                   createActivity(context, "diet/antioxidants", "Antioxidants",
-                      "", 0.025 * size.height, const BrainSupplements(),
+                      "", 0.03 * size.height, const BrainSupplements(),
                       zero: 0),
                   createActivity(
                       context,
