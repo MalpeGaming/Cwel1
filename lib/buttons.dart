@@ -160,7 +160,8 @@ class _RedirectButtonState extends State<RedirectButton> {
               : Center(
                   child: Text(
                     widget.text,
-                    style: TextStyle(fontSize: widget.width / 16),
+                    style: TextStyle(
+                        fontSize: widget.width / 16, color: Colors.white),
                   ),
                 ),
         )

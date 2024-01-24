@@ -1,31 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'build_chart.dart';
+import 'selenium.dart';
 import '../app_bar.dart';
 import '../buttons.dart';
 
-class Omega3 extends StatefulWidget {
-  const Omega3({super.key});
+class Zinc extends StatefulWidget {
+  const Zinc({super.key});
 
   @override
-  State<Omega3> createState() => _Omega3();
+  State<Zinc> createState() => _Zinc();
 }
 
-class _Omega3 extends State<Omega3> {
+class _Zinc extends State<Zinc> {
   @override
   Widget build(BuildContext context) {
     final List<ChartData> chartData = [
-      ChartData('51+ years', 1.1),
-      ChartData('19-50 years', 1.1),
-      ChartData('14-18 years', 1.1),
-      ChartData('9-13 years', 1.2),
+      ChartData('19+ years', 8),
+      ChartData('14-18 years', 9),
+      ChartData('9-13 years', 8),
     ];
 
     final List<ChartData> chartData2 = [
-      ChartData('51+ years', 1.2),
-      ChartData('19-50 years', 1.6),
-      ChartData('14-18 years', 1.6),
-      ChartData('9-13 years', 1.2)
+      ChartData('19+ years', 11),
+      ChartData('14-18 years', 11),
+      ChartData('9-13 years', 8),
     ];
 
     Size size = MediaQuery.of(context).size;
@@ -47,7 +46,7 @@ class _Omega3 extends State<Omega3> {
               children: <Widget>[
                 Center(
                   child: Text(
-                    "OMEGA-3",
+                    "Zinc",
                     style: TextStyle(
                       fontSize: size.width / 9,
                     ),
@@ -78,7 +77,7 @@ class _Omega3 extends State<Omega3> {
                 Expanded(
                   child: InkWell(
                     child: Text(
-                      'https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/#h2',
+                      'https://ods.od.nih.gov/factsheets/Zinc-Consumer/',
                       style: TextStyle(
                         color: Colors.blue,
                         decoration: TextDecoration.underline,
@@ -88,12 +87,12 @@ class _Omega3 extends State<Omega3> {
                       ),
                     ),
                     onTap: () => launchUrl(Uri.parse(
-                        'https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/#h2')),
+                        'https://ods.od.nih.gov/factsheets/Zinc-Consumer/')),
                   ),
                 ),
               ],
             ),
-            buildChart(context, chartData, chartData2, 0.5, 0.5),
+            buildChart(context, chartData, chartData2, 2, 0.45, unit: 'mg'),
             const Spacer(),
             Align(
               alignment: Alignment.center,
@@ -101,7 +100,7 @@ class _Omega3 extends State<Omega3> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const Omega3(),
+                  route: const Selenium(),
                   text: 'Continue',
                   width: size.width,
                 ),
