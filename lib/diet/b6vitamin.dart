@@ -4,28 +4,28 @@ import 'build_chart.dart';
 import '../app_bar.dart';
 import '../buttons.dart';
 
-class Omega3 extends StatefulWidget {
-  const Omega3({super.key});
+class B6Vitamin extends StatefulWidget {
+  const B6Vitamin({super.key});
 
   @override
-  State<Omega3> createState() => _Omega3();
+  State<B6Vitamin> createState() => _B6Vitamin();
 }
 
-class _Omega3 extends State<Omega3> {
+class _B6Vitamin extends State<B6Vitamin> {
   @override
   Widget build(BuildContext context) {
     final List<ChartData> chartData = [
-      ChartData('51+ years', 1.1),
-      ChartData('19-50 years', 1.1),
-      ChartData('14-18 years', 1.1),
-      ChartData('9-13 years', 1.2),
+      ChartData('51+ years', 1.5),
+      ChartData('19-50 years', 1.3),
+      ChartData('14-18 years', 1.2),
+      ChartData('9-13 years', 1),
     ];
 
     final List<ChartData> chartData2 = [
-      ChartData('51+ years', 1.2),
-      ChartData('19-50 years', 1.6),
-      ChartData('14-18 years', 1.6),
-      ChartData('9-13 years', 1.2)
+      ChartData('51+ years', 1.7),
+      ChartData('19-50 years', 1.3),
+      ChartData('14-18 years', 1.3),
+      ChartData('9-13 years', 1)
     ];
 
     Size size = MediaQuery.of(context).size;
@@ -47,7 +47,7 @@ class _Omega3 extends State<Omega3> {
               children: <Widget>[
                 Center(
                   child: Text(
-                    "OMEGA-3",
+                    "B-VITAMINS",
                     style: TextStyle(
                       fontSize: size.width / 9,
                     ),
@@ -65,7 +65,7 @@ class _Omega3 extends State<Omega3> {
             ),
             SizedBox(height: 0.04 * size.height),
             Text(
-              'RECOMMENDED DOSES',
+              'RECOMMENDED DOSES - B6',
               style: TextStyle(fontSize: size.width / 22),
             ),
             Row(
@@ -78,7 +78,7 @@ class _Omega3 extends State<Omega3> {
                 Expanded(
                   child: InkWell(
                     child: Text(
-                      'https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/#h2',
+                      'https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/',
                       style: TextStyle(
                         color: Colors.blue,
                         decoration: TextDecoration.underline,
@@ -88,12 +88,12 @@ class _Omega3 extends State<Omega3> {
                       ),
                     ),
                     onTap: () => launchUrl(Uri.parse(
-                        'https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/#h2')),
+                        'https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/')),
                   ),
                 ),
               ],
             ),
-            buildChart(context, chartData, chartData2, 0.5, 0.5),
+            buildChart(context, chartData, chartData2, 0.5, 0.5, unit: 'mg'),
             const Spacer(),
             Align(
               alignment: Alignment.center,
@@ -101,7 +101,7 @@ class _Omega3 extends State<Omega3> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const Omega3(),
+                  route: const B6Vitamin(),
                   text: 'Continue',
                   width: size.width,
                 ),

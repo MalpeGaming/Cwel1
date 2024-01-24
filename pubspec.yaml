@@ -52,6 +52,7 @@ dependencies:
   flutter_animate: ^4.4.0
   flutter_sequence_animation: "^4.0.0"
   syncfusion_flutter_charts: ^24.1.45+2
+  url_launcher: ^6.2.4
 
 dev_dependencies:
   flutter_test:

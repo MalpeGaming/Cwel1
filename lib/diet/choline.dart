@@ -4,28 +4,26 @@ import 'build_chart.dart';
 import '../app_bar.dart';
 import '../buttons.dart';
 
-class Omega3 extends StatefulWidget {
-  const Omega3({super.key});
+class Choline extends StatefulWidget {
+  const Choline({super.key});
 
   @override
-  State<Omega3> createState() => _Omega3();
+  State<Choline> createState() => _Choline();
 }
 
-class _Omega3 extends State<Omega3> {
+class _Choline extends State<Choline> {
   @override
   Widget build(BuildContext context) {
     final List<ChartData> chartData = [
-      ChartData('51+ years', 1.1),
-      ChartData('19-50 years', 1.1),
-      ChartData('14-18 years', 1.1),
-      ChartData('9-13 years', 1.2),
+      ChartData('19+ years', 425),
+      ChartData('14-18 years', 400),
+      ChartData('9-13 years', 375),
     ];
 
     final List<ChartData> chartData2 = [
-      ChartData('51+ years', 1.2),
-      ChartData('19-50 years', 1.6),
-      ChartData('14-18 years', 1.6),
-      ChartData('9-13 years', 1.2)
+      ChartData('19+ years', 550),
+      ChartData('14-18 years', 550),
+      ChartData('9-13 years', 375),
     ];
 
     Size size = MediaQuery.of(context).size;
@@ -47,7 +45,7 @@ class _Omega3 extends State<Omega3> {
               children: <Widget>[
                 Center(
                   child: Text(
-                    "OMEGA-3",
+                    "CHOLINE",
                     style: TextStyle(
                       fontSize: size.width / 9,
                     ),
@@ -78,7 +76,7 @@ class _Omega3 extends State<Omega3> {
                 Expanded(
                   child: InkWell(
                     child: Text(
-                      'https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/#h2',
+                      'https://ods.od.nih.gov/factsheets/Choline-HealthProfessional/#h2',
                       style: TextStyle(
                         color: Colors.blue,
                         decoration: TextDecoration.underline,
@@ -88,12 +86,12 @@ class _Omega3 extends State<Omega3> {
                       ),
                     ),
                     onTap: () => launchUrl(Uri.parse(
-                        'https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/#h2')),
+                        'https://ods.od.nih.gov/factsheets/Choline-HealthProfessional/#h2')),
                   ),
                 ),
               ],
             ),
-            buildChart(context, chartData, chartData2, 0.5, 0.5),
+            buildChart(context, chartData, chartData2, 200, 0.4, unit: 'mg'),
             const Spacer(),
             Align(
               alignment: Alignment.center,
@@ -101,7 +99,7 @@ class _Omega3 extends State<Omega3> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const Omega3(),
+                  route: const Choline(),
                   text: 'Continue',
                   width: size.width,
                 ),
