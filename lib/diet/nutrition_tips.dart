@@ -3,6 +3,7 @@ import '/navbar.dart';
 import '/your_activities.dart';
 import 'bmi.dart';
 import 'cal_requirements_calc.dart';
+import 'brain_supplements.dart';
 
 class NutritionTips extends StatefulWidget {
   const NutritionTips({super.key});
@@ -65,7 +66,7 @@ class _NutritionTips extends State<NutritionTips> {
                 "What supplements are good for your brain ?",
                 "",
                 0.025 * size.height,
-                const NutritionTips(),
+                const BrainSupplements(),
                 zero: 0),
             createActivity(
                 context,
