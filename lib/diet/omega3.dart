@@ -114,7 +114,7 @@ class _Omega3 extends State<Omega3> {
                                 color: (series as BarSeries<ChartData, String>)
                                     .color,
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(3))),
+                                    const BorderRadius.all(Radius.circular(3))),
                             width: 10,
                             height: 10,
                           ),
