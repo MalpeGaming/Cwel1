@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'build_chart.dart';
+import 'create_second_page.dart';
 import '../app_bar.dart';
 import '../buttons.dart';
 
@@ -99,11 +100,59 @@ class _Choline extends State<Choline> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const Choline(),
+                  route: const CholineV2(),
                   text: 'Continue',
                   width: size.width,
                 ),
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CholineV2 extends StatefulWidget {
+  const CholineV2({super.key});
+
+  @override
+  State<CholineV2> createState() => _CholineV2();
+}
+
+class _CholineV2 extends State<CholineV2> {
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: appBar(context, ''),
+      body: Container(
+        margin: EdgeInsets.only(
+          left: size.width / 10,
+          right: size.width / 10,
+          bottom: size.height / 15,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            createSecondPage(
+              context,
+              'CHOLINE',
+              doses: false,
+              'https://www.nature.com/articles/nrn2421',
+              'https://ods.od.nih.gov/factsheets/Choline-HealthProfessional/#h2',
+              RichText(
+                text: TextSpan(
+                  text: 'Slightly improves cognition.',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontStyle: FontStyle.italic,
+                    fontSize: size.width / 25,
+                    height: 1.2,
+                  ),
+                ),
+              ),
+              ['Liver', 'Eggs', 'Soybeans', 'Fish'],
             ),
           ],
         ),

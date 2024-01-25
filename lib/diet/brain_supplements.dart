@@ -8,8 +8,12 @@ import 'vitamind.dart';
 import 'vitamine.dart';
 import 'choline.dart';
 import 'calcium.dart';
+import 'zinc.dart';
+import 'selenium.dart';
 import 'copper.dart';
 import 'iron.dart';
+import 'flavonoids.dart';
+import 'antioxidants.dart';
 
 class BrainSupplements extends StatefulWidget {
   const BrainSupplements({super.key});
@@ -85,7 +89,7 @@ class _BrainSupplements extends State<BrainSupplements> {
                       0.03 * size.height, const B12Vitamin(),
                       zero: 0),
                   createActivity(context, "diet/flavonoids", "Flavonoids", "",
-                      0.03 * size.height, const BrainSupplements(),
+                      0.03 * size.height, const Flavonoids(),
                       zero: 0),
                   createActivity(context, "diet/vitamind", "Vitamin D", "",
                       0.03 * size.height, const VitaminD(),
@@ -97,15 +101,16 @@ class _BrainSupplements extends State<BrainSupplements> {
                       0.03 * size.height, const Choline(),
                       zero: 0),
                   createActivity(context, "diet/antioxidants", "Antioxidants",
-                      "", 0.03 * size.height, const BrainSupplements(),
+                      "", 0.03 * size.height, const Antioxidants(),
                       zero: 0),
-                  createActivity(
-                      context,
-                      "diet/ca_zn_se",
-                      "Calcium, Zinc, Selenium",
-                      "",
-                      0.025 * size.height,
-                      const Calcium(),
+                  createActivity(context, "diet/calcium", "Calcium", "",
+                      0.03 * size.height, const Calcium(),
+                      zero: 0),
+                  createActivity(context, "diet/zinc", "Zinc", "",
+                      0.03 * size.height, const Zinc(),
+                      zero: 0),
+                  createActivity(context, "diet/selenium", "Selenium", "",
+                      0.03 * size.height, const Selenium(),
                       zero: 0),
                   createActivity(context, "diet/copper", "Copper", "",
                       0.03 * size.height, const Copper(),

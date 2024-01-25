@@ -28,7 +28,6 @@ class _Omega3V2 extends State<Omega3V2> {
               context,
               'OMEGA-3',
               doses: false,
-              'FUNCTION',
               'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9641984/#:~:text=Ingestion%20of%20omega%2D3%20fatty,from%20an%20omega%2D3%20supplement',
               'https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/#h2',
               RichText(

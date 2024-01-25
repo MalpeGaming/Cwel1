@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:bulleted_list/bulleted_list.dart';
 
-createSecondPage(BuildContext context, String title, String funcText,
-    String link, String link2, RichText text, List<String> list,
+createSecondPage(BuildContext context, String title, String link, String link2,
+    RichText text, List<String> list,
     {bool doses = false,
     String dosesLink = 'https://www.our_future_page.com',
-    RichText? txt}) {
+    RichText? txt,
+    String? funcText}) {
+  if (funcText != null) {
+    funcText = 'FUNCTION $funcText';
+  } else {
+    funcText = 'FUNCTION';
+  }
   Size size = MediaQuery.of(context).size;
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,6 +42,7 @@ createSecondPage(BuildContext context, String title, String funcText,
       SizedBox(height: 0.04 * size.height),
       if (doses)
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('RECOMMENDED DOSES',
                 style: TextStyle(fontSize: size.width / 22)),
@@ -57,6 +64,9 @@ createSecondPage(BuildContext context, String title, String funcText,
               ),
               onTap: () => launchUrl(Uri.parse(link2)),
             ),
+            SizedBox(height: 0.03 * size.height),
+            txt!,
+            SizedBox(height: 0.03 * size.height),
           ],
         ),
       Text(

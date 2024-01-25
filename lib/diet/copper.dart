@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'build_chart.dart';
+import 'create_second_page.dart';
 import '../app_bar.dart';
 import '../buttons.dart';
 
@@ -45,7 +46,7 @@ class _Copper extends State<Copper> {
               children: <Widget>[
                 Center(
                   child: Text(
-                    "Copper",
+                    "COPPER",
                     style: TextStyle(
                       fontSize: size.width / 9,
                     ),
@@ -99,11 +100,60 @@ class _Copper extends State<Copper> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const Copper(),
+                  route: const CopperV2(),
                   text: 'Continue',
                   width: size.width,
                 ),
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CopperV2 extends StatefulWidget {
+  const CopperV2({super.key});
+
+  @override
+  State<CopperV2> createState() => _CopperV2();
+}
+
+class _CopperV2 extends State<CopperV2> {
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: appBar(context, ''),
+      body: Container(
+        margin: EdgeInsets.only(
+          left: size.width / 10,
+          right: size.width / 10,
+          bottom: size.height / 15,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            createSecondPage(
+              context,
+              'COPPER',
+              doses: false,
+              'https://www.nature.com/articles/nrn2421',
+              'https://ods.od.nih.gov/factsheets/Copper-HealthProfessional/',
+              RichText(
+                text: TextSpan(
+                  text:
+                      'Low concentration of copper in the plasma contributes to the cognitive decline in the elderly.',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontStyle: FontStyle.italic,
+                    fontSize: size.width / 25,
+                    height: 1.2,
+                  ),
+                ),
+              ),
+              ['Beef', 'Nuts', 'Chocolate', 'Potatoes'],
             ),
           ],
         ),

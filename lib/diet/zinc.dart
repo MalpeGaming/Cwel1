@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'build_chart.dart';
-import 'selenium.dart';
+import 'create_second_page.dart';
 import '../app_bar.dart';
 import '../buttons.dart';
 
@@ -100,11 +100,60 @@ class _Zinc extends State<Zinc> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const Selenium(),
+                  route: const ZincV2(),
                   text: 'Continue',
                   width: size.width,
                 ),
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ZincV2 extends StatefulWidget {
+  const ZincV2({super.key});
+
+  @override
+  State<ZincV2> createState() => _ZincV2();
+}
+
+class _ZincV2 extends State<ZincV2> {
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: appBar(context, ''),
+      body: Container(
+        margin: EdgeInsets.only(
+          left: size.width / 10,
+          right: size.width / 10,
+          bottom: size.height / 15,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            createSecondPage(
+              context,
+              'ZINC',
+              doses: false,
+              'https://www.nature.com/articles/nrn2421',
+              'https://ods.od.nih.gov/factsheets/Zinc-Consumer/',
+              RichText(
+                text: TextSpan(
+                  text:
+                      'Reduction of zinc in diet helps to reduce cognitive decay in the elderly.',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontStyle: FontStyle.italic,
+                    fontSize: size.width / 25,
+                    height: 1.2,
+                  ),
+                ),
+              ),
+              ['Meat', 'Fish', 'Oysters', 'Nuts'],
             ),
           ],
         ),
