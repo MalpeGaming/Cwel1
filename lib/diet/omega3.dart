@@ -3,6 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'build_chart.dart';
 import '../app_bar.dart';
 import '../buttons.dart';
+import 'omega3_2.dart';
 
 class Omega3 extends StatefulWidget {
   const Omega3({super.key});
@@ -101,7 +102,7 @@ class _Omega3 extends State<Omega3> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const Omega3(),
+                  route: const Omega3V2(),
                   text: 'Continue',
                   width: size.width,
                 ),
