@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'build_chart.dart';
+import 'create_second_page.dart';
+import 'b9vitamin.dart';
 import '../app_bar.dart';
 import '../buttons.dart';
-import 'b9vitamin.dart';
 
 class B12Vitamin extends StatefulWidget {
   const B12Vitamin({super.key});
@@ -91,6 +92,69 @@ class _B12Vitamin extends State<B12Vitamin> {
               ],
             ),
             buildChart(context, chartData, chartData2, 0.5, 0.35, unit: 'mcg'),
+            const Spacer(),
+            Align(
+              alignment: Alignment.center,
+              child: SizedBox(
+                height: size.height * 0.05,
+                width: size.width * 0.75,
+                child: RedirectButton(
+                  route: const B12VitaminV2(),
+                  text: 'Continue',
+                  width: size.width,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class B12VitaminV2 extends StatefulWidget {
+  const B12VitaminV2({super.key});
+
+  @override
+  State<B12VitaminV2> createState() => _B6VitaminV2();
+}
+
+class _B6VitaminV2 extends State<B12VitaminV2> {
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: appBar(context, ''),
+      body: Container(
+        margin: EdgeInsets.only(
+          left: size.width / 10,
+          right: size.width / 10,
+          bottom: size.height / 15,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            createSecondPage(
+              context,
+              'B12 - Vit.',
+              doses: false,
+              funcText: ' - B12',
+              'https://www.nature.com/articles/nrn2421',
+              'https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/#h3',
+              RichText(
+                text: TextSpan(
+                  text:
+                      'Supplementation with vitamin B12 has positive effects on memory performance in women.',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontStyle: FontStyle.italic,
+                    fontSize: size.width / 25,
+                    height: 1.2,
+                  ),
+                ),
+              ),
+              ['Fish ', 'Meat', 'Eggs', 'Dairy'],
+            ),
             const Spacer(),
             Align(
               alignment: Alignment.center,
