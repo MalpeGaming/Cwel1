@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'app_bar.dart';
 import 'buttons.dart';
+import 'home.dart';
 
 class TitlePage extends StatefulWidget {
   const TitlePage({super.key, required this.title});
@@ -87,6 +88,15 @@ class _TitlePageState extends State<TitlePage> {
                   text: "Test Yourself!",
                   width: size.width,
                   tooltip: 'Smart Decision!',
+                ),
+              ),
+              SizedBox(
+                height: size.height * 0.05,
+                width: size.width * 0.75,
+                child: RedirectButton(
+                  route: const Home(),
+                  text: 'Continue',
+                  width: size.width,
                 ),
               ),
             ],
