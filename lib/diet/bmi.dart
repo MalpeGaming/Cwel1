@@ -10,12 +10,12 @@ class BMI extends StatefulWidget {
   State<BMI> createState() => _BMI();
 }
 
-bool onclick = false;
-double bmi = 0;
-TextEditingController height = TextEditingController();
-TextEditingController weight = TextEditingController();
-
 class _BMI extends State<BMI> {
+  bool onclick = false;
+  double bmi = 0;
+  TextEditingController height = TextEditingController();
+  TextEditingController weight = TextEditingController();
+
   SfLinearGauge createAxis(BuildContext context, double yourScore) {
     return SfLinearGauge(
       showAxisTrack: false,
@@ -189,7 +189,7 @@ class _BMI extends State<BMI> {
     );
   }
 
-  double calcBMI(double height, int weight) {
+  void calcBMI(double height, int weight) {
     if (height != 0 && weight != 0) {
       double h = height.toDouble();
       double w = weight.toDouble();
@@ -197,7 +197,6 @@ class _BMI extends State<BMI> {
       if (onclick) bmi = w * 703 / (h * 100 * h * 100);
       setState(() {});
     }
-    return bmi;
   }
 
   @override
@@ -252,13 +251,13 @@ class _BMI extends State<BMI> {
                     SizedBox(height: 0.05 * size.height),
                     RichText(
                       text: TextSpan(
+                        style: TextStyle(
+                          fontSize: 0.03 * size.height,
+                          color: Theme.of(context).colorScheme.onSecondary,
+                        ),
                         children: <TextSpan>[
-                          TextSpan(
+                          const TextSpan(
                             text: 'Your BMI is ',
-                            style: TextStyle(
-                              fontSize: 0.03 * size.height,
-                              color: Colors.black,
-                            ),
                           ),
                           TextSpan(
                             text: () {
@@ -278,7 +277,9 @@ class _BMI extends State<BMI> {
                                 try {
                                   if (height.text.isEmpty ||
                                       weight.text.isEmpty) {
-                                    return Colors.black;
+                                    return Theme.of(context)
+                                        .colorScheme
+                                        .onSecondary;
                                   } else if (bmi > 25) {
                                     return Colors.red;
                                   } else if (bmi > 20) {
@@ -290,7 +291,6 @@ class _BMI extends State<BMI> {
                                   return Colors.black;
                                 }
                               })(),
-                              fontSize: 0.03 * size.height,
                             ),
                           ),
                         ],
@@ -304,6 +304,10 @@ class _BMI extends State<BMI> {
               SizedBox(height: 0.05 * size.height),
               RichText(
                 text: TextSpan(
+                  style: TextStyle(
+                    fontSize: 0.02 * size.height,
+                    color: Theme.of(context).colorScheme.onSecondary,
+                  ),
                   children: <TextSpan>[
                     TextSpan(
                       text: () {
@@ -311,10 +315,6 @@ class _BMI extends State<BMI> {
                           return "In order to have the best “Brain BMI” we recommend that you ";
                         }
                       }(),
-                      style: TextStyle(
-                        fontSize: 0.02 * size.height,
-                        color: Colors.black,
-                      ),
                     ),
                     TextSpan(
                       text: () {
@@ -348,10 +348,6 @@ class _BMI extends State<BMI> {
                           return '?';
                         }
                       }(),
-                      style: TextStyle(
-                        fontSize: 0.02 * size.height,
-                        color: Colors.black,
-                      ),
                     ),
                     TextSpan(
                       text: () {
@@ -369,10 +365,6 @@ class _BMI extends State<BMI> {
                           return '?';
                         }
                       }(),
-                      style: TextStyle(
-                        fontSize: 0.02 * size.height,
-                        color: Colors.black,
-                      ),
                     ),
                   ],
                 ),
