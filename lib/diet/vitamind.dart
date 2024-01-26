@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'build_chart.dart';
+import 'create_second_page.dart';
 import '../app_bar.dart';
 import '../buttons.dart';
 
@@ -97,11 +98,60 @@ class _VitaminD extends State<VitaminD> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const VitaminD(),
+                  route: const VitaminDV2(),
                   text: 'Continue',
                   width: size.width,
                 ),
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class VitaminDV2 extends StatefulWidget {
+  const VitaminDV2({super.key});
+
+  @override
+  State<VitaminDV2> createState() => _B6VitaminV2();
+}
+
+class _B6VitaminV2 extends State<VitaminDV2> {
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: appBar(context, ''),
+      body: Container(
+        margin: EdgeInsets.only(
+          left: size.width / 10,
+          right: size.width / 10,
+          bottom: size.height / 15,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            createSecondPage(
+              context,
+              'VITAMIN D',
+              doses: false,
+              'https://www.nature.com/articles/nrn2421',
+              'https://ods.od.nih.gov/factsheets/VitaminD-Consumer/',
+              RichText(
+                text: TextSpan(
+                  text:
+                      'It is important for the proper cognitive functions especially in the elderly.',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontStyle: FontStyle.italic,
+                    fontSize: size.width / 25,
+                    height: 1.2,
+                  ),
+                ),
+              ),
+              ['Fish ', 'Eggs', 'Vit D fortified food', 'Milk'],
             ),
           ],
         ),

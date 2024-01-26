@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'build_chart.dart';
+import 'create_second_page.dart';
 import '../app_bar.dart';
 import '../buttons.dart';
 
@@ -97,11 +98,60 @@ class _Selenium extends State<Selenium> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const Selenium(),
+                  route: const SeleniumV2(),
                   text: 'Continue',
                   width: size.width,
                 ),
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SeleniumV2 extends StatefulWidget {
+  const SeleniumV2({super.key});
+
+  @override
+  State<SeleniumV2> createState() => _SeleniumV2();
+}
+
+class _SeleniumV2 extends State<SeleniumV2> {
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: appBar(context, ''),
+      body: Container(
+        margin: EdgeInsets.only(
+          left: size.width / 10,
+          right: size.width / 10,
+          bottom: size.height / 15,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            createSecondPage(
+              context,
+              'SELENIUM',
+              doses: false,
+              'https://www.nature.com/articles/nrn2421',
+              'https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional/',
+              RichText(
+                text: TextSpan(
+                  text:
+                      'Lifelong high selenium level associated with higher cognitive function in humans',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontStyle: FontStyle.italic,
+                    fontSize: size.width / 25,
+                    height: 1.2,
+                  ),
+                ),
+              ),
+              ['Tuna', 'Ham', 'Chicken', 'Nuts'],
             ),
           ],
         ),
