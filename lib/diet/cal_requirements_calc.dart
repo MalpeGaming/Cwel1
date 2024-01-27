@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../navbar.dart';
+import '/navbar.dart';
+import '/app_bar.dart';
 
 class CalRequirementsCalc extends StatefulWidget {
   const CalRequirementsCalc({super.key});
@@ -11,14 +12,17 @@ class CalRequirementsCalc extends StatefulWidget {
 
 class _CalRequirementsCalc extends State<CalRequirementsCalc> {
   bool onclick = false;
-  bool clickedGender = false;
+  bool isMan = true;
   int cal = 0;
   TextEditingController age = TextEditingController();
   TextEditingController height = TextEditingController();
   TextEditingController weight = TextEditingController();
 
   SizedBox buildButton(BuildContext context, bool pressedNum, String text,
-      {bool oneOption = false, double widthFactor = 0.15, bool linked = true}) {
+      {bool oneOption = false,
+      double widthFactor = 0.15,
+      bool linked = true,
+      bool isGender = false}) {
     Size size = MediaQuery.of(context).size;
     return SizedBox(
       width: widthFactor * size.width,
@@ -26,12 +30,16 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
       child: OutlinedButton(
         onPressed: () {
           if (linked) onclick = pressedNum;
+          if (isGender) isMan = !pressedNum;
           if (height.text.isNotEmpty &&
               weight.text.isNotEmpty &&
               age.text.isNotEmpty) {
             setState(() {
-              if (weight.text.isNotEmpty && height.text.isNotEmpty) {
-                calcCal(int.parse(height.text) / 100.0, int.parse(weight.text));
+              if (weight.text.isNotEmpty &&
+                  height.text.isNotEmpty &&
+                  age.text.isNotEmpty) {
+                calcCal(double.parse(height.text) / 100.0,
+                    double.parse(weight.text), int.parse(age.text));
               }
             });
           }
@@ -46,7 +54,9 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
             (Set<MaterialState> states) {
               return states.contains(MaterialState.pressed)
                   ? Theme.of(context).colorScheme.secondary
-                  : onclick == pressedNum || oneOption
+                  : oneOption ||
+                          ((!isGender) && onclick == pressedNum) ||
+                          ((isGender) && isMan == !pressedNum)
                       ? const Color.fromARGB(255, 162, 218, 255)
                       : Theme.of(context).colorScheme.background;
             },
@@ -65,7 +75,10 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
 
   Column buildQuery(BuildContext context, String text, int hintText,
       String txt1, String txt2, TextEditingController controller,
-      {bool noForm = false, double widthFactor = 0.15, bool linked = true}) {
+      {bool noForm = false,
+      double widthFactor = 0.15,
+      bool linked = true,
+      bool isGender = false}) {
     Size size = MediaQuery.of(context).size;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -89,8 +102,8 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                   onChanged: (String value) {
                     if (height.text.isNotEmpty && weight.text.isNotEmpty) {
                       setState(() {
-                        calcCal(int.parse(height.text) / 100.0,
-                            int.parse(weight.text));
+                        calcCal(double.parse(height.text) / 100.0,
+                            double.parse(weight.text), int.parse(age.text));
                       });
                     }
                   },
@@ -118,23 +131,31 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
             buildButton(context, false, txt1,
                 oneOption: txt2 == "" ? true : false,
                 widthFactor: widthFactor,
-                linked: linked),
+                linked: linked,
+                isGender: isGender),
             SizedBox(width: 0.025 * size.width),
             if (txt2 != "")
               buildButton(context, true, txt2,
-                  widthFactor: widthFactor, linked: linked),
+                  widthFactor: widthFactor, linked: linked, isGender: isGender),
           ],
         ),
       ],
     );
   }
 
-  void calcCal(double height, int weight) {
+  void calcCal(double height, double weight, int age) {
     if (height != 0 && weight != 0) {
-      double h = height.toDouble();
-      double w = weight.toDouble();
-      if (!onclick) cal = (w / (h * h)).round();
-      if (onclick) cal = (w * 703 / (h * 100 * h * 100)).round();
+      double convHeight = height * 100;
+      double convWeight = weight;
+      if (onclick) {
+        convWeight *= 0.45359237;
+        convHeight *= 2.54;
+      }
+      if (isMan) {
+        cal = (66 + 13.7 * convWeight + 5 * convHeight - 6.8 * age).round();
+      } else {
+        cal = (655 + 9.6 * convWeight + 1.8 * convHeight - 4.7 * age).round();
+      }
       setState(() {});
     }
   }
@@ -143,12 +164,13 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: appBar(context, ''),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
-            top: size.height / 10,
+            bottom: size.height / 15,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -177,7 +199,10 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
               ),
               SizedBox(height: 0.03 * size.height),
               buildQuery(context, "", 34, "Man", "Woman", age,
-                  noForm: true, widthFactor: 0.3, linked: false),
+                  noForm: true,
+                  widthFactor: 0.3,
+                  linked: false,
+                  isGender: true),
               SizedBox(height: 0.01 * size.height),
               buildQuery(context, "Age", 34, "years", "", age,
                   widthFactor: 0.3, linked: false),
