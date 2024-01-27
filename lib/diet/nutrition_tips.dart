@@ -4,6 +4,7 @@ import '/your_activities.dart';
 import 'bmi.dart';
 import 'cal_requirements_calc.dart';
 import 'brain_supplements.dart';
+import 'food_table.dart';
 
 class NutritionTips extends StatefulWidget {
   const NutritionTips({super.key});
@@ -74,7 +75,7 @@ class _NutritionTips extends State<NutritionTips> {
                 "What should you eat/avoid eating ?",
                 "",
                 0.025 * size.height,
-                const NutritionTips(),
+                const FoodTable(),
                 zero: 0),
           ],
         ),
