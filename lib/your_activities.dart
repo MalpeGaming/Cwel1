@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'navbar.dart';
+import 'self_reflection.dart';
+import 'meditation.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -169,7 +171,7 @@ class _YourActivities extends State<YourActivities> {
                           "Self",
                           "Reflection",
                           0.025 * size.height,
-                          const YourActivities(),
+                          const SelfReflection(),
                         ),
                         createActivity(
                           context,
@@ -185,7 +187,7 @@ class _YourActivities extends State<YourActivities> {
                             "MEDITATION",
                             "",
                             0.025 * size.height,
-                            const YourActivities(),
+                            const Meditation(),
                             zero: 0),
                       ],
                     ),

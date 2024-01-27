@@ -93,13 +93,11 @@ class _BMI extends State<BMI> {
       child: OutlinedButton(
         onPressed: () {
           onclick = pressedNum;
-          if (height.text.isNotEmpty && weight.text.isNotEmpty) {
-            setState(() {
-              if (weight.text.isNotEmpty && height.text.isNotEmpty) {
-                calcBMI(int.parse(height.text) / 100.0, int.parse(weight.text));
-              }
-            });
-          }
+          setState(() {
+            if (weight.text.isNotEmpty && height.text.isNotEmpty) {
+              calcBMI(int.parse(height.text) / 100.0, int.parse(weight.text));
+            }
+          });
         },
         style: ButtonStyle(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
