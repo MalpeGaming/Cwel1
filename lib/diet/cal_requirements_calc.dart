@@ -35,7 +35,9 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
               weight.text.isNotEmpty &&
               age.text.isNotEmpty) {
             setState(() {
-              if (weight.text.isNotEmpty && height.text.isNotEmpty) {
+              if (weight.text.isNotEmpty &&
+                  height.text.isNotEmpty &&
+                  age.text.isNotEmpty) {
                 calcCal(double.parse(height.text) / 100.0,
                     double.parse(weight.text), int.parse(age.text));
               }
@@ -52,8 +54,8 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
             (Set<MaterialState> states) {
               return states.contains(MaterialState.pressed)
                   ? Theme.of(context).colorScheme.secondary
-                  : ((!isGender) && onclick == pressedNum) ||
-                          oneOption ||
+                  : oneOption ||
+                          ((!isGender) && onclick == pressedNum) ||
                           ((isGender) && isMan == !pressedNum)
                       ? const Color.fromARGB(255, 162, 218, 255)
                       : Theme.of(context).colorScheme.background;
@@ -150,10 +152,7 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
         convHeight *= 2.54;
       }
       if (isMan) {
-        print(convWeight);
-        print(convHeight);
-        cal = (88.362 + 13.397 * convWeight + 4.799 * convHeight - 5.677 * age)
-            .round();
+        cal = (66 + 13.7 * convWeight + 5 * convHeight - 6.8 * age).round();
       } else {
         cal = (655 + 9.6 * convWeight + 1.8 * convHeight - 4.7 * age).round();
       }
