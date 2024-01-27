@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'navbar.dart';
 import 'self_reflection.dart';
 import 'meditation.dart';
+import 'sport.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -163,7 +164,7 @@ class _YourActivities extends State<YourActivities> {
                           "SPORT",
                           "Optional",
                           0.025 * size.height,
-                          const YourActivities(),
+                          const Sport(),
                         ),
                         createActivity(
                           context,
