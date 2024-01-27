@@ -75,7 +75,7 @@ class _NutritionTips extends State<NutritionTips> {
                 "What should you eat/avoid eating ?",
                 "",
                 0.025 * size.height,
-                FoodTable(),
+                const FoodTable(),
                 zero: 0),
           ],
         ),
