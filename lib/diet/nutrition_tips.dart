@@ -64,7 +64,7 @@ class _NutritionTips extends State<NutritionTips> {
             createActivity(
                 context,
                 "diet/supplements",
-                "What supplements are good for your brain ?",
+                "What supplements are good for your brain?",
                 "",
                 0.025 * size.height,
                 const BrainSupplements(),
@@ -72,7 +72,7 @@ class _NutritionTips extends State<NutritionTips> {
             createActivity(
                 context,
                 "diet/should_avoid",
-                "What should you eat/avoid eating ?",
+                "What should you eat/avoid eating?",
                 "",
                 0.025 * size.height,
                 const FoodTable(),
