@@ -149,6 +149,9 @@ class _LanguageLevelSelectionState extends State<LanguageLevelSelection> {
                   text: 'Continue',
                   width: size.width,
                   requirement: selectedOption != null,
+                  onClick: () {
+                    writeXML(selectedOption!);
+                  },
                 ),
               ),
             ),

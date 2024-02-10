@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'language_level_selection.dart';
 
+void nuthin() {}
+
 class StartButton extends StatefulWidget {
   final String text;
   final String tooltip;
@@ -75,6 +77,7 @@ class RedirectButton extends StatefulWidget {
   final double width;
   final Widget route;
   final bool requirement;
+  final void Function() onClick;
 
   const RedirectButton({
     super.key,
@@ -83,6 +86,7 @@ class RedirectButton extends StatefulWidget {
     this.tooltip,
     required this.route,
     this.requirement = true,
+    this.onClick = nuthin,
   });
 
   @override
@@ -106,6 +110,7 @@ class _RedirectButtonState extends State<RedirectButton> {
         },
         onTap: () {
           if (widget.requirement) {
+            widget.onClick();
             Navigator.push(
               context,
               MaterialPageRoute(
