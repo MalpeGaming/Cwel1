@@ -124,6 +124,11 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     hintText: hintText.toString(),
+                    hintStyle: TextStyle(
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onSecondary
+                            .withOpacity(0.2)),
                   ),
                 ),
               ),
@@ -173,11 +178,8 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
             bottom: size.height / 15,
           ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Center(
                     child: Text(
@@ -197,37 +199,51 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                   ),
                 ],
               ),
-              SizedBox(height: 0.03 * size.height),
-              buildQuery(context, "", 34, "Man", "Woman", age,
-                  noForm: true,
-                  widthFactor: 0.3,
-                  linked: false,
-                  isGender: true),
-              SizedBox(height: 0.01 * size.height),
-              buildQuery(context, "Age", 34, "years", "", age,
-                  widthFactor: 0.3, linked: false),
-              SizedBox(height: 0.01 * size.height),
-              buildQuery(context, "Height", 167, "cm", "in", height),
-              SizedBox(height: 0.01 * size.height),
-              buildQuery(context, "Weight", 56, "kg", "lb", weight),
-              SizedBox(height: 0.03 * size.height),
-              RichText(
-                  text: TextSpan(
-                style: TextStyle(
-                  fontSize: 0.027 * size.height,
-                  color: Theme.of(context).colorScheme.onSecondary,
+              Container(
+                margin: EdgeInsets.only(
+                  left: size.width / 15,
+                  right: size.width / 15,
+                  top: size.height / 25,
                 ),
-                children: [
-                  const TextSpan(text: "Your "),
-                  const TextSpan(
-                      text: "BASE",
-                      style: TextStyle(fontWeight: FontWeight.bold)),
-                  const TextSpan(text: " calorie requirements are "),
-                  TextSpan(
-                      text: "${cal}kcal/day",
-                      style: const TextStyle(fontWeight: FontWeight.bold))
-                ],
-              )),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    buildQuery(context, "", 34, "Man", "Woman", age,
+                        noForm: true,
+                        widthFactor: 0.3,
+                        linked: false,
+                        isGender: true),
+                    SizedBox(height: 0.01 * size.height),
+                    buildQuery(context, "Age", 34, "years", "", age,
+                        widthFactor: 0.3, linked: false),
+                    SizedBox(height: 0.01 * size.height),
+                    buildQuery(context, "Height", 167, "cm", "in", height),
+                    SizedBox(height: 0.01 * size.height),
+                    buildQuery(context, "Weight", 56, "kg", "lb", weight),
+                    SizedBox(height: 0.03 * size.height),
+                    RichText(
+                      text: TextSpan(
+                        style: TextStyle(
+                          fontSize: 0.027 * size.height,
+                          color: Theme.of(context).colorScheme.onSecondary,
+                        ),
+                        children: [
+                          const TextSpan(text: "Your "),
+                          const TextSpan(
+                              text: "BASE",
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          const TextSpan(text: " calorie requirements are "),
+                          TextSpan(
+                              text: "${cal}kcal/day",
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold))
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
