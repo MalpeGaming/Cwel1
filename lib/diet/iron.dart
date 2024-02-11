@@ -74,7 +74,9 @@ class _Iron extends State<Iron> {
                 Text(
                   'Data Source: ',
                   style: TextStyle(
-                      fontSize: size.width / 30, fontWeight: FontWeight.bold,),
+                    fontSize: size.width / 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Expanded(
                   child: InkWell(
@@ -88,8 +90,11 @@ class _Iron extends State<Iron> {
                         fontStyle: FontStyle.italic,
                       ),
                     ),
-                    onTap: () => launchUrl(Uri.parse(
-                        'https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/',),),
+                    onTap: () => launchUrl(
+                      Uri.parse(
+                        'https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/',
+                      ),
+                    ),
                   ),
                 ),
               ],

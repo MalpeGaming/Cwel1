@@ -18,9 +18,15 @@ class FoodTable extends StatelessWidget {
     );
   }
 
-  Container createContainer(BuildContext context, double h, Color? color1,
-      Color? color2, String text, List<List<Map<String, int>>> list,
-      [double w = 0.8,]) {
+  Container createContainer(
+    BuildContext context,
+    double h,
+    Color? color1,
+    Color? color2,
+    String text,
+    List<List<Map<String, int>>> list, [
+    double w = 0.8,
+  ]) {
     Size size = MediaQuery.of(context).size;
     return Container(
       padding: EdgeInsets.all(
@@ -35,7 +41,9 @@ class FoodTable extends StatelessWidget {
           Text(
             text,
             style: TextStyle(
-                fontSize: size.width / 28, fontWeight: FontWeight.bold,),
+              fontSize: size.width / 28,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           Expanded(
             child: Container(
@@ -154,8 +162,9 @@ class FoodTable extends StatelessWidget {
                       Text(
                         "Never",
                         style: TextStyle(
-                            fontSize: size.width / 28,
-                            fontWeight: FontWeight.bold,),
+                          fontSize: size.width / 28,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       Expanded(
                         child: Container(

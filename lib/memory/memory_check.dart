@@ -74,7 +74,9 @@ class _Memory2 extends State<Memory2> {
           width: size.width * 0.9,
           height: size.height * 0.9,
           margin: EdgeInsets.symmetric(
-              horizontal: size.width / 10, vertical: size.height / 20,),
+            horizontal: size.width / 10,
+            vertical: size.height / 20,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -112,7 +114,11 @@ class _Memory2 extends State<Memory2> {
               Container(
                 width: double.infinity,
                 padding: EdgeInsets.fromLTRB(
-                    0.1 * size.width, 0, 0.1 * size.width, 0,),
+                  0.1 * size.width,
+                  0,
+                  0.1 * size.width,
+                  0,
+                ),
                 child: FloatingActionButton(
                   onPressed: () {
                     for (int i = 0; i < conList.length; i++) {

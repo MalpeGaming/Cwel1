@@ -72,7 +72,9 @@ class _Zinc extends State<Zinc> {
                 Text(
                   'Data Source: ',
                   style: TextStyle(
-                      fontSize: size.width / 30, fontWeight: FontWeight.bold,),
+                    fontSize: size.width / 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Expanded(
                   child: InkWell(
@@ -86,8 +88,11 @@ class _Zinc extends State<Zinc> {
                         fontStyle: FontStyle.italic,
                       ),
                     ),
-                    onTap: () => launchUrl(Uri.parse(
-                        'https://ods.od.nih.gov/factsheets/Zinc-Consumer/',),),
+                    onTap: () => launchUrl(
+                      Uri.parse(
+                        'https://ods.od.nih.gov/factsheets/Zinc-Consumer/',
+                      ),
+                    ),
                   ),
                 ),
               ],

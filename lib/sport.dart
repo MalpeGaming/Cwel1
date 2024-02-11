@@ -14,8 +14,12 @@ class _Sport extends State<Sport> {
     await launchUrl(Uri.parse(url));
   }
 
-  GestureDetector createDay(BuildContext context, int dayNum, String text,
-      [String? videoId,]) {
+  GestureDetector createDay(
+    BuildContext context,
+    int dayNum,
+    String text, [
+    String? videoId,
+  ]) {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
@@ -109,7 +113,9 @@ class _Sport extends State<Sport> {
                   child: Text(
                     "SPORT",
                     style: TextStyle(
-                        fontSize: size.width / 8, fontWeight: FontWeight.w500,),
+                      fontSize: size.width / 8,
+                      fontWeight: FontWeight.w500,
+                    ),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -171,19 +177,35 @@ class _Sport extends State<Sport> {
                   ),
                   SizedBox(height: 0.02 * size.height),
                   createDay(context, 1, ' - Outdoor Walk'),
-                  createDay(context, 2, ' -Strenght Full Body Workout',
-                      'LdFgFco_8p8',),
+                  createDay(
+                    context,
+                    2,
+                    ' -Strenght Full Body Workout',
+                    'LdFgFco_8p8',
+                  ),
                   createDay(context, 3, ' - 30 min Outdoor Run'),
                   createDay(context, 4, ' - Outdoor Walk'),
-                  createDay(context, 5, ' -Strenght Abs And Glutes Workout',
-                      'O2f93wRCNmo',),
+                  createDay(
+                    context,
+                    5,
+                    ' -Strenght Abs And Glutes Workout',
+                    'O2f93wRCNmo',
+                  ),
                   createDay(context, 6, ' - Outdoor Walk'),
-                  createDay(context, 7, ' - High Intensity Cardio Workout',
-                      'qnkBM6xsv0Q',),
+                  createDay(
+                    context,
+                    7,
+                    ' - High Intensity Cardio Workout',
+                    'qnkBM6xsv0Q',
+                  ),
                   createDay(context, 8, ' - Outdoor Walk'),
                   createDay(context, 9, ' - 30 min Outdoor Run'),
-                  createDay(context, 10, ' -Strenght Abs And Glutes Workout',
-                      'MDnOqSh5M0E',),
+                  createDay(
+                    context,
+                    10,
+                    ' -Strenght Abs And Glutes Workout',
+                    'MDnOqSh5M0E',
+                  ),
                   SizedBox(height: 0.1 * size.height),
                 ],
               ),

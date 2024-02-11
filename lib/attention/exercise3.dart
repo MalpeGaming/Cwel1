@@ -259,8 +259,10 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
                                   size,
                                 ),
                                 equasion(
-                                  createEquasion(smallText,
-                                      r"\frac{7}{8} + \frac{3}{4} = ",),
+                                  createEquasion(
+                                    smallText,
+                                    r"\frac{7}{8} + \frac{3}{4} = ",
+                                  ),
                                   size,
                                 ),
                                 equasion(
@@ -269,7 +271,10 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
                                 ),
                                 equasion(
                                   createEquasion2(
-                                      smallText, r"\frac{2}{5}", r"2000",),
+                                    smallText,
+                                    r"\frac{2}{5}",
+                                    r"2000",
+                                  ),
                                   size,
                                 ),
                                 SizedBox(
@@ -304,7 +309,9 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
                   Text(
                     "Find x:",
                     style: TextStyle(
-                        fontSize: size.width / 24, fontWeight: FontWeight.bold,),
+                      fontSize: size.width / 24,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   Container(
                     margin: EdgeInsets.only(

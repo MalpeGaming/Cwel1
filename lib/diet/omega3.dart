@@ -74,7 +74,9 @@ class _Omega3 extends State<Omega3> {
                 Text(
                   'Data Source: ',
                   style: TextStyle(
-                      fontSize: size.width / 30, fontWeight: FontWeight.bold,),
+                    fontSize: size.width / 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Expanded(
                   child: InkWell(
@@ -88,8 +90,11 @@ class _Omega3 extends State<Omega3> {
                         fontStyle: FontStyle.italic,
                       ),
                     ),
-                    onTap: () => launchUrl(Uri.parse(
-                        'https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/#h2',),),
+                    onTap: () => launchUrl(
+                      Uri.parse(
+                        'https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/#h2',
+                      ),
+                    ),
                   ),
                 ),
               ],
@@ -159,8 +164,9 @@ class _Omega3V2 extends State<Omega3V2> {
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     TextSpan(
-                        text:
-                            '; furthermore, omega-3 treatments are beneficial, well-tolerated, and pose minimal risks.',),
+                      text:
+                          '; furthermore, omega-3 treatments are beneficial, well-tolerated, and pose minimal risks.',
+                    ),
                   ],
                 ),
               ),

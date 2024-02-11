@@ -70,7 +70,9 @@ class _Selenium extends State<Selenium> {
                 Text(
                   'Data Source: ',
                   style: TextStyle(
-                      fontSize: size.width / 30, fontWeight: FontWeight.bold,),
+                    fontSize: size.width / 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Expanded(
                   child: InkWell(
@@ -84,8 +86,11 @@ class _Selenium extends State<Selenium> {
                         fontStyle: FontStyle.italic,
                       ),
                     ),
-                    onTap: () => launchUrl(Uri.parse(
-                        'https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional/',),),
+                    onTap: () => launchUrl(
+                      Uri.parse(
+                        'https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional/',
+                      ),
+                    ),
                   ),
                 ),
               ],

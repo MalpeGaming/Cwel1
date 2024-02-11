@@ -10,15 +10,20 @@ class SelfReflection extends StatefulWidget {
 
 class _SelfReflection extends State<SelfReflection> {
   Column buildPoint(
-      BuildContext context, String img, String txt1, String txt2,) {
+    BuildContext context,
+    String img,
+    String txt1,
+    String txt2,
+  ) {
     Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         Row(
           children: [
             SizedBox(
-                height: 0.1 * size.width,
-                child: Image.asset('assets/self_reflection/$img.png'),),
+              height: 0.1 * size.width,
+              child: Image.asset('assets/self_reflection/$img.png'),
+            ),
             SizedBox(width: size.width / 25),
             Expanded(
               child: RichText(
@@ -114,16 +119,36 @@ class _SelfReflection extends State<SelfReflection> {
             SizedBox(height: size.height / 50),
             Column(
               children: [
-                buildPoint(context, 'gratitude', 'Gratitude',
-                    ': Each day, before going to sleep, take a moment to reflect on one positive aspect of your day. Consider what steps you can take to make the following day even better.',),
-                buildPoint(context, 'good_deed', 'Good Deed',
-                    ': Make it a daily practice to perform a good deed.',),
-                buildPoint(context, 'goal_setting', 'Goal Setting',
-                    ': Upon waking up, select one goal for the day and jot it down. In the evening, review your progress to see if you achieved it.',),
-                buildPoint(context, 'hobbies', 'Hobbies',
-                    ': Dedicate at least 30 minutes of your day to pursuing your hobbies.',),
-                buildPoint(context, 'digital_detox', 'Digital Detox',
-                    ': Avoid using any digital devices for 30 minutes after waking up and 30 minutes before going to sleep.',),
+                buildPoint(
+                  context,
+                  'gratitude',
+                  'Gratitude',
+                  ': Each day, before going to sleep, take a moment to reflect on one positive aspect of your day. Consider what steps you can take to make the following day even better.',
+                ),
+                buildPoint(
+                  context,
+                  'good_deed',
+                  'Good Deed',
+                  ': Make it a daily practice to perform a good deed.',
+                ),
+                buildPoint(
+                  context,
+                  'goal_setting',
+                  'Goal Setting',
+                  ': Upon waking up, select one goal for the day and jot it down. In the evening, review your progress to see if you achieved it.',
+                ),
+                buildPoint(
+                  context,
+                  'hobbies',
+                  'Hobbies',
+                  ': Dedicate at least 30 minutes of your day to pursuing your hobbies.',
+                ),
+                buildPoint(
+                  context,
+                  'digital_detox',
+                  'Digital Detox',
+                  ': Avoid using any digital devices for 30 minutes after waking up and 30 minutes before going to sleep.',
+                ),
               ],
             ),
           ],

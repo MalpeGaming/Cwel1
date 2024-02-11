@@ -18,11 +18,15 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
   TextEditingController height = TextEditingController();
   TextEditingController weight = TextEditingController();
 
-  SizedBox buildButton(BuildContext context, bool pressedNum, String text,
-      {bool oneOption = false,
-      double widthFactor = 0.15,
-      bool linked = true,
-      bool isGender = false,}) {
+  SizedBox buildButton(
+    BuildContext context,
+    bool pressedNum,
+    String text, {
+    bool oneOption = false,
+    double widthFactor = 0.15,
+    bool linked = true,
+    bool isGender = false,
+  }) {
     Size size = MediaQuery.of(context).size;
     return SizedBox(
       width: widthFactor * size.width,
@@ -38,8 +42,11 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
               if (weight.text.isNotEmpty &&
                   height.text.isNotEmpty &&
                   age.text.isNotEmpty) {
-                calcCal(double.parse(height.text) / 100.0,
-                    double.parse(weight.text), int.parse(age.text),);
+                calcCal(
+                  double.parse(height.text) / 100.0,
+                  double.parse(weight.text),
+                  int.parse(age.text),
+                );
               }
             });
           }
@@ -73,12 +80,18 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
     );
   }
 
-  Column buildQuery(BuildContext context, String text, int hintText,
-      String txt1, String txt2, TextEditingController controller,
-      {bool noForm = false,
-      double widthFactor = 0.15,
-      bool linked = true,
-      bool isGender = false,}) {
+  Column buildQuery(
+    BuildContext context,
+    String text,
+    int hintText,
+    String txt1,
+    String txt2,
+    TextEditingController controller, {
+    bool noForm = false,
+    double widthFactor = 0.15,
+    bool linked = true,
+    bool isGender = false,
+  }) {
     Size size = MediaQuery.of(context).size;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -102,8 +115,11 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                   onChanged: (String value) {
                     if (height.text.isNotEmpty && weight.text.isNotEmpty) {
                       setState(() {
-                        calcCal(double.parse(height.text) / 100.0,
-                            double.parse(weight.text), int.parse(age.text),);
+                        calcCal(
+                          double.parse(height.text) / 100.0,
+                          double.parse(weight.text),
+                          int.parse(age.text),
+                        );
                       });
                     }
                   },
@@ -125,23 +141,34 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                     ),
                     hintText: hintText.toString(),
                     hintStyle: TextStyle(
-                        color: Theme.of(context)
-                            .colorScheme
-                            .onSecondary
-                            .withOpacity(0.2),),
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onSecondary
+                          .withOpacity(0.2),
+                    ),
                   ),
                 ),
               ),
             if (!noForm) SizedBox(width: 0.025 * size.width),
-            buildButton(context, false, txt1,
-                oneOption: txt2 == "" ? true : false,
-                widthFactor: widthFactor,
-                linked: linked,
-                isGender: isGender,),
+            buildButton(
+              context,
+              false,
+              txt1,
+              oneOption: txt2 == "" ? true : false,
+              widthFactor: widthFactor,
+              linked: linked,
+              isGender: isGender,
+            ),
             SizedBox(width: 0.025 * size.width),
             if (txt2 != "")
-              buildButton(context, true, txt2,
-                  widthFactor: widthFactor, linked: linked, isGender: isGender,),
+              buildButton(
+                context,
+                true,
+                txt2,
+                widthFactor: widthFactor,
+                linked: linked,
+                isGender: isGender,
+              ),
           ],
         ),
       ],
@@ -222,8 +249,16 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                       isGender: true,
                     ),
                     SizedBox(height: 0.01 * size.height),
-                    buildQuery(context, "Age", 34, "years", "", age,
-                        widthFactor: 0.3, linked: false,),
+                    buildQuery(
+                      context,
+                      "Age",
+                      34,
+                      "years",
+                      "",
+                      age,
+                      widthFactor: 0.3,
+                      linked: false,
+                    ),
                     SizedBox(height: 0.01 * size.height),
                     buildQuery(context, "Height", 167, "cm", "in", height),
                     SizedBox(height: 0.01 * size.height),

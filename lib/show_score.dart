@@ -93,27 +93,29 @@ class _ShowScore extends State<ShowScore> {
                 children: <Widget>[
                   Center(
                     child: RichText(
-                        text: TextSpan(
-                          style: TextStyle(
-                              color: Theme.of(context).colorScheme.onSecondary,),
-                          children: [
-                            TextSpan(
-                              text: widget.subtitle.isEmpty
-                                  ? widget.title
-                                  : "${widget.title}\n",
-                              style: TextStyle(
-                                fontSize: size.width / 8,
-                              ),
-                            ),
-                            TextSpan(
-                              text: widget.subtitle,
-                              style: TextStyle(
-                                fontSize: size.width / 16,
-                              ),
-                            ),
-                          ],
+                      text: TextSpan(
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.onSecondary,
                         ),
-                        textAlign: TextAlign.center,),
+                        children: [
+                          TextSpan(
+                            text: widget.subtitle.isEmpty
+                                ? widget.title
+                                : "${widget.title}\n",
+                            style: TextStyle(
+                              fontSize: size.width / 8,
+                            ),
+                          ),
+                          TextSpan(
+                            text: widget.subtitle,
+                            style: TextStyle(
+                              fontSize: size.width / 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                   SizedBox(
                     height: size.height / 50,
@@ -125,8 +127,12 @@ class _ShowScore extends State<ShowScore> {
                   SizedBox(
                     height: size.height / 20,
                   ),
-                  scoreAxis(context, widget.yourScore,
-                      meanScores[widget.exercise]!, widget.maximum,),
+                  scoreAxis(
+                    context,
+                    widget.yourScore,
+                    meanScores[widget.exercise]!,
+                    widget.maximum,
+                  ),
                   SizedBox(
                     height: size.height / 25,
                   ),

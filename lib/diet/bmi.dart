@@ -29,15 +29,16 @@ class _BMI extends State<BMI> {
           startWidth: 30,
           endWidth: 30,
           shaderCallback: (bounds) => const RadialGradient(
-              center: Alignment.topLeft,
-              radius: 9,
-              colors: [
-                Color.fromARGB(255, 0, 102, 255),
-                Color.fromARGB(255, 0, 225, 255),
-                Color.fromARGB(255, 0, 255, 55),
-                Colors.yellow,
-                Colors.red,
-              ],).createShader(bounds),
+            center: Alignment.topLeft,
+            radius: 9,
+            colors: [
+              Color.fromARGB(255, 0, 102, 255),
+              Color.fromARGB(255, 0, 225, 255),
+              Color.fromARGB(255, 0, 255, 55),
+              Colors.yellow,
+              Colors.red,
+            ],
+          ).createShader(bounds),
         ),
       ],
       markerPointers: [
@@ -126,8 +127,14 @@ class _BMI extends State<BMI> {
     );
   }
 
-  Column buildQuery(BuildContext context, String text, int hintText,
-      String txt1, String txt2, TextEditingController controller,) {
+  Column buildQuery(
+    BuildContext context,
+    String text,
+    int hintText,
+    String txt1,
+    String txt2,
+    TextEditingController controller,
+  ) {
     Size size = MediaQuery.of(context).size;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -151,8 +158,10 @@ class _BMI extends State<BMI> {
                   onChanged: (String value) {
                     if (height.text.isNotEmpty && weight.text.isNotEmpty) {
                       setState(() {
-                        calcBMI(int.parse(height.text) / 100.0,
-                            int.parse(weight.text),);
+                        calcBMI(
+                          int.parse(height.text) / 100.0,
+                          int.parse(weight.text),
+                        );
                       });
                     }
                   },
