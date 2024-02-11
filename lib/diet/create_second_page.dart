@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:bulleted_list/bulleted_list.dart';
 
-createSecondPage(BuildContext context, String title, String link, String link2,
-    RichText text, List<String> list,
-    {bool doses = false,
-    String dosesLink = 'https://www.our_future_page.com',
-    RichText? txt,
-    String? funcText}) {
+createSecondPage(
+  BuildContext context,
+  String title,
+  String link,
+  String link2,
+  RichText text,
+  List<String> list, {
+  bool doses = false,
+  String dosesLink = 'https://www.our_future_page.com',
+  RichText? txt,
+  String? funcText,
+}) {
   if (funcText != null) {
     funcText = 'FUNCTION $funcText';
   } else {
@@ -44,12 +50,16 @@ createSecondPage(BuildContext context, String title, String link, String link2,
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('RECOMMENDED DOSES',
-                style: TextStyle(fontSize: size.width / 22)),
+            Text(
+              'RECOMMENDED DOSES',
+              style: TextStyle(fontSize: size.width / 22),
+            ),
             Text(
               'Data Source: ',
               style: TextStyle(
-                  fontSize: size.width / 30, fontWeight: FontWeight.bold),
+                fontSize: size.width / 30,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             InkWell(
               child: Text(

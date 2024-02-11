@@ -7,9 +7,14 @@ class ChartData {
   final double? y;
 }
 
-buildChart(BuildContext context, List<ChartData> chartData,
-    List<ChartData> chartData2, double interval, double h,
-    {String unit = 'g'}) {
+buildChart(
+  BuildContext context,
+  List<ChartData> chartData,
+  List<ChartData> chartData2,
+  double interval,
+  double h, {
+  String unit = 'g',
+}) {
   Size size = MediaQuery.of(context).size;
   return SizedBox(
     height: h * size.height,
@@ -25,8 +30,9 @@ buildChart(BuildContext context, List<ChartData> chartData,
               children: [
                 Container(
                   decoration: BoxDecoration(
-                      color: (series as BarSeries<ChartData, String>).color,
-                      borderRadius: const BorderRadius.all(Radius.circular(3))),
+                    color: (series as BarSeries<ChartData, String>).color,
+                    borderRadius: const BorderRadius.all(Radius.circular(3)),
+                  ),
                   width: 10,
                   height: 10,
                 ),
