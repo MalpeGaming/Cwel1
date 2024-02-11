@@ -114,7 +114,12 @@ class _Login3 extends State<Login3> {
                   3,
                 ),
                 createPoint(
-                    context, size, "None\n", " (no additional time)", 4),
+                  context,
+                  size,
+                  "None\n",
+                  " (no additional time)",
+                  4,
+                ),
               ],
             ),
             const Spacer(),
