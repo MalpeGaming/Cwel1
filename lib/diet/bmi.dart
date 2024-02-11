@@ -37,7 +37,7 @@ class _BMI extends State<BMI> {
                 Color.fromARGB(255, 0, 255, 55),
                 Colors.yellow,
                 Colors.red,
-              ]).createShader(bounds),
+              ],).createShader(bounds),
         ),
       ],
       markerPointers: [
@@ -127,7 +127,7 @@ class _BMI extends State<BMI> {
   }
 
   Column buildQuery(BuildContext context, String text, int hintText,
-      String txt1, String txt2, TextEditingController controller) {
+      String txt1, String txt2, TextEditingController controller,) {
     Size size = MediaQuery.of(context).size;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -152,7 +152,7 @@ class _BMI extends State<BMI> {
                     if (height.text.isNotEmpty && weight.text.isNotEmpty) {
                       setState(() {
                         calcBMI(int.parse(height.text) / 100.0,
-                            int.parse(weight.text));
+                            int.parse(weight.text),);
                       });
                     }
                   },

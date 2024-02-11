@@ -20,7 +20,7 @@ class _MemoryWordsState extends State<MemoryWords> {
   List<String> defs = [];
 
   static List<Map<String, String>> getRandomElements(
-      List<Map<String, String>> list) {
+      List<Map<String, String>> list,) {
     List<Map<String, String>> picked = [];
     for (int i = 0; i < 10; ++i) {
       final random = Random();
@@ -33,7 +33,7 @@ class _MemoryWordsState extends State<MemoryWords> {
   }
 
   static Column createPoint(List<Map<String, String>> list, int idx, Size size,
-      BuildContext context) {
+      BuildContext context,) {
     var keysList = list[idx].keys.toList();
     var valuesList = list[idx].values.toList();
     var word = keysList.isNotEmpty ? keysList[0] : '';
@@ -66,7 +66,7 @@ class _MemoryWordsState extends State<MemoryWords> {
   }
 
   Column createPoints(
-      List<Map<String, String>> list, Size size, BuildContext context) {
+      List<Map<String, String>> list, Size size, BuildContext context,) {
     List<Widget> points = [];
 
     for (int i = 0; i < list.length; ++i) {
@@ -178,7 +178,7 @@ class _MemoryWordsState extends State<MemoryWords> {
                 SizedBox(height: 0.02 * size.height),
                 Padding(
                   padding: EdgeInsets.only(
-                      left: 0.07 * size.width, right: 0.07 * size.width),
+                      left: 0.07 * size.width, right: 0.07 * size.width,),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

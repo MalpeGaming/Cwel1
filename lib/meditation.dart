@@ -10,7 +10,7 @@ class Meditation extends StatefulWidget {
 
 class _Meditation extends State<Meditation> {
   Column buildPoint(
-      BuildContext context, int num, Color? color, String txt1, String txt2) {
+      BuildContext context, int num, Color? color, String txt1, String txt2,) {
     Size size = MediaQuery.of(context).size;
     return Column(
       children: [
@@ -136,19 +136,19 @@ class _Meditation extends State<Meditation> {
             Column(
               children: [
                 buildPoint(context, 1, Colors.blue[100], 'Find a Quiet Place',
-                    ': You can either go outdoors or stay indoors.'),
+                    ': You can either go outdoors or stay indoors.',),
                 buildPoint(context, 2, Colors.green[100], 'Get Comfortable',
-                    ": You can sit on a cushion or chair, or even lie down if that's more comfortable for you."),
+                    ": You can sit on a cushion or chair, or even lie down if that's more comfortable for you.",),
                 buildPoint(context, 3, Colors.orange[100], 'Set a Timer',
-                    ': I recommend starting with 1 minute.'),
+                    ': I recommend starting with 1 minute.',),
                 buildPoint(
                     context,
                     4,
                     Colors.red[100],
                     'Close Your Eyes and Focus on Your Breath',
-                    ': Do your best to stop thinking and relax : )'),
+                    ': Do your best to stop thinking and relax : )',),
                 buildPoint(context, 5, Colors.purple[100], 'Practice Daily',
-                    ': Even 2 minutes will make a difference.'),
+                    ': Even 2 minutes will make a difference.',),
               ],
             ),
           ],

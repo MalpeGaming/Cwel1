@@ -26,7 +26,7 @@ class _Omega3 extends State<Omega3> {
       ChartData('51+ years', 1.2),
       ChartData('19-50 years', 1.6),
       ChartData('14-18 years', 1.6),
-      ChartData('9-13 years', 1.2)
+      ChartData('9-13 years', 1.2),
     ];
 
     Size size = MediaQuery.of(context).size;
@@ -74,7 +74,7 @@ class _Omega3 extends State<Omega3> {
                 Text(
                   'Data Source: ',
                   style: TextStyle(
-                      fontSize: size.width / 30, fontWeight: FontWeight.bold),
+                      fontSize: size.width / 30, fontWeight: FontWeight.bold,),
                 ),
                 Expanded(
                   child: InkWell(
@@ -89,7 +89,7 @@ class _Omega3 extends State<Omega3> {
                       ),
                     ),
                     onTap: () => launchUrl(Uri.parse(
-                        'https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/#h2')),
+                        'https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/#h2',),),
                   ),
                 ),
               ],
@@ -160,7 +160,7 @@ class _Omega3V2 extends State<Omega3V2> {
                     ),
                     TextSpan(
                         text:
-                            '; furthermore, omega-3 treatments are beneficial, well-tolerated, and pose minimal risks.'),
+                            '; furthermore, omega-3 treatments are beneficial, well-tolerated, and pose minimal risks.',),
                   ],
                 ),
               ),

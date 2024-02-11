@@ -25,7 +25,7 @@ class _TitlePageState extends State<TitlePage> {
               left: size.width / 10,
               right: size.width / 10,
               top: size.height / 15,
-              bottom: size.height / 10),
+              bottom: size.height / 10,),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -34,7 +34,7 @@ class _TitlePageState extends State<TitlePage> {
                 style: TextStyle(
                     fontSize: size.width / 10,
                     fontWeight: FontWeight.w500,
-                    height: 1),
+                    height: 1,),
                 textAlign: TextAlign.center,
               ),
               SizedBox(

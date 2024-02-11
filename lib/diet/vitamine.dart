@@ -70,7 +70,7 @@ class _VitaminE extends State<VitaminE> {
                 Text(
                   'Data Source: ',
                   style: TextStyle(
-                      fontSize: size.width / 30, fontWeight: FontWeight.bold),
+                      fontSize: size.width / 30, fontWeight: FontWeight.bold,),
                 ),
                 Expanded(
                   child: InkWell(
@@ -85,7 +85,7 @@ class _VitaminE extends State<VitaminE> {
                       ),
                     ),
                     onTap: () => launchUrl(Uri.parse(
-                        'https://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/#h2')),
+                        'https://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/#h2',),),
                   ),
                 ),
               ],

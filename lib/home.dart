@@ -54,7 +54,7 @@ class _Home extends State<Home> {
             Text(
               "Base program",
               style: TextStyle(
-                  fontSize: size.width / 17, fontWeight: FontWeight.w700),
+                  fontSize: size.width / 17, fontWeight: FontWeight.w700,),
             ),
             ListTile(
               autofocus: true,
@@ -66,7 +66,7 @@ class _Home extends State<Home> {
                 splashRadius: 25,
                 onChanged: (value) {},
               ),
-            )
+            ),
           ],
         ),
       ),

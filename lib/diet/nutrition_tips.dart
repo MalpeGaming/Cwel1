@@ -52,7 +52,7 @@ class _NutritionTips extends State<NutritionTips> {
             SizedBox(height: 0.05 * size.height),
             createActivity(context, "diet/bmi", "Calculate your BMI.", "",
                 0.03 * size.height, const BMI(),
-                zero: 0),
+                zero: 0,),
             createActivity(
                 context,
                 "diet/calorie_req",
@@ -60,7 +60,7 @@ class _NutritionTips extends State<NutritionTips> {
                 "",
                 0.025 * size.height,
                 const CalRequirementsCalc(),
-                zero: 0),
+                zero: 0,),
             createActivity(
                 context,
                 "diet/supplements",
@@ -68,7 +68,7 @@ class _NutritionTips extends State<NutritionTips> {
                 "",
                 0.025 * size.height,
                 const BrainSupplements(),
-                zero: 0),
+                zero: 0,),
             createActivity(
                 context,
                 "diet/should_avoid",
@@ -76,7 +76,7 @@ class _NutritionTips extends State<NutritionTips> {
                 "",
                 0.025 * size.height,
                 const FoodTable(),
-                zero: 0),
+                zero: 0,),
           ],
         ),
       ),

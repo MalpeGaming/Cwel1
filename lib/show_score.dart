@@ -95,7 +95,7 @@ class _ShowScore extends State<ShowScore> {
                     child: RichText(
                         text: TextSpan(
                           style: TextStyle(
-                              color: Theme.of(context).colorScheme.onSecondary),
+                              color: Theme.of(context).colorScheme.onSecondary,),
                           children: [
                             TextSpan(
                               text: widget.subtitle.isEmpty
@@ -110,10 +110,10 @@ class _ShowScore extends State<ShowScore> {
                               style: TextStyle(
                                 fontSize: size.width / 16,
                               ),
-                            )
+                            ),
                           ],
                         ),
-                        textAlign: TextAlign.center),
+                        textAlign: TextAlign.center,),
                   ),
                   SizedBox(
                     height: size.height / 50,
@@ -126,7 +126,7 @@ class _ShowScore extends State<ShowScore> {
                     height: size.height / 20,
                   ),
                   scoreAxis(context, widget.yourScore,
-                      meanScores[widget.exercise]!, widget.maximum),
+                      meanScores[widget.exercise]!, widget.maximum,),
                   SizedBox(
                     height: size.height / 25,
                   ),
@@ -205,7 +205,7 @@ class _ShowScore extends State<ShowScore> {
                               Text(
                                 "NO",
                                 style: TextStyle(fontSize: size.width / 25),
-                              )
+                              ),
                             ],
                           ),
                           backgroundColor: Colors.red[500],

@@ -63,11 +63,11 @@ class _StartButtonState extends State<StartButton> {
                 widget.text,
                 style: TextStyle(
                     fontSize: widget.width / 16,
-                    color: const Color.fromARGB(255, 224, 246, 255)),
+                    color: const Color.fromARGB(255, 224, 246, 255),),
               ),
             ),
           ),
-        ).animate(target: hovered ? 1 : 0).scaleXY(end: 1.1));
+        ).animate(target: hovered ? 1 : 0).scaleXY(end: 1.1),);
   }
 }
 
@@ -166,7 +166,7 @@ class _RedirectButtonState extends State<RedirectButton> {
                   child: Text(
                     widget.text,
                     style: TextStyle(
-                        fontSize: widget.width / 16, color: Colors.white),
+                        fontSize: widget.width / 16, color: Colors.white,),
                   ),
                 ),
         )
@@ -176,8 +176,8 @@ class _RedirectButtonState extends State<RedirectButton> {
             .shake(
                 hz: 4,
                 rotation: 0.15,
-                duration: const Duration(milliseconds: 250))
-            .scaleXY(end: 1.2));
+                duration: const Duration(milliseconds: 250),)
+            .scaleXY(end: 1.2),);
   }
 }
 
@@ -246,7 +246,7 @@ class _ImprovementButtonState extends State<ImprovementButton> {
                   widget.text,
                   style: TextStyle(
                       fontSize: widget.width / 16,
-                      color: Theme.of(context).colorScheme.tertiary),
+                      color: Theme.of(context).colorScheme.tertiary,),
                 ),
               ),
             ),

@@ -21,7 +21,7 @@ class _ThirdAttentionExerciseDesc extends State<ThirdAttentionExerciseDesc> {
           margin: EdgeInsets.only(
               left: size.width / 10,
               right: size.width / 10,
-              top: size.height / 20),
+              top: size.height / 20,),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -34,7 +34,7 @@ class _ThirdAttentionExerciseDesc extends State<ThirdAttentionExerciseDesc> {
                           style: TextStyle(
                             fontSize: size.width / 8,
                           ),
-                          textAlign: TextAlign.center),
+                          textAlign: TextAlign.center,),
                     ),
                     SizedBox(
                       height: size.height / 50,
@@ -60,7 +60,7 @@ class _ThirdAttentionExerciseDesc extends State<ThirdAttentionExerciseDesc> {
                     SizedBox(
                       height: size.height / 30,
                     ),
-                  ]),
+                  ],),
               Center(
                 child: SizedBox(
                   height: size.height * 0.05,

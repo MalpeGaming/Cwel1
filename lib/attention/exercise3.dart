@@ -29,7 +29,7 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
     81,
     800,
     7,
-    6
+    6,
   ];
   List<double> userAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
@@ -111,7 +111,7 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
         ),
         SizedBox(
           height: size.height / 50,
-        )
+        ),
       ],
     );
   }
@@ -137,7 +137,7 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
         ),
         const SizedBox(
           width: 5,
-        )
+        ),
       ],
     );
   }
@@ -156,7 +156,7 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
           mathStyle: MathStyle.display,
           textStyle: TextStyle(fontSize: smallText),
         ),
-        const Text(" is ")
+        const Text(" is "),
       ],
     );
   }
@@ -260,7 +260,7 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
                                 ),
                                 equasion(
                                   createEquasion(smallText,
-                                      r"\frac{7}{8} + \frac{3}{4} = "),
+                                      r"\frac{7}{8} + \frac{3}{4} = ",),
                                   size,
                                 ),
                                 equasion(
@@ -269,7 +269,7 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
                                 ),
                                 equasion(
                                   createEquasion2(
-                                      smallText, r"\frac{2}{5}", r"2000"),
+                                      smallText, r"\frac{2}{5}", r"2000",),
                                   size,
                                 ),
                                 SizedBox(
@@ -304,7 +304,7 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
                   Text(
                     "Find x:",
                     style: TextStyle(
-                        fontSize: size.width / 24, fontWeight: FontWeight.bold),
+                        fontSize: size.width / 24, fontWeight: FontWeight.bold,),
                   ),
                   Container(
                     margin: EdgeInsets.only(
@@ -319,7 +319,7 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
                               r"3x - 7 = 14",
                               mathStyle: MathStyle.display,
                               textStyle: TextStyle(fontSize: smallText),
-                            )
+                            ),
                           ],
                         ),
                         equasion(
@@ -334,7 +334,7 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
                               r"2x + 5 = 17",
                               mathStyle: MathStyle.display,
                               textStyle: TextStyle(fontSize: smallText),
-                            )
+                            ),
                           ],
                         ),
                         equasion(
@@ -344,7 +344,7 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
               Center(
@@ -386,7 +386,7 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
               ),
               SizedBox(
                 height: size.height / 25,
-              )
+              ),
             ],
           ),
         ),

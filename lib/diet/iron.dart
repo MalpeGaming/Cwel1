@@ -26,7 +26,7 @@ class _Iron extends State<Iron> {
       ChartData('51+ years', 8),
       ChartData('19-50 years', 18),
       ChartData('14-18 years', 11),
-      ChartData('9-13 years', 1)
+      ChartData('9-13 years', 1),
     ];
 
     Size size = MediaQuery.of(context).size;
@@ -74,7 +74,7 @@ class _Iron extends State<Iron> {
                 Text(
                   'Data Source: ',
                   style: TextStyle(
-                      fontSize: size.width / 30, fontWeight: FontWeight.bold),
+                      fontSize: size.width / 30, fontWeight: FontWeight.bold,),
                 ),
                 Expanded(
                   child: InkWell(
@@ -89,7 +89,7 @@ class _Iron extends State<Iron> {
                       ),
                     ),
                     onTap: () => launchUrl(Uri.parse(
-                        'https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/')),
+                        'https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/',),),
                   ),
                 ),
               ],

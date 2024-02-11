@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 SfLinearGauge scoreAxis(
-    BuildContext context, double yourScore, double meanScore, double maximum) {
+    BuildContext context, double yourScore, double meanScore, double maximum,) {
   return SfLinearGauge(
     showAxisTrack: false,
     showTicks: false,
@@ -21,8 +21,8 @@ SfLinearGauge scoreAxis(
               Colors.red,
               Colors.yellow,
               Colors.green,
-            ]).createShader(bounds),
-      )
+            ],).createShader(bounds),
+      ),
     ],
     markerPointers: [
       LinearShapePointer(

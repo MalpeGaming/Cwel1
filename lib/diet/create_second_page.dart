@@ -7,7 +7,7 @@ createSecondPage(BuildContext context, String title, String link, String link2,
     {bool doses = false,
     String dosesLink = 'https://www.our_future_page.com',
     RichText? txt,
-    String? funcText}) {
+    String? funcText,}) {
   if (funcText != null) {
     funcText = 'FUNCTION $funcText';
   } else {
@@ -45,11 +45,11 @@ createSecondPage(BuildContext context, String title, String link, String link2,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('RECOMMENDED DOSES',
-                style: TextStyle(fontSize: size.width / 22)),
+                style: TextStyle(fontSize: size.width / 22),),
             Text(
               'Data Source: ',
               style: TextStyle(
-                  fontSize: size.width / 30, fontWeight: FontWeight.bold),
+                  fontSize: size.width / 30, fontWeight: FontWeight.bold,),
             ),
             InkWell(
               child: Text(

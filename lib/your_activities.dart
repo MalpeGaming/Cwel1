@@ -11,9 +11,15 @@ class YourActivities extends StatefulWidget {
   State<YourActivities> createState() => _YourActivities();
 }
 
-GestureDetector createActivity(BuildContext context, String img, String text1,
-    String text2, double fontSize, Widget route,
-    {int zero = 1}) {
+GestureDetector createActivity(
+  BuildContext context,
+  String img,
+  String text1,
+  String text2,
+  double fontSize,
+  Widget route, {
+  int zero = 1,
+}) {
   Size size = MediaQuery.of(context).size;
   return GestureDetector(
     onTap: () {
@@ -112,7 +118,9 @@ class _YourActivities extends State<YourActivities> {
               child: Text(
                 "YOUR ACTIVITIES",
                 style: TextStyle(
-                    fontSize: size.width / 10, fontWeight: FontWeight.w500),
+                  fontSize: size.width / 10,
+                  fontWeight: FontWeight.w500,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -183,13 +191,14 @@ class _YourActivities extends State<YourActivities> {
                           const YourActivities(),
                         ),
                         createActivity(
-                            context,
-                            "activities/meditation",
-                            "MEDITATION",
-                            "",
-                            0.025 * size.height,
-                            const Meditation(),
-                            zero: 0),
+                          context,
+                          "activities/meditation",
+                          "MEDITATION",
+                          "",
+                          0.025 * size.height,
+                          const Meditation(),
+                          zero: 0,
+                        ),
                       ],
                     ),
                   ),

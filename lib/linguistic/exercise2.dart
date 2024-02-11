@@ -58,7 +58,7 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
           margin: EdgeInsets.only(
               left: size.width / 10,
               right: size.width / 10,
-              top: size.height / 20),
+              top: size.height / 20,),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -71,7 +71,7 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
                         text: TextSpan(
                             style: TextStyle(
                                 color:
-                                    Theme.of(context).colorScheme.onSecondary),
+                                    Theme.of(context).colorScheme.onSecondary,),
                             children: [
                               TextSpan(
                                 text: "LINGUISTIC\n",
@@ -85,8 +85,8 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
                                   fontSize: size.width / 16,
                                 ),
                               ),
-                            ]),
-                        textAlign: TextAlign.center),
+                            ],),
+                        textAlign: TextAlign.center,),
                   ),
                   SizedBox(
                     height: size.height / 50,
@@ -102,11 +102,11 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
                     text: TextSpan(
                       style: TextStyle(
                           fontSize: size.width / 24,
-                          color: Theme.of(context).colorScheme.onSecondary),
+                          color: Theme.of(context).colorScheme.onSecondary,),
                       children: const <TextSpan>[
                         TextSpan(
                             text:
-                                "In this exercise you will complete part of the "),
+                                "In this exercise you will complete part of the ",),
                         TextSpan(
                           text: "SAT literature Reading Part.",
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -121,7 +121,7 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
                     text: TextSpan(
                       style: TextStyle(
                           fontSize: size.width / 24,
-                          color: Theme.of(context).colorScheme.onSecondary),
+                          color: Theme.of(context).colorScheme.onSecondary,),
                       children: const <TextSpan>[
                         TextSpan(text: "You will have "),
                         TextSpan(
@@ -135,7 +135,7 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
                         ),
                         TextSpan(
                             text:
-                                ", and turn it on when you begin the exercise."),
+                                ", and turn it on when you begin the exercise.",),
                       ],
                     ),
                   ),
@@ -145,7 +145,7 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
                   Text("Click on the link to see the free exercise.",
                       style: TextStyle(
                           fontSize: size.width / 24,
-                          fontStyle: FontStyle.italic)),
+                          fontStyle: FontStyle.italic,),),
                   languageLevel.isEmpty
                       ? const Center(child: CircularProgressIndicator())
                       : AnyLinkPreview(
@@ -157,7 +157,7 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
                           backgroundColor:
                               Theme.of(context).colorScheme.onSecondary,
                           titleStyle: TextStyle(
-                              color: Theme.of(context).colorScheme.onPrimary),
+                              color: Theme.of(context).colorScheme.onPrimary,),
                           showMultimedia: false,
                         ),
                   SizedBox(
@@ -170,7 +170,7 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
                   SizedBox(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 8),
+                          horizontal: 8, vertical: 8,),
                       child: TextField(
                           style: TextStyle(fontSize: size.width / 24),
                           keyboardType: TextInputType.number,
@@ -187,7 +187,7 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
                                 score = double.parse(text);
                                 text += "%";
                                 return TextEditingValue(
-                                    text: text, selection: newValue.selection);
+                                    text: text, selection: newValue.selection,);
                               }
                               return oldValue;
                             }),
@@ -195,11 +195,11 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
                           maxLines: 1,
                           decoration: InputDecoration(
                               contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 0, horizontal: 12),
+                                  vertical: 0, horizontal: 12,),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              hintText: "4%")),
+                              hintText: "4%",),),
                     ),
                   ),
                 ],
@@ -221,7 +221,7 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
                               yourScore: score,
                               maximum: 100,
                               page: const Login1(),
-                              subtitle: "INTELLIGENCE"),
+                              subtitle: "INTELLIGENCE",),
                         ),
                       );
                     },

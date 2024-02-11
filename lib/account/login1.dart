@@ -10,7 +10,7 @@ class Login1 extends StatefulWidget {
 }
 
 Column createForm(Size size, String label, String hint,
-    TextEditingController textController) {
+    TextEditingController textController,) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -26,7 +26,7 @@ Column createForm(Size size, String label, String hint,
           inputFormatters: [
             TextInputFormatter.withFunction((oldValue, newValue) {
               return newValue;
-            })
+            }),
           ],
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(
@@ -51,7 +51,7 @@ Column createForm(Size size, String label, String hint,
             hintStyle: const TextStyle(
                 fontSize: 16.0,
                 color: Colors.grey,
-                fontWeight: FontWeight.w300),
+                fontWeight: FontWeight.w300,),
           ),
         ),
       ),
@@ -88,10 +88,10 @@ class _Login1 extends State<Login1> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 createForm(size, "Please Enter Your E-Mail", "sth@example.com",
-                    textController1),
+                    textController1,),
                 SizedBox(height: 0.05 * size.height),
                 createForm(size, "Please Enter Your Password", "MyPassword123",
-                    textController2),
+                    textController2,),
               ],
             ),
             const Spacer(),

@@ -7,7 +7,7 @@ import 'package:path_provider/path_provider.dart';
 
 class LangCheckList extends StatefulWidget {
   const LangCheckList(
-      {super.key, required this.size, required this.onOptionSelected});
+      {super.key, required this.size, required this.onOptionSelected,});
 
   final Size size;
   final Function(int?) onOptionSelected;
@@ -91,8 +91,8 @@ class _LanguageLevelSelectionState extends State<LanguageLevelSelection> {
     builder.element('root', nest: () {
       builder.element("level", nest: () {
         builder.text(level);
-      });
-    });
+      },);
+    },);
 
     var document =
         XmlDocument.parse(builder.buildDocument().toXmlString(pretty: true));
@@ -115,20 +115,20 @@ class _LanguageLevelSelectionState extends State<LanguageLevelSelection> {
         margin: EdgeInsets.only(
             left: size.width / 40,
             right: size.width / 40,
-            top: size.height / 10),
+            top: size.height / 10,),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
               margin: EdgeInsets.only(
-                  left: size.width / 10, right: size.width / 10),
+                  left: size.width / 10, right: size.width / 10,),
               child: Text("WHAT IS YOUR CURRENT ENGLISH LEVEL?",
                   style: TextStyle(
                       fontSize: size.width / 13,
                       fontWeight: FontWeight.bold,
-                      color: Theme.of(context).colorScheme.onSecondary),
-                  textAlign: TextAlign.center),
+                      color: Theme.of(context).colorScheme.onSecondary,),
+                  textAlign: TextAlign.center,),
             ),
             SizedBox(height: 0.05 * size.height),
             LangCheckList(

@@ -20,7 +20,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
         margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
-            top: size.height / 10),
+            top: size.height / 10,),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -28,19 +28,19 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
                 style: TextStyle(
                     fontSize: size.width / 13,
                     fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.onPrimary),
-                textAlign: TextAlign.center),
+                    color: Theme.of(context).colorScheme.onPrimary,),
+                textAlign: TextAlign.center,),
             SizedBox(height: 0.03 * size.height),
             Text(
                 "When you click on the button, you will be transported to the specific quiz part.",
                 style: TextStyle(fontSize: size.width / 23),
-                textAlign: TextAlign.center),
+                textAlign: TextAlign.center,),
             SizedBox(height: 0.01 * size.height),
             RichText(
                 text: TextSpan(
                   style: TextStyle(
                       fontSize: size.width / 23,
-                      color: Theme.of(context).colorScheme.onSecondary),
+                      color: Theme.of(context).colorScheme.onSecondary,),
                   children: const <TextSpan>[
                     TextSpan(text: 'You can '),
                     TextSpan(
@@ -49,7 +49,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
                     ),
                   ],
                 ),
-                textAlign: TextAlign.center),
+                textAlign: TextAlign.center,),
             const Spacer(),
             ImprovementButton(
               text: "Memory",

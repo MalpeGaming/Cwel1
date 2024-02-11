@@ -22,7 +22,7 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
       {bool oneOption = false,
       double widthFactor = 0.15,
       bool linked = true,
-      bool isGender = false}) {
+      bool isGender = false,}) {
     Size size = MediaQuery.of(context).size;
     return SizedBox(
       width: widthFactor * size.width,
@@ -39,7 +39,7 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                   height.text.isNotEmpty &&
                   age.text.isNotEmpty) {
                 calcCal(double.parse(height.text) / 100.0,
-                    double.parse(weight.text), int.parse(age.text));
+                    double.parse(weight.text), int.parse(age.text),);
               }
             });
           }
@@ -78,7 +78,7 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
       {bool noForm = false,
       double widthFactor = 0.15,
       bool linked = true,
-      bool isGender = false}) {
+      bool isGender = false,}) {
     Size size = MediaQuery.of(context).size;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -103,7 +103,7 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                     if (height.text.isNotEmpty && weight.text.isNotEmpty) {
                       setState(() {
                         calcCal(double.parse(height.text) / 100.0,
-                            double.parse(weight.text), int.parse(age.text));
+                            double.parse(weight.text), int.parse(age.text),);
                       });
                     }
                   },
@@ -128,7 +128,7 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                         color: Theme.of(context)
                             .colorScheme
                             .onSecondary
-                            .withOpacity(0.2)),
+                            .withOpacity(0.2),),
                   ),
                 ),
               ),
@@ -137,11 +137,11 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                 oneOption: txt2 == "" ? true : false,
                 widthFactor: widthFactor,
                 linked: linked,
-                isGender: isGender),
+                isGender: isGender,),
             SizedBox(width: 0.025 * size.width),
             if (txt2 != "")
               buildButton(context, true, txt2,
-                  widthFactor: widthFactor, linked: linked, isGender: isGender),
+                  widthFactor: widthFactor, linked: linked, isGender: isGender,),
           ],
         ),
       ],
@@ -209,14 +209,21 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    buildQuery(context, "", 34, "Man", "Woman", age,
-                        noForm: true,
-                        widthFactor: 0.3,
-                        linked: false,
-                        isGender: true),
+                    buildQuery(
+                      context,
+                      "",
+                      34,
+                      "Man",
+                      "Woman",
+                      age,
+                      noForm: true,
+                      widthFactor: 0.3,
+                      linked: false,
+                      isGender: true,
+                    ),
                     SizedBox(height: 0.01 * size.height),
                     buildQuery(context, "Age", 34, "years", "", age,
-                        widthFactor: 0.3, linked: false),
+                        widthFactor: 0.3, linked: false,),
                     SizedBox(height: 0.01 * size.height),
                     buildQuery(context, "Height", 167, "cm", "in", height),
                     SizedBox(height: 0.01 * size.height),
@@ -231,13 +238,14 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                         children: [
                           const TextSpan(text: "Your "),
                           const TextSpan(
-                              text: "BASE",
-                              style: TextStyle(fontWeight: FontWeight.bold)),
+                            text: "BASE",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                           const TextSpan(text: " calorie requirements are "),
                           TextSpan(
-                              text: "${cal}kcal/day",
-                              style:
-                                  const TextStyle(fontWeight: FontWeight.bold))
+                            text: "${cal}kcal/day",
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          ),
                         ],
                       ),
                     ),

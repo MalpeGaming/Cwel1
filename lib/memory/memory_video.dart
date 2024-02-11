@@ -45,7 +45,7 @@ class _MemoryVideo extends State<MemoryVideo> {
           margin: EdgeInsets.only(
               left: size.width / 10,
               right: size.width / 10,
-              top: size.height / 20),
+              top: size.height / 20,),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -58,7 +58,7 @@ class _MemoryVideo extends State<MemoryVideo> {
                         style: TextStyle(
                           fontSize: size.width / 8,
                         ),
-                        textAlign: TextAlign.center),
+                        textAlign: TextAlign.center,),
                   ),
                   SizedBox(
                     height: size.height / 50,
@@ -90,7 +90,7 @@ class _MemoryVideo extends State<MemoryVideo> {
                   SizedBox(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 8),
+                          horizontal: 8, vertical: 8,),
                       child: TextField(
                         controller: textController,
                         style: TextStyle(fontSize: size.width / 24),
@@ -109,11 +109,11 @@ class _MemoryVideo extends State<MemoryVideo> {
                         maxLines: 1,
                         decoration: InputDecoration(
                             contentPadding: const EdgeInsets.symmetric(
-                                vertical: 0, horizontal: 12),
+                                vertical: 0, horizontal: 12,),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            hintText: "9"),
+                            hintText: "9",),
                       ),
                     ),
                   ),

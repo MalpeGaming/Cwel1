@@ -58,7 +58,7 @@ class _SecondAttentionExercise extends State<SecondAttentionExercise> {
           margin: EdgeInsets.only(
               left: size.width / 10,
               right: size.width / 10,
-              top: size.height / 20),
+              top: size.height / 20,),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -71,7 +71,7 @@ class _SecondAttentionExercise extends State<SecondAttentionExercise> {
                           style: TextStyle(
                             fontSize: size.width / 8,
                           ),
-                          textAlign: TextAlign.center),
+                          textAlign: TextAlign.center,),
                     ),
                     SizedBox(
                       height: size.height / 50,
@@ -101,7 +101,7 @@ class _SecondAttentionExercise extends State<SecondAttentionExercise> {
                             backgroundColor:
                                 Theme.of(context).colorScheme.onSecondary,
                             titleStyle: TextStyle(
-                                color: Theme.of(context).colorScheme.onPrimary),
+                                color: Theme.of(context).colorScheme.onPrimary,),
                             showMultimedia: false,
                           ),
                     SizedBox(
@@ -114,7 +114,7 @@ class _SecondAttentionExercise extends State<SecondAttentionExercise> {
                     SizedBox(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 8),
+                            horizontal: 8, vertical: 8,),
                         child: TextField(
                           style: TextStyle(fontSize: size.width / 24),
                           keyboardType: TextInputType.number,
@@ -131,7 +131,7 @@ class _SecondAttentionExercise extends State<SecondAttentionExercise> {
                                 score = double.parse(text);
                                 text += "%";
                                 return TextEditingValue(
-                                    text: text, selection: newValue.selection);
+                                    text: text, selection: newValue.selection,);
                               }
                               return oldValue;
                             }),
@@ -139,15 +139,15 @@ class _SecondAttentionExercise extends State<SecondAttentionExercise> {
                           maxLines: 1,
                           decoration: InputDecoration(
                               contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 0, horizontal: 12),
+                                  vertical: 0, horizontal: 12,),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              hintText: "5%"),
+                              hintText: "5%",),
                         ),
                       ),
                     ),
-                  ]),
+                  ],),
               Center(
                 heightFactor: 1,
                 child: SizedBox(

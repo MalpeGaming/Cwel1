@@ -58,7 +58,7 @@ class _FirstLinguisticExercise extends State<FirstLinguisticExercise> {
           margin: EdgeInsets.only(
               left: size.width / 10,
               right: size.width / 10,
-              top: size.height / 20),
+              top: size.height / 20,),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -72,7 +72,7 @@ class _FirstLinguisticExercise extends State<FirstLinguisticExercise> {
                               style: TextStyle(
                                   color: Theme.of(context)
                                       .colorScheme
-                                      .onSecondary),
+                                      .onSecondary,),
                               children: [
                                 TextSpan(
                                   text: "LINGUISTIC\n",
@@ -85,9 +85,9 @@ class _FirstLinguisticExercise extends State<FirstLinguisticExercise> {
                                   style: TextStyle(
                                     fontSize: size.width / 16,
                                   ),
-                                )
-                              ]),
-                          textAlign: TextAlign.center),
+                                ),
+                              ],),
+                          textAlign: TextAlign.center,),
                     ),
                     SizedBox(
                       height: size.height / 50,
@@ -117,7 +117,7 @@ class _FirstLinguisticExercise extends State<FirstLinguisticExercise> {
                             backgroundColor:
                                 Theme.of(context).colorScheme.onSecondary,
                             titleStyle: TextStyle(
-                                color: Theme.of(context).colorScheme.onPrimary),
+                                color: Theme.of(context).colorScheme.onPrimary,),
                             showMultimedia: false,
                           ),
                     SizedBox(
@@ -130,7 +130,7 @@ class _FirstLinguisticExercise extends State<FirstLinguisticExercise> {
                     SizedBox(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 8),
+                            horizontal: 8, vertical: 8,),
                         child: TextField(
                           style: TextStyle(fontSize: size.width / 24),
                           keyboardType: TextInputType.number,
@@ -147,7 +147,7 @@ class _FirstLinguisticExercise extends State<FirstLinguisticExercise> {
                                 score = double.parse(text);
                                 text += "%";
                                 return TextEditingValue(
-                                    text: text, selection: newValue.selection);
+                                    text: text, selection: newValue.selection,);
                               }
                               return oldValue;
                             }),
@@ -155,15 +155,15 @@ class _FirstLinguisticExercise extends State<FirstLinguisticExercise> {
                           maxLines: 1,
                           decoration: InputDecoration(
                               contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 0, horizontal: 12),
+                                  vertical: 0, horizontal: 12,),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              hintText: "5%"),
+                              hintText: "5%",),
                         ),
                       ),
                     ),
-                  ]),
+                  ],),
               Center(
                 heightFactor: 1,
                 child: SizedBox(
@@ -182,7 +182,7 @@ class _FirstLinguisticExercise extends State<FirstLinguisticExercise> {
                               yourScore: score,
                               maximum: 100,
                               page: const SecondLinguisticExercise(),
-                              subtitle: "INTELLIGENCE"),
+                              subtitle: "INTELLIGENCE",),
                         ),
                       );
                     },
