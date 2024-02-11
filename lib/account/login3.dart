@@ -15,7 +15,12 @@ class _Login3 extends State<Login3> {
   int? selectedOption;
 
   ListTile createPoint(
-      BuildContext context, Size size, String text1, String text2, int val) {
+    BuildContext context,
+    Size size,
+    String text1,
+    String text2,
+    int val,
+  ) {
     return ListTile(
       title: RichText(
         text: TextSpan(
@@ -87,13 +92,34 @@ class _Login3 extends State<Login3> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                createPoint(context, size, "Sport\n",
-                    " (on average 15 min per day)", 1),
-                createPoint(context, size, "Wellness Activities\n",
-                    " (5 min per day)", 2),
                 createPoint(
-                    context, size, "Both\n", " (on average 17 min per day)", 3),
-                createPoint(context, size, "None\n", " (no additional time)", 4)
+                  context,
+                  size,
+                  "Sport\n",
+                  " (on average 15 min per day)",
+                  1,
+                ),
+                createPoint(
+                  context,
+                  size,
+                  "Wellness Activities\n",
+                  " (5 min per day)",
+                  2,
+                ),
+                createPoint(
+                  context,
+                  size,
+                  "Both\n",
+                  " (on average 17 min per day)",
+                  3,
+                ),
+                createPoint(
+                  context,
+                  size,
+                  "None\n",
+                  " (no additional time)",
+                  4,
+                ),
               ],
             ),
             const Spacer(),

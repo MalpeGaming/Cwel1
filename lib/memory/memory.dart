@@ -27,7 +27,9 @@ class _Memory extends State<Memory> {
           SizedBox(height: 0.02 * size.height),
           Padding(
             padding: EdgeInsets.only(
-                left: 0.07 * size.width, right: 0.07 * size.width),
+              left: 0.07 * size.width,
+              right: 0.07 * size.width,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

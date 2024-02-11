@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 SfLinearGauge scoreAxis(
-    BuildContext context, double yourScore, double meanScore, double maximum) {
+  BuildContext context,
+  double yourScore,
+  double meanScore,
+  double maximum,
+) {
   return SfLinearGauge(
     showAxisTrack: false,
     showTicks: false,
@@ -15,14 +19,15 @@ SfLinearGauge scoreAxis(
         startWidth: 25,
         endWidth: 25,
         shaderCallback: (bounds) => const RadialGradient(
-            center: Alignment.topLeft,
-            radius: 12.5,
-            colors: [
-              Colors.red,
-              Colors.yellow,
-              Colors.green,
-            ]).createShader(bounds),
-      )
+          center: Alignment.topLeft,
+          radius: 12.5,
+          colors: [
+            Colors.red,
+            Colors.yellow,
+            Colors.green,
+          ],
+        ).createShader(bounds),
+      ),
     ],
     markerPointers: [
       LinearShapePointer(
