@@ -88,6 +88,8 @@ flutter:
     - assets/activities/
     - assets/diet/
     - assets/self_reflection/
+    - assets/memory/memory_game/
+    - assets/memory/memory_game/cats/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
