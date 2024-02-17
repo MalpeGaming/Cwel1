@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
+import 'dart:async';
 import '../your_activities.dart';
 import '../app_bar.dart';
 
@@ -16,6 +18,9 @@ class _MemoryGame2 extends State<MemoryGame2> {
   int? firstTapped;
   int? secondTapped;
 
+  int _time = 0;
+  int flipped = 0;
+
   @override
   void initState() {
     super.initState();
@@ -26,6 +31,20 @@ class _MemoryGame2 extends State<MemoryGame2> {
       order.addAll([i, i]);
     }
     order.shuffle();
+    startTimer();
+  }
+
+  void startTimer() {
+    Timer.periodic(
+      const Duration(seconds: 1),
+      (timer) {
+        setState(
+          () {
+            _time++;
+          },
+        );
+      },
+    );
   }
 
   InkWell card(BuildContext context, int no) {
@@ -33,6 +52,7 @@ class _MemoryGame2 extends State<MemoryGame2> {
     return InkWell(
       onTap: () {
         if (!blocked[no]) {
+          ++flipped;
           setState(
             () {
               if (firstTapped == null) {
@@ -64,10 +84,26 @@ class _MemoryGame2 extends State<MemoryGame2> {
               height: 0.25 * size.width,
               width: 0.25 * size.width,
               decoration: BoxDecoration(
+                gradient: (blocked[no])
+                    ? LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: <Color>[
+                          Theme.of(context).colorScheme.background,
+                          Theme.of(context).colorScheme.background,
+                        ],
+                        tileMode: TileMode.decal,
+                      )
+                    : const LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: <Color>[
+                          Color.fromARGB(255, 148, 216, 255),
+                          Color.fromARGB(255, 127, 185, 252),
+                        ],
+                        tileMode: TileMode.decal,
+                      ),
                 borderRadius: BorderRadius.circular(15.0),
-                color: (blocked[no])
-                    ? Theme.of(context).colorScheme.background
-                    : const Color.fromARGB(255, 127, 198, 255),
               ),
             )
           : SizedBox(
@@ -114,7 +150,67 @@ class _MemoryGame2 extends State<MemoryGame2> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: 0.03 * size.width),
+            Row(
+              children: [
+                const SizedBox(width: 30.0),
+                Stack(
+                  children: [
+                    Container(
+                      width: 0.08 * min(size.width, size.height),
+                      height: 0.08 * min(size.width, size.height),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.blue[400],
+                      ),
+                    ),
+                    Column(
+                      children: [
+                        SizedBox(height: 0.007 * size.height),
+                        Row(
+                          children: [
+                            SizedBox(width: 0.025 * size.width),
+                            RotationTransition(
+                              turns: const AlwaysStoppedAnimation(15 / 360),
+                              child: Container(
+                                color: Colors.white,
+                                width: 0.03 * min(size.width, size.height),
+                                height: 0.05 * min(size.width, size.height),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(width: 10.0),
+                Text(
+                  "${flipped.toString()} Cards Flipped",
+                  style: TextStyle(
+                    fontSize: 0.018 * size.height,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.start,
+                ),
+                const Spacer(),
+                Icon(
+                  Icons.timer,
+                  size: 0.08 * min(size.width, size.height),
+                  color: Colors.blue[400],
+                ),
+                const SizedBox(width: 10.0),
+                Text(
+                  "${_time.toString()} s",
+                  style: TextStyle(
+                    fontSize: 0.018 * size.height,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.start,
+                ),
+                const SizedBox(width: 30.0),
+              ],
+            ),
+            SizedBox(height: 0.12 * size.width),
             createRow(context, 0, 3),
             SizedBox(height: 0.03 * size.width),
             createRow(context, 3, 3),
