@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../app_bar.dart';
 import '../buttons.dart';
+import 'memory_game2.dart';
 
 class MemoryGame1 extends StatefulWidget {
   const MemoryGame1({super.key});
@@ -9,18 +10,6 @@ class MemoryGame1 extends StatefulWidget {
 }
 
 class _MemoryGame1 extends State<MemoryGame1> {
-  List order = <String>[];
-  @override
-  void initState() {
-    super.initState();
-
-    List<int> order = [];
-    for (int i = 1; i <= 7; ++i) {
-      order.addAll([i, i]);
-    }
-    order.shuffle();
-  }
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -106,7 +95,7 @@ class _MemoryGame1 extends State<MemoryGame1> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const MemoryGame1(),
+                  route: const MemoryGame2(),
                   text: 'Continue',
                   width: size.width,
                 ),
