@@ -54,8 +54,7 @@ GestureDetector createActivity(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: SizedBox.fromSize(
-                    child: Image.asset('assets/activities/$img.png',
-                        fit: BoxFit.cover),
+                    child: Image.asset('assets/$img.png', fit: BoxFit.cover),
                   ),
                 ),
               ),
@@ -146,7 +145,7 @@ class _YourActivities extends State<YourActivities> {
                       children: [
                         createActivity(
                           context,
-                          "learning_course",
+                          "activities/learning_course",
                           "LEARNING",
                           "Course",
                           0.025 * size.height,
@@ -154,7 +153,7 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity(
                           context,
-                          "working_memory",
+                          "activities/working_memory",
                           "Working",
                           "MEMORY",
                           0.025 * size.height,
@@ -162,7 +161,7 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity(
                           context,
-                          "memory_game",
+                          "activities/memory_game",
                           "MEMORY",
                           "Game",
                           0.025 * size.height,
@@ -170,7 +169,7 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity(
                           context,
-                          "sport",
+                          "activities/sport",
                           "SPORT",
                           "Optional",
                           0.025 * size.height,
@@ -178,7 +177,7 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity(
                           context,
-                          "self_reflection",
+                          "activities/self_reflection",
                           "Self",
                           "Reflection",
                           0.025 * size.height,
@@ -186,7 +185,7 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity(
                           context,
-                          "good_deed",
+                          "activities/good_deed",
                           "GOOD",
                           "Deed",
                           0.025 * size.height,
@@ -194,7 +193,7 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity(
                           context,
-                          "meditation",
+                          "activities/meditation",
                           "MEDITATION",
                           "",
                           0.025 * size.height,

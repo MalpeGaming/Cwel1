@@ -67,7 +67,7 @@ class _MemoryGame1 extends State<MemoryGame1> {
                       ),
                       TextSpan(
                         text:
-                            'by remembering the locations of previously revealed cards, with the goal of successfully matching all pairs',
+                            'by remembering the locations of previously revealed cards, with the goal of successfully matching all pairs ',
                       ),
                       TextSpan(
                         text: 'in the fewest moves possible.',

@@ -15,6 +15,10 @@ class _MemoryGame2 extends State<MemoryGame2> {
   List<bool> tapped = List<bool>.generate(14, (index) => false);
   List<bool> blocked = List<bool>.generate(14, (index) => false);
 
+  List<String> categories = ["cats"];
+  final _random = Random();
+  String category = "";
+
   int? firstTapped;
   int? secondTapped;
 
@@ -32,6 +36,7 @@ class _MemoryGame2 extends State<MemoryGame2> {
     }
     order.shuffle();
     startTimer();
+    category = categories[_random.nextInt(categories.length)];
   }
 
   void startTimer() {
@@ -112,7 +117,7 @@ class _MemoryGame2 extends State<MemoryGame2> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15.0),
                 child: Image.asset(
-                  'assets/memory/memory_game/cats/${order[no]}.png',
+                  'assets/memory/memory_game/$category/${order[no]}.png',
                   fit: BoxFit.cover,
                 ),
               ),
