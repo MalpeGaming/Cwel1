@@ -4,6 +4,7 @@ import 'navbar.dart';
 import 'self_reflection.dart';
 import 'meditation.dart';
 import 'sport.dart';
+import 'memory/memory_game1.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -164,7 +165,7 @@ class _YourActivities extends State<YourActivities> {
                           "MEMORY",
                           "Game",
                           0.025 * size.height,
-                          const YourActivities(),
+                          const MemoryGame1(),
                         ),
                         createActivity(
                           context,
