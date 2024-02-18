@@ -106,6 +106,28 @@ GestureDetector createActivity(
 }
 
 class _YourActivities extends State<YourActivities> {
+  Widget createActivity2(
+    BuildContext context,
+    String img,
+    String txt1,
+    String txt2,
+    Widget route, {
+    double fontSize = 1,
+    double zero = 1,
+  }) {
+    Size size = MediaQuery.of(context).size;
+    return createActivity(
+      context,
+      "activities/$img",
+      txt1,
+      txt2,
+      0.025 * size.height * fontSize,
+      route,
+      Theme.of(context).colorScheme.primary,
+      Theme.of(context).colorScheme.onPrimary,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -153,208 +175,148 @@ class _YourActivities extends State<YourActivities> {
                     ),
                     child: Column(
                       children: [
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/learning_course",
+                          "learning_course",
                           "LEARNING",
                           "Course",
-                          0.025 * size.height,
                           const YourActivities(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/working_memory",
+                          "working_memory",
                           "Working",
                           "MEMORY",
-                          0.025 * size.height,
                           const YourActivities(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/memory_game",
+                          "memory_game",
                           "MEMORY",
                           "Game",
-                          0.025 * size.height,
                           const MemoryGame1(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/sport",
+                          "sport",
                           "SPORT",
                           "Optional",
-                          0.025 * size.height,
                           const Sport(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/self_reflection",
+                          "self_reflection",
                           "Self",
                           "Reflection",
-                          0.025 * size.height,
                           const SelfReflection(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/good_deed",
+                          "good_deed",
                           "GOOD",
                           "Deed",
-                          0.025 * size.height,
                           const YourActivities(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/meditation",
+                          "meditation",
                           "MEDITATION",
                           "",
-                          0.025 * size.height,
                           const Meditation(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                           zero: 0,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/find_the_number",
+                          "find_the_number",
                           "Find the",
                           "NUMBER",
-                          0.025 * size.height,
                           const YourActivities(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/listening",
+                          "listening",
                           "LISTENING",
                           "Comprehension",
-                          0.025 * size.height,
                           const YourActivities(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/reading",
+                          "reading",
                           "READING",
                           "Comprehension",
-                          0.025 * size.height,
                           const YourActivities(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/poems",
+                          "poems",
                           "POEMS",
                           "Reading",
-                          0.025 * size.height,
                           const YourActivities(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/spelling",
+                          "spelling",
                           "SPELLING",
                           "Mistakes",
-                          0.025 * size.height,
                           const YourActivities(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/math",
+                          "math",
                           "MATH",
                           "Exercises",
-                          0.025 * size.height,
                           const YourActivities(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/riddles",
+                          "riddles",
                           "RIDDLES",
                           "",
-                          0.025 * size.height,
                           const Meditation(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                           zero: 0,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/sudoku",
+                          "sudoku",
                           "SUDOKU",
                           "",
-                          0.025 * size.height,
                           const Meditation(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                           zero: 0,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/data_analysis",
+                          "data_analysis",
                           "Data",
                           "ANALYSIS",
-                          0.025 * size.height,
                           const YourActivities(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/short_term_concentration",
+                          "short_term_concentration",
                           "Short-Term",
                           "CONCENTRATION",
-                          0.025 * size.height,
                           const YourActivities(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/long_term_concentration",
+                          "long_term_concentration",
                           "Long-Term",
                           "CONCENTRATION",
-                          0.025 * size.height,
                           const YourActivities(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/strong_concentration",
+                          "strong_concentration",
                           "Strong",
                           "CONCENTRATION",
-                          0.025 * size.height,
                           const YourActivities(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
-                        createActivity(
+                        createActivity2(
                           context,
-                          "activities/reading_out_loud",
+                          "reading_out_loud",
                           "READING",
                           "Out-loud",
-                          0.025 * size.height,
                           const Reading(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
                         ),
                       ],
                     ),
