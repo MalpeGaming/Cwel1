@@ -90,6 +90,8 @@ class _BrainSupplements extends State<BrainSupplements> {
                     "",
                     0.03 * size.height,
                     const Omega3(),
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.onPrimary,
                     zero: 0,
                   ),
                   createActivity(
@@ -99,6 +101,8 @@ class _BrainSupplements extends State<BrainSupplements> {
                     "",
                     0.03 * size.height,
                     const B12Vitamin(),
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.onPrimary,
                     zero: 0,
                   ),
                   createActivity(
@@ -108,6 +112,8 @@ class _BrainSupplements extends State<BrainSupplements> {
                     "",
                     0.03 * size.height,
                     const Flavonoids(),
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.onPrimary,
                     zero: 0,
                   ),
                   createActivity(
@@ -117,6 +123,8 @@ class _BrainSupplements extends State<BrainSupplements> {
                     "",
                     0.03 * size.height,
                     const VitaminD(),
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.onPrimary,
                     zero: 0,
                   ),
                   createActivity(
@@ -126,6 +134,8 @@ class _BrainSupplements extends State<BrainSupplements> {
                     "",
                     0.03 * size.height,
                     const VitaminE(),
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.onPrimary,
                     zero: 0,
                   ),
                   createActivity(
@@ -135,6 +145,8 @@ class _BrainSupplements extends State<BrainSupplements> {
                     "",
                     0.03 * size.height,
                     const Choline(),
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.onPrimary,
                     zero: 0,
                   ),
                   createActivity(
@@ -144,6 +156,8 @@ class _BrainSupplements extends State<BrainSupplements> {
                     "",
                     0.03 * size.height,
                     const Antioxidants(),
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.onPrimary,
                     zero: 0,
                   ),
                   createActivity(
@@ -153,6 +167,8 @@ class _BrainSupplements extends State<BrainSupplements> {
                     "",
                     0.03 * size.height,
                     const Calcium(),
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.onPrimary,
                     zero: 0,
                   ),
                   createActivity(
@@ -162,6 +178,8 @@ class _BrainSupplements extends State<BrainSupplements> {
                     "",
                     0.03 * size.height,
                     const Zinc(),
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.onPrimary,
                     zero: 0,
                   ),
                   createActivity(
@@ -171,6 +189,8 @@ class _BrainSupplements extends State<BrainSupplements> {
                     "",
                     0.03 * size.height,
                     const Selenium(),
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.onPrimary,
                     zero: 0,
                   ),
                   createActivity(
@@ -180,6 +200,8 @@ class _BrainSupplements extends State<BrainSupplements> {
                     "",
                     0.03 * size.height,
                     const Copper(),
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.onPrimary,
                     zero: 0,
                   ),
                   createActivity(
@@ -189,6 +211,8 @@ class _BrainSupplements extends State<BrainSupplements> {
                     "",
                     0.03 * size.height,
                     const Iron(),
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.onPrimary,
                     zero: 0,
                   ),
                   Text(
