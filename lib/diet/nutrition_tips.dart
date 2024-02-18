@@ -57,6 +57,8 @@ class _NutritionTips extends State<NutritionTips> {
               "",
               0.03 * size.height,
               const BMI(),
+              Theme.of(context).colorScheme.primary,
+              Theme.of(context).colorScheme.onPrimary,
               zero: 0,
             ),
             createActivity(
@@ -66,6 +68,8 @@ class _NutritionTips extends State<NutritionTips> {
               "",
               0.025 * size.height,
               const CalRequirementsCalc(),
+              Theme.of(context).colorScheme.primary,
+              Theme.of(context).colorScheme.onPrimary,
               zero: 0,
             ),
             createActivity(
@@ -75,6 +79,8 @@ class _NutritionTips extends State<NutritionTips> {
               "",
               0.025 * size.height,
               const BrainSupplements(),
+              Theme.of(context).colorScheme.primary,
+              Theme.of(context).colorScheme.onPrimary,
               zero: 0,
             ),
             createActivity(
@@ -84,6 +90,8 @@ class _NutritionTips extends State<NutritionTips> {
               "",
               0.025 * size.height,
               const FoodTable(),
+              Theme.of(context).colorScheme.primary,
+              Theme.of(context).colorScheme.onPrimary,
               zero: 0,
             ),
           ],

@@ -5,6 +5,7 @@ import 'self_reflection.dart';
 import 'meditation.dart';
 import 'sport.dart';
 import 'memory/memory_game1.dart';
+import 'attention/reading/reading.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -18,18 +19,25 @@ GestureDetector createActivity(
   String text1,
   String text2,
   double fontSize,
-  Widget route, {
-  int zero = 1,
+  Widget route,
+  Color color1,
+  Color color2, {
+  double zero = 1,
+  bool blocked = false,
+  double textWidth = 0.45,
+  title = false,
 }) {
   Size size = MediaQuery.of(context).size;
   return GestureDetector(
     onTap: () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => route,
-        ),
-      );
+      if (!blocked) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => route,
+          ),
+        );
+      }
     },
     child: Column(
       children: [
@@ -40,8 +48,8 @@ GestureDetector createActivity(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: <Color>[
-                Theme.of(context).colorScheme.primary,
-                Theme.of(context).colorScheme.onPrimary,
+                color1,
+                color2,
               ],
               tileMode: TileMode.decal,
             ),
@@ -60,7 +68,7 @@ GestureDetector createActivity(
               ),
               SizedBox(width: 0.05 * size.width),
               SizedBox(
-                width: size.width * 0.45,
+                width: size.width * textWidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,6 +80,8 @@ GestureDetector createActivity(
                         fontSize: fontSize,
                         fontWeight: FontWeight.w500,
                         height: 1.2,
+                        fontStyle:
+                            (title) ? FontStyle.italic : FontStyle.normal,
                       ),
                     ),
                     Text(
@@ -150,6 +160,8 @@ class _YourActivities extends State<YourActivities> {
                           "Course",
                           0.025 * size.height,
                           const YourActivities(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
                         ),
                         createActivity(
                           context,
@@ -158,6 +170,8 @@ class _YourActivities extends State<YourActivities> {
                           "MEMORY",
                           0.025 * size.height,
                           const YourActivities(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
                         ),
                         createActivity(
                           context,
@@ -166,6 +180,8 @@ class _YourActivities extends State<YourActivities> {
                           "Game",
                           0.025 * size.height,
                           const MemoryGame1(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
                         ),
                         createActivity(
                           context,
@@ -174,6 +190,8 @@ class _YourActivities extends State<YourActivities> {
                           "Optional",
                           0.025 * size.height,
                           const Sport(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
                         ),
                         createActivity(
                           context,
@@ -182,6 +200,8 @@ class _YourActivities extends State<YourActivities> {
                           "Reflection",
                           0.025 * size.height,
                           const SelfReflection(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
                         ),
                         createActivity(
                           context,
@@ -190,6 +210,8 @@ class _YourActivities extends State<YourActivities> {
                           "Deed",
                           0.025 * size.height,
                           const YourActivities(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
                         ),
                         createActivity(
                           context,
@@ -198,7 +220,141 @@ class _YourActivities extends State<YourActivities> {
                           "",
                           0.025 * size.height,
                           const Meditation(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
                           zero: 0,
+                        ),
+                        createActivity(
+                          context,
+                          "activities/find_the_number",
+                          "Find the",
+                          "NUMBER",
+                          0.025 * size.height,
+                          const YourActivities(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
+                        ),
+                        createActivity(
+                          context,
+                          "activities/listening",
+                          "LISTENING",
+                          "Comprehension",
+                          0.025 * size.height,
+                          const YourActivities(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
+                        ),
+                        createActivity(
+                          context,
+                          "activities/reading",
+                          "READING",
+                          "Comprehension",
+                          0.025 * size.height,
+                          const YourActivities(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
+                        ),
+                        createActivity(
+                          context,
+                          "activities/poems",
+                          "POEMS",
+                          "Reading",
+                          0.025 * size.height,
+                          const YourActivities(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
+                        ),
+                        createActivity(
+                          context,
+                          "activities/spelling",
+                          "SPELLING",
+                          "Mistakes",
+                          0.025 * size.height,
+                          const YourActivities(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
+                        ),
+                        createActivity(
+                          context,
+                          "activities/math",
+                          "MATH",
+                          "Exercises",
+                          0.025 * size.height,
+                          const YourActivities(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
+                        ),
+                        createActivity(
+                          context,
+                          "activities/riddles",
+                          "RIDDLES",
+                          "",
+                          0.025 * size.height,
+                          const Meditation(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
+                          zero: 0,
+                        ),
+                        createActivity(
+                          context,
+                          "activities/sudoku",
+                          "SUDOKU",
+                          "",
+                          0.025 * size.height,
+                          const Meditation(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
+                          zero: 0,
+                        ),
+                        createActivity(
+                          context,
+                          "activities/data_analysis",
+                          "Data",
+                          "ANALYSIS",
+                          0.025 * size.height,
+                          const YourActivities(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
+                        ),
+                        createActivity(
+                          context,
+                          "activities/short_term_concentration",
+                          "Short-Term",
+                          "CONCENTRATION",
+                          0.025 * size.height,
+                          const YourActivities(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
+                        ),
+                        createActivity(
+                          context,
+                          "activities/long_term_concentration",
+                          "Long-Term",
+                          "CONCENTRATION",
+                          0.025 * size.height,
+                          const YourActivities(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
+                        ),
+                        createActivity(
+                          context,
+                          "activities/strong_concentration",
+                          "Strong",
+                          "CONCENTRATION",
+                          0.025 * size.height,
+                          const YourActivities(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
+                        ),
+                        createActivity(
+                          context,
+                          "activities/reading_out_loud",
+                          "READING",
+                          "Out-loud",
+                          0.025 * size.height,
+                          const Reading(),
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
                         ),
                       ],
                     ),

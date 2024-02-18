@@ -159,6 +159,7 @@ class _MemoryGame2 extends State<MemoryGame2> {
               children: [
                 const SizedBox(width: 30.0),
                 Stack(
+                  alignment: AlignmentDirectional.center,
                   children: [
                     Container(
                       width: 0.08 * min(size.width, size.height),
@@ -168,23 +169,13 @@ class _MemoryGame2 extends State<MemoryGame2> {
                         color: Colors.blue[400],
                       ),
                     ),
-                    Column(
-                      children: [
-                        SizedBox(height: 0.007 * size.height),
-                        Row(
-                          children: [
-                            SizedBox(width: 0.025 * size.width),
-                            RotationTransition(
-                              turns: const AlwaysStoppedAnimation(15 / 360),
-                              child: Container(
-                                color: Colors.white,
-                                width: 0.03 * min(size.width, size.height),
-                                height: 0.05 * min(size.width, size.height),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
+                    RotationTransition(
+                      turns: const AlwaysStoppedAnimation(15 / 360),
+                      child: Container(
+                        color: Colors.white,
+                        width: 0.03 * min(size.width, size.height),
+                        height: 0.05 * min(size.width, size.height),
+                      ),
                     ),
                   ],
                 ),
