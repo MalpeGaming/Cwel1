@@ -1,9 +1,7 @@
 import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'improvement_selection.dart';
-import 'dart:io';
-import 'package:xml/xml.dart';
-import 'package:path_provider/path_provider.dart';
 
 class LangCheckList extends StatefulWidget {
   const LangCheckList({
@@ -89,31 +87,9 @@ class _LanguageLevelSelectionState extends State<LanguageLevelSelection> {
       default:
         level = "pet";
     }
-    var builder = XmlBuilder();
-    builder.processing('xml', 'version="1.0"');
-    builder.element(
-      'root',
-      nest: () {
-        builder.element(
-          "level",
-          nest: () {
-            builder.text(level);
-          },
-        );
-      },
-    );
 
-    var document =
-        XmlDocument.parse(builder.buildDocument().toXmlString(pretty: true));
-
-    var xmlString = document.toXmlString(pretty: true);
-    Directory appDocumentsDirectory = await getApplicationDocumentsDirectory();
-    String appDocumentsPath = appDocumentsDirectory.path;
-
-    String filePath = '$appDocumentsPath/lang_lev.xml';
-
-    var file = File(filePath);
-    file.writeAsStringSync(xmlString);
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('level', level);
   }
 
   @override

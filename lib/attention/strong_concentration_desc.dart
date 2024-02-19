@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'exercise3.dart';
+import 'strong_concentration.dart';
 
-class ThirdAttentionExerciseDesc extends StatefulWidget {
-  const ThirdAttentionExerciseDesc({super.key});
+class StrongConcentrationDesc extends StatefulWidget {
+  const StrongConcentrationDesc({super.key, this.testVersion = false});
+
+  final bool testVersion;
 
   @override
-  State<ThirdAttentionExerciseDesc> createState() =>
-      _ThirdAttentionExerciseDesc();
+  State<StrongConcentrationDesc> createState() => _StrongConcentrationDesc();
 }
 
-class _ThirdAttentionExerciseDesc extends State<ThirdAttentionExerciseDesc> {
+class _StrongConcentrationDesc extends State<StrongConcentrationDesc> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -74,7 +75,9 @@ class _ThirdAttentionExerciseDesc extends State<ThirdAttentionExerciseDesc> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const ThirdAttentionExercise(),
+                          builder: (context) => StrongConcentration(
+                            testVersion: widget.testVersion,
+                          ),
                         ),
                       );
                     },

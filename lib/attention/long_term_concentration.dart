@@ -1,44 +1,34 @@
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:any_link_preview/any_link_preview.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:xml/xml.dart' as xml;
 import '../show_score.dart';
-import 'exercise3_desc.dart';
+import 'strong_concentration_desc.dart';
 import 'dart:async';
-import 'dart:io';
 
-class SecondAttentionExercise extends StatefulWidget {
-  const SecondAttentionExercise({super.key});
+class LongTermConcentration extends StatefulWidget {
+  const LongTermConcentration({super.key, this.testVersion = false});
+
+  final bool testVersion;
 
   @override
-  State<SecondAttentionExercise> createState() => _SecondAttentionExercise();
+  State<LongTermConcentration> createState() => _LongTermConcentration();
 }
 
-class _SecondAttentionExercise extends State<SecondAttentionExercise> {
+class _LongTermConcentration extends State<LongTermConcentration> {
+  late SharedPreferences prefs;
+
   double score = 0;
   String languageLevel = "";
 
-  Future<String> loadLevel() async {
-    Directory appDocumentsDirectory = await getApplicationDocumentsDirectory();
-    String appDocumentsPath = appDocumentsDirectory.path;
-
-    String filePath = '$appDocumentsPath/lang_lev.xml';
-    String localLevel = "";
-
-    if (!File(filePath).existsSync()) {
-      return "";
-    }
-
-    String data = File(filePath).readAsStringSync();
-    var xdoc = xml.XmlDocument.parse(data);
-    localLevel = xdoc.getElement("root")!.getElement("level")!.innerText;
-    return localLevel;
-  }
-
   Future<void> initMemory() async {
-    languageLevel = await loadLevel();
-    setState(() {});
+    prefs = await SharedPreferences.getInstance();
+
+    setState(
+      () {
+        languageLevel = prefs.getString('level') ?? "pet";
+      },
+    );
   }
 
   @override
@@ -166,19 +156,48 @@ class _SecondAttentionExercise extends State<SecondAttentionExercise> {
                   width: size.width * 0.75,
                   child: FloatingActionButton.extended(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ShowScore(
-                            title: "ATTENTION",
-                            description: "Exercise 2 - Long Term Concentration",
-                            exercise: 2,
-                            yourScore: score,
-                            maximum: 100,
-                            page: const ThirdAttentionExerciseDesc(),
+                      if (widget.testVersion) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ShowScore(
+                              title: "ATTENTION",
+                              description:
+                                  "Exercise 2 - Long Term Concentration",
+                              exercise: 2,
+                              yourScore: score,
+                              maximum: 100,
+                              page: const StrongConcentrationDesc(
+                                  testVersion: true),
+                            ),
                           ),
-                        ),
-                      );
+                        );
+                      } else {
+                        List<String> longTermConcentrationTimestamps =
+                            prefs.getStringList(
+                                  "long_term_concentration_timestamps",
+                                ) ??
+                                [];
+
+                        List<String> longTermConcentrationScores =
+                            prefs.getStringList(
+                                  "long_term_concentration_scores",
+                                ) ??
+                                [];
+
+                        prefs.setStringList(
+                          "long_term_concentration_timestamps",
+                          longTermConcentrationTimestamps +
+                              [DateTime.now().toString()],
+                        );
+
+                        prefs.setStringList(
+                          "long_term_concentration_scores",
+                          longTermConcentrationScores + [score.toString()],
+                        );
+
+                        Navigator.pop(context);
+                      }
                     },
                     tooltip: 'Continue',
                     label: Text(

@@ -1,19 +1,23 @@
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 import '../show_score.dart';
 import '../account/login1.dart';
-import 'exercise2.dart';
 
-class ThirdAttentionExercise extends StatefulWidget {
-  const ThirdAttentionExercise({super.key});
+class StrongConcentration extends StatefulWidget {
+  const StrongConcentration({super.key, this.testVersion = false});
+
+  final bool testVersion;
 
   @override
-  State<ThirdAttentionExercise> createState() => _ThirdAttentionExercise();
+  State<StrongConcentration> createState() => _StrongConcentration();
 }
 
-class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
+class _StrongConcentration extends State<StrongConcentration> {
+  late SharedPreferences prefs;
+
   int _id = 0;
   int _remainingTime = 130;
   late Timer _timer;
@@ -43,19 +47,46 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
               _remainingTime--;
             } else {
               _timer.cancel();
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ShowScore(
-                    title: "ATTENTION",
-                    description: "Exercise 3 - Strong Concentration",
-                    exercise: 3,
-                    yourScore: 3,
-                    maximum: 10,
-                    page: SecondAttentionExercise(),
+              double score = countScore();
+
+              if (widget.testVersion) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ShowScore(
+                      title: "ATTENTION",
+                      description: "Exercise 3 - Strong Concentration",
+                      exercise: 3,
+                      yourScore: score,
+                      maximum: 10,
+                      page: const Login1(),
+                    ),
                   ),
-                ),
-              );
+                );
+              } else {
+                List<String> strongConcentrationTimestamps =
+                    prefs.getStringList(
+                          "strong_concentration_timestamps",
+                        ) ??
+                        [];
+
+                List<String> strongConcentrationScores = prefs.getStringList(
+                      "strong_concentration_scores",
+                    ) ??
+                    [];
+
+                prefs.setStringList(
+                  "strong_concentration_timestamps",
+                  strongConcentrationTimestamps + [DateTime.now().toString()],
+                );
+
+                prefs.setStringList(
+                  "strong_concentration_scores",
+                  strongConcentrationScores + [score.toString()],
+                );
+
+                Navigator.pop(context);
+              }
             }
           },
         );
@@ -63,9 +94,16 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
     );
   }
 
+  Future<void> initMemory() async {
+    prefs = await SharedPreferences.getInstance();
+
+    setState(() {});
+  }
+
   @override
   void initState() {
     super.initState();
+    initMemory();
     startTimer();
   }
 
@@ -361,19 +399,48 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
                   child: FloatingActionButton.extended(
                     onPressed: () {
                       _timer.cancel();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ShowScore(
-                            title: "ATTENTION",
-                            description: "Exercise 3 - Strong Concentration",
-                            exercise: 3,
-                            yourScore: countScore(),
-                            maximum: 10,
-                            page: const Login1(),
+                      double score = countScore();
+
+                      if (widget.testVersion) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ShowScore(
+                              title: "ATTENTION",
+                              description: "Exercise 3 - Strong Concentration",
+                              exercise: 3,
+                              yourScore: score,
+                              maximum: 10,
+                              page: const Login1(),
+                            ),
                           ),
-                        ),
-                      );
+                        );
+                      } else {
+                        List<String> strongConcentrationTimestamps =
+                            prefs.getStringList(
+                                  "strong_concentration_timestamps",
+                                ) ??
+                                [];
+
+                        List<String> strongConcentrationScores =
+                            prefs.getStringList(
+                                  "strong_concentration_scores",
+                                ) ??
+                                [];
+
+                        prefs.setStringList(
+                          "strong_concentration_timestamps",
+                          strongConcentrationTimestamps +
+                              [DateTime.now().toString()],
+                        );
+
+                        prefs.setStringList(
+                          "strong_concentration_scores",
+                          strongConcentrationScores + [score.toString()],
+                        );
+
+                        Navigator.pop(context);
+                      }
                     },
                     tooltip: 'Continue',
                     label: Text(

@@ -1,12 +1,10 @@
 import 'package:any_link_preview/any_link_preview.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:xml/xml.dart' as xml;
+import 'package:shared_preferences/shared_preferences.dart';
 import '../show_score.dart';
 import 'exercise2.dart';
 import 'dart:async';
-import 'dart:io';
 
 class FirstLinguisticExercise extends StatefulWidget {
   const FirstLinguisticExercise({super.key});
@@ -16,29 +14,19 @@ class FirstLinguisticExercise extends StatefulWidget {
 }
 
 class _FirstLinguisticExercise extends State<FirstLinguisticExercise> {
+  late SharedPreferences prefs;
+
   double score = 0;
   String languageLevel = "";
 
-  Future<String> loadLevel() async {
-    Directory appDocumentsDirectory = await getApplicationDocumentsDirectory();
-    String appDocumentsPath = appDocumentsDirectory.path;
-
-    String filePath = '$appDocumentsPath/lang_lev.xml';
-    String localLevel = "";
-
-    if (!File(filePath).existsSync()) {
-      return "";
-    }
-
-    String data = File(filePath).readAsStringSync();
-    var xdoc = xml.XmlDocument.parse(data);
-    localLevel = xdoc.getElement("root")!.getElement("level")!.innerText;
-    return localLevel;
-  }
-
   Future<void> initMemory() async {
-    languageLevel = await loadLevel();
-    setState(() {});
+    prefs = await SharedPreferences.getInstance();
+
+    setState(
+      () {
+        languageLevel = prefs.getString('level') ?? "pet";
+      },
+    );
   }
 
   @override

@@ -5,6 +5,9 @@ import 'self_reflection.dart';
 import 'meditation.dart';
 import 'sport.dart';
 import 'memory/memory_game1.dart';
+import 'attention/long_term_concentration.dart';
+import 'attention/short_term_concentration.dart';
+import 'attention/strong_concentration.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -199,6 +202,38 @@ class _YourActivities extends State<YourActivities> {
                           0.025 * size.height,
                           const Meditation(),
                           zero: 0,
+                        ),
+                        createActivity(
+                          context,
+                          "activities/short_term_concentration",
+                          "Short Term",
+                          "CONCENTRATION",
+                          0.025 * size.height,
+                          const ShortTermConcentration(),
+                        ),
+                        createActivity(
+                          context,
+                          "activities/long_term_concentration",
+                          "Long Term",
+                          "CONCENTRATION",
+                          0.025 * size.height,
+                          const LongTermConcentration(),
+                        ),
+                        createActivity(
+                          context,
+                          "activities/strong_concentration",
+                          "Strong",
+                          "CONCENTRATION",
+                          0.025 * size.height,
+                          const StrongConcentration(),
+                        ),
+                        createActivity(
+                          context,
+                          "activities/reading_out_loud",
+                          "READING",
+                          "out-loud",
+                          0.025 * size.height,
+                          const Meditation(),
                         ),
                       ],
                     ),

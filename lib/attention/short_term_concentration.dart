@@ -1,22 +1,28 @@
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import '../show_score.dart';
-import 'exercise2.dart';
+import 'long_term_concentration.dart';
 
-class FirstAttentionExercise extends StatefulWidget {
-  const FirstAttentionExercise({super.key});
+class ShortTermConcentration extends StatefulWidget {
+  const ShortTermConcentration({super.key, this.testVersion = false});
+
+  final bool testVersion;
 
   @override
-  State<FirstAttentionExercise> createState() => _FirstAttentionExercise();
+  State<ShortTermConcentration> createState() => _ShortTermConcentration();
 }
 
-class _FirstAttentionExercise extends State<FirstAttentionExercise> {
+class _ShortTermConcentration extends State<ShortTermConcentration> {
+  late SharedPreferences prefs;
+
   late YoutubePlayerController _controller;
 
   @override
   void initState() {
     super.initState();
+    initMemory();
     _controller = YoutubePlayerController(
       params: const YoutubePlayerParams(
         showControls: true,
@@ -31,6 +37,12 @@ class _FirstAttentionExercise extends State<FirstAttentionExercise> {
   }
 
   double score = 0;
+
+  Future<void> initMemory() async {
+    prefs = await SharedPreferences.getInstance();
+
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -130,20 +142,49 @@ class _FirstAttentionExercise extends State<FirstAttentionExercise> {
                   child: FloatingActionButton.extended(
                     onPressed: () {
                       _controller.close();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ShowScore(
-                            title: "ATTENTION",
-                            description:
-                                "Exercise 1 - Short Term Concentration",
-                            exercise: 1,
-                            yourScore: score,
-                            maximum: 10,
-                            page: const SecondAttentionExercise(),
+                      if (widget.testVersion) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ShowScore(
+                              title: "ATTENTION",
+                              description:
+                                  "Exercise 1 - Short Term Concentration",
+                              exercise: 1,
+                              yourScore: score,
+                              maximum: 10,
+                              page: const LongTermConcentration(
+                                testVersion: true,
+                              ),
+                            ),
                           ),
-                        ),
-                      );
+                        );
+                      } else {
+                        List<String> shortTermConcentrationTimestamps =
+                            prefs.getStringList(
+                                  "short_term_concentration_timestamps",
+                                ) ??
+                                [];
+
+                        List<String> shortTermConcentrationScores =
+                            prefs.getStringList(
+                                  "short_term_concentration_scores",
+                                ) ??
+                                [];
+
+                        prefs.setStringList(
+                          "short_term_concentration_timestamps",
+                          shortTermConcentrationTimestamps +
+                              [DateTime.now().toString()],
+                        );
+
+                        prefs.setStringList(
+                          "short_term_concentration_scores",
+                          shortTermConcentrationScores + [score.toString()],
+                        );
+
+                        Navigator.pop(context);
+                      }
                     },
                     tooltip: 'Continue',
                     label: Text(

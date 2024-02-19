@@ -1,11 +1,10 @@
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:xml/xml.dart' as xml;
 import 'dart:math';
 import 'dart:async';
-import 'dart:io';
 import 'memory_check.dart';
 
 class MemoryWords extends StatefulWidget {
@@ -16,6 +15,8 @@ class MemoryWords extends StatefulWidget {
 }
 
 class _MemoryWordsState extends State<MemoryWords> {
+  late SharedPreferences prefs;
+
   List<String> words = [];
   List<String> defs = [];
 
@@ -93,23 +94,6 @@ class _MemoryWordsState extends State<MemoryWords> {
   List<Map<String, String>> picked = [];
   String level = "";
 
-  Future<String> loadLevel() async {
-    Directory appDocumentsDirectory = await getApplicationDocumentsDirectory();
-    String appDocumentsPath = appDocumentsDirectory.path;
-
-    String filePath = '$appDocumentsPath/lang_lev.xml';
-    String localLevel = "";
-
-    if (!File(filePath).existsSync()) {
-      return "";
-    }
-
-    String data = File(filePath).readAsStringSync();
-    var xdoc = xml.XmlDocument.parse(data);
-    localLevel = xdoc.getElement("root")!.getElement("level")!.innerText;
-    return localLevel;
-  }
-
   Future<List<Map<String, String>>> getWordDefinitions() async {
     String data = await rootBundle.loadString('assets/words_n_defs.xml');
     var xdoc = xml.XmlDocument.parse(data);
@@ -152,7 +136,8 @@ class _MemoryWordsState extends State<MemoryWords> {
   }
 
   Future<void> initMemory() async {
-    level = await loadLevel();
+    prefs = await SharedPreferences.getInstance();
+    level = prefs.getString('level') ?? "pet";
     b1 = await getWordDefinitions();
     picked = getRandomElements(b1);
     setState(() {});
