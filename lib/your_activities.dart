@@ -6,6 +6,7 @@ import 'meditation.dart';
 import 'sport.dart';
 import 'memory/memory_game1.dart';
 import 'attention/reading/reading.dart';
+import 'logical_thinking/sudoku.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -125,6 +126,10 @@ class _YourActivities extends State<YourActivities> {
       route,
       Theme.of(context).colorScheme.primary,
       Theme.of(context).colorScheme.onPrimary,
+      zero: zero,
+      blocked: false,
+      textWidth: 0.45,
+      title: false,
     );
   }
 
@@ -280,7 +285,7 @@ class _YourActivities extends State<YourActivities> {
                           "sudoku",
                           "SUDOKU",
                           "",
-                          const Meditation(),
+                          const SudokuGame(),
                           zero: 0,
                         ),
                         createActivity2(

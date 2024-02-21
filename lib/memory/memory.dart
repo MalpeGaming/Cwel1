@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
 import 'memory_words.dart';
+import '../buttons.dart';
 
 class Memory extends StatefulWidget {
-  const Memory({super.key});
+  final bool? initialTest;
+  const Memory({this.initialTest = false, super.key});
 
   @override
   State<Memory> createState() => _Memory();
 }
 
 class _Memory extends State<Memory> {
+  bool initialTest = false;
+
+  @override
+  void initState() {
+    super.initState();
+    initialTest = widget.initialTest!;
+    print(initialTest);
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -48,30 +59,14 @@ class _Memory extends State<Memory> {
             ),
           ),
           const Spacer(),
-          Container(
-            width: double.infinity,
-            padding:
-                EdgeInsets.fromLTRB(0.1 * size.width, 0, 0.1 * size.width, 0),
-            child: FloatingActionButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const MemoryWords(),
-                  ),
-                );
-              },
-              backgroundColor: Colors.blue[400],
-              hoverColor: Colors.blue[900],
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(50.0),
-              ),
-              child: Text(
-                "Continue",
-                style: TextStyle(
-                  fontSize: 0.03 * size.height,
-                  color: Colors.white,
-                ),
+          Center(
+            child: SizedBox(
+              height: size.height * 0.05,
+              width: size.width * 0.75,
+              child: RedirectButton(
+                route: const MemoryWords(),
+                text: 'Continue',
+                width: size.width,
               ),
             ),
           ),
