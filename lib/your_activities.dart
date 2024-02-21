@@ -126,6 +126,10 @@ class _YourActivities extends State<YourActivities> {
       route,
       Theme.of(context).colorScheme.primary,
       Theme.of(context).colorScheme.onPrimary,
+      zero: zero,
+      blocked: false,
+      textWidth: 0.45,
+      title: false,
     );
   }
 

@@ -5,7 +5,7 @@ import '../app_bar.dart';
 class SudokuGame extends StatefulWidget {
   const SudokuGame({super.key});
 
-  static Sudoku sudoku = Sudoku.generate(Level.expert);
+  //static Sudoku sudoku = Sudoku.generate(Level.expert);
 
   @override
   State<SudokuGame> createState() => _SudokuGame();
@@ -14,12 +14,20 @@ class SudokuGame extends StatefulWidget {
 int? tappedCol, tappedRow;
 
 class _SudokuGame extends State<SudokuGame> {
-  Sudoku? sudoku2;
+  Sudoku sudoku = Sudoku.generate(Level.expert);
 
   @override
   void initState() {
     super.initState();
-    sudoku2 = SudokuGame.sudoku;
+    //sudoku2 = SudokuGame.sudoku;
+    sudoku = Sudoku.generate(Level.expert);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Place the logic to refresh the widget here
+    sudoku = Sudoku.generate(Level.expert);
   }
 
   BorderRadius _getBorderRadius(int rowIndex, int colIndex) {
@@ -117,11 +125,9 @@ class _SudokuGame extends State<SudokuGame> {
                           ),
                           child: Center(
                             child: Text(
-                              (SudokuGame.sudoku
-                                          .puzzle[9 * rowIndex + colIndex] ==
-                                      -1)
+                              (sudoku.puzzle[9 * rowIndex + colIndex] == -1)
                                   ? ' '
-                                  : '${SudokuGame.sudoku.puzzle[9 * rowIndex + colIndex]}',
+                                  : '${sudoku.puzzle[9 * rowIndex + colIndex]}',
                               style: TextStyle(
                                 fontSize: 0.05 * size.width,
                                 fontWeight: FontWeight.bold,
