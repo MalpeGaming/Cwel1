@@ -56,7 +56,7 @@ class _MemoryGame2 extends State<MemoryGame2> {
     Size size = MediaQuery.of(context).size;
     return InkWell(
       onTap: () {
-        if (!blocked[no]) {
+        if (!blocked[no] && firstTapped != no) {
           ++flipped;
           setState(
             () {
