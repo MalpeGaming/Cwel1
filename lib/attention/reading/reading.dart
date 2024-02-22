@@ -68,7 +68,7 @@ class _Reading extends State<Reading> {
                           shape: BoxShape.circle,
                           color: (ticked)
                               ? Colors.green
-                              : const Color.fromARGB(255, 137, 202, 255),
+                              : const Color.fromARGB(255, 182, 223, 255),
                         ),
                       ),
                       Icon(

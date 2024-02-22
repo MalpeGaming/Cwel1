@@ -5,28 +5,26 @@ import '../app_bar.dart';
 class SudokuGame extends StatefulWidget {
   const SudokuGame({super.key});
 
-  //static Sudoku sudoku = Sudoku.generate(Level.expert);
-
   @override
   State<SudokuGame> createState() => _SudokuGame();
 }
 
-int? tappedCol, tappedRow;
-
 class _SudokuGame extends State<SudokuGame> {
   Sudoku sudoku = Sudoku.generate(Level.expert);
+
+  int? tappedCol, tappedRow;
+  List<int> sudoku2 = List<int>.generate(100, (index) => -1);
 
   @override
   void initState() {
     super.initState();
-    //sudoku2 = SudokuGame.sudoku;
     sudoku = Sudoku.generate(Level.expert);
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // Place the logic to refresh the widget here
+    tappedCol = tappedRow = null;
     sudoku = Sudoku.generate(Level.expert);
   }
 
@@ -42,6 +40,47 @@ class _SudokuGame extends State<SudokuGame> {
     } else {
       return BorderRadius.zero;
     }
+  }
+
+  GestureDetector buildNumerButton(
+      BuildContext context, int indx, int? tappedRow, int? tappedCol) {
+    Size size = MediaQuery.of(context).size;
+    return GestureDetector(
+      onTap: () {
+        if (tappedRow != null && tappedCol != null) {
+          setState(() {
+            sudoku2[9 * tappedRow + tappedCol] = indx;
+          });
+        }
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: <Color>[
+              Colors.white,
+              Color.fromARGB(255, 214, 245, 255),
+            ],
+            tileMode: TileMode.decal,
+          ),
+          border: Border.all(color: const Color.fromARGB(255, 101, 186, 255)),
+        ),
+        height: 0.15 * size.width,
+        width: 0.15 * size.width,
+        child: Center(
+          child: Text(
+            indx.toString(),
+            style: TextStyle(
+              fontSize: 0.07 * size.width,
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   @override
@@ -126,11 +165,16 @@ class _SudokuGame extends State<SudokuGame> {
                           child: Center(
                             child: Text(
                               (sudoku.puzzle[9 * rowIndex + colIndex] == -1)
-                                  ? ' '
+                                  ? (sudoku2[9 * rowIndex + colIndex] == -1)
+                                      ? ' '
+                                      : '${sudoku2[9 * rowIndex + colIndex]}'
                                   : '${sudoku.puzzle[9 * rowIndex + colIndex]}',
                               style: TextStyle(
                                 fontSize: 0.05 * size.width,
-                                fontWeight: FontWeight.bold,
+                                fontWeight:
+                                    (sudoku2[9 * rowIndex + colIndex] == -1)
+                                        ? FontWeight.w900
+                                        : FontWeight.w300,
                                 color: color,
                               ),
                             ),
@@ -141,6 +185,28 @@ class _SudokuGame extends State<SudokuGame> {
                   ),
                 ),
               ),
+            ),
+            SizedBox(height: 0.05 * size.height),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: List.generate(
+                5,
+                (index) =>
+                    buildNumerButton(context, index + 1, tappedRow, tappedCol),
+              ),
+            ),
+            SizedBox(height: 0.02 * size.height),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(width: 0.07 * size.width),
+                ...List.generate(
+                  4,
+                  (index) => buildNumerButton(
+                      context, index + 6, tappedRow, tappedCol),
+                ),
+                SizedBox(width: 0.07 * size.width),
+              ],
             ),
           ],
         ),

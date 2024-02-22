@@ -93,6 +93,9 @@ flutter:
     - assets/memory/memory_game/
     - assets/memory/memory_game/cats/
     - assets/attention/reading/
+    - assets/attention/reading/classic/
+    - assets/attention/reading/business/
+    - assets/attention/reading/personal_development/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
