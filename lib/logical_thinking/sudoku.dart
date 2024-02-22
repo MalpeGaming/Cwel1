@@ -5,8 +5,6 @@ import '../app_bar.dart';
 class SudokuGame extends StatefulWidget {
   const SudokuGame({super.key});
 
-  //static Sudoku sudoku = Sudoku.generate(Level.expert);
-
   @override
   State<SudokuGame> createState() => _SudokuGame();
 }
@@ -15,6 +13,7 @@ class _SudokuGame extends State<SudokuGame> {
   Sudoku sudoku = Sudoku.generate(Level.expert);
 
   int? tappedCol, tappedRow;
+  List<int> sudoku2 = List<int>.generate(100, (index) => -1);
 
   @override
   void initState() {
@@ -50,7 +49,7 @@ class _SudokuGame extends State<SudokuGame> {
       onTap: () {
         if (tappedRow != null && tappedCol != null) {
           setState(() {
-            sudoku.puzzle[9 * tappedRow + tappedCol] = indx;
+            sudoku2[9 * tappedRow + tappedCol] = indx;
           });
         }
       },
@@ -166,11 +165,16 @@ class _SudokuGame extends State<SudokuGame> {
                           child: Center(
                             child: Text(
                               (sudoku.puzzle[9 * rowIndex + colIndex] == -1)
-                                  ? ' '
+                                  ? (sudoku2[9 * rowIndex + colIndex] == -1)
+                                      ? ' '
+                                      : '${sudoku2[9 * rowIndex + colIndex]}'
                                   : '${sudoku.puzzle[9 * rowIndex + colIndex]}',
                               style: TextStyle(
                                 fontSize: 0.05 * size.width,
-                                fontWeight: FontWeight.bold,
+                                fontWeight:
+                                    (sudoku2[9 * rowIndex + colIndex] == -1)
+                                        ? FontWeight.w900
+                                        : FontWeight.w300,
                                 color: color,
                               ),
                             ),
