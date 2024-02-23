@@ -212,7 +212,7 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                     child: Text(
                       "CALORIE DAILY REQUIREMENTS",
                       style: TextStyle(
-                        fontSize: size.width / 9,
+                        fontSize: size.width / 9.5,
                       ),
                       textAlign: TextAlign.center,
                     ),
