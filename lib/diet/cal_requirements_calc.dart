@@ -35,21 +35,17 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
         onPressed: () {
           if (linked) onclick = pressedNum;
           if (isGender) isMan = !pressedNum;
-          if (height.text.isNotEmpty &&
-              weight.text.isNotEmpty &&
-              age.text.isNotEmpty) {
-            setState(() {
-              if (weight.text.isNotEmpty &&
-                  height.text.isNotEmpty &&
-                  age.text.isNotEmpty) {
-                calcCal(
-                  double.parse(height.text) / 100.0,
-                  double.parse(weight.text),
-                  int.parse(age.text),
-                );
-              }
-            });
-          }
+          setState(() {
+            if (weight.text.isNotEmpty &&
+                height.text.isNotEmpty &&
+                age.text.isNotEmpty) {
+              calcCal(
+                double.parse(height.text) / 100.0,
+                double.parse(weight.text),
+                int.parse(age.text),
+              );
+            }
+          });
         },
         style: ButtonStyle(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -62,8 +58,8 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
               return states.contains(MaterialState.pressed)
                   ? Theme.of(context).colorScheme.secondary
                   : oneOption ||
-                          ((!isGender) && onclick == pressedNum) ||
-                          ((isGender) && isMan == !pressedNum)
+                          (!isGender && onclick == pressedNum) ||
+                          (isGender && !isMan == pressedNum)
                       ? const Color.fromARGB(255, 162, 218, 255)
                       : Theme.of(context).colorScheme.background;
             },
@@ -113,7 +109,8 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                 height: 0.05 * size.height,
                 child: TextField(
                   onChanged: (String value) {
-                    if (height.text.isNotEmpty && weight.text.isNotEmpty) {
+                    if (height.text.isNotEmpty &&
+                        weight.text.isNotEmpty & age.text.isNotEmpty) {
                       setState(() {
                         calcCal(
                           double.parse(height.text) / 100.0,
