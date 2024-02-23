@@ -70,7 +70,7 @@ GestureDetector createActivity(
                   ),
                 ),
               ),
-              SizedBox(width: 0.05 * size.width),
+              SizedBox(width: 0.045 * size.width),
               SizedBox(
                 width: size.width * textWidth,
                 child: Column(
