@@ -1,10 +1,10 @@
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
-import '../show_score.dart';
-import '../account/login1.dart';
+import '/account/login1.dart';
+import '/progress_screen.dart';
+import '/show_score.dart';
 
 class StrongConcentration extends StatefulWidget {
   const StrongConcentration({super.key, this.testVersion = false});
@@ -16,13 +16,11 @@ class StrongConcentration extends StatefulWidget {
 }
 
 class _StrongConcentration extends State<StrongConcentration> {
-  late SharedPreferences prefs;
-
   int _id = 0;
   int _remainingTime = 130;
   late Timer _timer;
   List<double> correctAnswers = [
-    732,
+    722,
     465,
     90,
     9,
@@ -46,6 +44,7 @@ class _StrongConcentration extends State<StrongConcentration> {
             if (_remainingTime > 0) {
               _remainingTime--;
             } else {
+              Navigator.pop(context);
               _timer.cancel();
               double score = countScore();
 
@@ -64,28 +63,15 @@ class _StrongConcentration extends State<StrongConcentration> {
                   ),
                 );
               } else {
-                List<String> strongConcentrationTimestamps =
-                    prefs.getStringList(
-                          "strong_concentration_timestamps",
-                        ) ??
-                        [];
-
-                List<String> strongConcentrationScores = prefs.getStringList(
-                      "strong_concentration_scores",
-                    ) ??
-                    [];
-
-                prefs.setStringList(
-                  "strong_concentration_timestamps",
-                  strongConcentrationTimestamps + [DateTime.now().toString()],
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProgressScreen(
+                      name: "strong_concentration",
+                      score: score,
+                    ),
+                  ),
                 );
-
-                prefs.setStringList(
-                  "strong_concentration_scores",
-                  strongConcentrationScores + [score.toString()],
-                );
-
-                Navigator.pop(context);
               }
             }
           },
@@ -94,16 +80,9 @@ class _StrongConcentration extends State<StrongConcentration> {
     );
   }
 
-  Future<void> initMemory() async {
-    prefs = await SharedPreferences.getInstance();
-
-    setState(() {});
-  }
-
   @override
   void initState() {
     super.initState();
-    initMemory();
     startTimer();
   }
 
@@ -281,10 +260,6 @@ class _StrongConcentration extends State<StrongConcentration> {
                                   size,
                                 ),
                                 equasion(
-                                  createEquasion(smallText, r"15\%"),
-                                  size,
-                                ),
-                                equasion(
                                   createEquasion2(smallText, r"15\%", r"480"),
                                   size,
                                 ),
@@ -398,6 +373,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                   width: size.width * 0.75,
                   child: FloatingActionButton.extended(
                     onPressed: () {
+                      Navigator.pop(context);
                       _timer.cancel();
                       double score = countScore();
 
@@ -416,30 +392,15 @@ class _StrongConcentration extends State<StrongConcentration> {
                           ),
                         );
                       } else {
-                        List<String> strongConcentrationTimestamps =
-                            prefs.getStringList(
-                                  "strong_concentration_timestamps",
-                                ) ??
-                                [];
-
-                        List<String> strongConcentrationScores =
-                            prefs.getStringList(
-                                  "strong_concentration_scores",
-                                ) ??
-                                [];
-
-                        prefs.setStringList(
-                          "strong_concentration_timestamps",
-                          strongConcentrationTimestamps +
-                              [DateTime.now().toString()],
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProgressScreen(
+                              name: "strong_concentration",
+                              score: score,
+                            ),
+                          ),
                         );
-
-                        prefs.setStringList(
-                          "strong_concentration_scores",
-                          strongConcentrationScores + [score.toString()],
-                        );
-
-                        Navigator.pop(context);
                       }
                     },
                     tooltip: 'Continue',

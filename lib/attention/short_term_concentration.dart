@@ -1,9 +1,9 @@
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import '../show_score.dart';
 import 'long_term_concentration.dart';
+import '/progress_screen.dart';
 
 class ShortTermConcentration extends StatefulWidget {
   const ShortTermConcentration({super.key, this.testVersion = false});
@@ -15,14 +15,11 @@ class ShortTermConcentration extends StatefulWidget {
 }
 
 class _ShortTermConcentration extends State<ShortTermConcentration> {
-  late SharedPreferences prefs;
-
   late YoutubePlayerController _controller;
 
   @override
   void initState() {
     super.initState();
-    initMemory();
     _controller = YoutubePlayerController(
       params: const YoutubePlayerParams(
         showControls: true,
@@ -37,12 +34,6 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
   }
 
   double score = 0;
-
-  Future<void> initMemory() async {
-    prefs = await SharedPreferences.getInstance();
-
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -142,6 +133,8 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
                   child: FloatingActionButton.extended(
                     onPressed: () {
                       _controller.close();
+                      Navigator.pop(context);
+
                       if (widget.testVersion) {
                         Navigator.push(
                           context,
@@ -160,30 +153,15 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
                           ),
                         );
                       } else {
-                        List<String> shortTermConcentrationTimestamps =
-                            prefs.getStringList(
-                                  "short_term_concentration_timestamps",
-                                ) ??
-                                [];
-
-                        List<String> shortTermConcentrationScores =
-                            prefs.getStringList(
-                                  "short_term_concentration_scores",
-                                ) ??
-                                [];
-
-                        prefs.setStringList(
-                          "short_term_concentration_timestamps",
-                          shortTermConcentrationTimestamps +
-                              [DateTime.now().toString()],
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProgressScreen(
+                              name: "short_term_concentration",
+                              score: score,
+                            ),
+                          ),
                         );
-
-                        prefs.setStringList(
-                          "short_term_concentration_scores",
-                          shortTermConcentrationScores + [score.toString()],
-                        );
-
-                        Navigator.pop(context);
                       }
                     },
                     tooltip: 'Continue',

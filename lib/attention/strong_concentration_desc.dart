@@ -72,6 +72,7 @@ class _StrongConcentrationDesc extends State<StrongConcentrationDesc> {
                   width: size.width * 0.75,
                   child: FloatingActionButton.extended(
                     onPressed: () {
+                      Navigator.pop(context);
                       Navigator.push(
                         context,
                         MaterialPageRoute(

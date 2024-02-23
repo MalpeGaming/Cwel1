@@ -1,10 +1,9 @@
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:any_link_preview/any_link_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../show_score.dart';
 import 'strong_concentration_desc.dart';
-import 'dart:async';
+import '/progress_screen.dart';
+import '/show_score.dart';
 
 class LongTermConcentration extends StatefulWidget {
   const LongTermConcentration({super.key, this.testVersion = false});
@@ -16,26 +15,8 @@ class LongTermConcentration extends StatefulWidget {
 }
 
 class _LongTermConcentration extends State<LongTermConcentration> {
-  late SharedPreferences prefs;
-
   double score = 0;
   String languageLevel = "";
-
-  Future<void> initMemory() async {
-    prefs = await SharedPreferences.getInstance();
-
-    setState(
-      () {
-        languageLevel = prefs.getString('level') ?? "pet";
-      },
-    );
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    initMemory();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -156,6 +137,8 @@ class _LongTermConcentration extends State<LongTermConcentration> {
                   width: size.width * 0.75,
                   child: FloatingActionButton.extended(
                     onPressed: () {
+                      Navigator.pop(context);
+
                       if (widget.testVersion) {
                         Navigator.push(
                           context,
@@ -168,35 +151,22 @@ class _LongTermConcentration extends State<LongTermConcentration> {
                               yourScore: score,
                               maximum: 100,
                               page: const StrongConcentrationDesc(
-                                  testVersion: true),
+                                testVersion: true,
+                              ),
                             ),
                           ),
                         );
                       } else {
-                        List<String> longTermConcentrationTimestamps =
-                            prefs.getStringList(
-                                  "long_term_concentration_timestamps",
-                                ) ??
-                                [];
-
-                        List<String> longTermConcentrationScores =
-                            prefs.getStringList(
-                                  "long_term_concentration_scores",
-                                ) ??
-                                [];
-
-                        prefs.setStringList(
-                          "long_term_concentration_timestamps",
-                          longTermConcentrationTimestamps +
-                              [DateTime.now().toString()],
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProgressScreen(
+                              name: "long_term_concentration",
+                              score: score,
+                              points: false,
+                            ),
+                          ),
                         );
-
-                        prefs.setStringList(
-                          "long_term_concentration_scores",
-                          longTermConcentrationScores + [score.toString()],
-                        );
-
-                        Navigator.pop(context);
                       }
                     },
                     tooltip: 'Continue',
