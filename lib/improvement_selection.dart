@@ -1,6 +1,6 @@
 import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
-import 'attention/exercise1.dart';
+import 'attention/short_term_concentration.dart';
 import 'memory/memory.dart';
 import 'linguistic/exercise1.dart';
 
@@ -68,7 +68,9 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
             ImprovementButton(
               text: "Attention",
               width: size.width,
-              route: const FirstAttentionExercise(),
+              route: const ShortTermConcentration(
+                testVersion: true,
+              ),
               imagePath: "assets/temp_background.png",
             ),
             const Spacer(),
@@ -82,7 +84,9 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
             ImprovementButton(
               text: "Logical Thinking",
               width: size.width,
-              route: const FirstAttentionExercise(),
+              route: const ShortTermConcentration(
+                testVersion: true,
+              ),
               imagePath: "assets/temp_background.png",
             ),
             const Spacer(),
