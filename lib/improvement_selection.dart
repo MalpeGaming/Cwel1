@@ -61,7 +61,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
             ImprovementButton(
               text: "Memory",
               width: size.width * 0.8,
-              route: const Memory(),
+              route: const Memory(initialTest: true),
               imagePath: "assets/temp_background.png",
             ),
             const Spacer(),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'memory_quiz.dart';
+import '../buttons.dart';
 
 class Memory2 extends StatefulWidget {
   const Memory2(this.picked, this.defs, this.words, {super.key});
@@ -78,77 +79,44 @@ class _Memory2 extends State<Memory2> {
             vertical: size.height / 20,
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  "MEMORY",
+                  style: TextStyle(fontSize: 0.08 * size.height),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              SizedBox(height: 0.02 * size.height),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "MEMORY",
-                      style: TextStyle(fontSize: 0.08 * size.height),
-                      textAlign: TextAlign.center,
-                    ),
+                  Text(
+                    "Exercise 1.1 - Learning",
+                    style: TextStyle(fontSize: 0.025 * size.height),
+                    textAlign: TextAlign.start,
                   ),
                   SizedBox(height: 0.02 * size.height),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Exercise 1.1 - Learning",
-                        style: TextStyle(fontSize: 0.025 * size.height),
-                        textAlign: TextAlign.start,
-                      ),
-                      SizedBox(height: 0.02 * size.height),
-                      Text(
-                        "Now write down as many words as you remember. ",
-                        style: TextStyle(fontSize: 0.02 * size.height),
-                        textAlign: TextAlign.start,
-                      ),
-                    ],
+                  Text(
+                    "Now write down as many words as you remember. ",
+                    style: TextStyle(fontSize: 0.02 * size.height),
+                    textAlign: TextAlign.start,
                   ),
-                  SizedBox(height: 0.02 * size.height),
-                  createFormFields(context),
                 ],
               ),
-              Container(
-                width: double.infinity,
-                padding: EdgeInsets.fromLTRB(
-                  0.1 * size.width,
-                  0,
-                  0.1 * size.width,
-                  0,
-                ),
-                child: FloatingActionButton(
-                  onPressed: () {
-                    for (int i = 0; i < conList.length; i++) {
-                      answers.add(conList[i].text.toLowerCase());
-                      words[i] = words[i].toLowerCase();
-                    }
-                    answers.sort();
-                    words.sort();
-
-                    for (int i = 0; i < conList.length; ++i) {
-                      if (answers[i] == words[i]) ++score;
-                    }
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MemoryQuiz(widget.picked, score),
-                      ),
-                    );
-                  },
-                  backgroundColor: Colors.blue[400],
-                  hoverColor: Colors.blue[900],
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50.0),
-                  ),
-                  child: Text(
-                    "Continue",
-                    style: TextStyle(
-                      fontSize: 0.03 * size.height,
-                      color: Colors.white,
-                    ),
+              SizedBox(height: 0.02 * size.height),
+              createFormFields(context),
+              const Spacer(),
+              Center(
+                child: SizedBox(
+                  height: size.height * 0.05,
+                  width: size.width * 0.75,
+                  child: RedirectButton(
+                    route: MemoryQuiz(widget.picked, score),
+                    text: 'Continue',
+                    width: size.width,
                   ),
                 ),
               ),
