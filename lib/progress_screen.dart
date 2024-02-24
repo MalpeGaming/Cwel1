@@ -110,10 +110,10 @@ class _ProgressScreen extends State<ProgressScreen>
               child: ConfettiWidget(
                 confettiController: _confettiController,
                 blastDirectionality: BlastDirectionality.explosive,
-                gravity: 0.035,
-                emissionFrequency: 0.05,
+                gravity: 0.1,
+                emissionFrequency: 0.075,
                 numberOfParticles: 100,
-                maxBlastForce: 75,
+                maxBlastForce: 80,
                 blastDirection: 1,
                 colors: const [
                   Colors.green,
@@ -131,27 +131,6 @@ class _ProgressScreen extends State<ProgressScreen>
       ),
       body: Stack(
         children: [
-          Positioned.fill(
-            top: kToolbarHeight + 100,
-            child: ConfettiWidget(
-              confettiController: _confettiController,
-              blastDirectionality: BlastDirectionality.explosive,
-              gravity: 0.035,
-              emissionFrequency: 0.05,
-              numberOfParticles: 100,
-              maxBlastForce: 75,
-              blastDirection: 1,
-              colors: const [
-                Colors.green,
-                Colors.blue,
-                Colors.pink,
-                Colors.orange,
-                Colors.purple,
-                Colors.yellow,
-                Colors.teal,
-              ],
-            ),
-          ),
           Center(
             child: Column(
               children: [
