@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '/navbar.dart';
 import '/app_bar.dart';
 
 class CalRequirementsCalc extends StatefulWidget {
@@ -288,7 +287,6 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
           ),
         ),
       ),
-      bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }
