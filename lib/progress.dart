@@ -104,7 +104,7 @@ class _Progress extends State<Progress> {
         holeLabel: dayNum.toString(),
         labelStyle: TextStyle(
           fontSize: 0.022 * size.height,
-          color: Colors.black,
+          color: Theme.of(context).colorScheme.onSecondary,
         ),
       ),
     );

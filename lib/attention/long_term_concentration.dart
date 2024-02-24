@@ -1,36 +1,22 @@
+import 'package:any_link_preview/any_link_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:youtube_player_iframe/youtube_player_iframe.dart';
-import '../show_score.dart';
-import 'exercise2.dart';
+import 'strong_concentration_desc.dart';
+import '/progress_screen.dart';
+import '/show_score.dart';
 
-class FirstAttentionExercise extends StatefulWidget {
-  const FirstAttentionExercise({super.key});
+class LongTermConcentration extends StatefulWidget {
+  const LongTermConcentration({super.key, this.testVersion = false});
+
+  final bool testVersion;
 
   @override
-  State<FirstAttentionExercise> createState() => _FirstAttentionExercise();
+  State<LongTermConcentration> createState() => _LongTermConcentration();
 }
 
-class _FirstAttentionExercise extends State<FirstAttentionExercise> {
-  late YoutubePlayerController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = YoutubePlayerController(
-      params: const YoutubePlayerParams(
-        showControls: true,
-        mute: false,
-        showFullscreenButton: true,
-        loop: false,
-        enableKeyboard: false,
-      ),
-    );
-
-    _controller.loadVideo("https://www.youtube.com/watch?v=aCtjqGRQAaU");
-  }
-
+class _LongTermConcentration extends State<LongTermConcentration> {
   double score = 0;
+  String languageLevel = "";
 
   @override
   Widget build(BuildContext context) {
@@ -65,27 +51,39 @@ class _FirstAttentionExercise extends State<FirstAttentionExercise> {
                     height: size.height / 50,
                   ),
                   Text(
-                    "Exercise 1 - Short Term Concentration",
+                    "Exercise 2 - Long Term Concentration",
                     style: TextStyle(fontSize: size.width / 20),
                   ),
                   SizedBox(
                     height: size.height / 25,
                   ),
                   Text(
-                    "Follow the instructions in the video.",
+                    "Do the following listening exercise.",
                     style: TextStyle(fontSize: size.width / 24),
                   ),
                   SizedBox(
                     height: size.height / 30,
                   ),
-                  YoutubePlayer(
-                    controller: _controller,
-                  ),
+                  languageLevel.isEmpty
+                      ? const Center(child: CircularProgressIndicator())
+                      : AnyLinkPreview(
+                          displayDirection: UIDirection.uiDirectionHorizontal,
+                          link:
+                              "https://app.engxam.com/$languageLevel/listening/1",
+                          errorBody: 'Error body',
+                          errorTitle: 'Error',
+                          backgroundColor:
+                              Theme.of(context).colorScheme.onSecondary,
+                          titleStyle: TextStyle(
+                            color: Theme.of(context).colorScheme.onPrimary,
+                          ),
+                          showMultimedia: false,
+                        ),
                   SizedBox(
                     height: size.height / 25,
                   ),
                   Text(
-                    "Write yout score BELOW.",
+                    "Write your PERCENTAGE score BELOW.",
                     style: TextStyle(fontSize: size.width / 24),
                   ),
                   SizedBox(
@@ -101,9 +99,17 @@ class _FirstAttentionExercise extends State<FirstAttentionExercise> {
                           FilteringTextInputFormatter.digitsOnly,
                           TextInputFormatter.withFunction((oldValue, newValue) {
                             String text = newValue.text;
-                            if (text.isEmpty || int.parse(text) <= 10) {
-                              score = double.parse(text);
+                            if (text.isEmpty) {
+                              score = 0;
                               return newValue;
+                            }
+                            if (int.parse(text) <= 100) {
+                              score = double.parse(text);
+                              text += "%";
+                              return TextEditingValue(
+                                text: text,
+                                selection: newValue.selection,
+                              );
                             }
                             return oldValue;
                           }),
@@ -117,6 +123,7 @@ class _FirstAttentionExercise extends State<FirstAttentionExercise> {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
+                          hintText: "5%",
                         ),
                       ),
                     ),
@@ -124,26 +131,43 @@ class _FirstAttentionExercise extends State<FirstAttentionExercise> {
                 ],
               ),
               Center(
+                heightFactor: 1,
                 child: SizedBox(
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: FloatingActionButton.extended(
                     onPressed: () {
-                      _controller.close();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ShowScore(
-                            title: "ATTENTION",
-                            description:
-                                "Exercise 1 - Short Term Concentration",
-                            exercise: 1,
-                            yourScore: score,
-                            maximum: 10,
-                            page: const SecondAttentionExercise(),
+                      Navigator.pop(context);
+
+                      if (widget.testVersion) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ShowScore(
+                              title: "ATTENTION",
+                              description:
+                                  "Exercise 2 - Long Term Concentration",
+                              exercise: 2,
+                              yourScore: score,
+                              maximum: 100,
+                              page: const StrongConcentrationDesc(
+                                testVersion: true,
+                              ),
+                            ),
                           ),
-                        ),
-                      );
+                        );
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProgressScreen(
+                              name: "long_term_concentration",
+                              score: score,
+                              points: false,
+                            ),
+                          ),
+                        );
+                      }
                     },
                     tooltip: 'Continue',
                     label: Text(

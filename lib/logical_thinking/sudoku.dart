@@ -39,7 +39,11 @@ class _SudokuGame extends State<SudokuGame> {
   }
 
   GestureDetector buildNumerButton(
-      BuildContext context, int indx, int? tappedRow, int? tappedCol) {
+    BuildContext context,
+    int indx,
+    int? tappedRow,
+    int? tappedCol,
+  ) {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
@@ -181,10 +185,11 @@ class _SudokuGame extends State<SudokuGame> {
               decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.background,
                 borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15),
-                    bottomLeft: Radius.circular(15),
-                    bottomRight: Radius.circular(15)),
+                  topLeft: Radius.circular(15),
+                  topRight: Radius.circular(15),
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
+                ),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
@@ -280,7 +285,11 @@ class _SudokuGame extends State<SudokuGame> {
                 ...List.generate(
                   4,
                   (index) => buildNumerButton(
-                      context, index + 6, tappedRow, tappedCol),
+                    context,
+                    index + 6,
+                    tappedRow,
+                    tappedCol,
+                  ),
                 ),
                 SizedBox(width: 0.07 * size.width),
               ],

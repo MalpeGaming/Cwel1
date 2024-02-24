@@ -1,51 +1,39 @@
-import 'package:any_link_preview/any_link_preview.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:xml/xml.dart' as xml;
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import '../show_score.dart';
-import 'exercise3_desc.dart';
-import 'dart:async';
-import 'dart:io';
+import 'long_term_concentration.dart';
+import '/progress_screen.dart';
 
-class SecondAttentionExercise extends StatefulWidget {
-  const SecondAttentionExercise({super.key});
+class ShortTermConcentration extends StatefulWidget {
+  const ShortTermConcentration({super.key, this.testVersion = false});
+
+  final bool testVersion;
 
   @override
-  State<SecondAttentionExercise> createState() => _SecondAttentionExercise();
+  State<ShortTermConcentration> createState() => _ShortTermConcentration();
 }
 
-class _SecondAttentionExercise extends State<SecondAttentionExercise> {
-  double score = 0;
-  String languageLevel = "";
-
-  Future<String> loadLevel() async {
-    Directory appDocumentsDirectory = await getApplicationDocumentsDirectory();
-    String appDocumentsPath = appDocumentsDirectory.path;
-
-    String filePath = '$appDocumentsPath/lang_lev.xml';
-    String localLevel = "";
-
-    if (!File(filePath).existsSync()) {
-      return "";
-    }
-
-    String data = File(filePath).readAsStringSync();
-    var xdoc = xml.XmlDocument.parse(data);
-    localLevel = xdoc.getElement("root")!.getElement("level")!.innerText;
-    return localLevel;
-  }
-
-  Future<void> initMemory() async {
-    languageLevel = await loadLevel();
-    setState(() {});
-  }
+class _ShortTermConcentration extends State<ShortTermConcentration> {
+  late YoutubePlayerController _controller;
 
   @override
   void initState() {
     super.initState();
-    initMemory();
+    _controller = YoutubePlayerController(
+      params: const YoutubePlayerParams(
+        showControls: true,
+        mute: false,
+        showFullscreenButton: true,
+        loop: false,
+        enableKeyboard: false,
+      ),
+    );
+
+    _controller.loadVideo("https://www.youtube.com/watch?v=aCtjqGRQAaU");
   }
+
+  double score = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -80,39 +68,27 @@ class _SecondAttentionExercise extends State<SecondAttentionExercise> {
                     height: size.height / 50,
                   ),
                   Text(
-                    "Exercise 2 - Long Term Concentration",
+                    "Exercise 1 - Short Term Concentration",
                     style: TextStyle(fontSize: size.width / 20),
                   ),
                   SizedBox(
                     height: size.height / 25,
                   ),
                   Text(
-                    "Do the following listening exercise.",
+                    "Follow the instructions in the video.",
                     style: TextStyle(fontSize: size.width / 24),
                   ),
                   SizedBox(
                     height: size.height / 30,
                   ),
-                  languageLevel.isEmpty
-                      ? const Center(child: CircularProgressIndicator())
-                      : AnyLinkPreview(
-                          displayDirection: UIDirection.uiDirectionHorizontal,
-                          link:
-                              "https://app.engxam.com/$languageLevel/listening/1",
-                          errorBody: 'Error body',
-                          errorTitle: 'Error',
-                          backgroundColor:
-                              Theme.of(context).colorScheme.onSecondary,
-                          titleStyle: TextStyle(
-                            color: Theme.of(context).colorScheme.onPrimary,
-                          ),
-                          showMultimedia: false,
-                        ),
+                  YoutubePlayer(
+                    controller: _controller,
+                  ),
                   SizedBox(
                     height: size.height / 25,
                   ),
                   Text(
-                    "Write your PERCENTAGE score BELOW.",
+                    "Write yout score BELOW.",
                     style: TextStyle(fontSize: size.width / 24),
                   ),
                   SizedBox(
@@ -128,17 +104,9 @@ class _SecondAttentionExercise extends State<SecondAttentionExercise> {
                           FilteringTextInputFormatter.digitsOnly,
                           TextInputFormatter.withFunction((oldValue, newValue) {
                             String text = newValue.text;
-                            if (text.isEmpty) {
-                              score = 0;
-                              return newValue;
-                            }
-                            if (int.parse(text) <= 100) {
+                            if (text.isEmpty || int.parse(text) <= 10) {
                               score = double.parse(text);
-                              text += "%";
-                              return TextEditingValue(
-                                text: text,
-                                selection: newValue.selection,
-                              );
+                              return newValue;
                             }
                             return oldValue;
                           }),
@@ -152,7 +120,6 @@ class _SecondAttentionExercise extends State<SecondAttentionExercise> {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          hintText: "5%",
                         ),
                       ),
                     ),
@@ -160,25 +127,42 @@ class _SecondAttentionExercise extends State<SecondAttentionExercise> {
                 ],
               ),
               Center(
-                heightFactor: 1,
                 child: SizedBox(
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: FloatingActionButton.extended(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ShowScore(
-                            title: "ATTENTION",
-                            description: "Exercise 2 - Long Term Concentration",
-                            exercise: 2,
-                            yourScore: score,
-                            maximum: 100,
-                            page: const ThirdAttentionExerciseDesc(),
+                      _controller.close();
+                      Navigator.pop(context);
+
+                      if (widget.testVersion) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ShowScore(
+                              title: "ATTENTION",
+                              description:
+                                  "Exercise 1 - Short Term Concentration",
+                              exercise: 1,
+                              yourScore: score,
+                              maximum: 10,
+                              page: const LongTermConcentration(
+                                testVersion: true,
+                              ),
+                            ),
                           ),
-                        ),
-                      );
+                        );
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProgressScreen(
+                              name: "short_term_concentration",
+                              score: score,
+                            ),
+                          ),
+                        );
+                      }
                     },
                     tooltip: 'Continue',
                     label: Text(

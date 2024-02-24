@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '/navbar.dart';
+import '/diet/cal_requirements.dart';
+import '/buttons.dart';
 import '/app_bar.dart';
 
 class CalRequirementsCalc extends StatefulWidget {
@@ -35,21 +36,17 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
         onPressed: () {
           if (linked) onclick = pressedNum;
           if (isGender) isMan = !pressedNum;
-          if (height.text.isNotEmpty &&
-              weight.text.isNotEmpty &&
-              age.text.isNotEmpty) {
-            setState(() {
-              if (weight.text.isNotEmpty &&
-                  height.text.isNotEmpty &&
-                  age.text.isNotEmpty) {
-                calcCal(
-                  double.parse(height.text) / 100.0,
-                  double.parse(weight.text),
-                  int.parse(age.text),
-                );
-              }
-            });
-          }
+          setState(() {
+            if (weight.text.isNotEmpty &&
+                height.text.isNotEmpty &&
+                age.text.isNotEmpty) {
+              calcCal(
+                double.parse(height.text) / 100.0,
+                double.parse(weight.text),
+                int.parse(age.text),
+              );
+            }
+          });
         },
         style: ButtonStyle(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -62,8 +59,8 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
               return states.contains(MaterialState.pressed)
                   ? Theme.of(context).colorScheme.secondary
                   : oneOption ||
-                          ((!isGender) && onclick == pressedNum) ||
-                          ((isGender) && isMan == !pressedNum)
+                          (!isGender && onclick == pressedNum) ||
+                          (isGender && !isMan == pressedNum)
                       ? const Color.fromARGB(255, 162, 218, 255)
                       : Theme.of(context).colorScheme.background;
             },
@@ -113,13 +110,18 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                 height: 0.05 * size.height,
                 child: TextField(
                   onChanged: (String value) {
-                    if (height.text.isNotEmpty && weight.text.isNotEmpty) {
+                    if (height.text.isNotEmpty &&
+                        weight.text.isNotEmpty & age.text.isNotEmpty) {
                       setState(() {
                         calcCal(
                           double.parse(height.text) / 100.0,
                           double.parse(weight.text),
                           int.parse(age.text),
                         );
+                      });
+                    } else {
+                      setState(() {
+                        cal = 0;
                       });
                     }
                   },
@@ -199,99 +201,120 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
       appBar: appBar(context, ''),
       body: SingleChildScrollView(
         child: Container(
+          height: size.height * 0.85,
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
             bottom: size.height / 15,
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
-                children: <Widget>[
-                  Center(
-                    child: Text(
-                      "CALORIE DAILY REQUIREMENTS",
-                      style: TextStyle(
-                        fontSize: size.width / 8.5,
+                children: [
+                  Column(
+                    children: <Widget>[
+                      Center(
+                        child: Text(
+                          "CALORIE DAILY REQUIREMENTS",
+                          style: TextStyle(
+                            fontSize: size.width / 9.5,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
-                      textAlign: TextAlign.center,
-                    ),
+                      Center(
+                        child: Text(
+                          "The calculator works for adults between the ages of 18-52.",
+                          style: TextStyle(fontSize: size.width / 26),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
                   ),
-                  Center(
-                    child: Text(
-                      "The calculator works for adults between the ages of 18-52.",
-                      style: TextStyle(fontSize: size.width / 26),
-                      textAlign: TextAlign.center,
+                  Container(
+                    margin: EdgeInsets.only(
+                      left: size.width / 15,
+                      right: size.width / 15,
+                      top: size.height / 25,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        buildQuery(
+                          context,
+                          "",
+                          34,
+                          "Man",
+                          "Woman",
+                          age,
+                          noForm: true,
+                          widthFactor: 0.3,
+                          linked: false,
+                          isGender: true,
+                        ),
+                        SizedBox(height: 0.01 * size.height),
+                        buildQuery(
+                          context,
+                          "Age",
+                          34,
+                          "years",
+                          "",
+                          age,
+                          widthFactor: 0.3,
+                          linked: false,
+                        ),
+                        SizedBox(height: 0.01 * size.height),
+                        buildQuery(context, "Height", 167, "cm", "in", height),
+                        SizedBox(height: 0.01 * size.height),
+                        buildQuery(context, "Weight", 56, "kg", "lb", weight),
+                        SizedBox(height: 0.03 * size.height),
+                        RichText(
+                          text: TextSpan(
+                            style: TextStyle(
+                              fontSize: 0.027 * size.height,
+                              color: Theme.of(context).colorScheme.onSecondary,
+                            ),
+                            children: [
+                              const TextSpan(text: "Your "),
+                              const TextSpan(
+                                text: "BASE",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              const TextSpan(
+                                text: " calorie requirements are ",
+                              ),
+                              TextSpan(
+                                text: "${cal}kcal/day",
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
-              Container(
-                margin: EdgeInsets.only(
-                  left: size.width / 15,
-                  right: size.width / 15,
-                  top: size.height / 25,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    buildQuery(
-                      context,
-                      "",
-                      34,
-                      "Man",
-                      "Woman",
-                      age,
-                      noForm: true,
-                      widthFactor: 0.3,
-                      linked: false,
-                      isGender: true,
-                    ),
-                    SizedBox(height: 0.01 * size.height),
-                    buildQuery(
-                      context,
-                      "Age",
-                      34,
-                      "years",
-                      "",
-                      age,
-                      widthFactor: 0.3,
-                      linked: false,
-                    ),
-                    SizedBox(height: 0.01 * size.height),
-                    buildQuery(context, "Height", 167, "cm", "in", height),
-                    SizedBox(height: 0.01 * size.height),
-                    buildQuery(context, "Weight", 56, "kg", "lb", weight),
-                    SizedBox(height: 0.03 * size.height),
-                    RichText(
-                      text: TextSpan(
-                        style: TextStyle(
-                          fontSize: 0.027 * size.height,
-                          color: Theme.of(context).colorScheme.onSecondary,
-                        ),
-                        children: [
-                          const TextSpan(text: "Your "),
-                          const TextSpan(
-                            text: "BASE",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          const TextSpan(text: " calorie requirements are "),
-                          TextSpan(
-                            text: "${cal}kcal/day",
-                            style: const TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+              SizedBox(
+                height: size.height * 0.05,
+                width: size.width * 0.75,
+                child: RedirectButton(
+                  text: "Continue",
+                  route: CalRequirementsPage(
+                    cal: cal,
+                  ),
+                  width: size.width,
+                  requirement: cal != 0,
                 ),
               ),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }

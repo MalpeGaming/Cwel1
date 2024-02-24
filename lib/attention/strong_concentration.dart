@@ -2,23 +2,25 @@ import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
-import '../show_score.dart';
-import '../account/login1.dart';
-import 'exercise2.dart';
+import '/account/login1.dart';
+import '/progress_screen.dart';
+import '/show_score.dart';
 
-class ThirdAttentionExercise extends StatefulWidget {
-  const ThirdAttentionExercise({super.key});
+class StrongConcentration extends StatefulWidget {
+  const StrongConcentration({super.key, this.testVersion = false});
+
+  final bool testVersion;
 
   @override
-  State<ThirdAttentionExercise> createState() => _ThirdAttentionExercise();
+  State<StrongConcentration> createState() => _StrongConcentration();
 }
 
-class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
+class _StrongConcentration extends State<StrongConcentration> {
   int _id = 0;
   int _remainingTime = 130;
   late Timer _timer;
   List<double> correctAnswers = [
-    732,
+    722,
     465,
     90,
     9,
@@ -42,20 +44,35 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
             if (_remainingTime > 0) {
               _remainingTime--;
             } else {
+              Navigator.pop(context);
               _timer.cancel();
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ShowScore(
-                    title: "ATTENTION",
-                    description: "Exercise 3 - Strong Concentration",
-                    exercise: 3,
-                    yourScore: 3,
-                    maximum: 10,
-                    page: SecondAttentionExercise(),
+              double score = countScore();
+
+              if (widget.testVersion) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ShowScore(
+                      title: "ATTENTION",
+                      description: "Exercise 3 - Strong Concentration",
+                      exercise: 3,
+                      yourScore: score,
+                      maximum: 10,
+                      page: const Login1(),
+                    ),
                   ),
-                ),
-              );
+                );
+              } else {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProgressScreen(
+                      name: "strong_concentration",
+                      score: score,
+                    ),
+                  ),
+                );
+              }
             }
           },
         );
@@ -243,10 +260,6 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
                                   size,
                                 ),
                                 equasion(
-                                  createEquasion(smallText, r"15\%"),
-                                  size,
-                                ),
-                                equasion(
                                   createEquasion2(smallText, r"15\%", r"480"),
                                   size,
                                 ),
@@ -360,20 +373,35 @@ class _ThirdAttentionExercise extends State<ThirdAttentionExercise> {
                   width: size.width * 0.75,
                   child: FloatingActionButton.extended(
                     onPressed: () {
+                      Navigator.pop(context);
                       _timer.cancel();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ShowScore(
-                            title: "ATTENTION",
-                            description: "Exercise 3 - Strong Concentration",
-                            exercise: 3,
-                            yourScore: countScore(),
-                            maximum: 10,
-                            page: const Login1(),
+                      double score = countScore();
+
+                      if (widget.testVersion) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ShowScore(
+                              title: "ATTENTION",
+                              description: "Exercise 3 - Strong Concentration",
+                              exercise: 3,
+                              yourScore: score,
+                              maximum: 10,
+                              page: const Login1(),
+                            ),
                           ),
-                        ),
-                      );
+                        );
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProgressScreen(
+                              name: "strong_concentration",
+                              score: score,
+                            ),
+                          ),
+                        );
+                      }
                     },
                     tooltip: 'Continue',
                     label: Text(

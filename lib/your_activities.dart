@@ -5,6 +5,9 @@ import 'self_reflection.dart';
 import 'meditation.dart';
 import 'sport.dart';
 import 'memory/memory_game1.dart';
+import 'attention/long_term_concentration.dart';
+import 'attention/short_term_concentration.dart';
+import 'attention/strong_concentration.dart';
 import 'attention/reading/reading.dart';
 import 'logical_thinking/sudoku.dart';
 
@@ -67,7 +70,7 @@ GestureDetector createActivity(
                   ),
                 ),
               ),
-              SizedBox(width: 0.05 * size.width),
+              SizedBox(width: 0.045 * size.width),
               SizedBox(
                 width: size.width * textWidth,
                 child: Column(
@@ -300,21 +303,21 @@ class _YourActivities extends State<YourActivities> {
                           "short_term_concentration",
                           "Short-Term",
                           "CONCENTRATION",
-                          const YourActivities(),
+                          const ShortTermConcentration(),
                         ),
                         createActivity2(
                           context,
                           "long_term_concentration",
                           "Long-Term",
                           "CONCENTRATION",
-                          const YourActivities(),
+                          const LongTermConcentration(),
                         ),
                         createActivity2(
                           context,
                           "strong_concentration",
                           "Strong",
                           "CONCENTRATION",
-                          const YourActivities(),
+                          const StrongConcentration(),
                         ),
                         createActivity2(
                           context,

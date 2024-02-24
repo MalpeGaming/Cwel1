@@ -1,12 +1,10 @@
+import 'package:shared_preferences/shared_preferences.dart';
 import "package:any_link_preview/any_link_preview.dart";
-import 'package:path_provider/path_provider.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
-import 'package:xml/xml.dart' as xml;
 import "../show_score.dart";
 import '../account/login1.dart';
 import 'dart:async';
-import 'dart:io';
 
 class SecondLinguisticExercise extends StatefulWidget {
   const SecondLinguisticExercise({super.key});
@@ -16,29 +14,19 @@ class SecondLinguisticExercise extends StatefulWidget {
 }
 
 class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
+  late SharedPreferences prefs;
+
   double score = 0;
   String languageLevel = "";
 
-  Future<String> loadLevel() async {
-    Directory appDocumentsDirectory = await getApplicationDocumentsDirectory();
-    String appDocumentsPath = appDocumentsDirectory.path;
-
-    String filePath = '$appDocumentsPath/lang_lev.xml';
-    String localLevel = "";
-
-    if (!File(filePath).existsSync()) {
-      return "";
-    }
-
-    String data = File(filePath).readAsStringSync();
-    var xdoc = xml.XmlDocument.parse(data);
-    localLevel = xdoc.getElement("root")!.getElement("level")!.innerText;
-    return localLevel;
-  }
-
   Future<void> initMemory() async {
-    languageLevel = await loadLevel();
-    setState(() {});
+    prefs = await SharedPreferences.getInstance();
+
+    setState(
+      () {
+        languageLevel = prefs.getString('level') ?? "pet";
+      },
+    );
   }
 
   @override
@@ -188,22 +176,24 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
                         keyboardType: TextInputType.number,
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly,
-                          TextInputFormatter.withFunction((oldValue, newValue) {
-                            String text = newValue.text;
-                            if (text.isEmpty) {
-                              score = 0;
-                              return newValue;
-                            }
-                            if (int.parse(text) <= 100) {
-                              score = double.parse(text);
-                              text += "%";
-                              return TextEditingValue(
-                                text: text,
-                                selection: newValue.selection,
-                              );
-                            }
-                            return oldValue;
-                          }),
+                          TextInputFormatter.withFunction(
+                            (oldValue, newValue) {
+                              String text = newValue.text;
+                              if (text.isEmpty) {
+                                score = 0;
+                                return newValue;
+                              }
+                              if (int.parse(text) <= 100) {
+                                score = double.parse(text);
+                                text += "%";
+                                return TextEditingValue(
+                                  text: text,
+                                  selection: newValue.selection,
+                                );
+                              }
+                              return oldValue;
+                            },
+                          ),
                         ],
                         maxLines: 1,
                         decoration: InputDecoration(
