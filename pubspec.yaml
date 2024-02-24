@@ -59,6 +59,7 @@ dependencies:
   shared_preferences: ^2.2.2
   flip_card: ^0.7.0
   sudoku_dart: ^1.1.0
+  confetti: ^0.7.0
 
 dev_dependencies:
   flutter_test:
