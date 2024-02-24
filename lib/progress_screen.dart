@@ -101,7 +101,7 @@ class _ProgressScreen extends State<ProgressScreen>
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(kToolbarHeight),
+        preferredSize: const Size.fromHeight(kToolbarHeight),
         child: Stack(
           children: [
             appBar(context, ""),
