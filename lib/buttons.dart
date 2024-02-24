@@ -112,6 +112,7 @@ class _RedirectButtonState extends State<RedirectButton> {
       },
       onTap: () {
         if (widget.requirement) {
+          Navigator.pop(context);
           widget.onClick();
           Navigator.push(
             context,
