@@ -129,69 +129,73 @@ class _ProgressScreen extends State<ProgressScreen>
           ],
         ),
       ),
-      body: Stack(
-        children: [
-          Center(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: size.height / 25,
-                ),
-                Text(
-                  "CONGRATS",
-                  style: TextStyle(fontSize: size.width / 8),
-                ),
-                SizedBox(height: size.height / 18),
-                Text(
-                  "You Received",
-                  style: TextStyle(
-                    fontSize: size.width / 15,
-                    fontWeight: FontWeight.bold,
+      body: Container(
+        margin: EdgeInsets.only(
+          left: size.width / 25,
+          right: size.width / 25,
+          top: size.height / 25,
+        ),
+        child: Stack(
+          children: [
+            Center(
+              child: Column(
+                children: [
+                  Text(
+                    "CONGRATS",
+                    style: TextStyle(fontSize: size.width / 8),
                   ),
-                ),
-                Text(
-                  "${widget.score.round()} ${widget.points ? 'Points' : 'Percents'}",
-                  style: TextStyle(
-                    fontSize: size.width / 15,
-                    color: const Color.fromARGB(
-                      255,
-                      145,
-                      145,
-                      145,
+                  SizedBox(height: size.height / 18),
+                  Text(
+                    "You Received",
+                    style: TextStyle(
+                      fontSize: size.width / 15,
+                      fontWeight: FontWeight.bold,
                     ),
-                    fontWeight: FontWeight.bold,
                   ),
-                ),
-                SizedBox(height: size.height / 25),
-                Container(
-                  child: chartData.isEmpty
-                      ? const Center(child: CircularProgressIndicator())
-                      : SfCartesianChart(
-                          primaryXAxis: const DateTimeAxis(),
-                          primaryYAxis: const NumericAxis(),
-                          series: <CartesianSeries>[
-                            LineSeries<ChartData, DateTime>(
-                              color: Colors.cyan[300],
-                              width: 5,
-                              dataSource: chartData,
-                              xValueMapper: (ChartData data, _) => data.day,
-                              yValueMapper: (ChartData data, _) => data.score,
-                              markerSettings: MarkerSettings(
-                                isVisible: true,
-                                shape: DataMarkerType.circle,
+                  Text(
+                    "${widget.score.round()} ${widget.points ? 'Points' : 'Percents'}",
+                    style: TextStyle(
+                      fontSize: size.width / 15,
+                      color: const Color.fromARGB(
+                        255,
+                        145,
+                        145,
+                        145,
+                      ),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: size.height / 25),
+                  Container(
+                    child: chartData.isEmpty
+                        ? const Center(child: CircularProgressIndicator())
+                        : SfCartesianChart(
+                            primaryXAxis: const DateTimeAxis(),
+                            primaryYAxis: const NumericAxis(),
+                            series: <CartesianSeries>[
+                              LineSeries<ChartData, DateTime>(
                                 color: Colors.cyan[300],
-                                width: 12,
-                                height: 12,
+                                width: 5,
+                                dataSource: chartData,
+                                xValueMapper: (ChartData data, _) => data.day,
+                                yValueMapper: (ChartData data, _) => data.score,
+                                markerSettings: MarkerSettings(
+                                  isVisible: true,
+                                  shape: DataMarkerType.circle,
+                                  color: Colors.cyan[300],
+                                  width: 12,
+                                  height: 12,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                ),
-                SizedBox(height: size.height / 25),
-              ],
+                            ],
+                          ),
+                  ),
+                  SizedBox(height: size.height / 25),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
