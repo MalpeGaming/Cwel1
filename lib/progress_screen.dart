@@ -1,6 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:flutter/material.dart';
+import 'package:confetti/confetti.dart';
 import 'app_bar.dart';
 
 class ProgressScreen extends StatefulWidget {
@@ -25,9 +26,26 @@ class ChartData {
   final double score;
 }
 
-class _ProgressScreen extends State<ProgressScreen> {
+class _ProgressScreen extends State<ProgressScreen>
+    with SingleTickerProviderStateMixin {
   late SharedPreferences prefs;
   late List<ChartData> chartData = <ChartData>[];
+  late ConfettiController _confettiController;
+
+  @override
+  void initState() {
+    super.initState();
+    initMemory();
+    _confettiController =
+        ConfettiController(duration: const Duration(seconds: 5));
+    _confettiController.play();
+  }
+
+  @override
+  void dispose() {
+    _confettiController.dispose();
+    super.dispose();
+  }
 
   Future<void> initMemory() async {
     prefs = await SharedPreferences.getInstance();
@@ -79,74 +97,122 @@ class _ProgressScreen extends State<ProgressScreen> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    initMemory();
-  }
-
-  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: appBar(context, ""),
-      body: Center(
-        child: Column(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: Stack(
           children: [
-            SizedBox(
-              height: size.height / 25,
-            ),
-            Text(
-              "CONGRATS",
-              style: TextStyle(fontSize: size.width / 8),
-            ),
-            SizedBox(height: size.height / 18),
-            Text(
-              "You Received",
-              style: TextStyle(
-                fontSize: size.width / 15,
-                fontWeight: FontWeight.bold,
+            appBar(context, ""),
+            Positioned.fill(
+              top: kToolbarHeight,
+              child: ConfettiWidget(
+                confettiController: _confettiController,
+                blastDirectionality: BlastDirectionality.explosive,
+                gravity: 0.035,
+                emissionFrequency: 0.05,
+                numberOfParticles: 100,
+                maxBlastForce: 75,
+                blastDirection: 1,
+                colors: const [
+                  Colors.green,
+                  Colors.blue,
+                  Colors.pink,
+                  Colors.orange,
+                  Colors.purple,
+                  Colors.yellow,
+                  Colors.teal,
+                ],
               ),
-            ),
-            Text(
-              "${widget.score.round()} ${widget.points ? 'Points' : 'Percents'}",
-              style: TextStyle(
-                fontSize: size.width / 15,
-                color: const Color.fromARGB(
-                  255,
-                  145,
-                  145,
-                  145,
-                ),
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: size.height / 25),
-            Container(
-              child: chartData.isEmpty
-                  ? const Center(child: CircularProgressIndicator())
-                  : SfCartesianChart(
-                      primaryXAxis: const DateTimeAxis(),
-                      primaryYAxis: const NumericAxis(),
-                      series: <CartesianSeries>[
-                        LineSeries<ChartData, DateTime>(
-                          color: Colors.cyan[300],
-                          width: 5,
-                          dataSource: chartData,
-                          xValueMapper: (ChartData data, _) => data.day,
-                          yValueMapper: (ChartData data, _) => data.score,
-                          markerSettings: MarkerSettings(
-                            isVisible: true,
-                            shape: DataMarkerType.circle,
-                            color: Colors.cyan[300],
-                            width: 12,
-                            height: 12,
-                          ),
-                        ),
-                      ],
-                    ),
             ),
           ],
         ),
+      ),
+      body: Stack(
+        children: [
+          Positioned.fill(
+            top: kToolbarHeight + 100,
+            child: ConfettiWidget(
+              confettiController: _confettiController,
+              blastDirectionality: BlastDirectionality.explosive,
+              gravity: 0.035,
+              emissionFrequency: 0.05,
+              numberOfParticles: 100,
+              maxBlastForce: 75,
+              blastDirection: 1,
+              colors: const [
+                Colors.green,
+                Colors.blue,
+                Colors.pink,
+                Colors.orange,
+                Colors.purple,
+                Colors.yellow,
+                Colors.teal,
+              ],
+            ),
+          ),
+          Center(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: size.height / 25,
+                ),
+                Text(
+                  "CONGRATS",
+                  style: TextStyle(fontSize: size.width / 8),
+                ),
+                SizedBox(height: size.height / 18),
+                Text(
+                  "You Received",
+                  style: TextStyle(
+                    fontSize: size.width / 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "${widget.score.round()} ${widget.points ? 'Points' : 'Percents'}",
+                  style: TextStyle(
+                    fontSize: size.width / 15,
+                    color: const Color.fromARGB(
+                      255,
+                      145,
+                      145,
+                      145,
+                    ),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: size.height / 25),
+                Container(
+                  child: chartData.isEmpty
+                      ? const Center(child: CircularProgressIndicator())
+                      : SfCartesianChart(
+                          primaryXAxis: const DateTimeAxis(),
+                          primaryYAxis: const NumericAxis(),
+                          series: <CartesianSeries>[
+                            LineSeries<ChartData, DateTime>(
+                              color: Colors.cyan[300],
+                              width: 5,
+                              dataSource: chartData,
+                              xValueMapper: (ChartData data, _) => data.day,
+                              yValueMapper: (ChartData data, _) => data.score,
+                              markerSettings: MarkerSettings(
+                                isVisible: true,
+                                shape: DataMarkerType.circle,
+                                color: Colors.cyan[300],
+                                width: 12,
+                                height: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                ),
+                SizedBox(height: size.height / 25),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
