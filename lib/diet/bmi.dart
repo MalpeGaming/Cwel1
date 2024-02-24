@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import 'package:flutter/services.dart';
-import '../navbar.dart';
+import '/app_bar.dart';
 
 class BMI extends StatefulWidget {
   const BMI({super.key});
@@ -210,6 +210,7 @@ class _BMI extends State<BMI> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: appBar(context, ""),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(
@@ -380,7 +381,6 @@ class _BMI extends State<BMI> {
           ),
         ),
       ),
-      bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }
