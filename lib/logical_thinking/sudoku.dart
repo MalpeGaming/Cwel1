@@ -171,7 +171,7 @@ class _SudokuGame extends State<SudokuGame> {
                   style: TextStyle(
                     fontSize: 0.05 * min(size.width, size.height),
                   ),
-                )
+                ),
               ],
             ),
             Text(
