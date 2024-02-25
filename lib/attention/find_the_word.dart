@@ -4,7 +4,7 @@ import 'package:crossword/crossword.dart';
 import 'dart:math';
 
 class FindTheWord extends StatefulWidget {
-  const FindTheWord({Key? key}) : super(key: key);
+  const FindTheWord({super.key});
 
   @override
   State<FindTheWord> createState() => _FindTheWord();
@@ -28,7 +28,10 @@ class _FindTheWord extends State<FindTheWord> {
   int cols = 12; // liczba kolumn
 
   List<List<String>> generateCrossword(
-      List<String> wordsList, int rows, int cols) {
+    List<String> wordsList,
+    int rows,
+    int cols,
+  ) {
     List<List<String>> crossword =
         List.generate(rows, (index) => List.filled(cols, ' '));
     Random random = Random();
@@ -47,7 +50,7 @@ class _FindTheWord extends State<FindTheWord> {
               crossword[startRow + i][startCol] = word[i];
             }
           }
-          break; // przerwij pętlę, jeśli słowo zostało wstawione
+          break;
         }
       }
     }
@@ -55,26 +58,31 @@ class _FindTheWord extends State<FindTheWord> {
     return crossword;
   }
 
-  bool canInsertWord(List<List<String>> crossword, String word, int startRow,
-      int startCol, bool horizontal) {
+  bool canInsertWord(
+    List<List<String>> crossword,
+    String word,
+    int startRow,
+    int startCol,
+    bool horizontal,
+  ) {
     if (horizontal) {
       if (startCol + word.length > crossword[0].length) {
-        return false; // Słowo wychodzi poza krawędź tablicy
+        return false;
       }
       for (int i = 0; i < word.length; i++) {
         if (crossword[startRow][startCol + i] != ' ' &&
             crossword[startRow][startCol + i] != word[i]) {
-          return false; // Konflikt z innym słowem
+          return false;
         }
       }
     } else {
       if (startRow + word.length > crossword.length) {
-        return false; // Słowo wychodzi poza krawędź tablicy
+        return false;
       }
       for (int i = 0; i < word.length; i++) {
         if (crossword[startRow + i][startCol] != ' ' &&
             crossword[startRow + i][startCol] != word[i]) {
-          return false; // Konflikt z innym słowem
+          return false;
         }
       }
     }
@@ -87,7 +95,7 @@ class _FindTheWord extends State<FindTheWord> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Find The Word"),
+        title: const Text("Find The Word"),
       ),
       body: Container(
         width: size.width * 0.9,
@@ -111,48 +119,55 @@ class _FindTheWord extends State<FindTheWord> {
 class CrosswordGrid extends StatelessWidget {
   final List<List<String>> crossword;
 
-  CrosswordGrid({required this.crossword});
+  const CrosswordGrid({super.key, required this.crossword});
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      SizedBox(
-        width: 100,
-        height: 100,
-        child: Crossword(
-          letters: crossword,
-          spacing: const Offset(30, 30),
-          onLineDrawn: (List<String> words) {},
-          drawVerticalLine: true,
-          drawCrossLine: true,
-          drawHorizontalLine: true,
-          acceptReversedDirection: true,
-          lineDecoration: LineDecoration(lineColors: [
-            Colors.blue,
-            Colors.green,
-            Colors.yellow,
-            Colors.red,
-            Colors.purple,
-            Colors.pink
-          ], strokeWidth: 30),
-          textStyle: const TextStyle(
-              color: Color.fromARGB(255, 0, 0, 0), fontSize: 20),
-          hints: const [
-            'kot',
-            'pies',
-            'dom',
-            'drzewo',
-            'samochód',
-            'telefon',
-            'komputer',
-            'telewizor',
-            'kuchnia',
-            'łóżko',
-            'szafa',
-          ],
-          allowOverlap: true,
+    return Column(
+      children: [
+        SizedBox(
+          width: 100,
+          height: 100,
+          child: Crossword(
+            letters: crossword,
+            spacing: const Offset(30, 30),
+            onLineDrawn: (List<String> words) {},
+            drawVerticalLine: true,
+            drawCrossLine: true,
+            drawHorizontalLine: true,
+            acceptReversedDirection: true,
+            lineDecoration: const LineDecoration(
+              lineColors: [
+                Colors.blue,
+                Colors.green,
+                Colors.yellow,
+                Colors.red,
+                Colors.purple,
+                Colors.pink,
+              ],
+              strokeWidth: 30,
+            ),
+            textStyle: const TextStyle(
+              color: Color.fromARGB(255, 0, 0, 0),
+              fontSize: 20,
+            ),
+            hints: const [
+              'kot',
+              'pies',
+              'dom',
+              'drzewo',
+              'samochód',
+              'telefon',
+              'komputer',
+              'telewizor',
+              'kuchnia',
+              'łóżko',
+              'szafa',
+            ],
+            allowOverlap: true,
+          ),
         ),
-      )
-    ]);
+      ],
+    );
   }
 }
