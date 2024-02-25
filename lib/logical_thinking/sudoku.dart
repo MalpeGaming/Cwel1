@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sudoku_dart/sudoku_dart.dart';
+import 'dart:math';
 import '../app_bar.dart';
+import '../your_activities.dart';
 
 class SudokuGame extends StatefulWidget {
   const SudokuGame({super.key});
@@ -16,16 +18,10 @@ class _SudokuGame extends State<SudokuGame> {
   List<int> sudoku2 = List<int>.generate(100, (index) => -1);
 
   @override
-  void initState() {
-    super.initState();
-    sudoku = Sudoku.generate(Level.expert);
-  }
-
-  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     tappedCol = tappedRow = null;
-    sudoku = Sudoku.generate(Level.expert);
+    sudoku = Sudoku.generate(Level.easy);
   }
 
   BorderRadius _getBorderRadius(int rowIndex, int colIndex) {
@@ -54,6 +50,20 @@ class _SudokuGame extends State<SudokuGame> {
         if (tappedRow != null && tappedCol != null) {
           setState(() {
             sudoku2[9 * tappedRow + tappedCol] = indx;
+            int cnt = 0;
+            for (int i = 0; i < 81; ++i) {
+              if (sudoku2[i] != -1 || sudoku.puzzle[i] != -1) {
+                ++cnt;
+              }
+            }
+            if (cnt == 81) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const YourActivities(),
+                ),
+              );
+            }
           });
         }
       },
@@ -103,7 +113,74 @@ class _SudokuGame extends State<SudokuGame> {
         ),
         child: Column(
           children: [
-            SizedBox(height: 0.05 * size.height),
+            SizedBox(height: 0.03 * size.height),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      if (tappedRow != null && tappedCol != null) {
+                        sudoku2[9 * tappedRow! + tappedCol!] = -1;
+                      }
+                    });
+                  },
+                  child: Stack(
+                    alignment: AlignmentDirectional.center,
+                    children: [
+                      Container(
+                        width: 0.1 * min(size.width, size.height),
+                        height: 0.1 * min(size.width, size.height),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.blue[400],
+                        ),
+                      ),
+                      Icon(
+                        size: 0.06 * min(size.width, size.height),
+                        Icons.backspace,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+                ),
+                const Spacer(),
+                Stack(
+                  alignment: AlignmentDirectional.center,
+                  children: [
+                    Container(
+                      width: 0.1 * min(size.width, size.height),
+                      height: 0.1 * min(size.width, size.height),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.blue[400],
+                      ),
+                    ),
+                    Text(
+                      "0",
+                      style: TextStyle(
+                        fontSize: 0.06 * min(size.width, size.height),
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(width: 0.03 * size.width),
+                Text(
+                  "Points",
+                  style: TextStyle(
+                    fontSize: 0.05 * min(size.width, size.height),
+                  ),
+                ),
+              ],
+            ),
+            Text(
+              "Level 1",
+              style: TextStyle(
+                fontSize: 0.05 * size.width,
+              ),
+            ),
+            SizedBox(height: 0.01 * size.height),
             Container(
               decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.background,
