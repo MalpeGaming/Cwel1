@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'attention/short_term_concentration.dart';
 import 'memory/memory.dart';
 import 'linguistic/exercise1.dart';
+import 'logical_thinking/logical_thinking.dart';
 
 class ImprovementSelection extends StatefulWidget {
   const ImprovementSelection({super.key});
@@ -84,9 +85,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
             ImprovementButton(
               text: "Logical Thinking",
               width: size.width,
-              route: const ShortTermConcentration(
-                testVersion: true,
-              ),
+              route: const LogicalThinking(),
               imagePath: "assets/temp_background.png",
             ),
             const Spacer(),
