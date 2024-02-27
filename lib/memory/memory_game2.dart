@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:async';
-import '../your_activities.dart';
 import '../app_bar.dart';
+import '../progress_screen.dart';
 
 class MemoryGame2 extends StatefulWidget {
   const MemoryGame2({super.key});
@@ -68,10 +68,14 @@ class _MemoryGame2 extends State<MemoryGame2> {
                   blocked[firstTapped!] = true;
                   blocked[secondTapped!] = true;
                   if (!blocked.contains(false)) {
+                    Navigator.pop(context);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const YourActivities(),
+                        builder: (context) => ProgressScreen(
+                          name: "strong_concentration",
+                          score: flipped.toDouble(),
+                        ),
                       ),
                     );
                   }

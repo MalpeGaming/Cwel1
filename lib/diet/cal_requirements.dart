@@ -35,7 +35,7 @@ class _ActivityLevelList extends State<ActivityLevelList> {
     return ListTile(
       title: Text(
         text,
-        style: TextStyle(fontSize: widget.size.width / 18),
+        style: TextStyle(fontSize: 0.045 * widget.size.width),
       ),
       leading: Radio<int>(
         value: val,
@@ -69,35 +69,44 @@ class _CalRequirementsPageState extends State<CalRequirementsPage> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: appBar(context, ""),
-      body: Container(
-        margin: EdgeInsets.only(
-          left: size.width / 10,
-          right: size.width / 10,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "CALORIE DAILY REQUIREMENTS",
-              style: TextStyle(
-                fontSize: size.width / 9.5,
-              ),
-              textAlign: TextAlign.center,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: EdgeInsets.only(
+              left: size.width / 10,
+              right: size.width / 10,
             ),
-            SizedBox(
-              height: size.height / 20,
+            child: Column(
+              children: [
+                Text(
+                  "CALORIE DAILY REQUIREMENTS",
+                  style: TextStyle(
+                    fontSize: size.width / 9.5,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: size.height / 20,
+                ),
+                Text(
+                  "What is your activity level?",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: size.width / 18,
+                  ),
+                ),
+              ],
             ),
-            Text(
-              "What is your activity level?",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: size.width / 18,
-              ),
+          ),
+          SizedBox(
+            height: size.height / 50,
+          ),
+          Container(
+            margin: EdgeInsets.only(
+              left: size.width / 20,
             ),
-            SizedBox(
-              height: size.height / 50,
-            ),
-            ActivityLevelList(
+            child: ActivityLevelList(
               size: size,
               onOptionSelected: (value) {
                 setState(() {
@@ -105,10 +114,16 @@ class _CalRequirementsPageState extends State<CalRequirementsPage> {
                 });
               },
             ),
-            SizedBox(
-              height: size.height / 20,
+          ),
+          SizedBox(
+            height: size.height / 20,
+          ),
+          Container(
+            margin: EdgeInsets.only(
+              left: size.width / 10,
+              right: size.width / 10,
             ),
-            RichText(
+            child: RichText(
               text: TextSpan(
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.onSecondary,
@@ -116,11 +131,11 @@ class _CalRequirementsPageState extends State<CalRequirementsPage> {
                 ),
                 children: [
                   const TextSpan(
-                    text: "You overall need\n",
+                    text: "You overall need ",
                   ),
                   TextSpan(
                     text:
-                        "${selectedOption > -1 ? ((1.2 + selectedOption * 0.175) * widget.cal).round() : 0}kcal per day",
+                        "${selectedOption > -1 ? ((1.2 + selectedOption * 0.175) * widget.cal).round() : 0} kcal per day",
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -128,8 +143,8 @@ class _CalRequirementsPageState extends State<CalRequirementsPage> {
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

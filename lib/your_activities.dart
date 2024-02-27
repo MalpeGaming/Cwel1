@@ -10,6 +10,7 @@ import 'attention/short_term_concentration.dart';
 import 'attention/strong_concentration.dart';
 import 'attention/reading/reading.dart';
 import 'logical_thinking/sudoku.dart';
+import 'attention/find_the_word.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -325,6 +326,21 @@ class _YourActivities extends State<YourActivities> {
                           "READING",
                           "Out-loud",
                           const Reading(),
+                        ),
+                        createActivity2(
+                          context,
+                          "find_the_word",
+                          "FIND",
+                          "The Word",
+                          const FindTheWord(),
+                        ),
+                        createActivity2(
+                          context,
+                          "hangman",
+                          "HANGMAN",
+                          "",
+                          const YourActivities(),
+                          zero: 0,
                         ),
                       ],
                     ),

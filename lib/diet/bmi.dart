@@ -216,7 +216,6 @@ class _BMI extends State<BMI> {
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
-            top: size.height / 15,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -313,7 +312,7 @@ class _BMI extends State<BMI> {
               RichText(
                 text: TextSpan(
                   style: TextStyle(
-                    fontSize: 0.02 * size.height,
+                    fontSize: 0.023 * size.height,
                     color: Theme.of(context).colorScheme.onSecondary,
                   ),
                   children: <TextSpan>[
