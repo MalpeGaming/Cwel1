@@ -24,7 +24,13 @@ class _LogicalThinking extends State<LogicalThinking> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Column(
+        body: Container(
+      margin: EdgeInsets.only(
+        left: size.width / 15,
+        right: size.width / 15,
+        bottom: size.height / 10,
+      ),
+      child: Column(
         children: [
           SizedBox(height: 0.05 * size.height),
           Align(
@@ -140,6 +146,6 @@ class _LogicalThinking extends State<LogicalThinking> {
           SizedBox(height: 0.1 * size.height),
         ],
       ),
-    );
+    ));
   }
 }
