@@ -55,77 +55,70 @@ class _LogicalThinking extends State<LogicalThinking> {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: RichText(
-                    text: TextSpan(
-                      style: TextStyle(
-                        fontSize: 0.022 * size.height,
-                        color: Theme.of(context).colorScheme.onSecondary,
-                      ),
-                      children: const [
-                        TextSpan(
-                          text:
-                              "In this exercises you will complete part of the ",
-                        ),
-                        TextSpan(
-                          text: "SAT Math with CALCULATOR",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        TextSpan(
-                          text: " Part.",
-                        ),
-                      ],
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 0.022 * size.height,
+                      color: Theme.of(context).colorScheme.onSecondary,
                     ),
+                    children: const [
+                      TextSpan(
+                        text:
+                            "In this exercises you will complete part of the ",
+                      ),
+                      TextSpan(
+                        text: "SAT Math with CALCULATOR",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      TextSpan(
+                        text: " Part.",
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(height: 0.015 * size.height),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: RichText(
-                    text: TextSpan(
-                      style: TextStyle(
-                        fontSize: 0.022 * size.height,
-                        color: Theme.of(context).colorScheme.onSecondary,
-                      ),
-                      children: const [
-                        TextSpan(
-                          text: "You will have ",
-                        ),
-                        TextSpan(
-                          text: "350 seconds",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        TextSpan(
-                          text: ".",
-                        ),
-                      ],
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 0.022 * size.height,
+                      color: Theme.of(context).colorScheme.onSecondary,
                     ),
+                    children: const [
+                      TextSpan(
+                        text: "You will have ",
+                      ),
+                      TextSpan(
+                        text: "350 seconds",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      TextSpan(
+                        text: ".",
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(height: 0.015 * size.height),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: RichText(
-                    text: TextSpan(
-                      style: TextStyle(
-                        fontSize: 0.022 * size.height,
-                        color: Theme.of(context).colorScheme.onSecondary,
-                      ),
-                      children: const [
-                        TextSpan(
-                          text: "When ready click \" ",
-                        ),
-                        TextSpan(
-                          text: "CONTINUE",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        TextSpan(
-                          text: ".\"",
-                        ),
-                      ],
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 0.022 * size.height,
+                      color: Theme.of(context).colorScheme.onSecondary,
                     ),
+                    children: const [
+                      TextSpan(
+                        text: "When ready click \" ",
+                      ),
+                      TextSpan(
+                        text: "CONTINUE",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      TextSpan(
+                        text: ".\"",
+                      ),
+                    ],
                   ),
                 ),
               ],
