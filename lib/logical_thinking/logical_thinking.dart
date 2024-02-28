@@ -24,35 +24,41 @@ class _LogicalThinking extends State<LogicalThinking> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(height: 0.05 * size.height),
-          Align(
-            alignment: Alignment.center,
-            child: Column(
-              children: [
-                Text(
-                  "LOGICAL",
-                  style: TextStyle(fontSize: 0.08 * size.height),
-                ),
-                Text(
-                  "THINKING",
-                  style: TextStyle(fontSize: 0.035 * size.height),
-                ),
-                Text(
-                  "Exercise 1 - Math practice",
-                  style: TextStyle(fontSize: 0.03 * size.height),
-                ),
-              ],
+      body: Container(
+        margin: EdgeInsets.only(
+          left: size.width / 15,
+          right: size.width / 15,
+          bottom: size.height / 10,
+        ),
+        child: Column(
+          children: [
+            SizedBox(height: 0.05 * size.height),
+            Align(
+              alignment: Alignment.center,
+              child: Column(
+                children: [
+                  Text(
+                    "LOGICAL",
+                    style: TextStyle(fontSize: 0.08 * size.height),
+                  ),
+                  Text(
+                    "THINKING",
+                    style: TextStyle(fontSize: 0.035 * size.height),
+                  ),
+                  Text(
+                    "Exercise 1 - Math practice",
+                    style: TextStyle(fontSize: 0.03 * size.height),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: RichText(
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  RichText(
                     text: TextSpan(
                       style: TextStyle(
                         fontSize: 0.022 * size.height,
@@ -73,11 +79,8 @@ class _LogicalThinking extends State<LogicalThinking> {
                       ],
                     ),
                   ),
-                ),
-                SizedBox(height: 0.015 * size.height),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: RichText(
+                  SizedBox(height: 0.015 * size.height),
+                  RichText(
                     text: TextSpan(
                       style: TextStyle(
                         fontSize: 0.022 * size.height,
@@ -97,11 +100,8 @@ class _LogicalThinking extends State<LogicalThinking> {
                       ],
                     ),
                   ),
-                ),
-                SizedBox(height: 0.015 * size.height),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: RichText(
+                  SizedBox(height: 0.015 * size.height),
+                  RichText(
                     text: TextSpan(
                       style: TextStyle(
                         fontSize: 0.022 * size.height,
@@ -121,24 +121,24 @@ class _LogicalThinking extends State<LogicalThinking> {
                       ],
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          const Spacer(),
-          Center(
-            child: SizedBox(
-              height: size.height * 0.05,
-              width: size.width * 0.75,
-              child: RedirectButton(
-                route: const ImprovementSelection(),
-                text: 'Continue',
-                width: size.width,
+                ],
               ),
             ),
-          ),
-          SizedBox(height: 0.1 * size.height),
-        ],
+            const Spacer(),
+            Center(
+              child: SizedBox(
+                height: size.height * 0.05,
+                width: size.width * 0.75,
+                child: RedirectButton(
+                  route: const ImprovementSelection(),
+                  text: 'Continue',
+                  width: size.width,
+                ),
+              ),
+            ),
+            SizedBox(height: 0.1 * size.height),
+          ],
+        ),
       ),
     );
   }
