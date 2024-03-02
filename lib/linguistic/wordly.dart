@@ -11,14 +11,21 @@ class Wordly extends StatefulWidget {
   State<Wordly> createState() => _Wordly();
 }
 
-Container createBox(BuildContext context) {
+const qwerty = [
+  ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+  ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
+  ['ENTER', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'DEL'],
+];
+
+Container createBox(BuildContext context, int indx) {
   Size size = MediaQuery.of(context).size;
   return Container(
     height: 0.15 * size.width,
     width: 0.15 * size.width,
-    decoration: const BoxDecoration(
-      borderRadius: BorderRadius.all(Radius.circular(10)),
-      gradient: LinearGradient(
+    decoration: BoxDecoration(
+      borderRadius: const BorderRadius.all(Radius.circular(10)),
+      border: Border.all(color: Colors.green),
+      gradient: const LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
         colors: [
@@ -27,15 +34,47 @@ Container createBox(BuildContext context) {
         ],
       ),
     ),
+    child: Text(indx.toString()),
   );
 }
 
-Row buildLetterRow(BuildContext context) {
+Row buildLetterRow(BuildContext context, int indx) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: List.generate(
       5,
-      (index) => createBox(context),
+      (index) => createBox(context, 5 * indx + index),
+    ),
+  );
+}
+
+Container buildKey(BuildContext context, int row, int indx) {
+  Size size = MediaQuery.of(context).size;
+  return Container(
+    height: 0.055 * size.height,
+    width:
+        (qwerty[row][indx].length == 1) ? 0.08 * size.width : 0.12 * size.width,
+    decoration: const BoxDecoration(
+      borderRadius: BorderRadius.all(Radius.circular(5)),
+      gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          Color.fromARGB(255, 189, 212, 228),
+          Color.fromARGB(255, 157, 181, 201),
+        ],
+      ),
+    ),
+    child: Center(
+      child: Text(
+        qwerty[row][indx].toString(),
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: (qwerty[row][indx].length == 1)
+              ? 0.04 * size.width
+              : 0.03 * size.width,
+        ),
+      ),
     ),
   );
 }
@@ -57,8 +96,8 @@ class _Wordly extends State<Wordly> {
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(
-            left: size.width / 10,
-            right: size.width / 10,
+            left: size.width / 30,
+            right: size.width / 30,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -80,14 +119,42 @@ class _Wordly extends State<Wordly> {
                     noun,
                     style: TextStyle(fontSize: size.width / 20),
                   ),
-                  SizedBox(
-                    height: 0.4 * size.height,
+                  Container(
+                    margin: EdgeInsets.only(
+                      left: size.width / 15,
+                      right: size.width / 15,
+                    ),
+                    height: 0.46 * size.height,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: List.generate(
-                        5,
-                        (index) => buildLetterRow(context),
+                        6,
+                        (index) => buildLetterRow(context, index),
                       ),
+                    ),
+                  ),
+                  SizedBox(height: 0.08 * size.height),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(
+                      10,
+                      (index) => buildKey(context, 0, index),
+                    ),
+                  ),
+                  SizedBox(height: 0.005 * size.height),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: List.generate(
+                      9,
+                      (index) => buildKey(context, 1, index),
+                    ),
+                  ),
+                  SizedBox(height: 0.005 * size.height),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(
+                      9,
+                      (index) => buildKey(context, 2, index),
                     ),
                   ),
                 ],
