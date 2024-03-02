@@ -11,6 +11,7 @@ import 'attention/strong_concentration.dart';
 import 'attention/reading/reading.dart';
 import 'logical_thinking/sudoku.dart';
 import 'attention/find_the_word.dart';
+import 'linguistic/wordly.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -340,6 +341,14 @@ class _YourActivities extends State<YourActivities> {
                           "HANGMAN",
                           "",
                           const YourActivities(),
+                          zero: 0,
+                        ),
+                        createActivity2(
+                          context,
+                          "wordly",
+                          "WORDLY",
+                          "",
+                          const Wordly(),
                           zero: 0,
                         ),
                       ],
