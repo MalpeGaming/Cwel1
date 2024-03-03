@@ -65,8 +65,6 @@ Column createForm(
 }
 
 class _Login1 extends State<Login1> {
-  TextEditingController textController1 = TextEditingController();
-  TextEditingController textController2 = TextEditingController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -89,21 +87,20 @@ class _Login1 extends State<Login1> {
               ),
             ),
             SizedBox(height: 0.05 * size.height),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                createForm(
-                  size,
-                  "Please Enter Your E-Mail",
-                  "sth@example.com",
-                  textController1,
+                Icon(
+                  Icons.apple,
+                  size: 50,
                 ),
-                SizedBox(height: 0.05 * size.height),
-                createForm(
-                  size,
-                  "Please Enter Your Password",
-                  "MyPassword123",
-                  textController2,
+                Icon(
+                  Icons.facebook,
+                  size: 50,
+                ),
+                Icon(
+                  Icons.g_mobiledata,
+                  size: 50,
                 ),
               ],
             ),
@@ -114,15 +111,12 @@ class _Login1 extends State<Login1> {
                 width: size.width * 0.75,
                 child: FloatingActionButton.extended(
                   onPressed: () {
-                    if (textController1.text != "" &&
-                        textController2.text != "") {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Login2(),
-                        ),
-                      );
-                    }
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Login2(),
+                      ),
+                    );
                   },
                   tooltip: 'Continue',
                   label: Text(
