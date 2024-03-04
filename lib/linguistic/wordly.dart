@@ -17,79 +17,109 @@ const qwerty = [
   ['ENTER', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'DEL'],
 ];
 
-Container createBox(BuildContext context, int indx) {
-  Size size = MediaQuery.of(context).size;
-  return Container(
-    height: 0.15 * size.width,
-    width: 0.15 * size.width,
-    decoration: BoxDecoration(
-      borderRadius: const BorderRadius.all(Radius.circular(10)),
-      border: Border.all(color: Colors.green),
-      gradient: const LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [
-          Color.fromARGB(255, 123, 196, 129),
-          Color.fromARGB(255, 95, 187, 103),
-        ],
-      ),
-    ),
-    child: Text(indx.toString()),
-  );
-}
+class _Wordly extends State<Wordly> {
+  int act = 0;
+  int actRow = 0;
 
-Row buildLetterRow(BuildContext context, int indx) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: List.generate(
-      5,
-      (index) => createBox(context, 5 * indx + index),
-    ),
-  );
-}
-
-Container buildKey(BuildContext context, int row, int indx) {
-  Size size = MediaQuery.of(context).size;
-  return Container(
-    height: 0.055 * size.height,
-    width:
-        (qwerty[row][indx].length == 1) ? 0.08 * size.width : 0.12 * size.width,
-    decoration: const BoxDecoration(
-      borderRadius: BorderRadius.all(Radius.circular(5)),
-      gradient: LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [
-          Color.fromARGB(255, 189, 212, 228),
-          Color.fromARGB(255, 157, 181, 201),
-        ],
-      ),
-    ),
-    child: Center(
-      child: Text(
-        qwerty[row][indx].toString(),
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: (qwerty[row][indx].length == 1)
-              ? 0.04 * size.width
-              : 0.03 * size.width,
+  Container createBox(BuildContext context, int indx) {
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      height: 0.15 * size.width,
+      width: 0.15 * size.width,
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        border: Border.all(color: Colors.green),
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Color.fromARGB(255, 123, 196, 129),
+            Color.fromARGB(255, 95, 187, 103),
+          ],
         ),
       ),
-    ),
-  );
-}
+      child: (actRow == (indx - indx % 5) / 5)
+          ? Text(letters[0][indx % 5].toString())
+          : Text(((indx - indx % 5) / 5).toString()),
+      //child: Text((act % 5).toString()),
+    );
+  }
 
-class _Wordly extends State<Wordly> {
-  @override
-  Widget build(BuildContext context) {
+  Row buildLetterRow(BuildContext context, int indx) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: List.generate(
+        5,
+        (index) => createBox(context, 5 * indx + index),
+      ),
+    );
+  }
+
+  GestureDetector buildKey(BuildContext context, int row, int indx) {
     Size size = MediaQuery.of(context).size;
+    return GestureDetector(
+      onTap: () {
+        tappedKey(context, row, indx);
+      },
+      child: Container(
+        height: 0.055 * size.height,
+        width: (qwerty[row][indx].length == 1)
+            ? 0.085 * size.width
+            : 0.12 * size.width,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color.fromARGB(255, 189, 212, 228),
+              Color.fromARGB(255, 157, 181, 201),
+            ],
+          ),
+        ),
+        child: Center(
+          child: Text(
+            qwerty[row][indx].toString(),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: (qwerty[row][indx].length == 1)
+                  ? 0.04 * size.width
+                  : 0.03 * size.width,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 
-    final wordGenerator = WordGenerator();
+  void tappedKey(BuildContext context, int row, int indx) {
+    setState(() {
+      letters[0][act % 5] = qwerty[row][indx];
+      ++act;
+    });
+    print(qwerty[row][indx]);
+  }
 
-    String noun = "";
+  List<List<int>> guessed = List.generate(6, (i) => List.generate(5, (j) => 0));
+
+  List<List<String>> letters =
+      List.generate(6, (i) => List.generate(5, (j) => ''));
+
+  final wordGenerator = WordGenerator();
+
+  String noun = "";
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     while (noun.length != 5) {
       noun = wordGenerator.randomNoun();
     }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: appBar(context, ""),
@@ -119,43 +149,51 @@ class _Wordly extends State<Wordly> {
                     noun,
                     style: TextStyle(fontSize: size.width / 20),
                   ),
-                  Container(
-                    margin: EdgeInsets.only(
-                      left: size.width / 15,
-                      right: size.width / 15,
-                    ),
-                    height: 0.46 * size.height,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: List.generate(
-                        6,
-                        (index) => buildLetterRow(context, index),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 0.08 * size.height),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: List.generate(
-                      10,
-                      (index) => buildKey(context, 0, index),
-                    ),
-                  ),
-                  SizedBox(height: 0.005 * size.height),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: List.generate(
-                      9,
-                      (index) => buildKey(context, 1, index),
-                    ),
-                  ),
-                  SizedBox(height: 0.005 * size.height),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: List.generate(
-                      9,
-                      (index) => buildKey(context, 2, index),
-                    ),
+                  Builder(
+                    builder: (context) {
+                      return Column(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(
+                              left: size.width / 15,
+                              right: size.width / 15,
+                            ),
+                            height: 0.46 * size.height,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: List.generate(
+                                6,
+                                (index) => buildLetterRow(context, index),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 0.08 * size.height),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: List.generate(
+                              10,
+                              (index) => buildKey(context, 0, index),
+                            ),
+                          ),
+                          SizedBox(height: 0.005 * size.height),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: List.generate(
+                              9,
+                              (index) => buildKey(context, 1, index),
+                            ),
+                          ),
+                          SizedBox(height: 0.005 * size.height),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: List.generate(
+                              9,
+                              (index) => buildKey(context, 2, index),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
                   ),
                 ],
               ),
