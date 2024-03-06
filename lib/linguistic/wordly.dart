@@ -38,10 +38,17 @@ class _Wordly extends State<Wordly> {
           ],
         ),
       ),
-      child: (actRow == (indx - indx % 5) / 5)
-          ? Text(letters[0][indx % 5].toString())
-          : Text(((indx - indx % 5) / 5).toString()),
-      //child: Text((act % 5).toString()),
+      //child: Text((indx % 6).toString()),
+      child: Center(
+        child: Text(
+          letters[(indx - indx % 6) ~/ 6][indx % 6].toString(),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 0.04 * size.height,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
     );
   }
 
@@ -50,7 +57,7 @@ class _Wordly extends State<Wordly> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: List.generate(
         5,
-        (index) => createBox(context, 5 * indx + index),
+        (index) => createBox(context, 6 * indx + index + 1),
       ),
     );
   }
@@ -93,17 +100,31 @@ class _Wordly extends State<Wordly> {
   }
 
   void tappedKey(BuildContext context, int row, int indx) {
-    setState(() {
-      letters[0][act % 5] = qwerty[row][indx];
-      ++act;
-    });
+    setState(
+      () {
+        if (qwerty[row][indx] == "DEL") {
+          if (act % 6 > 0) {
+            letters[(act - act % 6) ~/ 6][act % 6] = "";
+            --act;
+          }
+        } else if (qwerty[row][indx] == "ENTER") {
+          if (act % 6 == 5) ++act;
+        } else if (act % 6 == 5 &&
+            letters[(act - act % 6) ~/ 6][act % 6] != "") {
+        } else if (letters[((act + 1) - (act + 1) % 6) ~/ 6][(act + 1) % 6] ==
+            "") {
+          if (act % 6 != 5) ++act;
+          letters[(act - act % 6) ~/ 6][act % 6] = qwerty[row][indx];
+        }
+      },
+    );
     print(qwerty[row][indx]);
   }
 
-  List<List<int>> guessed = List.generate(6, (i) => List.generate(5, (j) => 0));
+  List<List<int>> guessed = List.generate(7, (i) => List.generate(6, (j) => 0));
 
   List<List<String>> letters =
-      List.generate(6, (i) => List.generate(5, (j) => ''));
+      List.generate(7, (i) => List.generate(7, (j) => ''));
 
   final wordGenerator = WordGenerator();
 
