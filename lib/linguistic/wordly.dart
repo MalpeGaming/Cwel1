@@ -38,7 +38,6 @@ class _Wordly extends State<Wordly> {
           ],
         ),
       ),
-      //child: Text((indx % 6).toString()),
       child: Center(
         child: Text(
           letters[(indx - indx % 6) ~/ 6][indx % 6].toString(),
