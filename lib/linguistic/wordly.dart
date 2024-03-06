@@ -20,6 +20,8 @@ const qwerty = [
 class _Wordly extends State<Wordly> {
   int act = 0;
   int actRow = 0;
+  final guessedKeys = <String>[];
+  final guessedKeys2 = <String>[];
 
   Container createBox(BuildContext context, int indx) {
     Size size = MediaQuery.of(context).size;
@@ -28,14 +30,28 @@ class _Wordly extends State<Wordly> {
       width: 0.15 * size.width,
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(10)),
-        border: Border.all(color: Colors.green),
-        gradient: const LinearGradient(
+        gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            Color.fromARGB(255, 123, 196, 129),
-            Color.fromARGB(255, 95, 187, 103),
-          ],
+          colors: (guessed[(indx - indx % 6) ~/ 6][indx % 6] == 0)
+              ? [
+                  const Color.fromARGB(255, 199, 199, 199),
+                  const Color.fromARGB(255, 156, 156, 156),
+                ]
+              : (guessed[(indx - indx % 6) ~/ 6][indx % 6] == 1)
+                  ? [
+                      const Color.fromARGB(255, 165, 165, 165),
+                      const Color.fromARGB(255, 112, 112, 112),
+                    ]
+                  : (guessed[(indx - indx % 6) ~/ 6][indx % 6] == 2)
+                      ? [
+                          const Color.fromARGB(255, 255, 238, 0),
+                          const Color.fromARGB(255, 255, 196, 0),
+                        ]
+                      : [
+                          const Color.fromARGB(255, 0, 231, 19),
+                          const Color.fromARGB(255, 0, 192, 16),
+                        ],
         ),
       ),
       child: Center(
@@ -72,15 +88,25 @@ class _Wordly extends State<Wordly> {
         width: (qwerty[row][indx].length == 1)
             ? 0.085 * size.width
             : 0.12 * size.width,
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(5)),
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [
-              Color.fromARGB(255, 189, 212, 228),
-              Color.fromARGB(255, 157, 181, 201),
-            ],
+            colors: (guessedKeys.contains(qwerty[row][indx].toUpperCase()))
+                ? [
+                    const Color.fromARGB(255, 0, 231, 19),
+                    const Color.fromARGB(255, 0, 192, 16),
+                  ]
+                : (guessedKeys2.contains(qwerty[row][indx].toUpperCase()))
+                    ? [
+                        const Color.fromARGB(255, 255, 238, 0),
+                        const Color.fromARGB(255, 255, 196, 0),
+                      ]
+                    : [
+                        const Color.fromARGB(255, 189, 212, 228),
+                        const Color.fromARGB(255, 157, 181, 201),
+                      ],
           ),
         ),
         child: Center(
@@ -98,6 +124,26 @@ class _Wordly extends State<Wordly> {
     );
   }
 
+  void clickedEnter(int indx) {
+    --indx;
+    int row = indx ~/ 6;
+    String str = noun.toUpperCase();
+
+    setState(() {
+      for (int i = 1; i <= 5; ++i) {
+        if (str[i - 1] == letters[row][i]) {
+          guessed[row][i] = 3;
+          guessedKeys.add(str[i - 1]);
+        } else if (str.contains(letters[row][i])) {
+          guessed[row][i] = 2;
+          guessedKeys2.add(str[i - 1]);
+        } else {
+          guessed[row][i] = 1;
+        }
+      }
+    });
+  }
+
   void tappedKey(BuildContext context, int row, int indx) {
     setState(
       () {
@@ -107,7 +153,10 @@ class _Wordly extends State<Wordly> {
             --act;
           }
         } else if (qwerty[row][indx] == "ENTER") {
-          if (act % 6 == 5) ++act;
+          if (act % 6 == 5) {
+            ++act;
+            clickedEnter(act);
+          }
         } else if (act % 6 == 5 &&
             letters[(act - act % 6) ~/ 6][act % 6] != "") {
         } else if (letters[((act + 1) - (act + 1) % 6) ~/ 6][(act + 1) % 6] ==
