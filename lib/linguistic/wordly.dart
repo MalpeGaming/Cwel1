@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:word_generator/word_generator.dart';
+import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
 import '../app_bar.dart';
 
 class Wordly extends StatefulWidget {
@@ -22,6 +23,10 @@ class _Wordly extends State<Wordly> {
   int actRow = 0;
   final guessedKeys = <String>[];
   final guessedKeys2 = <String>[];
+  final notGuessedKeys = <String>[];
+
+  final cText = TextEditingController();
+  final dMSAJson = DictionaryMSAFlutter();
 
   Container createBox(BuildContext context, int indx) {
     Size size = MediaQuery.of(context).size;
@@ -77,9 +82,9 @@ class _Wordly extends State<Wordly> {
     );
   }
 
-  GestureDetector buildKey(BuildContext context, int row, int indx) {
+  InkWell buildKey(BuildContext context, int row, int indx) {
     Size size = MediaQuery.of(context).size;
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         tappedKey(context, row, indx);
       },
@@ -103,10 +108,15 @@ class _Wordly extends State<Wordly> {
                         const Color.fromARGB(255, 255, 238, 0),
                         const Color.fromARGB(255, 255, 196, 0),
                       ]
-                    : [
-                        const Color.fromARGB(255, 189, 212, 228),
-                        const Color.fromARGB(255, 157, 181, 201),
-                      ],
+                    : (notGuessedKeys.contains(qwerty[row][indx].toUpperCase()))
+                        ? [
+                            const Color.fromARGB(255, 248, 248, 248),
+                            const Color.fromARGB(255, 207, 207, 207),
+                          ]
+                        : [
+                            const Color.fromARGB(255, 189, 212, 228),
+                            const Color.fromARGB(255, 157, 181, 201),
+                          ],
           ),
         ),
         child: Center(
@@ -136,12 +146,27 @@ class _Wordly extends State<Wordly> {
           guessedKeys.add(str[i - 1]);
         } else if (str.contains(letters[row][i])) {
           guessed[row][i] = 2;
-          guessedKeys2.add(str[i - 1]);
+          guessedKeys2.add(letters[row][i]);
         } else {
           guessed[row][i] = 1;
+          notGuessedKeys.add(letters[row][i]);
         }
       }
     });
+  }
+
+  Future<bool> lookupWord() async {
+    String word = "";
+    for (int i = 1; i <= 5; ++i) {
+      word += letters[(act - act % 6) ~/ 6][i];
+    }
+    word = word.toLowerCase();
+    print(word);
+    if (await dMSAJson.hasEntry(word)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   void tappedKey(BuildContext context, int row, int indx) {
@@ -153,10 +178,7 @@ class _Wordly extends State<Wordly> {
             --act;
           }
         } else if (qwerty[row][indx] == "ENTER") {
-          if (act % 6 == 5) {
-            ++act;
-            clickedEnter(act);
-          }
+          handleEnter();
         } else if (act % 6 == 5 &&
             letters[(act - act % 6) ~/ 6][act % 6] != "") {
         } else if (letters[((act + 1) - (act + 1) % 6) ~/ 6][(act + 1) % 6] ==
@@ -167,6 +189,14 @@ class _Wordly extends State<Wordly> {
       },
     );
     print(qwerty[row][indx]);
+  }
+
+  Future<void> handleEnter() async {
+    bool result = await lookupWord();
+    if (act % 6 == 5 && result == true) {
+      ++act;
+      clickedEnter(act);
+    }
   }
 
   List<List<int>> guessed = List.generate(7, (i) => List.generate(6, (j) => 0));
