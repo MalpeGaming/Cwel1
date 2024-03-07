@@ -6,9 +6,9 @@ import '/progress_screen.dart';
 import '/show_score.dart';
 
 class LongTermConcentration extends StatefulWidget {
-  const LongTermConcentration({super.key, this.testVersion = false});
+  const LongTermConcentration({super.key, this.initialTest = false});
 
-  final bool testVersion;
+  final bool initialTest;
 
   @override
   State<LongTermConcentration> createState() => _LongTermConcentration();
@@ -139,7 +139,7 @@ class _LongTermConcentration extends State<LongTermConcentration> {
                     onPressed: () {
                       Navigator.pop(context);
 
-                      if (widget.testVersion) {
+                      if (widget.initialTest) {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -151,7 +151,7 @@ class _LongTermConcentration extends State<LongTermConcentration> {
                               yourScore: score,
                               maximum: 100,
                               page: const StrongConcentrationDesc(
-                                testVersion: true,
+                                initialTest: true,
                               ),
                             ),
                           ),

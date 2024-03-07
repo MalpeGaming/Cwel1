@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'strong_concentration.dart';
 
 class StrongConcentrationDesc extends StatefulWidget {
-  const StrongConcentrationDesc({super.key, this.testVersion = false});
+  const StrongConcentrationDesc({super.key, this.initialTest = false});
 
-  final bool testVersion;
+  final bool initialTest;
 
   @override
   State<StrongConcentrationDesc> createState() => _StrongConcentrationDesc();
@@ -77,7 +77,7 @@ class _StrongConcentrationDesc extends State<StrongConcentrationDesc> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => StrongConcentration(
-                            testVersion: widget.testVersion,
+                            initialTest: widget.initialTest,
                           ),
                         ),
                       );
