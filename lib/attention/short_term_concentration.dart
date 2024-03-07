@@ -46,7 +46,7 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
-            top: size.height / 20,
+            top: size.height / 10,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

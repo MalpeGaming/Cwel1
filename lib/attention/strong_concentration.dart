@@ -187,11 +187,10 @@ class _StrongConcentration extends State<StrongConcentration> {
       body: SingleChildScrollView(
         child: Container(
           width: size.width * 0.9,
-          //height: size.height * 0.98,
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
-            top: size.height / 20,
+            top: size.height / 10,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
