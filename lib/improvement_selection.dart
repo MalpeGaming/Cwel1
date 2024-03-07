@@ -61,11 +61,11 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
             const Spacer(),
             ImprovementButton(
               text: "Memory",
-              width: size.width * 0.8,
+              width: size.width,
               route: const Memory(
                 initialTest: true,
               ),
-              imagePath: "assets/temp_background.png",
+              img: "assets/memory.png",
             ),
             const Spacer(),
             ImprovementButton(
@@ -74,21 +74,21 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               route: const ShortTermConcentration(
                 initialTest: true,
               ),
-              imagePath: "assets/temp_background.png",
+              img: "assets/attention.png",
             ),
             const Spacer(),
             ImprovementButton(
               text: "Linguistic",
               width: size.width,
               route: const FirstLinguisticExercise(),
-              imagePath: "assets/temp_background.png",
+              img: "assets/linguistic_intelligence.png",
             ),
             const Spacer(),
             ImprovementButton(
               text: "Logical Thinking",
               width: size.width,
               route: const LogicalThinking(),
-              imagePath: "assets/temp_background.png",
+              img: "assets/logical_thinking.png",
             ),
             const Spacer(),
           ],
