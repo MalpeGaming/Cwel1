@@ -37,7 +37,7 @@ class _ProgressScreen extends State<ProgressScreen>
     super.initState();
     initMemory();
     _confettiController =
-        ConfettiController(duration: const Duration(seconds: 5));
+        ConfettiController(duration: const Duration(seconds: 1));
     _confettiController.play();
   }
 
