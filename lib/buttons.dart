@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'language_level_selection.dart';
@@ -192,14 +191,14 @@ class ImprovementButton extends StatefulWidget {
   final String text;
   final double width;
   final Widget route;
-  final String imagePath;
+  final String img;
 
   const ImprovementButton({
     super.key,
     required this.text,
     required this.width,
     required this.route,
-    required this.imagePath,
+    required this.img,
   });
 
   @override
@@ -212,42 +211,37 @@ class _ImprovementButtonState extends State<ImprovementButton> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 3,
-      child: InkWell(
-        onHover: (value) {
-          setState(() {
-            hovered = value;
-          });
-        },
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => widget.route,
-            ),
-          );
-        },
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(15),
-          child: Container(
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.35),
-                  spreadRadius: 2,
-                  blurRadius: 5,
-                  offset: const Offset(0, 3),
+      flex: 1,
+      child: Row(
+        children: [
+          Image.asset(
+            widget.img,
+            height: widget.width / 7.5,
+            width: widget.width / 7.5,
+          ),
+          SizedBox(
+            width: widget.width / 16,
+          ),
+          InkWell(
+            onHover: (value) {
+              setState(() {
+                hovered = value;
+              });
+            },
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => widget.route,
                 ),
-              ],
-              image: const DecorationImage(
-                image: AssetImage("assets/temp_background.png"),
-                fit: BoxFit.cover,
+              );
+            },
+            child: Container(
+              width: widget.width * 0.6,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(25),
               ),
-            ),
-            child: BackdropFilter(
-              filter: hovered
-                  ? ImageFilter.blur(sigmaX: 0, sigmaY: 0)
-                  : ImageFilter.blur(sigmaX: 1.3, sigmaY: 1.3),
               child: Center(
                 child: Text(
                   widget.text,
@@ -259,7 +253,7 @@ class _ImprovementButtonState extends State<ImprovementButton> {
               ),
             ),
           ),
-        ).animate(target: hovered ? 1 : 0).scaleXY(end: 1.05),
+        ],
       ),
     );
   }

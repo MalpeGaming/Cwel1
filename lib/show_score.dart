@@ -134,45 +134,33 @@ class _ShowScore extends State<ShowScore> {
                     widget.maximum,
                   ),
                   SizedBox(
-                    height: size.height / 25,
+                    height: size.height / 15,
                   ),
                   Text(
                     "Do you want to practice this skill in your 30-day program?",
                     style: TextStyle(
                       fontSize: size.width / 20,
                     ),
+                    textAlign: TextAlign.center,
                   ),
-                  SizedBox(
-                    height: size.height / 40,
-                  ),
+                  const Spacer(),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(
                         height: size.height * 0.05,
                         width: size.width * 0.3,
                         child: FloatingActionButton.extended(
-                          onPressed: () {},
+                          onPressed: () {
+                            navigateToPage(widget.page);
+                          },
                           tooltip: 'YES',
-                          label: Row(
-                            children: [
-                              Radio<int>(
-                                value: 0,
-                                groupValue: selectedOption,
-                                activeColor: Colors.blue,
-                                fillColor:
-                                    MaterialStateProperty.all(Colors.white),
-                                splashRadius: 25,
-                                onChanged: (value) {
-                                  setState(() {
-                                    selectedOption = value!;
-                                  });
-                                },
-                              ),
-                              Text(
-                                "YES",
-                                style: TextStyle(fontSize: size.width / 25),
-                              ),
-                            ],
+                          label: Text(
+                            "YES",
+                            style: TextStyle(
+                              fontSize: size.width / 25,
+                              color: Theme.of(context).colorScheme.onSecondary,
+                            ),
                           ),
                           backgroundColor: Colors.green[500],
                           hoverColor: Colors.green[900],
@@ -190,29 +178,16 @@ class _ShowScore extends State<ShowScore> {
                         height: size.height * 0.05,
                         width: size.width * 0.3,
                         child: FloatingActionButton.extended(
-                          onPressed: () {},
+                          onPressed: () {
+                            navigateToPage(widget.page);
+                          },
                           tooltip: 'NO',
-                          label: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Radio<int>(
-                                value: 1,
-                                groupValue: selectedOption,
-                                activeColor: Colors.blue,
-                                fillColor:
-                                    MaterialStateProperty.all(Colors.white),
-                                splashRadius: 25,
-                                onChanged: (value) {
-                                  setState(() {
-                                    selectedOption = value!;
-                                  });
-                                },
-                              ),
-                              Text(
-                                "NO",
-                                style: TextStyle(fontSize: size.width / 25),
-                              ),
-                            ],
+                          label: Text(
+                            "NO",
+                            style: TextStyle(
+                              fontSize: size.width / 25,
+                              color: Theme.of(context).colorScheme.onSecondary,
+                            ),
                           ),
                           backgroundColor: Colors.red[500],
                           hoverColor: Colors.red[900],
@@ -225,33 +200,8 @@ class _ShowScore extends State<ShowScore> {
                       ),
                     ],
                   ),
-                  const Spacer(),
-                  Center(
-                    child: SizedBox(
-                      height: size.height * 0.05,
-                      width: size.width * 0.75,
-                      child: FloatingActionButton.extended(
-                        onPressed: () {
-                          navigateToPage(widget.page);
-                        },
-                        tooltip: 'Continue',
-                        label: Text(
-                          "Continue",
-                          style: TextStyle(fontSize: size.width / 16),
-                        ),
-                        icon: Icon(
-                          Icons.arrow_forward_rounded,
-                          size: size.width / 16,
-                        ),
-                        backgroundColor: Colors.blue[400],
-                        hoverColor: Colors.blue[900],
-                        autofocus: true,
-                        heroTag: "continue",
-                      ),
-                    ),
-                  ),
                   SizedBox(
-                    height: size.height / 20,
+                    height: size.height / 10,
                   ),
                 ],
               ),

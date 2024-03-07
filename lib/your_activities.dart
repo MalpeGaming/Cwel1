@@ -5,6 +5,7 @@ import 'self_reflection.dart';
 import 'meditation.dart';
 import 'sport.dart';
 import 'memory/memory_game1.dart';
+import 'memory/memory.dart';
 import 'attention/long_term_concentration.dart';
 import 'attention/short_term_concentration.dart';
 import 'attention/strong_concentration.dart';
@@ -185,6 +186,13 @@ class _YourActivities extends State<YourActivities> {
                     ),
                     child: Column(
                       children: [
+                        createActivity2(
+                          context,
+                          "learning_words",
+                          "LEARNING",
+                          "Words",
+                          const Memory(),
+                        ),
                         createActivity2(
                           context,
                           "learning_course",
