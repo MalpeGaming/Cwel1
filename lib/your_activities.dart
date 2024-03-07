@@ -59,11 +59,11 @@ GestureDetector createActivity(
               tileMode: TileMode.decal,
             ),
           ),
-          height: 0.12 * size.height,
+          height: 0.115 * size.height,
           child: Row(
             children: [
               SizedBox(
-                height: 0.12 * size.height,
+                height: 0.115 * size.height,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: SizedBox.fromSize(
