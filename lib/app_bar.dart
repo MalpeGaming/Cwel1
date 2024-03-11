@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
 
-AppBar appBar(BuildContext context, String title) {
+AppBar appBar(BuildContext context, String title, {bool canReturn = true}) {
   Size size = MediaQuery.of(context).size;
   return AppBar(
     surfaceTintColor: Theme.of(context).colorScheme.background,
     backgroundColor: Theme.of(context).colorScheme.background,
-    leading: IconButton(
-      icon: const Icon(Icons.close),
-      onPressed: () {
-        Navigator.pop(context);
-      },
-    ),
+    leading: canReturn
+        ? IconButton(
+            icon: const Icon(Icons.close),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          )
+        : null,
     title: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

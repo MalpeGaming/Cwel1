@@ -18,7 +18,7 @@ class _TitlePageState extends State<TitlePage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: appBar(context, ""),
+      appBar: appBar(context, "", canReturn: false),
       body: Center(
         child: Container(
           margin: EdgeInsets.only(

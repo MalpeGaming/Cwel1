@@ -5,12 +5,14 @@ import 'self_reflection.dart';
 import 'meditation.dart';
 import 'sport.dart';
 import 'memory/memory_game1.dart';
+import 'memory/memory.dart';
 import 'attention/long_term_concentration.dart';
 import 'attention/short_term_concentration.dart';
 import 'attention/strong_concentration.dart';
 import 'attention/reading/reading.dart';
 import 'logical_thinking/sudoku.dart';
 import 'attention/find_the_word.dart';
+import 'linguistic/wordly.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -186,6 +188,13 @@ class _YourActivities extends State<YourActivities> {
                       children: [
                         createActivity2(
                           context,
+                          "learning_words",
+                          "LEARNING",
+                          "Words",
+                          const Memory(),
+                        ),
+                        createActivity2(
+                          context,
                           "learning_course",
                           "LEARNING",
                           "Course",
@@ -340,6 +349,14 @@ class _YourActivities extends State<YourActivities> {
                           "HANGMAN",
                           "",
                           const YourActivities(),
+                          zero: 0,
+                        ),
+                        createActivity2(
+                          context,
+                          "wordly",
+                          "WORDLY",
+                          "",
+                          const Wordly(),
                           zero: 0,
                         ),
                       ],
