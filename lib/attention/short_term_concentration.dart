@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
-import '../show_score.dart';
-import 'long_term_concentration.dart';
+import 'long_term_concentration_video.dart';
 import '/progress_screen.dart';
+import '/show_score.dart';
 
 class ShortTermConcentration extends StatefulWidget {
   const ShortTermConcentration({super.key, this.initialTest = false});
@@ -146,7 +146,7 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
                               exercise: 1,
                               yourScore: score,
                               maximum: 10,
-                              page: const LongTermConcentration(
+                              page: const LongTermConcentrationVideo(
                                 initialTest: true,
                               ),
                             ),

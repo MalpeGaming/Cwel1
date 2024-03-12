@@ -6,7 +6,7 @@ import 'meditation.dart';
 import 'sport.dart';
 import 'memory/memory_game1.dart';
 import 'memory/memory.dart';
-import 'attention/long_term_concentration.dart';
+import 'attention/long_term_concentration_video.dart';
 import 'attention/short_term_concentration.dart';
 import 'attention/strong_concentration.dart';
 import 'attention/reading/reading.dart';
@@ -196,13 +196,6 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity2(
                           context,
-                          "learning_course",
-                          "LEARNING",
-                          "Course",
-                          const YourActivities(),
-                        ),
-                        createActivity2(
-                          context,
                           "working_memory",
                           "Working",
                           "MEMORY",
@@ -214,6 +207,13 @@ class _YourActivities extends State<YourActivities> {
                           "MEMORY",
                           "Game",
                           const MemoryGame1(),
+                        ),
+                        createActivity2(
+                          context,
+                          "learning_course",
+                          "LEARNING",
+                          "Course",
+                          const YourActivities(),
                         ),
                         createActivity2(
                           context,
@@ -321,7 +321,7 @@ class _YourActivities extends State<YourActivities> {
                           "long_term_concentration",
                           "Long-Term",
                           "CONCENTRATION",
-                          const LongTermConcentration(),
+                          const LongTermConcentrationVideo(),
                         ),
                         createActivity2(
                           context,
