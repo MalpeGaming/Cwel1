@@ -13,6 +13,7 @@ import 'attention/reading/reading.dart';
 import 'logical_thinking/sudoku.dart';
 import 'attention/find_the_word.dart';
 import 'linguistic/wordly.dart';
+import 'linguistic/hangman.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -348,7 +349,7 @@ class _YourActivities extends State<YourActivities> {
                           "hangman",
                           "HANGMAN",
                           "",
-                          const YourActivities(),
+                          const Hangman(),
                           zero: 0,
                         ),
                         createActivity2(

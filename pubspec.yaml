@@ -101,6 +101,7 @@ flutter:
     - assets/attention/reading/classic/
     - assets/attention/reading/business/
     - assets/attention/reading/personal_development/
+    - assets/linguistic/hangman/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
