@@ -1,0 +1,903 @@
+tests:
+- name: rice
+  questions:
+  - answers:
+    - 5%
+    - 10%
+    - 15%
+    - 20%
+    correct_answer: 3
+    question: Rice contributes to over … of the calories consumed by humans each year.
+  - answers:
+    - Japan
+    - China
+    - India
+    - Korea
+    correct_answer: 1
+    question: First came Asian rice, which many plant geneticists believe originated
+      in what’s now ….
+  - answers:
+    - 12 000
+    - 9 000
+    - 7 000
+    - 5 000
+    correct_answer: 1
+    question: Around … years ago, nomadic hunters in the region started planting rice
+      seeds.
+  - answers:
+    - 9 000
+    - 7 000
+    - 4 000
+    - 3 000
+    correct_answer: 2
+    question: South American growers also domesticated rice around … years ago
+  - answers:
+    - Annaprashan
+    - Yaren
+    - Samsara
+    - Yom Kippur
+    correct_answer: 0
+    question: In India and Nepal, many Hindus mark an infant’s transition to solid
+      foods with a ceremony known as …, where the baby tastes rice for the first time.
+  - answers:
+    - half
+    - a third
+    - a fourth
+    - a fifth
+    correct_answer: 1
+    question: Rice crop uses over … of the world’s irrigation water.
+  - answers:
+    - astrocytes
+    - methanogens
+    - propanogens
+    - langerhans
+    correct_answer: 1
+    question: Flooded fields are the perfect breeding grounds for microorganisms known as ….
+  - answers:
+    - nitrogen
+    - oxygen
+    - carbon
+    - hydrogen
+    correct_answer: 1
+    question: Methanogens thrive in environments lacking ….
+  - answers:
+    - 5
+    - 10
+    - 15
+    - 25
+    correct_answer: 3
+    question: Methanogens produce methane
+  - answers:
+    - 10%
+    - 20%
+    - 30%
+    - 40%
+    correct_answer: 2
+    question: Alternate wetting and drying can cut water use by ….
+- name: texas holdem
+  questions:
+  - answers:
+    - New York
+    - California
+    - New Orleans
+    - Florida
+    correct_answer: 2
+    question: The game first emerged around 1800 in the melting pot of ….
+  - answers:
+    - 20
+    - 30
+    - 42
+    - 52
+    correct_answer: 0
+    question: French pique was played with a …
+  - answers:
+    - American
+    - French
+    - Spanish
+    - English
+    correct_answer: 3
+    question: … Brag used 52-cards.
+  - answers:
+    - allowed
+    - did not allow
+    correct_answer: 0
+    question: Brag … players to discard and draw new cards.
+  - answers:
+    - car
+    - plane
+    - steamboat
+    - train
+    correct_answer: 2
+    question: The popularity of pooch skyrocketed after the invention of the …
+  - answers:
+    - James Buchanan’s
+    - Andrew Johnson’s
+    - Grover Cleveland’s
+    - Abraham Lincoln’s
+    correct_answer: 3
+    question: By … election, Americans in every single state were playing the new
+      game.
+  - answers:
+    - hot
+    - cold
+    - 'false'
+    - 'true'
+    correct_answer: 1
+    question: But perhaps the most common method was sneaking a … deck into the game
+      (pre-sequenced hands).
+  - answers:
+    - Washington
+    - Florida
+    - Georgia
+    - California
+    correct_answer: 3
+    question: With four rounds of betting, Five-card Stud produced even more lucrative
+      pots, encouraging so much cheating that … outlawed the game in 1885.
+  - answers:
+    - 1920
+    - 1928
+    - 1940
+    - 1945
+    correct_answer: 1
+    question: In …, Hungarian polymath sought to explain the nuances of betting and
+      bluffing in mathematical terms.
+  - answers:
+    - Statistics
+    - Poker Theory
+    - Game Theory
+    - Prediction Theory
+    correct_answer: 2
+    question: The work of the Hungarian polymath became the foundation for a whole
+      new branch of mathematics called ….
+- name: motivation
+  questions:
+  - answers:
+    - the desire or impetus to initiate and maintain a particular behaviour.
+    - the automatic response to external stimuli.
+    - a fixed, unchangeable trait in individuals.
+    - the result of genetic predisposition.
+    correct_answer: 0
+    question: Psychologist define motivation as ….
+  - answers:
+    - voluntary and involuntary.
+    - conscious and subconscious.
+    - intrinsic and extrinsic.
+    - positive and negative.
+    correct_answer: 2
+    question: 'Motivational forces generally fall into two broad categories:'
+  - answers:
+    - going to the dentist as a means to have healthy teeth in the future.
+    - playing a video game.
+    - studying as a means to getting accepted to a chosen university.
+    - receiving a monetary reward for completing a task.
+    correct_answer: 1
+    question: 'An example of an intrinsic motivation is:'
+  - answers:
+    - working out to lose weight.
+    - eating a birthday cake.
+    - going for a walk to relax.
+    - listening music to find some energy.
+    correct_answer: 0
+    question: 'An example of an extrinsic motivation is:'
+  - answers:
+    - short-lived.
+    - long-lived.
+    correct_answer: 0
+    question: 'The extrinsic reward’s effectiveness can be surprisingly:'
+  - answers:
+    - were
+    - weren’t
+    correct_answer: 1
+    question: A 2017 study found that those who were highly focused on the outcomes
+      of their New Year’s resolutions … most likely to stick to them.
+  - answers:
+    - more
+    - less
+    correct_answer: 1
+    question: One study of military cadets found that those who were driven by both
+      intrinsic and extrinsic motivation were overall … motivated than cadets driven
+      by just one of these factors.
+  - answers:
+    - has to many motivation sources.
+    - loses interest in an activity when intrinsic rewards are introduced.
+    - becomes highly motivated by external incentives.
+    - experiences a sudden increase in intrinsic motivation.
+    correct_answer: 0
+    question: 'Overjustification effect is when one:'
+  - answers:
+    - focusing on the reward after completing the task.
+    - simply putting the task off for later.
+    - multitasking, and thus not focusing too much on the activity itself.
+    correct_answer: 0
+    question: 'When a task is tedious, one may benefit by:'
+  - answers:
+    - making the activity more pleasant in itself.
+    - setting goals.
+    - rewarding themselves after performing the task.
+    correct_answer: 0
+    question: 'According to the video in order to increase one’s motivation one can
+      try:'
+- name: biggest brain
+  questions:
+  - answers:
+    - 10%
+    - 25%
+    - 40%
+    - 58%
+    correct_answer: 3
+    question: In the mid-1800s, soon after American whaling ships began operating
+      in the North Pacific, Whalers saw a … drop in their successful strikes within
+      just a few years.
+  - answers:
+    - renewable oil
+    - methanoceti oil
+    - spermaceti oil
+    - greasy oil
+    correct_answer: 2
+    question: Whales were killed to obtain ….
+  - answers:
+    - cardiovascular system
+    - digestive system
+    - echolocation system
+    - respiratory system
+    correct_answer: 2
+    question: Spermaceti oil is an essential part of the whales’ … .
+  - answers:
+    - elephants
+    - sperm whales
+    - 'orkas '
+    - humans
+    correct_answer: 1
+    question: … have the largest brains of all animals.
+  - answers:
+    - 100
+    - 150
+    - 200
+    - 230
+    correct_answer: 3
+    question: Sperm whale-generated sounds can reach … dB.
+  - answers:
+    - lower jaw / eyes
+    - upper jaw / nose
+    - lower jaw / ears
+    - upper jaw / brain
+    correct_answer: 2
+    question: It is suspected that the returning vibrations are received by the whale’s
+      … and directed into the ….
+  - answers:
+    - defecation
+    - mating
+    - ventilation
+    - 'absorption '
+    correct_answer: 1
+    question: Scientists suspect that the clang noises, play a role in ….
+  - answers:
+    - Trunps
+    - Echos
+    - Codas
+    - Rents
+    correct_answer: 2
+    question: … are thought to function as social identity markers.
+  - answers:
+    - 'true'
+    - 'false'
+    correct_answer: 0
+    question: Some codas vary, based on the region and the family.
+  - answers:
+    - dialect
+    - physical appearance
+    - preferred prey species
+    - geographical territory
+    correct_answer: 0
+    question: According to the video each whale clan has its own ….
+- name: decision making
+  questions:
+  - answers:
+    - 2 000
+    - 2005
+    - 2011
+    - 2015
+    correct_answer: 2
+    question: In a … study, researchers followed a group of judges.
+  - answers:
+    - well-being
+    - time of the day
+    - clothing
+    - 'odors '
+    correct_answer: 1
+    question: In the presented study … surprisingly had an impact on the decisions
+      made by the board.
+  - answers:
+    - morning
+    - evening
+    correct_answer: 0
+    question: Those that had their trial in the …, where more likely to be offered
+      a parole.
+  - answers:
+    - can make people more impulsive and less confident while making choices.
+    - leads to better decision-making due to increased focus.
+    - only affects decisions related to food choices.
+    - is caused by an excess of caffeine consumption.
+    correct_answer: 0
+    question: Decision fatigue …
+  - answers:
+    - 'True'
+    - 'False'
+    correct_answer: 1
+    question: All of our brains have the same decision fatigue threshold
+  - answers:
+    - frequency.
+    - complexity.
+    - novelty.
+    - personal preference.
+    correct_answer: 3
+    question: How quickly we reach the threshold DOESN’T depend on …
+  - answers:
+    - what to eat for breakfast.
+    - whether to buy a house or rent an apartment.
+    - which car to purchase.
+    - whether to accept a job offer.
+    correct_answer: 0
+    question: 'Choose an example of a decision that will NOT significantly contribute
+      to an individual approaching his decision fatigue:'
+  - answers:
+    - Asking others to make decisions for us.
+    - Limiting the amount of decisions we make each day.
+    - Increasing the complexity of our decisions.
+    - Practising regularly.
+    correct_answer: 1
+    question: What was the first strategy provided by the female that can slow down
+      a person from reaching his/her decision fatigue threshold.
+  - answers:
+    - more
+    - less
+    correct_answer: 1
+    question: It’s typically … draining to offer advice on a hard decision, than it
+      is to make that choice yourself.
+  - answers:
+    - learn how to relax about the small stuff, and prioritise the harder decisions.
+    - seek advice from those that are more experienced.
+    - make all decisions with equal importance, and stay organised
+    - focus primarily on the small and trivial decisions, as that will boost our satisfaction
+      and energy levels.
+    correct_answer: 0
+    question: In the last technique offered my the female, she suggest that we …
+- name: potato famine
+  questions:
+  - answers:
+    - 1750
+    - 1800
+    - 1845
+    - 1905
+    correct_answer: 2
+    question: In the fall of …, the bright green leaves of potato plants dotted the
+      Irish countryside.
+  - answers:
+    - tasty and easy to prepare.
+    - nutrient-rich and inexpensive to harvest.
+    - difficult to cultivate.
+    - a natural source of caffeine.
+    correct_answer: 1
+    question: 'The potato became a staple food for the Irish due to it being:'
+  - answers:
+    - Ireland had complete control over its agricultural trade.
+    - Irish agricultural products were solely for domestic consumption.
+    - Ireland became self-sufficient in agriculture.
+    - Ireland’s more valuable agricultural products were exported.
+    correct_answer: 3
+    question: British mandates ensured
+  - answers:
+    - contracted an auto-immunological disease.
+    - suffered from epilepsy-like-shivers.
+    - suffered from severe stomach cramps.
+    - permanently damaged their fertility.
+    correct_answer: 2
+    question: 'Those who ate the abnormal potatoes:'
+  - answers:
+    - Western France
+    - Northern America
+    - Southern Africa
+    - Eastern Asia
+    correct_answer: 1
+    question: 'The fungus that affected the potatoes originated from:'
+  - answers:
+    - 'True'
+    - 'False'
+    correct_answer: 1
+    question: Due to the potato famine, the British stopped exporting Ireland’s grain
+      and livestock.
+  - answers:
+    - had to walk 18 km roundtrip to work every day.
+    - revolted agains the British rule over Ireland.
+    - helped those less-fortunate.
+    - documented the state of Southern Ireland under the rule of the British government.
+    correct_answer: 0
+    question: 'Thomas Malone is now known for having:'
+  - answers:
+    - substantially increased the aid provided for the Irish
+    - introduced friendly interests rates, as a means to improve the financial state
+      of the impoverished.
+    - limited who was eligible for tax relief.
+    - greatly invested in the education of the Iris.
+    correct_answer: 2
+    question: 'In the 1846, the British government:'
+  - answers:
+    - religious ideology.
+    - laissez-faire économie policies.
+    - political infighting.
+    - their simultaneous lack of resources.
+    correct_answer: 3
+    question: 'The described approach of the British towards the Irish DID NOT stem
+      from:'
+  - answers:
+    - 2
+    - 5
+    - 7
+    - 10
+    correct_answer: 2
+    question: The Irish famine lasted overall … years.
+- name: studying
+  questions:
+  - answers:
+    - 2 000
+    - 2006
+    - 2010
+    - 2012
+    correct_answer: 1
+    question: The study brought up by the men took place in ….
+  - answers:
+    - Cerebellum
+    - Amygdala
+    - Hippocampus
+    - Basal Ganglia
+    correct_answer: 2
+    question: When you first learn something, the memory is initially stored in a
+      group of neurons in an area called the … .
+  - answers:
+    - reactivate
+    - deactivate
+    - damage
+    correct_answer: 0
+    question: When you continue learning the terms, you … the neurons.
+  - answers:
+    - Fornix
+    - Hindbrain
+    - Neocortex
+    - Midbrain
+    correct_answer: 2
+    question: The long-term storage of memories is possible because of the … .
+  - answers:
+    - omega-3 fatty acids.
+    - sleep.
+    - physical exercise.
+    - magnesium .
+    correct_answer: 1
+    question: 'According to the video, the translation of short-term memories to long-term
+      memories is likely facilitated by:'
+  - answers:
+    - Testing oneself.
+    - Copying the text to the notebook.
+    - Rereading the text over and over.
+    - Underscoring the important information.
+    correct_answer: 0
+    question: 'How can you force yourself to actively retrieve knowledge:'
+  - answers:
+    - 'Positively '
+    - Negatively
+    correct_answer: 0
+    question: Making mistakes while testing yourself … impacts your learning process.
+  - answers:
+    - asking others to explain the concepts to you.
+    - mixing various concepts.
+    - studying alone in a non-distracting environment.
+    - taking frequent brakes during the study session.
+    correct_answer: 1
+    question: The second learning technique recommends … .
+  - answers:
+    - 'True'
+    - 'False'
+    correct_answer: 1
+    question: Cramming the night before the exam, turns out to be beneficial for the
+      long-term retention of the concepts, as it makes the knowledge “fresh”.
+  - answers:
+    - amount of time they studied overall.
+    - techniques used during their study sessions.
+    - space they studied in.
+    - ' amount of days their studying was spread over.'
+    correct_answer: 3
+    question: The two study groups mentioned in the video different as to the … .
+- name: life meaning
+  questions:
+  - answers:
+    - Carbon
+    - Nitrogen
+    - Neuronium
+    - 'Uranium '
+    correct_answer: 2
+    question: According to the scenario presented in the video, life on the planet
+      depends entirely on …
+  - answers:
+    - now emits a pollutant that lowers fertility in the species.
+    - is becoming a scarce resource, due to overuse.
+    - is contributing to the global warming on the planet.
+    - was found to be radioactive, and as a result trigger the release of cortisol.
+    correct_answer: 0
+    question: According to the scenario presented in the video, neuronium … .
+  - answers:
+    - Ethylen
+    - Polixate
+    - Fumenate
+    - Oxygenase
+    correct_answer: 1
+    question: 'The alternative energy source (from the video) is called:'
+  - answers:
+    - won’t solve the problem with fertility.
+    - won’t produce adequate yields of energy.
+    - isn’t renewable.
+    - won’t sustain cognition in the same way as Neuronium.
+    correct_answer: 3
+    question: The alternative source of energy, unfortunately … .
+  - answers:
+    - Polixate
+    - Neuronium
+    correct_answer: 1
+    question: Dr. Taylof’s contingent argues that your people must use …
+  - answers:
+    - the possibility to reproduce.
+    - the chance to live an affluent life.
+    - culture and imagination.
+    - the ability to communicate verbally.
+    correct_answer: 2
+    question: Dr. Taylof believes that the lives of future generations on Polixate
+      would be meaningless without …
+  - answers:
+    - have any inherent right to be brought into existence.
+    - should be excluded from important decisions.
+    - should not inherit the consequences of past generations' actions.
+    correct_answer: 0
+    question: Dr Taylof’s group doesn’t believe that future generations ….
+  - answers:
+    - lead a creative life.
+    - experience happiness.
+    - lead an educationally successful life.
+    - have the motivation to develop and thrive personally.
+    correct_answer: 1
+    question: Dr Kahan and her colleagues disagree with Dr Taylof, and claim that
+      with their basic needs met they could still …
+  - answers:
+    - 'True'
+    - 'False'
+    correct_answer: 1
+    question: Dr Taylof firmly believes that maximising the society’s happiness takes
+      precedence over personal development.
+  - answers:
+    - life in itself is not meaningful; it’s the goals we set that make is so.
+    - choosing a specie’s extinction is fundamentally unethical.
+    - all species are equally valuable in the ecosystem, and thus deciding to cease
+      the existence of one, would severely impact the planet.
+    - human actions have no impact on the environment.
+    correct_answer: 1
+    question: 'Dr Kahan states that:'
+- name: break bad habit
+  questions:
+  - answers:
+    - regularly watching TV.
+    - nail-biting.
+    - being frequently late.
+    - putting tasks off for later.
+    correct_answer: 1
+    question: With what bad habit, does the video begin ?
+  - answers:
+    - Rubbing chili peppers.
+    - Wearing gloves all day.
+    - Dipping hands in salt.
+    - Having manicure.
+    correct_answer: 3
+    question: Which of the following techniques was NOT mentioned by the female, when
+      discussing braking the habit of nail-biting ?
+  - answers:
+    - behaviours that are performed regularly, and cued subconsciously in response
+      to certain environments.
+    - actions that are always driven by conscious decision-making, requiring continuous
+      effort and intentionality.
+    - behaviors that are entirely genetic in origin, predetermined by an individual's
+      DNA and impervious to environmental influences or personal choices, making them
+      immune to change efforts.
+    - routines that are difficult to change due to lack of effort, as individuals
+      are inherently lazy and reluctant to make any alterations to their daily practices.
+    correct_answer: 0
+    question: According to the video, scientists define habits as … .
+  - answers:
+    - Location
+    - Time
+    - Emotions
+    - Orders
+    correct_answer: 3
+    question: Which of these cannot be a habit trigger ?
+  - answers:
+    - Picking your hair when stressed.
+    - Frequent staying up late.
+    - Drinking coffee in the morning.
+    - Blinking your eyes.
+    correct_answer: 3
+    question: Which of these is NOT a habit ?
+  - answers:
+    - Cortisol.
+    - Dopamine.
+    - Glutamate.
+    - Gastrin.
+    correct_answer: 1
+    question: The feeling of pleasure is attributed to …
+  - answers:
+    - slower
+    - faster
+    correct_answer: 1
+    question: Cue-Behaviour-Reward loops are … than decision-making processes.
+  - answers:
+    - 40%
+    - 50%
+    - 60%
+    - 70%
+    correct_answer: 0
+    question: One study estimated that people spend more than … of their days performing
+      regularly repeated behaviour.
+  - answers:
+    - cue
+    - reward
+    correct_answer: 0
+    question: In order to brake a habit, one must first identify the … .
+  - answers:
+    - One must jot down each time they feel the urge to perform a certain task.
+    - One should replace an already existing habit with a less detrimental one.
+    - One must punish themselves for having executed a certain behaviour
+    - One must try to distract their minds when confronted with an urge to perform
+      a certain task.
+    correct_answer: 1
+    question: How does the habit reversal training work ?
+- name: birds
+  questions:
+  - answers:
+    - neurodigestive
+    - circadian
+    - reward
+    - musculoskeletal
+    correct_answer: 1
+    question: Whether we are an early bird or a night owl, is determined by our …
+      system.
+  - answers:
+    - hypothalamus.
+    - hippocampus.
+    - amygdala.
+    - basal ganglia.
+    correct_answer: 0
+    question: The circadian system is located in our …
+  - answers:
+    - light.
+    - pH of our blood.
+    - temperature.
+    - blood pressure.
+    correct_answer: 0
+    question: Your day-night cycle is dictated by …. .
+  - answers:
+    - Serotonin
+    - Glutamate
+    - Melatonin
+    - Acetylcholine
+    correct_answer: 2
+    question: Which of these hormones is termed as the “sleep inducing hormone” ?
+  - answers:
+    - Dopamine
+    - Melatonin
+    - Cortisol
+    - Norepinephrine
+    correct_answer: 2
+    question: In “early birds” … peaks just before waking up.
+  - answers:
+    - 'True'
+    - 'False'
+    correct_answer: 0
+    question: By keeping a regular sleep schedule one can alter their circadian rhythm.
+  - answers:
+    - 'True'
+    - 'False'
+    correct_answer: 1
+    question: Surprisingly a disregulated circadian rhythm doesn’t have health implications.
+  - answers:
+    - work out in the morning.
+    - drink high-glucose beverages in the morning.
+    - be exposed to fresh air.
+    - be exposed to sunlight.
+    correct_answer: 3
+    question: According to the video, a good way to “wake up” your body is to …
+  - answers:
+    - 'True'
+    - 'False'
+    correct_answer: 0
+    question: Whether you are an early bird or a night owl, biologically doesn’t really
+      matter.
+  - answers:
+    - establish a light contrast between the time we go to sleep and wake up.
+    - exercise regularly before going to sleep.
+    - not drink coffee before we go to sleep.
+    - sleep in a peaceful environment.
+    correct_answer: 0
+    question: According to the video, in order to have a properly functioning circadian
+      rhythm it’s important to …
+- name: meat
+  questions:
+  - answers:
+    - 25%
+    - 50%
+    - 66%
+    - 82%
+    correct_answer: 2
+    question: In 2021, a survey of over 1 000 Americans found that nearly … had eaten
+      plant-based meat alternatives in the past year.
+  - answers:
+    - muscle fibers
+    - connective tissues
+    - fat tissue
+    - cartilage tissue
+    correct_answer: 3
+    question: Farmed Meat is a complex structure that doesn’t consist of …
+  - answers:
+    - Carbohydrates
+    - Protein
+    - Fats
+    - It contains all of the above food groups.
+    correct_answer: 3
+    question: Plant based meat doesn’t contain …
+  - answers:
+    - long rod-like proteins / ball-shaped proteins.
+    - 'ball-shaped proteins / long rod-like proteins '
+    correct_answer: 0
+    question: Meat is composed of …, plants are composed of …
+  - answers:
+    - flattening device.
+    - compressing device.
+    - extruder device.
+    - extraction device.
+    correct_answer: 2
+    question: To replicate the protein structure characteristic of meat, plant’s proteins
+      can be pushed through …
+  - answers:
+    - red blood cells.
+    - leukocytes.
+    - stem cells.
+    - oligodendrocytes.
+    correct_answer: 2
+    question: Cultured meat begins as …
+  - answers:
+    - swapping red meat for plant-based meat
+    - reducing the amount of consumed meat
+    - swapping red meat for other options like chicken, nuts or legumes
+    - consuming solely well cooked red meat (not raw)
+    correct_answer: 2
+    question: One 2012 study concluded that … can potentially reduce mortality risk
+      by 7 to 19%.
+  - answers:
+    - potassium
+    - chloride
+    - sodium
+    - calcium
+    correct_answer: 2
+    question: Plant-based meats are highly processed and therefore high in … .
+  - answers:
+    - 5.4%
+    - 10.2%
+    - 14.5%
+    - 20%
+    correct_answer: 2
+    question: Animal agriculture generates an estimated … of human-caused greenhouse
+      gas emission.
+  - answers:
+    - 90%
+    - 63%
+    - 51%
+    - 43%
+    correct_answer: 0
+    question: Researchers estimate that producing plant-based meat substitutes results
+      in, on average, around … less greenhouse gas emission than an equivalent amount
+      of beef.
+- name: airplane mode
+  questions:
+  - answers:
+    - Jupiter
+    - Saturn
+    - Uranium
+    - Neptun
+    correct_answer: 0
+    question: In fact, the signal your phone broadcasts is so strong, if your eyes
+      could see radio waves, your phone would be visible from … .
+  - answers:
+    - 'True'
+    - 'False'
+    correct_answer: 0
+    question: We turn on the airplane mode to protect those in our airway path.
+  - answers:
+    - proton waves
+    - electric waves
+    - magnetic waves
+    - electromagnetic waves
+    correct_answer: 3
+    question: Cell phones connect to networks by emitting information in the form
+      of … .
+  - answers:
+    - sounds
+    - colors
+    - pitches
+    - vibrations
+    correct_answer: 1
+    question: Our eyes perceive different wavelengths as different … .
+  - answers:
+    - lower amplitude
+    - higher amplitude
+    - higher frequency
+    - lower frequency
+    correct_answer: 1
+    question: When far aways from a cell tower, your phone will send … waves.
+  - answers:
+    - sends out giant radio waves, that interfere with nearby signals.
+    - has a reduced risk of interference with communication systems.
+    - reduced the air pressure in the air, due to the cramming of radio waves of many
+      phone users.
+    - may risk damaging the windows in the airplane.
+    correct_answer: 0
+    question: When flying in a plane without the airplane mode, one ….
+  - answers:
+    - 'True'
+    - 'False'
+    correct_answer: 1
+    question: According to the video, not all electronics emit rogue radio waves.
+  - answers:
+    - 1 - 20 GHz
+    - 1 - 30 GHz
+    - 1 - 40 GHz
+    - 1 - 50 GHz
+    correct_answer: 3
+    question: The Very Large Array can see signals throughout our solar system from ….
+- name: phone battery
+  questions:
+  - answers:
+    - the gasoline
+    - the battery
+    - the torch
+    correct_answer: 1
+    question: Out of these 3 energy sources only … is recyclable.
+  - answers:
+    - protons
+    - neutrons
+    - photons
+    - electrons
+    correct_answer: 3
+    question: In a battery the negative terminal releases … .
+  - answers:
+    - alkaline double-A
+    - lithium-ion
+    - car lead-acid
+    - nickel-cadmium
+    correct_answer: 0
+    question: In a typical … battery, zinc metal reacts with hydroxide ions.
+  - answers:
+    - potassium oxide
+    - sodium oxide
+    - zinc oxide
+    - manganese dioxide
+    correct_answer: 3
+    question: At the positive end of the alkaline double-A battery electrons are accepted
+      by … .
+  - answers:
+    - increase the internal resistance of the battery.
+    - decrease the internal resistance of the battery.
+    - increase the internal capacitance of the battery.
+    - decrease the internal capacitance of the battery.
+    correct_answer: 0
+    question: According to the video, over the course of many charge cycles, some
+      of the lithium ions engage in side reactions, producing substances that …
+  - answers:
+    - thrishing
+    - smelting
+    - riving
+    - dripping
+    correct_answer: 1
+    question: The heart of most battery recycling is a process called … .
