@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'strong_concentration_desc.dart';
 import 'package:yaml/yaml.dart';
-import "dart:io";
 import '/progress_screen.dart';
 import '/show_score.dart';
 
