@@ -62,6 +62,7 @@ dependencies:
   confetti: ^0.7.0
   word_generator: ^0.4.4
   crossword: ^0.0.6
+  yaml: ^3.1.2
 
 dev_dependencies:
   flutter_test:
