@@ -161,7 +161,7 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                                     "Exercise 2 - Long Term Concentration",
                                 exercise: 2,
                                 yourScore: score,
-                                maximum: 100,
+                                maximum: 10,
                                 page: const StrongConcentrationDesc(
                                   initialTest: true,
                                 ),
