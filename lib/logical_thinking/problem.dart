@@ -158,10 +158,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: FloatingActionButton.extended(
-                  //route: Text(widget.content),
                   label: const Text('Continue'),
-                  //width: size.width,
-                  //requirement: selectedOption != null,
                   onPressed: () {
                     if (iteration < 3) {
                       setState(() {
