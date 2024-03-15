@@ -62,6 +62,7 @@ dependencies:
   confetti: ^0.7.0
   word_generator: ^0.4.4
   crossword: ^0.0.6
+  yaml: ^3.1.2
   dictionaryx: ^0.3.5
 
 dev_dependencies:
@@ -101,6 +102,7 @@ flutter:
     - assets/attention/reading/classic/
     - assets/attention/reading/business/
     - assets/attention/reading/personal_development/
+    - assets/linguistic/hangman/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

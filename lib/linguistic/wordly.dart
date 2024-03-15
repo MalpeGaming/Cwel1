@@ -40,13 +40,13 @@ class _Wordly extends State<Wordly> {
           end: Alignment.bottomRight,
           colors: (guessed[(indx - indx % 6) ~/ 6][indx % 6] == 0)
               ? [
-                  const Color.fromARGB(255, 199, 199, 199),
-                  const Color.fromARGB(255, 156, 156, 156),
+                  const Color.fromARGB(255, 201, 233, 255),
+                  const Color.fromARGB(255, 164, 205, 236),
                 ]
               : (guessed[(indx - indx % 6) ~/ 6][indx % 6] == 1)
                   ? [
-                      const Color.fromARGB(255, 165, 165, 165),
-                      const Color.fromARGB(255, 112, 112, 112),
+                      const Color.fromARGB(255, 122, 163, 194),
+                      const Color.fromARGB(255, 123, 167, 206),
                     ]
                   : (guessed[(indx - indx % 6) ~/ 6][indx % 6] == 2)
                       ? [
@@ -110,12 +110,12 @@ class _Wordly extends State<Wordly> {
                       ]
                     : (notGuessedKeys.contains(qwerty[row][indx].toUpperCase()))
                         ? [
-                            const Color.fromARGB(255, 248, 248, 248),
-                            const Color.fromARGB(255, 207, 207, 207),
+                            const Color.fromARGB(255, 201, 233, 255),
+                            const Color.fromARGB(255, 164, 205, 236),
                           ]
                         : [
-                            const Color.fromARGB(255, 189, 212, 228),
-                            const Color.fromARGB(255, 157, 181, 201),
+                            const Color.fromARGB(255, 140, 186, 221),
+                            const Color.fromARGB(255, 91, 140, 182),
                           ],
           ),
         ),
@@ -127,6 +127,7 @@ class _Wordly extends State<Wordly> {
               fontSize: (qwerty[row][indx].length == 1)
                   ? 0.04 * size.width
                   : 0.03 * size.width,
+              color: Colors.white,
             ),
           ),
         ),
