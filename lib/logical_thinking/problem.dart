@@ -182,7 +182,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                             exercise: 1,
                             yourScore: score,
                             maximum: 10,
-                            page: ProblemSelection(
+                            page: const ProblemSelection(
                               testVersion: true,
                             ),
                           ),
