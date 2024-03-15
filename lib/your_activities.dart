@@ -5,12 +5,15 @@ import 'self_reflection.dart';
 import 'meditation.dart';
 import 'sport.dart';
 import 'memory/memory_game1.dart';
-import 'attention/long_term_concentration.dart';
+import 'memory/memory.dart';
+import 'attention/long_term_concentration_video.dart';
 import 'attention/short_term_concentration.dart';
 import 'attention/strong_concentration.dart';
 import 'attention/reading/reading.dart';
 import 'logical_thinking/sudoku.dart';
 import 'attention/find_the_word.dart';
+import 'linguistic/wordly.dart';
+import 'linguistic/hangman.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -186,10 +189,10 @@ class _YourActivities extends State<YourActivities> {
                       children: [
                         createActivity2(
                           context,
-                          "learning_course",
+                          "learning_words",
                           "LEARNING",
-                          "Course",
-                          const YourActivities(),
+                          "Words",
+                          const Memory(),
                         ),
                         createActivity2(
                           context,
@@ -204,6 +207,13 @@ class _YourActivities extends State<YourActivities> {
                           "MEMORY",
                           "Game",
                           const MemoryGame1(),
+                        ),
+                        createActivity2(
+                          context,
+                          "learning_course",
+                          "LEARNING",
+                          "Course",
+                          const YourActivities(),
                         ),
                         createActivity2(
                           context,
@@ -311,7 +321,7 @@ class _YourActivities extends State<YourActivities> {
                           "long_term_concentration",
                           "Long-Term",
                           "CONCENTRATION",
-                          const LongTermConcentration(),
+                          const LongTermConcentrationVideo(),
                         ),
                         createActivity2(
                           context,
@@ -339,7 +349,15 @@ class _YourActivities extends State<YourActivities> {
                           "hangman",
                           "HANGMAN",
                           "",
-                          const YourActivities(),
+                          const Hangman(),
+                          zero: 0,
+                        ),
+                        createActivity2(
+                          context,
+                          "wordly",
+                          "WORDLY",
+                          "",
+                          const Wordly(),
                           zero: 0,
                         ),
                       ],

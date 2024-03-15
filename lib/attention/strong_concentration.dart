@@ -7,9 +7,9 @@ import '/progress_screen.dart';
 import '/show_score.dart';
 
 class StrongConcentration extends StatefulWidget {
-  const StrongConcentration({super.key, this.testVersion = false});
+  const StrongConcentration({super.key, this.initialTest = false});
 
-  final bool testVersion;
+  final bool initialTest;
 
   @override
   State<StrongConcentration> createState() => _StrongConcentration();
@@ -48,7 +48,7 @@ class _StrongConcentration extends State<StrongConcentration> {
               _timer.cancel();
               double score = countScore();
 
-              if (widget.testVersion) {
+              if (widget.initialTest) {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -187,11 +187,10 @@ class _StrongConcentration extends State<StrongConcentration> {
       body: SingleChildScrollView(
         child: Container(
           width: size.width * 0.9,
-          //height: size.height * 0.98,
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
-            top: size.height / 20,
+            top: size.height / 10,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -377,7 +376,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                       _timer.cancel();
                       double score = countScore();
 
-                      if (widget.testVersion) {
+                      if (widget.initialTest) {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
