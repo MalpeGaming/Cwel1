@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../buttons.dart';
-import '../improvement_selection.dart';
+
+import 'problem.dart';
 
 class LogicalThinking extends StatefulWidget {
   final bool? initialTest;
@@ -130,7 +131,9 @@ class _LogicalThinking extends State<LogicalThinking> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const ImprovementSelection(),
+                  route: const ProblemSelection(
+                    testVersion: true,
+                  ),
                   text: 'Continue',
                   width: size.width,
                 ),
