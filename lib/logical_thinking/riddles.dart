@@ -29,9 +29,11 @@ class _Riddles extends State<Riddles> {
         margin: EdgeInsets.only(
           left: size.width / 15,
           right: size.width / 15,
-          bottom: size.height / 10,
+          bottom: size.height / 15,
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 0.05 * size.height),
             Align(
@@ -39,104 +41,95 @@ class _Riddles extends State<Riddles> {
               child: Column(
                 children: [
                   Text(
-                    "RIDDLES",
+                    "LOGICAL",
                     style: TextStyle(fontSize: 0.08 * size.height),
                   ),
                   Text(
                     "THINKING",
                     style: TextStyle(fontSize: 0.035 * size.height),
                   ),
-                  Text(
-                    "Exercise 2 -  Math riddles",
-                    style: TextStyle(fontSize: 0.03 * size.height),
+                ],
+              ),
+            ),
+            SizedBox(height: 0.03 * size.height),
+            Text(
+              "Exercise 2 - Math riddles",
+              style: TextStyle(fontSize: 0.025 * size.height),
+            ),
+            SizedBox(height: 0.04 * size.height),
+            RichText(
+              text: TextSpan(
+                style: TextStyle(
+                  fontSize: 0.02 * size.height,
+                  color: Theme.of(context).colorScheme.onSecondary,
+                ),
+                children: const [
+                  TextSpan(
+                    text: "In this exercises you will complete part of the ",
+                  ),
+                  TextSpan(
+                    text: "8 minutes to solve as many riddles as you can.",
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  RichText(
-                    text: TextSpan(
-                      style: TextStyle(
-                        fontSize: 0.022 * size.height,
-                        color: Theme.of(context).colorScheme.onSecondary,
-                      ),
-                      children: const [
-                        TextSpan(
-                          text:
-                              "In this exercises you will complete part of the ",
-                        ),
-                        TextSpan(
-                          text:
-                              "8 minutes to solve as many riddles as you can.",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
+            SizedBox(height: 0.015 * size.height),
+            RichText(
+              text: TextSpan(
+                style: TextStyle(
+                  fontSize: 0.02 * size.height,
+                  color: Theme.of(context).colorScheme.onSecondary,
+                ),
+                children: const [
+                  TextSpan(
+                    text: "For each ",
                   ),
-                  SizedBox(height: 0.015 * size.height),
-                  RichText(
-                    text: TextSpan(
-                      style: TextStyle(
-                        fontSize: 0.022 * size.height,
-                        color: Theme.of(context).colorScheme.onSecondary,
-                      ),
-                      children: const [
-                        TextSpan(
-                          text: "For each ",
-                        ),
-                        TextSpan(
-                          text: "correct answer ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        TextSpan(
-                          text: "you will ",
-                        ),
-                        TextSpan(
-                          text: "get 5 points, ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        TextSpan(
-                          text: "for each ",
-                        ),
-                        TextSpan(
-                          text: "wrong answer ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        TextSpan(
-                          text: "you will ",
-                        ),
-                        TextSpan(
-                          text: "loose 5 points.",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
+                  TextSpan(
+                    text: "correct answer ",
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 0.015 * size.height),
-                  RichText(
-                    text: TextSpan(
-                      style: TextStyle(
-                        fontSize: 0.022 * size.height,
-                        color: Theme.of(context).colorScheme.onSecondary,
-                      ),
-                      children: const [
-                        TextSpan(
-                          text: "When ready click \"",
-                        ),
-                        TextSpan(
-                          text: "CONTINUE",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        TextSpan(
-                          text: ".\"",
-                        ),
-                      ],
-                    ),
+                  TextSpan(
+                    text: "you will ",
+                  ),
+                  TextSpan(
+                    text: "get 5 points, ",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(
+                    text: "for each ",
+                  ),
+                  TextSpan(
+                    text: "wrong answer ",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(
+                    text: "you will ",
+                  ),
+                  TextSpan(
+                    text: "loose 5 points.",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 0.015 * size.height),
+            RichText(
+              text: TextSpan(
+                style: TextStyle(
+                  fontSize: 0.022 * size.height,
+                  color: Theme.of(context).colorScheme.onSecondary,
+                ),
+                children: const [
+                  TextSpan(
+                    text: "When ready click \"",
+                  ),
+                  TextSpan(
+                    text: "CONTINUE",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(
+                    text: ".\"",
                   ),
                 ],
               ),
