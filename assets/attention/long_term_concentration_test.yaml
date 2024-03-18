@@ -1,5 +1,6 @@
 tests:
 - name: rice
+  video_id: YiiLg_KbZDM
   questions:
   - answers:
     - 5%
@@ -75,6 +76,7 @@ tests:
     correct_answer: 2
     question: Alternate wetting and drying can cut water use by ….
 - name: texas holdem
+  video_id: E_fAWuj7DDI
   questions:
   - answers:
     - New York
@@ -150,6 +152,7 @@ tests:
     question: The work of the Hungarian polymath became the foundation for a whole
       new branch of mathematics called ….
 - name: motivation
+  video_id: II5h6uJPvvs
   questions:
   - answers:
     - the desire or impetus to initiate and maintain a particular behaviour.
@@ -218,6 +221,7 @@ tests:
     question: 'According to the video in order to increase one’s motivation one can
       try:'
 - name: biggest brain
+  video_id: 00Ar2_irvJk
   questions:
   - answers:
     - 10%
@@ -291,6 +295,7 @@ tests:
     correct_answer: 0
     question: According to the video each whale clan has its own ….
 - name: decision making
+  video_id: X7j8F16eSqs
   questions:
   - answers:
     - 2 000
@@ -363,6 +368,7 @@ tests:
     correct_answer: 0
     question: In the last technique offered my the female, she suggest that we …
 - name: potato famine
+  video_id: OUieqzVZdQc
   questions:
   - answers:
     - 1750
@@ -430,19 +436,20 @@ tests:
     question: 'The described approach of the British towards the Irish DID NOT stem
       from:'
   - answers:
-    - 2
-    - 5
-    - 7
-    - 10
+    - '2'
+    - '5'
+    - '7'
+    - '10'
     correct_answer: 2
     question: The Irish famine lasted overall … years.
 - name: studying
+  video_id: TjPFZaMe2yw
   questions:
   - answers:
     - 2 000
-    - 2006
-    - 2010
-    - 2012
+    - 2 006
+    - 2 010
+    - 2 012
     correct_answer: 1
     question: The study brought up by the men took place in ….
   - answers:
@@ -507,6 +514,7 @@ tests:
     correct_answer: 3
     question: The two study groups mentioned in the video different as to the … .
 - name: life meaning
+  video_id: 2aEQDi2ZYCI
   questions:
   - answers:
     - Carbon
@@ -579,6 +587,7 @@ tests:
     correct_answer: 1
     question: 'Dr Kahan states that:'
 - name: break bad habit
+  video_id: wr6fQ4KpbRM
   questions:
   - answers:
     - regularly watching TV.
@@ -655,6 +664,7 @@ tests:
     correct_answer: 1
     question: How does the habit reversal training work ?
 - name: birds
+  video_id: Amkg1cdDCpM
   questions:
   - answers:
     - neurodigestive
@@ -724,6 +734,7 @@ tests:
     question: According to the video, in order to have a properly functioning circadian
       rhythm it’s important to …
 - name: meat
+  video_id: YTAmyCgmrZE
   questions:
   - answers:
     - 25%
@@ -800,6 +811,7 @@ tests:
       in, on average, around … less greenhouse gas emission than an equivalent amount
       of beef.
 - name: airplane mode
+  video_id: iKYHf22qVdM
   questions:
   - answers:
     - Jupiter
@@ -857,6 +869,7 @@ tests:
     correct_answer: 3
     question: The Very Large Array can see signals throughout our solar system from ….
 - name: phone battery
+  video_id: vc8UBSp1tz0
   questions:
   - answers:
     - the gasoline

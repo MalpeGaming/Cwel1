@@ -6,9 +6,14 @@ import '/progress_screen.dart';
 import '/show_score.dart';
 
 class LongTermConcentrationTest extends StatefulWidget {
-  const LongTermConcentrationTest({super.key, this.initialTest = false});
+  const LongTermConcentrationTest({
+    super.key,
+    required this.exerciseId,
+    this.initialTest = false,
+  });
 
   final bool initialTest;
+  final int exerciseId;
 
   @override
   State<LongTermConcentrationTest> createState() =>
@@ -37,9 +42,9 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
 
       final file = await rootBundle
           .loadString('assets/attention/long_term_concentration_test.yaml');
-      final tasks = loadYaml(file)["tests"][0]["questions"];
+      final tasks = loadYaml(file)["tests"][widget.exerciseId]["questions"];
 
-      for (var i = 0; i < 10; i++) {
+      for (var i = 0; i < tasks.length; i++) {
         newQuestions.add(tasks[i]["question"]);
         newCorrectAnswers.add(tasks[i]["correct_answer"]);
         newAnswers.add([]);
@@ -87,15 +92,15 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
         : Scaffold(
             body: SingleChildScrollView(
               child: Container(
-                width: size.width * 0.9,
                 height: size.height * 0.9,
                 margin: EdgeInsets.only(
-                  left: size.width / 10,
-                  right: size.width / 10,
+                  left: size.width / 20,
+                  right: size.width / 20,
                   top: size.height / 15,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -110,19 +115,21 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        Text(
-                          "Exercise 2 - Long Term Concentration",
-                          style: TextStyle(
-                            fontSize: size.width / 18,
+                        Center(
+                          child: Text(
+                            "Exercise 2 - Long Term Concentration",
+                            style: TextStyle(
+                              fontSize: size.width / 18,
+                            ),
+                            textAlign: TextAlign.center,
                           ),
-                          textAlign: TextAlign.center,
                         ),
                         SizedBox(
                           height: size.height / 20,
                         ),
                         Container(
                           color: const Color.fromARGB(255, 20, 16, 250),
-                          width: size.width * 0.8,
+                          width: size.width * 0.9,
                           child: Container(
                             margin: const EdgeInsets.all(15),
                             child: Center(
@@ -140,10 +147,8 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                         SizedBox(
                           height: size.height / 25,
                         ),
-                        createListTitle(0, answers[questionIndex][0]),
-                        createListTitle(1, answers[questionIndex][1]),
-                        createListTitle(2, answers[questionIndex][2]),
-                        createListTitle(3, answers[questionIndex][3]),
+                        for (int i = 0; i < answers[questionIndex].length; i++)
+                          createListTitle(i, answers[questionIndex][i]),
                       ],
                     ),
                     Column(
@@ -160,7 +165,7 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                                 score += 1;
                               }
 
-                              if (questionIndex < 9) {
+                              if (questionIndex < questions.length - 1) {
                                 setState(() {
                                   questionIndex += 1;
                                   selectedOption = -1;
