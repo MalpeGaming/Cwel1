@@ -76,7 +76,7 @@ class RedirectButton extends StatefulWidget {
   final String text;
   final String? tooltip;
   final double width;
-  final Widget route;
+  final Widget? route;
   final bool requirement;
   final void Function() onClick;
 
@@ -85,7 +85,7 @@ class RedirectButton extends StatefulWidget {
     required this.text,
     required this.width,
     this.tooltip,
-    required this.route,
+    this.route,
     this.requirement = true,
     this.onClick = nuthin,
   });
@@ -111,14 +111,18 @@ class _RedirectButtonState extends State<RedirectButton> {
       },
       onTap: () {
         if (widget.requirement) {
-          Navigator.pop(context);
+          //
           widget.onClick();
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => widget.route,
-            ),
-          );
+          //
+          if (widget.route != null) {
+            Navigator.pop(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => widget.route!,
+              ),
+            );
+          }
         } else if (!toRed) {
           setState(() {
             accesible = false;
@@ -156,7 +160,7 @@ class _RedirectButtonState extends State<RedirectButton> {
         ),
         child: widget.tooltip != null
             ? Tooltip(
-                message: widget.tooltip,
+                message: widget.tooltip!,
                 child: Center(
                   child: Text(
                     widget.text,
