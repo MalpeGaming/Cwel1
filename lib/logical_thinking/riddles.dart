@@ -3,15 +3,15 @@ import '../buttons.dart';
 
 import 'problem.dart';
 
-class LogicalThinking extends StatefulWidget {
+class Riddles extends StatefulWidget {
   final bool? initialTest;
-  const LogicalThinking({this.initialTest = false, super.key});
+  const Riddles({this.initialTest = false, super.key});
 
   @override
-  State<LogicalThinking> createState() => _LogicalThinking();
+  State<Riddles> createState() => _Riddles();
 }
 
-class _LogicalThinking extends State<LogicalThinking> {
+class _Riddles extends State<Riddles> {
   bool initialTest = false;
 
   @override
@@ -39,7 +39,7 @@ class _LogicalThinking extends State<LogicalThinking> {
               child: Column(
                 children: [
                   Text(
-                    "LOGICAL",
+                    "RIDDLES",
                     style: TextStyle(fontSize: 0.08 * size.height),
                   ),
                   Text(
@@ -47,7 +47,7 @@ class _LogicalThinking extends State<LogicalThinking> {
                     style: TextStyle(fontSize: 0.035 * size.height),
                   ),
                   Text(
-                    "Exercise 1 - Math practice",
+                    "Exercise 2 -  Math riddles",
                     style: TextStyle(fontSize: 0.03 * size.height),
                   ),
                 ],
@@ -71,11 +71,9 @@ class _LogicalThinking extends State<LogicalThinking> {
                               "In this exercises you will complete part of the ",
                         ),
                         TextSpan(
-                          text: "SAT Math with CALCULATOR",
+                          text:
+                              "8 minutes to solve as many riddles as you can.",
                           style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        TextSpan(
-                          text: " Part.",
                         ),
                       ],
                     ),
@@ -89,14 +87,32 @@ class _LogicalThinking extends State<LogicalThinking> {
                       ),
                       children: const [
                         TextSpan(
-                          text: "You will have ",
+                          text: "For each ",
                         ),
                         TextSpan(
-                          text: "350 seconds",
+                          text: "correct answer ",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         TextSpan(
-                          text: ".",
+                          text: "you will ",
+                        ),
+                        TextSpan(
+                          text: "get 5 points, ",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        TextSpan(
+                          text: "for each ",
+                        ),
+                        TextSpan(
+                          text: "wrong answer ",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        TextSpan(
+                          text: "you will ",
+                        ),
+                        TextSpan(
+                          text: "loose 5 points.",
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
@@ -110,7 +126,7 @@ class _LogicalThinking extends State<LogicalThinking> {
                       ),
                       children: const [
                         TextSpan(
-                          text: "When ready click \" ",
+                          text: "When ready click \"",
                         ),
                         TextSpan(
                           text: "CONTINUE",
@@ -132,6 +148,7 @@ class _LogicalThinking extends State<LogicalThinking> {
                 width: size.width * 0.75,
                 child: RedirectButton(
                   route: const ProblemSelection(
+                    riddlesMode: true,
                     testVersion: true,
                   ),
                   text: 'Continue',
@@ -139,7 +156,6 @@ class _LogicalThinking extends State<LogicalThinking> {
                 ),
               ),
             ),
-            //SizedBox(height: 0.1 * size.height),
           ],
         ),
       ),
