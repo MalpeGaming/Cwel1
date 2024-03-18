@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
-import '../show_score.dart';
-import 'long_term_concentration.dart';
+import 'long_term_concentration_video.dart';
 import '/progress_screen.dart';
+import '/show_score.dart';
 
 class ShortTermConcentration extends StatefulWidget {
-  const ShortTermConcentration({super.key, this.testVersion = false});
+  const ShortTermConcentration({super.key, this.initialTest = false});
 
-  final bool testVersion;
+  final bool initialTest;
 
   @override
   State<ShortTermConcentration> createState() => _ShortTermConcentration();
@@ -46,7 +46,7 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
-            top: size.height / 20,
+            top: size.height / 10,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -135,7 +135,7 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
                       _controller.close();
                       Navigator.pop(context);
 
-                      if (widget.testVersion) {
+                      if (widget.initialTest) {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -146,8 +146,8 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
                               exercise: 1,
                               yourScore: score,
                               maximum: 10,
-                              page: const LongTermConcentration(
-                                testVersion: true,
+                              page: const LongTermConcentrationVideo(
+                                initialTest: true,
                               ),
                             ),
                           ),
