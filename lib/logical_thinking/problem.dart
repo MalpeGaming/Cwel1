@@ -1,4 +1,5 @@
 import 'package:brain_train_app/buttons.dart';
+import 'package:brain_train_app/improvement_selection.dart';
 import 'package:flutter/material.dart';
 import '/show_score.dart';
 import '/progress_screen.dart';
@@ -129,6 +130,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
 
     ListTile createListTitle(int val, String text) {
       return ListTile(
+        dense: true,
         title: Text(
           text,
           style: TextStyle(fontSize: 0.02 * size.height),
@@ -149,115 +151,122 @@ class _ProblemSelectionState extends State<ProblemSelection> {
     List<Problem> currentList = widget.riddlesMode ? riddles : problems;
 
     return Scaffold(
-      body: Container(
-        margin: EdgeInsets.only(
-          left: size.width / 40,
-          right: size.width / 40,
-          top: size.height / 10,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.only(
-                left: size.width / 10,
-                right: size.width / 10,
-              ),
-              child: Align(
-                alignment: Alignment.center,
-                child: Column(
-                  children: [
-                    Text(
-                      "LOGICAL",
-                      style: TextStyle(fontSize: 0.08 * size.height),
-                    ),
-                    Text(
-                      "THINKING",
-                      style: TextStyle(fontSize: 0.035 * size.height),
-                    ),
-                    Text(
-                      "Exercise 1 - Math practice",
-                      style: TextStyle(fontSize: 0.028 * size.height),
-                    ),
-                  ],
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.only(
+            left: size.width / 40,
+            right: size.width / 40,
+            top: size.height / 10,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.only(
+                  left: size.width / 10,
+                  right: size.width / 10,
+                ),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: [
+                      Text(
+                        "LOGICAL",
+                        style: TextStyle(fontSize: 0.08 * size.height),
+                      ),
+                      Text(
+                        "THINKING",
+                        style: TextStyle(fontSize: 0.035 * size.height),
+                      ),
+                      Text(
+                        "Exercise 1 - Math practice",
+                        style: TextStyle(fontSize: 0.028 * size.height),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: 0.05 * size.height),
-            Container(
-              margin: EdgeInsets.only(
-                left: size.width / 20,
-                right: size.width / 20,
-              ),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  currentList[iteration].content,
-                  style: TextStyle(fontSize: 0.02 * size.height),
+              SizedBox(height: 0.05 * size.height),
+              ((iteration == 1 && widget.riddlesMode == false)
+                  ? Image.asset('assets/logical_thinking/function_plot.png')
+                  : const SizedBox.shrink()),
+              Container(
+                margin: EdgeInsets.only(
+                  left: size.width / 20,
+                  right: size.width / 20,
+                ),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    currentList[iteration].content,
+                    style: TextStyle(fontSize: 0.02 * size.height),
+                  ),
                 ),
               ),
-            ),
-            createListTitle(0, currentList[iteration].A),
-            createListTitle(1, currentList[iteration].B),
-            createListTitle(2, currentList[iteration].C),
-            createListTitle(3, currentList[iteration].D),
-            (widget.riddlesMode
-                ? createListTitle(4, currentList[iteration].E)
-                : SizedBox.shrink()),
-            (widget.riddlesMode
-                ? createListTitle(5, "Don't know (0 points)")
-                : SizedBox.shrink()),
-            const Spacer(flex: 10),
-            Center(
-              child: SizedBox(
-                height: size.height * 0.05,
-                width: size.width * 0.75,
-                child: RedirectButton(
-                  text: 'Continuexd',
-                  width: size.width,
-                  requirement: selectedOption != null,
-                  onClick: () {
-                    if (iteration < 3) {
-                      setState(() {
-                        iteration++;
-                        selectedOption = -1;
-                        currentList = widget.riddlesMode ? riddles : problems;
-                      });
-                      return;
-                    }
-                    Navigator.pop(context);
-                    if (widget.testVersion) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ShowScore(
+              createListTitle(0, currentList[iteration].A),
+              createListTitle(1, currentList[iteration].B),
+              createListTitle(2, currentList[iteration].C),
+              createListTitle(3, currentList[iteration].D),
+              (widget.riddlesMode
+                  ? createListTitle(4, currentList[iteration].E)
+                  : const SizedBox.shrink()),
+              (widget.riddlesMode
+                  ? createListTitle(5, "Don't know (0 points)")
+                  : const SizedBox.shrink()),
+              SizedBox(height: 0.08 * size.height),
+              Center(
+                child: SizedBox(
+                  height: size.height * 0.05,
+                  width: size.width * 0.75,
+                  child: RedirectButton(
+                    text: 'Continue',
+                    width: size.width,
+                    requirement: selectedOption != null,
+                    onClick: () {
+                      if (iteration < 3) {
+                        setState(() {
+                          iteration++;
+                          selectedOption = -1;
+                          currentList = widget.riddlesMode ? riddles : problems;
+                        });
+                        return;
+                      }
+                      Navigator.pop(context);
+                      if (widget.testVersion) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ShowScore(
                               title: "ATTENTION",
                               description:
                                   "Exercise 1 - Short Term Concentration",
                               exercise: 1,
                               yourScore: score,
                               maximum: 10,
-                              page: Riddles()),
-                        ),
-                      );
-                    } else {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ProgressScreen(
-                            name: "short_term_concentration",
-                            score: score,
+                              page: (widget.riddlesMode
+                                  ? const ImprovementSelection()
+                                  : const Riddles()),
+                            ),
                           ),
-                        ),
-                      );
-                    }
-                  },
+                        );
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProgressScreen(
+                              name: "short_term_concentration",
+                              score: score,
+                            ),
+                          ),
+                        );
+                      }
+                    },
+                  ),
                 ),
               ),
-            ),
-            const Spacer(flex: 3),
-          ],
+            ],
+          ),
         ),
       ),
     );

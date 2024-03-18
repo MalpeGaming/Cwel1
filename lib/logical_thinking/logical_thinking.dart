@@ -139,7 +139,7 @@ class _LogicalThinking extends State<LogicalThinking> {
                 ),
               ),
             ),
-            SizedBox(height: 0.1 * size.height),
+            //SizedBox(height: 0.1 * size.height),
           ],
         ),
       ),

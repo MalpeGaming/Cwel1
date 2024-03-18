@@ -71,11 +71,9 @@ class _Riddles extends State<Riddles> {
                               "In this exercises you will complete part of the ",
                         ),
                         TextSpan(
-                          text: "SAT Math with CALCULATOR",
+                          text:
+                              "8 minutes to solve as many riddles as you can.",
                           style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        TextSpan(
-                          text: " Part.",
                         ),
                       ],
                     ),
@@ -89,14 +87,32 @@ class _Riddles extends State<Riddles> {
                       ),
                       children: const [
                         TextSpan(
-                          text: "You will have ",
+                          text: "For each ",
                         ),
                         TextSpan(
-                          text: "350 seconds",
+                          text: "correct answer ",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         TextSpan(
-                          text: ".",
+                          text: "you will ",
+                        ),
+                        TextSpan(
+                          text: "get 5 points, ",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        TextSpan(
+                          text: "for each ",
+                        ),
+                        TextSpan(
+                          text: "wrong answer ",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        TextSpan(
+                          text: "you will ",
+                        ),
+                        TextSpan(
+                          text: "loose 5 points.",
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
@@ -110,7 +126,7 @@ class _Riddles extends State<Riddles> {
                       ),
                       children: const [
                         TextSpan(
-                          text: "When ready click \" ",
+                          text: "When ready click \"",
                         ),
                         TextSpan(
                           text: "CONTINUE",
@@ -140,7 +156,6 @@ class _Riddles extends State<Riddles> {
                 ),
               ),
             ),
-            SizedBox(height: 0.1 * size.height),
           ],
         ),
       ),
