@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import '/show_score.dart';
 import '/progress_screen.dart';
 import 'riddles.dart';
+import 'dart:async';
+import 'dart:math';
 
 class Problem {
   String content;
@@ -124,13 +126,56 @@ class _ProblemSelectionState extends State<ProblemSelection> {
     ),
   ];
 
+  int _remainingTime = 2137;
+  late Timer _timer;
+
+  void startTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        if (_remainingTime > 0) {
+          _remainingTime--;
+        } else {
+          _timer.cancel();
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ShowScore(
+                title: "ATTENTION",
+                description: "Exercise 1 - Short Term Concentration",
+                exercise: 1,
+                yourScore: score,
+                maximum: 10,
+                page: (widget.riddlesMode
+                    ? const ImprovementSelection()
+                    : const Riddles()),
+              ),
+            ),
+          );
+        }
+      });
+    });
+  }
+
+  Future<void> initMemory() async {
+    setState(() {});
+    startTimer();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _remainingTime = (widget.riddlesMode ? 480 : 350);
+
+    initMemory();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     ListTile createListTitle(int val, String text) {
       return ListTile(
-        dense: true,
+        //dense: true,
         title: Text(
           text,
           style: TextStyle(fontSize: 0.02 * size.height),
@@ -171,6 +216,17 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                   alignment: Alignment.center,
                   child: Column(
                     children: [
+                      Icon(
+                        Icons.timer,
+                        size: 0.08 * min(size.width, size.height),
+                        color: Colors.blue[400],
+                      ),
+                      const SizedBox(width: 10.0),
+                      Text(
+                        "${_remainingTime.toString()}s",
+                        style: TextStyle(fontSize: 0.025 * size.height),
+                        textAlign: TextAlign.start,
+                      ),
                       Text(
                         "LOGICAL",
                         style: TextStyle(fontSize: 0.08 * size.height),
