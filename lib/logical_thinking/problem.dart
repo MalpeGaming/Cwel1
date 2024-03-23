@@ -199,9 +199,9 @@ class _ProblemSelectionState extends State<ProblemSelection> {
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(
-            left: size.width / 40,
-            right: size.width / 40,
-            top: size.height / 10,
+            left: size.width / 15,
+            right: size.width / 15,
+            top: size.height / 15,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -243,23 +243,29 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                   ),
                 ),
               ),
-              SizedBox(height: 0.05 * size.height),
-              ((iteration == 1 && widget.riddlesMode == false)
-                  ? Image.asset('assets/logical_thinking/function_plot.png')
-                  : const SizedBox.shrink()),
-              Container(
-                margin: EdgeInsets.only(
-                  left: size.width / 20,
-                  right: size.width / 20,
-                ),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    currentList[iteration].content,
-                    style: TextStyle(fontSize: 0.02 * size.height),
-                  ),
-                ),
+              SizedBox(height: 0.03 * size.height),
+              Text(
+                "Exercise 1 - Math practice",
+                style: TextStyle(fontSize: 0.025 * size.height),
               ),
+              SizedBox(height: 0.02 * size.height),
+              ((iteration == 1 && widget.riddlesMode == false)
+                  ? Align(
+                      alignment: Alignment.center,
+                      child: SizedBox(
+                        width: 0.8 * size.width,
+                        child: Image.asset(
+                          'assets/logical_thinking/function_plot.png',
+                        ),
+                      ),
+                    )
+                  : const SizedBox.shrink()),
+              SizedBox(height: 0.02 * size.height),
+              Text(
+                currentList[iteration].content,
+                style: TextStyle(fontSize: 0.02 * size.height),
+              ),
+              SizedBox(height: 0.02 * size.height),
               createListTitle(0, currentList[iteration].A),
               createListTitle(1, currentList[iteration].B),
               createListTitle(2, currentList[iteration].C),
@@ -321,6 +327,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                   ),
                 ),
               ),
+              SizedBox(height: 0.05 * size.height),
             ],
           ),
         ),
