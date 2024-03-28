@@ -98,6 +98,7 @@ flutter:
     - assets/self_reflection/
     - assets/memory/memory_game/
     - assets/memory/memory_game/cats/
+    - assets/memory/faces/
     - assets/attention/reading/
     - assets/attention/reading/classic/
     - assets/attention/reading/business/
