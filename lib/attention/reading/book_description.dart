@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/app_bar.dart';
+import 'package:flutter/widgets.dart';
 
 class BookDescriptionPage extends StatelessWidget {
   final String title;
@@ -40,88 +41,90 @@ class BookDescriptionPage extends StatelessWidget {
             ),
             SizedBox(height: size.height / 64),
             Text(
-              author.toUpperCase(), // Convert author name to uppercase
+              author.toUpperCase(),
               style: const TextStyle(fontSize: 18),
             ),
             SizedBox(height: size.height / 32),
             Row(
               children: [
-                Expanded(
+                SizedBox(
+                  width: size.width / 3,
                   child: Image.asset(
                     'assets/attention/reading/$imageName.png',
                   ),
                 ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.symmetric(
-                          vertical: 10,
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            const Text(
-                              "Reviews",
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              "$audienceReview/5",
-                              style: const TextStyle(fontSize: 18),
-                            ),
-                          ],
-                        ),
+                SizedBox(width: size.width / 10),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.symmetric(
+                        vertical: 10,
                       ),
-                      Container(
-                        margin: const EdgeInsets.symmetric(
-                          vertical: 10,
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            const Text(
-                              "Genre",
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "Reviews",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
                             ),
-                            Text(
-                              genre,
-                              style: const TextStyle(fontSize: 18),
-                            ),
-                          ],
-                        ),
+                          ),
+                          Text(
+                            "$audienceReview/5",
+                            style: const TextStyle(fontSize: 18),
+                          ),
+                        ],
                       ),
-                      Container(
-                        margin: const EdgeInsets.symmetric(
-                          vertical: 10,
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            const Text(
-                              "Time",
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              time,
-                              style: const TextStyle(fontSize: 18),
-                            ),
-                          ],
-                        ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(
+                        vertical: 10,
                       ),
-                    ],
-                  ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "Genre",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            genre,
+                            style: const TextStyle(fontSize: 18),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(
+                        vertical: 10,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "Time",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            time,
+                            style: const TextStyle(fontSize: 18),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
