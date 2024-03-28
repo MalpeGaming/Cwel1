@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:brain_train_app/app_bar.dart';
 
 class BookDescriptionPage extends StatelessWidget {
   final String title;
@@ -24,9 +25,7 @@ class BookDescriptionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Book Description'),
-      ),
+      appBar: appBar(context, ""),
       body: Container(
         margin: EdgeInsets.symmetric(
           horizontal: size.width / 10,
@@ -34,12 +33,12 @@ class BookDescriptionPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: size.height / 32),
+            SizedBox(height: size.height / 20),
             Text(
               title,
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: size.height / 32),
+            SizedBox(height: size.height / 64),
             Text(
               author.toUpperCase(), // Convert author name to uppercase
               style: const TextStyle(fontSize: 18),
@@ -59,19 +58,67 @@ class BookDescriptionPage extends StatelessWidget {
                         margin: const EdgeInsets.symmetric(
                           vertical: 10,
                         ),
-                        child: Text(audienceReview),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "Reviews",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              "$audienceReview/5",
+                              style: const TextStyle(fontSize: 18),
+                            ),
+                          ],
+                        ),
                       ),
                       Container(
                         margin: const EdgeInsets.symmetric(
                           vertical: 10,
                         ),
-                        child: Text(genre),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "Genre",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              genre,
+                              style: const TextStyle(fontSize: 18),
+                            ),
+                          ],
+                        ),
                       ),
                       Container(
                         margin: const EdgeInsets.symmetric(
                           vertical: 10,
                         ),
-                        child: Text(time),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "Time",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              time,
+                              style: const TextStyle(fontSize: 18),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
