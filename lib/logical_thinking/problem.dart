@@ -47,7 +47,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
   final List<Problem> problems = [
     Problem(
       content:
-          "For a polynomial p(x), the value of p(0) is -2. What is the value of p(x)?",
+          "For a polynomial p(x), the value of p(3) is -2. Which of the following must be true about p(x)?",
       A: "x-5 is a factor of p(x)",
       B: "x-2 is a factor of p(x)",
       C: "x+2 is a factor of p(x)",
@@ -57,15 +57,15 @@ class _ProblemSelectionState extends State<ProblemSelection> {
     Problem(
       content:
           "Which of the following is an equivalent form of the equation of the graph shown in the xy-plane above, from which the coordinates of the vertex A can be indentified as constants ?",
-      A: "y=(x+3)(x-5)",
-      B: "y=(x-3)(x+5)",
-      C: "y=x(x-2)-15",
-      D: "y=(x-1)^2-16",
+      A: "y = (x+3)(x-5)",
+      B: "y = (x-3)(x+5)",
+      C: "y = x(x-2)-15",
+      D: "y = (x-1)^2-16",
       answer: 3,
     ),
     Problem(
       content:
-          "Katarina is a botanist studyint the production of pears by two types of pear trees. She noticed that That A trees produced 20% more pears than Type B trees did. Based on Katarina's observation, if the type A trees produced 144 pears, how many pears did the type B trees produce?",
+          "Katarina is a botanist studying the production of pears by two types of pear trees. She noticed that That A trees produced 20 percent more pears than Type B trees did. Based on Katarina's observation, if the type A trees produced 144 pears, how many pears did the type B trees produce?",
       A: "115",
       B: "120",
       C: "124",
@@ -74,7 +74,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
     ),
     Problem(
       content:
-          "Alma bought a  a laptop computer at a stre that gave a 20% discount off its original price. The total amout she paid to the cashier was p dlllars, including an 8 percent sales tax on the discounterd price. Which of the following represents the original price of the computer in terms of p?",
+          "Alma bought a laptop computer at a store that gave a 20 percent discount off its original price. The total amout she paid to the cashier was p dollars, including an 8 percent sales tax on the discounterd price. Which of the following represents the original price of the computer in terms of p?",
       A: "0.88p",
       B: "p/0.88",
       C: "(0.8)(1.08)p",
@@ -209,13 +209,28 @@ class _ProblemSelectionState extends State<ProblemSelection> {
             children: <Widget>[
               Container(
                 margin: EdgeInsets.only(
-                  left: size.width / 10,
-                  right: size.width / 10,
+                  left: size.width / 20,
+                  right: size.width / 20,
                 ),
                 child: Align(
                   alignment: Alignment.center,
                   child: Column(
                     children: [
+                      Text(
+                        "LOGICAL",
+                        style: TextStyle(fontSize: 0.08 * size.height),
+                      ),
+                      Text(
+                        "THINKING",
+                        style: TextStyle(fontSize: 0.035 * size.height),
+                      ),
+                      Text(
+                        (widget.riddlesMode
+                            ? "Exercise 2 -  Math riddles"
+                            : "Exercise 1 - Math practice"),
+                        style: TextStyle(fontSize: 0.028 * size.height),
+                      ),
+                      SizedBox(height: 0.03 * size.height),
                       Icon(
                         Icons.timer,
                         size: 0.08 * min(size.width, size.height),
@@ -227,28 +242,11 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                         style: TextStyle(fontSize: 0.025 * size.height),
                         textAlign: TextAlign.start,
                       ),
-                      Text(
-                        "LOGICAL",
-                        style: TextStyle(fontSize: 0.08 * size.height),
-                      ),
-                      Text(
-                        "THINKING",
-                        style: TextStyle(fontSize: 0.035 * size.height),
-                      ),
-                      Text(
-                        "Exercise 1 - Math practice",
-                        style: TextStyle(fontSize: 0.028 * size.height),
-                      ),
                     ],
                   ),
                 ),
               ),
-              SizedBox(height: 0.03 * size.height),
-              Text(
-                "Exercise 1 - Math practice",
-                style: TextStyle(fontSize: 0.025 * size.height),
-              ),
-              SizedBox(height: 0.02 * size.height),
+              SizedBox(height: 0.005 * size.height),
               ((iteration == 1 && widget.riddlesMode == false)
                   ? Align(
                       alignment: Alignment.center,

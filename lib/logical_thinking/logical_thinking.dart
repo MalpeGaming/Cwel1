@@ -106,14 +106,14 @@ class _LogicalThinking extends State<LogicalThinking> {
                 ),
                 children: const [
                   TextSpan(
-                    text: "When ready click \" ",
+                    text: "When ready click \"",
                   ),
                   TextSpan(
-                    text: "CONTINUE",
+                    text: "CONTINUE\"",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   TextSpan(
-                    text: ".\"",
+                    text: ".",
                   ),
                 ],
               ),
