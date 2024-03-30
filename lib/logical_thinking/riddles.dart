@@ -107,7 +107,7 @@ class _Riddles extends State<Riddles> {
                     text: "you will ",
                   ),
                   TextSpan(
-                    text: "loose 5 points.",
+                    text: "loose 2 points.",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
