@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/app_bar.dart';
-import 'package:flutter/widgets.dart';
 
 class BookDescriptionPage extends StatelessWidget {
   final String title;
@@ -127,9 +126,8 @@ class BookDescriptionPage extends StatelessWidget {
                           ),
                         ),
                       ],
-                    ), 
+                    ),
                   ),
-
                 ),
               ],
             ),

@@ -29,12 +29,12 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         brightness: Brightness.light,
         colorScheme: const ColorScheme.light(
-          primary: Color.fromARGB(255, 0, 89, 255),
-          onPrimary: Color.fromARGB(255, 5, 57, 155),
-          secondary: Color.fromARGB(255, 143, 193, 255),
+          primary: Color.fromARGB(255, 102, 153, 204),
+          onPrimary: Color.fromARGB(255, 79, 141, 204),
+          secondary: Color.fromARGB(255, 244, 250, 255),
           onSecondary: Colors.black,
           tertiary: Colors.white,
-          background: Color.fromARGB(255, 236, 252, 255),
+          background: Color.fromARGB(255, 252, 252, 252),
           error: Color.fromARGB(255, 238, 51, 38),
         ),
         useMaterial3: true,
@@ -42,12 +42,12 @@ class _MyAppState extends State<MyApp> {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         colorScheme: const ColorScheme.dark(
-          primary: Color.fromARGB(255, 15, 121, 219),
-          onPrimary: Color.fromARGB(255, 150, 196, 255),
+          primary: Color.fromARGB(255, 126, 82, 160),
+          onPrimary: Color.fromARGB(255, 109, 67, 141),
           secondary: Color.fromARGB(255, 102, 148, 190),
           onSecondary: Colors.white,
           tertiary: Colors.black,
-          background: Color.fromARGB(255, 12, 32, 70),
+          background: Color.fromARGB(255, 19, 19, 19),
           error: Color.fromARGB(255, 234, 31, 17),
         ),
         useMaterial3: true,
