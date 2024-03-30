@@ -224,23 +224,28 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                         "THINKING",
                         style: TextStyle(fontSize: 0.035 * size.height),
                       ),
-                      Text(
-                        (widget.riddlesMode
-                            ? "Exercise 2 -  Math riddles"
-                            : "Exercise 1 - Math practice"),
-                        style: TextStyle(fontSize: 0.028 * size.height),
-                      ),
-                      SizedBox(height: 0.03 * size.height),
-                      Icon(
-                        Icons.timer,
-                        size: 0.08 * min(size.width, size.height),
-                        color: Colors.blue[400],
-                      ),
-                      const SizedBox(width: 10.0),
-                      Text(
-                        "${_remainingTime.toString()}s",
-                        style: TextStyle(fontSize: 0.025 * size.height),
-                        textAlign: TextAlign.start,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            (widget.riddlesMode
+                                ? "Exercise 2 -  Math riddles"
+                                : "Exercise 1 - Math practice"),
+                            style: TextStyle(fontSize: 0.043 * size.width),
+                          ),
+                          SizedBox(width: 0.05 * size.width),
+                          Icon(
+                            Icons.timer,
+                            size: 0.08 * min(size.width, size.height),
+                            color: Colors.blue[400],
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            "${_remainingTime.toString()}s",
+                            style: TextStyle(fontSize: 0.02 * size.height),
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
                       ),
                     ],
                   ),
