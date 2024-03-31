@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import '/show_score.dart';
 import '/progress_screen.dart';
 import 'riddles.dart';
+import 'dart:async';
+import 'dart:math';
 
 class Problem {
   String content;
@@ -45,7 +47,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
   final List<Problem> problems = [
     Problem(
       content:
-          "For a polynomial p(x), the value of p(0) is -2. What is the value of p(x)?",
+          "For a polynomial p(x), the value of p(3) is -2. Which of the following must be true about p(x)?",
       A: "x-5 is a factor of p(x)",
       B: "x-2 is a factor of p(x)",
       C: "x+2 is a factor of p(x)",
@@ -55,15 +57,15 @@ class _ProblemSelectionState extends State<ProblemSelection> {
     Problem(
       content:
           "Which of the following is an equivalent form of the equation of the graph shown in the xy-plane above, from which the coordinates of the vertex A can be indentified as constants ?",
-      A: "y=(x+3)(x-5)",
-      B: "y=(x-3)(x+5)",
-      C: "y=x(x-2)-15",
-      D: "y=(x-1)^2-16",
+      A: "y = (x+3)(x-5)",
+      B: "y = (x-3)(x+5)",
+      C: "y = x(x-2)-15",
+      D: "y = (x-1)^2-16",
       answer: 3,
     ),
     Problem(
       content:
-          "Katarina is a botanist studyint the production of pears by two types of pear trees. She noticed that That A trees produced 20% more pears than Type B trees did. Based on Katarina's observation, if the type A trees produced 144 pears, how many pears did the type B trees produce?",
+          "Katarina is a botanist studying the production of pears by two types of pear trees. She noticed that That A trees produced 20 percent more pears than Type B trees did. Based on Katarina's observation, if the type A trees produced 144 pears, how many pears did the type B trees produce?",
       A: "115",
       B: "120",
       C: "124",
@@ -72,7 +74,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
     ),
     Problem(
       content:
-          "Alma bought a  a laptop computer at a stre that gave a 20% discount off its original price. The total amout she paid to the cashier was p dlllars, including an 8 percent sales tax on the discounterd price. Which of the following represents the original price of the computer in terms of p?",
+          "Alma bought a laptop computer at a store that gave a 20 percent discount off its original price. The total amout she paid to the cashier was p dollars, including an 8 percent sales tax on the discounterd price. Which of the following represents the original price of the computer in terms of p?",
       A: "0.88p",
       B: "p/0.88",
       C: "(0.8)(1.08)p",
@@ -124,13 +126,56 @@ class _ProblemSelectionState extends State<ProblemSelection> {
     ),
   ];
 
+  int _remainingTime = 2137;
+  late Timer _timer;
+
+  void startTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        if (_remainingTime > 0) {
+          _remainingTime--;
+        } else {
+          _timer.cancel();
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ShowScore(
+                title: "ATTENTION",
+                description: "Exercise 1 - Short Term Concentration",
+                exercise: 1,
+                yourScore: score,
+                maximum: 10,
+                page: (widget.riddlesMode
+                    ? const ImprovementSelection()
+                    : const Riddles()),
+              ),
+            ),
+          );
+        }
+      });
+    });
+  }
+
+  Future<void> initMemory() async {
+    setState(() {});
+    startTimer();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _remainingTime = (widget.riddlesMode ? 480 : 350);
+
+    initMemory();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     ListTile createListTitle(int val, String text) {
       return ListTile(
-        dense: true,
+        //dense: true,
         title: Text(
           text,
           style: TextStyle(fontSize: 0.02 * size.height),
@@ -154,9 +199,9 @@ class _ProblemSelectionState extends State<ProblemSelection> {
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(
-            left: size.width / 40,
-            right: size.width / 40,
-            top: size.height / 10,
+            left: size.width / 15,
+            right: size.width / 15,
+            top: size.height / 15,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -164,8 +209,8 @@ class _ProblemSelectionState extends State<ProblemSelection> {
             children: <Widget>[
               Container(
                 margin: EdgeInsets.only(
-                  left: size.width / 10,
-                  right: size.width / 10,
+                  left: size.width / 20,
+                  right: size.width / 20,
                 ),
                 child: Align(
                   alignment: Alignment.center,
@@ -179,31 +224,51 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                         "THINKING",
                         style: TextStyle(fontSize: 0.035 * size.height),
                       ),
-                      Text(
-                        "Exercise 1 - Math practice",
-                        style: TextStyle(fontSize: 0.028 * size.height),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            (widget.riddlesMode
+                                ? "Exercise 2 -  Math riddles"
+                                : "Exercise 1 - Math practice"),
+                            style: TextStyle(fontSize: 0.043 * size.width),
+                          ),
+                          SizedBox(width: 0.05 * size.width),
+                          Icon(
+                            Icons.timer,
+                            size: 0.08 * min(size.width, size.height),
+                            color: Colors.blue[400],
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            "${_remainingTime.toString()}s",
+                            style: TextStyle(fontSize: 0.02 * size.height),
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
                       ),
                     ],
                   ),
                 ),
               ),
-              SizedBox(height: 0.05 * size.height),
+              SizedBox(height: 0.005 * size.height),
               ((iteration == 1 && widget.riddlesMode == false)
-                  ? Image.asset('assets/logical_thinking/function_plot.png')
+                  ? Align(
+                      alignment: Alignment.center,
+                      child: SizedBox(
+                        width: 0.8 * size.width,
+                        child: Image.asset(
+                          'assets/logical_thinking/function_plot.png',
+                        ),
+                      ),
+                    )
                   : const SizedBox.shrink()),
-              Container(
-                margin: EdgeInsets.only(
-                  left: size.width / 20,
-                  right: size.width / 20,
-                ),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    currentList[iteration].content,
-                    style: TextStyle(fontSize: 0.02 * size.height),
-                  ),
-                ),
+              SizedBox(height: 0.02 * size.height),
+              Text(
+                currentList[iteration].content,
+                style: TextStyle(fontSize: 0.02 * size.height),
               ),
+              SizedBox(height: 0.02 * size.height),
               createListTitle(0, currentList[iteration].A),
               createListTitle(1, currentList[iteration].B),
               createListTitle(2, currentList[iteration].C),
@@ -265,6 +330,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                   ),
                 ),
               ),
+              SizedBox(height: 0.05 * size.height),
             ],
           ),
         ),

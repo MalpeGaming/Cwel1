@@ -32,6 +32,7 @@ class _LogicalThinking extends State<LogicalThinking> {
           bottom: size.height / 10,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 0.05 * size.height),
             Align(
@@ -46,81 +47,73 @@ class _LogicalThinking extends State<LogicalThinking> {
                     "THINKING",
                     style: TextStyle(fontSize: 0.035 * size.height),
                   ),
-                  Text(
-                    "Exercise 1 - Math practice",
-                    style: TextStyle(fontSize: 0.03 * size.height),
+                ],
+              ),
+            ),
+            SizedBox(height: 0.03 * size.height),
+            Text(
+              "Exercise 1 - Math practice",
+              style: TextStyle(fontSize: 0.025 * size.height),
+            ),
+            SizedBox(height: 0.04 * size.height),
+            RichText(
+              text: TextSpan(
+                style: TextStyle(
+                  fontSize: 0.022 * size.height,
+                  color: Theme.of(context).colorScheme.onSecondary,
+                ),
+                children: const [
+                  TextSpan(
+                    text: "In this exercises you will complete part of the ",
+                  ),
+                  TextSpan(
+                    text: "SAT Math with CALCULATOR",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(
+                    text: " Part.",
                   ),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  RichText(
-                    text: TextSpan(
-                      style: TextStyle(
-                        fontSize: 0.022 * size.height,
-                        color: Theme.of(context).colorScheme.onSecondary,
-                      ),
-                      children: const [
-                        TextSpan(
-                          text:
-                              "In this exercises you will complete part of the ",
-                        ),
-                        TextSpan(
-                          text: "SAT Math with CALCULATOR",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        TextSpan(
-                          text: " Part.",
-                        ),
-                      ],
-                    ),
+            SizedBox(height: 0.015 * size.height),
+            RichText(
+              text: TextSpan(
+                style: TextStyle(
+                  fontSize: 0.022 * size.height,
+                  color: Theme.of(context).colorScheme.onSecondary,
+                ),
+                children: const [
+                  TextSpan(
+                    text: "You will have ",
                   ),
-                  SizedBox(height: 0.015 * size.height),
-                  RichText(
-                    text: TextSpan(
-                      style: TextStyle(
-                        fontSize: 0.022 * size.height,
-                        color: Theme.of(context).colorScheme.onSecondary,
-                      ),
-                      children: const [
-                        TextSpan(
-                          text: "You will have ",
-                        ),
-                        TextSpan(
-                          text: "350 seconds",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        TextSpan(
-                          text: ".",
-                        ),
-                      ],
-                    ),
+                  TextSpan(
+                    text: "350 seconds",
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 0.015 * size.height),
-                  RichText(
-                    text: TextSpan(
-                      style: TextStyle(
-                        fontSize: 0.022 * size.height,
-                        color: Theme.of(context).colorScheme.onSecondary,
-                      ),
-                      children: const [
-                        TextSpan(
-                          text: "When ready click \" ",
-                        ),
-                        TextSpan(
-                          text: "CONTINUE",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        TextSpan(
-                          text: ".\"",
-                        ),
-                      ],
-                    ),
+                  TextSpan(
+                    text: ".",
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 0.015 * size.height),
+            RichText(
+              text: TextSpan(
+                style: TextStyle(
+                  fontSize: 0.022 * size.height,
+                  color: Theme.of(context).colorScheme.onSecondary,
+                ),
+                children: const [
+                  TextSpan(
+                    text: "When ready click \"",
+                  ),
+                  TextSpan(
+                    text: "CONTINUE\"",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(
+                    text: ".",
                   ),
                 ],
               ),

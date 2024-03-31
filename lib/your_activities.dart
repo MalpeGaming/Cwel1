@@ -6,6 +6,7 @@ import 'meditation.dart';
 import 'sport.dart';
 import 'memory/memory_game1.dart';
 import 'memory/memory.dart';
+import 'memory/faces.dart';
 import 'attention/long_term_concentration_video.dart';
 import 'attention/short_term_concentration.dart';
 import 'attention/strong_concentration.dart';
@@ -358,6 +359,50 @@ class _YourActivities extends State<YourActivities> {
                           "WORDLY",
                           "",
                           const Wordly(),
+                          zero: 0,
+                        ),
+                        createActivity2(
+                          context,
+                          "2048",
+                          "2048",
+                          "",
+                          const YourActivities(),
+                          zero: 0,
+                        ),
+                        createActivity2(
+                          context,
+                          "scrabble",
+                          "Like",
+                          "SCRABBLE",
+                          const YourActivities(),
+                        ),
+                        createActivity2(
+                          context,
+                          "seaquance_backwards",
+                          "Seaquance",
+                          "BACKWARDS",
+                          const YourActivities(),
+                        ),
+                        createActivity2(
+                          context,
+                          "faces_memory",
+                          "Faces",
+                          "MEMORY",
+                          const Faces(),
+                        ),
+                        createActivity2(
+                          context,
+                          "find_the_image",
+                          "Find the",
+                          "Image",
+                          const YourActivities(),
+                        ),
+                        createActivity2(
+                          context,
+                          "yoga",
+                          "Yoga",
+                          "",
+                          const YourActivities(),
                           zero: 0,
                         ),
                       ],

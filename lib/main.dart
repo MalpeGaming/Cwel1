@@ -38,6 +38,7 @@ class _MyAppState extends State<MyApp> {
           error: Color.fromARGB(255, 238, 51, 38),
         ),
         useMaterial3: true,
+        fontFamily: 'Arial',
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,

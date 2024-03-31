@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../app_bar.dart';
 import '../../your_activities.dart';
+import 'book_description.dart';
 
 class Classic extends StatefulWidget {
   const Classic({super.key});
@@ -24,11 +25,19 @@ class _Classic extends State<Classic> {
       txt1,
       txt2,
       0.025 * size.height * fontSize,
-      const Classic(),
+      const BookDescriptionPage(
+        title: "Harry Potter and the Philosopher’s Stone",
+        author: "J.K. Rowling",
+        imageName: "covers/harry",
+        audienceReview: "4.5",
+        genre: "Fantasy",
+        time: "7h 5m",
+        description:
+            "Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed",
+      ),
       Theme.of(context).colorScheme.primary,
       Theme.of(context).colorScheme.onPrimary,
       zero: 0.8,
-      blocked: true,
       textWidth: 0.4,
       title: true,
     );
