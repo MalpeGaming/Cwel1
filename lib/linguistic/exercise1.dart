@@ -1,10 +1,12 @@
-import 'package:any_link_preview/any_link_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../show_score.dart';
 import 'exercise2.dart';
+import '../buttons.dart';
 import 'dart:async';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class FirstLinguisticExercise extends StatefulWidget {
   const FirstLinguisticExercise({super.key});
@@ -14,6 +16,10 @@ class FirstLinguisticExercise extends StatefulWidget {
 }
 
 class _FirstLinguisticExercise extends State<FirstLinguisticExercise> {
+  Future<void> _launchURL(String url) async {
+    await launchUrl(Uri.parse(url));
+  }
+
   late SharedPreferences prefs;
 
   double score = 0;
@@ -46,7 +52,7 @@ class _FirstLinguisticExercise extends State<FirstLinguisticExercise> {
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
-            top: size.height / 20,
+            top: size.height / 15,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,7 +90,7 @@ class _FirstLinguisticExercise extends State<FirstLinguisticExercise> {
                   ),
                   Text(
                     "Exercise 1 - Listening Comprehension",
-                    style: TextStyle(fontSize: size.width / 20),
+                    style: TextStyle(fontSize: size.width / 22),
                   ),
                   SizedBox(
                     height: size.height / 25,
@@ -96,21 +102,17 @@ class _FirstLinguisticExercise extends State<FirstLinguisticExercise> {
                   SizedBox(
                     height: size.height / 30,
                   ),
-                  languageLevel.isEmpty
-                      ? const Center(child: CircularProgressIndicator())
-                      : AnyLinkPreview(
-                          displayDirection: UIDirection.uiDirectionHorizontal,
-                          link:
-                              "https://app.engxam.com/$languageLevel/listening/1/?utm_source=canva&utm_medium=iframely",
-                          errorBody: 'Error body',
-                          errorTitle: 'Error',
-                          backgroundColor:
-                              Theme.of(context).colorScheme.onSecondary,
-                          titleStyle: TextStyle(
-                            color: Theme.of(context).colorScheme.onPrimary,
-                          ),
-                          showMultimedia: false,
-                        ),
+                  YoutubePlayer(
+                    controller: YoutubePlayerController(
+                      initialVideoId: "hBC7i-vHWsU",
+                      flags: const YoutubePlayerFlags(
+                        autoPlay: false,
+                        mute: false,
+                        showLiveFullscreenButton: true,
+                      ),
+                    ),
+                    showVideoProgressIndicator: true,
+                  ),
                   SizedBox(
                     height: size.height / 25,
                   ),
@@ -162,41 +164,23 @@ class _FirstLinguisticExercise extends State<FirstLinguisticExercise> {
                   ),
                 ],
               ),
-              Center(
-                heightFactor: 1,
+              Align(
+                alignment: Alignment.center,
                 child: SizedBox(
                   height: size.height * 0.05,
                   width: size.width * 0.75,
-                  child: FloatingActionButton.extended(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ShowScore(
-                            title: "LINGUISTIC",
-                            description: "Exercise 1 - Listening Comprehension",
-                            exercise: 1,
-                            yourScore: score,
-                            maximum: 100,
-                            page: const SecondLinguisticExercise(),
-                            subtitle: "INTELLIGENCE",
-                          ),
-                        ),
-                      );
-                    },
-                    tooltip: 'Continue',
-                    label: Text(
-                      "Continue",
-                      style: TextStyle(fontSize: size.width / 16),
+                  child: RedirectButton(
+                    route: ShowScore(
+                      title: "LINGUISTIC",
+                      description: "Exercise 1 - Listening Comprehension",
+                      exercise: 1,
+                      yourScore: score,
+                      maximum: 100,
+                      page: const SecondLinguisticExercise(),
+                      subtitle: "INTELLIGENCE",
                     ),
-                    icon: Icon(
-                      Icons.arrow_forward_rounded,
-                      size: size.width / 16,
-                    ),
-                    backgroundColor: Colors.blue[400],
-                    hoverColor: Colors.blue[900],
-                    autofocus: true,
-                    heroTag: "continue",
+                    text: 'Continue',
+                    width: size.width,
                   ),
                 ),
               ),

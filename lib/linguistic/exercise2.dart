@@ -4,6 +4,7 @@ import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 import "../show_score.dart";
 import '../account/login1.dart';
+import '../buttons.dart';
 import 'dart:async';
 
 class SecondLinguisticExercise extends StatefulWidget {
@@ -46,7 +47,7 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
-            top: size.height / 20,
+            top: size.height / 15,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,7 +85,7 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
                   ),
                   Text(
                     "Exercise 2 - Reading Comprehension",
-                    style: TextStyle(fontSize: size.width / 20),
+                    style: TextStyle(fontSize: size.width / 22),
                   ),
                   SizedBox(
                     height: size.height / 25,
@@ -211,41 +212,23 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
                   ),
                 ],
               ),
-              Center(
-                heightFactor: 1,
+              Align(
+                alignment: Alignment.center,
                 child: SizedBox(
                   height: size.height * 0.05,
                   width: size.width * 0.75,
-                  child: FloatingActionButton.extended(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ShowScore(
-                            title: "LINGUISTIC",
-                            description: "Exercise 2 - Reading Comprehension",
-                            exercise: 2,
-                            yourScore: score,
-                            maximum: 100,
-                            page: const Login1(),
-                            subtitle: "INTELLIGENCE",
-                          ),
-                        ),
-                      );
-                    },
-                    tooltip: "Continue",
-                    label: Text(
-                      "Continue",
-                      style: TextStyle(fontSize: size.width / 16),
+                  child: RedirectButton(
+                    route: ShowScore(
+                      title: "LINGUISTIC",
+                      description: "Exercise 2 - Reading Comprehension",
+                      exercise: 1,
+                      yourScore: score,
+                      maximum: 100,
+                      page: const Login1(),
+                      subtitle: "INTELLIGENCE",
                     ),
-                    icon: Icon(
-                      Icons.arrow_forward_rounded,
-                      size: size.width / 16,
-                    ),
-                    backgroundColor: Colors.blue[400],
-                    hoverColor: Colors.blue[900],
-                    autofocus: true,
-                    heroTag: "continue",
+                    text: 'Continue',
+                    width: size.width,
                   ),
                 ),
               ),
