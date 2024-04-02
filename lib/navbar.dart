@@ -41,20 +41,10 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     Size size = MediaQuery.of(context).size;
     return Container(
       height: size.height / 12,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          colors: <Color>[
-            Theme.of(context).colorScheme.primary,
-            Theme.of(context).colorScheme.onPrimary,
-          ],
-          tileMode: TileMode.decal,
-        ),
-      ),
+      color: Theme.of(context).colorScheme.primary,
       child: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         selectedFontSize: 12,
         unselectedFontSize: 12,
         selectedItemColor: Colors.pinkAccent[100],
