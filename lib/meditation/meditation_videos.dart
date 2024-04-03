@@ -1,0 +1,172 @@
+import 'package:flutter/widgets.dart';
+import 'package:video_player/video_player.dart';
+import 'package:flutter/material.dart';
+import '/app_bar.dart';
+import '/buttons.dart';
+import '/your_activities.dart';
+
+class MeditationVideos extends StatefulWidget {
+  const MeditationVideos({super.key});
+
+  @override
+  State<MeditationVideos> createState() => _MeditationVideos();
+}
+
+class VideoListItem extends StatefulWidget {
+  final String videoAsset;
+
+  const VideoListItem({super.key, required this.videoAsset});
+
+  @override
+  _VideoListItemState createState() => _VideoListItemState();
+}
+
+class _VideoListItemState extends State<VideoListItem> {
+  late VideoPlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.asset(widget.videoAsset)
+      ..initialize().then((_) {
+        setState(() {});
+      });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        if (_controller.value.isPlaying) {
+          _controller.pause();
+        } else {
+          _controller.play();
+        }
+      },
+      child: Container(
+        margin: const EdgeInsets.all(10),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          child: AspectRatio(
+            aspectRatio: 1,
+            child: VideoPlayer(_controller),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+}
+
+class _MeditationVideos extends State<MeditationVideos> {
+  List<String> videoAssets = [
+    'assets/meditation/movie1.mp4',
+    'assets/meditation/movie2.mp4',
+    'assets/meditation/movie3.mp4',
+    'assets/meditation/movie4.mp4',
+    'assets/meditation/movie5.mp4',
+    'assets/meditation/movie6.mp4',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
+    return Scaffold(
+      appBar: appBar(context, ""),
+      body: Container(
+        margin: EdgeInsets.only(
+          left: size.width / 10,
+          right: size.width / 10,
+          top: size.height / 50,
+          bottom: size.height / 20,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Text(
+                    "MEDITATION",
+                    style: TextStyle(
+                      fontSize: size.width / 11,
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Text(
+                    'STEP BY STEP',
+                    style: TextStyle(fontSize: size.width / 22),
+                  ),
+                ),
+                SizedBox(height: 0.04 * size.height),
+                Center(
+                  child: RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.onSecondary,
+                        fontSize: size.width / 18,
+                        height: 1.2,
+                      ),
+                      children: const [
+                        TextSpan(
+                          text: 'To which ',
+                        ),
+                        TextSpan(
+                          text: 'rain animation',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        TextSpan(text: ' would you like to meditate?'),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: size.height / 30),
+                Container(
+                  margin: EdgeInsets.only(
+                    left: size.width / 30,
+                    right: size.width / 30,
+                  ),
+                  height: size.height / 2,
+                  child: Column(
+                    children: <Widget>[
+                      Expanded(
+                        child: GridView.count(
+                          crossAxisCount: 2,
+                          children: List.generate(videoAssets.length, (index) {
+                            return VideoListItem(
+                              videoAsset: videoAssets[index],
+                            );
+                          }),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            Center(
+              child: SizedBox(
+                height: size.height * 0.05,
+                width: size.width * 0.75,
+                child: RedirectButton(
+                  route: const YourActivities(),
+                  text: 'Continue',
+                  width: size.width,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

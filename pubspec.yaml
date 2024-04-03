@@ -91,6 +91,7 @@ flutter:
   assets:
     - assets/
     - assets/memory/
+    - assets/meditation/
     - assets/attention/
     - assets/linguistic/
     - assets/activities/
