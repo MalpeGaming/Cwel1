@@ -3,7 +3,7 @@ import 'package:brain_train_app/improvement_selection.dart';
 import 'package:flutter/material.dart';
 import '/show_score.dart';
 import '/progress_screen.dart';
-import 'riddles.dart';
+import 'riddle.dart';
 import 'dart:async';
 import 'dart:math';
 
