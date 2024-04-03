@@ -126,9 +126,8 @@ class BookDescriptionPage extends StatelessWidget {
                           ),
                         ),
                       ],
-                    ), 
+                    ),
                   ),
-
                 ),
               ],
             ),
