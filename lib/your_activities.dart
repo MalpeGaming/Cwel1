@@ -4,6 +4,7 @@ import 'navbar.dart';
 import 'self_reflection.dart';
 import 'meditation.dart';
 import 'sport.dart';
+import 'yoga.dart';
 import 'memory/memory_game1.dart';
 import 'memory/memory.dart';
 import 'memory/faces.dart';
@@ -410,7 +411,7 @@ class _YourActivities extends State<YourActivities> {
                           "yoga",
                           "Yoga",
                           "",
-                          const YourActivities(),
+                          const Yoga(),
                           zero: 0,
                         ),
                       ],
