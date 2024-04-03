@@ -1,0 +1,181 @@
+questions:
+- answers:
+  - 1.5 m
+  - square root from 3 m
+  - 2 m
+  - 2.25 m
+  correct_answer: 2
+  question: Two towers of heights 3 m and 6 m were placed on flat terrain. The top of one tower was connected by a rope to the base of the other tower and vice versa. At what height do both ropes intersect?
+- answers:
+  - 5
+  - 7
+  - 8
+  - 9
+  correct_answer: 2
+  question: "In a certain family, there are five boys James, Harry, Ron, George, and Edward. They were born in the given order every 3 years. The oldest, James, is 7 times older than the youngest, Edward. How old is Ron"
+- answers:
+  - 25
+  - 26
+  - 27
+  - 28
+  correct_answer: 3
+  question: Steve is taking a test consisting of 40 True or False questions. He gains 0.5 points for each correct answer and loses 1 point for each incorrect answer. Steve answered all the questions and got a total of 2 points. How many questions did he answer correctly?
+- answers:
+    - Anna occupies an extreme position (either on the left or right side).
+    - Anna stands second from the edge.
+    - Anna stands in the third position on one side.
+    - The presented arrangement is impossible.
+  correct_answer: 2
+  question: "Students Anna, Barney, Cacy, Dave, Emma, and Frank stand in a row. It is known that:
+  Dave stands between Emma and Frank
+  stands between Dave and Emma
+  stands between Cacy and Dave
+  stands between Barney and Cacy
+  of the following statements is true?"
+- answers:
+    - 2002
+    - 0
+    - 1001
+    - 2000
+  correct_answer: 2
+  question: Figure P on the plane consists of 2002 points. Line d is the axis of symmetry of this figure. Exactly m out of the points of figure P belong to line d. Which of the following values cannot be the value of m?
+- answers:
+    - equilateral
+    - isosceles
+    - obtuse
+    - right-angled
+  correct_answer: 3
+  question: In triangle ABC, the measure of angle C is three times the measure of angle A, and the measure of angle B is twice the measure of angle A. Triangle ABC is
+- answers:
+    - \|a^2 - b^2|
+    - (|a| - |b|)^2
+    - (a - b)^2
+    - (a + b)^2
+  correct_answer: 2
+  question: Real numbers a and b are of different signs. Which of the following numbers is the largest?
+- answers:
+    - 15 sec.
+    - 24 sec.
+    - 51 sec.
+    - 66 sec.
+  correct_answer: 2
+  question: A mother kangaroo and her son, Peter, move by jumps around a stadium with a circumference of 330 meters. Each of them makes one jump per second. The jumps of the mother kangaroo are 5 meters long, while her son's jumps are only 2 meters. Both kangaroos started simultaneously from the same place and moved in the same direction. After 25 seconds, Peter got tired and stopped, while his mother continued running. How much time, counting from that moment, will it take for the mother to catch up to the resting Peter?
+- answers:
+    - 0
+    - 1
+    - 2
+    - 3
+  correct_answer: 1
+  question: How many zeros does the decimal representation of the product of the first ten prime numbers end with?
+- answers:
+    - 16.
+    - 24.
+    - 32.
+    - 36.
+  correct_answer: 3
+  question: In triangle ABC, point M is the midpoint of side AB, point E is the midpoint of segment MB, and F is the midpoint of side BC. If the area of triangle ABC is equal to 96, then the area of triangle AEF is equal to
+- answers:
+    - 1
+    - 2
+    - 3
+    - 4
+  correct_answer: 2
+  question: What is the smallest number of letters that must be removed from the word KANGOUROU to obtain a word in which the letters do not repeat and are in alphabetical order?
+- answers:
+    - 9
+    - 16
+    - 21
+    - 22
+  correct_answer: 4
+  question: Emily wrote a sequence of numbers in which each number, starting from the third, was the sum of the two preceding numbers. The fourth number in this sequence was 6, and the sixth was 15. What was the seventh number in this sequence?
+- answers:
+    - 1943
+    - 1953
+    - 1980
+    - 1981
+  correct_answer: 2
+  question: Yesterday in French class, the teacher said that it was his birthday and that the product of his age and his father's age is equal to 2010. In which year was the teacher born?
+- answers:
+    - 24 cm
+    - 26 cm
+    - 28 cm
+    - 32 cm
+  correct_answer: 2
+  question: The sum of the lengths of three sides of a certain rectangle is 20 cm, and the sum of the lengths of three other sides of this rectangle is 22 cm. What is the perimeter of this rectangle?
+- answers:
+    - 10 cm
+    - 12 cm
+    - 15 cm
+    - 20 cm
+  correct_answer: 1
+  question: What is the perimeter of a triangle whose vertices are the midpoints of the sides of a right triangle with legs of lengths 6 cm and 8 cm?
+- answers:
+    - 900
+    - 899
+    - 896
+    - 225
+  correct_answer: 2
+  question: The difference between the largest three-digit number divisible by 4 and the smallest three-digit number divisible by 4 is equal to
+- answers:
+    - (2,0).
+    - (2,3).
+    - (2,-6).
+    - (3,-1)
+  correct_answer: 1
+  question: On the plane with a coordinate system, Marc drew a square. One of its diagonals has endpoints at coordinates (-1,0) and (5,0). One of the remaining vertices of the square has coordinates
+- answers:
+    - 15
+    - 18
+    - 20
+    - 22
+  correct_answer: 4
+  question: There are 33 students in the class. Each of them likes either Math or Polish. Three students like both of these subjects. The number of students who like only Math is twice the number of students who like only Polish. How many students in this class like Math?
+- answers:
+    - 3
+    - 4
+    - 5
+    - 7
+  correct_answer: 3
+  question: "On the walls of a cubic die are numbers: -1, -3, -5, 2, 4, and 6, one on each face. The sum of the numbers rolled with two such dice simultaneously cannot be equal to"
+- answers:
+    - 11
+    - 12
+    - 13
+    - 14
+  correct_answer: 2
+  question: The boys, holding hands, dance in a circle. Steve is fifth to the left of James and eighth to the right of him. How many boys are dancing in this circle?
+- answers:
+    - 3
+    - 4
+    - 5
+    - 6
+  correct_answer: 2
+  question: In a certain family, each child has at least two sisters and at least one brother. What is the minimum number of children in this family?
+- answers:
+  - 1 kg
+  - 30 kg
+  - 31 kg
+  - 32 kg
+  correct_answer: 2
+  question: The weight of each of the three kangaroos is expressed in whole kilograms, and these numbers are all different. Altogether, these kangaroos weigh 97 kilograms. What is the maximum weight of the lightest kangaroo?
+- answers:
+  - 20:19
+  - 21:20
+  - 22:21
+  - 23:22
+  correct_answer: 1
+  question: After the first half of a soccer game, the visiting team led by a score of 9:14. In the second half, the hosts scored twice as many goals as the visitors, and ultimately won the match with a one-goal advantage. What was the final score of the match?
+- answers:
+  - -2
+  - -1
+  - 0
+  - 1
+  correct_answer: 1
+  question: The number is less than its half and greater than its double. The sum of this number and its square is equal to zero. What is this number?
+- answers:
+  - 95
+  - 96
+  - 97
+  - 98
+  correct_answer: 1
+  question: A fence is standing along a straight road. It was built by vertically driving a certain number of beams into the ground, and then each pair of adjacent vertical beams was connected by four horizontal beams. Which of the following numbers could be the number of beams in this fence?

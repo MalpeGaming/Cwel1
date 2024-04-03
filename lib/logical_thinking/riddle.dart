@@ -3,15 +3,15 @@ import '../buttons.dart';
 
 import 'problem.dart';
 
-class LogicalThinking extends StatefulWidget {
+class Riddles extends StatefulWidget {
   final bool? initialTest;
-  const LogicalThinking({this.initialTest = false, super.key});
+  const Riddles({this.initialTest = false, super.key});
 
   @override
-  State<LogicalThinking> createState() => _LogicalThinking();
+  State<Riddles> createState() => _Riddles();
 }
 
-class _LogicalThinking extends State<LogicalThinking> {
+class _Riddles extends State<Riddles> {
   bool initialTest = false;
 
   @override
@@ -29,9 +29,10 @@ class _LogicalThinking extends State<LogicalThinking> {
         margin: EdgeInsets.only(
           left: size.width / 15,
           right: size.width / 15,
-          bottom: size.height / 10,
+          bottom: size.height / 15,
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 0.05 * size.height),
@@ -52,14 +53,14 @@ class _LogicalThinking extends State<LogicalThinking> {
             ),
             SizedBox(height: 0.03 * size.height),
             Text(
-              "Exercise 1 - Math practice",
+              "Exercise 2 - Math riddles",
               style: TextStyle(fontSize: 0.025 * size.height),
             ),
             SizedBox(height: 0.04 * size.height),
             RichText(
               text: TextSpan(
                 style: TextStyle(
-                  fontSize: 0.022 * size.height,
+                  fontSize: 0.02 * size.height,
                   color: Theme.of(context).colorScheme.onSecondary,
                 ),
                 children: const [
@@ -67,11 +68,8 @@ class _LogicalThinking extends State<LogicalThinking> {
                     text: "In this exercises you will complete part of the ",
                   ),
                   TextSpan(
-                    text: "SAT Math with CALCULATOR",
+                    text: "8 minutes to solve as many riddles as you can.",
                     style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  TextSpan(
-                    text: " Part.",
                   ),
                 ],
               ),
@@ -80,19 +78,37 @@ class _LogicalThinking extends State<LogicalThinking> {
             RichText(
               text: TextSpan(
                 style: TextStyle(
-                  fontSize: 0.022 * size.height,
+                  fontSize: 0.02 * size.height,
                   color: Theme.of(context).colorScheme.onSecondary,
                 ),
                 children: const [
                   TextSpan(
-                    text: "You will have ",
+                    text: "For each ",
                   ),
                   TextSpan(
-                    text: "350 seconds",
+                    text: "correct answer ",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   TextSpan(
-                    text: ".",
+                    text: "you will ",
+                  ),
+                  TextSpan(
+                    text: "get 5 points, ",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(
+                    text: "for each ",
+                  ),
+                  TextSpan(
+                    text: "wrong answer ",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(
+                    text: "you will ",
+                  ),
+                  TextSpan(
+                    text: "loose 2 points.",
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -109,11 +125,11 @@ class _LogicalThinking extends State<LogicalThinking> {
                     text: "When ready click \"",
                   ),
                   TextSpan(
-                    text: "CONTINUE\"",
+                    text: "CONTINUE",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   TextSpan(
-                    text: ".",
+                    text: ".\"",
                   ),
                 ],
               ),
@@ -125,6 +141,7 @@ class _LogicalThinking extends State<LogicalThinking> {
                 width: size.width * 0.75,
                 child: RedirectButton(
                   route: const ProblemSelection(
+                    riddlesMode: true,
                     testVersion: true,
                   ),
                   text: 'Continue',
@@ -132,7 +149,6 @@ class _LogicalThinking extends State<LogicalThinking> {
                 ),
               ),
             ),
-            //SizedBox(height: 0.1 * size.height),
           ],
         ),
       ),
