@@ -243,8 +243,24 @@ class _ImprovementButtonState extends State<ImprovementButton> {
             child: Container(
               width: widget.width * 0.6,
               decoration: BoxDecoration(
-                color: Colors.blue,
                 borderRadius: BorderRadius.circular(25),
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.onPrimary,
+                  ],
+                  tileMode: TileMode.decal,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Theme.of(context).colorScheme.shadow.withOpacity(1),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(5, 5),
+                  ),
+                ],
               ),
               child: Center(
                 child: Text(

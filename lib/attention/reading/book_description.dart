@@ -40,13 +40,14 @@ class BookDescriptionPage extends StatelessWidget {
             ),
             SizedBox(height: size.height / 64),
             Text(
-              author.toUpperCase(), // Convert author name to uppercase
+              author.toUpperCase(),
               style: const TextStyle(fontSize: 18),
             ),
             SizedBox(height: size.height / 32),
             Row(
               children: [
-                Expanded(
+                SizedBox(
+                  width: size.width / 3,
                   child: Image.asset(
                     'assets/attention/reading/$imageName.png',
                   ),
@@ -125,7 +126,7 @@ class BookDescriptionPage extends StatelessWidget {
                           ),
                         ),
                       ],
-                    ), 
+                    ),
                   ),
                 ),
               ],

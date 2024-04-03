@@ -122,10 +122,10 @@ class _ShowScore extends State<ShowScore> {
                   ),
                   Text(
                     widget.description,
-                    style: TextStyle(fontSize: size.width / 20),
+                    style: TextStyle(fontSize: size.width / 22),
                   ),
                   SizedBox(
-                    height: size.height / 20,
+                    height: size.height / 10,
                   ),
                   scoreAxis(
                     context,
@@ -133,9 +133,7 @@ class _ShowScore extends State<ShowScore> {
                     meanScores[widget.exercise]!,
                     widget.maximum,
                   ),
-                  SizedBox(
-                    height: size.height / 15,
-                  ),
+                  const Spacer(),
                   Text(
                     "Do you want to practice this skill in your 30-day program?",
                     style: TextStyle(
@@ -143,7 +141,9 @@ class _ShowScore extends State<ShowScore> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const Spacer(),
+                  SizedBox(
+                    height: size.height / 15,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -159,7 +159,8 @@ class _ShowScore extends State<ShowScore> {
                             "YES",
                             style: TextStyle(
                               fontSize: size.width / 25,
-                              color: Theme.of(context).colorScheme.onSecondary,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                           backgroundColor: Colors.green[500],
@@ -186,7 +187,8 @@ class _ShowScore extends State<ShowScore> {
                             "NO",
                             style: TextStyle(
                               fontSize: size.width / 25,
-                              color: Theme.of(context).colorScheme.onSecondary,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                           backgroundColor: Colors.red[500],

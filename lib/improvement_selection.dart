@@ -2,8 +2,9 @@ import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
 import 'attention/short_term_concentration.dart';
 import 'memory/memory.dart';
-import 'linguistic/exercise1.dart';
 import 'logical_thinking/riddles.dart';
+import 'linguistic/video.dart';
+import 'logical_thinking/logical_thinking.dart';
 
 class ImprovementSelection extends StatefulWidget {
   const ImprovementSelection({super.key});
@@ -80,7 +81,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
             ImprovementButton(
               text: "Linguistic",
               width: size.width,
-              route: const FirstLinguisticExercise(),
+              route: const Video(),
               img: "assets/linguistic_intelligence.png",
             ),
             const Spacer(),

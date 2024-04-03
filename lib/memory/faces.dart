@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import '/show_score.dart';
+import '/progress_screen.dart';
 import '../../app_bar.dart';
 
 class Faces extends StatefulWidget {
@@ -14,6 +14,7 @@ class _Faces extends State<Faces> {
   double score = 0;
   List<int> seenPhotos = [];
   int currentPhoto = 0;
+  double points = 0;
 
   @override
   void initState() {
@@ -117,7 +118,30 @@ class _Faces extends State<Faces> {
                     width: size.width / 4,
                     height: size.height / 15,
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          if (seenPhotos.contains(picked[currentPhoto])) {
+                            points += 1;
+                          } else {
+                            points -= 0.5;
+                          }
+                          seenPhotos.add(picked[currentPhoto]);
+                          if (seenPhotos.length == 20) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProgressScreen(
+                                  name: "faces_memory",
+                                  score: points,
+                                ),
+                              ),
+                            );
+                          } else {
+                            ++currentPhoto;
+                          }
+                        });
+                      },
+                      heroTag: "yesButton", // Assign a unique tag
                       child: const Text(
                         "Yes",
                         style: TextStyle(
@@ -133,9 +157,28 @@ class _Faces extends State<Faces> {
                     child: FloatingActionButton(
                       onPressed: () {
                         setState(() {
-                          ++currentPhoto;
+                          if (seenPhotos.contains(picked[currentPhoto])) {
+                            points -= 0.5;
+                          } else {
+                            points += 1;
+                          }
+                          seenPhotos.add(picked[currentPhoto]);
+                          if (seenPhotos.length == 20) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProgressScreen(
+                                  name: "faces_memory",
+                                  score: points,
+                                ),
+                              ),
+                            );
+                          } else {
+                            ++currentPhoto;
+                          }
                         });
                       },
+                      heroTag: "noButton", // Assign a unique tag
                       child: const Text(
                         "No",
                         style: TextStyle(
@@ -147,7 +190,9 @@ class _Faces extends State<Faces> {
                   ),
                 ],
               ),
-              //Text(picked.toString()),
+              Text(picked[currentPhoto].toString()),
+              Text(points.toString()),
+              Text(seenPhotos.toString()),
             ],
           ),
         ),

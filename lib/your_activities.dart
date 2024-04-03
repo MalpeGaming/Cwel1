@@ -4,6 +4,7 @@ import 'navbar.dart';
 import 'self_reflection.dart';
 import 'meditation.dart';
 import 'sport.dart';
+import 'yoga.dart';
 import 'memory/memory_game1.dart';
 import 'memory/memory.dart';
 import 'memory/faces.dart';
@@ -62,6 +63,14 @@ GestureDetector createActivity(
               ],
               tileMode: TileMode.decal,
             ),
+            boxShadow: [
+              BoxShadow(
+                color: Theme.of(context).colorScheme.shadow.withOpacity(1),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: const Offset(5, 5),
+              ),
+            ],
           ),
           height: 0.115 * size.height,
           child: Row(
@@ -87,7 +96,7 @@ GestureDetector createActivity(
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: fontSize,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.bold,
                         height: 1.2,
                         fontStyle:
                             (title) ? FontStyle.italic : FontStyle.normal,
@@ -98,7 +107,7 @@ GestureDetector createActivity(
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: zero * fontSize,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.bold,
                         height: 1.2,
                       ),
                     ),
@@ -164,8 +173,8 @@ class _YourActivities extends State<YourActivities> {
               child: Text(
                 "YOUR ACTIVITIES",
                 style: TextStyle(
-                  fontSize: size.width / 10,
-                  fontWeight: FontWeight.w500,
+                  fontSize: size.width / 12,
+                  fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -402,7 +411,7 @@ class _YourActivities extends State<YourActivities> {
                           "yoga",
                           "Yoga",
                           "",
-                          const YourActivities(),
+                          const Yoga(),
                           zero: 0,
                         ),
                       ],
