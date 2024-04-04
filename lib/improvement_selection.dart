@@ -4,7 +4,6 @@ import 'attention/short_term_concentration.dart';
 import 'memory/memory.dart';
 import 'logical_thinking/riddles.dart';
 import 'linguistic/video.dart';
-import 'logical_thinking/logical_thinking.dart';
 
 class ImprovementSelection extends StatefulWidget {
   const ImprovementSelection({super.key});
