@@ -47,11 +47,12 @@ class _RiddlesTest extends State<RiddlesTest> {
       List<List<String>> newAnswers = [];
       final file =
           await rootBundle.loadString('assets/logical_thinking/riddles.yaml');
-      final tasks = loadYaml(file)["questions"]["3points"];
-
+      final tasks = loadYaml(file)["questions"]["5points"];
+      print(tasks);
       for (var i = 0; i < tasks.length; i++) {
         newQuestions.add(tasks[i]["question"]);
-        //print(tasks[i]);
+        print('xd');
+        print(tasks[i]);
 
         newCorrectAnswers.add(tasks[i]["correct_answer"]);
 
@@ -168,7 +169,8 @@ class _RiddlesTest extends State<RiddlesTest> {
                                     Text(
                                       "Exercise 2 -  Math riddles",
                                       style: TextStyle(
-                                          fontSize: 0.043 * size.width),
+                                        fontSize: 0.043 * size.width,
+                                      ),
                                     ),
                                     SizedBox(width: 0.05 * size.width),
                                     Icon(
@@ -180,7 +182,8 @@ class _RiddlesTest extends State<RiddlesTest> {
                                     Text(
                                       "${_remainingTime.toString()}s",
                                       style: TextStyle(
-                                          fontSize: 0.02 * size.height),
+                                        fontSize: 0.02 * size.height,
+                                      ),
                                       textAlign: TextAlign.start,
                                     ),
                                   ],
@@ -284,9 +287,6 @@ class _RiddlesTest extends State<RiddlesTest> {
                               autofocus: true,
                               heroTag: "continue",
                             ),
-                          ),
-                          SizedBox(
-                            height: size.height / 20,
                           ),
                         ],
                       ),
