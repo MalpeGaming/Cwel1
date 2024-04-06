@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
 import '/progress_screen.dart';
 import '/show_score.dart';
+import 'package:brain_train_app/buttons.dart';
 
 import 'dart:async';
 import 'dart:math';
@@ -47,7 +48,7 @@ class _RiddlesTest extends State<RiddlesTest> {
       List<List<String>> newAnswers = [];
       final file =
           await rootBundle.loadString('assets/logical_thinking/riddles.yaml');
-      final tasks = loadYaml(file)["questions"]["5points"];
+      final tasks = loadYaml(file)["questions"]["3points"];
       print(tasks);
       for (var i = 0; i < tasks.length; i++) {
         newQuestions.add(tasks[i]["question"]);
@@ -113,7 +114,7 @@ class _RiddlesTest extends State<RiddlesTest> {
       return ListTile(
         title: Text(
           text,
-          style: TextStyle(fontSize: 0.025 * size.height),
+          style: TextStyle(fontSize: 0.02 * size.height),
         ),
         leading: Radio<int>(
           value: val,
@@ -133,15 +134,14 @@ class _RiddlesTest extends State<RiddlesTest> {
         : Scaffold(
             body: SingleChildScrollView(
               child: Container(
-                height: size.height * 0.9,
                 margin: EdgeInsets.only(
-                  left: size.width / 20,
-                  right: size.width / 20,
+                  left: size.width / 15,
+                  right: size.width / 15,
                   top: size.height / 15,
                 ),
                 child: SingleChildScrollView(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Column(
@@ -169,8 +169,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                                     Text(
                                       "Exercise 2 -  Math riddles",
                                       style: TextStyle(
-                                        fontSize: 0.043 * size.width,
-                                      ),
+                                          fontSize: 0.043 * size.width,),
                                     ),
                                     SizedBox(width: 0.05 * size.width),
                                     Icon(
@@ -182,8 +181,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                                     Text(
                                       "${_remainingTime.toString()}s",
                                       style: TextStyle(
-                                        fontSize: 0.02 * size.height,
-                                      ),
+                                          fontSize: 0.02 * size.height,),
                                       textAlign: TextAlign.start,
                                     ),
                                   ],
@@ -191,29 +189,12 @@ class _RiddlesTest extends State<RiddlesTest> {
                               ],
                             ),
                           ),
-                          SizedBox(
-                            height: size.height / 20,
+                          SizedBox(height: 0.02 * size.height),
+                          Text(
+                            questions[questionIndex],
+                            style: TextStyle(fontSize: 0.02 * size.height),
                           ),
-                          Container(
-                            color: const Color.fromARGB(255, 20, 16, 250),
-                            width: size.width * 0.9,
-                            child: Container(
-                              margin: const EdgeInsets.all(15),
-                              child: Center(
-                                child: Text(
-                                  questions[questionIndex],
-                                  style: TextStyle(
-                                    fontSize: size.width / 20,
-                                    color: Colors.white,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: size.height / 25,
-                          ),
+                          SizedBox(height: 0.02 * size.height),
                           for (int i = 0;
                               i < answers[questionIndex].length;
                               i++)
@@ -222,11 +203,12 @@ class _RiddlesTest extends State<RiddlesTest> {
                       ),
                       Column(
                         children: [
+                          SizedBox(height: 0.04 * size.height),
                           SizedBox(
                             height: size.height * 0.05,
                             width: size.width * 0.75,
-                            child: FloatingActionButton.extended(
-                              onPressed: () {
+                            child: RedirectButton(
+                              onClick: () {
                                 if (selectedOption == -1) return;
 
                                 if (selectedOption ==
@@ -247,14 +229,16 @@ class _RiddlesTest extends State<RiddlesTest> {
                                 Navigator.pop(context);
 
                                 if (widget.initialTest) {
+                                  _timer.cancel();
+
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => ShowScore(
                                         title: "ATTENTION",
                                         description:
-                                            "Exercise 2 - Long Term Concentration",
-                                        exercise: 2,
+                                            "Exercise 1 - Short Term Concentration",
+                                        exercise: 1,
                                         yourScore: score,
                                         maximum: 10,
                                         page: const ImprovementSelection(),
@@ -262,6 +246,8 @@ class _RiddlesTest extends State<RiddlesTest> {
                                     ),
                                   );
                                 } else {
+                                  _timer.cancel();
+
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -273,19 +259,8 @@ class _RiddlesTest extends State<RiddlesTest> {
                                   );
                                 }
                               },
-                              tooltip: 'Continue',
-                              label: Text(
-                                "Continue",
-                                style: TextStyle(fontSize: size.width / 16),
-                              ),
-                              icon: Icon(
-                                Icons.arrow_forward_rounded,
-                                size: size.width / 16,
-                              ),
-                              backgroundColor: Colors.blue[400],
-                              hoverColor: Colors.blue[900],
-                              autofocus: true,
-                              heroTag: "continue",
+                              text: 'Continue',
+                              width: size.width,
                             ),
                           ),
                         ],

@@ -2,7 +2,7 @@ import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
 import 'attention/short_term_concentration.dart';
 import 'memory/memory.dart';
-import 'logical_thinking/riddles.dart';
+import 'logical_thinking/problem.dart';
 import 'linguistic/video.dart';
 
 class ImprovementSelection extends StatefulWidget {
@@ -87,9 +87,10 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
             ImprovementButton(
               text: "Logical Thinking",
               width: size.width,
-              route: const RiddlesTest(
-                exerciseId: 1,
+              route: const ProblemSelection(
+                testVersion: true,
               ),
+              //const RiddlesTest( exerciseId: 1,),
               img: "assets/logical_thinking.png",
             ),
             const Spacer(),
