@@ -89,6 +89,7 @@ GestureDetector createDay(
                   ),
                 ),
               ),
+              SizedBox(width: 0.01 * size.width),
             ],
           ),
         ),
@@ -202,7 +203,7 @@ class _Sport extends State<Sport> {
                   createDay(
                     context,
                     2,
-                    ' -Strenght Full Body Workout',
+                    ' - Strenght Full Body Workout',
                     'LdFgFco_8p8',
                   ),
                   createDay(context, 3, ' - 30 min Outdoor Run'),
@@ -210,7 +211,7 @@ class _Sport extends State<Sport> {
                   createDay(
                     context,
                     5,
-                    ' -Strenght Abs And Glutes Workout',
+                    ' - Strenght Abs And Glutes Workout',
                     'O2f93wRCNmo',
                   ),
                   createDay(context, 6, ' - Outdoor Walk'),
@@ -225,7 +226,7 @@ class _Sport extends State<Sport> {
                   createDay(
                     context,
                     10,
-                    ' -Strenght Abs And Glutes Workout',
+                    ' - Strenght Abs And Glutes Workout',
                     'MDnOqSh5M0E',
                   ),
                   SizedBox(height: 0.1 * size.height),

@@ -51,7 +51,6 @@ class _Yoga extends State<Yoga> {
                 ),
               ],
             ),
-            //SizedBox(height: 0.01 * size.height),
             Expanded(
               child: ListView(
                 children: [
@@ -65,31 +64,31 @@ class _Yoga extends State<Yoga> {
                   createDay(
                     context,
                     2,
-                    ' - After work yoga',
+                    ' - After work Yoga',
                     'A0pkEgZiRG4',
                   ),
                   createDay(
                     context,
                     3,
-                    ' - Bedtime yoga',
+                    ' - Bedtime Yoga',
                     '4TQsfBYCyKQ',
                   ),
                   createDay(
                     context,
                     4,
-                    ' - Bedtime yoga',
+                    ' - Bedtime Yoga',
                     '4TQsfBYCyKQ',
                   ),
                   createDay(
                     context,
                     5,
-                    ' - 12 min body strech',
+                    ' - 12 min body Strech',
                     '5Ju3XvZ6S1Q',
                   ),
                   createDay(
                     context,
                     6,
-                    ' - Back and Hip strech',
+                    ' - Back and Hip Strech',
                     'W2hRlGrgoUQ',
                   ),
                   createDay(
@@ -101,7 +100,7 @@ class _Yoga extends State<Yoga> {
                   createDay(
                     context,
                     8,
-                    ' - 15 min strech',
+                    ' - 15 min Strech',
                     'TDTR9iNWW_0',
                   ),
                   createDay(
