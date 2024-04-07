@@ -78,26 +78,30 @@ class _RiddlesTest extends State<RiddlesTest> {
 
   void startTimer() {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() {
-        if (_remainingTime > 0) {
-          _remainingTime--;
-        } else {
-          _timer.cancel();
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ShowScore(
-                title: "ATTENTION",
-                description: "Exercise 1 - Short Term Concentration",
-                exercise: 1,
-                yourScore: score,
-                maximum: 10,
-                page: const ImprovementSelection(),
+      if (!mounted) {
+        timer.cancel();
+      } else {
+        setState(() {
+          if (_remainingTime > 0) {
+            _remainingTime--;
+          } else {
+            _timer.cancel();
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ShowScore(
+                  title: "ATTENTION",
+                  description: "Exercise 1 - Short Term Concentration",
+                  exercise: 1,
+                  yourScore: score,
+                  maximum: 10,
+                  page: const ImprovementSelection(),
+                ),
               ),
-            ),
-          );
-        }
-      });
+            );
+          }
+        });
+      }
     });
   }
 
@@ -169,7 +173,8 @@ class _RiddlesTest extends State<RiddlesTest> {
                                     Text(
                                       "Exercise 2 -  Math riddles",
                                       style: TextStyle(
-                                          fontSize: 0.043 * size.width,),
+                                        fontSize: 0.043 * size.width,
+                                      ),
                                     ),
                                     SizedBox(width: 0.05 * size.width),
                                     Icon(
@@ -181,7 +186,8 @@ class _RiddlesTest extends State<RiddlesTest> {
                                     Text(
                                       "${_remainingTime.toString()}s",
                                       style: TextStyle(
-                                          fontSize: 0.02 * size.height,),
+                                        fontSize: 0.02 * size.height,
+                                      ),
                                       textAlign: TextAlign.start,
                                     ),
                                   ],
@@ -229,8 +235,6 @@ class _RiddlesTest extends State<RiddlesTest> {
                                 Navigator.pop(context);
 
                                 if (widget.initialTest) {
-                                  _timer.cancel();
-
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -246,8 +250,6 @@ class _RiddlesTest extends State<RiddlesTest> {
                                     ),
                                   );
                                 } else {
-                                  _timer.cancel();
-
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
