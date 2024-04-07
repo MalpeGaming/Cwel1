@@ -47,7 +47,7 @@ class _RiddlesTest extends State<RiddlesTest> {
       List<int> newCorrectAnswers = [];
       List<List<String>> newAnswers = [];
       final file =
-          await rootBundle.loadString('assets/logical thinking/riddles.yaml');
+          await rootBundle.loadString('assets/logical_thinking/riddles.yaml');
       final tasks = loadYaml(file)["questions"]["3points"];
       print(tasks);
       for (var i = 0; i < tasks.length; i++) {
@@ -90,7 +90,7 @@ class _RiddlesTest extends State<RiddlesTest> {
               context,
               MaterialPageRoute(
                 builder: (context) => ShowScore(
-                  title: "ATTENTION",
+                  title: "riddles",
                   description: "Exercise 1 - Short Term Concentration",
                   exercise: 1,
                   yourScore: score,
@@ -240,7 +240,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => ShowScore(
-                                        title: "ATTENTION",
+                                        title: "riddles",
                                         description:
                                             "Exercise 1 - Short Term Concentration",
                                         exercise: 1,

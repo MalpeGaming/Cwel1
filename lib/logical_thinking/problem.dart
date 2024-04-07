@@ -143,7 +143,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
               context,
               MaterialPageRoute(
                 builder: (context) => ShowScore(
-                  title: "Logical Thinking",
+                  title: "math",
                   description: "Exercise 1 - Short Term Concentration",
                   exercise: 1,
                   yourScore: score,
@@ -260,7 +260,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                       child: SizedBox(
                         width: 0.8 * size.width,
                         child: Image.asset(
-                          'assets/logical thinking/function_plot.png',
+                          'assets/logical_thinking/function_plot.png',
                         ),
                       ),
                     )
@@ -307,7 +307,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => ShowScore(
-                              title: "logical thinking",
+                              title: "math",
                               description:
                                   "Exercise 1 - Short Term Concentration",
                               exercise: 1,

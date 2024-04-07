@@ -12,11 +12,11 @@ import 'attention/long_term_concentration_video.dart';
 import 'attention/short_term_concentration.dart';
 import 'attention/strong_concentration.dart';
 import 'attention/reading/reading.dart';
-import 'logical thinking/sudoku.dart';
+import 'logical_thinking/sudoku.dart';
 import 'attention/find_the_word.dart';
 import 'linguistic/wordly.dart';
 import 'linguistic/hangman.dart';
-import 'logical thinking/riddles.dart';
+import 'logical_thinking/riddles.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
