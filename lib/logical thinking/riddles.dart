@@ -47,7 +47,7 @@ class _RiddlesTest extends State<RiddlesTest> {
       List<int> newCorrectAnswers = [];
       List<List<String>> newAnswers = [];
       final file =
-          await rootBundle.loadString('assets/logical_thinking/riddles.yaml');
+          await rootBundle.loadString('assets/logical thinking/riddles.yaml');
       final tasks = loadYaml(file)["questions"]["3points"];
       print(tasks);
       for (var i = 0; i < tasks.length; i++) {
