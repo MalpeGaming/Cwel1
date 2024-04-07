@@ -322,6 +322,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                           ),
                         );
                       } else {
+                        _timer.cancel();
                         Navigator.push(
                           context,
                           MaterialPageRoute(

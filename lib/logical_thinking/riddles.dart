@@ -235,6 +235,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                                 Navigator.pop(context);
 
                                 if (widget.initialTest) {
+                                  _timer.cancel();
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -250,6 +251,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                                     ),
                                   );
                                 } else {
+                                  _timer.cancel();
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
