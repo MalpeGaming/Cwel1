@@ -3,7 +3,7 @@ import 'package:brain_train_app/improvement_selection.dart';
 import 'package:flutter/material.dart';
 import '/show_score.dart';
 import '/progress_screen.dart';
-import 'riddles.dart';
+import 'riddle.dart';
 import 'dart:async';
 import 'dart:math';
 
@@ -299,6 +299,8 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                       }
                       Navigator.pop(context);
                       if (widget.testVersion) {
+                        _timer.cancel();
+
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -311,7 +313,9 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                               maximum: 10,
                               page: (widget.riddlesMode
                                   ? const ImprovementSelection()
-                                  : const Riddles()),
+                                  : const Riddles(
+                                      initialTest: true,
+                                    )),
                             ),
                           ),
                         );
