@@ -104,6 +104,8 @@ flutter:
     - assets/attention/reading/business/
     - assets/attention/reading/personal_development/
     - assets/linguistic/hangman/
+    - assets/math/
+    - assets/riddles/
     - assets/logical_thinking/
     - assets/attention/reading/covers/
 

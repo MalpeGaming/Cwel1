@@ -143,7 +143,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
               context,
               MaterialPageRoute(
                 builder: (context) => ShowScore(
-                  title: "ATTENTION",
+                  title: "math",
                   description: "Exercise 1 - Short Term Concentration",
                   exercise: 1,
                   yourScore: score,
@@ -307,7 +307,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => ShowScore(
-                              title: "ATTENTION",
+                              title: "math",
                               description:
                                   "Exercise 1 - Short Term Concentration",
                               exercise: 1,

@@ -90,7 +90,7 @@ class _RiddlesTest extends State<RiddlesTest> {
               context,
               MaterialPageRoute(
                 builder: (context) => ShowScore(
-                  title: "ATTENTION",
+                  title: "riddles",
                   description: "Exercise 1 - Short Term Concentration",
                   exercise: 1,
                   yourScore: score,
@@ -240,7 +240,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => ShowScore(
-                                        title: "ATTENTION",
+                                        title: "riddles",
                                         description:
                                             "Exercise 1 - Short Term Concentration",
                                         exercise: 1,
