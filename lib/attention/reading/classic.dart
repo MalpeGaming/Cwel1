@@ -228,12 +228,12 @@ class _Classic extends State<Classic> {
                     const BookDescriptionPage(
                       title: "Jane Eyre",
                       author: "Charlotte Bronte",
-                      imageName: "covers/harry",
-                      audienceReview: "4.5",
-                      genre: "Fantasy",
-                      time: "7h 5m",
+                      imageName: "covers/jane",
+                      audienceReview: "4.4",
+                      genre: "Romance Novel",
+                      time: "13 h",
                       description:
-                          "Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed",
+                          "Jane Eyre presents the emotional odyssey of a young woman’s quest for love, identity, and equality in the face of adversity. Charlotte Bronte’s narrative challenges Victorian norms and continues to inspire readers with its themes of resilience, integrity, and the pursuit of true happiness.",
                     ),
                   ),
                   createActivity2(
@@ -244,12 +244,12 @@ class _Classic extends State<Classic> {
                     const BookDescriptionPage(
                       title: "Animal Farm",
                       author: "George Orwell",
-                      imageName: "covers/harry",
-                      audienceReview: "4.5",
-                      genre: "Fantasy",
-                      time: "7h 5m",
+                      imageName: "covers/animal",
+                      audienceReview: "4.3",
+                      genre: "Genres Political Satire",
+                      time: "2 h",
                       description:
-                          "Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed",
+                          "Animal Farm serves as a stinging critique of the corruption of socialist ideals and the rise of totalitarian regimes, all under the guise of a farmyard fable. Orwell’s allegorical novel remains a potent warning about the dangers of power and the fragility of freedom.",
                     ),
                   ),
                   createActivity2(
@@ -260,12 +260,12 @@ class _Classic extends State<Classic> {
                     const BookDescriptionPage(
                       title: "Little Women",
                       author: "Louisa May Alcott",
-                      imageName: "covers/harry",
-                      audienceReview: "4.5",
-                      genre: "Fantasy",
-                      time: "7h 5m",
+                      imageName: "covers/little",
+                      audienceReview: "4.6",
+                      genre: "Novel",
+                      time: "12 h 30 min",
                       description:
-                          "Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed",
+                          "Little Women brings to life the enduring joys and challenges of the March sisters, growing up during the American Civil War. Alcott’s novel, blending warmth, humor, and heartache, continues to captivate readers with its timeless themes of family, independence, and ambition.",
                     ),
                   ),
                   createActivity2(
@@ -277,11 +277,11 @@ class _Classic extends State<Classic> {
                       title: "Frankenstein",
                       author: "Mary Shelley",
                       imageName: "covers/harry",
-                      audienceReview: "4.5",
-                      genre: "Fantasy",
-                      time: "7h 5m",
+                      audienceReview: "4",
+                      genre: "Horror Fiction",
+                      time: "2 h 50 m",
                       description:
-                          "Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed",
+                          "English author Mary Shelley tells the story of Victor Frankenstein, a young scientist who creates a monster and brings it to life. This gripping novel evokes questions about what makes us human and what love and kindness truly mean.",
                     ),
                   ),
                   createActivity2(
@@ -293,11 +293,11 @@ class _Classic extends State<Classic> {
                       title: "Dune",
                       author: "Frank Herbert",
                       imageName: "covers/harry",
-                      audienceReview: "4.5",
-                      genre: "Fantasy",
-                      time: "7h 5m",
+                      audienceReview: "4.6",
+                      genre: "Science Fiction",
+                      time: "13 h",
                       description:
-                          "Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed",
+                          "\"Dune\" by Frank Herbert transports readers to a distant future where noble houses battle for control over the desert planet of Arrakis. Within this richly imagined universe, Herbert explores themes of power, religion, and ecology, weaving a tale that captivates with its intricate politics and prophetic insights.",
                     ),
                   ),
                   createActivity2(
@@ -308,12 +308,12 @@ class _Classic extends State<Classic> {
                     const BookDescriptionPage(
                       title: "The Time Machine",
                       author: "H. G. Wells",
-                      imageName: "covers/harry",
-                      audienceReview: "4.5",
-                      genre: "Fantasy",
-                      time: "7h 5m",
+                      imageName: "covers/time",
+                      audienceReview: "4.4",
+                      genre: "Science Fiction",
+                      time: "2,5 h",
                       description:
-                          "Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed",
+                          "In \"The Time Machine\" by H.G. Wells, an inventor creates a machine capable of traversing the vast expanses of time. Wells takes readers on a journey to the distant future where humanity has evolved into two distinct species, offering a thought-provoking commentary on the nature of progress, society, and the consequences of unchecked ambition.",
                     ),
                   ),
                   createActivity2(
@@ -324,12 +324,12 @@ class _Classic extends State<Classic> {
                     const BookDescriptionPage(
                       title: "The Martian Chronicles",
                       author: "Ray Bradbury",
-                      imageName: "covers/harry",
-                      audienceReview: "4.5",
-                      genre: "Fantasy",
-                      time: "7h 5m",
+                      imageName: "covers/martian",
+                      audienceReview: "4.3",
+                      genre: "Science Fiction",
+                      time: "4 h",
                       description:
-                          "Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed",
+                          "Ray Bradbury's \"The Martian Chronicles\" paints a vivid portrait of humanity's colonization of Mars, intertwining tales of exploration, colonization, and the clash of cultures. Through his masterful storytelling, Bradbury delves into themes of identity, nostalgia, and the resilience of the human spirit against the backdrop of a foreign and enigmatic world.",
                     ),
                   ),
                   createActivity2(
@@ -340,10 +340,10 @@ class _Classic extends State<Classic> {
                     const BookDescriptionPage(
                       title: "Discworld",
                       author: "Terry Pratchett",
-                      imageName: "covers/harry",
-                      audienceReview: "4.5",
-                      genre: "Fantasy",
-                      time: "7h 5m",
+                      imageName: "covers/discworld",
+                      audienceReview: "4",
+                      genre: "Science Fiction",
+                      time: "114 h",
                       description:
                           "Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed",
                     ),
