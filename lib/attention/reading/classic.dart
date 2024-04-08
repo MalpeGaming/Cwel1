@@ -77,20 +77,21 @@ class _Classic extends State<Classic> {
               child: ListView(
                 children: [
                   createActivity2(
-                      context,
-                      "classic/1984",
-                      "1984",
-                      "by George Orwell",
-                      const BookDescriptionPage(
-                        title: "1984",
-                        author: "George Orwell",
-                        imageName: "covers/1984",
-                        audienceReview: "4.5",
-                        genre: "Science Fictions",
-                        time: "5 h 55 min",
-                        description:
-                            "1984 tells the futuristic story of a dystopian, totalitarian world where free will and love are forbidden. Although the year 1984 has long since passed, the prophecy of a society controlled by fear and lies is arguably more relevant now than ever.",
-                      )),
+                    context,
+                    "classic/1984",
+                    "1984",
+                    "by George Orwell",
+                    const BookDescriptionPage(
+                      title: "1984",
+                      author: "George Orwell",
+                      imageName: "covers/1984",
+                      audienceReview: "4.5",
+                      genre: "Science Fictions",
+                      time: "5 h 55 min",
+                      description:
+                          "1984 tells the futuristic story of a dystopian, totalitarian world where free will and love are forbidden. Although the year 1984 has long since passed, the prophecy of a society controlled by fear and lies is arguably more relevant now than ever.",
+                    ),
+                  ),
                   createActivity2(
                     context,
                     "classic/the_lord_of_the_rings",
@@ -276,7 +277,7 @@ class _Classic extends State<Classic> {
                     const BookDescriptionPage(
                       title: "Frankenstein",
                       author: "Mary Shelley",
-                      imageName: "covers/harry",
+                      imageName: "covers/frankenstein",
                       audienceReview: "4",
                       genre: "Horror Fiction",
                       time: "2 h 50 m",
@@ -292,7 +293,7 @@ class _Classic extends State<Classic> {
                     const BookDescriptionPage(
                       title: "Dune",
                       author: "Frank Herbert",
-                      imageName: "covers/harry",
+                      imageName: "covers/dune",
                       audienceReview: "4.6",
                       genre: "Science Fiction",
                       time: "13 h",
@@ -345,7 +346,7 @@ class _Classic extends State<Classic> {
                       genre: "Science Fiction",
                       time: "114 h",
                       description:
-                          "Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed",
+                          "Terry Pratchett's \"Discworld\" series invites readers into a fantastical realm balanced atop four elephants standing on the back of a giant turtle. With wit and satire, Pratchett crafts a world teeming with eccentric characters and absurd situations, using humor to explore profound themes such as morality, justice, and the absurdities of existence.",
                     ),
                   ),
                 ],
