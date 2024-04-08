@@ -180,12 +180,12 @@ class _Classic extends State<Classic> {
                     const BookDescriptionPage(
                       title: "To Kill a Mockingbird",
                       author: "Harper Lee",
-                      imageName: "covers/harry",
-                      audienceReview: "4.5",
-                      genre: "Fantasy",
-                      time: "7h 5m",
+                      imageName: "covers/mockingbird",
+                      audienceReview: "4.1",
+                      genre: "Novel",
+                      time: "6 h 50 min",
                       description:
-                          "Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed",
+                          "To Kill a Mockingbird, set in the racially divided American South, explores the profound themes of racial injustice and moral growth through the innocent eyes of Scout Finch. Decades later, its messages on empathy and integrity continue to resonate deeply in a still-divided world.",
                     ),
                   ),
                   createActivity2(
@@ -196,12 +196,12 @@ class _Classic extends State<Classic> {
                     const BookDescriptionPage(
                       title: "Wuthering Heights",
                       author: "Emily Bronte",
-                      imageName: "covers/harry",
-                      audienceReview: "4.5",
-                      genre: "Fantasy",
-                      time: "7h 5m",
+                      imageName: "covers/wuthering",
+                      audienceReview: "4.4",
+                      genre: "Romantic Novel",
+                      time: "8 h",
                       description:
-                          "Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed",
+                          "Wuthering Heights, with its haunting tale of passionate yet tragic love set on the Yorkshire moors, challenges the very fabric of societal norms and human emotion. Emily Bronte’s only novel remains a powerful exploration of desire, vengeance, and the quest for redemption.",
                     ),
                   ),
                   createActivity2(
@@ -212,12 +212,12 @@ class _Classic extends State<Classic> {
                     const BookDescriptionPage(
                       title: "Pride and Prejudice",
                       author: "Jane Austen",
-                      imageName: "covers/harry",
-                      audienceReview: "4.5",
-                      genre: "Fantasy",
-                      time: "7h 5m",
+                      imageName: "covers/pride",
+                      audienceReview: "4.6",
+                      genre: "Romance Novel",
+                      time: "11 h",
                       description:
-                          "Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed",
+                          "Pride and Prejudice delicately navigates the intricacies of social standing, marriage, and personal growth in Regency England. Austen’s sharp wit and keen observations of societal norms offer a timeless commentary on the human condition and the complexities of love and relationships.",
                     ),
                   ),
                   createActivity2(
