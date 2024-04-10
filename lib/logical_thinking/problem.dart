@@ -131,28 +131,30 @@ class _ProblemSelectionState extends State<ProblemSelection> {
 
   void startTimer() {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() {
-        if (_remainingTime > 0) {
-          _remainingTime--;
-        } else {
-          _timer.cancel();
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ShowScore(
-                title: "ATTENTION",
-                description: "Exercise 1 - Short Term Concentration",
-                exercise: 1,
-                yourScore: score,
-                maximum: 10,
-                page: (widget.riddlesMode
-                    ? const ImprovementSelection()
-                    : const Riddles()),
+      if (!mounted) {
+        timer.cancel();
+      } else {
+        setState(() {
+          if (_remainingTime > 0) {
+            _remainingTime--;
+          } else {
+            _timer.cancel();
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ShowScore(
+                  title: "math",
+                  description: "Exercise 1 - Short Term Concentration",
+                  exercise: 1,
+                  yourScore: score,
+                  maximum: 10,
+                  page: const ImprovementSelection(),
+                ),
               ),
-            ),
-          );
-        }
-      });
+            );
+          }
+        });
+      }
     });
   }
 
@@ -299,11 +301,13 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                       }
                       Navigator.pop(context);
                       if (widget.testVersion) {
+                        _timer.cancel();
+
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => ShowScore(
-                              title: "ATTENTION",
+                              title: "math",
                               description:
                                   "Exercise 1 - Short Term Concentration",
                               exercise: 1,
@@ -311,11 +315,14 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                               maximum: 10,
                               page: (widget.riddlesMode
                                   ? const ImprovementSelection()
-                                  : const Riddles()),
+                                  : const Riddles(
+                                      initialTest: true,
+                                    )),
                             ),
                           ),
                         );
                       } else {
+                        _timer.cancel();
                         Navigator.push(
                           context,
                           MaterialPageRoute(

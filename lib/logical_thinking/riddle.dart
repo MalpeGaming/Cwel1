@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../buttons.dart';
 
-import 'problem.dart';
+import 'riddles.dart';
 
 class Riddles extends StatefulWidget {
   final bool? initialTest;
@@ -140,9 +140,9 @@ class _Riddles extends State<Riddles> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const ProblemSelection(
-                    riddlesMode: true,
-                    testVersion: true,
+                  route: const RiddlesTest(
+                    exerciseId: 0,
+                    initialTest: true,
                   ),
                   text: 'Continue',
                   width: size.width,

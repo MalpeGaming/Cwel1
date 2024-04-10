@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'navbar.dart';
 import 'self_reflection.dart';
-import 'meditation.dart';
+import 'meditation/meditation.dart';
 import 'sport.dart';
 import 'yoga.dart';
 import 'memory/memory_game1.dart';
@@ -16,6 +16,7 @@ import 'logical_thinking/sudoku.dart';
 import 'attention/find_the_word.dart';
 import 'linguistic/wordly.dart';
 import 'linguistic/hangman.dart';
+import 'logical_thinking/riddles.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -301,7 +302,9 @@ class _YourActivities extends State<YourActivities> {
                           "riddles",
                           "RIDDLES",
                           "",
-                          const Meditation(),
+                          const RiddlesTest(
+                            exerciseId: 0,
+                          ),
                           zero: 0,
                         ),
                         createActivity2(
