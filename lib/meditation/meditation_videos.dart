@@ -150,88 +150,92 @@ class _MeditationVideos extends State<MeditationVideos> {
 
     return Scaffold(
       appBar: appBar(context, ""),
-      body: Container(
-        margin: EdgeInsets.only(
-          left: size.width / 10,
-          right: size.width / 10,
-          top: size.height / 50,
-          bottom: size.height / 20,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Text(
-                    "MEDITATION",
-                    style: TextStyle(
-                      fontSize: size.width / 11,
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.only(
+            left: size.width / 10,
+            right: size.width / 10,
+            top: size.height / 50,
+            bottom: size.height / 20,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Text(
+                      "MEDITATION",
+                      style: TextStyle(
+                        fontSize: size.width / 8,
+                      ),
                     ),
                   ),
-                ),
-                Center(
-                  child: Text(
-                    'STEP BY STEP',
-                    style: TextStyle(fontSize: size.width / 22),
+                  Center(
+                    child: Text(
+                      'STEP BY STEP',
+                      style: TextStyle(fontSize: size.width / 22),
+                    ),
                   ),
-                ),
-                SizedBox(height: 0.04 * size.height),
-                Center(
-                  child: RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.onSecondary,
-                        fontSize: size.width / 18,
-                        height: 1.2,
+                  SizedBox(height: 0.04 * size.height),
+                  Center(
+                    child: RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.onSecondary,
+                          fontSize: size.width / 18,
+                          height: 1.2,
+                        ),
+                        children: const [
+                          TextSpan(
+                            text: 'To which ',
+                          ),
+                          TextSpan(
+                            text: 'rain animation',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(text: ' would you like to meditate?'),
+                        ],
                       ),
-                      children: const [
-                        TextSpan(
-                          text: 'To which ',
+                    ),
+                  ),
+                  SizedBox(height: size.height / 30),
+                  SizedBox(
+                    height: size.height / 1.825,
+                    child: Column(
+                      children: <Widget>[
+                        Expanded(
+                          child: GridView.count(
+                            crossAxisCount: 2,
+                            children:
+                                List.generate(videoAssets.length, (index) {
+                              return VideoListItem(
+                                videoAsset: videoAssets[index],
+                              );
+                            }),
+                          ),
                         ),
-                        TextSpan(
-                          text: 'rain animation',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        TextSpan(text: ' would you like to meditate?'),
+                        SizedBox(height: size.height / 20),
                       ],
                     ),
                   ),
-                ),
-                SizedBox(height: size.height / 30),
-                SizedBox(
-                  height: size.height / 1.825,
-                  child: Column(
-                    children: <Widget>[
-                      Expanded(
-                        child: GridView.count(
-                          crossAxisCount: 2,
-                          children: List.generate(videoAssets.length, (index) {
-                            return VideoListItem(
-                              videoAsset: videoAssets[index],
-                            );
-                          }),
-                        ),
-                      ),
-                    ],
+                ],
+              ),
+              Center(
+                child: SizedBox(
+                  height: size.height * 0.05,
+                  width: size.width * 0.75,
+                  child: RedirectButton(
+                    route: const YourActivities(),
+                    text: 'Continue',
+                    width: size.width,
                   ),
                 ),
-              ],
-            ),
-            Center(
-              child: SizedBox(
-                height: size.height * 0.05,
-                width: size.width * 0.75,
-                child: RedirectButton(
-                  route: const YourActivities(),
-                  text: 'Continue',
-                  width: size.width,
-                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
