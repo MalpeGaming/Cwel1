@@ -1,16 +1,10 @@
 import 'package:flutter/widgets.dart';
+import 'package:flick_video_player/flick_video_player.dart';
 import 'package:video_player/video_player.dart';
 import 'package:flutter/material.dart';
 import '/app_bar.dart';
 import '/buttons.dart';
 import '/your_activities.dart';
-
-class MeditationVideos extends StatefulWidget {
-  const MeditationVideos({super.key});
-
-  @override
-  State<MeditationVideos> createState() => _MeditationVideos();
-}
 
 class VideoListItem extends StatefulWidget {
   final String videoAsset;
@@ -22,26 +16,41 @@ class VideoListItem extends StatefulWidget {
 }
 
 class _VideoListItemState extends State<VideoListItem> {
-  late VideoPlayerController _controller;
+  late FlickManager flickManager;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset(widget.videoAsset)
-      ..initialize().then((_) {
-        setState(() {});
-      });
+    flickManager = FlickManager(
+      videoPlayerController: VideoPlayerController.asset(widget.videoAsset),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (_controller.value.isPlaying) {
-          _controller.pause();
-        } else {
-          _controller.play();
-        }
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return Scaffold(
+                body: Center(
+                  child: FlickVideoPlayer(
+                    flickManager: flickManager,
+                    flickVideoWithControls: const FlickVideoWithControls(
+                      controls: FlickPortraitControls(),
+                    ),
+                    flickVideoWithControlsFullscreen:
+                        const FlickVideoWithControls(
+                      controls: FlickLandscapeControls(),
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        );
       },
       child: Container(
         margin: const EdgeInsets.all(10),
@@ -49,7 +58,15 @@ class _VideoListItemState extends State<VideoListItem> {
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           child: AspectRatio(
             aspectRatio: 1,
-            child: VideoPlayer(_controller),
+            child: FlickVideoPlayer(
+              flickManager: flickManager,
+              flickVideoWithControls: const FlickVideoWithControls(
+                controls: FlickPortraitControls(
+                  iconSize: 10,
+                  fontSize: 6,
+                ),
+              ),
+            ),
           ),
         ),
       ),
@@ -58,9 +75,50 @@ class _VideoListItemState extends State<VideoListItem> {
 
   @override
   void dispose() {
+    flickManager.dispose();
     super.dispose();
-    _controller.dispose();
   }
+}
+
+class SamplePlayer extends StatefulWidget {
+  const SamplePlayer({required Key key, required this.videoAsset})
+      : super(key: key);
+
+  final String videoAsset;
+
+  @override
+  _SamplePlayerState createState() => _SamplePlayerState();
+}
+
+class _SamplePlayerState extends State<SamplePlayer> {
+  late FlickManager flickManager;
+  @override
+  void initState() {
+    super.initState();
+    flickManager = FlickManager(
+      videoPlayerController: VideoPlayerController.asset(
+        widget.videoAsset,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    flickManager.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FlickVideoPlayer(flickManager: flickManager);
+  }
+}
+
+class MeditationVideos extends StatefulWidget {
+  const MeditationVideos({super.key});
+
+  @override
+  State<MeditationVideos> createState() => _MeditationVideos();
 }
 
 class _MeditationVideos extends State<MeditationVideos> {
@@ -130,12 +188,8 @@ class _MeditationVideos extends State<MeditationVideos> {
                   ),
                 ),
                 SizedBox(height: size.height / 30),
-                Container(
-                  margin: EdgeInsets.only(
-                    left: size.width / 30,
-                    right: size.width / 30,
-                  ),
-                  height: size.height / 2,
+                SizedBox(
+                  height: size.height / 1.825,
                   child: Column(
                     children: <Widget>[
                       Expanded(
@@ -150,7 +204,7 @@ class _MeditationVideos extends State<MeditationVideos> {
                       ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
             Center(

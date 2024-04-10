@@ -64,6 +64,7 @@ dependencies:
   crossword: ^0.0.6
   yaml: ^3.1.2
   dictionaryx: ^0.3.5
+  flick_video_player: ^0.7.0
 
 dev_dependencies:
   flutter_test:
