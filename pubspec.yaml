@@ -65,6 +65,7 @@ dependencies:
   yaml: ^3.1.2
   dictionaryx: ^0.3.5
   flick_video_player: ^0.7.0
+  smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
   flutter_test:
