@@ -140,7 +140,7 @@ class _YourActivities extends State<YourActivities> {
       "activities/$img",
       txt1,
       txt2,
-      0.025 * size.height * fontSize,
+      0.022 * size.height * fontSize,
       route,
       Theme.of(context).colorScheme.primary,
       Theme.of(context).colorScheme.onPrimary,

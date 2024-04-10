@@ -36,7 +36,7 @@ class _Home extends State<Home> {
                   child: Text(
                     "YOUR PLAN",
                     style: TextStyle(
-                      fontSize: size.width / 7,
+                      fontSize: size.width / 8,
                     ),
                     textAlign: TextAlign.center,
                   ),

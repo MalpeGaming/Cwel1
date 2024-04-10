@@ -166,6 +166,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                                   style:
                                       TextStyle(fontSize: 0.035 * size.height),
                                 ),
+                                SizedBox(height: 0.02 * size.height),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -195,7 +196,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                               ],
                             ),
                           ),
-                          SizedBox(height: 0.02 * size.height),
+                          SizedBox(height: 0.05 * size.height),
                           Text(
                             questions[questionIndex],
                             style: TextStyle(fontSize: 0.02 * size.height),
