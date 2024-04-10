@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'navbar.dart';
 import 'self_reflection.dart';
-import 'meditation.dart';
+import 'meditation/meditation.dart';
 import 'sport.dart';
 import 'yoga.dart';
 import 'memory/memory_game1.dart';
