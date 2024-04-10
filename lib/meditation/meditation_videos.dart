@@ -1,5 +1,5 @@
-import 'package:flutter/widgets.dart';
 import 'package:flick_video_player/flick_video_player.dart';
+import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
 import 'package:flutter/material.dart';
 import '/app_bar.dart';
@@ -23,6 +23,7 @@ class _VideoListItemState extends State<VideoListItem> {
     super.initState();
     flickManager = FlickManager(
       videoPlayerController: VideoPlayerController.asset(widget.videoAsset),
+      autoPlay: false,
     );
   }
 
@@ -34,7 +35,24 @@ class _VideoListItemState extends State<VideoListItem> {
           context,
           MaterialPageRoute(
             builder: (context) {
+              WidgetsFlutterBinding.ensureInitialized();
+              SystemChrome.setPreferredOrientations([
+                DeviceOrientation.landscapeRight,
+                DeviceOrientation.landscapeLeft,
+              ]);
               return Scaffold(
+                extendBodyBehindAppBar: true,
+                appBar: AppBar(
+                  backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+                  elevation: 0,
+                  leading: IconButton(
+                    icon: const Icon(Icons.close),
+                    color: Colors.amber,
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
                 body: Center(
                   child: FlickVideoPlayer(
                     flickManager: flickManager,
@@ -53,19 +71,14 @@ class _VideoListItemState extends State<VideoListItem> {
         );
       },
       child: Container(
-        margin: const EdgeInsets.all(10),
+        margin: const EdgeInsets.all(6),
         child: ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           child: AspectRatio(
             aspectRatio: 1,
             child: FlickVideoPlayer(
               flickManager: flickManager,
-              flickVideoWithControls: const FlickVideoWithControls(
-                controls: FlickPortraitControls(
-                  iconSize: 10,
-                  fontSize: 6,
-                ),
-              ),
+              flickVideoWithControls: const FlickVideoWithControls(),
             ),
           ),
         ),
