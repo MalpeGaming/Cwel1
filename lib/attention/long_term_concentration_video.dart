@@ -4,6 +4,7 @@ import 'long_term_concentration_test.dart';
 import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
 import 'dart:math';
+import '../buttons.dart';
 
 class LongTermConcentrationVideo extends StatefulWidget {
   const LongTermConcentrationVideo({super.key, this.initialTest = false});
@@ -108,58 +109,17 @@ class _LongTermConcentrationVideo extends State<LongTermConcentrationVideo> {
                         ),
                       ],
                     ),
-                    Column(
-                      children: [
-                        SizedBox(
-                          height: size.height * 0.05,
-                          width: size.width * 0.75,
-                          child: FloatingActionButton.extended(
-                            onPressed: () {
-                              _controller.close();
-                              Navigator.pop(context);
-
-                              if (widget.initialTest) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        LongTermConcentrationTest(
-                                      initialTest: true,
-                                      exerciseId: exerciseId,
-                                    ),
-                                  ),
-                                );
-                              } else {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        LongTermConcentrationTest(
-                                      exerciseId: exerciseId,
-                                    ),
-                                  ),
-                                );
-                              }
-                            },
-                            tooltip: 'Continue',
-                            label: Text(
-                              "Continue",
-                              style: TextStyle(fontSize: size.width / 16),
+                    RedirectButton(
+                      route: (widget.initialTest)
+                          ? LongTermConcentrationTest(
+                              initialTest: true,
+                              exerciseId: exerciseId,
+                            )
+                          : LongTermConcentrationTest(
+                              exerciseId: exerciseId,
                             ),
-                            icon: Icon(
-                              Icons.arrow_forward_rounded,
-                              size: size.width / 16,
-                            ),
-                            backgroundColor: Colors.blue[400],
-                            hoverColor: Colors.blue[900],
-                            autofocus: true,
-                            heroTag: "continue",
-                          ),
-                        ),
-                        SizedBox(
-                          height: size.height / 20,
-                        ),
-                      ],
+                      text: 'Continue',
+                      width: size.width,
                     ),
                   ],
                 ),

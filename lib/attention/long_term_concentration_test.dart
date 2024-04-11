@@ -1,3 +1,4 @@
+import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'strong_concentration_desc.dart';
@@ -128,7 +129,30 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                           height: size.height / 20,
                         ),
                         Container(
-                          color: const Color.fromARGB(255, 20, 16, 250),
+                          decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(20)),
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: <Color>[
+                                Theme.of(context).colorScheme.primary,
+                                Theme.of(context).colorScheme.onPrimary,
+                              ],
+                              tileMode: TileMode.decal,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .shadow
+                                    .withOpacity(1),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: const Offset(5, 5),
+                              ),
+                            ],
+                          ),
                           width: size.width * 0.9,
                           child: Container(
                             margin: const EdgeInsets.all(15),
@@ -156,8 +180,8 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                         SizedBox(
                           height: size.height * 0.05,
                           width: size.width * 0.75,
-                          child: FloatingActionButton.extended(
-                            onPressed: () {
+                          child: RedirectButton(
+                            onClick: () {
                               if (selectedOption == -1) return;
 
                               if (selectedOption ==
@@ -206,19 +230,8 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                                 );
                               }
                             },
-                            tooltip: 'Continue',
-                            label: Text(
-                              "Continue",
-                              style: TextStyle(fontSize: size.width / 16),
-                            ),
-                            icon: Icon(
-                              Icons.arrow_forward_rounded,
-                              size: size.width / 16,
-                            ),
-                            backgroundColor: Colors.blue[400],
-                            hoverColor: Colors.blue[900],
-                            autofocus: true,
-                            heroTag: "continue",
+                            text: 'Continue',
+                            width: size.width,
                           ),
                         ),
                         SizedBox(

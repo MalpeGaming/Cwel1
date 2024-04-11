@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
 import 'dart:math';
 import '../buttons.dart';
-import '../show_score.dart';
 
 class Video extends StatefulWidget {
   const Video({super.key, this.initialTest = false});
@@ -132,22 +131,14 @@ class _Video extends State<Video> {
                         height: size.height * 0.05,
                         width: size.width * 0.75,
                         child: RedirectButton(
-                          route: ShowScore(
-                            title: "LINGUISTIC",
-                            description: "Exercise 1 - Listening Comprehension",
-                            exercise: 1,
-                            yourScore: score,
-                            maximum: 100,
-                            page: (widget.initialTest)
-                                ? Test(
-                                    initialTest: true,
-                                    exerciseId: exerciseId,
-                                  )
-                                : Test(
-                                    exerciseId: exerciseId,
-                                  ),
-                            subtitle: "INTELLIGENCE",
-                          ),
+                          route: (widget.initialTest)
+                              ? Test(
+                                  initialTest: true,
+                                  exerciseId: exerciseId,
+                                )
+                              : Test(
+                                  exerciseId: exerciseId,
+                                ),
                           text: 'Continue',
                           width: size.width,
                         ),

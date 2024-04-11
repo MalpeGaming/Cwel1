@@ -181,7 +181,8 @@ class _RiddlesTest extends State<RiddlesTest> {
                                     Icon(
                                       Icons.timer,
                                       size: 0.08 * min(size.width, size.height),
-                                      color: Colors.blue[400],
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
                                     ),
                                     const SizedBox(width: 8),
                                     Text(

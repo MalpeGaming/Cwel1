@@ -245,10 +245,10 @@ class _Wordly extends State<Wordly> {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  Text(
+                  /*Text(
                     noun,
                     style: TextStyle(fontSize: size.width / 20),
-                  ),
+                  ),*/
                   Builder(
                     builder: (context) {
                       return Column(

@@ -17,6 +17,9 @@ import 'attention/find_the_word.dart';
 import 'linguistic/wordly.dart';
 import 'linguistic/hangman.dart';
 import 'logical_thinking/riddles.dart';
+import 'linguistic/exercise2.dart';
+import 'linguistic/video.dart';
+import 'memory/memory_video.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -210,7 +213,7 @@ class _YourActivities extends State<YourActivities> {
                           "working_memory",
                           "Working",
                           "MEMORY",
-                          const YourActivities(),
+                          const MemoryVideo(),
                         ),
                         createActivity2(
                           context,
@@ -267,14 +270,14 @@ class _YourActivities extends State<YourActivities> {
                           "listening",
                           "LISTENING",
                           "Comprehension",
-                          const YourActivities(),
+                          const Video(),
                         ),
                         createActivity2(
                           context,
                           "reading",
                           "READING",
                           "Comprehension",
-                          const YourActivities(),
+                          const SecondLinguisticExercise(),
                         ),
                         createActivity2(
                           context,

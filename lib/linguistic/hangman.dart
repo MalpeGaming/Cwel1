@@ -228,14 +228,14 @@ class _Hangman extends State<Hangman> {
                           ),
                         ],
                       ),
-                      Text(
+                      /*Text(
                         noun.toUpperCase(),
                         style: TextStyle(
                           fontSize: size.width / 30,
                           letterSpacing: 4,
                           color: Colors.blue,
                         ),
-                      ),
+                      ),*/
                     ],
                   );
                 },
