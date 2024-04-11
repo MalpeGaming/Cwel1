@@ -124,6 +124,7 @@ class _MemoryWordsState extends State<MemoryWords> {
           _remainingTime--;
         } else {
           _timer.cancel();
+          Navigator.pop(context);
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -189,7 +190,7 @@ class _MemoryWordsState extends State<MemoryWords> {
                           Icon(
                             Icons.timer,
                             size: 0.08 * min(size.width, size.height),
-                            color: Colors.blue[400],
+                            color: Theme.of(context).colorScheme.primary,
                           ),
                           const SizedBox(width: 10.0),
                           Text(

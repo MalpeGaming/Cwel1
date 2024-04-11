@@ -1,13 +1,21 @@
+import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import '../show_score.dart';
 import 'memory_video.dart';
+import '../progress_screen.dart';
 
 class MemoryQuiz extends StatefulWidget {
   final List<Map<String, String>> picked;
   final int score;
+  final bool initialTest;
 
-  const MemoryQuiz(this.picked, this.score, {super.key});
+  const MemoryQuiz(
+    this.picked,
+    this.score, {
+    super.key,
+    this.initialTest = false,
+  });
 
   @override
   State<MemoryQuiz> createState() => _MemoryQuizState();
@@ -53,17 +61,26 @@ class _MemoryQuizState extends State<MemoryQuiz> {
           );
         },
       );
+
+      Navigator.pop(context);
+      Navigator.pop(context);
+
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ShowScore(
-            title: "MEMORY",
-            description: "Exercise 1 - Learning",
-            exercise: 1,
-            yourScore: score.toDouble(),
-            maximum: 14,
-            page: MemoryVideo(picked),
-          ),
+          builder: (context) => (widget.initialTest)
+              ? ShowScore(
+                  title: "MEMORY",
+                  description: "Exercise 1 - Learning",
+                  exercise: 1,
+                  yourScore: score.toDouble(),
+                  maximum: 14,
+                  page: const MemoryVideo(),
+                )
+              : ProgressScreen(
+                  name: "reading_comprehension",
+                  score: score.toDouble(),
+                ),
         ),
       );
     }
@@ -97,8 +114,9 @@ class _MemoryQuizState extends State<MemoryQuiz> {
       leading: Radio<int>(
         value: indx + 1,
         groupValue: selectedOption,
-        activeColor: Colors.blue,
-        fillColor: MaterialStateProperty.all(Colors.blue),
+        activeColor: Theme.of(context).colorScheme.primary,
+        fillColor:
+            MaterialStateProperty.all(Theme.of(context).colorScheme.primary),
         splashRadius: 25,
         onChanged: (value) {
           setState(() {
@@ -166,10 +184,27 @@ class _MemoryQuizState extends State<MemoryQuiz> {
                     height: 0.04 * size.height,
                     width: 0.8 * size.width,
                     decoration: BoxDecoration(
-                      color: Colors.blue[400],
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(50),
+                      borderRadius: const BorderRadius.all(Radius.circular(20)),
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: <Color>[
+                          Theme.of(context).colorScheme.primary,
+                          Theme.of(context).colorScheme.onPrimary,
+                        ],
+                        tileMode: TileMode.decal,
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .shadow
+                              .withOpacity(1),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: const Offset(5, 5),
+                        ),
+                      ],
                     ),
                     child: Center(
                       child: Text(
@@ -191,21 +226,12 @@ class _MemoryQuizState extends State<MemoryQuiz> {
               ),
               SizedBox(height: 0.05 * size.height),
               SizedBox(
-                width: double.infinity,
-                child: FloatingActionButton(
-                  onPressed: handleContinue,
-                  backgroundColor: Colors.blue[400],
-                  hoverColor: Colors.blue[900],
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50.0),
-                  ),
-                  child: Text(
-                    "Continue",
-                    style: TextStyle(
-                      fontSize: 0.03 * size.height,
-                      color: Colors.white,
-                    ),
-                  ),
+                height: size.height * 0.05,
+                width: size.width * 0.75,
+                child: RedirectButton(
+                  onClick: handleContinue,
+                  text: 'Continue',
+                  width: size.width,
                 ),
               ),
             ],

@@ -5,6 +5,7 @@ import 'dart:async';
 import '/account/login1.dart';
 import '/progress_screen.dart';
 import '/show_score.dart';
+import '/buttons.dart';
 
 class StrongConcentration extends StatefulWidget {
   const StrongConcentration({super.key, this.initialTest = false});
@@ -34,6 +35,7 @@ class _StrongConcentration extends State<StrongConcentration> {
     6,
   ];
   List<double> userAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  double score = 0;
 
   Future<void> startTimer() async {
     _timer = Timer.periodic(
@@ -303,7 +305,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                           Icon(
                             Icons.timer,
                             size: 0.08 * size.width,
-                            color: Colors.blue[400],
+                            color: Theme.of(context).colorScheme.primary,
                           ),
                           const SizedBox(width: 10.0),
                           Text(
@@ -366,57 +368,30 @@ class _StrongConcentration extends State<StrongConcentration> {
                   ),
                 ],
               ),
-              Center(
-                child: SizedBox(
-                  height: size.height * 0.05,
-                  width: size.width * 0.75,
-                  child: FloatingActionButton.extended(
-                    onPressed: () {
-                      Navigator.pop(context);
-                      _timer.cancel();
-                      double score = countScore();
-
-                      if (widget.initialTest) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ShowScore(
-                              title: "ATTENTION",
-                              description: "Exercise 3 - Strong Concentration",
-                              exercise: 3,
-                              yourScore: score,
-                              maximum: 10,
-                              page: const Login1(),
-                            ),
-                          ),
-                        );
-                      } else {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ProgressScreen(
-                              name: "strong_concentration",
-                              score: score,
-                            ),
-                          ),
-                        );
-                      }
-                    },
-                    tooltip: 'Continue',
-                    label: Text(
-                      "Continue",
-                      style: TextStyle(fontSize: size.width / 16),
-                    ),
-                    icon: Icon(
-                      Icons.arrow_forward_rounded,
-                      size: size.width / 16,
-                    ),
-                    backgroundColor: Colors.blue[400],
-                    hoverColor: Colors.blue[900],
-                    autofocus: true,
-                    heroTag: "continue",
-                  ),
-                ),
+              SizedBox(
+                height: size.height / 25,
+              ),
+              RedirectButton(
+                onClick: () {
+                  Navigator.pop(context);
+                  _timer.cancel();
+                  score = countScore();
+                },
+                route: (widget.initialTest)
+                    ? ShowScore(
+                        title: "ATTENTION",
+                        description: "Exercise 3 - Strong Concentration",
+                        exercise: 3,
+                        yourScore: score,
+                        maximum: 10,
+                        page: const Login1(),
+                      )
+                    : ProgressScreen(
+                        name: "strong_concentration",
+                        score: score,
+                      ),
+                text: 'Continue',
+                width: size.width,
               ),
               SizedBox(
                 height: size.height / 25,
