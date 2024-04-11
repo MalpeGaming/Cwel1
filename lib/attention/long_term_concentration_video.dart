@@ -1,3 +1,4 @@
+import 'package:brain_train_app/buttons.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import 'package:flutter/material.dart';
 import 'long_term_concentration_test.dart';
@@ -113,8 +114,8 @@ class _LongTermConcentrationVideo extends State<LongTermConcentrationVideo> {
                         SizedBox(
                           height: size.height * 0.05,
                           width: size.width * 0.75,
-                          child: FloatingActionButton.extended(
-                            onPressed: () {
+                          child: RedirectButton(
+                            onClick: () {
                               _controller.close();
                               Navigator.pop(context);
 
@@ -141,19 +142,8 @@ class _LongTermConcentrationVideo extends State<LongTermConcentrationVideo> {
                                 );
                               }
                             },
-                            tooltip: 'Continue',
-                            label: Text(
-                              "Continue",
-                              style: TextStyle(fontSize: size.width / 16),
-                            ),
-                            icon: Icon(
-                              Icons.arrow_forward_rounded,
-                              size: size.width / 16,
-                            ),
-                            backgroundColor: Colors.blue[400],
-                            hoverColor: Colors.blue[900],
-                            autofocus: true,
-                            heroTag: "continue",
+                            text: 'Continue',
+                            width: size.width,
                           ),
                         ),
                         SizedBox(
