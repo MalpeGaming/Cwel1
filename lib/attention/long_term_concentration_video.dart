@@ -5,6 +5,7 @@ import 'long_term_concentration_test.dart';
 import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
 import 'dart:math';
+import '../buttons.dart';
 
 class LongTermConcentrationVideo extends StatefulWidget {
   const LongTermConcentrationVideo({super.key, this.initialTest = false});
@@ -109,47 +110,17 @@ class _LongTermConcentrationVideo extends State<LongTermConcentrationVideo> {
                         ),
                       ],
                     ),
-                    Column(
-                      children: [
-                        SizedBox(
-                          height: size.height * 0.05,
-                          width: size.width * 0.75,
-                          child: RedirectButton(
-                            onClick: () {
-                              _controller.close();
-                              Navigator.pop(context);
-
-                              if (widget.initialTest) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        LongTermConcentrationTest(
-                                      initialTest: true,
-                                      exerciseId: exerciseId,
-                                    ),
-                                  ),
-                                );
-                              } else {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        LongTermConcentrationTest(
-                                      exerciseId: exerciseId,
-                                    ),
-                                  ),
-                                );
-                              }
-                            },
-                            text: 'Continue',
-                            width: size.width,
-                          ),
-                        ),
-                        SizedBox(
-                          height: size.height / 20,
-                        ),
-                      ],
+                    RedirectButton(
+                      route: (widget.initialTest)
+                          ? LongTermConcentrationTest(
+                              initialTest: true,
+                              exerciseId: exerciseId,
+                            )
+                          : LongTermConcentrationTest(
+                              exerciseId: exerciseId,
+                            ),
+                      text: 'Continue',
+                      width: size.width,
                     ),
                   ],
                 ),

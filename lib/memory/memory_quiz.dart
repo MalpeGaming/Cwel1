@@ -3,12 +3,19 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import '../show_score.dart';
 import 'memory_video.dart';
+import '../progress_screen.dart';
 
 class MemoryQuiz extends StatefulWidget {
   final List<Map<String, String>> picked;
   final int score;
+  final bool initialTest;
 
-  const MemoryQuiz(this.picked, this.score, {super.key});
+  const MemoryQuiz(
+    this.picked,
+    this.score, {
+    super.key,
+    this.initialTest = false,
+  });
 
   @override
   State<MemoryQuiz> createState() => _MemoryQuizState();
@@ -54,17 +61,26 @@ class _MemoryQuizState extends State<MemoryQuiz> {
           );
         },
       );
+
+      Navigator.pop(context);
+      Navigator.pop(context);
+
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ShowScore(
-            title: "MEMORY",
-            description: "Exercise 1 - Learning",
-            exercise: 1,
-            yourScore: score.toDouble(),
-            maximum: 14,
-            page: MemoryVideo(picked),
-          ),
+          builder: (context) => (widget.initialTest)
+              ? ShowScore(
+                  title: "MEMORY",
+                  description: "Exercise 1 - Learning",
+                  exercise: 1,
+                  yourScore: score.toDouble(),
+                  maximum: 14,
+                  page: const MemoryVideo(),
+                )
+              : ProgressScreen(
+                  name: "reading_comprehension",
+                  score: score.toDouble(),
+                ),
         ),
       );
     }

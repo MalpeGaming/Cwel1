@@ -3,17 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '/account/login1.dart';
 import '/show_score.dart';
+import '../buttons.dart';
+import '../progress_screen.dart';
 
 class MemoryVideo extends StatefulWidget {
-  final List<Map<String, String>> picked;
-  const MemoryVideo(this.picked, {super.key});
+  const MemoryVideo({super.key, this.initialTest = false});
+
+  final bool initialTest;
 
   @override
   State<MemoryVideo> createState() => _MemoryVideo();
 }
 
 class _MemoryVideo extends State<MemoryVideo> {
-  List<Map<String, String>> picked = [];
   late YoutubePlayerController _controller;
   TextEditingController textController = TextEditingController();
   double score = 0;
@@ -127,42 +129,25 @@ class _MemoryVideo extends State<MemoryVideo> {
                   ),
                 ],
               ),
-              Center(
-                child: SizedBox(
-                  height: size.height * 0.05,
-                  width: size.width * 0.75,
-                  child: FloatingActionButton.extended(
-                    onPressed: () {
-                      _controller.close();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ShowScore(
-                            title: "MEMORY",
-                            description: "Exercise 2 -  Working memory",
-                            exercise: 2,
-                            yourScore: score,
-                            maximum: 10,
-                            page: const Login1(),
-                          ),
-                        ),
-                      );
-                    },
-                    tooltip: 'Continue',
-                    label: Text(
-                      "Continue",
-                      style: TextStyle(fontSize: size.width / 16),
-                    ),
-                    icon: Icon(
-                      Icons.arrow_forward_rounded,
-                      size: size.width / 16,
-                    ),
-                    backgroundColor: Colors.blue[400],
-                    hoverColor: Colors.blue[900],
-                    autofocus: true,
-                    heroTag: "continue",
-                  ),
-                ),
+              RedirectButton(
+                onClick: () {
+                  Navigator.pop(context);
+                },
+                route: (widget.initialTest)
+                    ? ShowScore(
+                        title: "MEMORY",
+                        description: "Exercise 2 -  Working memory",
+                        exercise: 2,
+                        yourScore: score,
+                        maximum: 10,
+                        page: const Login1(),
+                      )
+                    : ProgressScreen(
+                        name: "working_memory",
+                        score: score,
+                      ),
+                text: 'Continue',
+                width: size.width,
               ),
             ],
           ),
