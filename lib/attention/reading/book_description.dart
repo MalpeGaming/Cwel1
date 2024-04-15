@@ -9,6 +9,7 @@ class BookDescriptionPage extends StatelessWidget {
   final String genre;
   final String time;
   final String description;
+  final bool withGenre;
 
   const BookDescriptionPage({
     super.key,
@@ -19,6 +20,7 @@ class BookDescriptionPage extends StatelessWidget {
     required this.genre,
     required this.time,
     required this.description,
+    this.withGenre = true,
   });
 
   @override
@@ -85,23 +87,25 @@ class BookDescriptionPage extends StatelessWidget {
                           margin: const EdgeInsets.symmetric(
                             vertical: 10,
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              const Text(
-                                "Genre",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                genre,
-                                style: const TextStyle(fontSize: 18),
-                              ),
-                            ],
-                          ),
+                          child: withGenre
+                              ? Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      "Genre",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      genre,
+                                      style: const TextStyle(fontSize: 18),
+                                    ),
+                                  ],
+                                )
+                              : const SizedBox.shrink(),
                         ),
                         Container(
                           margin: const EdgeInsets.symmetric(

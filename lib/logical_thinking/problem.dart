@@ -3,7 +3,7 @@ import 'package:brain_train_app/improvement_selection.dart';
 import 'package:flutter/material.dart';
 import '/show_score.dart';
 import '/progress_screen.dart';
-import 'riddles.dart';
+import 'riddle.dart';
 import 'dart:async';
 import 'dart:math';
 
@@ -131,28 +131,30 @@ class _ProblemSelectionState extends State<ProblemSelection> {
 
   void startTimer() {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() {
-        if (_remainingTime > 0) {
-          _remainingTime--;
-        } else {
-          _timer.cancel();
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ShowScore(
-                title: "ATTENTION",
-                description: "Exercise 1 - Short Term Concentration",
-                exercise: 1,
-                yourScore: score,
-                maximum: 10,
-                page: (widget.riddlesMode
-                    ? const ImprovementSelection()
-                    : const Riddles()),
+      if (!mounted) {
+        timer.cancel();
+      } else {
+        setState(() {
+          if (_remainingTime > 0) {
+            _remainingTime--;
+          } else {
+            _timer.cancel();
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ShowScore(
+                  title: "math",
+                  description: "Exercise 1 - Short Term Concentration",
+                  exercise: 1,
+                  yourScore: score,
+                  maximum: 10,
+                  page: const ImprovementSelection(),
+                ),
               ),
-            ),
-          );
-        }
-      });
+            );
+          }
+        });
+      }
     });
   }
 
@@ -237,7 +239,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                           Icon(
                             Icons.timer,
                             size: 0.08 * min(size.width, size.height),
-                            color: Colors.blue[400],
+                            color: Theme.of(context).colorScheme.primary,
                           ),
                           const SizedBox(width: 8),
                           Text(
@@ -299,11 +301,13 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                       }
                       Navigator.pop(context);
                       if (widget.testVersion) {
+                        _timer.cancel();
+
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => ShowScore(
-                              title: "ATTENTION",
+                              title: "math",
                               description:
                                   "Exercise 1 - Short Term Concentration",
                               exercise: 1,
@@ -311,11 +315,14 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                               maximum: 10,
                               page: (widget.riddlesMode
                                   ? const ImprovementSelection()
-                                  : const Riddles()),
+                                  : const Riddles(
+                                      initialTest: true,
+                                    )),
                             ),
                           ),
                         );
                       } else {
+                        _timer.cancel();
                         Navigator.push(
                           context,
                           MaterialPageRoute(

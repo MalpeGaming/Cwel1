@@ -65,6 +65,7 @@ dependencies:
   yaml: ^3.1.2
   dictionaryx: ^0.3.5
   flick_video_player: ^0.7.0
+  smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -106,7 +107,9 @@ flutter:
     - assets/attention/reading/business/
     - assets/attention/reading/personal_development/
     - assets/linguistic/hangman/
-    - assets/logical_thinking/function_plot.png
+    - assets/math/
+    - assets/riddles/
+    - assets/logical_thinking/
     - assets/attention/reading/covers/
 
 

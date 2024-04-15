@@ -76,7 +76,7 @@ class _SelfReflection extends State<SelfReflection> {
                   child: Text(
                     "SELF-REFLECTION",
                     style: TextStyle(
-                      fontSize: size.width / 11,
+                      fontSize: size.width / 12,
                     ),
                     textAlign: TextAlign.center,
                   ),
