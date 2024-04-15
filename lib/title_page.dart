@@ -83,15 +83,6 @@ class _TitlePageState extends State<TitlePage> {
                 child: Image.asset('assets/brain_img3.png'),
               ),
               const Spacer(),
-              /*SizedBox(
-                height: size.height * 0.05,
-                width: size.width * 0.75,
-                child: StartButton(
-                  text: "Test Yourself!",
-                  width: size.width,
-                  tooltip: 'Smart Decision!',
-                ),
-              ),*/
               SizedBox(
                 height: size.height * 0.05,
                 width: size.width * 0.75,

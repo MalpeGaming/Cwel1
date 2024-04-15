@@ -54,6 +54,7 @@ class _MyAppState extends State<MyApp> {
           shadow: Color.fromARGB(255, 0, 0, 0),
         ),
         useMaterial3: true,
+        fontFamily: 'Arial',
       ),
       themeMode: _themeMode,
       home: const TitlePage(title: 'The Brain Train App'),
