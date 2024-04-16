@@ -20,6 +20,7 @@ import 'logical_thinking/riddles.dart';
 import 'linguistic/exercise2.dart';
 import 'linguistic/video.dart';
 import 'memory/memory_video.dart';
+import '2048/game_2048.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -381,7 +382,7 @@ class _YourActivities extends State<YourActivities> {
                           "2048",
                           "2048",
                           "",
-                          const YourActivities(),
+                          const Game2048(),
                           zero: 0,
                         ),
                         createActivity2(

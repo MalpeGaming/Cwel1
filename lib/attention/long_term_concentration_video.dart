@@ -1,10 +1,10 @@
+import 'package:brain_train_app/buttons.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import 'package:flutter/material.dart';
 import 'long_term_concentration_test.dart';
 import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
 import 'dart:math';
-import '../buttons.dart';
 
 class LongTermConcentrationVideo extends StatefulWidget {
   const LongTermConcentrationVideo({super.key, this.initialTest = false});
