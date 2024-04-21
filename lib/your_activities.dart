@@ -20,6 +20,7 @@ import 'logical_thinking/riddles.dart';
 import 'linguistic/exercise2.dart';
 import 'linguistic/video.dart';
 import 'memory/memory_video.dart';
+import 'scrabble.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -389,7 +390,7 @@ class _YourActivities extends State<YourActivities> {
                           "scrabble",
                           "Like",
                           "SCRABBLE",
-                          const YourActivities(),
+                          const Scrabble(),
                         ),
                         createActivity2(
                           context,
