@@ -120,6 +120,8 @@ class _Scrabble extends State<Scrabble> {
     print(initialTest);
   }
 
+  List<String> payload = [];
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -155,19 +157,44 @@ class _Scrabble extends State<Scrabble> {
               style: TextStyle(fontSize: 0.025 * size.height),
             ),
             SizedBox(height: 0.04 * size.height),
-            Draggable<RoundedLetterSquare>(
+
+            Draggable<String>(
+              data: 'L',
               feedback: RoundedLetterSquare(
-                size: size.width / 7,
-                color: const Color(0xFFCF10C7),
-                letter: "M",
-                digit: 3,
+                size: size.width * 0.15,
+                color: Colors.blue.withOpacity(0.7),
+                letter: 'L',
+                req: true,
               ),
+              childWhenDragging: Container(),
               child: RoundedLetterSquare(
-                size: size.width / 7,
-                color: const Color(0xFFCF10C7),
-                letter: "M",
-                digit: 3,
+                size: size.width * 0.15,
+                color: Colors.blue,
+                letter: 'L',
+                req: true,
               ),
+            ),
+
+            DragTarget<String>(
+              builder: (BuildContext context, List<String?> candidateData,
+                  List<dynamic> rejectedData) {
+                return Container(
+                  width: size.width * 0.15,
+                  height: size.width * 0.15,
+                  color: Colors.red,
+                );
+              },
+              onWillAccept: (String? data) {
+                return true;
+              },
+              onAccept: (String? data) {
+                if (data != null) {
+                  setState(() {
+                    payload.add(data);
+                    print(payload);
+                  });
+                }
+              },
             ),
             SizedBox(height: 0.04 * size.height),
 
