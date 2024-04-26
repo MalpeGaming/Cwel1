@@ -121,7 +121,7 @@ class _Scrabble extends State<Scrabble> {
   }
 
   List<String> payload = [];
-
+  bool display = true;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -167,12 +167,14 @@ class _Scrabble extends State<Scrabble> {
                 req: true,
               ),
               childWhenDragging: Container(),
-              child: RoundedLetterSquare(
-                size: size.width * 0.15,
-                color: Colors.blue,
-                letter: 'L',
-                req: true,
-              ),
+              child: display
+                  ? RoundedLetterSquare(
+                      size: size.width * 0.15,
+                      color: Colors.blue,
+                      letter: 'L',
+                      req: true,
+                    )
+                  : SizedBox.shrink(),
             ),
 
             DragTarget<String>(
@@ -190,6 +192,7 @@ class _Scrabble extends State<Scrabble> {
               onAccept: (String? data) {
                 if (data != null) {
                   setState(() {
+                    display = false;
                     payload.add(data);
                     print(payload);
                   });
