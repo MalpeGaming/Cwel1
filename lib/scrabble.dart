@@ -120,6 +120,8 @@ class _Scrabble extends State<Scrabble> {
     print(initialTest);
   }
 
+  bool isDragged = false;
+
   List<String> payload = [];
   bool display = true;
   @override
@@ -166,7 +168,9 @@ class _Scrabble extends State<Scrabble> {
                 letter: 'L',
                 req: true,
               ),
-              childWhenDragging: Container(),
+              childWhenDragging: SizedBox(
+                height: size.width * 0.15,
+              ),
               child: display
                   ? RoundedLetterSquare(
                       size: size.width * 0.15,
@@ -174,7 +178,9 @@ class _Scrabble extends State<Scrabble> {
                       letter: 'L',
                       req: true,
                     )
-                  : SizedBox.shrink(),
+                  : SizedBox(
+                      height: size.width * 0.15,
+                    ),
             ),
 
             DragTarget<String>(
@@ -192,6 +198,7 @@ class _Scrabble extends State<Scrabble> {
               onAccept: (String? data) {
                 if (data != null) {
                   setState(() {
+                    isDragged = true;
                     display = false;
                     payload.add(data);
                     print(payload);
