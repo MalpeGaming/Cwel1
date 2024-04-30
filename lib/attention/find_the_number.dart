@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:async';
+import '../progress_screen.dart';
 
 class FindTheNumber extends StatefulWidget {
   const FindTheNumber({super.key});
@@ -11,10 +12,10 @@ class FindTheNumber extends StatefulWidget {
 
 class _FindTheNumber extends State<FindTheNumber> {
   double score = 0;
-  int _time = 60;
+  int _time = 20;
   int excludedNumber = Random().nextInt(10);
 
-  int x = 0, y = 0;
+  //int x = 0, y = 0;
 
   late List<List<int>> randomNumbers = List.generate(
     10,
@@ -34,9 +35,40 @@ class _FindTheNumber extends State<FindTheNumber> {
   int y = Random().nextInt(8);
   randomNumbers[1][1] = excludedNumber;*/
 
+  int x = Random().nextInt(7);
+  int y = Random().nextInt(9);
+
   GestureDetector createButton(BuildContext context, int i, int j) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        setState(() {
+          score++;
+          int randomNum;
+          do {
+            randomNum = Random().nextInt(10);
+          } while (randomNum == excludedNumber);
+          excludedNumber = randomNum;
+          randomNumbers = List.generate(
+            10,
+            (_) => List.generate(
+              8,
+              (_) {
+                int randomNum;
+                do {
+                  randomNum = Random().nextInt(10);
+                } while (randomNum == excludedNumber);
+                return randomNum;
+              },
+            ),
+          );
+          x = Random().nextInt(7);
+          y = Random().nextInt(9);
+          randomNumbers[y][x] = excludedNumber;
+        });
+        if (i == y && j == x) {
+          ++score;
+        }
+      },
       child: Container(
         width: MediaQuery.of(context).size.width / 10,
         height: MediaQuery.of(context).size.height / 22,
@@ -63,9 +95,9 @@ class _FindTheNumber extends State<FindTheNumber> {
     super.initState();
     startTimer();
 
-    int x = Random().nextInt(10);
-    int y = Random().nextInt(8);
-    randomNumbers[x][y] = excludedNumber;
+    setState(() {
+      randomNumbers[y][x] = excludedNumber;
+    });
   }
 
   void startTimer() {
@@ -75,6 +107,18 @@ class _FindTheNumber extends State<FindTheNumber> {
         setState(
           () {
             _time--;
+            if (_time <= 0) {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProgressScreen(
+                    name: "find_the_number",
+                    score: score.toDouble(),
+                  ),
+                ),
+              );
+            }
           },
         );
       },
@@ -152,9 +196,9 @@ class _FindTheNumber extends State<FindTheNumber> {
                 ],
               ),
               SizedBox(height: 0.02 * size.height),
-              //Text(x.toString()),
-              //Text(y.toString()),
-              //Text(randomNumbers[x][y].toString()),
+              Text(x.toString()),
+              Text(y.toString()),
+              Text(randomNumbers[x][y].toString()),
 
               /*Text(
                 randomNumbers.toString(),
