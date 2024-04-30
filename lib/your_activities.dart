@@ -1,3 +1,4 @@
+import 'package:brain_train_app/attention/find_the_number.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'navbar.dart';
@@ -264,7 +265,7 @@ class _YourActivities extends State<YourActivities> {
                           "find_the_number",
                           "Find the",
                           "NUMBER",
-                          const YourActivities(),
+                          const FindTheNumber(),
                         ),
                         createActivity2(
                           context,
