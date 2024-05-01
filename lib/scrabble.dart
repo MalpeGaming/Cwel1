@@ -66,49 +66,48 @@ class LetterItem {
   });
 }
 
-class RoundedLetterSquare extends StatefulWidget {
-  final int? digit;
-  final String letter;
-  final bool used;
-  final int index;
-
-  const RoundedLetterSquare({
-    required this.letter,
-    required this.used,
-    required this.index,
-    this.digit,
-    super.key,
-  });
-
+class Scrabble extends StatefulWidget {
+  final bool? initialTest;
+  const Scrabble({this.initialTest = false, super.key});
   @override
-  _RoundedLetterSquareState createState() => _RoundedLetterSquareState();
+  State<Scrabble> createState() => _Scrabble();
 }
 
-class _RoundedLetterSquareState extends State<RoundedLetterSquare> {
-  bool _isUsed = false;
-
+class _Scrabble extends State<Scrabble> {
+  bool initialTest = false;
   @override
   void initState() {
     super.initState();
-    _isUsed = widget.used;
+    initialTest = widget.initialTest!;
+    print(initialTest);
+    word.clear();
   }
 
-  void _toggleUsed() {
-    setState(() {
-      if (!_isUsed) {
-        word.add(widget.index);
-        _isUsed = !_isUsed;
-        print(word);
-      }
-    });
-  }
+  Widget roundedLetterSquare({
+    required String letter,
+    required bool used,
+    required int index,
+    int? digit,
+  }) {
+    bool isUsed = used;
 
-  @override
-  Widget build(BuildContext context) {
+    void toggleUsed() {
+      setState(() {
+        print(isUsed);
+        if (!isUsed) {
+          word.add(index);
+          print(isUsed);
+
+          isUsed = !isUsed;
+          print(isUsed);
+        }
+      });
+    }
+
     Size size = MediaQuery.of(context).size;
 
     return GestureDetector(
-      onTap: _toggleUsed,
+      onTap: toggleUsed,
       child: Container(
         width: size.width * 0.14,
         height: size.width * 0.14,
@@ -116,14 +115,14 @@ class _RoundedLetterSquareState extends State<RoundedLetterSquare> {
           color: Theme.of(context)
               .colorScheme
               .primary
-              .withOpacity(_isUsed ? 0.5 : 1),
+              .withOpacity(isUsed ? 0.5 : 1),
           borderRadius: BorderRadius.circular((size.width * 0.14) / 2.5),
         ),
         child: Stack(
           children: [
             Center(
               child: Text(
-                widget.letter,
+                letter,
                 style: TextStyle(
                   fontSize: (size.width * 0.14) / 2,
                   fontWeight: FontWeight.bold,
@@ -132,14 +131,14 @@ class _RoundedLetterSquareState extends State<RoundedLetterSquare> {
                 ),
               ),
             ),
-            if (widget.digit != null) // Display the digit if it is not null
+            if (digit != null) // Display the digit if it is not null
               Positioned(
                 bottom: 0,
                 right: 0,
                 child: Container(
                   padding: const EdgeInsets.all(4),
                   child: Text(
-                    widget.digit.toString(),
+                    digit.toString(),
                     style: TextStyle(
                       fontSize: (size.width * 0.14) / 3,
                       color: Colors.white,
@@ -152,25 +151,6 @@ class _RoundedLetterSquareState extends State<RoundedLetterSquare> {
         ),
       ),
     );
-  }
-}
-
-class Scrabble extends StatefulWidget {
-  final bool? initialTest;
-  const Scrabble({this.initialTest = false, super.key});
-  @override
-  State<Scrabble> createState() => _Scrabble();
-}
-
-class _Scrabble extends State<Scrabble> {
-  bool initialTest = false;
-
-  @override
-  void initState() {
-    super.initState();
-    initialTest = widget.initialTest!;
-    print(initialTest);
-    word.clear();
   }
 
   bool isDragged = false;
@@ -224,7 +204,7 @@ class _Scrabble extends State<Scrabble> {
               children: List.generate(9, (index) {
                 return Container(
                   margin: const EdgeInsets.all(5),
-                  child: RoundedLetterSquare(
+                  child: roundedLetterSquare(
                     letter: picked[index],
                     used: false,
                     index: index,
