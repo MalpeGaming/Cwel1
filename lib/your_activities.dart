@@ -21,6 +21,7 @@ import 'logical_thinking/riddles.dart';
 import 'linguistic/exercise2.dart';
 import 'linguistic/video.dart';
 import 'memory/memory_video.dart';
+import 'scrabble.dart';
 import '2048/game_2048.dart';
 
 class YourActivities extends StatefulWidget {
@@ -391,7 +392,7 @@ class _YourActivities extends State<YourActivities> {
                           "scrabble",
                           "Like",
                           "SCRABBLE",
-                          const YourActivities(),
+                          const Scrabble(iteration: 0),
                         ),
                         createActivity2(
                           context,
