@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '/buttons.dart';
+import 'dart:math';
 
 final Map<String, int> scrabblePoints = {
   'A': 1,
@@ -30,73 +31,125 @@ final Map<String, int> scrabblePoints = {
   'Z': 10,
 };
 
+final List<String> vowels = ['A', 'E', 'I', 'O', 'U', 'Y'];
+final List<String> consonants = [
+  'B',
+  'C',
+  'D',
+  'F',
+  'G',
+  'H',
+  'J',
+  'K',
+  'L',
+  'M',
+  'N',
+  'P',
+  'Q',
+  'R',
+  'S',
+  'T',
+  'V',
+  'W',
+  'X',
+  'Z',
+];
+List<int> word = [];
+
 class LetterItem {
   String letter;
   int points;
-  bool req;
 
   LetterItem({
     required this.letter,
     required this.points,
-    this.req = false,
   });
 }
 
-class RoundedLetterSquare extends StatelessWidget {
-  final double size;
-  final Color color;
+class RoundedLetterSquare extends StatefulWidget {
+  final int? digit;
   final String letter;
-  final int? digit; // New optional argument
-  final bool req; // New optional argument
+  final bool used;
+  final int index;
 
   const RoundedLetterSquare({
-    required this.size,
-    required this.color,
     required this.letter,
-    this.digit, // Initialize the optional argument
-    this.req = false, // Initialize the optional argument
+    required this.used,
+    required this.index,
+    this.digit,
     super.key,
   });
 
   @override
+  _RoundedLetterSquareState createState() => _RoundedLetterSquareState();
+}
+
+class _RoundedLetterSquareState extends State<RoundedLetterSquare> {
+  bool _isUsed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _isUsed = widget.used;
+  }
+
+  void _toggleUsed() {
+    setState(() {
+      if (!_isUsed) {
+        word.add(widget.index);
+        _isUsed = !_isUsed;
+        print(word);
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      width: size,
-      height: size,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(size / 2.5),
-      ),
-      child: Stack(
-        children: [
-          Center(
-            child: Text(
-              letter,
-              style: TextStyle(
-                fontSize: size / 2,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                decoration: TextDecoration.none,
-              ),
-            ),
-          ),
-          if (digit != null) // Display the digit if it is not null
-            Positioned(
-              bottom: 0,
-              right: 0,
-              child: Container(
-                padding: const EdgeInsets.all(4),
-                child: Text(
-                  digit.toString(),
-                  style: TextStyle(
-                    fontSize: size / 3,
-                    color: Colors.white,
-                    decoration: TextDecoration.none,
-                  ),
+    Size size = MediaQuery.of(context).size;
+
+    return GestureDetector(
+      onTap: _toggleUsed,
+      child: Container(
+        width: size.width * 0.14,
+        height: size.width * 0.14,
+        decoration: BoxDecoration(
+          color: Theme.of(context)
+              .colorScheme
+              .primary
+              .withOpacity(_isUsed ? 0.5 : 1),
+          borderRadius: BorderRadius.circular((size.width * 0.14) / 2.5),
+        ),
+        child: Stack(
+          children: [
+            Center(
+              child: Text(
+                widget.letter,
+                style: TextStyle(
+                  fontSize: (size.width * 0.14) / 2,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  decoration: TextDecoration.none,
                 ),
               ),
             ),
-        ],
+            if (widget.digit != null) // Display the digit if it is not null
+              Positioned(
+                bottom: 0,
+                right: 0,
+                child: Container(
+                  padding: const EdgeInsets.all(4),
+                  child: Text(
+                    widget.digit.toString(),
+                    style: TextStyle(
+                      fontSize: (size.width * 0.14) / 3,
+                      color: Colors.white,
+                      decoration: TextDecoration.none,
+                    ),
+                  ),
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
@@ -105,7 +158,6 @@ class RoundedLetterSquare extends StatelessWidget {
 class Scrabble extends StatefulWidget {
   final bool? initialTest;
   const Scrabble({this.initialTest = false, super.key});
-
   @override
   State<Scrabble> createState() => _Scrabble();
 }
@@ -118,12 +170,21 @@ class _Scrabble extends State<Scrabble> {
     super.initState();
     initialTest = widget.initialTest!;
     print(initialTest);
+    word.clear();
   }
 
   bool isDragged = false;
-
-  List<String> payload = [];
-  bool display = true;
+  List<String> picked = [
+    vowels[Random().nextInt(vowels.length)],
+    vowels[Random().nextInt(vowels.length)],
+    consonants[Random().nextInt(vowels.length)],
+    consonants[Random().nextInt(vowels.length)],
+    (scrabblePoints.keys.toList())[Random().nextInt(scrabblePoints.length)],
+    (scrabblePoints.keys.toList())[Random().nextInt(scrabblePoints.length)],
+    (scrabblePoints.keys.toList())[Random().nextInt(scrabblePoints.length)],
+    (scrabblePoints.keys.toList())[Random().nextInt(scrabblePoints.length)],
+    (scrabblePoints.keys.toList())[Random().nextInt(scrabblePoints.length)],
+  ]..shuffle();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -159,55 +220,20 @@ class _Scrabble extends State<Scrabble> {
               style: TextStyle(fontSize: 0.025 * size.height),
             ),
             SizedBox(height: 0.04 * size.height),
-
-            Draggable<String>(
-              data: 'L',
-              feedback: RoundedLetterSquare(
-                size: size.width * 0.15,
-                color: Colors.blue.withOpacity(0.7),
-                letter: 'L',
-                req: true,
-              ),
-              childWhenDragging: SizedBox(
-                height: size.width * 0.15,
-              ),
-              child: display
-                  ? RoundedLetterSquare(
-                      size: size.width * 0.15,
-                      color: Colors.blue,
-                      letter: 'L',
-                      req: true,
-                    )
-                  : SizedBox(
-                      height: size.width * 0.15,
-                    ),
-            ),
-
-            DragTarget<String>(
-              builder: (BuildContext context, List<String?> candidateData,
-                  List<dynamic> rejectedData) {
+            Wrap(
+              children: List.generate(9, (index) {
                 return Container(
-                  width: size.width * 0.15,
-                  height: size.width * 0.15,
-                  color: Colors.red,
+                  margin: const EdgeInsets.all(5),
+                  child: RoundedLetterSquare(
+                    letter: picked[index],
+                    used: false,
+                    index: index,
+                  ),
                 );
-              },
-              onWillAccept: (String? data) {
-                return true;
-              },
-              onAccept: (String? data) {
-                if (data != null) {
-                  setState(() {
-                    isDragged = true;
-                    display = false;
-                    payload.add(data);
-                    print(payload);
-                  });
-                }
-              },
+              }),
             ),
             SizedBox(height: 0.04 * size.height),
-
+            Text(word.toString()),
             Center(
               child: SizedBox(
                 height: size.height * 0.05,
@@ -219,7 +245,6 @@ class _Scrabble extends State<Scrabble> {
                 ),
               ),
             ),
-            //SizedBox(height: 0.1 * size.height),
           ],
         ),
       ),
