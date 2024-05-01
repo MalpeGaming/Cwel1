@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '/buttons.dart';
 import 'dart:math';
+import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
+import '/progress_screen.dart';
 
 final Map<String, int> scrabblePoints = {
   'A': 1,
@@ -31,7 +33,7 @@ final Map<String, int> scrabblePoints = {
   'Z': 10,
 };
 
-final List<String> vowels = ['A', 'E', 'I', 'O', 'U', 'Y'];
+final List<String> vowels = ['A', 'E', 'I', 'O', 'U'];
 final List<String> consonants = [
   'B',
   'C',
@@ -54,7 +56,6 @@ final List<String> consonants = [
   'X',
   'Z',
 ];
-List<int> word = [];
 
 class LetterItem {
   String letter;
@@ -67,20 +68,62 @@ class LetterItem {
 }
 
 class Scrabble extends StatefulWidget {
+  final int iteration;
   final bool? initialTest;
-  const Scrabble({this.initialTest = false, super.key});
+  const Scrabble({
+    required this.iteration,
+    this.initialTest = false,
+    super.key,
+  });
   @override
   State<Scrabble> createState() => _Scrabble();
 }
 
 class _Scrabble extends State<Scrabble> {
+  final dMSAJson = DictionaryMSAFlutter();
+
+  List usedList = List.generate(9, (index) => false);
+  bool wordExists = false;
+  int roundPoints = 0;
   bool initialTest = false;
+  List<int> word = [];
   @override
   void initState() {
     super.initState();
     initialTest = widget.initialTest!;
     print(initialTest);
-    word.clear();
+  }
+
+  void toggleUnused() {
+    setState(() {
+      if (word.isNotEmpty) {
+        int index = word.removeLast();
+        usedList[index] = false;
+        roundPoints -= scrabblePoints[picked[index]]!;
+        print(word.map((e) => picked[e]).join('').toLowerCase());
+        if (word.isNotEmpty) {
+          Future<bool> lookupWord() async {
+            if (await dMSAJson
+                .hasEntry(word.map((e) => picked[e]).join('').toLowerCase())) {
+              return true;
+            } else {
+              return false;
+            }
+          }
+
+          Future<void> amogus() async {
+            wordExists = await lookupWord();
+            print(wordExists);
+          }
+
+          amogus();
+        }
+      } else {
+        wordExists = false;
+      }
+
+      //print(wordExists);
+    });
   }
 
   Widget roundedLetterSquare({
@@ -89,17 +132,34 @@ class _Scrabble extends State<Scrabble> {
     required int index,
     int? digit,
   }) {
-    bool isUsed = used;
-
     void toggleUsed() {
       setState(() {
-        print(isUsed);
-        if (!isUsed) {
+        if (!usedList[index]) {
+          usedList[index] = true;
           word.add(index);
-          print(isUsed);
+          roundPoints += scrabblePoints[letter]!;
+          print(word.map((e) => picked[e]).join('').toLowerCase());
 
-          isUsed = !isUsed;
-          print(isUsed);
+          if (word.isNotEmpty) {
+            Future<bool> lookupWord() async {
+              if (await dMSAJson.hasEntry(
+                word.map((e) => picked[e]).join('').toLowerCase(),
+              )) {
+                return true;
+              } else {
+                return false;
+              }
+            }
+
+            Future<void> amogus() async {
+              wordExists = await lookupWord();
+              print(wordExists);
+            }
+
+            amogus();
+          } else {
+            wordExists = false;
+          }
         }
       });
     }
@@ -115,7 +175,7 @@ class _Scrabble extends State<Scrabble> {
           color: Theme.of(context)
               .colorScheme
               .primary
-              .withOpacity(isUsed ? 0.5 : 1),
+              .withOpacity(usedList[index] ? 0.7 : 1),
           borderRadius: BorderRadius.circular((size.width * 0.14) / 2.5),
         ),
         child: Stack(
@@ -138,7 +198,7 @@ class _Scrabble extends State<Scrabble> {
                 child: Container(
                   padding: const EdgeInsets.all(4),
                   child: Text(
-                    digit.toString(),
+                    scrabblePoints[letter].toString(),
                     style: TextStyle(
                       fontSize: (size.width * 0.14) / 3,
                       color: Colors.white,
@@ -149,6 +209,36 @@ class _Scrabble extends State<Scrabble> {
               ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget resultLetter({
+    required String letter,
+  }) {
+    Size size = MediaQuery.of(context).size;
+
+    return Container(
+      width: size.width * 0.14,
+      height: size.width * 0.14,
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primary,
+        borderRadius: BorderRadius.circular((size.width * 0.14) / 2.5),
+      ),
+      child: Stack(
+        children: [
+          Center(
+            child: Text(
+              letter,
+              style: TextStyle(
+                fontSize: (size.width * 0.14) / 2,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                decoration: TextDecoration.none,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -200,6 +290,12 @@ class _Scrabble extends State<Scrabble> {
               style: TextStyle(fontSize: 0.025 * size.height),
             ),
             SizedBox(height: 0.04 * size.height),
+
+            Text(
+              "points: $roundPoints, ${wordExists ? "Word Exists" : "Word does not exist"}",
+              style: TextStyle(fontSize: 0.02 * size.height),
+            ),
+
             Wrap(
               children: List.generate(9, (index) {
                 return Container(
@@ -208,18 +304,49 @@ class _Scrabble extends State<Scrabble> {
                     letter: picked[index],
                     used: false,
                     index: index,
+                    digit: 1,
                   ),
                 );
               }),
             ),
             SizedBox(height: 0.04 * size.height),
-            Text(word.toString()),
+            //Text(word.toString()),
+            //Text(word.map((e) => picked[e]).join('')),
+            Align(
+              alignment: Alignment.centerRight,
+              child: IconButton(
+                icon: const Icon(Icons.backspace_rounded),
+                color: Theme.of(context).colorScheme.primary,
+                onPressed: () {
+                  if (word.isNotEmpty) {
+                    toggleUnused();
+                  }
+                },
+                iconSize: (size.width *
+                    0.12), // Increase the icon size to make it bigger
+              ),
+            ),
+            Wrap(
+              children: List.generate(word.length, (index) {
+                return Container(
+                  margin: const EdgeInsets.all(5),
+                  child: resultLetter(
+                    letter: picked[word[index]],
+                  ),
+                );
+              }),
+            ),
+            const Spacer(),
+
             Center(
               child: SizedBox(
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const Text("amogus"),
+                  route: ProgressScreen(
+                    name: "short_term_concentration",
+                    score: wordExists ? roundPoints.toDouble() : 0,
+                  ),
                   text: 'Continue',
                   width: size.width,
                 ),
