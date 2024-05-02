@@ -393,7 +393,7 @@ class _YourActivities extends State<YourActivities> {
                           "Like",
                           "SCRABBLE",
                           const Scrabble(
-                            iteration: 0,
+                            iteration: 1,
                             allPoints: 0,
                           ),
                         ),
