@@ -392,7 +392,10 @@ class _YourActivities extends State<YourActivities> {
                           "scrabble",
                           "Like",
                           "SCRABBLE",
-                          const Scrabble(iteration: 0),
+                          const Scrabble(
+                            iteration: 0,
+                            allPoints: 0,
+                          ),
                         ),
                         createActivity2(
                           context,

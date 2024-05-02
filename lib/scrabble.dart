@@ -69,9 +69,11 @@ class LetterItem {
 
 class Scrabble extends StatefulWidget {
   final int iteration;
+  final int allPoints;
   final bool? initialTest;
   const Scrabble({
     required this.iteration,
+    required this.allPoints,
     this.initialTest = false,
     super.key,
   });
@@ -258,6 +260,7 @@ class _Scrabble extends State<Scrabble> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    print(widget.allPoints);
     return Scaffold(
       body: Container(
         margin: EdgeInsets.only(
@@ -292,7 +295,11 @@ class _Scrabble extends State<Scrabble> {
             SizedBox(height: 0.04 * size.height),
 
             Text(
-              "points: $roundPoints, ${wordExists ? "Word Exists" : "Word does not exist"}",
+              "Points: $roundPoints, ${wordExists ? "Word Exists" : "Word does not exist"}",
+              style: TextStyle(fontSize: 0.02 * size.height),
+            ),
+            Text(
+              "Attempt: ${widget.iteration}",
               style: TextStyle(fontSize: 0.02 * size.height),
             ),
 
@@ -338,20 +345,48 @@ class _Scrabble extends State<Scrabble> {
             ),
             const Spacer(),
 
-            Center(
-              child: SizedBox(
-                height: size.height * 0.05,
-                width: size.width * 0.75,
-                child: RedirectButton(
-                  route: ProgressScreen(
-                    name: "short_term_concentration",
-                    score: wordExists ? roundPoints.toDouble() : 0,
+            (widget.iteration == 10)
+                ? Center(
+                    child: SizedBox(
+                      height: size.height * 0.05,
+                      width: size.width * 0.75,
+                      child: RedirectButton(
+                        route: ProgressScreen(
+                          name: "short_term_concentration",
+                          score: (widget.allPoints +
+                                  (wordExists ? roundPoints : 0))
+                              .toDouble(),
+                        ),
+                        text: 'Continue',
+                        width: size.width,
+                      ),
+                    ),
+                  )
+                : Center(
+                    child: SizedBox(
+                      height: size.height * 0.05,
+                      width: size.width * 0.75,
+                      child: RedirectButton(
+                        onClick: () {
+                          Navigator.pop(context);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Scrabble(
+                                iteration: widget.iteration + 1,
+                                allPoints: wordExists
+                                    ? (widget.allPoints + roundPoints)
+                                    : widget.allPoints,
+                                initialTest: initialTest,
+                              ),
+                            ),
+                          );
+                        },
+                        text: 'Continue',
+                        width: size.width,
+                      ),
+                    ),
                   ),
-                  text: 'Continue',
-                  width: size.width,
-                ),
-              ),
-            ),
           ],
         ),
       ),
