@@ -270,7 +270,7 @@ class _Scrabble extends State<Scrabble> {
             margin: EdgeInsets.only(
               left: size.width / 12,
               right: size.width / 12,
-              bottom: size.height / 10,
+              //bottom: size.height / 10,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -319,41 +319,41 @@ class _Scrabble extends State<Scrabble> {
               //crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 0.05 * size.height),
-                Align(
-                  alignment: Alignment.center,
-                  child: Column(
-                    children: [
-                      Wrap(
-                        children: List.generate(9, (index) {
-                          return Container(
-                            margin: const EdgeInsets.all(5),
-                            child: roundedLetterSquare(
-                              letter: picked[index],
-                              used: false,
-                              index: index,
-                              digit: 1,
-                            ),
-                          );
-                        }),
+                Column(
+                  children: [
+                    Wrap(
+                      children: List.generate(9, (index) {
+                        return Container(
+                          margin: const EdgeInsets.all(5),
+                          child: roundedLetterSquare(
+                            letter: picked[index],
+                            used: false,
+                            index: index,
+                            digit: 1,
+                          ),
+                        );
+                      }),
+                    ),
+                    //SizedBox(height: 0.02 * size.height),
+                    //Text(word.toString()),
+                    //Text(word.map((e) => picked[e]).join('')),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: IconButton(
+                        icon: const Icon(Icons.backspace_rounded),
+                        color: Theme.of(context).colorScheme.primary,
+                        onPressed: () {
+                          if (word.isNotEmpty) {
+                            toggleUnused();
+                          }
+                        },
+                        iconSize: (size.width *
+                            0.12), // Increase the icon size to make it bigger
                       ),
-                      //SizedBox(height: 0.02 * size.height),
-                      //Text(word.toString()),
-                      //Text(word.map((e) => picked[e]).join('')),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: IconButton(
-                          icon: const Icon(Icons.backspace_rounded),
-                          color: Theme.of(context).colorScheme.primary,
-                          onPressed: () {
-                            if (word.isNotEmpty) {
-                              toggleUnused();
-                            }
-                          },
-                          iconSize: (size.width *
-                              0.12), // Increase the icon size to make it bigger
-                        ),
-                      ),
-                      Wrap(
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Wrap(
                         children: List.generate(word.length, (index) {
                           return Container(
                             margin: const EdgeInsets.all(5),
@@ -363,52 +363,52 @@ class _Scrabble extends State<Scrabble> {
                           );
                         }),
                       ),
-                      //const Spacer(),
+                    ),
+                    //const Spacer(),
 
-                      (widget.iteration == 10)
-                          ? Center(
-                              child: SizedBox(
-                                height: size.height * 0.05,
-                                width: size.width * 0.75,
-                                child: RedirectButton(
-                                  route: ProgressScreen(
-                                    name: "short_term_concentration",
-                                    score: (widget.allPoints +
-                                            (wordExists ? roundPoints : 0))
-                                        .toDouble(),
-                                  ),
-                                  text: 'Continue',
-                                  width: size.width,
+                    (widget.iteration == 10)
+                        ? Center(
+                            child: SizedBox(
+                              height: size.height * 0.05,
+                              width: size.width * 0.75,
+                              child: RedirectButton(
+                                route: ProgressScreen(
+                                  name: "short_term_concentration",
+                                  score: (widget.allPoints +
+                                          (wordExists ? roundPoints : 0))
+                                      .toDouble(),
                                 ),
-                              ),
-                            )
-                          : Center(
-                              child: SizedBox(
-                                height: size.height * 0.05,
-                                width: size.width * 0.75,
-                                child: RedirectButton(
-                                  onClick: () {
-                                    Navigator.pop(context);
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Scrabble(
-                                          iteration: widget.iteration + 1,
-                                          allPoints: wordExists
-                                              ? (widget.allPoints + roundPoints)
-                                              : widget.allPoints,
-                                          initialTest: initialTest,
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                  text: 'Continue',
-                                  width: size.width,
-                                ),
+                                text: 'Continue',
+                                width: size.width,
                               ),
                             ),
-                    ],
-                  ),
+                          )
+                        : Center(
+                            child: SizedBox(
+                              height: size.height * 0.05,
+                              width: size.width * 0.75,
+                              child: RedirectButton(
+                                onClick: () {
+                                  Navigator.pop(context);
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Scrabble(
+                                        iteration: widget.iteration + 1,
+                                        allPoints: wordExists
+                                            ? (widget.allPoints + roundPoints)
+                                            : widget.allPoints,
+                                        initialTest: initialTest,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                text: 'Continue',
+                                width: size.width,
+                              ),
+                            ),
+                          ),
+                  ],
                 ),
               ],
             ),
