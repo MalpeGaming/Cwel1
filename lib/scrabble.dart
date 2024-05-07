@@ -167,17 +167,18 @@ class _Scrabble extends State<Scrabble> {
     }
 
     Size size = MediaQuery.of(context).size;
-
+    print(Theme.of(context).brightness == Brightness.dark);
     return GestureDetector(
       onTap: toggleUsed,
       child: Container(
         width: size.width * 0.14,
         height: size.width * 0.14,
         decoration: BoxDecoration(
-          color: Theme.of(context)
-              .colorScheme
-              .primary
-              .withOpacity(usedList[index] ? 0.7 : 1),
+          color: (!usedList[index]
+              ? Theme.of(context).colorScheme.primary
+              : (Theme.of(context).brightness == Brightness.dark
+                  ? const Color(0xFFD4CDF4)
+                  : const Color(0xFF231942))),
           borderRadius: BorderRadius.circular((size.width * 0.14) / 2.5),
         ),
         child: Stack(
@@ -262,133 +263,157 @@ class _Scrabble extends State<Scrabble> {
     Size size = MediaQuery.of(context).size;
     print(widget.allPoints);
     return Scaffold(
-      body: Container(
-        margin: EdgeInsets.only(
-          left: size.width / 15,
-          right: size.width / 15,
-          bottom: size.height / 10,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 0.05 * size.height),
-            Align(
-              alignment: Alignment.center,
-              child: Column(
-                children: [
-                  Text(
-                    "LINGUISTIC",
-                    style: TextStyle(fontSize: 0.07 * size.height),
-                  ),
-                  Text(
-                    "INTELLIGENCE",
-                    style: TextStyle(fontSize: 0.035 * size.height),
-                  ),
-                ],
-              ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: EdgeInsets.only(
+              left: size.width / 12,
+              right: size.width / 12,
+              bottom: size.height / 10,
             ),
-            SizedBox(height: 0.03 * size.height),
-            Text(
-              "Exercise 1 - Like Scrabbles",
-              style: TextStyle(fontSize: 0.025 * size.height),
-            ),
-            SizedBox(height: 0.04 * size.height),
-
-            Text(
-              "Points: $roundPoints, ${wordExists ? "Word Exists" : "Word does not exist"}",
-              style: TextStyle(fontSize: 0.02 * size.height),
-            ),
-            Text(
-              "Attempt: ${widget.iteration}",
-              style: TextStyle(fontSize: 0.02 * size.height),
-            ),
-
-            Wrap(
-              children: List.generate(9, (index) {
-                return Container(
-                  margin: const EdgeInsets.all(5),
-                  child: roundedLetterSquare(
-                    letter: picked[index],
-                    used: false,
-                    index: index,
-                    digit: 1,
-                  ),
-                );
-              }),
-            ),
-            SizedBox(height: 0.04 * size.height),
-            //Text(word.toString()),
-            //Text(word.map((e) => picked[e]).join('')),
-            Align(
-              alignment: Alignment.centerRight,
-              child: IconButton(
-                icon: const Icon(Icons.backspace_rounded),
-                color: Theme.of(context).colorScheme.primary,
-                onPressed: () {
-                  if (word.isNotEmpty) {
-                    toggleUnused();
-                  }
-                },
-                iconSize: (size.width *
-                    0.12), // Increase the icon size to make it bigger
-              ),
-            ),
-            Wrap(
-              children: List.generate(word.length, (index) {
-                return Container(
-                  margin: const EdgeInsets.all(5),
-                  child: resultLetter(
-                    letter: picked[word[index]],
-                  ),
-                );
-              }),
-            ),
-            const Spacer(),
-
-            (widget.iteration == 10)
-                ? Center(
-                    child: SizedBox(
-                      height: size.height * 0.05,
-                      width: size.width * 0.75,
-                      child: RedirectButton(
-                        route: ProgressScreen(
-                          name: "short_term_concentration",
-                          score: (widget.allPoints +
-                                  (wordExists ? roundPoints : 0))
-                              .toDouble(),
-                        ),
-                        text: 'Continue',
-                        width: size.width,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 0.05 * size.height),
+                Align(
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: [
+                      Text(
+                        "LINGUISTIC",
+                        style: TextStyle(fontSize: 0.068 * size.height),
                       ),
-                    ),
-                  )
-                : Center(
-                    child: SizedBox(
-                      height: size.height * 0.05,
-                      width: size.width * 0.75,
-                      child: RedirectButton(
-                        onClick: () {
-                          Navigator.pop(context);
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Scrabble(
-                                iteration: widget.iteration + 1,
-                                allPoints: wordExists
-                                    ? (widget.allPoints + roundPoints)
-                                    : widget.allPoints,
-                                initialTest: initialTest,
-                              ),
+                      Text(
+                        "INTELLIGENCE",
+                        style: TextStyle(fontSize: 0.035 * size.height),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 0.03 * size.height),
+                Text(
+                  "Exercise 1 - Like Scrabbles",
+                  style: TextStyle(fontSize: 0.025 * size.height),
+                ),
+                SizedBox(height: 0.04 * size.height),
+                Text(
+                  "Points: $roundPoints, ${wordExists ? "Word Exists" : "Word does not exist"}",
+                  style: TextStyle(fontSize: 0.02 * size.height),
+                ),
+                Text(
+                  "Attempt: ${widget.iteration}",
+                  style: TextStyle(fontSize: 0.02 * size.height),
+                ),
+                SizedBox(height: 0.03 * size.height),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+              left: size.width / 12,
+              right: size.width / 12,
+              bottom: size.height / 10,
+            ),
+            child: Column(
+              //crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 0.05 * size.height),
+                Align(
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: [
+                      Wrap(
+                        children: List.generate(9, (index) {
+                          return Container(
+                            margin: const EdgeInsets.all(5),
+                            child: roundedLetterSquare(
+                              letter: picked[index],
+                              used: false,
+                              index: index,
+                              digit: 1,
                             ),
                           );
-                        },
-                        text: 'Continue',
-                        width: size.width,
+                        }),
                       ),
-                    ),
+                      //SizedBox(height: 0.02 * size.height),
+                      //Text(word.toString()),
+                      //Text(word.map((e) => picked[e]).join('')),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: IconButton(
+                          icon: const Icon(Icons.backspace_rounded),
+                          color: Theme.of(context).colorScheme.primary,
+                          onPressed: () {
+                            if (word.isNotEmpty) {
+                              toggleUnused();
+                            }
+                          },
+                          iconSize: (size.width *
+                              0.12), // Increase the icon size to make it bigger
+                        ),
+                      ),
+                      Wrap(
+                        children: List.generate(word.length, (index) {
+                          return Container(
+                            margin: const EdgeInsets.all(5),
+                            child: resultLetter(
+                              letter: picked[word[index]],
+                            ),
+                          );
+                        }),
+                      ),
+                      //const Spacer(),
+
+                      (widget.iteration == 10)
+                          ? Center(
+                              child: SizedBox(
+                                height: size.height * 0.05,
+                                width: size.width * 0.75,
+                                child: RedirectButton(
+                                  route: ProgressScreen(
+                                    name: "short_term_concentration",
+                                    score: (widget.allPoints +
+                                            (wordExists ? roundPoints : 0))
+                                        .toDouble(),
+                                  ),
+                                  text: 'Continue',
+                                  width: size.width,
+                                ),
+                              ),
+                            )
+                          : Center(
+                              child: SizedBox(
+                                height: size.height * 0.05,
+                                width: size.width * 0.75,
+                                child: RedirectButton(
+                                  onClick: () {
+                                    Navigator.pop(context);
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Scrabble(
+                                          iteration: widget.iteration + 1,
+                                          allPoints: wordExists
+                                              ? (widget.allPoints + roundPoints)
+                                              : widget.allPoints,
+                                          initialTest: initialTest,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  text: 'Continue',
+                                  width: size.width,
+                                ),
+                              ),
+                            ),
+                    ],
                   ),
-          ],
-        ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
