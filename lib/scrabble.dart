@@ -264,6 +264,7 @@ class _Scrabble extends State<Scrabble> {
     print(widget.allPoints);
     return Scaffold(
       body: Column(
+        //spacing: 100,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
@@ -313,7 +314,7 @@ class _Scrabble extends State<Scrabble> {
             margin: EdgeInsets.only(
               left: size.width / 12,
               right: size.width / 12,
-              bottom: size.height / 10,
+              //bottom: size.height / 10,
             ),
             child: Column(
               //crossAxisAlignment: CrossAxisAlignment.start,
@@ -364,53 +365,59 @@ class _Scrabble extends State<Scrabble> {
                         }),
                       ),
                     ),
-                    //const Spacer(),
-
-                    (widget.iteration == 10)
-                        ? Center(
-                            child: SizedBox(
-                              height: size.height * 0.05,
-                              width: size.width * 0.75,
-                              child: RedirectButton(
-                                route: ProgressScreen(
-                                  name: "short_term_concentration",
-                                  score: (widget.allPoints +
-                                          (wordExists ? roundPoints : 0))
-                                      .toDouble(),
-                                ),
-                                text: 'Continue',
-                                width: size.width,
-                              ),
-                            ),
-                          )
-                        : Center(
-                            child: SizedBox(
-                              height: size.height * 0.05,
-                              width: size.width * 0.75,
-                              child: RedirectButton(
-                                onClick: () {
-                                  Navigator.pop(context);
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => Scrabble(
-                                        iteration: widget.iteration + 1,
-                                        allPoints: wordExists
-                                            ? (widget.allPoints + roundPoints)
-                                            : widget.allPoints,
-                                        initialTest: initialTest,
-                                      ),
-                                    ),
-                                  );
-                                },
-                                text: 'Continue',
-                                width: size.width,
-                              ),
-                            ),
-                          ),
                   ],
                 ),
+                //izedBox.shrink(),
+                //
               ],
+            ),
+          ),
+          //const Spacer(),
+          Expanded(
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: (widget.iteration == 10)
+                  ? Center(
+                      child: SizedBox(
+                        height: size.height * 0.05,
+                        width: size.width * 0.75,
+                        child: RedirectButton(
+                          route: ProgressScreen(
+                            name: "short_term_concentration",
+                            score: (widget.allPoints +
+                                    (wordExists ? roundPoints : 0))
+                                .toDouble(),
+                          ),
+                          text: 'Continue',
+                          width: size.width,
+                        ),
+                      ),
+                    )
+                  : Center(
+                      child: SizedBox(
+                        height: size.height * 0.05,
+                        width: size.width * 0.75,
+                        child: RedirectButton(
+                          onClick: () {
+                            Navigator.pop(context);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Scrabble(
+                                  iteration: widget.iteration + 1,
+                                  allPoints: wordExists
+                                      ? (widget.allPoints + roundPoints)
+                                      : widget.allPoints,
+                                  initialTest: initialTest,
+                                ),
+                              ),
+                            );
+                          },
+                          text: 'Continue',
+                          width: size.width,
+                        ),
+                      ),
+                    ),
             ),
           ),
         ],
