@@ -1,33 +1,29 @@
 import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'strong_concentration_desc.dart';
 import 'package:yaml/yaml.dart';
 import '/progress_screen.dart';
-import '/show_score.dart';
+import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
 
-class LongTermConcentrationTest extends StatefulWidget {
-  const LongTermConcentrationTest({
+class SpellingMistakes extends StatefulWidget {
+  const SpellingMistakes({
     super.key,
     required this.exerciseId,
-    this.initialTest = false,
   });
 
-  final bool initialTest;
   final int exerciseId;
 
   @override
-  State<LongTermConcentrationTest> createState() =>
-      _LongTermConcentrationTest();
+  State<SpellingMistakes> createState() => _SpellingMistakes();
 }
 
-class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
+class _SpellingMistakes extends State<SpellingMistakes> {
   double score = 0;
   String languageLevel = "";
   int selectedOption = -1, questionIndex = 0;
-  List<int> correctAnswers = [];
   List<String> questions = [];
   List<List<String>> answers = [];
+  final dMSAJson = DictionaryMSAFlutter();
 
   @override
   void initState() {
@@ -35,19 +31,49 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
     readData();
   }
 
+  bool lookupWord(String word) {
+    bool wordExists = true;
+    Future<bool> lookupWord(word2) async {
+      if (await dMSAJson.hasEntry(word2)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    final splitted = word.split(" ");
+    Future<void> amogus() async {
+      for (var word2 in splitted) {
+        bool wordExists2 = await lookupWord(word2);
+        if (!wordExists2) wordExists = false;
+        print(wordExists2);
+      }
+      //wordExists = await lookupWord();
+      print("final:");
+      print(wordExists);
+    }
+
+    amogus();
+    return wordExists;
+  }
+
+  List<int> shuffledNumbers = [];
+
   void readData() async {
     try {
       List<String> newQuestions = [];
-      List<int> newCorrectAnswers = [];
       List<List<String>> newAnswers = [];
 
       final file = await rootBundle
-          .loadString('assets/attention/long_term_concentration_test.yaml');
-      final tasks = loadYaml(file)["tests"][widget.exerciseId]["questions"];
+          .loadString('assets/linguistic/spelling_mistakes.yaml');
+      final tasks = loadYaml(file)["questions"];
+      //[widget.exerciseId];
+      print("amogus");
+      print(tasks[0]);
 
       for (var i = 0; i < tasks.length; i++) {
         newQuestions.add(tasks[i]["question"]);
-        newCorrectAnswers.add(tasks[i]["correct_answer"]);
+        //newCorrectAnswers.add(tasks[i]["correct_answer"]);
         newAnswers.add([]);
 
         for (var answer in tasks[i]["answers"]) {
@@ -55,8 +81,11 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
         }
       }
 
+      shuffledNumbers =
+          List.generate(newAnswers.length - 1, (index) => index + 1);
+      shuffledNumbers.shuffle();
+
       setState(() {
-        correctAnswers = newCorrectAnswers;
         questions = newQuestions;
         answers = newAnswers;
       });
@@ -88,7 +117,7 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
       );
     }
 
-    return questions.isEmpty & answers.isEmpty & correctAnswers.isEmpty
+    return questions.isEmpty & answers.isEmpty
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
             body: SingleChildScrollView(
@@ -171,8 +200,11 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                         SizedBox(
                           height: size.height / 25,
                         ),
-                        for (int i = 0; i < answers[questionIndex].length; i++)
-                          createListTitle(i, answers[questionIndex][i]),
+                        for (int i = 0;
+                            i < answers[shuffledNumbers[questionIndex]].length;
+                            i++)
+                          createListTitle(
+                              i, answers[shuffledNumbers[questionIndex]][i],),
                       ],
                     ),
                     Column(
@@ -182,53 +214,37 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                           width: size.width * 0.75,
                           child: RedirectButton(
                             onClick: () {
+                              print("selectedOption");
                               if (selectedOption == -1) return;
 
-                              if (selectedOption ==
-                                  correctAnswers[questionIndex]) {
+                              if (lookupWord(
+                                answers[shuffledNumbers[questionIndex]]
+                                    [selectedOption],
+                              )) {
+                                print("amogussus");
+                                print(answers[questionIndex][selectedOption]);
                                 score += 1;
                               }
 
-                              if (questionIndex < questions.length - 1) {
+                              if (questionIndex < 10) {
                                 setState(() {
                                   questionIndex += 1;
                                   selectedOption = -1;
-                                  print(questionIndex);
-                                  print(answers.join("\n"));
                                 });
                                 return;
                               }
 
                               Navigator.pop(context);
 
-                              if (widget.initialTest) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ShowScore(
-                                      title: "ATTENTION",
-                                      description:
-                                          "Exercise 2 - Long Term Concentration",
-                                      exercise: 2,
-                                      yourScore: score,
-                                      maximum: 10,
-                                      page: const StrongConcentrationDesc(
-                                        initialTest: true,
-                                      ),
-                                    ),
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ProgressScreen(
+                                    name: "long_term_concentration",
+                                    score: score,
                                   ),
-                                );
-                              } else {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ProgressScreen(
-                                      name: "long_term_concentration",
-                                      score: score,
-                                    ),
-                                  ),
-                                );
-                              }
+                                ),
+                              );
                             },
                             text: 'Continue',
                             width: size.width,

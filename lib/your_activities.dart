@@ -1,3 +1,4 @@
+import 'package:brain_train_app/attention/find_the_number.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'navbar.dart';
@@ -17,6 +18,12 @@ import 'attention/find_the_word.dart';
 import 'linguistic/wordly.dart';
 import 'linguistic/hangman.dart';
 import 'logical_thinking/riddles.dart';
+import 'linguistic/exercise2.dart';
+import 'linguistic/video.dart';
+import 'memory/memory_video.dart';
+import 'scrabble.dart';
+import '2048/game_2048.dart';
+import 'linguistic/spelling_mistakes.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -140,7 +147,7 @@ class _YourActivities extends State<YourActivities> {
       "activities/$img",
       txt1,
       txt2,
-      0.025 * size.height * fontSize,
+      0.022 * size.height * fontSize,
       route,
       Theme.of(context).colorScheme.primary,
       Theme.of(context).colorScheme.onPrimary,
@@ -210,7 +217,7 @@ class _YourActivities extends State<YourActivities> {
                           "working_memory",
                           "Working",
                           "MEMORY",
-                          const YourActivities(),
+                          const MemoryVideo(),
                         ),
                         createActivity2(
                           context,
@@ -260,21 +267,21 @@ class _YourActivities extends State<YourActivities> {
                           "find_the_number",
                           "Find the",
                           "NUMBER",
-                          const YourActivities(),
+                          const FindTheNumber(),
                         ),
                         createActivity2(
                           context,
                           "listening",
                           "LISTENING",
                           "Comprehension",
-                          const YourActivities(),
+                          const Video(),
                         ),
                         createActivity2(
                           context,
                           "reading",
                           "READING",
                           "Comprehension",
-                          const YourActivities(),
+                          const SecondLinguisticExercise(),
                         ),
                         createActivity2(
                           context,
@@ -288,7 +295,9 @@ class _YourActivities extends State<YourActivities> {
                           "spelling",
                           "SPELLING",
                           "Mistakes",
-                          const YourActivities(),
+                          const SpellingMistakes(
+                            exerciseId: 0,
+                          ),
                         ),
                         createActivity2(
                           context,
@@ -378,7 +387,7 @@ class _YourActivities extends State<YourActivities> {
                           "2048",
                           "2048",
                           "",
-                          const YourActivities(),
+                          const Game2048(),
                           zero: 0,
                         ),
                         createActivity2(
@@ -386,7 +395,10 @@ class _YourActivities extends State<YourActivities> {
                           "scrabble",
                           "Like",
                           "SCRABBLE",
-                          const YourActivities(),
+                          const Scrabble(
+                            iteration: 1,
+                            allPoints: 0,
+                          ),
                         ),
                         createActivity2(
                           context,

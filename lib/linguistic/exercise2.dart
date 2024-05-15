@@ -6,9 +6,12 @@ import "../show_score.dart";
 import '../account/login1.dart';
 import '../buttons.dart';
 import 'dart:async';
+import '../progress_screen.dart';
 
 class SecondLinguisticExercise extends StatefulWidget {
-  const SecondLinguisticExercise({super.key});
+  const SecondLinguisticExercise({super.key, this.initialTest = false});
+
+  final bool initialTest;
 
   @override
   State<SecondLinguisticExercise> createState() => _SecondLinguisticExercise();
@@ -218,15 +221,20 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: ShowScore(
-                      title: "LINGUISTIC",
-                      description: "Exercise 2 - Reading Comprehension",
-                      exercise: 1,
-                      yourScore: score,
-                      maximum: 100,
-                      page: const Login1(),
-                      subtitle: "INTELLIGENCE",
-                    ),
+                    route: (widget.initialTest)
+                        ? ShowScore(
+                            title: "LINGUISTIC",
+                            description: "Exercise 2 - Reading Comprehension",
+                            exercise: 1,
+                            yourScore: score,
+                            maximum: 100,
+                            page: const Login1(),
+                            subtitle: "INTELLIGENCE",
+                          )
+                        : ProgressScreen(
+                            name: "reading_comprehension",
+                            score: score,
+                          ),
                     text: 'Continue',
                     width: size.width,
                   ),

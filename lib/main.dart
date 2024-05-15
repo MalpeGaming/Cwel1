@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 import 'title_page.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+    [
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ],
+  );
   runApp(
     const MyApp(),
   );
@@ -54,6 +62,7 @@ class _MyAppState extends State<MyApp> {
           shadow: Color.fromARGB(255, 0, 0, 0),
         ),
         useMaterial3: true,
+        fontFamily: 'Arial',
       ),
       themeMode: _themeMode,
       home: const TitlePage(title: 'The Brain Train App'),
