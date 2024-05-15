@@ -21,7 +21,7 @@ import 'logical_thinking/riddles.dart';
 import 'linguistic/exercise2.dart';
 import 'linguistic/video.dart';
 import 'memory/memory_video.dart';
-import 'scrabble.dart';
+import 'linguistic/scrabble.dart';
 import '2048/game_2048.dart';
 import 'linguistic/spelling_mistakes.dart';
 
