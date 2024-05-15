@@ -180,6 +180,14 @@ class _Scrabble extends State<Scrabble> {
                   ? const Color(0xFFD4CDF4)
                   : const Color(0xFF231942))),
           borderRadius: BorderRadius.circular((size.width * 0.14) / 2.5),
+          boxShadow: [
+            BoxShadow(
+              color: Theme.of(context).colorScheme.shadow.withOpacity(0.4),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: const Offset(5, 5),
+            ),
+          ],
         ),
         child: Stack(
           children: [
@@ -227,6 +235,14 @@ class _Scrabble extends State<Scrabble> {
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular((size.width * 0.14) / 2.5),
+        boxShadow: [
+          BoxShadow(
+            color: Theme.of(context).colorScheme.shadow.withOpacity(0.4),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: const Offset(5, 5),
+          ),
+        ],
       ),
       child: Stack(
         children: [
@@ -269,8 +285,8 @@ class _Scrabble extends State<Scrabble> {
         children: [
           Container(
             margin: EdgeInsets.only(
-              left: size.width / 12,
-              right: size.width / 12,
+              left: size.width / 8,
+              right: size.width / 8,
               //bottom: size.height / 10,
             ),
             child: Column(
@@ -283,7 +299,7 @@ class _Scrabble extends State<Scrabble> {
                     children: [
                       Text(
                         "LINGUISTIC",
-                        style: TextStyle(fontSize: 0.068 * size.height),
+                        style: TextStyle(fontSize: 0.06 * size.height),
                       ),
                       Text(
                         "INTELLIGENCE",
@@ -372,54 +388,50 @@ class _Scrabble extends State<Scrabble> {
               ],
             ),
           ),
-          //const Spacer(),
-          Expanded(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: (widget.iteration == 10)
-                  ? Center(
-                      child: SizedBox(
-                        height: size.height * 0.05,
-                        width: size.width * 0.75,
-                        child: RedirectButton(
-                          route: ProgressScreen(
-                            name: "short_term_concentration",
-                            score: (widget.allPoints +
-                                    (wordExists ? roundPoints : 0))
+          const Spacer(),
+          (widget.iteration == 10)
+              ? Center(
+                  child: SizedBox(
+                    height: size.height * 0.05,
+                    width: size.width * 0.75,
+                    child: RedirectButton(
+                      route: ProgressScreen(
+                        name: "short_term_concentration",
+                        score:
+                            (widget.allPoints + (wordExists ? roundPoints : 0))
                                 .toDouble(),
-                          ),
-                          text: 'Continue',
-                          width: size.width,
-                        ),
                       ),
-                    )
-                  : Center(
-                      child: SizedBox(
-                        height: size.height * 0.05,
-                        width: size.width * 0.75,
-                        child: RedirectButton(
-                          onClick: () {
-                            Navigator.pop(context);
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Scrabble(
-                                  iteration: widget.iteration + 1,
-                                  allPoints: wordExists
-                                      ? (widget.allPoints + roundPoints)
-                                      : widget.allPoints,
-                                  initialTest: initialTest,
-                                ),
-                              ),
-                            );
-                          },
-                          text: 'Continue',
-                          width: size.width,
-                        ),
-                      ),
+                      text: 'Continue',
+                      width: size.width,
                     ),
-            ),
-          ),
+                  ),
+                )
+              : Center(
+                  child: SizedBox(
+                    height: size.height * 0.05,
+                    width: size.width * 0.75,
+                    child: RedirectButton(
+                      onClick: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Scrabble(
+                              iteration: widget.iteration + 1,
+                              allPoints: wordExists
+                                  ? (widget.allPoints + roundPoints)
+                                  : widget.allPoints,
+                              initialTest: initialTest,
+                            ),
+                          ),
+                        );
+                      },
+                      text: 'Continue',
+                      width: size.width,
+                    ),
+                  ),
+                ),
+          SizedBox(height: 0.05 * size.height),
         ],
       ),
     );
