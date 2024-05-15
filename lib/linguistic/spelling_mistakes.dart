@@ -204,7 +204,7 @@ class _SpellingMistakes extends State<SpellingMistakes> {
                             i < answers[shuffledNumbers[questionIndex]].length;
                             i++)
                           createListTitle(
-                              i, answers[shuffledNumbers[questionIndex]][i]),
+                              i, answers[shuffledNumbers[questionIndex]][i],),
                       ],
                     ),
                     Column(
