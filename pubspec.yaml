@@ -112,7 +112,7 @@ flutter:
     - assets/logical_thinking/
     - assets/attention/reading/covers/
     - assets/diet/recipes/
-    - assets/memes
+    - assets/memes/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
