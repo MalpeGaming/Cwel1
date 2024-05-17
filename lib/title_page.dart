@@ -17,6 +17,7 @@ class _TitlePageState extends State<TitlePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: appBar(context, "", canReturn: false),
       body: Center(
@@ -83,6 +84,15 @@ class _TitlePageState extends State<TitlePage> {
                 child: Image.asset('assets/brain_img3.png'),
               ),
               const Spacer(),
+              SizedBox(
+                height: size.height * 0.05,
+                width: size.width * 0.75,
+                child: StartButton(
+                  text: "Test Yourself!",
+                  width: size.width,
+                  tooltip: 'Smart Decision!',
+                ),
+              ),
               SizedBox(
                 height: size.height * 0.05,
                 width: size.width * 0.75,
