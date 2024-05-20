@@ -24,6 +24,7 @@ import 'memory/memory_video.dart';
 import 'linguistic/scrabble.dart';
 import '2048/game_2048.dart';
 import 'linguistic/spelling_mistakes.dart';
+import 'well_being/memes.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -429,6 +430,8 @@ class _YourActivities extends State<YourActivities> {
                           const Yoga(),
                           zero: 0,
                         ),
+                        createActivity2(
+                            (context), "xd", "memes", "memes", Meme()),
                       ],
                     ),
                   ),

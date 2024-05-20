@@ -34,8 +34,6 @@ class _StartButtonState extends State<StartButton> {
         [DateTime.now().toString()],
       );
       print("amogus");
-
-      print(prefs.getStringList('beginning_date').toString());
     }
 
     initMemory();
