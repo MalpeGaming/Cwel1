@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'language_level_selection.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void nuthin() {}
 
@@ -22,8 +23,20 @@ class StartButton extends StatefulWidget {
 
 class _StartButtonState extends State<StartButton> {
   bool hovered = false;
+  late SharedPreferences prefs;
+
   @override
   Widget build(BuildContext context) {
+    Future<void> initMemory() async {
+      prefs = await SharedPreferences.getInstance();
+      prefs.setStringList(
+        'beginning_date',
+        [DateTime.now().toString()],
+      );
+      print("amogus");
+    }
+
+    initMemory();
     return InkWell(
       onTap: () {
         Navigator.push(
@@ -214,6 +227,7 @@ class _ImprovementButtonState extends State<ImprovementButton> {
 
   @override
   Widget build(BuildContext context) {
+    //initMemory();
     return Expanded(
       flex: 1,
       child: Row(
