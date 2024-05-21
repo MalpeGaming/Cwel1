@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Meme extends StatefulWidget {
+  const Meme({super.key});
+
   @override
   _MemeState createState() => _MemeState();
 }
@@ -42,7 +44,7 @@ class _MemeState extends State<Meme> {
     print(xd);
     int numerek = 0;
     setState(() {
-      zdjecie = "assets/memes/" + numerek.toString() + ".png";
+      zdjecie = "assets/memes/$numerek.png";
       print(zdjecie);
     });
     return Scaffold(
