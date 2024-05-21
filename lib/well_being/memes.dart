@@ -36,12 +36,18 @@ class _MemeState extends State<Meme> {
       xd = await readMemory();
     }
 
-    await checkValue();
+    String zdjecie = "";
+    checkValue();
     print("sadfhkjas");
     print(xd);
+    int numerek = 0;
+    setState(() {
+      zdjecie = "assets/memes/" + numerek.toString() + ".png";
+      print(zdjecie);
+    });
     return Scaffold(
       body: Center(
-        child: Image.asset('assets/memes/.png'),
+        child: Image.asset(zdjecie),
       ),
     );
   }
