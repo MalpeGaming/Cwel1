@@ -1,3 +1,4 @@
+import 'package:brain_train_app/attention/find_the_number.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'navbar.dart';
@@ -20,7 +21,9 @@ import 'logical_thinking/riddles.dart';
 import 'linguistic/exercise2.dart';
 import 'linguistic/video.dart';
 import 'memory/memory_video.dart';
+import 'linguistic/scrabble.dart';
 import '2048/game_2048.dart';
+import 'linguistic/spelling_mistakes.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -264,7 +267,7 @@ class _YourActivities extends State<YourActivities> {
                           "find_the_number",
                           "Find the",
                           "NUMBER",
-                          const YourActivities(),
+                          const FindTheNumber(),
                         ),
                         createActivity2(
                           context,
@@ -292,7 +295,9 @@ class _YourActivities extends State<YourActivities> {
                           "spelling",
                           "SPELLING",
                           "Mistakes",
-                          const YourActivities(),
+                          const SpellingMistakes(
+                            exerciseId: 0,
+                          ),
                         ),
                         createActivity2(
                           context,
@@ -390,7 +395,10 @@ class _YourActivities extends State<YourActivities> {
                           "scrabble",
                           "Like",
                           "SCRABBLE",
-                          const YourActivities(),
+                          const Scrabble(
+                            iteration: 1,
+                            allPoints: 0,
+                          ),
                         ),
                         createActivity2(
                           context,

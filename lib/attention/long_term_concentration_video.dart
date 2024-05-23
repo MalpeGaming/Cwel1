@@ -5,7 +5,7 @@ import 'long_term_concentration_test.dart';
 import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
 import 'dart:math';
-  
+
 class LongTermConcentrationVideo extends StatefulWidget {
   const LongTermConcentrationVideo({super.key, this.initialTest = false});
 
