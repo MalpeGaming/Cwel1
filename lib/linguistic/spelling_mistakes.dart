@@ -31,9 +31,9 @@ class _SpellingMistakes extends State<SpellingMistakes> {
     readData();
   }
 
-  bool lookupWord(String word) {
+  Future<void> lookupWord(String word) async {
     bool wordExists = true;
-    Future<bool> lookupWord(word2) async {
+    Future<bool> lookupWordd(word2) async {
       if (await dMSAJson.hasEntry(word2)) {
         return true;
       } else {
@@ -44,7 +44,7 @@ class _SpellingMistakes extends State<SpellingMistakes> {
     final splitted = word.split(" ");
     Future<void> amogus() async {
       for (var word2 in splitted) {
-        bool wordExists2 = await lookupWord(word2);
+        bool wordExists2 = await lookupWordd(word2);
         if (!wordExists2) wordExists = false;
         print(wordExists2);
       }
@@ -53,8 +53,12 @@ class _SpellingMistakes extends State<SpellingMistakes> {
       print(wordExists);
     }
 
-    amogus();
-    return wordExists;
+    await amogus();
+    setState(() {
+      score += wordExists ? 1 : 0;
+      print("score:");
+      print(score);
+    });
   }
 
   List<int> shuffledNumbers = [];
@@ -204,7 +208,9 @@ class _SpellingMistakes extends State<SpellingMistakes> {
                             i < answers[shuffledNumbers[questionIndex]].length;
                             i++)
                           createListTitle(
-                              i, answers[shuffledNumbers[questionIndex]][i],),
+                            i,
+                            answers[shuffledNumbers[questionIndex]][i],
+                          ),
                       ],
                     ),
                     Column(
@@ -217,14 +223,10 @@ class _SpellingMistakes extends State<SpellingMistakes> {
                               print("selectedOption");
                               if (selectedOption == -1) return;
 
-                              if (lookupWord(
+                              lookupWord(
                                 answers[shuffledNumbers[questionIndex]]
                                     [selectedOption],
-                              )) {
-                                print("amogussus");
-                                print(answers[questionIndex][selectedOption]);
-                                score += 1;
-                              }
+                              );
 
                               if (questionIndex < 10) {
                                 setState(() {
