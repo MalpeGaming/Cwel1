@@ -238,6 +238,7 @@ class _SpellingMistakes extends State<SpellingMistakes> {
 
                               Navigator.pop(context);
 
+//amogus
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
