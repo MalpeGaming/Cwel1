@@ -431,7 +431,12 @@ class _YourActivities extends State<YourActivities> {
                           zero: 0,
                         ),
                         createActivity2(
-                            (context), "xd", "memes", "memes", const Meme(),),
+                          (context),
+                          "memes",
+                          "Memes",
+                          "",
+                          const Meme(),
+                        ),
                       ],
                     ),
                   ),

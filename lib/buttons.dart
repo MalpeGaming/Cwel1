@@ -27,18 +27,18 @@ class _StartButtonState extends State<StartButton> {
 
   @override
   Widget build(BuildContext context) {
-    Future<void> initMemory() async {
-      prefs = await SharedPreferences.getInstance();
-      prefs.setStringList(
-        'beginning_date',
-        [DateTime.now().toString()],
-      );
-      print("amogus");
-    }
-
-    initMemory();
     return InkWell(
       onTap: () {
+        Future<void> initMemory() async {
+          prefs = await SharedPreferences.getInstance();
+          prefs.setStringList(
+            'beginning_date',
+            [DateTime.now().toString()],
+          );
+          print("amogus");
+        }
+
+        initMemory();
         Navigator.push(
           context,
           MaterialPageRoute(
