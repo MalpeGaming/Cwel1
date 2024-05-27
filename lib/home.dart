@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:intl/intl.dart';
 import 'navbar.dart';
 
@@ -10,6 +12,7 @@ class Home extends StatefulWidget {
 }
 
 class _Home extends State<Home> {
+  late SharedPreferences prefs;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -17,6 +20,21 @@ class _Home extends State<Home> {
     DateTime now = DateTime.now();
     var formatter = DateFormat('E. dd MMM');
     String formattedDate = formatter.format(now);
+    Future<void> readMemory() async {
+      prefs = await SharedPreferences.getInstance();
+      print("amogus");
+      print(prefs.getStringList('beginning_date').toString());
+      String? beginningDate = prefs.getStringList('beginning_date')?.first;
+      if (beginningDate != null) {
+        DateTime beginningDateTime = DateTime.parse(beginningDate);
+        Duration daysPassed = DateTime.now().difference(beginningDateTime);
+        print("Days passed since beginning date: ${daysPassed.inDays}");
+      }
+    }
+
+    readMemory();
+    //print("Xd");
+    //readMemory();
 
     return Scaffold(
       body: Container(
