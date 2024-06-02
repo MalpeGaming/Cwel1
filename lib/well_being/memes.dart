@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:brain_train_app/app_bar.dart';
 
 class Meme extends StatefulWidget {
   const Meme({super.key});
@@ -11,13 +12,9 @@ class Meme extends StatefulWidget {
 class _MemeState extends State<Meme> {
   late SharedPreferences prefs;
 
-  @override
-  void initState() {
-    super.initState();
-    readMemory();
-  }
+  int numerek = 0;
 
-  Future<int> readMemory() async {
+  Future<void> readMemory() async {
     prefs = await SharedPreferences.getInstance();
     print("amogus");
     print(prefs.getStringList('beginning_date').toString());
@@ -26,28 +23,30 @@ class _MemeState extends State<Meme> {
       DateTime beginningDateTime = DateTime.parse(beginningDate);
       Duration daysPassed = DateTime.now().difference(beginningDateTime);
       print("Days passed since beginning date: ${daysPassed.inDays}");
-      return daysPassed.inDays;
+      numerek = (daysPassed.inDays) % 30;
+      setState(() {
+        zdjecie = "assets/memes/$numerek.png";
+      });
+      print(zdjecie);
     }
-    return 0;
+  }
+
+  String zdjecie = "assets/memes/0.png";
+  @override
+  void initState() {
+    super.initState();
+    readMemory();
   }
 
   @override
   Widget build(BuildContext context) {
     int xd = -1;
-    checkValue() async {
-      xd = await readMemory();
-    }
 
-    String zdjecie = "";
-    checkValue();
     print("sadfhkjas");
     print(xd);
-    int numerek = 0;
-    setState(() {
-      zdjecie = "assets/memes/$numerek.png";
-      print(zdjecie);
-    });
+
     return Scaffold(
+      appBar: appBar(context, ""),
       body: Center(
         child: Image.asset(zdjecie),
       ),
