@@ -1,0 +1,1192 @@
+questions:
+  - answers:
+    - She don't like spinach.
+    - She doesn't like spinach.
+    - She doesn't likes spinach.
+    - She do not like spinach.
+    correct_answer: 2
+    question: Which of the following sentences is grammatically correct?
+  - answers:
+    - The team of managers are meeting this afternoon.
+    - The team of managers is meeting this afternoon.
+    - The team of managers is meet this afternoon.
+    - The team of managers are meet this afternoon.
+    correct_answer: 2
+    question: Select the sentence with correct subject-verb agreement.
+  - answers:
+    - I love cooking my family and my pets.
+    - I love cooking, my family, and my pets.
+    - I love cooking my family and, my pets.
+    - I, love cooking my family and my pets.
+    correct_answer: 2
+    question: Choose the sentence that is punctuated correctly.
+  - answers:
+    - Its raining outside.
+    - It's raining outside.
+    - Its' raining outside.
+    - It's' raining outside.
+    correct_answer: 2
+    question: Which of these sentences uses the correct form of "its/it's"?
+  - answers:
+    - Me and my friend went to the park.
+    - My friend and me went to the park.
+    - My friend and I went to the park.
+    - I and my friend went to the park.
+    correct_answer: 3
+    question: Choose the sentence with the correct use of "me" or "I".
+  - answers:
+    - Their is my book on the table.
+    - There is my book on the table.
+    - They're is my book on the table.
+    - Theres is my book on the table.
+    correct_answer: 2
+    question: In which sentence is the word "there" used correctly?
+  - answers:
+    - I don't know who to trust.
+    - I don't know whom to trust.
+    - Both are correct.
+    - Neither is correct.
+    correct_answer: 3
+    question: Which sentence correctly uses "who" or "whom"?
+  - answers:
+    - I am going to lay down.
+    - I am going to lie down.
+    - Both are correct.
+    - Neither is correct.
+    correct_answer: 3
+    question: Choose the sentence with the correct use of "lay" or "lie".
+  - answers:
+    - He said, "I love cooking my family, and my pets."
+    - "He said, I love cooking, my family, and my pets."
+    - He said, "I love cooking, my family, and my pets."
+    - "He said, I love cooking, my family and my pets."
+    correct_answer: 3
+    question: Which of the following sentences is punctuated correctly?
+  - answers:
+    - Period
+    - Comma
+    - Exclamation Point
+    - Question Mark
+    correct_answer: 2
+    question: What punctuation mark should be used to separate items in a list?
+  - answers:
+    - "Let's eat, grandpa."
+    - "Let's eat grandpa,"
+    - "Let's, eat grandpa."
+    - "Let's eat grandpa."
+    correct_answer: 1
+    question: Where does the comma go in this sentence? "Let's eat grandpa."
+  - answers:
+    - I have a big test tomorrow; I can't go to the party.
+    - I have a big test tomorrow, I can't; go to the party.
+    - I have a big test tomorrow; I can't go, to the party.
+    - I have a big test; tomorrow, I can't go to the party.
+    correct_answer: 1
+    question: Which sentence uses the semicolon correctly?
+  - answers:
+    - I have three favorite foods:\ pizza, pasta, and ice cream.
+    - I have three:\ favorite foods pizza, pasta, and ice cream.
+    - I have three favorite foods, pizza:\ pasta, and ice cream.
+    - I have three favorite foods pizza, pasta, and:\ ice cream.
+    correct_answer: 1
+    question: How would you correctly use a colon in a sentence?
+  - answers:
+    - Its going to rain today.
+    - Its' going to rain today.
+    - It's going to rain today.
+    - \'Its going to rain today.
+    correct_answer: 3
+    question: Which sentence uses the apostrophe correctly?
+  - answers:
+    - "Where are you going?"
+    - "Where are, you going?"
+    - "Where are you, going?"
+    - "Where, are you going?"
+    correct_answer: 1
+    question: Where should the question mark go in this sentence? "Where are you going"
+  - answers:
+    - She said "I'll be there soon".
+    - She said, "I'll be there soon
+    - She said, "I'll be there soon."
+    - "She said, I'll be there soon."
+    correct_answer: 3
+    question: Which sentence uses quotation marks correctly?
+  - answers:
+    - My sister-in law is coming over.
+    - My sister-in-law is coming over.
+    - My sister in-law is coming over.
+    - My-sister in law is coming over.
+    correct_answer: 2
+    question: How would you correctly use a hyphen in a sentence?
+  - answers:
+    - "He ran all the way home."
+    - "He ran all the way. home"
+    - "He ran. all the way home"
+    - "He. ran all the way home"
+    correct_answer: 1
+    question: Where does the period go in this sentence? "He ran all the way home"
+  - answers:
+    - I can't believe it's already Friday!
+    - "I can't believe it's already Friday!"
+    - "I can't believe it's already Friday"
+    - "I can't believe it's already Friday,"
+    correct_answer: 2
+    question: Which sentence uses the exclamation point correctly?
+  - answers:
+    - I went to the store (to buy some groceries.
+    - I went to the store to buy some groceries).
+    - I went to the store to buy (some groceries.
+    - I went to the store (to buy some groceries).
+    correct_answer: 4
+    question: How would you correctly use parentheses in a sentence?
+  - answers:
+    - will rain
+    - rains
+    - rained
+    - raining
+    correct_answer: 2
+    question: Choose the correct form of the verb:\ If it ___, I will stay at home.
+  - answers:
+    - to
+    - at
+    - in
+    - on
+    correct_answer: 1
+    question: Choose the correct word:\ I'm going ___ Paris next week.
+  - answers:
+    - a
+    - an
+    - the
+    - some
+    correct_answer: 1
+    question: Choose the correct word:\ This is ___ pen.
+  - answers:
+    - go
+    - goes
+    - going
+    - to go
+    correct_answer: 1
+    question: Choose the correct form of the verb:\ I ___ to school every day.
+  - answers:
+    - nowhere
+    - anywhere
+    - somewhere
+    - everywhere
+    correct_answer: 2
+    question: Choose the correct word:\ I can't find my keys ___.
+  - answers:
+    - Do
+    - Does
+    - Is
+    - Has
+    correct_answer: 2
+    question: Choose the correct word:\ ___ she like coffee?
+  - answers:
+    - read
+    - reads
+    - reading
+    - to read
+    correct_answer: 1
+    question: Choose the correct form of the verb:\ I ___ a book yesterday.
+  - answers:
+    - am cooking
+    - was cooking
+    - cooked
+    - have cooked
+    correct_answer: 2
+    question: Choose the correct form of the verb:\ I ___ dinner when you arrived.
+  - answers:
+    - a
+    - an
+    - the
+    - some
+    correct_answer: 2
+    question: Choose the correct word:\ He is ___ old friend of mine.
+  - answers:
+    - have
+    - had
+    - has
+    - had had
+    correct_answer: 2
+    question: Choose the correct form of the verb:\ If I ___ her number, I would call her.
+  - answers:
+    - oldest
+    - old
+    - older
+    - more old
+    correct_answer: 3
+    question: Choose the correct word:\ She is ___ than her sister.
+  - answers:
+    - went
+    - goes
+    - go
+    - going
+    correct_answer: 3
+    question: Choose the correct word:\ I didn't ___ to the party last night.
+  - answers:
+    - felt
+    - feel
+    - feels
+    - feeling
+    correct_answer: 1
+    question: Choose the correct word:\ I ___ tired after the long journey.
+  - answers:
+    - live
+    - lives
+    - lived
+    - are living
+    correct_answer: 3
+    question: Choose the correct word:\ They ___ in London for ten years.
+  - answers:
+    - Have
+    - Has
+    - Having
+    - Had
+    correct_answer: 1
+    question: Choose the correct word:\ ___ a good day!
+  - answers:
+    - remembering
+    - remember
+    - remembers
+    - to remember
+    correct_answer: 2
+    question: Choose the correct word:\ I can't ___ the answer to this question.
+  - answers:
+    - goes
+    - had gone
+    - went
+    - going
+    correct_answer: 3
+    question: Choose the correct word:\ She ___ to the cinema the day before yesterday.
+  - answers:
+    - has
+    - have
+    - was having
+    - having
+    correct_answer: 3
+    question: Choose the correct word:\ He ___ a shower when the phone rang.
+  - answers:
+    - much / many
+    - many / much
+    - many / a few
+    - much / a lot
+    correct_answer: 1
+    question: Choose the correct word:\ How ___ money do you have? Well … I don't have ___ dollars.
+  - answers:
+    - enjoyed
+    - enjoy
+    - enjoys
+    - enjoying
+    correct_answer: 1
+    question: Choose the correct word:\ I ___ watching the match today.
+  - answers:
+    - I enjoy reading; playing football, and painting.
+    - I enjoy reading, playing football and painting.
+    - I enjoy reading playing football, and painting.
+    - I enjoy, reading playing football and painting.
+    correct_answer: 2
+    question: Which of the following sentences uses correct punctuation?
+  - answers:
+    - The dogs' tail is wagging.
+    - The dog's tail's are wagging.
+    - The dog's tail is wagging.
+    - The dogs tail is wagging.
+    correct_answer: 3
+    question: Identify the correct usage of the apostrophe in the following sentences:\
+  - answers:
+    - He don't like broccoli.
+    - He doesn't likes broccoli.
+    - He doesn't like broccoli.
+    - He don't likes broccoli.
+    correct_answer: 3
+    question: Choose the sentence that is grammatically correct:\
+  - answers:
+    - The team of researchers are presenting their findings.
+    - The team of researchers is presenting their findings.
+    - The team of researcher is presenting their findings.
+    - The team of researchers are present their findings.
+    correct_answer: 2
+    question: In which sentence is the subject and verb agreement correct?
+  - answers:
+    - The cat is hungry; it wants dinner.
+    - The cat is hungry, it wants dinner.
+    - The cat is hungry it wants dinner.
+    - The cat is, hungry it wants dinner.
+    correct_answer: 1
+    question: Which sentence follows English writing conventions?
+  - answers:
+    - They're going to there parents' house.
+    - Their going to there parents' house.
+    - They're going to their parents' house.
+    - There going to their parents' house.
+    correct_answer: 3
+    question: Which sentence follows English writing conventions?
+  - answers:
+    - Its raining outside.
+    - It's raining outside.
+    - Its' raining outside.
+    - It's' raining outside.
+    correct_answer: 2
+    question: Which sentence correctly uses "its" or "it's"?
+  - answers:
+    - '"Where are you going"\?\ asked Mary.'
+    - 'Where are you going," asked Mary.'
+    - 'Where are you going"\, asked Mary.'
+    - 'Where are you going," asked, Mary.'
+    correct_answer: 2
+    question: Which sentence is punctuated correctly?
+  - answers:
+    - She said, "I'll be there soon".
+    - She said, "I'll be there soon."
+    - She said, "I'll be there soon".
+    - She said "I'll be there soon."
+    correct_answer: 2
+    question: Which sentence correctly uses quotation marks?
+  - answers:
+    - A. There are three things you need to bring:\ a pencil, a notebook, and an eraser.
+    - B. There are three things you need to bring, a pencil a notebook and an eraser.
+    - C. There are:\ three things you need to bring a pencil, a notebook, and an eraser.
+    - D. There are three things you need to bring a pencil:\ a notebook, and an eraser.
+    correct_answer: 1
+    question: Choose the correct sentence:\ Which sentence correctly uses a colon?
+  - answers:
+    - A. The dog with the fluffy tail chased its owner.
+    - B. Chased the dog with the fluffy tail its owner.
+    - C. Its owner the dog with the fluffy tail chased.
+    - D. The fluffy tail dog its owner chased.
+    correct_answer: 1
+    question: Choose the correct sentence:\
+  - answers:
+    - A. He was tired, however he decided to go to the gym.
+    - B. He was tired. However, he decided to go to the gym.
+    - C. However he was tired, he decided to go to the gym.
+    - D. He was tired, however, he decided to go to the gym.
+    correct_answer: 2
+    question: Choose the correct sentence:\ Which of the following sentences uses a transition correctly?
+  - answers:
+    - A. Studying hard for her exams, she hoped to get good grades.
+    - B. She hoped to get good grades studying hard for her exams.
+    - C. Studying hard for her exams she hoped to get good grades.
+    - D. She hoped to get good grades, studying hard for her exams.
+    correct_answer: 1
+    question: Choose the correct sentence:\ Which of the following sentences uses correct sentence structure?
+  - answers:
+    - A. the
+    - B. on
+    - C. Despite
+    - D. go
+    correct_answer: 3
+    question: Choose the correct word:\ Identify the transition word in the following sentence:\ "Despite the rain, we decided to go on a hike."
+  - answers:
+    - A. Because he was tired, he decided to go to bed early.
+    - B. Because he was tired decided to go to bed early.
+    - C. Because he was tired, decided to go to bed early.
+    - D. Because he was tired he decided to go to bed early.
+    correct_answer: 1
+    question: Choose the correct sentence:\ Which of the following sentences is grammatically correct?
+  - answers:
+    - A. thus
+    - B. however
+    - C. therefore
+    - D. meanwhile
+    correct_answer: 2
+    question: Choose the correct word:\ Choose the correct transition word for the following sentence:\ "She loves ice cream; _____, she only eats it once a week."
+  - answers:
+    - A. He ran fast, he could not catch the bus.
+    - B. He ran fast; he could not catch the bus.
+    - C. He ran fast:\ he could not catch the bus.
+    - D. He ran fast, but he could not catch the bus.
+    correct_answer: 4
+    question: Choose the correct sentence:\ Which of the following sentences uses a correct sentence structure?
+  - answers:
+    - A. didn't
+    - B. instead
+    - C. and
+    - D. home
+    correct_answer: 2
+    question: Choose the correct word:\ Identify the transition word in the following sentence:\ "She didn't want to go to the party; ___, she stayed home and read a book."
+  - answers:
+    - A. Despite being hungry there was nothing to eat.
+    - B. Despite being hungry, there was nothing to eat.
+    - C. Despite, being hungry there was nothing to eat.
+    - D. Despite being hungry. There was nothing to eat.
+    correct_answer: 2
+    question: Choose the correct sentence:\ Which of the following sentences is grammatically correct?
+  - answers:
+    - A. however
+    - B. therefore
+    - C. meanwhile
+    - D. instead
+    correct_answer: 1
+    question: Choose the correct word:\ Choose the correct transition word for the following sentence:\ "He wanted to buy a new car; _____, he didn't have enough money."
+  - answers:
+    - A. subsequently
+    - B. consequently
+    - C. however
+    - D. yet
+    correct_answer: 2
+    question: Choose the correct word:\ Identify the transition word in the following sentence:\ "She was feeling sick; ___, she decided not to go to work."
+  - answers:
+    - A. Although I was tired I stayed up late to finish the project.
+    - B. Although I was tired, I stayed up late to finish the project.
+    - C. Although, I was tired I stayed up late to finish the project.
+    - D. Although I was tired. I stayed up late to finish the project.
+    correct_answer: 2
+    question: Choose the correct sentence:\ Which of the following sentences is grammatically correct?
+  - answers:
+    - A. however
+    - B. therefore
+    - C. meanwhile
+    - D. so
+    correct_answer: 2
+    question: Choose the correct word:\ Choose the correct transition word for the following sentence:\ "He loves playing soccer; _____, he practices every day."
+  - answers:
+    - A. for this reason
+    - B. nonetheless
+    - C. meanwhile
+    - D. thus
+    correct_answer: 2
+    question: Choose the correct word:\ Identify the transition word in the following sentence:\ "The weather was bad; ___, we decided to go hiking."
+  - answers:
+    - A. Even though he was late he managed to catch the train.
+    - B. Even though he was late, he managed to catch the train.
+    - C. Even though, he was late he managed to catch the train.
+    - D. Even though he was late. He managed to catch the train.
+    correct_answer: 2
+    question: Choose the correct sentence:\ Which of the following sentences is grammatically correct?
+  - answers:
+    - A. however
+    - B. therefore
+    - C. meanwhile
+    - D. still
+    correct_answer: 4
+    question: Choose the correct word:\ Choose the correct transition word for the following sentence:\ "She didn't like the movie; _____, she stayed until the end."
+  - answers:
+    - A. because
+    - B. after that
+    - C. nevertheless
+    - D. that's why
+    correct_answer: 2
+    question: Choose the correct word:\ Identify the transition word in the following sentence:\ "The cake needs to cool; ___, it can be frosted."
+  - answers:
+    - A. In spite of the rain we decided to go out.
+    - B. In spite of the rain, we decided to go out.
+    - C. In spite of, the rain we decided to go out.
+    - D. In spite of the rain. We decided to go out.
+    correct_answer: 2
+    question: Choose the correct sentence:\ Which of the following sentences is grammatically correct?
+  - answers:
+    - A. however
+    - B. therefore
+    - C. meanwhile
+    - D. instead
+    correct_answer: 1
+    question: Choose the correct word:\ Choose the correct transition word for the following sentence:\ "She was ready for bed; _____, she had to finish her homework."
+  - answers:
+    - A. after
+    - B. yet
+    - C. so
+    - D. before
+    correct_answer: 2
+    question: Choose the correct word:\ Identify the transition word in the following sentence:\ "He was very tired; ___, he stayed up to watch the movie."
+  - answers:
+    - began / rose
+    - began / has risen
+    - have begun / rose
+    - began / was rising
+    correct_answer: 2
+    question: Since records ___ (begin) in 1880, the global temperature ___ (rise) 0.85 degrees Celsius.
+  - answers:
+    - met / were
+    - meet / have been
+    - had met / were
+    - met / have been
+    correct_answer: 4
+    question: Bennet is my best friend. I ___ (meet) him at school, and we ___ (be) friends for 50 years.
+  - answers:
+    - worked / finally completed
+    - has been working / finally completed
+    - worked / has finally completed
+    - has worked / has finally completed
+    correct_answer: 2
+    question: She ___ (work) on this project for the last three months, and she ___ (finally complete) it yesterday.
+  - answers:
+    - lived / got
+    - have lived / got
+    - lived / have gotten
+    - have lived / have gotten
+    correct_answer: 2
+    question: They ___ (live) in the same house since they ___ (get) married.
+  - answers:
+    - never saw / visited
+    - had never seen / visited
+    - never saw / has visited
+    - has never seen / visited
+    correct_answer: 2
+    question: He ___ (never see) such a beautiful sunset before he ___ (visit) Hawaii last year.
+  - answers:
+    - waited / arrived
+    - had been waiting / arrived
+    - waited / has arrived
+    - have been waiting / arrived
+    correct_answer: 2
+    question: We ___ (wait) for the bus for over an hour when it finally ___ (arrive).
+  - answers:
+    - studied / don't feel
+    - studied / haven't felt
+    - have been studying / don't feel
+    - have been studying / haven't felt
+    correct_answer: 3
+    question: I ___ (study) for the exam for two weeks now, and I still ___ (not feel) ready.
+  - answers:
+    - knew / only met
+    - knew / have only met
+    - have known / have only met
+    - have known / only met
+    correct_answer: 4
+    question: You ___ (know) each other since childhood, but we ___ (only meet) recently.
+  - answers:
+    - traveled /
+    - have traveled
+    - were traveling
+    - had traveled
+    correct_answer: 2
+    question: They ___ (travel) to five different countries in the past six months.
+  - answers:
+    - always wanted / enrolled
+    - has always wanted / enrolled
+    - always wanted / has enrolled
+    - has always wanted / has enrolled
+    correct_answer: 2
+    question: She ___ (always want) to learn French, so she ___ (enroll) in a course last month.
+  - answers:
+    - haven't finished / have already read
+    - didn't finish / already read
+    - didn't finish / have already read
+    - haven't finished / already read
+    correct_answer: 1
+    question: I ___ (not finish) reading the book yet, but I ___ (already read) five chapters.
+  - answers:
+    - worked / graduated
+    - has worked / graduated
+    - worked / has graduated
+    - has worked / has graduated
+    correct_answer: 2
+    question: He ___ (work) at this company since he ___ (graduate) from university.
+  - answers:
+    - practiced
+    - was practicing
+    - has been practicing
+    - has practiced
+    correct_answer: 3
+    question: The team ___ (practice) for the match since early morning.
+  - answers:
+    - visited / opened
+    - have visited / opened
+    - visited / has opened
+    - have visited / has opened
+    correct_answer: 2
+    question: We ___ (visit) the museum many times since it ___ (open).
+  - answers:
+    - wrote / finally finished
+    - has been writing / finally finished
+    - wrote / has finally finished
+    - has been writing / has finally finished
+    correct_answer: 2
+    question: She ___ (write) her novel for the past year and ___ (finally finish) it yesterday.
+  - answers:
+    - moved / lived
+    - have moved / lived
+    - have moved / have lived
+    - moved / have lived
+    correct_answer: 4
+    question: They ___ (move) to a new city last summer, and they ___ (live) there ever since.
+  - answers:
+    - lost / lost
+    - lost / have lost
+    - have lost / lost
+    - have lost / have lost
+    correct_answer: 2
+    question: I ___ (lose) my keys again! This is the third time I ___ (lose) them this month.
+  - answers:
+    - just arrived / left
+    - had just arrived / left
+    - just arrived / had left
+    - had just arrived / had left
+    correct_answer: 2
+    question: He ___ (just arrive) at the station when the train ___ (leave).
+  - answers:
+    - didn't see / graduated
+    - have not seen / graduated
+    - didn't see / have graduated
+    - have not seen / have graduated
+    correct_answer: 2
+    question: We ___ (not see) each other since we ___ (graduate) from college.
+  - answers:
+    - were / were
+    - have been / were
+    - were / have been
+    - had been / were
+    correct_answer: 2
+    question: We ___ (be) together since we ___ (be) teenagers.
+  - answers:
+    - read / arrive
+    - read / arrived
+    - had read / arrived
+    - had read / had arrived
+    correct_answer: 3
+    question: He ___ (read) the book by the time I ___ (arrive).
+  - answers:
+    - cooked / arrived
+    - was cooking / arrived
+    - had cooked / arrive
+    - was cooking / were arriving
+    correct_answer: 2
+    question: She ___ (cook) dinner when the guests ___ (arrive).
+  - answers:
+    - rains / will cancel
+    - rains / cancel
+    - will rain / cancel
+    - rain / will cancel
+    correct_answer: 2
+    question: If it ___ (rain), we ___ (cancel) the picnic.
+  - answers:
+    - complete
+    - will complete
+    - are completing
+    - will have completed
+    correct_answer: 4
+    question: By the end of this month, they ___ (complete) the project.
+  - answers:
+    - takes / rains
+    - take / rain
+    - takes / rain
+    - took / rains
+    correct_answer: 1
+    question: He always ___ (take) his umbrella when it ___ (rain).
+  - answers:
+    - lived / moved
+    - live / moved
+    - had lived / moved
+    - lived / had moved
+    correct_answer: 3
+    question: They ___ (live) in Paris for five years before they ___ (move) to Rome.
+  - answers:
+    - visits
+    - visiting
+    - will visit
+    - would visit
+    correct_answer: 4
+    question: She said that she ___ (visit) us tomorrow.
+  - answers:
+    - get / will finish
+    - got / will finish
+    - get / finish
+    - get / will have finished
+    correct_answer: 4
+    question: By the time you ___ (get) home, I ___ (finish) my homework.
+  - answers:
+    - plays
+    - play
+    - played
+    - playing
+    correct_answer: 1
+    question: He usually ___ (play) tennis on Saturdays.
+  - answers:
+    - see / go
+    - saw / went
+    - had seen / went
+    - saw / gone
+    correct_answer: 2
+    question: When we ___ (see) the movie, we ___ (go) to the restaurant.
+  - answers:
+    - studies / passes
+    - studies / will pass
+    - will study / passes
+    - studied / will pass
+    correct_answer: 2
+    question: If he ___ (study) hard, he ___ (pass) the exam.
+  - answers:
+    - did not finish
+    - does not finish
+    - has not finished
+    - have not finished
+    correct_answer: 4
+    question: She ___ (not finish) her homework yet.
+  - answers:
+    - had worked / joined
+    - worked / joined
+    - had been working / joined
+    - have been working / joined
+    correct_answer: 3
+    question: They ___ (work) on the project for two hours when I ___ (join) them.
+  - answers:
+    - wrote / ring
+    - was writing / rang
+    - wrote / rang
+    - write / rang
+    correct_answer: 2
+    question: I ___ (write) a letter when the phone ___ (ring).
+  - answers:
+    - has known / were
+    - knows / were
+    - had known / were
+    - knew / have been
+    correct_answer: 1
+    question: He ___ (know) her since they ___ (be) children.
+  - answers:
+    - finishes / will leave
+    - finish / leave
+    - finished / had left
+    - had finished / left
+    correct_answer: 3
+    question: By the time she ___ (finish) her work, we ___ (leave).
+  - answers:
+    - has been studying
+    - studies
+    - studied
+    - had been studying
+    correct_answer: 1
+    question: She ___ (study) English for three years.
+  - answers:
+    - goes / comes
+    - went / came
+    - has gone / came
+    - had gone / came
+    correct_answer: 4
+    question: He ___ (go) to the store before he ___ (come) home.
+  - answers:
+    - know / will tell
+    - knew / would tell
+    - had known / would have told
+    - have known / will tell
+    correct_answer: 3
+    question: If I ___ (know) the answer, I ___ (tell) you.
+  - answers:
+    - have been waiting
+    - waited
+    - wait
+    - had waited
+    correct_answer: 1
+    question: We ___ (wait) for you since 2 PM.
+  - answers:
+    - have advanced
+    - advancing
+    - has advanced
+    - advance
+    correct_answer: 3
+    question: The team ___ to the championship game.
+  - answers:
+    - were
+    - was
+    - are
+    - is
+    correct_answer: 2
+    question: Neither the students nor the teacher ___ aware of the changes.
+  - answers:
+    - leaves
+    - had left
+    - leave
+    - left
+    correct_answer: 2
+    question: If she ___ earlier, she would have made it on time.
+  - answers:
+    - have
+    - were
+    - are
+    - has
+    correct_answer: 4
+    question: Each of the boys ___ a book to read over the weekend.
+  - answers:
+    - meet
+    - meets
+    - meeting
+    - met
+    correct_answer: 4
+    question: The committee ___ every Wednesday to discuss the new policies, before the holidays.
+  - answers:
+    - will publish
+    - publishes
+    - publish
+    - published
+    correct_answer: 1
+    question: The researchers ___ the results of their study next month.
+  - answers:
+    - my's
+    - me
+    - my
+    - mine
+    correct_answer: 3
+    question: I can't find ___ book. Have you seen it?
+  - answers:
+    - are
+    - were
+    - be
+    - is
+    correct_answer: 4
+    question: The athlete, as well as the coaches, ___ excited about the upcoming tournament.
+  - answers:
+    - complete
+    - completes
+    - completed
+    - will have completed
+    correct_answer: 4
+    question: By this time next year, they ___ building the new stadium.
+  - answers:
+    - had been finished
+    - has been finished
+    - was finishing
+    - is finished
+    correct_answer: 1
+    question: The report ___ by the time we arrived at the meeting.
+  - answers:
+    - play
+    - has been playing
+    - have played
+    - playing
+    correct_answer: 2
+    question: She ___ the piano for five years now.
+  - answers:
+    - who
+    - whose
+    - that
+    - whom
+    correct_answer: 3
+    question: This is the book ___ I was telling you about.
+  - answers:
+    - are
+    - is
+    - be
+    - was
+    correct_answer: 2
+    question: He is one of the students who ___ always on time.
+  - answers:
+    - care
+    - careful
+    - carefully
+    - careless
+    correct_answer: 3
+    question: The scientist conducted the experiment ___ to ensure accuracy.
+  - answers:
+    - invited
+    - invite
+    - invites
+    - was inviting
+    correct_answer: 1
+    question: She ___ her friend to the party, but she declined.
+  - answers:
+    - was
+    - were
+    - is
+    - be
+    correct_answer: 2
+    question: Neither the manager nor the employees ___ satisfied with the decision.
+  - answers:
+    - belong
+    - belongs
+    - belonging
+    - is belonging
+    correct_answer: 2
+    question: The books on the shelf ___ to my sister.
+  - answers:
+    - is
+    - has
+    - were
+    - being
+    correct_answer: 3
+    question: He wanted to know if there ___ any updates on the project.
+  - answers:
+    - anyone else
+    - anybody
+    - anyone
+    - nobody
+    correct_answer: 3
+    question: She is as talented as ___ in the class.
+  - answers:
+    - were
+    - was
+    - is
+    - be
+    correct_answer: 1
+    question: The results of the survey ___ surprising.
+  - answers:
+    - be
+    - are
+    - were
+    - will be
+    correct_answer: 4
+    question: The new policy, along with the old ones, ___ implemented next week.
+  - answers:
+    - were
+    - are
+    - is
+    - be
+    correct_answer: 3
+    question: The professor, as well as his students, ___ attending the conference.
+  - answers:
+    - is
+    - are
+    - was
+    - were
+    correct_answer: 3
+    question: He is the one who ___ chosen to lead the team.
+  - answers:
+    - were
+    - is
+    - are
+    - was
+    correct_answer: 4
+    question: Each of the candidates ___ to speak for ten minutes.
+  - answers:
+    - who
+    - whom
+    - that
+    - which
+    correct_answer: 3
+    question: He is the kind of person ___ everyone likes.
+  - answers:
+    - it's
+    - its
+    - it
+    - its'
+    correct_answer: 2
+    question: I can't believe it's ___ time already.
+  - answers:
+    - works
+    - work
+    - working
+    - worked
+    correct_answer: 1
+    question: The team will win the championship if it ___ hard.
+  - answers:
+    - who
+    - whose
+    - whom
+    - that
+    correct_answer: 2
+    question: She is the student ___ work was recognized by the committee.
+  - answers:
+    - arriving
+    - arrive
+    - arrived
+    - arrives
+    correct_answer: 4
+    question: The project will be completed by the time the deadline ___.
+  - answers:
+    - were
+    - be
+    - is
+    - are
+    correct_answer: 3
+    question: Neither of the solutions ___ perfect.
+  - answers:
+    - therefore
+    - however
+    - similarly
+    - although
+    correct_answer: 1
+    question: He studied very hard for the exam; ___, he scored the highest marks in the class.
+  - answers:
+    - moreover
+    - consequently
+    - however
+    - therefore
+    correct_answer: 3
+    question: She wanted to go to the party; ___, she had too much homework to finish.
+  - answers:
+    - although
+    - because
+    - hence
+    - furthermore
+    correct_answer: 3
+    question: The weather forecast predicted rain; ___, we decided to postpone the picnic.
+  - answers:
+    - similarly
+    - conversely
+    - nonetheless
+    - moreover
+    correct_answer: 4
+    question: The project was completed on time; ___, it was done under budget.
+  - answers:
+    - consequently
+    - likewise
+    - as a result
+    - in addition
+    correct_answer: 4
+    question: He is very talented; ___, he is one of the most dedicated employees.
+  - answers:
+    - similarly
+    - nonetheless
+    - therefore
+    - for example
+    correct_answer: 2
+    question: The team played well; ___, they lost the match.
+  - answers:
+    - although
+    - because
+    - therefore
+    - similarly
+    correct_answer: 3
+    question: The research was thorough; ___, the conclusions drawn were accurate.
+  - answers:
+    - however
+    - for example
+    - consequently
+    - in contrast
+    correct_answer: 3
+    question: She practiced daily; ___, she saw significant improvement in her performance.
+  - answers:
+    - as a result
+    - for instance
+    - in contrast
+    - nevertheless
+    correct_answer: 1
+    question: The lecture was long and detailed; ___, many students found it difficult to follow.
+  - answers:
+    - thus
+    - similarly
+    - meanwhile
+    - conversely
+    correct_answer: 1
+    question: He didn't prepare well for the interview; ___, he was nervous and unsure of his answers.
+  - answers:
+    - Correct as is
+    - The meeting is scheduled for Monday June 14, 2024 at 10:00 AM.
+    - The meeting is scheduled for Monday, June 14 2024, at 10:00 AM.
+    - The meeting is scheduled for Monday, June 14 2024 at 10:00 AM.
+    correct_answer: 1
+    question: The meeting is scheduled for Monday, June 14, 2024, at 10:00 AM.
+  - answers:
+    - Correct as is
+    - I need to buy bread, milk and eggs from the store.
+    - I need to buy bread, milk, and, eggs from the store.
+    - I need to buy bread, milk, and eggs from the store.
+    correct_answer: 4
+    question: I need to buy bread, milk, and eggs from the store.
+  - answers:
+    - Correct as is
+    - \"I can't believe it's already Friday,"\ she said.
+    - \"I can't believe its already Friday,"\ she said.
+    - \"I cant believe it's already Friday,"\ she said.
+    correct_answer: 2
+    question: \"I can't believe it's already Friday,"\ she said.
+  - answers:
+    - Correct as is
+    - My brothers car, which is very old, broke down again.
+    - My brother's car which is very old broke down again.
+    - My brothers car which is very old broke down again.
+    correct_answer: 1
+    question: My brother's car, which is very old, broke down again.
+  - answers:
+    - Correct as is
+    - After a long day at work I like to relax, and read a book.
+    - After a long day at work I like to relax and read a book.
+    - After a long day at work, I like to relax, and read a book.
+    correct_answer: 3
+    question: After a long day at work, I like to relax and read a book.
+  - answers:
+    - Correct as is
+    - The company is launching a new product line smartphones, and tablets.
+    - The company is launching a new product line; smartphones and tablets.
+    - The company is launching a new product line, smartphones and tablets.
+    correct_answer: 4
+    question: The company is launching a new product line:\ smartphones and tablets.
+  - answers:
+    - Correct as is
+    - She is an intelligent, hardworking and dedicated employee.
+    - She is an intelligent hardworking, and dedicated employee.
+    - She is an intelligent, hardworking, and, dedicated employee.
+    correct_answer: 2
+    question: She is an intelligent, hardworking, and dedicated employee.
+  - answers:
+    - Correct as is
+    - To be successful you need to be both diligent, and adaptable.
+    - To be successful you need to be both diligent and adaptable.
+    - To be successful, you need to be both, diligent and adaptable.
+    correct_answer: 3
+    question: To be successful, you need to be both diligent and adaptable.
+  - answers:
+    - Correct as is
+    - The novel is set in Paris France, Rome Italy, and Berlin Germany.
+    - The novel is set in Paris, France:\ Rome, Italy:\ and Berlin, Germany.
+    - The novel is set in Paris, France, Rome, Italy, and Berlin, Germany.
+    correct_answer: 1
+    question: The novel is set in Paris, France; Rome, Italy; and Berlin, Germany.
+  - answers:
+    - Correct as is
+    - We visited the museum and then we went to the park.
+    - We visited the museum and, then we went to the park.
+    - We visited the museum; and then we went to the park.
+    correct_answer: 2
+    question: We visited the museum, and then we went to the park.
+  - answers:
+    - Correct as is
+    - My favorite colors are:\ blue, green, and red.
+    - My favorite colors are blue, green and red.
+    - My favorite colors are blue; green, and red.
+    correct_answer: 1
+    question: My favorite colors are blue, green, and red.
+  - answers:
+    - Correct as is
+    - The professors lecture was insightful; however, it was quite lengthy.
+    - The professor's lecture was insightful, however, it was quite lengthy.
+    - The professor's lecture was insightful however, it was quite lengthy.
+    correct_answer: 4
+    question: The professor's lecture was insightful; however, it was quite lengthy.
+  - answers:
+    - Correct as is
+    - There are many beautiful places to visit in Europe; such as Paris, Rome, and Barcelona.
+    - There are many beautiful places to visit in Europe such as Paris, Rome, and Barcelona.
+    - There are many beautiful places to visit in Europe such as, Paris, Rome, and Barcelona.
+    correct_answer: 3
+    question: There are many beautiful places to visit in Europe, such as Paris, Rome, and Barcelona.
+  - answers:
+    - Correct as is
+    - He brought the following items to the meeting, a laptop, a projector, and a notepad.
+    - He brought the following items to the meeting; a laptop, a projector, and a notepad.
+    - He brought the following items to the meeting - a laptop, a projector, and a notepad.
+    correct_answer: 3
+    question: He brought the following items to the meeting:\ a laptop, a projector, and a notepad.
+  - answers:
+    - Correct as is
+    - The test was difficult; nevertheless I managed to pass it.
+    - The test was difficult:\ nevertheless, I managed to pass it.
+    - The test was difficult, nevertheless I managed to pass it.
+    correct_answer: 2
+    question: The test was difficult; nevertheless, I managed to pass it.
+  - answers:
+    - Correct as is
+    - My friends, and I are going to the movies tonight.
+    - My friends and I, are going to the movies tonight.
+    - My friends and I are, going to the movies tonight.
+    correct_answer: 3
+    question: My friends and I are going to the movies tonight.
+  - answers:
+    - Correct as is
+    - The CEO stated "We are committed to sustainability."
+    - The CEO stated, "We are committed to sustainability".
+    - The CEO stated:\ "We are committed to sustainability."
+    correct_answer: 2
+    question: The CEO stated, "We are committed to sustainability."
+  - answers:
+    - Correct as is
+    - Because of the heavy traffic we arrived late to the concert.
+    - Because of the heavy traffic; we arrived late to the concert.
+    - Because of the heavy traffic, we arrived late, to the concert.
+    correct_answer: 2
+    question: Because of the heavy traffic, we arrived late to the concert.
+  - answers:
+    - Correct as is
+    - \"What time is it?"\ he asked?
+    - \"What time is it"\, he asked.
+    - \"What time is it"\ he asked?
+    correct_answer: 3
+    question: \"What time is it?"\ he asked.
+  - answers:
+    - Correct as is
+    - Despite the challenges the team succeeded.
+    - Despite the challenges; the team succeeded.
+    - Despite the challenges, the team succeeded.
+    correct_answer: 3
+    question: Despite the challenges, the team succeeded.
+
