@@ -26,6 +26,7 @@ import '2048/game_2048.dart';
 import 'linguistic/spelling_mistakes.dart';
 import 'well_being/memes.dart';
 import 'linguistic/grammar_mcq_test.dart';
+import 'linguistic/correct_a_word.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -432,11 +433,11 @@ class _YourActivities extends State<YourActivities> {
                           zero: 0,
                         ),
                         createActivity2(
-                          (context),
-                          "xd",
-                          "memes",
-                          "memes",
-                          const Meme(),
+                          context,
+                          "correct_a_word",
+                          "Correct a word",
+                          "",
+                          const CorrectAWord(),
                         ),
                         createActivity2(
                           context,
