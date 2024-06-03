@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import 'package:brain_train_app/logical_thinking/problem.dart';
+
+import 'lesson1/main.dart';
 
 class Investing extends StatefulWidget {
   const Investing({super.key});
@@ -35,7 +36,7 @@ class _Investing extends State<Investing> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: size.width / 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -90,46 +91,16 @@ class _Investing extends State<Investing> {
               ),
             ),
             SizedBox(height: size.height / 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "About the course:",
-                    style: TextStyle(
-                      fontSize: size.width / 15,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    "- 5-7 hours",
-                    style: TextStyle(
-                      fontSize: size.width / 20,
-                    ),
-                  ),
-                  Text(
-                    "- 318 questions",
-                    style: TextStyle(
-                      fontSize: size.width / 20,
-                    ),
-                  ),
-                  Text(
-                    "- certificate from 90%",
-                    style: TextStyle(
-                      fontSize: size.width / 20,
-                    ),
-                  ),
-                ],
+            Center(
+              child: SizedBox(
+                height: size.height * 0.05,
+                width: size.width * 0.75,
+                child: RedirectButton(
+                  route: const Lesson1(),
+                  text: 'Continue',
+                  width: size.width,
+                ),
               ),
-            ),
-            RedirectButton(
-              route: const ProblemSelection(
-                testVersion: true,
-              ),
-              text: 'Continue',
-              width: size.width,
             ),
           ],
         ),
