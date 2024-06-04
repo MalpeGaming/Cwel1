@@ -94,233 +94,235 @@ class _Grammar extends State<Grammar> {
     return questions.isEmpty & answers.isEmpty & correctAnswers.isEmpty
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
-            body: SingleChildScrollView(
-              child: Container(
-                height: size.height * 0.9,
-                margin: EdgeInsets.only(
-                  left: size.width / 20,
-                  right: size.width / 20,
-                  top: size.height / 15,
-                ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Center(
-                            child: Column(
-                              children: [
-                                Text(
-                                  "LINGUISTIC",
-                                  style:
-                                      TextStyle(fontSize: 0.06 * size.height),
-                                ),
-                                Text(
-                                  "INTELLIGENCE",
-                                  style:
-                                      TextStyle(fontSize: 0.035 * size.height),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: size.height / 40,
-                          ),
-                          Center(
-                            child: Text(
-                              "Exercise 1 - Grammar MCQ Test",
-                              style: TextStyle(
-                                fontSize: size.width / 20,
+            body: Column(
+              children: [
+                Container(
+                  height: size.height * 0.9,
+                  margin: EdgeInsets.only(
+                    left: size.width / 20,
+                    right: size.width / 20,
+                    top: size.height / 15,
+                  ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Center(
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "LINGUISTIC",
+                                    style:
+                                        TextStyle(fontSize: 0.06 * size.height),
+                                  ),
+                                  Text(
+                                    "INTELLIGENCE",
+                                    style: TextStyle(
+                                        fontSize: 0.035 * size.height),
+                                  ),
+                                ],
                               ),
-                              textAlign: TextAlign.center,
                             ),
-                          ),
-                          SizedBox(
-                            height: size.height / 20,
-                          ),
-                          Center(
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(20)),
-                                gradient: LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  colors: <Color>[
-                                    Theme.of(context).colorScheme.primary,
-                                    Theme.of(context).colorScheme.onPrimary,
-                                  ],
-                                  tileMode: TileMode.decal,
+                            SizedBox(
+                              height: size.height / 40,
+                            ),
+                            Center(
+                              child: Text(
+                                "Exercise 1 - Grammar MCQ Test",
+                                style: TextStyle(
+                                  fontSize: size.width / 20,
                                 ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            SizedBox(
+                              height: size.height / 20,
+                            ),
+                            Center(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(20)),
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                    colors: <Color>[
+                                      Theme.of(context).colorScheme.primary,
+                                      Theme.of(context).colorScheme.onPrimary,
+                                    ],
+                                    tileMode: TileMode.decal,
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .shadow
+                                          .withOpacity(1),
+                                      spreadRadius: 5,
+                                      blurRadius: 7,
+                                      offset: const Offset(5, 5),
+                                    ),
+                                  ],
+                                ),
+                                width: size.width * 0.8,
+                                child: Container(
+                                  margin: const EdgeInsets.all(15),
+                                  child: Center(
+                                    child: Text(
+                                      questions[shuffledNumbers[questionIndex]],
+                                      style: TextStyle(
+                                        fontSize: size.width / 22,
+                                        color: Colors.white,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: size.height / 25,
+                            ),
+                            for (int i = 0;
+                                i <
+                                    answers[shuffledNumbers[questionIndex]]
+                                        .length;
+                                i++)
+                              createListTitle(
+                                i,
+                                answers[shuffledNumbers[questionIndex]][i],
+                              ),
+                          ],
+                        ),
+                        SizedBox(height: size.height / 30),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: size.width / 7,
+                              width: size.width / 7,
+                              decoration: BoxDecoration(
+                                color: Colors.green,
+                                shape: BoxShape.circle,
                                 boxShadow: [
                                   BoxShadow(
                                     color: Theme.of(context)
                                         .colorScheme
                                         .shadow
-                                        .withOpacity(1),
+                                        .withOpacity(0.7),
                                     spreadRadius: 5,
                                     blurRadius: 7,
                                     offset: const Offset(5, 5),
                                   ),
                                 ],
                               ),
-                              width: size.width * 0.8,
-                              child: Container(
-                                margin: const EdgeInsets.all(15),
-                                child: Center(
-                                  child: Text(
-                                    questions[shuffledNumbers[questionIndex]],
-                                    style: TextStyle(
-                                      fontSize: size.width / 22,
-                                      color: Colors.white,
-                                    ),
-                                    textAlign: TextAlign.center,
+                              child: Center(
+                                child: Text(
+                                  correct.toString(),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: size.width / 20,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: size.height / 25,
-                          ),
-                          for (int i = 0;
-                              i <
-                                  answers[shuffledNumbers[questionIndex]]
-                                      .length;
-                              i++)
-                            createListTitle(
-                              i,
-                              answers[shuffledNumbers[questionIndex]][i],
+                            SizedBox(
+                              height: size.width / 20,
+                              width: size.width / 20,
                             ),
-                        ],
-                      ),
-                      SizedBox(height: size.height / 30),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            height: size.width / 7,
-                            width: size.width / 7,
-                            decoration: BoxDecoration(
-                              color: Colors.green,
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .shadow
-                                      .withOpacity(0.7),
-                                  spreadRadius: 5,
-                                  blurRadius: 7,
-                                  offset: const Offset(5, 5),
-                                ),
-                              ],
-                            ),
-                            child: Center(
-                              child: Text(
-                                correct.toString(),
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: size.width / 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: size.width / 20,
-                            width: size.width / 20,
-                          ),
-                          Container(
-                            height: size.width / 7,
-                            width: size.width / 7,
-                            decoration: BoxDecoration(
-                              color: Colors.red,
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .shadow
-                                      .withOpacity(0.7),
-                                  spreadRadius: 5,
-                                  blurRadius: 7,
-                                  offset: const Offset(5, 5),
-                                ),
-                              ],
-                            ),
-                            child: Center(
-                              child: Text(
-                                incorrect.toString(),
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: size.width / 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: size.height / 20),
-                      Column(
-                        children: [
-                          SizedBox(
-                            height: size.height * 0.05,
-                            width: size.width * 0.75,
-                            child: RedirectButton(
-                              onClick: () {
-                                if (selectedOption == -1) return;
-
-                                if (selectedOption ==
-                                    correctAnswers[
-                                            shuffledNumbers[questionIndex]] -
-                                        1) {
-                                  score += 1;
-                                  correct += 1;
-                                } else {
-                                  incorrect += 1;
-                                }
-
-                                if (questionIndex < 10) {
-                                  setState(() {
-                                    questionIndex += 1;
-                                    selectedOption = -1;
-                                    print(questionIndex);
-                                    print(answers.join("\n"));
-                                  });
-                                  return;
-                                }
-
-                                Navigator.pop(context);
-
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ProgressScreen(
-                                      name: "grammar_mcq",
-                                      score: score,
-                                    ),
+                            Container(
+                              height: size.width / 7,
+                              width: size.width / 7,
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .shadow
+                                        .withOpacity(0.7),
+                                    spreadRadius: 5,
+                                    blurRadius: 7,
+                                    offset: const Offset(5, 5),
                                   ),
-                                );
-                              },
-                              text: 'Continue',
-                              width: size.width,
+                                ],
+                              ),
+                              child: Center(
+                                child: Text(
+                                  incorrect.toString(),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: size.width / 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: size.height / 20,
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                        SizedBox(height: size.height / 20),
+                        Column(
+                          children: [
+                            SizedBox(
+                              height: size.height * 0.05,
+                              width: size.width * 0.75,
+                              child: RedirectButton(
+                                onClick: () {
+                                  if (selectedOption == -1) return;
+
+                                  if (selectedOption ==
+                                      correctAnswers[
+                                              shuffledNumbers[questionIndex]] -
+                                          1) {
+                                    score += 1;
+                                    correct += 1;
+                                  } else {
+                                    incorrect += 1;
+                                  }
+
+                                  if (questionIndex < 10) {
+                                    setState(() {
+                                      questionIndex += 1;
+                                      selectedOption = -1;
+                                      print(questionIndex);
+                                      print(answers.join("\n"));
+                                    });
+                                    return;
+                                  }
+
+                                  Navigator.pop(context);
+
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => ProgressScreen(
+                                        name: "grammar_mcq",
+                                        score: score,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                text: 'Continue',
+                                width: size.width,
+                              ),
+                            ),
+                            SizedBox(
+                              height: size.height / 20,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
           );
   }
