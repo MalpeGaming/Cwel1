@@ -24,6 +24,7 @@ class _SpellingMistakes extends State<SpellingMistakes> {
   List<String> questions = [];
   List<List<String>> answers = [];
   final dMSAJson = DictionaryMSAFlutter();
+  int correct = 0, incorrect = 0;
 
   @override
   void initState() {
@@ -142,7 +143,7 @@ class _SpellingMistakes extends State<SpellingMistakes> {
                       children: <Widget>[
                         Center(
                           child: Text(
-                            "ATTENTION",
+                            "LINGUISTIC",
                             style: TextStyle(
                               fontSize: size.width / 8,
                             ),
@@ -151,7 +152,7 @@ class _SpellingMistakes extends State<SpellingMistakes> {
                         ),
                         Center(
                           child: Text(
-                            "Exercise 2 - Long Term Concentration",
+                            "Exercise 2 - spelling mistakes",
                             style: TextStyle(
                               fontSize: size.width / 18,
                             ),
@@ -215,6 +216,77 @@ class _SpellingMistakes extends State<SpellingMistakes> {
                     ),
                     Column(
                       children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: size.width / 7,
+                              width: size.width / 7,
+                              decoration: BoxDecoration(
+                                color: Colors.green,
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .shadow
+                                        .withOpacity(0.7),
+                                    spreadRadius: 5,
+                                    blurRadius: 7,
+                                    offset: const Offset(5, 5),
+                                  ),
+                                ],
+                              ),
+                              child: Center(
+                                child: Text(
+                                  correct.toString(),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: size.width / 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: size.width / 20,
+                              width: size.width / 20,
+                            ),
+                            Container(
+                              height: size.width / 7,
+                              width: size.width / 7,
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .shadow
+                                        .withOpacity(0.7),
+                                    spreadRadius: 5,
+                                    blurRadius: 7,
+                                    offset: const Offset(5, 5),
+                                  ),
+                                ],
+                              ),
+                              child: Center(
+                                child: Text(
+                                  answers[questionIndex][selectedOption]
+                                      .toString(),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: size.width / 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: size.height / 20,
+                        ),
                         SizedBox(
                           height: size.height * 0.05,
                           width: size.width * 0.75,
