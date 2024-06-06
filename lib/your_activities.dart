@@ -26,6 +26,7 @@ import '2048/game_2048.dart';
 import 'linguistic/spelling_mistakes.dart';
 import 'well_being/memes.dart';
 import 'linguistic/grammar_mcq_test.dart';
+import 'investing/main.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -437,6 +438,14 @@ class _YourActivities extends State<YourActivities> {
                           "memes",
                           "memes",
                           const Meme(),
+                          zero: 0,
+                        ),
+                        createActivity2(
+                          (context),
+                          "investing_course",
+                          "Investing",
+                          "Course",
+                          const Investing(),
                         ),
                         createActivity2(
                           context,
@@ -447,10 +456,6 @@ class _YourActivities extends State<YourActivities> {
                             exerciseId: 0,
                           ),
                           zero: 0,
-                          "memes",
-                          "Memes",
-                          "",
-                          const Meme(),
                         ),
                       ],
                     ),

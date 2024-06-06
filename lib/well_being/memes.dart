@@ -40,11 +40,6 @@ class _MemeState extends State<Meme> {
 
   @override
   Widget build(BuildContext context) {
-    int xd = -1;
-
-    print("sadfhkjas");
-    print(xd);
-
     return Scaffold(
       appBar: appBar(context, ""),
       body: Center(
