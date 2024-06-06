@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
+import '../tasks.dart';
 
 class Lesson1 extends StatefulWidget {
   const Lesson1({super.key});
@@ -54,8 +55,10 @@ class _Lesson1 extends State<Lesson1> {
                 ),
               ),
               SizedBox(height: size.height / 40),
-              Text("Key vocabulary:",
-                  style: TextStyle(fontSize: size.height * 0.020),),
+              Text(
+                "Key vocabulary:",
+                style: TextStyle(fontSize: size.height * 0.020),
+              ),
               SizedBox(height: size.height / 60),
               RichText(
                 text: TextSpan(
@@ -97,13 +100,22 @@ class _Lesson1 extends State<Lesson1> {
                   ],
                 ),
               ),
+              buildQuizScreen(
+                  question: "Why Should You Invest?",
+                  answers: [
+                    "To beat the inflation",
+                    "To lose money",
+                    "To make money",
+                    "To spend money"
+                  ],
+                  correctAnswer: 0),
               SizedBox(height: size.height / 10),
               Center(
                 child: SizedBox(
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: const Lesson1(),
+                    route: Text("smo"),
                     text: 'Continue',
                     width: size.width,
                   ),
