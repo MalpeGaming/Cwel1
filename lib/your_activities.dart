@@ -434,15 +434,15 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity2(
                           (context),
-                          "xd",
                           "memes",
-                          "memes",
+                          "Memes",
+                          "",
                           const Meme(),
                           zero: 0,
                         ),
                         createActivity2(
                           (context),
-                          "investing_course",
+                          "investing_start",
                           "Investing",
                           "Course",
                           const Investing(),
