@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../tasks.dart';
+import '../lesson2/main.dart';
 
 class Lesson1 extends StatefulWidget {
   const Lesson1({super.key});
@@ -10,6 +10,51 @@ class Lesson1 extends StatefulWidget {
 }
 
 class _Lesson1 extends State<Lesson1> {
+  int selectedOption = -1;
+
+  Widget buildQuizScreen({
+    required String question,
+    required List<String> answers,
+    required int correctAnswer,
+  }) {
+    ListTile createListTitle(int val, String text, Size size) {
+      return ListTile(
+        //dense: true,
+        title: Text(
+          text,
+          style: TextStyle(fontSize: 0.02 * size.height),
+        ),
+        leading: Radio<int>(
+          value: val,
+          groupValue: selectedOption,
+          activeColor: Colors.blue,
+          onChanged: (value) {
+            setState(() {
+              selectedOption = value!;
+            });
+          },
+        ),
+      );
+    }
+
+    return Column(
+      children: [
+        Text(
+          question,
+          style: const TextStyle(fontSize: 20),
+        ),
+        const SizedBox(height: 20),
+        Column(
+            children: List.generate(4, (index) {
+          return Container(
+              margin: const EdgeInsets.all(5),
+              child: createListTitle(
+                  index, answers[index], MediaQuery.of(context).size,),);
+        }),),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -101,21 +146,22 @@ class _Lesson1 extends State<Lesson1> {
                 ),
               ),
               buildQuizScreen(
-                  question: "Why Should You Invest?",
-                  answers: [
-                    "To beat the inflation",
-                    "To lose money",
-                    "To make money",
-                    "To spend money"
-                  ],
-                  correctAnswer: 0),
+                question: "Why Should You Invest?",
+                answers: [
+                  "To beat the inflation",
+                  "To lose money",
+                  "To make money",
+                  "To spend money",
+                ],
+                correctAnswer: 0,
+              ),
               SizedBox(height: size.height / 10),
               Center(
                 child: SizedBox(
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: Text("smo"),
+                    route: const Lesson2(),
                     text: 'Continue',
                     width: size.width,
                   ),
