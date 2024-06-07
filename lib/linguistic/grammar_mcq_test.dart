@@ -123,7 +123,7 @@ class _Grammar extends State<Grammar> {
                                   Text(
                                     "INTELLIGENCE",
                                     style: TextStyle(
-                                        fontSize: 0.035 * size.height),
+                                        fontSize: 0.035 * size.height,),
                                   ),
                                 ],
                               ),
@@ -147,7 +147,7 @@ class _Grammar extends State<Grammar> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: const BorderRadius.all(
-                                      Radius.circular(20)),
+                                      Radius.circular(20),),
                                   gradient: LinearGradient(
                                     begin: Alignment.topLeft,
                                     end: Alignment.bottomRight,

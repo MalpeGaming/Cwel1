@@ -10,6 +10,59 @@ class Lesson1 extends StatefulWidget {
 }
 
 class _Lesson1 extends State<Lesson1> {
+  int selectedOption = -1;
+
+  Widget buildQuizScreen({
+    required String question,
+    required List<String> answers,
+    required int correctAnswer,
+    String? image,
+  }) {
+    ListTile createListTitle(int val, String text, Size size) {
+      return ListTile(
+        dense: true,
+        title: Text(
+          text,
+          style: TextStyle(fontSize: 0.02 * size.height),
+        ),
+        leading: Radio<int>(
+          value: val,
+          groupValue: selectedOption,
+          activeColor: Colors.blue,
+          onChanged: (value) {
+            setState(() {
+              selectedOption = value!;
+            });
+          },
+        ),
+      );
+    }
+
+    return Column(
+      children: [
+        Text(
+          question,
+          style:
+              TextStyle(fontSize: MediaQuery.of(context).size.height * 0.020),
+        ),
+        if (image != null) Image.asset(image),
+        SizedBox(height: MediaQuery.of(context).size.height / 70),
+        Column(
+          children: List.generate(answers.length, (index) {
+            return Container(
+              //margin: const EdgeInsets.all(5),
+              child: createListTitle(
+                index,
+                answers[index],
+                MediaQuery.of(context).size,
+              ),
+            );
+          }),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -43,7 +96,7 @@ class _Lesson1 extends State<Lesson1> {
               Text(
                 "You've likely been told many times that you should invest, but have you actually started? In the next 2 lessons, I will provide three convincing arguments that might help you make up your mind on this topic. So, let's begin:",
                 style: TextStyle(
-                  fontSize: size.width / 25,
+                  fontSize: size.height / 50,
                 ),
               ),
               SizedBox(height: size.height / 60),
@@ -99,6 +152,27 @@ class _Lesson1 extends State<Lesson1> {
                     ),
                   ],
                 ),
+              ),
+              SizedBox(height: size.height / 30),
+              Text(
+                "Money, essentially worthless alone, gains value as a medium of exchange for goods and services. A \$10 bill, is worth \$10 dollars because we can buy with it sth that is 10 times more valuable than sth for \$1. Governments regulate the supply of money, often through printing more, but this doesn't create wealth. Increasing the money supply without a corresponding rise in production leads to inflation. This happens because more money chases the same goods and services. For instance, if the government doubles the money supply without boosting production, prices roughly double too. What are the consequences ? Our savings lose value over time, as we can buy less and less with it.",
+                style: TextStyle(
+                  fontSize: 0.020 * size.height,
+                  color: Theme.of(context).colorScheme.onSecondary,
+                ),
+              ),
+              SizedBox(height: size.height / 30),
+              buildQuizScreen(
+                question:
+                    "Below you can see a chart showing the inflation rate in Algeria during a time period of 4 years. Let’s assume an individual holds \$100k in cash at the beginning of the year 2019. How much will his money be worth at the end of the year 2022 ?",
+                answers: [
+                  "around \$80.5k",
+                  "To lose money",
+                  "To make money",
+                  "To spend money",
+                ],
+                correctAnswer: 0,
+                image: "assets/investing/algieria.png",
               ),
               SizedBox(height: size.height / 10),
               Center(
