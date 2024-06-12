@@ -166,6 +166,11 @@ class _Lesson1 extends State<Lesson1> {
                 ),
               ),
               SizedBox(height: size.height / 20),
+              Divider(
+                color: Theme.of(context).colorScheme.primary,
+                thickness: size.height / 100,
+              ),
+              SizedBox(height: size.height / 20),
               Text(
                 "1. Beat the Inflation",
                 style: TextStyle(
@@ -196,17 +201,32 @@ class _Lesson1 extends State<Lesson1> {
                   color: Theme.of(context).colorScheme.onSecondary,
                 ),
               ),
-              SizedBox(height: size.height / 10),
+              SizedBox(height: size.height / 20),
+              Divider(
+                color: Theme.of(context).colorScheme.primary,
+                thickness: size.height / 100,
+              ),
+              SizedBox(height: size.height / 20),
               buildQuizScreen(
                 questionNumber: 0,
                 image: "assets/investing/lesson1/algieria.png",
               ),
-              SizedBox(height: size.height / 10),
+              SizedBox(height: size.height / 20),
+              Divider(
+                color: Theme.of(context).colorScheme.primary,
+                thickness: size.height / 100,
+              ),
+              SizedBox(height: size.height / 20),
               Text(
                 "Alright, but while we can print money, we can't print new stocks of a company, another S&P500 ETF, or another bitcoin. This highlights that investing in assets with real worth protects against inflation. An apple remains an apple, but \$5 won't hold its value after 10 years! :)",
                 style: TextStyle(
                   fontSize: 0.02 * size.height,
                 ),
+              ),
+              SizedBox(height: size.height / 20),
+              Divider(
+                color: Theme.of(context).colorScheme.primary,
+                thickness: size.height / 100,
               ),
               SizedBox(height: size.height / 10),
               Text(
@@ -245,6 +265,11 @@ class _Lesson1 extends State<Lesson1> {
               Text(
                 "So now, let’s do a few exercises:",
                 style: TextStyle(fontSize: size.height * 0.02),
+              ),
+              SizedBox(height: size.height / 20),
+              Divider(
+                color: Theme.of(context).colorScheme.primary,
+                thickness: size.height / 100,
               ),
               SizedBox(height: size.height / 10),
               buildQuizScreen(
