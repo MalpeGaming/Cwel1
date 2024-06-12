@@ -35,7 +35,7 @@ class _Lesson1 extends State<Lesson1> {
 
   Widget buildQuizScreen({
     required int questionNumber,
-    String? image,
+    Widget? image,
   }) {
     List<String> answers = questions[questionNumber]["answers"] as List<String>;
     Size size = MediaQuery.of(context).size;
@@ -74,7 +74,7 @@ class _Lesson1 extends State<Lesson1> {
           style:
               TextStyle(fontSize: MediaQuery.of(context).size.height * 0.020),
         ),
-        if (image != null) Image.asset(image),
+        if (image != null) image,
         SizedBox(height: MediaQuery.of(context).size.height / 70),
         Column(
           children: List.generate(answers.length, (index) {
@@ -209,7 +209,7 @@ class _Lesson1 extends State<Lesson1> {
               SizedBox(height: size.height / 20),
               buildQuizScreen(
                 questionNumber: 0,
-                image: "assets/investing/lesson1/algieria.png",
+                image: Image.asset("assets/investing/lesson1/algieria.png"),
               ),
               SizedBox(height: size.height / 20),
               Divider(

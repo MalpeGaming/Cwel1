@@ -12,6 +12,74 @@ class _Lesson2 extends State<Lesson2> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    int selectedOption = -1;
+
+    var questions = [
+      {
+        "question":
+            "Graph A shows a linear function, and graph B shows an exponential function.",
+        "answers": [
+          "true",
+          "false",
+        ],
+        "correctAnswer": 0,
+      },
+    ];
+
+    Widget buildQuizScreen({
+      required int questionNumber,
+      Widget? image,
+    }) {
+      List<String> answers =
+          questions[questionNumber]["answers"] as List<String>;
+      Size size = MediaQuery.of(context).size;
+      ListTile createListTitle(int val, String text, Size size) {
+        return ListTile(
+          dense: true,
+          title: Text(
+            text,
+            style: TextStyle(fontSize: 0.02 * size.height),
+          ),
+          leading: Radio<int>(
+            value: val,
+            groupValue: selectedOption,
+            activeColor: Colors.blue,
+            onChanged: (value) {
+              setState(() {
+                selectedOption = value!;
+              });
+            },
+          ),
+        );
+      }
+
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Exercise ${questionNumber + 1}.",
+            style: TextStyle(
+              fontWeight: FontWeight.w900,
+              fontSize: 0.02 * size.height,
+            ),
+          ),
+          Text(
+            questions[questionNumber]["question"] as String,
+            style:
+                TextStyle(fontSize: MediaQuery.of(context).size.height * 0.020),
+          ),
+          if (image != null) image,
+          SizedBox(height: MediaQuery.of(context).size.height / 70),
+          Column(
+            children: List.generate(answers.length, (index) {
+              return Container(
+                child: createListTitle(index, answers[index], size),
+              );
+            }),
+          ),
+        ],
+      );
+    }
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -45,7 +113,12 @@ class _Lesson2 extends State<Lesson2> {
                   fontSize: size.width / 25,
                 ),
               ),
-              SizedBox(height: size.height / 60),
+              SizedBox(height: size.height / 20),
+              Divider(
+                color: Theme.of(context).colorScheme.primary,
+                thickness: size.height / 100,
+              ),
+              SizedBox(height: size.height / 20),
               Text(
                 "1. The Power of Exponential Growth",
                 style: TextStyle(
@@ -58,17 +131,9 @@ class _Lesson2 extends State<Lesson2> {
                 "In high school, you most certainly learned about two main types of functions: we had linear functions and exponential ones - let’s see how much you remember :)",
                 style: TextStyle(fontSize: size.height * 0.020),
               ),
-              SizedBox(height: size.height / 60),
-              Text(
-                "Exercise 1",
-                style: TextStyle(
-                  fontSize: size.width / 25,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                "Graph (A) shows a linear function, and graph (B) shows an exponential function.",
-                style: TextStyle(fontSize: size.height * 0.020),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(
+                questionNumber: 0,
               ),
               SizedBox(height: size.height / 10),
               Center(
