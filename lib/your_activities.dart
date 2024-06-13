@@ -26,7 +26,7 @@ import '2048/game_2048.dart';
 import 'linguistic/spelling_mistakes.dart';
 import 'well_being/memes.dart';
 import 'linguistic/grammar_mcq_test.dart';
-import 'investing/main.dart';
+import 'investing/lesson1/main.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -445,7 +445,7 @@ class _YourActivities extends State<YourActivities> {
                           "investing_start",
                           "Investing",
                           "Course",
-                          const Investing(),
+                          const Lesson1(),
                         ),
                         createActivity2(
                           context,

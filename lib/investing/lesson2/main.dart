@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:brain_train_app/buttons.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../lesson3/main.dart';
+import '../helper_fn.dart';
 
 class Lesson2 extends StatefulWidget {
   const Lesson2({super.key});
@@ -12,28 +15,7 @@ class _Lesson2 extends State<Lesson2> {
   int selectedOption = -1;
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
 
-  Widget keyVocabulary(String text, String definition) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          text,
-          style: TextStyle(
-            fontSize: MediaQuery.of(context).size.height * 0.020,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Text(
-          definition,
-          style: TextStyle(
-            fontSize: MediaQuery.of(context).size.height * 0.020,
-          ),
-        ),
-      ],
-    );
-  }
-
-  GestureDetector createRecipe(BuildContext context, int q_indx, int index) {
+  GestureDetector createRecipe(BuildContext context, int qIndx, int index) {
     Size size = MediaQuery.of(context).size;
 
     return GestureDetector(
@@ -67,7 +49,7 @@ class _Lesson2 extends State<Lesson2> {
             child: Image.asset(
               width: 0.6 * size.width,
               height: 0.6 * size.width,
-              'assets/investing/lesson2/ex${q_indx}_$index.png',
+              'assets/investing/lesson2/ex${qIndx}_$index.png',
             ),
           ),
         ),
@@ -209,7 +191,7 @@ class _Lesson2 extends State<Lesson2> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Lesson 1",
+                "Lesson 2",
                 style: TextStyle(
                   fontSize: size.width / 10,
                   fontWeight: FontWeight.bold,
@@ -229,12 +211,7 @@ class _Lesson2 extends State<Lesson2> {
                   fontSize: size.width / 25,
                 ),
               ),
-              SizedBox(height: size.height / 20),
-              Divider(
-                color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 100,
-              ),
-              SizedBox(height: size.height / 20),
+              createDivider(context),
               Text(
                 "1. The Power of Exponential Growth",
                 style: TextStyle(
@@ -276,12 +253,7 @@ class _Lesson2 extends State<Lesson2> {
                   ],
                 ),
               ),
-              SizedBox(height: size.height / 20),
-              Divider(
-                color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 100,
-              ),
-              SizedBox(height: size.height / 20),
+              createDivider(context),
               Text(
                 "Okay, so what is the difference ? ",
                 style: TextStyle(
@@ -323,12 +295,7 @@ class _Lesson2 extends State<Lesson2> {
                   fontSize: 0.02 * size.height,
                 ),
               ),
-              SizedBox(height: size.height / 20),
-              Divider(
-                color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 100,
-              ),
-              SizedBox(height: size.height / 20),
+              createDivider(context),
               Text(
                 "So let's figure out, what is a better way to become wealthy : )",
                 style: TextStyle(
@@ -353,7 +320,7 @@ class _Lesson2 extends State<Lesson2> {
                         controller: controller,
                         itemCount: 4,
                         itemBuilder: (_, index) {
-                          return createRecipe(context, 2, index % 2);
+                          return createRecipe(context, 2, index % 4);
                         },
                       ),
                     ),
@@ -427,6 +394,18 @@ class _Lesson2 extends State<Lesson2> {
                 "And that will be all for today’s class. Hopefully, right now, you know how we can represent the wealth of an investor (exponential growth) and a typical fixed-wage worker (linear growth). As you can see, though at the beginning a fixed-wage worker will outperform an investor, the scale tips very quickly. Of course, that doesn’t mean you should quit your secure job, but rather it shows the potential investing has.",
                 style: TextStyle(
                   fontSize: 0.02 * size.height,
+                ),
+              ),
+              SizedBox(height: size.height / 10),
+              Center(
+                child: SizedBox(
+                  height: size.height * 0.05,
+                  width: size.width * 0.75,
+                  child: RedirectButton(
+                    route: const Lesson3(),
+                    text: 'Continue',
+                    width: size.width,
+                  ),
                 ),
               ),
             ],

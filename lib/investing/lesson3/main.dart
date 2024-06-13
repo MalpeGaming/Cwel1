@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../lesson2/main.dart';
+import '../lesson4/main.dart';
 import '../helper_fn.dart';
 
-class Lesson1 extends StatefulWidget {
-  const Lesson1({super.key});
+class Lesson3 extends StatefulWidget {
+  const Lesson3({super.key});
 
   @override
-  State<Lesson1> createState() => _Lesson1();
+  State<Lesson3> createState() => _Lesson3();
 }
 
-class _Lesson1 extends State<Lesson1> {
+class _Lesson3 extends State<Lesson3> {
   int selectedOption = -1;
 
   Widget buildQuizScreen({
@@ -28,11 +28,11 @@ class _Lesson1 extends State<Lesson1> {
         ),
         leading: Radio<int>(
           value: val,
-          groupValue: usersAnswers[questionNumber],
+          groupValue: selectedOption,
           activeColor: Colors.blue,
           onChanged: (value) {
             setState(() {
-              usersAnswers[questionNumber] = value!;
+              selectedOption = value!;
             });
           },
         ),
@@ -69,40 +69,35 @@ class _Lesson1 extends State<Lesson1> {
 
   var questions = [
     {
-      "question":
-          "Below you can see a chart showing the inflation rate in Algeria during a time period of 4 years. Let’s assume an individual holds \$100k in cash at the beginning of the year 2019. How much will his money be worth at the end of the year 2022?",
+      "question": "What is the main difference between gambling and investing?",
       "answers": [
-        "around \$80.5k",
-        "around \$90k",
-        "around \$85k",
-        "around \$92k",
+        "Both involve taking risks",
+        "Gambling relies on luck, while investing involves informed decisions",
+        "Investing always guarantees a profit",
+        "Gambling is legal, but investing is not",
+      ],
+      "correctAnswer": 1,
+    },
+    {
+      "question": "Which of the following is an example of gambling?",
+      "answers": [
+        "Buying stocks in a reputable company",
+        "Betting on the outcome of a sports game",
+        "Opening a savings account",
+        "Starting a small business1",
       ],
       "correctAnswer": 1,
     },
     {
       "question":
-          "Buying a house which generates maintenance costs, means it is a/an:",
+          "How does luck play a role in gambling compared to investing?",
       "answers": [
-        "asset",
-        "liability",
+        "Luck is irrelevant in both gambling and investing",
+        "Luck is the sole determinant of success in investing",
+        "Luck is a major factor in gambling, but less so in investing",
+        "Luck is only important in certain types of gambling, such as card games",
       ],
-      "correctAnswer": 1,
-    },
-    {
-      "question": "Assets generate income … if you work.",
-      "answers": [
-        "only",
-        "regardless",
-      ],
-      "correctAnswer": 1,
-    },
-    {
-      "question": "Because of inflation our cash savings … in value.",
-      "answers": [
-        "increase",
-        "decrease",
-      ],
-      "correctAnswer": 1,
+      "correctAnswer": 2,
     },
   ];
 
@@ -125,7 +120,7 @@ class _Lesson1 extends State<Lesson1> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Lesson 1",
+                "Lesson 3",
                 style: TextStyle(
                   fontSize: size.width / 10,
                   fontWeight: FontWeight.bold,
@@ -133,27 +128,19 @@ class _Lesson1 extends State<Lesson1> {
               ),
               SizedBox(height: size.height / 60),
               Text(
-                "Why Should You Invest?",
+                "Is investing really gambling?",
                 style: TextStyle(
                   fontSize: size.width / 15,
                 ),
               ),
               SizedBox(height: size.height / 60),
               Text(
-                "You've likely been told many times that you should invest, but have you actually started? In the next 2 lessons, I will provide three convincing arguments that might help you make up your mind on this topic. So, let's begin:",
+                "One of the reactions you will often receive, when telling others (especially the older generations) you would like to start investing is that you are “acting stupid, just gambling, and going to lose all your money”. Well, let’s now analyse these claims and see if they hold and truth.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
               ),
               createDivider(context),
-              Text(
-                "1. Beat the Inflation",
-                style: TextStyle(
-                  fontSize: size.width / 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: size.height / 40),
               Text(
                 "Key vocabulary:",
                 style: TextStyle(
@@ -181,18 +168,53 @@ class _Lesson1 extends State<Lesson1> {
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 0,
-                image: Image.asset("assets/investing/lesson1/algieria.png"),
+              ),
+              SizedBox(height: size.height / 10),
+              buildQuizScreen(
+                questionNumber: 1,
+              ),
+              SizedBox(height: size.height / 10),
+              buildQuizScreen(
+                questionNumber: 2,
               ),
               createDivider(context),
               Text(
-                "Alright, but while we can print money, we can't print new stocks of a company, another S&P500 ETF, or another bitcoin. This highlights that investing in assets with real worth protects against inflation. An apple remains an apple, but \$5 won't hold its value after 10 years! :)",
+                "If you still don’t believe in the power of investing then here are three examples that should convince you in the safety of investing:",
+                style: TextStyle(
+                  fontSize: 0.02 * size.height,
+                ),
+              ),
+              SizedBox(height: size.height / 30),
+              Text(
+                "1. If you were to buy one S&P 500 ETF in 1928 for 17.5 \$ you would have 3 951 \$ equivalent to 235 \$ today.",
+                style: TextStyle(
+                  fontSize: 0.02 * size.height,
+                ),
+              ),
+              SizedBox(height: size.height / 30),
+              Text(
+                "2. If you  bought one share of MBG.DE 10 years ago for 40 euros, you would now have 150 euros. An increase of 350%. On the other hand, if you had kept the money under the mattress, its value would have decreased by 38%.",
+                style: TextStyle(
+                  fontSize: 0.02 * size.height,
+                ),
+              ),
+              SizedBox(height: size.height / 30),
+              Text(
+                "3. The average stock market return is about 10% per year for nearly the last century, as measured by the S&P 500 index - meaning that it consistently grows.",
                 style: TextStyle(
                   fontSize: 0.02 * size.height,
                 ),
               ),
               createDivider(context),
               Text(
-                "2. Create Assets",
+                "Alright so now we are closing the first section of our course, and thus here is a short summary quiz for you:",
+                style: TextStyle(
+                  fontSize: 0.02 * size.height,
+                ),
+              ),
+              SizedBox(height: size.height / 20),
+              Text(
+                "Final Quiz:",
                 style: TextStyle(
                   fontSize: size.width / 20,
                   fontWeight: FontWeight.bold,
@@ -231,24 +253,12 @@ class _Lesson1 extends State<Lesson1> {
                 style: TextStyle(fontSize: size.height * 0.02),
               ),
               createDivider(context),
-              buildQuizScreen(
-                questionNumber: 1,
-              ),
-              SizedBox(height: size.height / 10),
-              buildQuizScreen(
-                questionNumber: 2,
-              ),
-              SizedBox(height: size.height / 10),
-              buildQuizScreen(
-                questionNumber: 3,
-              ),
-              SizedBox(height: size.height / 10),
               Center(
                 child: SizedBox(
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: const Lesson2(),
+                    route: const Lesson4(),
                     text: 'Continue',
                     width: size.width,
                   ),
