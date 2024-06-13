@@ -99,6 +99,45 @@ class _Lesson3 extends State<Lesson3> {
       ],
       "correctAnswer": 2,
     },
+    {
+      "question": "A … function is like taking constant steps.",
+      "answers": [
+        "linear",
+        "exponential",
+      ],
+      "correctAnswer": 0,
+    },
+    {
+      "question": "… (write the answer) - the increase of prices over time",
+      "answers": [
+        "Inflation",
+        "Deflation",
+        "Stagnation",
+      ],
+      "correctAnswer": 0,
+    },
+    {
+      "question":
+          "According to the book 'Rich Dad, Poor Dad' by Robert Kiyosaki, which of the following best defines an asset?",
+      "answers": [
+        "Anything that requires active management and work.",
+        "Anything that takes money out of your pocket.",
+        "Anything that puts money in your pocket.",
+        "Anything that does not generate income but increases in value.",
+      ],
+      "correctAnswer": 2,
+    },
+    {
+      "question":
+          "What is the primary reason assets are crucial for financial independence, as emphasized in 'Rich Dad, Poor Dad'?",
+      "answers": [
+        "They require constant attention and management.",
+        "They provide a means to accumulate debts.",
+        "They generate passive income and increase in value over time.",
+        "They are liabilities that decrease in value.",
+      ],
+      "correctAnswer": 2,
+    },
   ];
 
   List<int> usersAnswers = List<int>.filled(4, -1);
@@ -221,38 +260,18 @@ class _Lesson3 extends State<Lesson3> {
                 ),
               ),
               SizedBox(height: size.height / 40),
-              Text(
-                "Key vocabulary:",
-                style: TextStyle(
-                  fontSize: size.height * 0.02,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: size.height / 60),
-              keyVocabulary(
-                context,
-                "Asset -",
-                "generates money for us; in order to become wealthy we need to have assets",
-              ),
-              SizedBox(height: size.height / 50),
-              keyVocabulary(
-                context,
-                "Liabilities -",
-                "takes away money from us; in order to become wealthy we need to have as few liabilities as we can",
+              buildQuizScreen(
+                questionNumber: 4,
               ),
               SizedBox(height: size.height / 10),
-              Text(
-                "While expanding on this point, I am going to refer to the ideas presented in the book 'Rich Dad, Poor Dad' by Robert Kiyosaki, which I highly recommend reading. : ). Alright, in the book, assets are depicted as anything that puts money in your pocket. Kiyosaki emphasizes the concept of making money work for you by investing in assets (as he said, 'Make money work for you'). These could be stocks of companies, real estate properties, businesses, or other income-generating ventures. Assets are the key to financial independence because they generate passive income and increase in value over time. In simple words, you do nothing, and money flows into your pockets.",
-                style: TextStyle(
-                  fontSize: size.height * 0.02,
-                ),
+              buildQuizScreen(
+                questionNumber: 5,
               ),
-              SizedBox(height: size.height / 60),
-              Text(
-                "So now, let’s do a few exercises:",
-                style: TextStyle(fontSize: size.height * 0.02),
+              SizedBox(height: size.height / 10),
+              buildQuizScreen(
+                questionNumber: 6,
               ),
-              createDivider(context),
+              SizedBox(height: size.height / 20),
               Center(
                 child: SizedBox(
                   height: size.height * 0.05,
