@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../lesson4/main.dart';
+import '../lesson7/main.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
 
@@ -244,14 +244,13 @@ class _Lesson6 extends State<Lesson6> {
               buildQuizScreen(
                 questionNumber: 2,
               ),
-              createDivider(context),
               SizedBox(height: size.height / 10),
               Center(
                 child: SizedBox(
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: const Lesson4(),
+                    route: const Lesson7(),
                     text: 'Continue',
                     width: size.width,
                   ),
