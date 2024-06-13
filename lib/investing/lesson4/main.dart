@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../lesson3/main.dart';
+import '../lesson5/main.dart';
 import '../helper_fn.dart';
 
 class Lesson4 extends StatefulWidget {
@@ -214,7 +214,7 @@ class _Lesson4 extends State<Lesson4> {
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: const Lesson3(),
+                    route: const Lesson5(),
                     text: 'Continue',
                     width: size.width,
                   ),
