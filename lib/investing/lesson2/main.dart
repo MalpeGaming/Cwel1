@@ -33,7 +33,7 @@ class _Lesson2 extends State<Lesson2> {
     );
   }
 
-  GestureDetector createRecipe(BuildContext context, int q_indx, int index) {
+  GestureDetector createRecipe(BuildContext context, int qIndx, int index) {
     Size size = MediaQuery.of(context).size;
 
     return GestureDetector(
@@ -67,7 +67,7 @@ class _Lesson2 extends State<Lesson2> {
             child: Image.asset(
               width: 0.6 * size.width,
               height: 0.6 * size.width,
-              'assets/investing/lesson2/ex${q_indx}_$index.png',
+              'assets/investing/lesson2/ex${qIndx}_$index.png',
             ),
           ),
         ),
@@ -209,7 +209,7 @@ class _Lesson2 extends State<Lesson2> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Lesson 1",
+                "Lesson 2",
                 style: TextStyle(
                   fontSize: size.width / 10,
                   fontWeight: FontWeight.bold,
@@ -232,7 +232,7 @@ class _Lesson2 extends State<Lesson2> {
               SizedBox(height: size.height / 20),
               Divider(
                 color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 100,
+                thickness: size.height / 250,
               ),
               SizedBox(height: size.height / 20),
               Text(
@@ -279,7 +279,7 @@ class _Lesson2 extends State<Lesson2> {
               SizedBox(height: size.height / 20),
               Divider(
                 color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 100,
+                thickness: size.height / 250,
               ),
               SizedBox(height: size.height / 20),
               Text(
@@ -326,7 +326,7 @@ class _Lesson2 extends State<Lesson2> {
               SizedBox(height: size.height / 20),
               Divider(
                 color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 100,
+                thickness: size.height / 250,
               ),
               SizedBox(height: size.height / 20),
               Text(
@@ -353,7 +353,7 @@ class _Lesson2 extends State<Lesson2> {
                         controller: controller,
                         itemCount: 4,
                         itemBuilder: (_, index) {
-                          return createRecipe(context, 2, index % 2);
+                          return createRecipe(context, 2, index % 4);
                         },
                       ),
                     ),
