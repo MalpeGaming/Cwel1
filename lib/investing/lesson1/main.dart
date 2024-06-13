@@ -48,11 +48,11 @@ class _Lesson1 extends State<Lesson1> {
         ),
         leading: Radio<int>(
           value: val,
-          groupValue: selectedOption,
+          groupValue: usersAnswers[questionNumber],
           activeColor: Colors.blue,
           onChanged: (value) {
             setState(() {
-              selectedOption = value!;
+              usersAnswers[questionNumber] = value!;
             });
           },
         ),
