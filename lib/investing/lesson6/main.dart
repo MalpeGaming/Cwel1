@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../lesson6/main.dart';
+import '../lesson4/main.dart';
 import '../helper_fn.dart';
+import 'questions.dart';
 
-class Lesson5 extends StatefulWidget {
-  const Lesson5({super.key});
+class Lesson6 extends StatefulWidget {
+  const Lesson6({super.key});
 
   @override
-  State<Lesson5> createState() => _Lesson5();
+  State<Lesson6> createState() => _Lesson6();
 }
 
-class _Lesson5 extends State<Lesson5> {
+class _Lesson6 extends State<Lesson6> {
   int selectedOption = -1;
 
   Widget buildQuizScreen({
@@ -67,71 +68,6 @@ class _Lesson5 extends State<Lesson5> {
     );
   }
 
-  var questions = [
-    {
-      "question": "What does owning a bond represent?",
-      "answers": [
-        "Ownership in the issuing company",
-        "A loan to the issuing entity",
-        "The ability to manage the issuing entity",
-        "A share in the company's profits",
-      ],
-      "correctAnswer": 1,
-    },
-    {
-      "question": "Why do companies and governments issue bonds?",
-      "answers": [
-        "To give investors ownership in their assets",
-        "To distribute profits directly to bondholders",
-        "To gather funds for financing projects or operations",
-        "To reduce interest rates on existing debts",
-      ],
-      "correctAnswer": 2,
-    },
-    {
-      "question":
-          "What is one reason bonds are considered safer investments than stocks?",
-      "answers": [
-        "They are immune to interest rate changes",
-        "They offer guaranteed profits",
-        "They give investors control over the issuing entity",
-        "They come with predictable interest payments and principal return",
-      ],
-      "correctAnswer": 3,
-    },
-    {
-      "question": "Which type of bond generally offers the least risk?",
-      "answers": [
-        "Secured bonds",
-        "Unsecured bonds",
-        "Both are equally risky",
-        "Convertible bonds",
-      ],
-      "correctAnswer": 0,
-    },
-    {
-      "question": "What is a unique feature of convertible bonds?",
-      "answers": [
-        "They can be converted into company stock",
-        "They provide fixed dividend payments",
-        "They are backed by collateral",
-        "They are risk-free investments",
-      ],
-      "correctAnswer": 0,
-    },
-    {
-      "question":
-          "What typically happens to the price of existing bonds when interest rates increase?",
-      "answers": [
-        "The price of existing bonds rises",
-        "The price of existing bonds falls",
-        "The price of existing bonds remains unchanged",
-        "Existing bonds get converted into stocks",
-      ],
-      "correctAnswer": 1,
-    },
-  ];
-
   List<int> usersAnswers = List<int>.filled(4, -1);
 
   @override
@@ -151,7 +87,7 @@ class _Lesson5 extends State<Lesson5> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Lesson 5",
+                "Lesson 6",
                 style: TextStyle(
                   fontSize: size.width / 10,
                   fontWeight: FontWeight.bold,
@@ -159,21 +95,21 @@ class _Lesson5 extends State<Lesson5> {
               ),
               SizedBox(height: size.height / 60),
               Text(
-                "What are bonds ?",
+                "Key Financial Metrics",
                 style: TextStyle(
                   fontSize: size.width / 15,
                 ),
               ),
               SizedBox(height: size.height / 60),
               Text(
-                "A bond is essentially a loan that investors give to companies or governments in exchange for interest payments over time.",
+                "Book Value:",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "When you buy a bond, you're lending money to the issuer (which could be a corporation or a government entity). In return, the issuer promises to pay you interest at regular intervals and return the principal amount on the maturity date. Unlike stocks, bonds don't give you ownership in a company but rather a creditor's claim on its assets.",
+                "Think of book value as the total value of everything a company owns (like buildings, cash, and equipment) minus everything it owes (like loans or unpaid bills). This tells us the net worth of the company. If you divide this value by the number of shares, you get the book value per share.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -184,14 +120,14 @@ class _Lesson5 extends State<Lesson5> {
               ),
               createDivider(context),
               Text(
-                "Companies and governments issue bonds to raise funds for various purposes. ",
+                "Market Price:",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "Corporations might issue bonds to finance new projects, expand operations, or refinance existing debt. Governments issue bonds to fund infrastructure, public services, or other budgetary needs. Bondholders do not have any say in how the issuer runs its operations, but they do have a higher claim on assets than shareholders if the issuer defaults.",
+                "Market price is the current price at which you can buy or sell a company's stock on the stock market. This price changes throughout the day as people buy and sell.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -202,14 +138,14 @@ class _Lesson5 extends State<Lesson5> {
               ),
               createDivider(context),
               Text(
-                "Bonds are considered safer investments compared to stocks because of the predictable interest payments and the promise of getting the principal back. ",
+                "Price/Book (P/B) Ratio:",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "However, bonds aren't without risk. They can be affected by changes in interest rates, inflation, and credit risk. If the issuer defaults, bondholders might not receive their principal or interest payments as expected.",
+                "The P/B ratio shows how the market price compares to the company's book value. You get this by dividing the market price by the book value per share. If the ratio is low, it might mean the stock is undervalued or that the company is having trouble.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -220,14 +156,14 @@ class _Lesson5 extends State<Lesson5> {
               ),
               createDivider(context),
               Text(
-                "Bondholders are generally classified into two main categories: secured and unsecured.",
+                "Earnings:",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "Secured bonds are backed by collateral, which means that in the event of default, bondholders can claim specific assets to recover their investment. Unsecured bonds, also known as debentures, rely on the issuer's creditworthiness and have no specific assets backing them. Interest rates for unsecured bonds are typically higher to compensate for the increased risk.",
+                "Earnings are the profits a company makes over a set period, usually every three months (quarterly) or every year. It shows how much money the company made after paying all its expenses.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -238,14 +174,14 @@ class _Lesson5 extends State<Lesson5> {
               ),
               createDivider(context),
               Text(
-                "Some bonds can be converted into company stock, offering potential for capital growth. ",
+                "Price/Earnings (P/E) Ratio:",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "Known as convertible bonds, they allow bondholders to convert their bonds into a predetermined number of shares. This feature appeals to investors who seek the stability of bonds with the potential upside of stocks. Convertible bonds usually offer lower interest rates to balance this flexibility.",
+                "The P/E ratio compares a company's market price to its earnings per share. You calculate it by dividing the market price by the earnings per share. A high P/E ratio could mean that the stock is overvalued or that people expect the company to grow in the future.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -256,20 +192,14 @@ class _Lesson5 extends State<Lesson5> {
               ),
               createDivider(context),
               Text(
-                "Interest rates and inflation rates significantly impact bond prices.",
+                "EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization):",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "When interest rates rise, new bonds offer higher yields than existing ones, making older bonds with lower rates less attractive. This causes the prices of existing bonds to fall so that their yields align with the new rates. Conversely, when interest rates drop, existing bonds with higher rates become more attractive, and their prices tend to rise.",
-                style: TextStyle(
-                  fontSize: size.height / 50,
-                ),
-              ),
-              Text(
-                "Inflation also affects bond prices. As inflation increases, the purchasing power of the interest payments and principal repayment decreases. Investors demand higher yields to compensate for this reduced purchasing power, leading to a drop in the prices of existing bonds. In contrast, low inflation maintains or increases the value of the fixed payments, often leading to a rise in bond prices.",
+                "EBITDA is a measure of a company’s profitability before certain expenses are considered. It helps show how much money the company makes from its main business operations.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -278,13 +208,50 @@ class _Lesson5 extends State<Lesson5> {
               buildQuizScreen(
                 questionNumber: 5,
               ),
+              createDivider(context),
+              Text(
+                "Enterprise Value/EBITDA (EV/EBITDA):",
+                style: TextStyle(
+                  fontSize: size.height / 50,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                "The EV/EBITDA ratio shows how much a company is worth compared to its EBITDA. You calculate it by dividing the company’s total value (enterprise value) by its EBITDA. A lower ratio can mean the company is undervalued.",
+                style: TextStyle(
+                  fontSize: size.height / 50,
+                ),
+              ),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(
+                questionNumber: 6,
+              ),
+              createDivider(context),
+              Text(
+                "Beta:",
+                style: TextStyle(
+                  fontSize: size.height / 50,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                "Beta measures how much a stock’s price moves compared to the overall market. If a stock’s beta is 1, it moves with the market. If it’s less than 1, it’s less volatile, and if it’s above 1, it’s more volatile.",
+                style: TextStyle(
+                  fontSize: size.height / 50,
+                ),
+              ),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(
+                questionNumber: 2,
+              ),
+              createDivider(context),
               SizedBox(height: size.height / 10),
               Center(
                 child: SizedBox(
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: const Lesson6(),
+                    route: const Lesson4(),
                     text: 'Continue',
                     width: size.width,
                   ),
