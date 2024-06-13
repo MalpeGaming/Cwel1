@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../lesson2/main.dart';
+import '../lesson4/main.dart';
+import '../helper_fn.dart';
 
 class Lesson3 extends StatefulWidget {
   const Lesson3({super.key});
@@ -11,27 +12,6 @@ class Lesson3 extends StatefulWidget {
 
 class _Lesson3 extends State<Lesson3> {
   int selectedOption = -1;
-
-  Widget keyVocabulary(String text, String definition) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          text,
-          style: TextStyle(
-            fontSize: MediaQuery.of(context).size.height * 0.020,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Text(
-          definition,
-          style: TextStyle(
-            fontSize: MediaQuery.of(context).size.height * 0.020,
-          ),
-        ),
-      ],
-    );
-  }
 
   Widget buildQuizScreen({
     required int questionNumber,
@@ -104,7 +84,7 @@ class _Lesson3 extends State<Lesson3> {
         "Buying stocks in a reputable company",
         "Betting on the outcome of a sports game",
         "Opening a savings account",
-        "Starting a small business1"
+        "Starting a small business1",
       ],
       "correctAnswer": 1,
     },
@@ -115,7 +95,7 @@ class _Lesson3 extends State<Lesson3> {
         "Luck is irrelevant in both gambling and investing",
         "Luck is the sole determinant of success in investing",
         "Luck is a major factor in gambling, but less so in investing",
-        "Luck is only important in certain types of gambling, such as card games"
+        "Luck is only important in certain types of gambling, such as card games",
       ],
       "correctAnswer": 2,
     },
@@ -160,12 +140,7 @@ class _Lesson3 extends State<Lesson3> {
                   fontSize: size.height / 50,
                 ),
               ),
-              SizedBox(height: size.height / 20),
-              Divider(
-                color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 100,
-              ),
-              SizedBox(height: size.height / 20),
+              createDivider(context),
               Text(
                 "Key vocabulary:",
                 style: TextStyle(
@@ -175,11 +150,13 @@ class _Lesson3 extends State<Lesson3> {
               ),
               SizedBox(height: size.height / 60),
               keyVocabulary(
+                context,
                 "Investing -",
                 "putting (money) into financial schemes, shares, property, or a commercial venture with the expectation of achieving a profit (Oxford Dictionary)",
               ),
               SizedBox(height: size.height / 50),
-              keyVocabulary("Inflation -", "the increase of prices over time"),
+              keyVocabulary(
+                  context, "Inflation -", "the increase of prices over time"),
               SizedBox(height: size.height / 30),
               Text(
                 "Money, essentially worthless alone, gains value as a medium of exchange for goods and services. A \$10 bill, is worth \$10 dollars because we can buy with it sth that is 10 times more valuable than sth for \$1. Governments regulate the supply of money, often through printing more, but this doesn't create wealth. Increasing the money supply without a corresponding rise in production leads to inflation. This happens because more money chases the same goods and services. For instance, if the government doubles the money supply without boosting production, prices roughly double too. What are the consequences ? Our savings lose value over time, as we can buy less and less with it.",
@@ -188,15 +165,11 @@ class _Lesson3 extends State<Lesson3> {
                   color: Theme.of(context).colorScheme.onSecondary,
                 ),
               ),
-              SizedBox(height: size.height / 20),
-              Divider(
-                color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 100,
-              ),
-              SizedBox(height: size.height / 20),
+              createDivider(context),
               buildQuizScreen(
                 questionNumber: 0,
               ),
+              SizedBox(height: size.height / 10),
               buildQuizScreen(
                 questionNumber: 1,
               ),
@@ -204,13 +177,7 @@ class _Lesson3 extends State<Lesson3> {
               buildQuizScreen(
                 questionNumber: 2,
               ),
-              //SizedBox(height: size.height / 10),
-              SizedBox(height: size.height / 20),
-              Divider(
-                color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 100,
-              ),
-              SizedBox(height: size.height / 20),
+              createDivider(context),
               Text(
                 "If you still don’t believe in the power of investing then here are three examples that should convince you in the safety of investing:",
                 style: TextStyle(
@@ -238,12 +205,7 @@ class _Lesson3 extends State<Lesson3> {
                   fontSize: 0.02 * size.height,
                 ),
               ),
-              SizedBox(height: size.height / 20),
-              Divider(
-                color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 100,
-              ),
-              SizedBox(height: size.height / 20),
+              createDivider(context),
               Text(
                 "Alright so now we are closing the first section of our course, and thus here is a short summary quiz for you:",
                 style: TextStyle(
@@ -268,11 +230,13 @@ class _Lesson3 extends State<Lesson3> {
               ),
               SizedBox(height: size.height / 60),
               keyVocabulary(
+                context,
                 "Asset -",
                 "generates money for us; in order to become wealthy we need to have assets",
               ),
               SizedBox(height: size.height / 50),
               keyVocabulary(
+                context,
                 "Liabilities -",
                 "takes away money from us; in order to become wealthy we need to have as few liabilities as we can",
               ),
@@ -288,18 +252,13 @@ class _Lesson3 extends State<Lesson3> {
                 "So now, let’s do a few exercises:",
                 style: TextStyle(fontSize: size.height * 0.02),
               ),
-              SizedBox(height: size.height / 20),
-              Divider(
-                color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 100,
-              ),
-              SizedBox(height: size.height / 10),
+              createDivider(context),
               Center(
                 child: SizedBox(
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: const Lesson2(),
+                    route: const Lesson4(),
                     text: 'Continue',
                     width: size.width,
                   ),

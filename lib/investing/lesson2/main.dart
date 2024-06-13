@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../lesson3/main.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../lesson3/main.dart';
+import '../helper_fn.dart';
 
 class Lesson2 extends StatefulWidget {
   const Lesson2({super.key});
@@ -13,27 +14,6 @@ class Lesson2 extends StatefulWidget {
 class _Lesson2 extends State<Lesson2> {
   int selectedOption = -1;
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
-
-  Widget keyVocabulary(String text, String definition) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          text,
-          style: TextStyle(
-            fontSize: MediaQuery.of(context).size.height * 0.020,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Text(
-          definition,
-          style: TextStyle(
-            fontSize: MediaQuery.of(context).size.height * 0.020,
-          ),
-        ),
-      ],
-    );
-  }
 
   GestureDetector createRecipe(BuildContext context, int qIndx, int index) {
     Size size = MediaQuery.of(context).size;
@@ -231,12 +211,7 @@ class _Lesson2 extends State<Lesson2> {
                   fontSize: size.width / 25,
                 ),
               ),
-              SizedBox(height: size.height / 20),
-              Divider(
-                color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 250,
-              ),
-              SizedBox(height: size.height / 20),
+              createDivider(context),
               Text(
                 "1. The Power of Exponential Growth",
                 style: TextStyle(
@@ -278,12 +253,7 @@ class _Lesson2 extends State<Lesson2> {
                   ],
                 ),
               ),
-              SizedBox(height: size.height / 20),
-              Divider(
-                color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 250,
-              ),
-              SizedBox(height: size.height / 20),
+              createDivider(context),
               Text(
                 "Okay, so what is the difference ? ",
                 style: TextStyle(
@@ -325,12 +295,7 @@ class _Lesson2 extends State<Lesson2> {
                   fontSize: 0.02 * size.height,
                 ),
               ),
-              SizedBox(height: size.height / 20),
-              Divider(
-                color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 250,
-              ),
-              SizedBox(height: size.height / 20),
+              createDivider(context),
               Text(
                 "So let's figure out, what is a better way to become wealthy : )",
                 style: TextStyle(
@@ -441,6 +406,8 @@ class _Lesson2 extends State<Lesson2> {
                     text: 'Continue',
                     width: size.width,
                   ),
+                ),
+              ),
             ],
           ),
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
 import '../lesson2/main.dart';
+import '../helper_fn.dart';
 
 class Lesson1 extends StatefulWidget {
   const Lesson1({super.key});
@@ -11,27 +12,6 @@ class Lesson1 extends StatefulWidget {
 
 class _Lesson1 extends State<Lesson1> {
   int selectedOption = -1;
-
-  Widget keyVocabulary(String text, String definition) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          text,
-          style: TextStyle(
-            fontSize: MediaQuery.of(context).size.height * 0.020,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Text(
-          definition,
-          style: TextStyle(
-            fontSize: MediaQuery.of(context).size.height * 0.020,
-          ),
-        ),
-      ],
-    );
-  }
 
   Widget buildQuizScreen({
     required int questionNumber,
@@ -165,12 +145,7 @@ class _Lesson1 extends State<Lesson1> {
                   fontSize: size.height / 50,
                 ),
               ),
-              SizedBox(height: size.height / 20),
-              Divider(
-                color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 100,
-              ),
-              SizedBox(height: size.height / 20),
+              createDivider(context),
               Text(
                 "1. Beat the Inflation",
                 style: TextStyle(
@@ -188,11 +163,13 @@ class _Lesson1 extends State<Lesson1> {
               ),
               SizedBox(height: size.height / 60),
               keyVocabulary(
+                context,
                 "Investing -",
                 "putting (money) into financial schemes, shares, property, or a commercial venture with the expectation of achieving a profit (Oxford Dictionary)",
               ),
               SizedBox(height: size.height / 50),
-              keyVocabulary("Inflation -", "the increase of prices over time"),
+              keyVocabulary(
+                  context, "Inflation -", "the increase of prices over time"),
               SizedBox(height: size.height / 30),
               Text(
                 "Money, essentially worthless alone, gains value as a medium of exchange for goods and services. A \$10 bill, is worth \$10 dollars because we can buy with it sth that is 10 times more valuable than sth for \$1. Governments regulate the supply of money, often through printing more, but this doesn't create wealth. Increasing the money supply without a corresponding rise in production leads to inflation. This happens because more money chases the same goods and services. For instance, if the government doubles the money supply without boosting production, prices roughly double too. What are the consequences ? Our savings lose value over time, as we can buy less and less with it.",
@@ -201,34 +178,19 @@ class _Lesson1 extends State<Lesson1> {
                   color: Theme.of(context).colorScheme.onSecondary,
                 ),
               ),
-              SizedBox(height: size.height / 20),
-              Divider(
-                color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 100,
-              ),
-              SizedBox(height: size.height / 20),
+              createDivider(context),
               buildQuizScreen(
                 questionNumber: 0,
                 image: Image.asset("assets/investing/lesson1/algieria.png"),
               ),
-              SizedBox(height: size.height / 20),
-              Divider(
-                color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 100,
-              ),
-              SizedBox(height: size.height / 20),
+              createDivider(context),
               Text(
                 "Alright, but while we can print money, we can't print new stocks of a company, another S&P500 ETF, or another bitcoin. This highlights that investing in assets with real worth protects against inflation. An apple remains an apple, but \$5 won't hold its value after 10 years! :)",
                 style: TextStyle(
                   fontSize: 0.02 * size.height,
                 ),
               ),
-              SizedBox(height: size.height / 20),
-              Divider(
-                color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 100,
-              ),
-              SizedBox(height: size.height / 10),
+              createDivider(context),
               Text(
                 "2. Create Assets",
                 style: TextStyle(
@@ -246,11 +208,13 @@ class _Lesson1 extends State<Lesson1> {
               ),
               SizedBox(height: size.height / 60),
               keyVocabulary(
+                context,
                 "Asset -",
                 "generates money for us; in order to become wealthy we need to have assets",
               ),
               SizedBox(height: size.height / 50),
               keyVocabulary(
+                context,
                 "Liabilities -",
                 "takes away money from us; in order to become wealthy we need to have as few liabilities as we can",
               ),
@@ -266,12 +230,7 @@ class _Lesson1 extends State<Lesson1> {
                 "So now, let’s do a few exercises:",
                 style: TextStyle(fontSize: size.height * 0.02),
               ),
-              SizedBox(height: size.height / 20),
-              Divider(
-                color: Theme.of(context).colorScheme.primary,
-                thickness: size.height / 100,
-              ),
-              SizedBox(height: size.height / 10),
+              createDivider(context),
               buildQuizScreen(
                 questionNumber: 1,
               ),
