@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:brain_train_app/buttons.dart';
+import '../lesson3/main.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Lesson2 extends StatefulWidget {
@@ -429,6 +431,16 @@ class _Lesson2 extends State<Lesson2> {
                   fontSize: 0.02 * size.height,
                 ),
               ),
+              SizedBox(height: size.height / 10),
+              Center(
+                child: SizedBox(
+                  height: size.height * 0.05,
+                  width: size.width * 0.75,
+                  child: RedirectButton(
+                    route: const Lesson3(),
+                    text: 'Continue',
+                    width: size.width,
+                  ),
             ],
           ),
         ),
