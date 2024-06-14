@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../lesson7/main.dart';
+import '../lesson12/main.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
 
-class Lesson6 extends StatefulWidget {
-  const Lesson6({super.key});
+class Lesson11 extends StatefulWidget {
+  const Lesson11({super.key});
 
   @override
-  State<Lesson6> createState() => _Lesson6();
+  State<Lesson11> createState() => _Lesson11();
 }
 
-class _Lesson6 extends State<Lesson6> {
+class _Lesson11 extends State<Lesson11> {
   int selectedOption = -1;
 
   Widget buildQuizScreen({
@@ -87,7 +87,7 @@ class _Lesson6 extends State<Lesson6> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Lesson 6",
+                "Lesson 11",
                 style: TextStyle(
                   fontSize: size.width / 10,
                   fontWeight: FontWeight.bold,
@@ -95,40 +95,41 @@ class _Lesson6 extends State<Lesson6> {
               ),
               SizedBox(height: size.height / 60),
               Text(
-                "Key Financial Metrics",
+                "Key Financial Metrics for Bonds",
                 style: TextStyle(
                   fontSize: size.width / 15,
                 ),
               ),
-              SizedBox(height: size.height / 60),
+              createDivider(context),
               Text(
-                "Book Value:",
+                "1. Coupon Rate:",
                 style: TextStyle(
-                  fontSize: size.height / 50,
+                  fontSize: size.width / 15,
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              SizedBox(height: size.height / 60),
               Text(
-                "Think of book value as the total value of everything a company owns (like buildings, cash, and equipment) minus everything it owes (like loans or unpaid bills). This tells us the net worth of the company. If you divide this value by the number of shares, you get the book value per share.",
+                "The coupon rate is the annual interest payment expressed as a percentage of the bond's face value. For example, if a bond has a face value of \$1,000 and a coupon rate of 5%, it pays \$50 in interest annually. This rate gives you an idea of the fixed income you can expect from the bond. A higher coupon rate usually provides more income, but it's important to consider other factors like bond maturity and issuer creditworthiness",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
               ),
-              createDivider(context),
-              //SizedBox(height: size.height / 20),
+              SizedBox(height: size.height / 20),
               buildQuizScreen(
                 questionNumber: 0,
               ),
               createDivider(context),
               Text(
-                "Market Price:",
+                "2. Yield to Maturity (YTM):",
                 style: TextStyle(
-                  fontSize: size.height / 50,
+                  fontSize: size.width / 15,
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              SizedBox(height: size.height / 60),
               Text(
-                "Market price is the current price at which you can buy or sell a company's stock on the stock market. This price changes throughout the day as people buy and sell.",
+                "YTM is the total expected return from a bond if held until maturity, considering both the coupon payments and any difference between the purchase price and the face value. For example, if you buy a bond with a \$1,000 face value for \$900, and it has a 5% coupon rate, the yield to maturity will be higher than the coupon rate due to the discount. YTM helps investors compare bonds with different coupon rates and maturities by showing the total annual return.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -139,14 +140,15 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "Price/Book (P/B) Ratio:",
+                "3. Current Yield:",
                 style: TextStyle(
-                  fontSize: size.height / 50,
+                  fontSize: size.width / 15,
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              SizedBox(height: size.height / 60),
               Text(
-                "The P/B ratio shows how the market price compares to the company's book value. You get this by dividing the market price by the book value per share. If the ratio is low, it might mean the stock is undervalued or that the company is having trouble.",
+                "The current yield is the bond's annual interest payment divided by its current market price. For instance, if a bond with a \$50 annual interest payment trades for \$1,000, the current yield is 5%. However, if the bond's market price falls to \$900, the current yield would increase because you're still getting the same \$50 but at a lower investment cost. This metric helps evaluate the return on investment based on the current price.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -157,32 +159,34 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "Earnings:",
+                "4. Credit Rating:",
                 style: TextStyle(
-                  fontSize: size.height / 50,
+                  fontSize: size.width / 15,
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              SizedBox(height: size.height / 60),
               Text(
-                "Earnings are the profits a company makes over a set period, usually every three months (quarterly) or every year. It shows how much money the company made after paying all its expenses.",
+                "Credit rating agencies like Moody's, S&P, and Fitch assign credit ratings that reflect a bond issuer's ability to repay its debts. Higher ratings, such as AAA or AA, indicate lower risk, while lower ratings (BB and below) suggest higher risk. For example, U.S. Treasury bonds have high ratings due to the government's low default risk, while high-yield bonds carry lower ratings due to higher default risk.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
               ),
-              SizedBox(height: size.height / 20),
+              SizedBox(height: size.height / 60),
               buildQuizScreen(
                 questionNumber: 3,
               ),
               createDivider(context),
               Text(
-                "Price/Earnings (P/E) Ratio:",
+                "5. Maturity Date:",
                 style: TextStyle(
-                  fontSize: size.height / 50,
+                  fontSize: size.width / 15,
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              SizedBox(height: size.height / 60),
               Text(
-                "The P/E ratio compares a company's market price to its earnings per share. You calculate it by dividing the market price by the earnings per share. A high P/E ratio could mean that the stock is overvalued or that people expect the company to grow in the future.",
+                "The maturity date is when the bond’s principal, or face value, is repaid to the investor. Maturities can range from short-term (1 to 5 years) to long-term (10 to 30 years or more). For instance, if you buy a 10-year bond today, the principal will be repaid in 10 years. Longer maturities usually offer higher interest rates but come with greater interest rate risk.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -193,14 +197,15 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization):",
+                "6. Duration:",
                 style: TextStyle(
-                  fontSize: size.height / 50,
+                  fontSize: size.width / 15,
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              SizedBox(height: size.height / 60),
               Text(
-                "EBITDA is a measure of a company’s profitability before certain expenses are considered. It helps show how much money the company makes from its main business operations.",
+                "Duration measures a bond's sensitivity to interest rate changes. For instance, if a bond has a duration of 5, its price would drop by 5% if interest rates rose by 1%. A higher duration means the bond is more sensitive to interest rate movements. This helps investors understand the potential price volatility of their bond investments.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -211,14 +216,15 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "Enterprise Value/EBITDA (EV/EBITDA):",
+                "7. Yield Spread:",
                 style: TextStyle(
-                  fontSize: size.height / 50,
+                  fontSize: size.width / 15,
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              SizedBox(height: size.height / 60),
               Text(
-                "The EV/EBITDA ratio shows how much a company is worth compared to its EBITDA. You calculate it by dividing the company’s total value (enterprise value) by its EBITDA. A lower ratio can mean the company is undervalued.",
+                "The yield spread compares the yield of a bond with a benchmark yield, like Treasury bonds of similar maturity. For instance, if a corporate bond has a yield of 4% and a similar-maturity Treasury bond has a yield of 2%, the spread is 2%. A higher spread typically indicates a riskier investment, as investors demand higher returns for taking on more risk.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -229,23 +235,24 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "Beta:",
+                "8. Callability:",
                 style: TextStyle(
-                  fontSize: size.height / 50,
+                  fontSize: size.width / 15,
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              SizedBox(height: size.height / 60),
               Text(
-                "Beta measures how much a stock’s price moves compared to the overall market. If a stock’s beta is 1, it moves with the market. If it’s less than 1, it’s less volatile, and if it’s above 1, it’s more volatile.",
+                "Some bonds have a callable feature, meaning the issuer can redeem the bond before its maturity date. This option benefits issuers if interest rates decline, as they can refinance at lower rates, but it can limit the investor's potential interest income. For example, a bond with a 10-year maturity might be called back after five years, which could affect the expected return.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
               ),
               SizedBox(height: size.height / 20),
               buildQuizScreen(
-                questionNumber: 2,
+                questionNumber: 7,
               ),
-              SizedBox(height: size.height / 10),
+              SizedBox(height: size.height / 20),
               Center(
                 child: SizedBox(
                   height: size.height * 0.05,
@@ -261,11 +268,11 @@ class _Lesson6 extends State<Lesson6> {
                       }
                       print("wynik:");
                       print(score);
-                      saveResult(6, score);
+                      saveResult(11, score);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Lesson7(),
+                          builder: (context) => const Lesson12(),
                         ),
                       );
                     },

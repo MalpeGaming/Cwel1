@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../lesson7/main.dart';
+import '../lesson11/main.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
 
-class Lesson6 extends StatefulWidget {
-  const Lesson6({super.key});
+class Lesson10 extends StatefulWidget {
+  const Lesson10({super.key});
 
   @override
-  State<Lesson6> createState() => _Lesson6();
+  State<Lesson10> createState() => _Lesson10();
 }
 
-class _Lesson6 extends State<Lesson6> {
+class _Lesson10 extends State<Lesson10> {
   int selectedOption = -1;
 
   Widget buildQuizScreen({
@@ -87,7 +87,7 @@ class _Lesson6 extends State<Lesson6> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Lesson 6",
+                "Lesson 10",
                 style: TextStyle(
                   fontSize: size.width / 10,
                   fontWeight: FontWeight.bold,
@@ -95,40 +95,39 @@ class _Lesson6 extends State<Lesson6> {
               ),
               SizedBox(height: size.height / 60),
               Text(
-                "Key Financial Metrics",
+                "How to choose a stock ?",
                 style: TextStyle(
                   fontSize: size.width / 15,
                 ),
               ),
-              SizedBox(height: size.height / 60),
+              createDivider(context),
               Text(
-                "Book Value:",
+                "Step 1: Define Your Investment Goals",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "Think of book value as the total value of everything a company owns (like buildings, cash, and equipment) minus everything it owes (like loans or unpaid bills). This tells us the net worth of the company. If you divide this value by the number of shares, you get the book value per share.",
+                "Determine why you want to invest in stocks. Are you looking for long-term growth, dividend income, or a mix of both? Understanding your goals helps you choose the right stocks that align with your investment strategy.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
               ),
-              createDivider(context),
-              //SizedBox(height: size.height / 20),
+              SizedBox(height: size.height / 20),
               buildQuizScreen(
                 questionNumber: 0,
               ),
               createDivider(context),
               Text(
-                "Market Price:",
+                "Step 2: Research and Understand the Industry",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "Market price is the current price at which you can buy or sell a company's stock on the stock market. This price changes throughout the day as people buy and sell.",
+                "Analyze the industry to understand its trends, competition, and challenges. Are you interested in technology, healthcare, or consumer goods? Knowing the industry well will help you identify opportunities and risks associated with the companies operating in it.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -139,14 +138,14 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "Price/Book (P/B) Ratio:",
+                "Step 3: Analyze Company Fundamentals",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "The P/B ratio shows how the market price compares to the company's book value. You get this by dividing the market price by the book value per share. If the ratio is low, it might mean the stock is undervalued or that the company is having trouble.",
+                "Look into the company's financial health by analyzing key metrics such as revenue, earnings, cash flow, and debt. Check the company's earnings reports, balance sheets, and cash flow statements to evaluate its financial stability.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -157,17 +156,35 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "Earnings:",
+                "Step 4: Evaluate Key Financial Ratios",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "Earnings are the profits a company makes over a set period, usually every three months (quarterly) or every year. It shows how much money the company made after paying all its expenses.",
+                "Examine financial ratios to assess a company's performance:",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
+              ),
+              SizedBox(height: size.height / 60),
+              keyVocabulary(
+                context,
+                " - P/E Ratio",
+                "Indicates valuation based on earnings. A high P/E ratio might suggest overvaluation.",
+              ),
+              SizedBox(height: size.height / 60),
+              keyVocabulary(
+                context,
+                " - P/B Ratio",
+                "Shows market value relative to book value. A lower ratio can signal undervaluation.",
+              ),
+              SizedBox(height: size.height / 60),
+              keyVocabulary(
+                context,
+                " - Debt/Equity Ratio",
+                "Assesses the company’s leverage. A lower ratio suggests less financial risk.",
               ),
               SizedBox(height: size.height / 20),
               buildQuizScreen(
@@ -175,14 +192,14 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "Price/Earnings (P/E) Ratio:",
+                "Step 5: Consider Dividend Yield",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "The P/E ratio compares a company's market price to its earnings per share. You calculate it by dividing the market price by the earnings per share. A high P/E ratio could mean that the stock is overvalued or that people expect the company to grow in the future.",
+                "If you seek income, focus on companies with a stable history of dividend payments. Check the dividend yield to understand the income potential compared to the stock's price.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -193,14 +210,14 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization):",
+                "Step 6: Assess Growth Prospects",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "EBITDA is a measure of a company’s profitability before certain expenses are considered. It helps show how much money the company makes from its main business operations.",
+                "Evaluate the company's potential for future growth by considering factors like quarterly earnings growth, revenue growth, and expansion plans.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -211,14 +228,14 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "Enterprise Value/EBITDA (EV/EBITDA):",
+                "Step 7: Evaluate Risk and Volatility (Beta)",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "The EV/EBITDA ratio shows how much a company is worth compared to its EBITDA. You calculate it by dividing the company’s total value (enterprise value) by its EBITDA. A lower ratio can mean the company is undervalued.",
+                "Check the beta of the stock to understand its volatility compared to the market. A high beta suggests the stock is more volatile, which might be suitable for risk-tolerant investors.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -229,23 +246,37 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "Beta:",
+                "Step 8: Diversify Your Portfolio",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "Beta measures how much a stock’s price moves compared to the overall market. If a stock’s beta is 1, it moves with the market. If it’s less than 1, it’s less volatile, and if it’s above 1, it’s more volatile.",
+                "Don't put all your eggs in one basket. Invest across different industries and asset classes to reduce risk.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
               ),
               SizedBox(height: size.height / 20),
               buildQuizScreen(
-                questionNumber: 2,
+                questionNumber: 7,
               ),
-              SizedBox(height: size.height / 10),
+              createDivider(context),
+              Text(
+                "Conclusion",
+                style: TextStyle(
+                  fontSize: size.height / 50,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                "By following this structured approach, you can make informed decisions when selecting stocks for your investment portfolio. Assessing your goals, understanding industry trends, and analyzing company fundamentals will help you choose stocks that align with your strategy and risk tolerance.",
+                style: TextStyle(
+                  fontSize: size.height / 50,
+                ),
+              ),
+              SizedBox(height: size.height / 20),
               Center(
                 child: SizedBox(
                   height: size.height * 0.05,
@@ -261,11 +292,11 @@ class _Lesson6 extends State<Lesson6> {
                       }
                       print("wynik:");
                       print(score);
-                      saveResult(6, score);
+                      saveResult(10, score);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Lesson7(),
+                          builder: (context) => const Lesson11(),
                         ),
                       );
                     },

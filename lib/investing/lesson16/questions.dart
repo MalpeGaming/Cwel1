@@ -60,7 +60,7 @@ var questions = [
       ],
       "correctAnswer": 1,
       "explanation":
-          "The answer is B) Their creation and redemption processes minimize taxable events. The in-kind process allows ETFs to minimize taxable distributions by directly exchanging shares, rather than selling them, reducing taxable gains distributions to shareholders."
+          "The answer is B) Their creation and redemption processes minimize taxable events. The in-kind process allows ETFs to minimize taxable distributions by directly exchanging shares, rather than selling them, reducing taxable gains distributions to shareholders.",
     }
   ]
 ];
