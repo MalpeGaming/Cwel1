@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../lesson7/main.dart';
+import '../lesson11/main.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
 
-class Lesson6 extends StatefulWidget {
-  const Lesson6({super.key});
+class Lesson12 extends StatefulWidget {
+  const Lesson12({super.key});
 
   @override
-  State<Lesson6> createState() => _Lesson6();
+  State<Lesson12> createState() => _Lesson12();
 }
 
-class _Lesson6 extends State<Lesson6> {
+class _Lesson12 extends State<Lesson12> {
   int selectedOption = -1;
 
   Widget buildQuizScreen({
@@ -87,7 +87,7 @@ class _Lesson6 extends State<Lesson6> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Lesson 6",
+                "Lesson 12",
                 style: TextStyle(
                   fontSize: size.width / 10,
                   fontWeight: FontWeight.bold,
@@ -95,40 +95,40 @@ class _Lesson6 extends State<Lesson6> {
               ),
               SizedBox(height: size.height / 60),
               Text(
-                "Key Financial Metrics",
+                "How to choose a bond ?",
                 style: TextStyle(
                   fontSize: size.width / 15,
                 ),
               ),
-              SizedBox(height: size.height / 60),
+              //SizedBox(height: size.height / 60),
+              createDivider(context),
               Text(
-                "Book Value:",
+                "Step 1: Define Your Investment Goals",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "Think of book value as the total value of everything a company owns (like buildings, cash, and equipment) minus everything it owes (like loans or unpaid bills). This tells us the net worth of the company. If you divide this value by the number of shares, you get the book value per share.",
+                "Determine why you want to invest in bonds. Are you looking for stable income, diversification, or to preserve capital? Your investment goals will guide your bond selection, whether it's corporate bonds for higher returns or government bonds for safety.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
               ),
-              createDivider(context),
-              //SizedBox(height: size.height / 20),
+              SizedBox(height: size.height / 20),
               buildQuizScreen(
                 questionNumber: 0,
               ),
               createDivider(context),
               Text(
-                "Market Price:",
+                "Step 2: Understand Bond Types and Risk Levels",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "Market price is the current price at which you can buy or sell a company's stock on the stock market. This price changes throughout the day as people buy and sell.",
+                "Learn about different types of bonds, such as government, corporate, municipal, and high-yield bonds. Each type carries different risks and returns. For instance, government bonds are considered safer than high-yield corporate bonds, which offer higher returns but also carry more risk.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -139,14 +139,14 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "Price/Book (P/B) Ratio:",
+                "Step 3: Analyze Bond Fundamentals",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "The P/B ratio shows how the market price compares to the company's book value. You get this by dividing the market price by the book value per share. If the ratio is low, it might mean the stock is undervalued or that the company is having trouble.",
+                "Check the bond's credit rating, interest rate (coupon), maturity, and yield to maturity (YTM). Higher credit ratings indicate lower risk, while higher yields usually come with higher risk. Consider the maturity date to match your investment horizon.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -157,14 +157,14 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "Earnings:",
+                "Step 4: Evaluate Yield and Interest Rate Risk",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "Earnings are the profits a company makes over a set period, usually every three months (quarterly) or every year. It shows how much money the company made after paying all its expenses.",
+                "Evaluate the bond's current yield and yield to maturity to understand its return. Also, consider interest rate risk: when interest rates rise, bond prices typically fall, and vice versa.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -175,14 +175,14 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "Price/Earnings (P/E) Ratio:",
+                "Step 5: Consider Inflation Risk",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "The P/E ratio compares a company's market price to its earnings per share. You calculate it by dividing the market price by the earnings per share. A high P/E ratio could mean that the stock is overvalued or that people expect the company to grow in the future.",
+                "Inflation erodes the purchasing power of the interest payments and principal repayment. Inflation-linked bonds, like Treasury Inflation-Protected Securities (TIPS), help protect against inflation by adjusting payments with inflation.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -193,14 +193,14 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization):",
+                "Step 6: Assess Tax Implications",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "EBITDA is a measure of a company’s profitability before certain expenses are considered. It helps show how much money the company makes from its main business operations.",
+                "Understand the tax treatment of bond income. Municipal bonds often provide tax-free interest, which is beneficial for investors in higher tax brackets. Compare this to the after-tax return of taxable bonds.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -211,14 +211,14 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "Enterprise Value/EBITDA (EV/EBITDA):",
+                "Step 7: Check for Callable Bonds",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "The EV/EBITDA ratio shows how much a company is worth compared to its EBITDA. You calculate it by dividing the company’s total value (enterprise value) by its EBITDA. A lower ratio can mean the company is undervalued.",
+                "Callable bonds can be redeemed by the issuer before maturity. This feature allows issuers to repay bonds early if interest rates drop. Investors may lose potential interest payments, so consider if you want a callable bond.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
@@ -229,21 +229,21 @@ class _Lesson6 extends State<Lesson6> {
               ),
               createDivider(context),
               Text(
-                "Beta:",
+                "Step 8: Diversify Your Bond Portfolio",
                 style: TextStyle(
                   fontSize: size.height / 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "Beta measures how much a stock’s price moves compared to the overall market. If a stock’s beta is 1, it moves with the market. If it’s less than 1, it’s less volatile, and if it’s above 1, it’s more volatile.",
+                "Invest in different types of bonds across various sectors and maturities to spread risk. A diversified bond portfolio can provide stability and consistent returns, even if some bonds perform poorly.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
               ),
               SizedBox(height: size.height / 20),
               buildQuizScreen(
-                questionNumber: 2,
+                questionNumber: 7,
               ),
               SizedBox(height: size.height / 10),
               Center(
@@ -251,7 +251,7 @@ class _Lesson6 extends State<Lesson6> {
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: const Lesson7(),
+                    route: const Lesson11(),
                     text: 'Continue',
                     width: size.width,
                   ),

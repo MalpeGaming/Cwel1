@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../lesson10/main.dart';
+import '../lesson12/main.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
 
@@ -258,7 +258,7 @@ class _Lesson11 extends State<Lesson11> {
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: const Lesson10(),
+                    route: const Lesson12(),
                     text: 'Continue',
                     width: size.width,
                   ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../lesson7/main.dart';
+import '../lesson10/main.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
 
@@ -271,7 +271,7 @@ class _Lesson9 extends State<Lesson9> {
                 children: List.generate(questions.length, (index) {
                   return Container(
                       margin: const EdgeInsets.all(5),
-                      child: buildQuizScreen(questionNumber: index));
+                      child: buildQuizScreen(questionNumber: index),);
                 }),
               ),
               SizedBox(height: size.height / 20),
@@ -280,7 +280,7 @@ class _Lesson9 extends State<Lesson9> {
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: const Lesson7(),
+                    route: const Lesson10(),
                     text: 'Continue',
                     width: size.width,
                   ),
