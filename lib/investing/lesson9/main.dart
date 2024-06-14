@@ -29,11 +29,11 @@ class _Lesson9 extends State<Lesson9> {
         ),
         leading: Radio<int>(
           value: val,
-          groupValue: selectedOption,
+          groupValue: usersAnswers[questionNumber],
           activeColor: Colors.blue,
           onChanged: (value) {
             setState(() {
-              selectedOption = value!;
+              usersAnswers[questionNumber] = value!;
             });
           },
         ),
@@ -68,7 +68,7 @@ class _Lesson9 extends State<Lesson9> {
     );
   }
 
-  List<int> usersAnswers = List<int>.filled(4, -1);
+  List<int> usersAnswers = List<int>.filled(questions.length, -1);
 
   @override
   Widget build(BuildContext context) {
@@ -270,8 +270,9 @@ class _Lesson9 extends State<Lesson9> {
               Column(
                 children: List.generate(questions.length, (index) {
                   return Container(
-                      margin: const EdgeInsets.all(5),
-                      child: buildQuizScreen(questionNumber: index),);
+                    margin: const EdgeInsets.all(5),
+                    child: buildQuizScreen(questionNumber: index),
+                  );
                 }),
               ),
               SizedBox(height: size.height / 20),
@@ -280,7 +281,24 @@ class _Lesson9 extends State<Lesson9> {
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: const Lesson10(),
+                    //route: const Lesson2(),
+                    onClick: () {
+                      int score = 0;
+                      for (int i = 0; i < usersAnswers.length; i++) {
+                        if (usersAnswers[i] == questions[i]["correctAnswer"]) {
+                          score++;
+                        }
+                      }
+                      print("wynik:");
+                      print(score);
+                      saveResult(9, score);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Lesson10(),
+                        ),
+                      );
+                    },
                     text: 'Continue',
                     width: size.width,
                   ),

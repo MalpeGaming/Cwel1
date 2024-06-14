@@ -29,11 +29,11 @@ class _Lesson12 extends State<Lesson12> {
         ),
         leading: Radio<int>(
           value: val,
-          groupValue: selectedOption,
+          groupValue: usersAnswers[questionNumber],
           activeColor: Colors.blue,
           onChanged: (value) {
             setState(() {
-              selectedOption = value!;
+              usersAnswers[questionNumber] = value!;
             });
           },
         ),
@@ -68,7 +68,7 @@ class _Lesson12 extends State<Lesson12> {
     );
   }
 
-  List<int> usersAnswers = List<int>.filled(4, -1);
+  List<int> usersAnswers = List<int>.filled(questions.length, -1);
 
   @override
   Widget build(BuildContext context) {
@@ -251,7 +251,24 @@ class _Lesson12 extends State<Lesson12> {
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: const Lesson11(),
+                    //route: const Lesson2(),
+                    onClick: () {
+                      int score = 0;
+                      for (int i = 0; i < usersAnswers.length; i++) {
+                        if (usersAnswers[i] == questions[i]["correctAnswer"]) {
+                          score++;
+                        }
+                      }
+                      print("wynik:");
+                      print(score);
+                      saveResult(12, score);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Lesson11(),
+                        ),
+                      );
+                    },
                     text: 'Continue',
                     width: size.width,
                   ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
 import '../lesson2/main.dart';
 import '../helper_fn.dart';
+import 'questions.dart';
 
 class Lesson1 extends StatefulWidget {
   const Lesson1({super.key});
@@ -67,46 +68,7 @@ class _Lesson1 extends State<Lesson1> {
     );
   }
 
-  var questions = [
-    {
-      "question":
-          "Below you can see a chart showing the inflation rate in Algeria during a time period of 4 years. Let’s assume an individual holds \$100k in cash at the beginning of the year 2019. How much will his money be worth at the end of the year 2022?",
-      "answers": [
-        "around \$80.5k",
-        "around \$90k",
-        "around \$85k",
-        "around \$92k",
-      ],
-      "correctAnswer": 1,
-    },
-    {
-      "question":
-          "Buying a house which generates maintenance costs, means it is a/an:",
-      "answers": [
-        "asset",
-        "liability",
-      ],
-      "correctAnswer": 1,
-    },
-    {
-      "question": "Assets generate income … if you work.",
-      "answers": [
-        "only",
-        "regardless",
-      ],
-      "correctAnswer": 1,
-    },
-    {
-      "question": "Because of inflation our cash savings … in value.",
-      "answers": [
-        "increase",
-        "decrease",
-      ],
-      "correctAnswer": 1,
-    },
-  ];
-
-  List<int> usersAnswers = List<int>.filled(4, -1);
+  List<int> usersAnswers = List<int>.filled(questions.length, -1);
 
   @override
   Widget build(BuildContext context) {
@@ -258,7 +220,24 @@ class _Lesson1 extends State<Lesson1> {
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: const Lesson2(),
+                    //route: const Lesson2(),
+                    onClick: () {
+                      int score = 0;
+                      for (int i = 0; i < usersAnswers.length; i++) {
+                        if (usersAnswers[i] == questions[i]["correctAnswer"]) {
+                          score++;
+                        }
+                      }
+                      print("wynik:");
+                      print(score);
+                      saveResult(1, score);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Lesson2(),
+                        ),
+                      );
+                    },
                     text: 'Continue',
                     width: size.width,
                   ),

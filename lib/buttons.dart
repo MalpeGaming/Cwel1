@@ -29,16 +29,6 @@ class _StartButtonState extends State<StartButton> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Future<void> initMemory() async {
-          prefs = await SharedPreferences.getInstance();
-          prefs.setStringList(
-            'beginning_date',
-            [DateTime.now().toString()],
-          );
-          print("amogus");
-        }
-
-        initMemory();
         Navigator.push(
           context,
           MaterialPageRoute(

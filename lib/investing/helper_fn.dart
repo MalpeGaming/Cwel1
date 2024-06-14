@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 Widget keyVocabulary(BuildContext context, String text, String definition) {
   return Column(
@@ -34,3 +35,13 @@ Widget createDivider(BuildContext context) {
     ],
   );
 }
+
+Future<void> saveResult(int lessonId, int score) async {
+  late SharedPreferences prefs;
+
+  prefs = await SharedPreferences.getInstance();
+  prefs.setInt('lesson$lessonId', score);
+  //print("amogus");
+}
+
+        //initMemory();
