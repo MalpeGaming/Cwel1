@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
 import '../lesson2/main.dart';
 import '../helper_fn.dart';
+import 'questions.dart';
 
 class Lesson1 extends StatefulWidget {
   const Lesson1({super.key});
@@ -67,46 +68,7 @@ class _Lesson1 extends State<Lesson1> {
     );
   }
 
-  var questions = [
-    {
-      "question":
-          "Below you can see a chart showing the inflation rate in Algeria during a time period of 4 years. Let’s assume an individual holds \$100k in cash at the beginning of the year 2019. How much will his money be worth at the end of the year 2022?",
-      "answers": [
-        "around \$80.5k",
-        "around \$90k",
-        "around \$85k",
-        "around \$92k",
-      ],
-      "correctAnswer": 1,
-    },
-    {
-      "question":
-          "Buying a house which generates maintenance costs, means it is a/an:",
-      "answers": [
-        "asset",
-        "liability",
-      ],
-      "correctAnswer": 1,
-    },
-    {
-      "question": "Assets generate income … if you work.",
-      "answers": [
-        "only",
-        "regardless",
-      ],
-      "correctAnswer": 1,
-    },
-    {
-      "question": "Because of inflation our cash savings … in value.",
-      "answers": [
-        "increase",
-        "decrease",
-      ],
-      "correctAnswer": 1,
-    },
-  ];
-
-  List<int> usersAnswers = List<int>.filled(4, -1);
+  List<int> usersAnswers = List<int>.filled(questions.length, -1);
 
   @override
   Widget build(BuildContext context) {
@@ -139,13 +101,17 @@ class _Lesson1 extends State<Lesson1> {
                 ),
               ),
               SizedBox(height: size.height / 60),
+              //createDivider(context),
+
               Text(
                 "You've likely been told many times that you should invest, but have you actually started? In the next 2 lessons, I will provide three convincing arguments that might help you make up your mind on this topic. So, let's begin:",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
               ),
+              //SizedBox(height: size.height / 60),
               createDivider(context),
+
               Text(
                 "1. Beat the Inflation",
                 style: TextStyle(
@@ -153,7 +119,7 @@ class _Lesson1 extends State<Lesson1> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: size.height / 40),
+              SizedBox(height: size.height / 60),
               Text(
                 "Key vocabulary:",
                 style: TextStyle(
@@ -169,8 +135,13 @@ class _Lesson1 extends State<Lesson1> {
               ),
               SizedBox(height: size.height / 50),
               keyVocabulary(
-                  context, "Inflation -", "the increase of prices over time"),
-              SizedBox(height: size.height / 30),
+                context,
+                "Inflation -",
+                "the increase of prices over time",
+              ),
+              createDivider(context),
+
+              //SizedBox(height: size.height / 30),
               Text(
                 "Money, essentially worthless alone, gains value as a medium of exchange for goods and services. A \$10 bill, is worth \$10 dollars because we can buy with it sth that is 10 times more valuable than sth for \$1. Governments regulate the supply of money, often through printing more, but this doesn't create wealth. Increasing the money supply without a corresponding rise in production leads to inflation. This happens because more money chases the same goods and services. For instance, if the government doubles the money supply without boosting production, prices roughly double too. What are the consequences ? Our savings lose value over time, as we can buy less and less with it.",
                 style: TextStyle(
@@ -218,7 +189,8 @@ class _Lesson1 extends State<Lesson1> {
                 "Liabilities -",
                 "takes away money from us; in order to become wealthy we need to have as few liabilities as we can",
               ),
-              SizedBox(height: size.height / 10),
+              //SizedBox(height: size.height / 10),
+              createDivider(context),
               Text(
                 "While expanding on this point, I am going to refer to the ideas presented in the book 'Rich Dad, Poor Dad' by Robert Kiyosaki, which I highly recommend reading. : ). Alright, in the book, assets are depicted as anything that puts money in your pocket. Kiyosaki emphasizes the concept of making money work for you by investing in assets (as he said, 'Make money work for you'). These could be stocks of companies, real estate properties, businesses, or other income-generating ventures. Assets are the key to financial independence because they generate passive income and increase in value over time. In simple words, you do nothing, and money flows into your pockets.",
                 style: TextStyle(
@@ -234,21 +206,38 @@ class _Lesson1 extends State<Lesson1> {
               buildQuizScreen(
                 questionNumber: 1,
               ),
-              SizedBox(height: size.height / 10),
+              SizedBox(height: size.height / 20),
               buildQuizScreen(
                 questionNumber: 2,
               ),
-              SizedBox(height: size.height / 10),
+              SizedBox(height: size.height / 20),
               buildQuizScreen(
                 questionNumber: 3,
               ),
-              SizedBox(height: size.height / 10),
+              SizedBox(height: size.height / 20),
               Center(
                 child: SizedBox(
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: const Lesson2(),
+                    //route: const Lesson2(),
+                    onClick: () {
+                      int score = 0;
+                      for (int i = 0; i < usersAnswers.length; i++) {
+                        if (usersAnswers[i] == questions[i]["correctAnswer"]) {
+                          score++;
+                        }
+                      }
+                      print("wynik:");
+                      print(score);
+                      saveResult(1, score);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Lesson2(),
+                        ),
+                      );
+                    },
                     text: 'Continue',
                     width: size.width,
                   ),

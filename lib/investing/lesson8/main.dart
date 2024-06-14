@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../lesson10/main.dart';
+import '../lesson9/main.dart';
+
 import '../helper_fn.dart';
 import 'questions.dart';
 
@@ -29,11 +30,11 @@ class _Lesson8 extends State<Lesson8> {
         ),
         leading: Radio<int>(
           value: val,
-          groupValue: selectedOption,
+          groupValue: usersAnswers[questionNumber],
           activeColor: Colors.blue,
           onChanged: (value) {
             setState(() {
-              selectedOption = value!;
+              usersAnswers[questionNumber] = value!;
             });
           },
         ),
@@ -68,7 +69,7 @@ class _Lesson8 extends State<Lesson8> {
     );
   }
 
-  List<int> usersAnswers = List<int>.filled(4, -1);
+  List<int> usersAnswers = List<int>.filled(questions.length, -1);
 
   @override
   Widget build(BuildContext context) {
@@ -193,7 +194,24 @@ class _Lesson8 extends State<Lesson8> {
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: const Lesson10(),
+                    //route: const Lesson2(),
+                    onClick: () {
+                      int score = 0;
+                      for (int i = 0; i < usersAnswers.length; i++) {
+                        if (usersAnswers[i] == questions[i]["correctAnswer"]) {
+                          score++;
+                        }
+                      }
+                      print("wynik:");
+                      print(score);
+                      saveResult(8, score);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Lesson9(),
+                        ),
+                      );
+                    },
                     text: 'Continue',
                     width: size.width,
                   ),
