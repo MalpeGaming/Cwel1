@@ -169,7 +169,7 @@ class _Lesson1 extends State<Lesson1> {
               ),
               SizedBox(height: size.height / 50),
               keyVocabulary(
-                  context, "Inflation -", "the increase of prices over time"),
+                  context, "Inflation -", "the increase of prices over time",),
               SizedBox(height: size.height / 30),
               Text(
                 "Money, essentially worthless alone, gains value as a medium of exchange for goods and services. A \$10 bill, is worth \$10 dollars because we can buy with it sth that is 10 times more valuable than sth for \$1. Governments regulate the supply of money, often through printing more, but this doesn't create wealth. Increasing the money supply without a corresponding rise in production leads to inflation. This happens because more money chases the same goods and services. For instance, if the government doubles the money supply without boosting production, prices roughly double too. What are the consequences ? Our savings lose value over time, as we can buy less and less with it.",
