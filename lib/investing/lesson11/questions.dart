@@ -1,6 +1,17 @@
 var questions = [
   {
     "question":
+        "If a bond has a face value of \$2,000 and a coupon rate of 4%, how much annual interest will it pay?",
+    "answers": [
+      "\$40",
+      "\$80",
+      "\$100",
+      "\$120",
+    ],
+    "correctAnswer": 1,
+  },
+  {
+    "question":
         "Which bond metric helps you understand the total return if you hold the bond until maturity?",
     "answers": [
       "Coupon rate",
