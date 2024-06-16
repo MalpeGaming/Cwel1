@@ -444,7 +444,7 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity2(
                           (context),
-                          "investing_start",
+                          "investing",
                           "Investing",
                           "Course",
                           const InvestingMenu(),
