@@ -1,4 +1,5 @@
 import 'package:brain_train_app/attention/find_the_number.dart';
+import 'package:brain_train_app/linguistic/choose_best_word.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'navbar.dart';
@@ -26,6 +27,7 @@ import '2048/game_2048.dart';
 import 'linguistic/spelling_mistakes.dart';
 import 'well_being/memes.dart';
 import 'linguistic/grammar_mcq_test.dart';
+import 'linguistic/correct_a_word.dart';
 import 'investing/lesson1/main.dart';
 
 class YourActivities extends StatefulWidget {
@@ -433,12 +435,11 @@ class _YourActivities extends State<YourActivities> {
                           zero: 0,
                         ),
                         createActivity2(
-                          (context),
-                          "memes",
-                          "Memes",
+                          context,
+                          "correct_a_word",
+                          "Correct a word",
                           "",
-                          const Meme(),
-                          zero: 0,
+                          const CorrectAWord(),
                         ),
                         createActivity2(
                           (context),
@@ -455,6 +456,20 @@ class _YourActivities extends State<YourActivities> {
                           const Grammar(
                             exerciseId: 0,
                           ),
+                        ),
+                        createActivity2(
+                          context,
+                          "choose_best_word",
+                          "Choose the",
+                          "best WORD",
+                          const ChooseBestWord(),
+                        ),
+                        createActivity2(
+                          context,
+                          "memes",
+                          "Memes",
+                          "",
+                          const Meme(),
                           zero: 0,
                         ),
                       ],
