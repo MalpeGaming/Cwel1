@@ -40,7 +40,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height / 12,
+      height: size.height / 11,
       color: Theme.of(context).colorScheme.primary,
       child: Container(
         decoration: BoxDecoration(
