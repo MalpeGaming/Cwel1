@@ -2,11 +2,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import "package:any_link_preview/any_link_preview.dart";
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
-import "../show_score.dart";
-import '../account/login1.dart';
-import '../buttons.dart';
+import "/show_score.dart";
+import '/account/login1.dart';
+import '/buttons.dart';
 import 'dart:async';
-import '../progress_screen.dart';
+import '/progress_screen.dart';
 
 class SecondLinguisticExercise extends StatefulWidget {
   const SecondLinguisticExercise({super.key, this.initialTest = false});

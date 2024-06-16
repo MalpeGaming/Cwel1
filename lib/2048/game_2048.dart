@@ -339,18 +339,14 @@ class _Game2048State extends State<Game2048> {
 
                   if (dx.abs() < dy.abs()) {
                     if (dy > 0) {
-                      print("down");
                       move(0);
                     } else if (dy < 0) {
-                      print("up");
                       move(2);
                     }
                   } else {
                     if (dx > 0) {
-                      print("right");
                       move(1);
                     } else if (dx < 0) {
-                      print("left");
                       move(3);
                     }
                   }
@@ -371,7 +367,8 @@ class _Game2048State extends State<Game2048> {
                       var z = (i - (4 * y));
                       var left = z * (tileSize) + ((z + 1) * 12.0);
 
-                      return Positioned(
+                      return AnimatedPositioned(
+                        duration: const Duration(milliseconds: 200),
                         top: top,
                         left: left,
                         child: Container(
