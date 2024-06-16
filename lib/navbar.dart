@@ -40,7 +40,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height / 12,
+      height: size.height / 11,
       color: Theme.of(context).colorScheme.primary,
       child: Container(
         decoration: BoxDecoration(
@@ -83,7 +83,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
               "assets/navbar_icons/${lab.toLowerCase()}_${_selectedIndex == index ? 'on' : 'off'}_l.png",
             ),
             color: Theme.of(context).colorScheme.onPrimary,
-            size: _selectedIndex == index ? 36 : 30,
+            size: _selectedIndex == index ? 38 : 32,
           ),
           SizedBox(height: 0.042 * size.height),
         ],
