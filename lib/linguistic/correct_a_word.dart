@@ -181,6 +181,11 @@ class _CorrectAWord extends State<CorrectAWord> {
                           ],
                         ),
                         round == 0
+                            ? SizedBox(
+                                height: size.height / 25,
+                              )
+                            : const SizedBox(),
+                        round == 0
                             ? Text(
                                 "In the following exercise you will have 60 seconds to correct as many misspelled words as you can.\n\nFor each correctly completed exercise you will get 1 point and for each mistake you will lose 0.5 points.\n\nClick “Continue” when you are ready.",
                                 style: TextStyle(

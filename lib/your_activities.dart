@@ -1,4 +1,5 @@
 import 'package:brain_train_app/attention/find_the_number.dart';
+import 'package:brain_train_app/linguistic/choose_best_word.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'navbar.dart';
@@ -447,6 +448,13 @@ class _YourActivities extends State<YourActivities> {
                           const Grammar(
                             exerciseId: 0,
                           ),
+                        ),
+                        createActivity2(
+                          context,
+                          "choose_best_word",
+                          "Choose the",
+                          "best WORD",
+                          const ChooseBestWord(),
                         ),
                         createActivity2(
                           context,
