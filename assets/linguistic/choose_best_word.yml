@@ -1,0 +1,15 @@
+tests:
+  - answers:
+    - terminate
+    - initiate
+    - accelerate
+    - appreciate
+    correct_answer: 0
+    question: The manager had to ___ the project due to lack of funding. The investors were disappointed with the sudden decision.
+  - answers:
+    - cost
+    - weight
+    - color
+    - texture
+    correct_answer: 0
+    question: The ___ of the painting was more than the buyer expected. He had to reconsider his budget for the art collection.
