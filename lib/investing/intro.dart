@@ -1,6 +1,7 @@
 import 'package:brain_train_app/investing/lesson1/main.dart';
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
+import 'helper_fn.dart';
 
 class Intro extends StatefulWidget {
   const Intro({super.key});
@@ -94,7 +95,19 @@ class _Intro extends State<Intro> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const Lesson1(),
+                  //route: const Lesson2(),
+                  onClick: () {
+                    int score = 0;
+                    print("wynik:");
+                    print(score);
+                    saveResult(0, 1);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Lesson1(),
+                      ),
+                    );
+                  },
                   text: 'Continue',
                   width: size.width,
                 ),
