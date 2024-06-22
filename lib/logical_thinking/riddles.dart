@@ -142,6 +142,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                   left: size.width / 15,
                   right: size.width / 15,
                   top: size.height / 15,
+                  bottom: size.height / 15,
                 ),
                 child: SingleChildScrollView(
                   child: Column(
