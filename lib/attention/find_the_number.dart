@@ -196,16 +196,6 @@ class _FindTheNumber extends State<FindTheNumber> {
                 ],
               ),
               SizedBox(height: 0.02 * size.height),
-              Text(x.toString()),
-              Text(y.toString()),
-              Text(randomNumbers[x][y].toString()),
-
-              /*Text(
-                randomNumbers.toString(),
-                style: TextStyle(fontSize: size.width / 24),
-              ),
-              Text(excludedNumber.toString()),
-              createButton(context, 1, 1),*/
               Column(
                 children: List.generate(
                   10,
