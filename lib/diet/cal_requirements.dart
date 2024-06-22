@@ -82,7 +82,7 @@ class _CalRequirementsPageState extends State<CalRequirementsPage> {
                 Text(
                   "CALORIE DAILY REQUIREMENTS",
                   style: TextStyle(
-                    fontSize: size.width / 9.5,
+                    fontSize: size.width / 8,
                   ),
                   textAlign: TextAlign.center,
                 ),
