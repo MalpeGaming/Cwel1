@@ -356,7 +356,9 @@ class _Lesson2 extends State<Lesson2> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Lesson3(),
+                          builder: (context) => const Success(
+                            route: Lesson3(),
+                          ),
                         ),
                       );
                     },

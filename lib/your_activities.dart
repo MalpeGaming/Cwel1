@@ -456,6 +456,7 @@ class _YourActivities extends State<YourActivities> {
                           const Grammar(
                             exerciseId: 0,
                           ),
+                          zero: 0,
                         ),
                         createActivity2(
                           context,
