@@ -103,6 +103,7 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
           ),
         SizedBox(height: 0.007 * size.height),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             if (!noForm)
               SizedBox(
@@ -161,7 +162,7 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
               linked: linked,
               isGender: isGender,
             ),
-            SizedBox(width: 0.025 * size.width),
+            if (txt2 != "") SizedBox(width: 0.025 * size.width),
             if (txt2 != "")
               buildButton(
                 context,
@@ -218,7 +219,7 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                         child: Text(
                           "CALORIE DAILY REQUIREMENTS",
                           style: TextStyle(
-                            fontSize: size.width / 9.5,
+                            fontSize: size.width / 11,
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -274,6 +275,7 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                       ],
                     ),
                   ),
+                  SizedBox(height: size.height / 25),
                   RichText(
                     text: TextSpan(
                       style: TextStyle(

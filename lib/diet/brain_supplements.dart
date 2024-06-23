@@ -44,7 +44,7 @@ class _BrainSupplements extends State<BrainSupplements> {
                   child: Text(
                     "BRAIN SUPPLEMENTS",
                     style: TextStyle(
-                      fontSize: size.width / 8,
+                      fontSize: size.width / 10,
                       fontWeight: FontWeight.w500,
                       height: 1.2,
                     ),
