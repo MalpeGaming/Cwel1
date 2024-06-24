@@ -29,7 +29,6 @@ class _Memory extends State<Memory> {
       appBar: appBar(context, ""),
       body: Column(
         children: [
-          SizedBox(height: 0.03 * size.height),
           Align(
             alignment: Alignment.center,
             child: Text(

@@ -13,6 +13,7 @@ import 'lesson9/main.dart';
 import 'lesson10/main.dart';
 import 'lesson11/main.dart';
 import 'lesson12/main.dart';
+import 'lesson16/main.dart';
 import '../app_bar.dart';
 
 class InvestingMenu extends StatefulWidget {
@@ -132,7 +133,6 @@ class _InvestingMenu extends State<InvestingMenu> {
         margin: EdgeInsets.only(
           left: size.width / 15,
           right: size.width / 15,
-          top: size.height / 30,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -154,7 +154,7 @@ class _InvestingMenu extends State<InvestingMenu> {
                 style: TextStyle(fontSize: size.width / 17),
               ),
             ),
-            SizedBox(height: size.height / 20),
+            SizedBox(height: size.height / 25),
             Expanded(
               child: ListView(
                 children: [
@@ -234,6 +234,12 @@ class _InvestingMenu extends State<InvestingMenu> {
                     context,
                     "12. How to choose a bond ? ",
                     const Lesson12(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "16. What are ETFs ? ",
+                    const Lesson16(),
                     scores[12] ?? 0,
                   ),
                   SizedBox(height: size.height / 20),

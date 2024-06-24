@@ -1,3 +1,4 @@
+import 'package:brain_train_app/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'exercise2.dart';
@@ -78,7 +79,7 @@ class _Test extends State<Test> {
           leading: Radio<int>(
             value: val,
             groupValue: selectedOption,
-            activeColor: Theme.of(context).colorScheme.primary,
+            //activeColor: Theme.of(context).colorScheme.primary,
             onChanged: (value) {
               setState(() {
                 selectedOption = value!;
@@ -92,12 +93,12 @@ class _Test extends State<Test> {
     return questions.isEmpty & answers.isEmpty & correctAnswers.isEmpty
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
+            appBar: appBar(context, ""),
             body: Container(
               height: size.height * 0.9,
               margin: EdgeInsets.only(
                 left: size.width / 20,
                 right: size.width / 20,
-                top: size.height / 10,
               ),
               child: SingleChildScrollView(
                 child: Column(

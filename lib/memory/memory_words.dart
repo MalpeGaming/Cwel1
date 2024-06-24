@@ -162,7 +162,6 @@ class _MemoryWordsState extends State<MemoryWords> {
           ? const Center(child: CircularProgressIndicator())
           : Column(
               children: [
-                SizedBox(height: 0.03 * size.height),
                 Align(
                   alignment: Alignment.center,
                   child: Text(

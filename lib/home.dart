@@ -81,8 +81,9 @@ class _Home extends State<Home> {
               leading: Radio<int>(
                 value: 1,
                 groupValue: 1,
-                activeColor: Colors.blue,
-                fillColor: MaterialStateProperty.all(Colors.blue),
+                //activeColor: Theme.of(context).colorScheme.primary,
+                fillColor: MaterialStateProperty.all(
+                    Theme.of(context).colorScheme.primary),
                 splashRadius: 25,
                 onChanged: (value) {},
               ),

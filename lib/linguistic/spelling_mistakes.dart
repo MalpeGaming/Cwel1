@@ -18,7 +18,7 @@ class SpellingMistakes extends StatefulWidget {
 }
 
 class _SpellingMistakes extends State<SpellingMistakes> {
-  double score = 0;
+  int score = 0;
   String languageLevel = "";
   int selectedOption = -1, questionIndex = 0;
   List<String> questions = [];
@@ -239,7 +239,7 @@ class _SpellingMistakes extends State<SpellingMistakes> {
                               ),
                               child: Center(
                                 child: Text(
-                                  correct.toString(),
+                                  score.toString(),
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: size.width / 20,
@@ -272,8 +272,7 @@ class _SpellingMistakes extends State<SpellingMistakes> {
                               ),
                               child: Center(
                                 child: Text(
-                                  answers[questionIndex][selectedOption]
-                                      .toString(),
+                                  (questionIndex - score).toString(),
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: size.width / 20,
@@ -316,7 +315,7 @@ class _SpellingMistakes extends State<SpellingMistakes> {
                                 MaterialPageRoute(
                                   builder: (context) => ProgressScreen(
                                     name: "long_term_concentration",
-                                    score: score,
+                                    score: score.toDouble(),
                                   ),
                                 ),
                               );
