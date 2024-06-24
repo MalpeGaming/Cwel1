@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
 import 'dart:math';
 import '../buttons.dart';
+import '../app_bar.dart';
 
 class Video extends StatefulWidget {
   const Video({super.key, this.initialTest = false});
@@ -54,6 +55,7 @@ class _Video extends State<Video> {
     return videoId.isEmpty
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
+            appBar: appBar(context, ""),
             body: SingleChildScrollView(
               child: Container(
                 width: size.width * 0.9,
@@ -61,7 +63,7 @@ class _Video extends State<Video> {
                 margin: EdgeInsets.only(
                   left: size.width / 10,
                   right: size.width / 10,
-                  top: size.height / 10,
+                  //top: size.height / 10,
                 ),
                 child: Column(
                   //mainAxisAlignment: MainAxisAlignment.spaceBetween,

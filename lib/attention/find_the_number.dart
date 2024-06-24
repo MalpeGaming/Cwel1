@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:async';
 import '../progress_screen.dart';
+import '../app_bar.dart';
 
 class FindTheNumber extends StatefulWidget {
   const FindTheNumber({super.key});
@@ -129,6 +130,7 @@ class _FindTheNumber extends State<FindTheNumber> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: appBar(context, ""),
       body: SingleChildScrollView(
         child: Container(
           width: size.width * 0.9,
@@ -136,8 +138,7 @@ class _FindTheNumber extends State<FindTheNumber> {
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
-            top: size.height / 10,
-            bottom: size.height / 10,
+            top: size.height / 30,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,

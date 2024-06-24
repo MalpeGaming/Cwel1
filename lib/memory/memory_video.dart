@@ -5,6 +5,7 @@ import '/account/login1.dart';
 import '/show_score.dart';
 import '../buttons.dart';
 import '../progress_screen.dart';
+import '../app_bar.dart';
 
 class MemoryVideo extends StatefulWidget {
   const MemoryVideo({super.key, this.initialTest = false});
@@ -40,6 +41,7 @@ class _MemoryVideo extends State<MemoryVideo> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: appBar(context, ""),
       body: SingleChildScrollView(
         child: Container(
           width: size.width * 0.9,
@@ -47,10 +49,9 @@ class _MemoryVideo extends State<MemoryVideo> {
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
-            top: size.height / 20,
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -128,6 +129,9 @@ class _MemoryVideo extends State<MemoryVideo> {
                     ),
                   ),
                 ],
+              ),
+              SizedBox(
+                height: size.height / 7,
               ),
               RedirectButton(
                 onClick: () {

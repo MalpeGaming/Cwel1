@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'app_bar.dart';
 
 class Sport extends StatefulWidget {
   const Sport({super.key});
@@ -109,11 +110,12 @@ class _Sport extends State<Sport> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: appBar(context, ""),
       body: Container(
         margin: EdgeInsets.only(
           left: size.width / 20,
           right: size.width / 20,
-          top: size.height / 10,
+          top: size.height / 30,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

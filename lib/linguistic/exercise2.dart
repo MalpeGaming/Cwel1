@@ -7,6 +7,7 @@ import '/account/login1.dart';
 import '/buttons.dart';
 import 'dart:async';
 import '/progress_screen.dart';
+import '/app_bar.dart';
 
 class SecondLinguisticExercise extends StatefulWidget {
   const SecondLinguisticExercise({super.key, this.initialTest = false});
@@ -43,6 +44,7 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: appBar(context, ""),
       body: SingleChildScrollView(
         child: Container(
           width: size.width * 0.9,
@@ -50,7 +52,8 @@ class _SecondLinguisticExercise extends State<SecondLinguisticExercise> {
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
-            top: size.height / 15,
+            //top: size.height / 30,
+            bottom: size.height / 20,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

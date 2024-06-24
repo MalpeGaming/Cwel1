@@ -13,6 +13,7 @@ import 'lesson9/main.dart';
 import 'lesson10/main.dart';
 import 'lesson11/main.dart';
 import 'lesson12/main.dart';
+import '../app_bar.dart';
 
 class InvestingMenu extends StatefulWidget {
   const InvestingMenu({super.key});
@@ -126,11 +127,12 @@ class _InvestingMenu extends State<InvestingMenu> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: appBar(context, ""),
       body: Container(
         margin: EdgeInsets.only(
           left: size.width / 15,
           right: size.width / 15,
-          top: size.height / 10,
+          top: size.height / 30,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -235,7 +237,6 @@ class _InvestingMenu extends State<InvestingMenu> {
                     scores[12] ?? 0,
                   ),
                   SizedBox(height: size.height / 20),
-                  Text(scores.toString()),
                 ],
               ),
             ),

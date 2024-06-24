@@ -5,9 +5,9 @@ import 'package:yaml/yaml.dart';
 import '/progress_screen.dart';
 import '/show_score.dart';
 import 'package:brain_train_app/buttons.dart';
-
 import 'dart:async';
 import 'dart:math';
+import '../app_bar.dart';
 
 class RiddlesTest extends StatefulWidget {
   const RiddlesTest({
@@ -123,7 +123,7 @@ class _RiddlesTest extends State<RiddlesTest> {
         leading: Radio<int>(
           value: val,
           groupValue: selectedOption,
-          activeColor: Colors.blue,
+          activeColor: Theme.of(context).colorScheme.primary,
           onChanged: (value) {
             setState(() {
               selectedOption = value!;
@@ -136,13 +136,13 @@ class _RiddlesTest extends State<RiddlesTest> {
     return questions.isEmpty & answers.isEmpty & correctAnswers.isEmpty
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
+            appBar: appBar(context, ""),
             body: SingleChildScrollView(
               child: Container(
                 margin: EdgeInsets.only(
                   left: size.width / 15,
                   right: size.width / 15,
-                  top: size.height / 15,
-                  bottom: size.height / 15,
+                  bottom: size.height / 20,
                 ),
                 child: SingleChildScrollView(
                   child: Column(
@@ -160,7 +160,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                                 Text(
                                   "LOGICAL",
                                   style:
-                                      TextStyle(fontSize: 0.08 * size.height),
+                                      TextStyle(fontSize: 0.07 * size.height),
                                 ),
                                 Text(
                                   "THINKING",

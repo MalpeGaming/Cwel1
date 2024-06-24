@@ -78,7 +78,7 @@ class _Test extends State<Test> {
           leading: Radio<int>(
             value: val,
             groupValue: selectedOption,
-            activeColor: Colors.blue,
+            activeColor: Theme.of(context).colorScheme.primary,
             onChanged: (value) {
               setState(() {
                 selectedOption = value!;

@@ -5,6 +5,7 @@ import 'long_term_concentration_video.dart';
 import '/progress_screen.dart';
 import '/show_score.dart';
 import '/buttons.dart';
+import '/app_bar.dart';
 
 class ShortTermConcentration extends StatefulWidget {
   const ShortTermConcentration({super.key, this.initialTest = false});
@@ -40,6 +41,7 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: appBar(context, ""),
       body: SingleChildScrollView(
         child: Container(
           width: size.width * 0.9,
@@ -47,8 +49,6 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
-            top: size.height / 10,
-            bottom: size.height / 10,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,

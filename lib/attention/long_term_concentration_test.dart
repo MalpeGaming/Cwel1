@@ -5,6 +5,7 @@ import 'strong_concentration_desc.dart';
 import 'package:yaml/yaml.dart';
 import '/progress_screen.dart';
 import '/show_score.dart';
+import '/app_bar.dart';
 
 class LongTermConcentrationTest extends StatefulWidget {
   const LongTermConcentrationTest({
@@ -78,7 +79,7 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
         leading: Radio<int>(
           value: val,
           groupValue: selectedOption,
-          activeColor: Colors.blue,
+          activeColor: Theme.of(context).colorScheme.primary,
           onChanged: (value) {
             setState(() {
               selectedOption = value!;
@@ -91,13 +92,13 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
     return questions.isEmpty & answers.isEmpty & correctAnswers.isEmpty
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
+            appBar: appBar(context, ""),
             body: SingleChildScrollView(
               child: Container(
                 height: size.height * 0.9,
                 margin: EdgeInsets.only(
                   left: size.width / 20,
                   right: size.width / 20,
-                  top: size.height / 15,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

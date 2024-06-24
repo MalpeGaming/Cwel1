@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'memory_quiz.dart';
 import '../buttons.dart';
+import '../app_bar.dart';
 
 class Memory2 extends StatefulWidget {
   const Memory2(this.picked, this.defs, this.words, {super.key});
@@ -70,13 +71,15 @@ class _Memory2 extends State<Memory2> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: appBar(context, ""),
       body: SingleChildScrollView(
         child: Container(
           width: size.width * 0.9,
           height: size.height * 0.9,
-          margin: EdgeInsets.symmetric(
-            horizontal: size.width / 10,
-            vertical: size.height / 20,
+          margin: EdgeInsets.only(
+            left: size.width / 10,
+            right: size.width / 10,
+            bottom: size.height / 20,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
