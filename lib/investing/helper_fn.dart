@@ -23,6 +23,42 @@ Widget keyVocabulary(BuildContext context, String text, String definition) {
   );
 }
 
+Column createExercise(
+  BuildContext context,
+  int questionNumber,
+  String question,
+  List<String> answers,
+  Widget? image,
+  Function createListTitle,
+) {
+  Size size = MediaQuery.of(context).size;
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        "Exercise ${questionNumber + 1}.",
+        style: TextStyle(
+          fontWeight: FontWeight.w900,
+          fontSize: 0.02 * size.height,
+        ),
+      ),
+      Text(
+        question,
+        style: TextStyle(fontSize: MediaQuery.of(context).size.height * 0.020),
+      ),
+      if (image != null) image,
+      SizedBox(height: MediaQuery.of(context).size.height / 70),
+      Column(
+        children: List.generate(answers.length, (index) {
+          return Container(
+            child: createListTitle(index, answers[index], size),
+          );
+        }),
+      ),
+    ],
+  );
+}
+
 Widget createDot(
   BuildContext context,
   int usersAnswer,

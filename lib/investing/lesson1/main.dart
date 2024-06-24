@@ -19,7 +19,6 @@ class _Lesson1 extends State<Lesson1> {
     Widget? image,
   }) {
     List<String> answers = questions[questionNumber]["answers"] as List<String>;
-    Size size = MediaQuery.of(context).size;
     ListTile createListTitle(int val, String text, Size size) {
       return ListTile(
         dense: true,
@@ -47,31 +46,13 @@ class _Lesson1 extends State<Lesson1> {
       );
     }
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Exercise ${questionNumber + 1}.",
-          style: TextStyle(
-            fontWeight: FontWeight.w900,
-            fontSize: 0.02 * size.height,
-          ),
-        ),
-        Text(
-          questions[questionNumber]["question"] as String,
-          style:
-              TextStyle(fontSize: MediaQuery.of(context).size.height * 0.020),
-        ),
-        if (image != null) image,
-        SizedBox(height: MediaQuery.of(context).size.height / 70),
-        Column(
-          children: List.generate(answers.length, (index) {
-            return Container(
-              child: createListTitle(index, answers[index], size),
-            );
-          }),
-        ),
-      ],
+    return createExercise(
+      context,
+      questionNumber,
+      questions[questionNumber]["question"] as String,
+      answers,
+      image,
+      createListTitle,
     );
   }
 
@@ -222,7 +203,7 @@ class _Lesson1 extends State<Lesson1> {
               buildQuizScreen(
                 questionNumber: 3,
               ),
-              SizedBox(height: size.height / 20),
+              SizedBox(height: size.height / 10),
               Center(
                 child: SizedBox(
                   height: size.height * 0.05,

@@ -132,7 +132,6 @@ class _InvestingMenu extends State<InvestingMenu> {
         margin: EdgeInsets.only(
           left: size.width / 15,
           right: size.width / 15,
-          top: size.height / 30,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -154,7 +153,7 @@ class _InvestingMenu extends State<InvestingMenu> {
                 style: TextStyle(fontSize: size.width / 17),
               ),
             ),
-            SizedBox(height: size.height / 20),
+            SizedBox(height: size.height / 25),
             Expanded(
               child: ListView(
                 children: [
