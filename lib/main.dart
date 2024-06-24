@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
         brightness: Brightness.dark,
         colorScheme: const ColorScheme.dark(
           primary: Color.fromARGB(255, 126, 82, 160),
-          onPrimary: Color.fromARGB(255, 126, 82, 160),
+          onPrimary: Color.fromARGB(255, 117, 72, 151),
           secondary: Color.fromARGB(255, 102, 148, 190),
           onSecondary: Colors.white,
           tertiary: Colors.black,

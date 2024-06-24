@@ -70,17 +70,25 @@ class _SudokuGame extends State<SudokuGame> {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
+          boxShadow: [
+            BoxShadow(
+              color: Theme.of(context).colorScheme.shadow.withOpacity(0.2),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: const Offset(5, 5),
+            ),
+          ],
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: (Theme.of(context).brightness == Brightness.light)
                 ? <Color>[
                     Colors.white,
-                    Color.fromARGB(255, 214, 245, 255),
+                    const Color.fromARGB(255, 225, 220, 233),
                   ]
                 : <Color>[
                     Theme.of(context).colorScheme.background,
-                    Color.fromARGB(255, 31, 0, 56),
+                    const Color.fromARGB(255, 31, 0, 56),
                   ],
             tileMode: TileMode.decal,
           ),
@@ -115,26 +123,47 @@ class _SudokuGame extends State<SudokuGame> {
 
     return Scaffold(
       appBar: appBar(context, ""),
-      body: Container(
-        margin: EdgeInsets.only(
-          left: size.width / 15,
-          right: size.width / 15,
-          bottom: size.height / 10,
-        ),
-        child: Column(
-          children: [
-            SizedBox(height: 0.03 * size.height),
-            Row(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      if (tappedRow != null && tappedCol != null) {
-                        sudoku2[9 * tappedRow! + tappedCol!] = -1;
-                      }
-                    });
-                  },
-                  child: Stack(
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.only(
+            left: size.width / 15,
+            right: size.width / 15,
+            bottom: size.height / 10,
+          ),
+          child: Column(
+            children: [
+              SizedBox(height: 0.03 * size.height),
+              Row(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (tappedRow != null && tappedCol != null) {
+                          sudoku2[9 * tappedRow! + tappedCol!] = -1;
+                        }
+                      });
+                    },
+                    child: Stack(
+                      alignment: AlignmentDirectional.center,
+                      children: [
+                        Container(
+                          width: 0.1 * min(size.width, size.height),
+                          height: 0.1 * min(size.width, size.height),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                        ),
+                        Icon(
+                          size: 0.06 * min(size.width, size.height),
+                          Icons.backspace,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Spacer(),
+                  Stack(
                     alignment: AlignmentDirectional.center,
                     children: [
                       Container(
@@ -145,130 +174,112 @@ class _SudokuGame extends State<SudokuGame> {
                           color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
-                      Icon(
-                        size: 0.06 * min(size.width, size.height),
-                        Icons.backspace,
-                        color: Colors.white,
+                      Text(
+                        "0",
+                        style: TextStyle(
+                          fontSize: 0.06 * min(size.width, size.height),
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
-                ),
-                const Spacer(),
-                Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: [
-                    Container(
-                      width: 0.1 * min(size.width, size.height),
-                      height: 0.1 * min(size.width, size.height),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
+                  SizedBox(width: 0.03 * size.width),
+                  Text(
+                    "Points",
+                    style: TextStyle(
+                      fontSize: 0.05 * min(size.width, size.height),
                     ),
-                    Text(
-                      "0",
-                      style: TextStyle(
-                        fontSize: 0.06 * min(size.width, size.height),
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(width: 0.03 * size.width),
-                Text(
-                  "Points",
-                  style: TextStyle(
-                    fontSize: 0.05 * min(size.width, size.height),
-                  ),
-                ),
-              ],
-            ),
-            Text(
-              "Level 1",
-              style: TextStyle(
-                fontSize: 0.05 * size.width,
-              ),
-            ),
-            SizedBox(height: 0.01 * size.height),
-            Container(
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.background,
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  topRight: Radius.circular(15),
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color:
-                        Theme.of(context).colorScheme.shadow.withOpacity(0.4),
-                    spreadRadius: 3,
-                    blurRadius: 7,
-                    offset: const Offset(4, 8),
                   ),
                 ],
               ),
-              child: Table(
-                border: TableBorder.all(
-                  width: 0.5,
-                  color: Theme.of(context).colorScheme.primary,
-                  borderRadius: BorderRadius.circular(15),
+              Text(
+                "Level 1",
+                style: TextStyle(
+                  fontSize: 0.05 * size.width,
                 ),
-                children: List.generate(
-                  9,
-                  (rowIndex) => TableRow(
-                    children: List.generate(
-                      9,
-                      (colIndex) => InkWell(
-                        onTap: () {
-                          setState(() {
-                            tappedCol = colIndex;
-                            tappedRow = rowIndex;
-                          });
-                        },
-                        child: Container(
-                          height: 0.1 * size.width,
-                          width: 0.1 * size.width,
-                          decoration: BoxDecoration(
-                            color: (tappedCol == colIndex ||
-                                    tappedRow == rowIndex)
-                                ? (tappedCol == colIndex &&
-                                        tappedRow == rowIndex)
-                                    ? const Color.fromARGB(255, 177, 232, 250)
-                                    : const Color.fromARGB(255, 214, 245, 255)
-                                : Theme.of(context).colorScheme.background,
-                            borderRadius: _getBorderRadius(rowIndex, colIndex),
-                            border: Border(
-                              bottom: BorderSide(
-                                color: Theme.of(context).colorScheme.primary,
-                                width: (rowIndex == 2 || rowIndex == 5)
-                                    ? 2.0
-                                    : 0.5,
-                              ),
-                              right: BorderSide(
-                                color: Theme.of(context).colorScheme.primary,
-                                width: (colIndex == 2 || colIndex == 5)
-                                    ? 2.0
-                                    : 0.5,
+              ),
+              SizedBox(height: 0.01 * size.height),
+              Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.background,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
+                    bottomLeft: Radius.circular(15),
+                    bottomRight: Radius.circular(15),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color:
+                          Theme.of(context).colorScheme.shadow.withOpacity(0.4),
+                      spreadRadius: 3,
+                      blurRadius: 7,
+                      offset: const Offset(4, 8),
+                    ),
+                  ],
+                ),
+                child: Table(
+                  border: TableBorder.all(
+                    width: 0.5,
+                    color: Theme.of(context).colorScheme.primary,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  children: List.generate(
+                    9,
+                    (rowIndex) => TableRow(
+                      children: List.generate(
+                        9,
+                        (colIndex) => InkWell(
+                          onTap: () {
+                            setState(() {
+                              tappedCol = colIndex;
+                              tappedRow = rowIndex;
+                            });
+                          },
+                          child: Container(
+                            height: 0.1 * size.width,
+                            width: 0.1 * size.width,
+                            decoration: BoxDecoration(
+                              color: (tappedCol == colIndex ||
+                                      tappedRow == rowIndex)
+                                  ? (tappedCol == colIndex &&
+                                          tappedRow == rowIndex)
+                                      ? const Color.fromARGB(255, 177, 232, 250)
+                                      : const Color.fromARGB(255, 214, 245, 255)
+                                  : Theme.of(context).colorScheme.background,
+                              borderRadius:
+                                  _getBorderRadius(rowIndex, colIndex),
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  width: (rowIndex == 2 || rowIndex == 5)
+                                      ? 2.0
+                                      : 0.5,
+                                ),
+                                right: BorderSide(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  width: (colIndex == 2 || colIndex == 5)
+                                      ? 2.0
+                                      : 0.5,
+                                ),
                               ),
                             ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              (sudoku.puzzle[9 * rowIndex + colIndex] == -1)
-                                  ? (sudoku2[9 * rowIndex + colIndex] == -1)
-                                      ? ' '
-                                      : '${sudoku2[9 * rowIndex + colIndex]}'
-                                  : '${sudoku.puzzle[9 * rowIndex + colIndex]}',
-                              style: TextStyle(
-                                fontSize: 0.05 * size.width,
-                                fontWeight:
-                                    (sudoku2[9 * rowIndex + colIndex] == -1)
-                                        ? FontWeight.w900
-                                        : FontWeight.w300,
-                                color: color,
+                            child: Center(
+                              child: Text(
+                                (sudoku.puzzle[9 * rowIndex + colIndex] == -1)
+                                    ? (sudoku2[9 * rowIndex + colIndex] == -1)
+                                        ? ' '
+                                        : '${sudoku2[9 * rowIndex + colIndex]}'
+                                    : '${sudoku.puzzle[9 * rowIndex + colIndex]}',
+                                style: TextStyle(
+                                  fontSize: 0.05 * size.width,
+                                  fontWeight:
+                                      (sudoku2[9 * rowIndex + colIndex] == -1)
+                                          ? FontWeight.w900
+                                          : FontWeight.w300,
+                                  color: color,
+                                ),
                               ),
                             ),
                           ),
@@ -278,34 +289,38 @@ class _SudokuGame extends State<SudokuGame> {
                   ),
                 ),
               ),
-            ),
-            SizedBox(height: 0.05 * size.height),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: List.generate(
-                5,
-                (index) =>
-                    buildNumerButton(context, index + 1, tappedRow, tappedCol),
-              ),
-            ),
-            SizedBox(height: 0.02 * size.height),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(width: 0.07 * size.width),
-                ...List.generate(
-                  4,
+              SizedBox(height: 0.05 * size.height),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: List.generate(
+                  5,
                   (index) => buildNumerButton(
                     context,
-                    index + 6,
+                    index + 1,
                     tappedRow,
                     tappedCol,
                   ),
                 ),
-                SizedBox(width: 0.07 * size.width),
-              ],
-            ),
-          ],
+              ),
+              SizedBox(height: 0.02 * size.height),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(width: 0.07 * size.width),
+                  ...List.generate(
+                    4,
+                    (index) => buildNumerButton(
+                      context,
+                      index + 6,
+                      tappedRow,
+                      tappedCol,
+                    ),
+                  ),
+                  SizedBox(width: 0.07 * size.width),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
