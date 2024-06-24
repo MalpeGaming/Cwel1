@@ -107,12 +107,16 @@ GestureDetector createLesson(
 class _InvestingMenu extends State<InvestingMenu> {
   late SharedPreferences prefs;
   List<int?> scores = List<int?>.filled(13, null);
+  int sum = 0;
 
   Future<void> readMemory() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
       for (int i = 0; i <= 12; i++) {
         scores[i] = prefs.getInt('lesson$i')?.toInt();
+        if (scores[i] != null) {
+          sum += scores[i]!;
+        }
       }
     });
   }
@@ -158,6 +162,39 @@ class _InvestingMenu extends State<InvestingMenu> {
             Expanded(
               child: ListView(
                 children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        "overall",
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.onSecondary,
+                          fontSize: size.width / 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(width: size.width / 20),
+                      Container(
+                        height: 0.06 * size.height,
+                        width: 0.2 * size.width,
+                        decoration: const BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        child: Center(
+                          child: Text(
+                            sum.toString(),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: size.width / 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: size.height / 40),
                   createLesson(
                     context,
                     "Intro",
