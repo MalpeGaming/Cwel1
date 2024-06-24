@@ -30,6 +30,7 @@ Column createExercise(
   List<String> answers,
   Widget? image,
   Function createListTitle,
+  String? explanation,
 ) {
   Size size = MediaQuery.of(context).size;
   return Column(
@@ -55,6 +56,14 @@ Column createExercise(
           );
         }),
       ),
+      explanation != null
+          ? Column(
+              children: [
+                SizedBox(height: size.height / 40),
+                Text(explanation),
+              ],
+            )
+          : const SizedBox.shrink(),
     ],
   );
 }

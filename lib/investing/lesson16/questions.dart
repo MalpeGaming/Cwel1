@@ -10,7 +10,7 @@ var questions = [
     ],
     "correctAnswer": 1,
     "explanation":
-        "The answer is B) ETFs provide the ability to trade throughout the trading day. Unlike mutual funds, which can only be bought or sold at the end-of-day net asset value, ETFs can be bought and sold like stocks throughout the trading day. This gives investors flexibility to act on market news and events in real-time.\n\nETFs can be passively or actively managed. Passively managed ETFs aim to replicate the performance of an index, like the S&P 500, with minimal management intervention, keeping costs low. Actively managed ETFs, on the other hand, have portfolio managers making buying and selling decisions to try to beat a benchmark index, which can result in higher fees due to more frequent trading. Regardless of the management style, ETFs usually have lower expense ratios than mutual funds, making them a cost-effective choice for many investors.",
+        "The answer is B) ETFs provide the ability to trade throughout the trading day. Unlike mutual funds, which can only be bought or sold at the end-of-day net asset value, ETFs can be bought and sold like stocks throughout the trading day. This gives investors flexibility to act on market news and events in real-time.",
   },
   {
     "question": "What management style do most ETFs follow?",

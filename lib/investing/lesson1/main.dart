@@ -53,6 +53,10 @@ class _Lesson1 extends State<Lesson1> {
       answers,
       image,
       createListTitle,
+      (questions[questionNumber]["explanation"] != null &&
+              usersAnswers[questionNumber] != -1)
+          ? questions[questionNumber]["explanation"] as String
+          : null,
     );
   }
 
