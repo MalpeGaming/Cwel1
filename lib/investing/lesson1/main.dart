@@ -27,16 +27,38 @@ class _Lesson1 extends State<Lesson1> {
           text,
           style: TextStyle(fontSize: 0.02 * size.height),
         ),
-        leading: Radio<int>(
-          value: val,
-          groupValue: usersAnswers[questionNumber],
-          activeColor: Colors.blue,
-          onChanged: (value) {
-            setState(() {
-              usersAnswers[questionNumber] = value!;
-            });
-          },
-        ),
+        leading: (usersAnswers[questionNumber] == -1)
+            ? Radio<int>(
+                value: val,
+                groupValue: usersAnswers[questionNumber],
+                activeColor: Colors.blue,
+                onChanged: (value) {
+                  setState(() {
+                    usersAnswers[questionNumber] = value!;
+                  });
+                },
+              )
+            : usersAnswers[questionNumber] == val ||
+                    questions[questionNumber]["correctAnswer"] == val
+                ? Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: size.width / 30,
+                    ),
+                    child: Icon(
+                      questions[questionNumber]["correctAnswer"] == val
+                          ? Icons.check_circle
+                          : Icons.cancel,
+                      color: questions[questionNumber]["correctAnswer"] == val
+                          ? Colors.green
+                          : Colors.red,
+                    ),
+                  )
+                : Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: size.width / 30,
+                    ),
+                    child: const Icon(Icons.circle_outlined),
+                  ),
       );
     }
 
@@ -69,6 +91,7 @@ class _Lesson1 extends State<Lesson1> {
   }
 
   List<int> usersAnswers = List<int>.filled(questions.length, -1);
+  List<int> correct = List<int>.filled(questions.length, -1);
 
   @override
   Widget build(BuildContext context) {

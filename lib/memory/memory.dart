@@ -1,6 +1,8 @@
+//import 'package:brain_train_app/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'memory_words.dart';
 import '../buttons.dart';
+import '../app_bar.dart';
 
 class Memory extends StatefulWidget {
   final bool? initialTest;
@@ -24,9 +26,10 @@ class _Memory extends State<Memory> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: appBar(context, ""),
       body: Column(
         children: [
-          SizedBox(height: 0.05 * size.height),
+          SizedBox(height: 0.03 * size.height),
           Align(
             alignment: Alignment.center,
             child: Text(

@@ -70,16 +70,21 @@ class _SudokuGame extends State<SudokuGame> {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
-          gradient: const LinearGradient(
+          gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: <Color>[
-              Colors.white,
-              Color.fromARGB(255, 214, 245, 255),
-            ],
+            colors: (Theme.of(context).brightness == Brightness.light)
+                ? <Color>[
+                    Colors.white,
+                    Color.fromARGB(255, 214, 245, 255),
+                  ]
+                : <Color>[
+                    Theme.of(context).colorScheme.background,
+                    Color.fromARGB(255, 31, 0, 56),
+                  ],
             tileMode: TileMode.decal,
           ),
-          border: Border.all(color: const Color.fromARGB(255, 101, 186, 255)),
+          border: Border.all(color: Theme.of(context).colorScheme.primary),
         ),
         height: 0.15 * size.width,
         width: 0.15 * size.width,
@@ -89,7 +94,9 @@ class _SudokuGame extends State<SudokuGame> {
             style: TextStyle(
               fontSize: 0.07 * size.width,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.onPrimary,
+              color: Theme.of(context).brightness == Brightness.light
+                  ? Theme.of(context).colorScheme.onPrimary
+                  : Colors.white,
             ),
           ),
         ),
@@ -102,6 +109,9 @@ class _SudokuGame extends State<SudokuGame> {
     Size size = MediaQuery.of(context).size;
 
     Color color = Theme.of(context).colorScheme.onPrimary;
+    if (Theme.of(context).brightness == Brightness.dark) {
+      color = Colors.white;
+    }
 
     return Scaffold(
       appBar: appBar(context, ""),
@@ -132,7 +142,7 @@ class _SudokuGame extends State<SudokuGame> {
                         height: 0.1 * min(size.width, size.height),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.blue[400],
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
                       Icon(
@@ -152,7 +162,7 @@ class _SudokuGame extends State<SudokuGame> {
                       height: 0.1 * min(size.width, size.height),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.blue[400],
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
                     Text(
@@ -192,7 +202,8 @@ class _SudokuGame extends State<SudokuGame> {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
+                    color:
+                        Theme.of(context).colorScheme.shadow.withOpacity(0.4),
                     spreadRadius: 3,
                     blurRadius: 7,
                     offset: const Offset(4, 8),
@@ -202,7 +213,7 @@ class _SudokuGame extends State<SudokuGame> {
               child: Table(
                 border: TableBorder.all(
                   width: 0.5,
-                  color: const Color.fromARGB(255, 0, 109, 199),
+                  color: Theme.of(context).colorScheme.primary,
                   borderRadius: BorderRadius.circular(15),
                 ),
                 children: List.generate(
@@ -231,13 +242,13 @@ class _SudokuGame extends State<SudokuGame> {
                             borderRadius: _getBorderRadius(rowIndex, colIndex),
                             border: Border(
                               bottom: BorderSide(
-                                color: const Color.fromARGB(255, 0, 109, 199),
+                                color: Theme.of(context).colorScheme.primary,
                                 width: (rowIndex == 2 || rowIndex == 5)
                                     ? 2.0
                                     : 0.5,
                               ),
                               right: BorderSide(
-                                color: const Color.fromARGB(255, 0, 109, 199),
+                                color: Theme.of(context).colorScheme.primary,
                                 width: (colIndex == 2 || colIndex == 5)
                                     ? 2.0
                                     : 0.5,

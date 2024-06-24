@@ -40,7 +40,7 @@ class _ActivityLevelList extends State<ActivityLevelList> {
       leading: Radio<int>(
         value: val,
         groupValue: selectedOption,
-        activeColor: Colors.blue,
+        activeColor: Theme.of(context).colorScheme.primary,
         onChanged: (value) {
           setState(() {
             selectedOption = value;
@@ -82,7 +82,7 @@ class _CalRequirementsPageState extends State<CalRequirementsPage> {
                 Text(
                   "CALORIE DAILY REQUIREMENTS",
                   style: TextStyle(
-                    fontSize: size.width / 9.5,
+                    fontSize: size.width / 11,
                   ),
                   textAlign: TextAlign.center,
                 ),

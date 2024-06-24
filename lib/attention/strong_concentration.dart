@@ -6,6 +6,7 @@ import '/account/login1.dart';
 import '/progress_screen.dart';
 import '/show_score.dart';
 import '/buttons.dart';
+import '/app_bar.dart';
 
 class StrongConcentration extends StatefulWidget {
   const StrongConcentration({super.key, this.initialTest = false});
@@ -186,13 +187,14 @@ class _StrongConcentration extends State<StrongConcentration> {
     Size size = MediaQuery.of(context).size;
     final smallText = size.width / 28;
     return Scaffold(
+      appBar: appBar(context, ""),
       body: SingleChildScrollView(
         child: Container(
           width: size.width * 0.9,
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
-            top: size.height / 10,
+            //top: size.height / 30,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

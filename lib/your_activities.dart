@@ -28,7 +28,7 @@ import 'linguistic/spelling_mistakes.dart';
 import 'well_being/memes.dart';
 import 'linguistic/grammar_mcq_test.dart';
 import 'linguistic/correct_a_word.dart';
-import 'investing/lesson1/main.dart';
+import 'investing/menu.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -440,13 +440,14 @@ class _YourActivities extends State<YourActivities> {
                           "Correct a word",
                           "",
                           const CorrectAWord(),
+                          zero: 0,
                         ),
                         createActivity2(
                           (context),
-                          "investing_start",
+                          "investing",
                           "Investing",
                           "Course",
-                          const Lesson1(),
+                          const InvestingMenu(),
                         ),
                         createActivity2(
                           context,
@@ -456,6 +457,7 @@ class _YourActivities extends State<YourActivities> {
                           const Grammar(
                             exerciseId: 0,
                           ),
+                          zero: 0,
                         ),
                         createActivity2(
                           context,
