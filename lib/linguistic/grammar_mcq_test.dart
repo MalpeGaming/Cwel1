@@ -1,7 +1,6 @@
 import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:yaml/yaml.dart';
 import '/progress_screen.dart';
 import '/app_bar.dart';
@@ -122,7 +121,7 @@ class _Grammar extends State<Grammar> {
                                     Text(
                                       "LINGUISTIC",
                                       style: TextStyle(
-                                          fontSize: 0.06 * size.height),
+                                          fontSize: 0.06 * size.height,),
                                     ),
                                     Text(
                                       "INTELLIGENCE",

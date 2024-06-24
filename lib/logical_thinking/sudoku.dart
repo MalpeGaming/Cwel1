@@ -76,11 +76,11 @@ class _SudokuGame extends State<SudokuGame> {
             colors: (Theme.of(context).brightness == Brightness.light)
                 ? <Color>[
                     Colors.white,
-                    Color.fromARGB(255, 214, 245, 255),
+                    const Color.fromARGB(255, 214, 245, 255),
                   ]
                 : <Color>[
                     Theme.of(context).colorScheme.background,
-                    Color.fromARGB(255, 31, 0, 56),
+                    const Color.fromARGB(255, 31, 0, 56),
                   ],
             tileMode: TileMode.decal,
           ),
