@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'sport.dart';
+import 'app_bar.dart';
 
 class Yoga extends StatefulWidget {
   const Yoga({super.key});
@@ -19,11 +20,12 @@ class _Yoga extends State<Yoga> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: appBar(context, ""),
       body: Container(
         margin: EdgeInsets.only(
           left: size.width / 20,
           right: size.width / 20,
-          top: size.height / 10,
+          //top: size.height / 30,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,6 +53,7 @@ class _Yoga extends State<Yoga> {
                 ),
               ],
             ),
+            SizedBox(height: 0.03 * size.height),
             Expanded(
               child: ListView(
                 children: [

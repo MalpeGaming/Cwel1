@@ -6,6 +6,7 @@ import 'package:xml/xml.dart' as xml;
 import 'dart:math';
 import 'dart:async';
 import 'memory_check.dart';
+import '../app_bar.dart';
 
 class MemoryWords extends StatefulWidget {
   const MemoryWords({super.key});
@@ -156,11 +157,12 @@ class _MemoryWordsState extends State<MemoryWords> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: appBar(context, ""),
       body: picked.isEmpty
           ? const Center(child: CircularProgressIndicator())
           : Column(
               children: [
-                SizedBox(height: 0.05 * size.height),
+                SizedBox(height: 0.03 * size.height),
                 Align(
                   alignment: Alignment.center,
                   child: Text(

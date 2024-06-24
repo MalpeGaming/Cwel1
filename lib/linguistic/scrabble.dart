@@ -3,6 +3,7 @@ import '/buttons.dart';
 import 'dart:math';
 import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
 import '/progress_screen.dart';
+import '/app_bar.dart';
 
 final Map<String, int> scrabblePoints = {
   'A': 1,
@@ -279,6 +280,7 @@ class _Scrabble extends State<Scrabble> {
     Size size = MediaQuery.of(context).size;
     print(widget.allPoints);
     return Scaffold(
+      appBar: appBar(context, ""),
       body: Column(
         //spacing: 100,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -287,12 +289,12 @@ class _Scrabble extends State<Scrabble> {
             margin: EdgeInsets.only(
               left: size.width / 8,
               right: size.width / 8,
+              top: size.height / 30,
               //bottom: size.height / 10,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 0.05 * size.height),
                 Align(
                   alignment: Alignment.center,
                   child: Column(

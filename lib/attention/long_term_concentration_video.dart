@@ -5,6 +5,7 @@ import 'long_term_concentration_test.dart';
 import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
 import 'dart:math';
+import '../app_bar.dart';
 
 class LongTermConcentrationVideo extends StatefulWidget {
   const LongTermConcentrationVideo({super.key, this.initialTest = false});
@@ -55,74 +56,73 @@ class _LongTermConcentrationVideo extends State<LongTermConcentrationVideo> {
     return videoId.isEmpty
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
-            body: SingleChildScrollView(
-              child: Container(
-                width: size.width * 0.9,
-                height: size.height * 0.9,
-                margin: EdgeInsets.only(
-                  left: size.width / 10,
-                  right: size.width / 10,
-                  top: size.height / 15,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Center(
-                          child: Text(
-                            "ATTENTION",
-                            style: TextStyle(
-                              fontSize: size.width / 8,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        Text(
-                          "Exercise 2 - Long Term Concentration",
+            appBar: appBar(context, ""),
+            body: Container(
+              width: size.width * 0.9,
+              height: size.height * 0.9,
+              margin: EdgeInsets.only(
+                left: size.width / 10,
+                right: size.width / 10,
+                top: size.height / 30,
+              ),
+              child: Column(
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Center(
+                        child: Text(
+                          "ATTENTION",
                           style: TextStyle(
-                            fontSize: size.width / 18,
+                            fontSize: size.width / 8,
                           ),
                           textAlign: TextAlign.center,
                         ),
-                        SizedBox(
-                          height: size.height / 25,
+                      ),
+                      Text(
+                        "Exercise 2 - Long Term Concentration",
+                        style: TextStyle(
+                          fontSize: size.width / 18,
                         ),
-                        Text(
-                          "Do the following listening exercise.",
-                          style: TextStyle(fontSize: size.width / 26),
-                        ),
-                        SizedBox(
-                          height: size.height / 30,
-                        ),
-                        YoutubePlayer(
-                          controller: _controller,
-                        ),
-                        SizedBox(
-                          height: size.height / 50,
-                        ),
-                        Text(
-                          "While listening we recommend you make notes.",
-                          style: TextStyle(fontSize: size.width / 26),
-                        ),
-                      ],
-                    ),
-                    RedirectButton(
-                      route: (widget.initialTest)
-                          ? LongTermConcentrationTest(
-                              initialTest: true,
-                              exerciseId: exerciseId,
-                            )
-                          : LongTermConcentrationTest(
-                              exerciseId: exerciseId,
-                            ),
-                      text: 'Continue',
-                      width: size.width,
-                    ),
-                  ],
-                ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: size.height / 25,
+                      ),
+                      Text(
+                        "Do the following listening exercise.",
+                        style: TextStyle(fontSize: size.width / 26),
+                      ),
+                      SizedBox(
+                        height: size.height / 30,
+                      ),
+                      YoutubePlayer(
+                        controller: _controller,
+                      ),
+                      SizedBox(
+                        height: size.height / 50,
+                      ),
+                      Text(
+                        "While listening we recommend you make notes.",
+                        style: TextStyle(fontSize: size.width / 26),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: size.height / 5),
+                  RedirectButton(
+                    route: (widget.initialTest)
+                        ? LongTermConcentrationTest(
+                            initialTest: true,
+                            exerciseId: exerciseId,
+                          )
+                        : LongTermConcentrationTest(
+                            exerciseId: exerciseId,
+                          ),
+                    text: 'Continue',
+                    width: size.width,
+                  ),
+                ],
               ),
             ),
           );

@@ -1,6 +1,7 @@
 import 'package:brain_train_app/diet/recipe_template.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../app_bar.dart';
 
 class Recipes extends StatefulWidget {
   const Recipes({super.key});
@@ -132,11 +133,12 @@ class _Recipes extends State<Recipes> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: appBar(context, ""),
       body: Container(
         margin: EdgeInsets.only(
           left: size.width / 20,
           right: size.width / 20,
-          top: size.height / 10,
+          top: size.height / 20,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
