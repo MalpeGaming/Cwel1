@@ -17,6 +17,7 @@ var questions = [
       "Graph C",
       "Graph D",
     ],
+    "correctAnswer": 0,
   },
   {
     "question":
@@ -27,6 +28,7 @@ var questions = [
       "y=10x",
       "y=10x+5",
     ],
+    "correctAnswer": 3,
   },
   {
     "question":
@@ -37,6 +39,7 @@ var questions = [
       "Graph C",
       "Graph D",
     ],
+    "correctAnswer": 0,
   },
   {
     "question":
@@ -47,6 +50,7 @@ var questions = [
       "y=5*(1.8)^x",
       "y=5*(1.2)^x",
     ],
+    "correctAnswer": 3,
   },
   {
     "question": "Describe what happens.",
@@ -56,5 +60,6 @@ var questions = [
       "after 210 months Wera becomes wealthier than Alex",
       "after 210 months Alex becomes wealthier than Wera",
     ],
+    "correctAnswer": 1,
   },
 ];

@@ -1,4 +1,4 @@
-import 'package:brain_train_app/investing/lesson1/main.dart';
+import 'package:brain_train_app/investing/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
 import 'helper_fn.dart';
@@ -104,7 +104,7 @@ class _Intro extends State<Intro> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Lesson1(),
+                        builder: (context) => const InvestingMenu(),
                       ),
                     );
                   },

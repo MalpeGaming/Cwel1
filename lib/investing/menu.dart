@@ -85,7 +85,7 @@ GestureDetector createLesson(
                         text,
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: size.width / 20,
+                          fontSize: size.width / 22,
                           fontWeight: FontWeight.bold,
                           height: 1.2,
                           fontStyle: FontStyle.normal,
