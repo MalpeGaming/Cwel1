@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../lesson2/main.dart';
+import '../menu.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
 
@@ -227,7 +227,7 @@ class _Lesson1 extends State<Lesson1> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Lesson2(),
+                          builder: (context) => const InvestingMenu(),
                         ),
                       );
                     },
