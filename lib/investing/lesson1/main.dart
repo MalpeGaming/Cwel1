@@ -38,27 +38,12 @@ class _Lesson1 extends State<Lesson1> {
                   });
                 },
               )
-            : usersAnswers[questionNumber] == val ||
-                    questions[questionNumber]["correctAnswer"] == val
-                ? Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: size.width / 30,
-                    ),
-                    child: Icon(
-                      questions[questionNumber]["correctAnswer"] == val
-                          ? Icons.check_circle
-                          : Icons.cancel,
-                      color: questions[questionNumber]["correctAnswer"] == val
-                          ? Colors.green
-                          : Colors.red,
-                    ),
-                  )
-                : Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: size.width / 30,
-                    ),
-                    child: const Icon(Icons.circle_outlined),
-                  ),
+            : createDot(
+                context,
+                usersAnswers[questionNumber],
+                questions[questionNumber]["correctAnswer"]!,
+                val,
+              ),
       );
     }
 

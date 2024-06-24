@@ -23,6 +23,31 @@ Widget keyVocabulary(BuildContext context, String text, String definition) {
   );
 }
 
+Widget createDot(
+  BuildContext context,
+  int usersAnswer,
+  Object correct,
+  int val,
+) {
+  Size size = MediaQuery.of(context).size;
+  return usersAnswer == val || correct == val
+      ? Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: size.width / 30,
+          ),
+          child: Icon(
+            correct == val ? Icons.check_circle : Icons.cancel,
+            color: correct == val ? Colors.green : Colors.red,
+          ),
+        )
+      : Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: size.width / 30,
+          ),
+          child: const Icon(Icons.circle_outlined),
+        );
+}
+
 Widget createDivider(BuildContext context) {
   Size size = MediaQuery.of(context).size;
   return Column(
@@ -59,118 +84,121 @@ class _Success extends State<Success> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-        body: DecoratedBox(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/investing/success_background.gif"),
-                  fit: BoxFit.cover,
-                  opacity: 0.4,),
+      body: DecoratedBox(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/investing/success_background.gif"),
+            fit: BoxFit.cover,
+            opacity: 0.4,
+          ),
+        ),
+        child: Align(
+          child: Container(
+            margin: EdgeInsets.only(
+              left: size.width / 15,
+              right: size.width / 15,
+              bottom: size.height / 10,
+              top: size.height / 15,
             ),
-            child: Align(
-              child: Container(
-                margin: EdgeInsets.only(
-                  left: size.width / 15,
-                  right: size.width / 15,
-                  bottom: size.height / 10,
-                  top: size.height / 15,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 0.05 * size.height),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "CONGRATS",
+                    style: TextStyle(fontSize: 0.05 * size.height),
+                  ),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 0.05 * size.height),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        "CONGRATS",
-                        style: TextStyle(fontSize: 0.05 * size.height),
+                SizedBox(height: 0.03 * size.height),
+                Text(
+                  "Exercise 1 - Math practice",
+                  style: TextStyle(fontSize: 0.025 * size.height),
+                ),
+                SizedBox(height: 0.04 * size.height),
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 0.022 * size.height,
+                      color: Theme.of(context).colorScheme.onSecondary,
+                    ),
+                    children: const [
+                      TextSpan(
+                        text:
+                            "In this exercises you will complete part of the ",
                       ),
-                    ),
-                    SizedBox(height: 0.03 * size.height),
-                    Text(
-                      "Exercise 1 - Math practice",
-                      style: TextStyle(fontSize: 0.025 * size.height),
-                    ),
-                    SizedBox(height: 0.04 * size.height),
-                    RichText(
-                      text: TextSpan(
-                        style: TextStyle(
-                          fontSize: 0.022 * size.height,
-                          color: Theme.of(context).colorScheme.onSecondary,
-                        ),
-                        children: const [
-                          TextSpan(
-                            text:
-                                "In this exercises you will complete part of the ",
-                          ),
-                          TextSpan(
-                            text: "SAT Math with CALCULATOR",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          TextSpan(
-                            text: " Part.",
-                          ),
-                        ],
+                      TextSpan(
+                        text: "SAT Math with CALCULATOR",
+                        style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                    ),
-                    SizedBox(height: 0.015 * size.height),
-                    RichText(
-                      text: TextSpan(
-                        style: TextStyle(
-                          fontSize: 0.022 * size.height,
-                          color: Theme.of(context).colorScheme.onSecondary,
-                        ),
-                        children: const [
-                          TextSpan(
-                            text: "You will have ",
-                          ),
-                          TextSpan(
-                            text: "350 seconds",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          TextSpan(
-                            text: ".",
-                          ),
-                        ],
+                      TextSpan(
+                        text: " Part.",
                       ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 0.015 * size.height),
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 0.022 * size.height,
+                      color: Theme.of(context).colorScheme.onSecondary,
                     ),
-                    SizedBox(height: 0.015 * size.height),
-                    RichText(
-                      text: TextSpan(
-                        style: TextStyle(
-                          fontSize: 0.022 * size.height,
-                          color: Theme.of(context).colorScheme.onSecondary,
-                        ),
-                        children: const [
-                          TextSpan(
-                            text: "When ready click \"",
-                          ),
-                          TextSpan(
-                            text: "CONTINUE\"",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          TextSpan(
-                            text: ".",
-                          ),
-                        ],
+                    children: const [
+                      TextSpan(
+                        text: "You will have ",
                       ),
+                      TextSpan(
+                        text: "350 seconds",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      TextSpan(
+                        text: ".",
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 0.015 * size.height),
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 0.022 * size.height,
+                      color: Theme.of(context).colorScheme.onSecondary,
                     ),
-                    const Spacer(),
+                    children: const [
+                      TextSpan(
+                        text: "When ready click \"",
+                      ),
+                      TextSpan(
+                        text: "CONTINUE\"",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      TextSpan(
+                        text: ".",
+                      ),
+                    ],
+                  ),
+                ),
+                const Spacer(),
 
-                    Center(
-                      child: SizedBox(
-                        height: size.height * 0.05,
-                        width: size.width * 0.75,
-                        child: RedirectButton(
-                          route: widget.route,
-                          text: 'Continue',
-                          width: size.width,
-                        ),
-                      ),
+                Center(
+                  child: SizedBox(
+                    height: size.height * 0.05,
+                    width: size.width * 0.75,
+                    child: RedirectButton(
+                      route: widget.route,
+                      text: 'Continue',
+                      width: size.width,
                     ),
-                    //SizedBox(height: 0.1 * size.height),
-                  ],
+                  ),
                 ),
-              ),
-            ),),);
+                //SizedBox(height: 0.1 * size.height),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
