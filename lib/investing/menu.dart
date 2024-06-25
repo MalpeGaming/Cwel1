@@ -144,56 +144,49 @@ class _InvestingMenu extends State<InvestingMenu> {
           children: <Widget>[
             Center(
               child: Text(
-                "INVESTING COURSE",
+                "INVESTING",
                 style: TextStyle(
-                  fontSize: size.width / 12,
+                  fontSize: size.width / 9,
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),
             ),
-            Center(
-              child: Text(
-                "MENU",
-                style: TextStyle(fontSize: size.width / 17),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: size.width / 25),
+                Text(
+                  "COURSE",
+                  style: TextStyle(
+                    fontSize: size.width / 15,
+                  ),
+                ),
+                SizedBox(width: size.width / 20),
+                Container(
+                  height: 0.04 * size.height,
+                  width: 0.2 * size.width,
+                  decoration: const BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
+                  child: Center(
+                    child: Text(
+                      sum.toString(),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: size.width / 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
             SizedBox(height: size.height / 25),
             Expanded(
               child: ListView(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        "overall",
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.onSecondary,
-                          fontSize: size.width / 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(width: size.width / 20),
-                      Container(
-                        height: 0.06 * size.height,
-                        width: 0.2 * size.width,
-                        decoration: const BoxDecoration(
-                          color: Colors.green,
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                        child: Center(
-                          child: Text(
-                            sum.toString(),
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: size.width / 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                   SizedBox(height: size.height / 40),
                   createLesson(
                     context,
