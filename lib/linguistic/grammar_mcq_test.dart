@@ -284,9 +284,8 @@ class _Grammar extends State<Grammar> {
                                     if (selectedOption == -1) return;
 
                                     if (selectedOption ==
-                                        correctAnswers[shuffledNumbers[
-                                                questionIndex]] -
-                                            1) {
+                                        correctAnswers[
+                                            shuffledNumbers[questionIndex]]) {
                                       score += 1;
                                       correct += 1;
                                     } else {
