@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../buttons.dart';
 
-import 'problem.dart';
+import 'math.dart';
 
 class LogicalThinking extends StatefulWidget {
   final bool? initialTest;

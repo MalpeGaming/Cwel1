@@ -29,6 +29,7 @@ import 'well_being/memes.dart';
 import 'linguistic/grammar_mcq_test.dart';
 import 'linguistic/correct_a_word.dart';
 import 'investing/menu.dart';
+import 'logical_thinking/math.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -309,7 +310,7 @@ class _YourActivities extends State<YourActivities> {
                           "math",
                           "MATH",
                           "Exercises",
-                          const YourActivities(),
+                          const ProblemSelection(),
                         ),
                         createActivity2(
                           context,
