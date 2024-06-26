@@ -3710,99 +3710,823 @@
     </pet>
     <fce>
         <element>
-            <word>cow</word>
-            <definition>muuuuu</definition>
+            <word>acknowledge</word>
+            <definition>declare to be true or admit the existence or reality of</definition>
         </element>
         <element>
-            <word>cow</word>
-            <definition>muuuuu</definition>
+            <word>aid</word>
+            <definition>the activity of contributing to the fulfillment of a need</definition>
         </element>
         <element>
-            <word>cow</word>
-            <definition>muuuuu</definition>
+            <word>alarmed</word>
+            <definition>experiencing a sudden sense of danger</definition>
         </element>
         <element>
-            <word>cow</word>
-            <definition>muuuuu</definition>
+            <word>alarming</word>
+            <definition>frightening because of an awareness of danger</definition>
         </element>
         <element>
-            <word>cow</word>
-            <definition>muuuuu</definition>
+            <word>ally</word>
+            <definition>a friendly nation</definition>
         </element>
         <element>
-            <word>cow</word>
-            <definition>muuuuu</definition>
+            <word>alongside</word>
+            <definition>side by side</definition>
         </element>
         <element>
-            <word>cow</word>
-            <definition>muuuuu</definition>
+            <word>angle</word>
+            <definition>the space between two lines or planes that intersect</definition>
         </element>
         <element>
-            <word>cow</word>
-            <definition>muuuuu</definition>
+            <word>anticipate</word>
+            <definition>regard something as probable or likely</definition>
         </element>
         <element>
-            <word>cow</word>
-            <definition>muuuuu</definition>
+            <word>appoint</word>
+            <definition>assign a duty, responsibility, or obligation to</definition>
         </element>
         <element>
-            <word>cow</word>
-            <definition>muuuuu</definition>
+            <word>arise</word>
+            <definition>move upward</definition>
         </element>
         <element>
-            <word>cow</word>
-            <definition>muuuuu</definition>
+            <word>associate</word>
+            <definition>bring or come into action</definition>
         </element>
         <element>
-            <word>cow</word>
-            <definition>muuuuu</definition>
+            <word>attorney</word>
+            <definition>a professional person authorized to practice law</definition>
+        </element>
+        <element>
+            <word>bacteria</word>
+            <definition>single-celled organisms that can cause disease</definition>
+        </element>
+        <element>
+            <word>beak</word>
+            <definition>horny projecting mouth of a bird</definition>
+        </element>
+        <element>
+            <word>bet</word>
+            <definition>stake on the outcome of an issue</definition>
+        </element>
+        <element>
+            <word>bid</word>
+            <definition>propose a payment</definition>
+        </element>
+        <element>
+            <word>broadly</word>
+            <definition>in a wide fashion</definition>
+        </element>
+        <element>
+            <word>bubble</word>
+            <definition>a hollow globule of gas (e.g., air or carbon dioxide)</definition>
+        </element>
+        <element>
+            <word>by all means</word>
+            <definition>definitely or certainly</definition>
+        </element>
+        <element>
+            <word>campaign</word>
+            <definition>related operations aimed at achieving a particular goal</definition>
+        </element>
+        <element>
+            <word>civil</word>
+            <definition>of or occurring between or among citizens of the state</definition>
+        </element>
+        <element>
+            <word>coal</word>
+            <definition>fossil fuel consisting of carbonized vegetable matter</definition>
+        </element>
+        <element>
+            <word>commonly</word>
+            <definition>under normal conditions</definition>
+        </element>
+        <element>
+            <word>complicate</word>
+            <definition>make less simple</definition>
+        </element>
+        <element>
+            <word>conclude</word>
+            <definition>bring to a close</definition>
+        </element>
+        <element>
+            <word>conservative</word>
+            <definition>resistant to change</definition>
+        </element>
+        <element>
+            <word>consult</word>
+            <definition>seek information from</definition>
+        </element>
+        <element>
+            <word>convention</word>
+            <definition>the act of meeting formally</definition>
+        </element>
+        <element>
+            <word>criterion</word>
+            <definition>the ideal in terms of which something can be judged</definition>
+        </element>
+        <element>
+            <word>derive</word>
+            <definition>come from</definition>
+        </element>
+        <element>
+            <word>deserted</word>
+            <definition>forsaken by owner or inhabitants</definition>
+        </element>
+        <element>
+            <word>determine</word>
+            <definition>find out or learn with certainty, as by making an inquiry</definition>
+        </element>
+        <element>
+            <word>disapproval</word>
+            <definition>an inclination to withhold approval from some person or group</definition>
+        </element>
+        <element>
+            <word>disgusted</word>
+            <definition>having a strong distaste from surfeit</definition>
+        </element>
+        <element>
+            <word>dishonestly</word>
+            <definition>in a corrupt and deceitful manner</definition>
+        </element>
+        <element>
+            <word>dismiss</word>
+            <definition>stop associating with</definition>
+        </element>
+        <element>
+            <word>dissolve</word>
+            <definition>pass into a solution</definition>
+        </element>
+        <element>
+            <word>distribution</word>
+            <definition>the act of spreading or apportioning</definition>
+        </element>
+        <element>
+            <word>downward</word>
+            <definition>extending or moving from a higher to a lower place</definition>
+        </element>
+        <element>
+            <word>downwards</word>
+            <definition>in a lower place or position</definition>
+        </element>
+        <element>
+            <word>dump</word>
+            <definition>a piece of land where waste materials are dumped</definition>
+        </element>
+        <element>
+            <word>empire</word>
+            <definition>the domain ruled by a single authoritative sovereign</definition>
+        </element>
+        <element>
+            <word>engage</word>
+            <definition>consume all of one's attention or time</definition>
+        </element>
+        <element>
+            <word>equivalent</word>
+            <definition>being essentially comparable to something</definition>
+        </element>
+        <element>
+            <word>exaggerate</word>
+            <definition>enlarge beyond bounds or the truth</definition>
+        </element>
+        <element>
+            <word>exaggerated</word>
+            <definition>enlarged to an abnormal degree</definition>
+        </element>
+        <element>
+            <word>exclude</word>
+            <definition>prevent from entering; shut out</definition>
+        </element>
+        <element>
+            <word>executive</word>
+            <definition>a person responsible for the administration of a business</definition>
+        </element>
+        <element>
+            <word>exhibit</word>
+            <definition>make visible or apparent</definition>
+        </element>
+        <element>
+            <word>federal</word>
+            <definition>of a government with central and regional authorities</definition>
+        </element>
+        <element>
+            <word>formally</word>
+            <definition>in accord with established conventions and requirements</definition>
+        </element>
+        <element>
+            <word>formula</word>
+            <definition>a group of symbols that make a mathematical statement</definition>
+        </element>
+        <element>
+            <word>foundation</word>
+            <definition>the basis on which something is grounded</definition>
+        </element>
+        <element>
+            <word>fund</word>
+            <definition>a reserve of money set aside for some purpose</definition>
+        </element>
+        <element>
+            <word>grand</word>
+            <definition>large and impressive in physical size or extent</definition>
+        </element>
+        <element>
+            <word>hatred</word>
+            <definition>the emotion of intense dislike</definition>
+        </element>
+        <element>
+            <word>hence</word>
+            <definition>from that fact or reason or as a result</definition>
+        </element>
+        <element>
+            <word>holy</word>
+            <definition>belonging to or associated with a divine power</definition>
+        </element>
+        <element>
+            <word>horizontal</word>
+            <definition>parallel to or in the plane of the horizon or a base line</definition>
+        </element>
+        <element>
+            <word>housing</word>
+            <definition>structures collectively in which people are housed</definition>
+        </element>
+        <element>
+            <word>humorous</word>
+            <definition>characterized by the power to cause laughter</definition>
+        </element>
+        <element>
+            <word>i.e.</word>
+            <definition>that is to say; in other words</definition>
+        </element>
+        <element>
+            <word>imaginary</word>
+            <definition>not based on fact; unreal</definition>
+        </element>
+        <element>
+            <word>implication</word>
+            <definition>something that is inferred</definition>
+        </element>
+        <element>
+            <word>impose</word>
+            <definition>charge and collect payment</definition>
+        </element>
+        <element>
+            <word>inability</word>
+            <definition>lack of capacity to do something</definition>
+        </element>
+        <element>
+            <word>index</word>
+            <definition>alphabetical listing of names and topics with page numbers</definition>
+        </element>
+        <element>
+            <word>indication</word>
+            <definition>the act of pointing out by name</definition>
+        </element>
+        <element>
+            <word>indirect</word>
+            <definition>not leading by a straight line or course to a destination</definition>
+        </element>
+        <element>
+            <word>indirectly</word>
+            <definition>not in a forthright manner</definition>
+        </element>
+        <element>
+            <word>inevitable</word>
+            <definition>incapable of being avoided or prevented</definition>
+        </element>
+        <element>
+            <word>inevitably</word>
+            <definition>in such a manner as could not be otherwise</definition>
+        </element>
+        <element>
+            <word>infect</word>
+            <definition>contaminate with a disease</definition>
+        </element>
+        <element>
+            <word>infected</word>
+            <definition>containing or resulting from disease-causing organisms</definition>
+        </element>
+        <element>
+            <word>initiative</word>
+            <definition>readiness to embark on bold new ventures</definition>
+        </element>
+        <element>
+            <word>insert</word>
+            <definition>introduce</definition>
+        </element>
+        <element>
+            <word>intended</word>
+            <definition>resulting from one's intentions</definition>
+        </element>
+        <element>
+            <word>irritate</word>
+            <definition>cause annoyance in</definition>
+        </element>
+        <element>
+            <word>jointly</word>
+            <definition>in collaboration or cooperation</definition>
+        </element>
+        <element>
+            <word>justified</word>
+            <definition>having words so spaced that lines have straight even margins</definition>
+        </element>
+        <element>
+            <word>labour</word>
+            <definition>productive work (especially physical work done for wages)</definition>
+        </element>
+        <element>
+            <word>lacking</word>
+            <definition>inadequate in amount or degree</definition>
+        </element>
+        <element>
+            <word>logic</word>
+            <definition>the branch of philosophy that analyzes inference</definition>
+        </element>
+        <element>
+            <word>machinery</word>
+            <definition>mechanical or electrical devices collectively</definition>
+        </element>
+        <element>
+            <word>march</word>
+            <definition>walk fast, with regular or measured steps</definition>
+        </element>
+        <element>
+            <word>ministry</word>
+            <definition>the work of a person authorized to conduct religious worship</definition>
+        </element>
+        <element>
+            <word>mistaken</word>
+            <definition>wrong in opinion or judgment</definition>
+        </element>
+        <element>
+            <word>neatly</word>
+            <definition>with neatness</definition>
+        </element>
+        <element>
+            <word>nerve</word>
+            <definition>a bundle of fibers running to organs and tissues of the body</definition>
+        </element>
+        <element>
+            <word>noticeable</word>
+            <definition>capable of being detected</definition>
+        </element>
+        <element>
+            <word>officially</word>
+            <definition>in an authoritative role</definition>
+        </element>
+        <element>
+            <word>openly</word>
+            <definition>in an open way</definition>
+        </element>
+        <element>
+            <word>opposition</word>
+            <definition>being against something that you disapprove or disagree with</definition>
+        </element>
+        <element>
+            <word>organ</word>
+            <definition>a structure in an animal specialized for some function</definition>
+        </element>
+        <element>
+            <word>panel</word>
+            <definition>sheet that forms a distinct section of something</definition>
+        </element>
+        <element>
+            <word>politically</word>
+            <definition>with regard to government</definition>
+        </element>
+        <element>
+            <word>pose</word>
+            <definition>assume a bearing as for artistic purposes</definition>
+        </element>
+        <element>
+            <word>possess</word>
+            <definition>have ownership of</definition>
+        </element>
+        <element>
+            <word>premises</word>
+            <definition>land and the buildings on it</definition>
+        </element>
+        <element>
+            <word>principle</word>
+            <definition>a basic generalization that is accepted as true</definition>
+        </element>
+        <element>
+            <word>prior</word>
+            <definition>earlier in time</definition>
+        </element>
+        <element>
+            <word>proceed</word>
+            <definition>move ahead; travel onward in time or space</definition>
+        </element>
+        <element>
+            <word>proportion</word>
+            <definition>relation with respect to comparative quantity or magnitude</definition>
+        </element>
+        <element>
+            <word>publicly</word>
+            <definition>in a manner accessible to or observable by the public</definition>
+        </element>
+        <element>
+            <word>purely</word>
+            <definition>restricted to something</definition>
+        </element>
+        <element>
+            <word>pursue</word>
+            <definition>follow in an effort to capture</definition>
+        </element>
+        <element>
+            <word>quote</word>
+            <definition>repeat a passage from</definition>
+        </element>
+        <element>
+            <word>rank</word>
+            <definition>relative status</definition>
+        </element>
+        <element>
+            <word>refusal</word>
+            <definition>the act of showing unwillingness</definition>
+        </element>
+        <element>
+            <word>related</word>
+            <definition>connected logically or causally or by shared characteristics</definition>
+        </element>
+        <element>
+            <word>remarkably</word>
+            <definition>to a remarkable degree or extent</definition>
+        </element>
+        <element>
+            <word>repeatedly</word>
+            <definition>several time</definition>
+        </element>
+        <element>
+            <word>reproduce</word>
+            <definition>make a copy or equivalent of</definition>
+        </element>
+        <element>
+            <word>resolve</word>
+            <definition>find a solution or answer</definition>
+        </element>
+        <element>
+            <word>restrict</word>
+            <definition>limit access to</definition>
+        </element>
+        <element>
+            <word>restricted</word>
+            <definition>subject to an act of limitation</definition>
+        </element>
+        <element>
+            <word>restriction</word>
+            <definition>an act of limiting</definition>
+        </element>
+        <element>
+            <word>rival</word>
+            <definition>the contestant you hope to defeat</definition>
+        </element>
+        <element>
+            <word>rudely</word>
+            <definition>in an impolite manner</definition>
+        </element>
+        <element>
+            <word>saving</word>
+            <definition>recovery or preservation from loss or danger</definition>
+        </element>
+        <element>
+            <word>scare</word>
+            <definition>cause fear in</definition>
+        </element>
+        <element>
+            <word>sector</word>
+            <definition>a particular aspect of life or activity</definition>
+        </element>
+        <element>
+            <word>self</word>
+            <definition>your consciousness of your own identity</definition>
+        </element>
+        <element>
+            <word>sewing</word>
+            <definition>joining or attaching by stitches</definition>
+        </element>
+        <element>
+            <word>shame</word>
+            <definition>a painful feeling of embarrassment or inadequacy</definition>
+        </element>
+        <element>
+            <word>similarly</word>
+            <definition>in like manner</definition>
+        </element>
+        <element>
+            <word>sincere</word>
+            <definition>open and genuine; not deceitful</definition>
+        </element>
+        <element>
+            <word>sincerely</word>
+            <definition>without pretense</definition>
+        </element>
+        <element>
+            <word>somewhat</word>
+            <definition>to a small degree or extent</definition>
+        </element>
+        <element>
+            <word>specifically</word>
+            <definition>in distinction from others</definition>
+        </element>
+        <element>
+            <word>spin</word>
+            <definition>revolve quickly and repeatedly around one's own axis</definition>
+        </element>
+        <element>
+            <word>stable</word>
+            <definition>resistant to change of position or condition</definition>
+        </element>
+        <element>
+            <word>status</word>
+            <definition>the condition or someone or something at a particular time</definition>
+        </element>
+        <element>
+            <word>sting</word>
+            <definition>deliver a sudden pain to</definition>
+        </element>
+        <element>
+            <word>strip</word>
+            <definition>take off or remove</definition>
+        </element>
+        <element>
+            <word>substantially</word>
+            <definition>to a great extent or degree</definition>
+        </element>
+        <element>
+            <word>sufficiently</word>
+            <definition>to a degree that fulfills a need or requirement</definition>
+        </element>
+        <element>
+            <word>suited</word>
+            <definition>meant or adapted for an occasion or use</definition>
+        </element>
+        <element>
+            <word>superior</word>
+            <definition>of high quality or performance</definition>
+        </element>
+        <element>
+            <word>swell</word>
+            <definition>increase in size, magnitude, number, or intensity</definition>
+        </element>
+        <element>
+            <word>swelling</word>
+            <definition>something that bulges out or is protuberant or projects from its
+                surroundings</definition>
+        </element>
+        <element>
+            <word>tank</word>
+            <definition>a large vessel for holding gases or liquids</definition>
+        </element>
+        <element>
+            <word>tendency</word>
+            <definition>an inclination to do something</definition>
+        </element>
+        <element>
+            <word>throughout</word>
+            <definition>from first to last</definition>
+        </element>
+        <element>
+            <word>twist</word>
+            <definition>cause an object to assume a curved or distorted shape</definition>
+        </element>
+        <element>
+            <word>ultimately</word>
+            <definition>as the end result of a succession or process</definition>
+        </element>
+        <element>
+            <word>unite</word>
+            <definition>join or combine</definition>
+        </element>
+        <element>
+            <word>unload</word>
+            <definition>leave or discharge</definition>
+        </element>
+        <element>
+            <word>unwillingly</word>
+            <definition>in an unwilling manner</definition>
+        </element>
+        <element>
+            <word>upward</word>
+            <definition>spatially or metaphorically from a lower to a higher position</definition>
+        </element>
+        <element>
+            <word>upwards</word>
+            <definition>spatially or metaphorically from a lower to a higher position</definition>
+        </element>
+        <element>
+            <word>vertical</word>
+            <definition>at right angles to the plane of the horizon or a base line</definition>
+        </element>
+        <element>
+            <word>withdraw</word>
+            <definition>pull back or move away or backward</definition>
+        </element>
+        <element>
+            <word>worship</word>
+            <definition>the activity of cherishing as divine</definition>
         </element>
     </fce>
-
     <cae>
         <element>
-            <word>cat</word>
-            <definition>meow</definition>
+            <word>allied</word>
+            <definition>joined by treaty or agreement</definition>
         </element>
         <element>
-            <word>cat</word>
-            <definition>meow</definition>
+            <word>backward</word>
+            <definition>at or to or toward the back or rear</definition>
         </element>
         <element>
-            <word>cat</word>
-            <definition>meow</definition>
+            <word>betting</word>
+            <definition>preoccupied with the pursuit of pleasure and especially games of chance</definition>
         </element>
         <element>
-            <word>cat</word>
-            <definition>meow</definition>
+            <word>confine</word>
+            <definition>place limits on</definition>
         </element>
         <element>
-            <word>cat</word>
-            <definition>meow</definition>
+            <word>confined</word>
+            <definition>being in captivity</definition>
         </element>
         <element>
-            <word>cat</word>
-            <definition>meow</definition>
+            <word>confront</word>
+            <definition>oppose, as in hostility or a competition</definition>
         </element>
         <element>
-            <word>cat</word>
-            <definition>meow</definition>
+            <word>cookie</word>
+            <definition>any of various small flat sweet cakes</definition>
         </element>
         <element>
-            <word>cat</word>
-            <definition>meow</definition>
+            <word>core</word>
+            <definition>the center of an object</definition>
         </element>
         <element>
-            <word>cat</word>
-            <definition>meow</definition>
+            <word>crisp</word>
+            <definition>tender and brittle</definition>
         </element>
         <element>
-            <word>cat</word>
-            <definition>meow</definition>
+            <word>crush</word>
+            <definition>compress with violence, out of natural shape or condition</definition>
         </element>
         <element>
-            <word>cat</word>
-            <definition>meow</definition>
+            <word>curb</word>
+            <definition>the act of restraining power or action or limiting excess</definition>
+        </element>
+        <element>
+            <word>disgust</word>
+            <definition>strong feelings of dislike</definition>
+        </element>
+        <element>
+            <word>disturbing</word>
+            <definition>causing distress or worry or anxiety</definition>
+        </element>
+        <element>
+            <word>embarrass</word>
+            <definition>cause to feel self-conscious</definition>
+        </element>
+        <element>
+            <word>flesh</word>
+            <definition>the soft tissue of the body of a vertebrate</definition>
+        </element>
+        <element>
+            <word>fundamental</word>
+            <definition>serving as an essential component</definition>
+        </element>
+        <element>
+            <word>gamble</word>
+            <definition>take a risk in the hope of a favorable outcome</definition>
+        </element>
+        <element>
+            <word>glue</word>
+            <definition>cement consisting of a sticky substance that is used as an adhesive</definition>
+        </element>
+        <element>
+            <word>grain</word>
+            <definition>a cereal grass</definition>
+        </element>
+        <element>
+            <word>hollow</word>
+            <definition>not solid; having a space or gap or cavity</definition>
+        </element>
+        <element>
+            <word>imply</word>
+            <definition>express or state indirectly</definition>
+        </element>
+        <element>
+            <word>infectious</word>
+            <definition>relating to the invasion of germs that cause disease</definition>
+        </element>
+        <element>
+            <word>interpretation</word>
+            <definition>the act of expressing something in an artistic performance</definition>
+        </element>
+        <element>
+            <word>knot</word>
+            <definition>a fastening formed by looping and tying a cord or rope</definition>
+        </element>
+        <element>
+            <word>lump</word>
+            <definition>a compact mass</definition>
+        </element>
+        <element>
+            <word>motion</word>
+            <definition>the act of changing location from one place to another</definition>
+        </element>
+        <element>
+            <word>mount</word>
+            <definition>go up, advance, or increase</definition>
+        </element>
+        <element>
+            <word>nest</word>
+            <definition>a structure in which animals lay eggs or give birth to their young</definition>
+        </element>
+        <element>
+            <word>oddly</word>
+            <definition>in a strange manner</definition>
+        </element>
+        <element>
+            <word>output</word>
+            <definition>production of a certain amount</definition>
+        </element>
+        <element>
+            <word>parallel</word>
+            <definition>being everywhere equidistant and not intersecting</definition>
+        </element>
+        <element>
+            <word>pole</word>
+            <definition>a long rod of wood, metal, or plastic</definition>
+        </element>
+        <element>
+            <word>recognition</word>
+            <definition>identifying something or someone by remembering</definition>
+        </element>
+        <element>
+            <word>reform</word>
+            <definition>make changes for improvement to remove abuse and injustices</definition>
+        </element>
+        <element>
+            <word>reform</word>
+            <definition>a change for the better as a result of correcting abuses</definition>
+        </element>
+        <element>
+            <word>relate</word>
+            <definition>give an account of</definition>
+        </element>
+        <element>
+            <word>repeated</word>
+            <definition>recurring again and again</definition>
+        </element>
+        <element>
+            <word>resistance</word>
+            <definition>any mechanical force that tends to slow or oppose motion</definition>
+        </element>
+        <element>
+            <word>retain</word>
+            <definition>secure and keep for possible future use or application</definition>
+        </element>
+        <element>
+            <word>senate</word>
+            <definition>assembly possessing high legislative powers</definition>
+        </element>
+        <element>
+            <word>senator</word>
+            <definition>a member of a legislative assembly</definition>
+        </element>
+        <element>
+            <word>set afire</word>
+            <definition>set fire to; cause to start burning</definition>
+        </element>
+        <element>
+            <word>sideways</word>
+            <definition>toward one side</definition>
+        </element>
+        <element>
+            <word>sideways</word>
+            <definition>with one side forward or to the front</definition>
+        </element>
+        <element>
+            <word>suck</word>
+            <definition>draw into the mouth by creating a vacuum in the mouth</definition>
+        </element>
+        <element>
+            <word>thread</word>
+            <definition>a fine cord of twisted fibers used in sewing and weaving</definition>
+        </element>
+        <element>
+            <word>urge</word>
+            <definition>urge or force in an indicated direction</definition>
+        </element>
+        <element>
+            <word>urge</word>
+            <definition>an instinctive motive</definition>
+        </element>
+        <element>
+            <word>venture</word>
+            <definition>an undertaking with an uncertain outcome</definition>
+        </element>
+        <element>
+            <word>venture</word>
+            <definition>proceed somewhere despite the risk of possible dangers</definition>
         </element>
     </cae>
 
