@@ -83,7 +83,7 @@ class _Home extends State<Home> {
                 groupValue: 1,
                 //activeColor: Theme.of(context).colorScheme.primary,
                 fillColor: MaterialStateProperty.all(
-                    Theme.of(context).colorScheme.primary),
+                    Theme.of(context).colorScheme.primary,),
                 splashRadius: 25,
                 onChanged: (value) {},
               ),
