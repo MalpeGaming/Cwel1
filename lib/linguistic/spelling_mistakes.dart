@@ -296,7 +296,8 @@ class _SpellingMistakes extends State<SpellingMistakes> {
 
                               lookupWord(
                                 answers[shuffledNumbers[questionIndex]]
-                                    [selectedOption],
+                                        [selectedOption]
+                                    .toLowerCase(),
                               );
 
                               if (questionIndex < 10) {
