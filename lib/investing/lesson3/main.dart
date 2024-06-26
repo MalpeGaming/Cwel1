@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../lesson4/main.dart';
+import '../menu.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
 
@@ -14,12 +14,11 @@ class Lesson3 extends StatefulWidget {
 class _Lesson3 extends State<Lesson3> {
   int selectedOption = -1;
 
-  Widget buildQuizScreen({
+Widget buildQuizScreen({
     required int questionNumber,
     Widget? image,
   }) {
     List<String> answers = questions[questionNumber]["answers"] as List<String>;
-    Size size = MediaQuery.of(context).size;
     ListTile createListTitle(int val, String text, Size size) {
       return ListTile(
         dense: true,
@@ -27,48 +26,41 @@ class _Lesson3 extends State<Lesson3> {
           text,
           style: TextStyle(fontSize: 0.02 * size.height),
         ),
-        leading: Radio<int>(
-          value: val,
-          groupValue: usersAnswers[questionNumber],
-          activeColor: Colors.blue,
-          onChanged: (value) {
-            setState(() {
-              usersAnswers[questionNumber] = value!;
-            });
-          },
-        ),
+        leading: (usersAnswers[questionNumber] == -1)
+            ? Radio<int>(
+                value: val,
+                groupValue: usersAnswers[questionNumber],
+                activeColor: Colors.blue,
+                onChanged: (value) {
+                  setState(() {
+                    usersAnswers[questionNumber] = value!;
+                  });
+                },
+              )
+            : createDot(
+                context,
+                usersAnswers[questionNumber],
+                questions[questionNumber]["correctAnswer"]!,
+                val,
+              ),
       );
     }
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Exercise ${questionNumber + 1}.",
-          style: TextStyle(
-            fontWeight: FontWeight.w900,
-            fontSize: 0.02 * size.height,
-          ),
-        ),
-        Text(
-          questions[questionNumber]["question"] as String,
-          style:
-              TextStyle(fontSize: MediaQuery.of(context).size.height * 0.020),
-        ),
-        if (image != null) image,
-        SizedBox(height: MediaQuery.of(context).size.height / 70),
-        Column(
-          children: List.generate(answers.length, (index) {
-            return Container(
-              child: createListTitle(index, answers[index], size),
-            );
-          }),
-        ),
-      ],
+    return createExercise(
+      context,
+      questionNumber,
+      questions[questionNumber]["question"] as String,
+      answers,
+      image,
+      createListTitle,
+      (questions[questionNumber]["explanation"] != null &&
+              usersAnswers[questionNumber] != -1)
+          ? questions[questionNumber]["explanation"] as String
+          : null,
     );
-  }
-
-  List<int> usersAnswers = List<int>.filled(questions.length, -1);
+  } 
+  
+List<int> usersAnswers = List<int>.filled(questions.length, -1);
 
   @override
   Widget build(BuildContext context) {
@@ -222,7 +214,7 @@ class _Lesson3 extends State<Lesson3> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Lesson4(),
+                          builder: (context) => const InvestingMenu(),
                         ),
                       );
                     },

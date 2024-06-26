@@ -1,4 +1,3 @@
-//import 'package:brain_train_app/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'memory_words.dart';
 import '../buttons.dart';

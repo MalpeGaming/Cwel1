@@ -93,6 +93,15 @@ class _MemoryGame2 extends State<MemoryGame2> {
               height: 0.25 * size.width,
               width: 0.25 * size.width,
               decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color:
+                        Theme.of(context).colorScheme.shadow.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(5, 5),
+                  ),
+                ],
                 gradient: (blocked[no])
                     ? LinearGradient(
                         begin: Alignment.topLeft,
@@ -103,13 +112,19 @@ class _MemoryGame2 extends State<MemoryGame2> {
                         ],
                         tileMode: TileMode.decal,
                       )
-                    : const LinearGradient(
+                    : LinearGradient(
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
-                        colors: <Color>[
-                          Color.fromARGB(255, 148, 216, 255),
-                          Color.fromARGB(255, 127, 185, 252),
-                        ],
+                        colors:
+                            (Theme.of(context).brightness == Brightness.light)
+                                ? <Color>[
+                                    const Color.fromARGB(255, 187, 169, 248),
+                                    const Color.fromARGB(255, 175, 127, 252),
+                                  ]
+                                : <Color>[
+                                    Theme.of(context).colorScheme.primary,
+                                    Theme.of(context).colorScheme.onPrimary,
+                                  ],
                         tileMode: TileMode.decal,
                       ),
                 borderRadius: BorderRadius.circular(15.0),
@@ -170,7 +185,7 @@ class _MemoryGame2 extends State<MemoryGame2> {
                       height: 0.08 * min(size.width, size.height),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.blue[400],
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
                     RotationTransition(
@@ -196,7 +211,7 @@ class _MemoryGame2 extends State<MemoryGame2> {
                 Icon(
                   Icons.timer,
                   size: 0.08 * min(size.width, size.height),
-                  color: Colors.blue[400],
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 const SizedBox(width: 10.0),
                 Text(

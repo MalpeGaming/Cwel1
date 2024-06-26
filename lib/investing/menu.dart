@@ -85,7 +85,7 @@ GestureDetector createLesson(
                         text,
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: size.width / 20,
+                          fontSize: size.width / 22,
                           fontWeight: FontWeight.bold,
                           height: 1.2,
                           fontStyle: FontStyle.normal,
@@ -107,12 +107,16 @@ GestureDetector createLesson(
 class _InvestingMenu extends State<InvestingMenu> {
   late SharedPreferences prefs;
   List<int?> scores = List<int?>.filled(13, null);
+  int sum = 0;
 
   Future<void> readMemory() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
       for (int i = 0; i <= 12; i++) {
         scores[i] = prefs.getInt('lesson$i')?.toInt();
+        if (scores[i] != null) {
+          sum += scores[i]!;
+        }
       }
     });
   }
@@ -140,24 +144,50 @@ class _InvestingMenu extends State<InvestingMenu> {
           children: <Widget>[
             Center(
               child: Text(
-                "INVESTING COURSE",
+                "INVESTING",
                 style: TextStyle(
-                  fontSize: size.width / 12,
+                  fontSize: size.width / 9,
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),
             ),
-            Center(
-              child: Text(
-                "MENU",
-                style: TextStyle(fontSize: size.width / 17),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: size.width / 25),
+                Text(
+                  "COURSE",
+                  style: TextStyle(
+                    fontSize: size.width / 15,
+                  ),
+                ),
+                SizedBox(width: size.width / 20),
+                Container(
+                  height: 0.04 * size.height,
+                  width: 0.2 * size.width,
+                  decoration: const BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
+                  child: Center(
+                    child: Text(
+                      sum.toString(),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: size.width / 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
             SizedBox(height: size.height / 25),
             Expanded(
               child: ListView(
                 children: [
+                  SizedBox(height: size.height / 40),
                   createLesson(
                     context,
                     "Intro",

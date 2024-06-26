@@ -121,7 +121,7 @@ class _Grammar extends State<Grammar> {
                                     Text(
                                       "LINGUISTIC",
                                       style: TextStyle(
-                                          fontSize: 0.06 * size.height),
+                                          fontSize: 0.06 * size.height,),
                                     ),
                                     Text(
                                       "INTELLIGENCE",
