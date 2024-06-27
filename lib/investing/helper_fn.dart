@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:widget_zoom/widget_zoom.dart';
 import '../buttons.dart';
 
 Widget keyVocabulary(BuildContext context, String text, String definition) {
@@ -23,12 +24,24 @@ Widget keyVocabulary(BuildContext context, String text, String definition) {
   );
 }
 
+Widget zoomImage(String image, {double? w, double? h}) {
+  return WidgetZoom(
+    heroAnimationTag: image.toString(),
+    zoomWidget: Image.asset(
+      image,
+      width: w,
+      height: h,
+    ),
+  );
+}
+
 Column createExercise(
   BuildContext context,
   int questionNumber,
   String question,
   List<String> answers,
-  Widget? image,
+  String? image,
+  Widget? imageWidget,
   Function createListTitle,
   String? explanation,
 ) {
@@ -47,7 +60,8 @@ Column createExercise(
         question,
         style: TextStyle(fontSize: MediaQuery.of(context).size.height * 0.020),
       ),
-      if (image != null) image,
+      if (image != null) zoomImage(image),
+      if (imageWidget != null) imageWidget,
       SizedBox(height: MediaQuery.of(context).size.height / 70),
       Column(
         children: List.generate(answers.length, (index) {
@@ -125,6 +139,48 @@ class Success extends StatefulWidget {
 
   @override
   State<Success> createState() => _Success();
+}
+
+GestureDetector createRecipe(BuildContext context, int qIndx, int index) {
+  Size size = MediaQuery.of(context).size;
+
+  return GestureDetector(
+    child: Container(
+      height: 0.6 * size.width,
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: <Color>[
+            Theme.of(context).colorScheme.primary,
+            Theme.of(context).colorScheme.onPrimary,
+          ],
+          tileMode: TileMode.decal,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Theme.of(context).colorScheme.shadow.withOpacity(1),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: const Offset(5, 5),
+          ),
+        ],
+      ),
+      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: zoomImage(
+            'assets/investing/lesson2/ex${qIndx}_$index.png',
+            w: 0.6 * size.width,
+            h: 0.6 * size.width,
+          ),
+        ),
+      ),
+    ),
+  );
 }
 
 class _Success extends State<Success> {

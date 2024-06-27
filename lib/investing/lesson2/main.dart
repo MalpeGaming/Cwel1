@@ -16,51 +16,10 @@ class _Lesson2 extends State<Lesson2> {
   int selectedOption = -1;
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
 
-  GestureDetector createRecipe(BuildContext context, int qIndx, int index) {
-    Size size = MediaQuery.of(context).size;
-
-    return GestureDetector(
-      child: Container(
-        height: 0.6 * size.width,
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: <Color>[
-              Theme.of(context).colorScheme.primary,
-              Theme.of(context).colorScheme.onPrimary,
-            ],
-            tileMode: TileMode.decal,
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Theme.of(context).colorScheme.shadow.withOpacity(1),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: const Offset(5, 5),
-            ),
-          ],
-        ),
-        margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Image.asset(
-              width: 0.6 * size.width,
-              height: 0.6 * size.width,
-              'assets/investing/lesson2/ex${qIndx}_$index.png',
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
   Widget buildQuizScreen({
     required int questionNumber,
-    Widget? image,
+    String? image,
+    Widget? imageWidget,
   }) {
     List<String> answers = questions[questionNumber]["answers"] as List<String>;
     ListTile createListTitle(int val, String text, Size size) {
@@ -96,6 +55,7 @@ class _Lesson2 extends State<Lesson2> {
       questions[questionNumber]["question"] as String,
       answers,
       image,
+      imageWidget,
       createListTitle,
       (questions[questionNumber]["explanation"] != null &&
               usersAnswers[questionNumber] != -1)
@@ -159,7 +119,7 @@ class _Lesson2 extends State<Lesson2> {
               SizedBox(height: size.height / 20),
               buildQuizScreen(
                 questionNumber: 0,
-                image: Column(
+                imageWidget: Column(
                   children: [
                     SizedBox(
                       height: 0.75 * size.width,
@@ -244,7 +204,7 @@ class _Lesson2 extends State<Lesson2> {
               SizedBox(height: size.height / 20),
               buildQuizScreen(
                 questionNumber: 1,
-                image: Column(
+                imageWidget: Column(
                   children: [
                     SizedBox(
                       height: 0.75 * size.width,
@@ -277,7 +237,7 @@ class _Lesson2 extends State<Lesson2> {
               SizedBox(height: size.height / 20),
               buildQuizScreen(
                 questionNumber: 3,
-                image: Column(
+                imageWidget: Column(
                   children: [
                     SizedBox(
                       height: 0.75 * size.width,
@@ -317,9 +277,7 @@ class _Lesson2 extends State<Lesson2> {
               SizedBox(height: size.height / 20),
               buildQuizScreen(
                 questionNumber: 5,
-                image: Image.asset(
-                  'assets/investing/lesson2/ex6.png',
-                ),
+                image: 'assets/investing/lesson2/ex6.png',
               ),
               SizedBox(height: size.height / 20),
               Text(

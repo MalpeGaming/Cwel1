@@ -16,7 +16,8 @@ class _Lesson6 extends State<Lesson6> {
 
   Widget buildQuizScreen({
     required int questionNumber,
-    Widget? image,
+    String? image,
+    Widget? imageWidget,
   }) {
     List<String> answers = questions[questionNumber]["answers"] as List<String>;
     ListTile createListTitle(int val, String text, Size size) {
@@ -52,6 +53,7 @@ class _Lesson6 extends State<Lesson6> {
       questions[questionNumber]["question"] as String,
       answers,
       image,
+      imageWidget,
       createListTitle,
       (questions[questionNumber]["explanation"] != null &&
               usersAnswers[questionNumber] != -1)

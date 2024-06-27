@@ -14,9 +14,10 @@ class Lesson12 extends StatefulWidget {
 class _Lesson12 extends State<Lesson12> {
   int selectedOption = -1;
 
-Widget buildQuizScreen({
+  Widget buildQuizScreen({
     required int questionNumber,
-    Widget? image,
+    String? image,
+    Widget? imageWidget,
   }) {
     List<String> answers = questions[questionNumber]["answers"] as List<String>;
     ListTile createListTitle(int val, String text, Size size) {
@@ -52,6 +53,7 @@ Widget buildQuizScreen({
       questions[questionNumber]["question"] as String,
       answers,
       image,
+      imageWidget,
       createListTitle,
       (questions[questionNumber]["explanation"] != null &&
               usersAnswers[questionNumber] != -1)
