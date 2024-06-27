@@ -4,14 +4,14 @@ import '../helper_fn.dart';
 import 'questions.dart';
 import '../menu.dart';
 
-class Lesson13 extends StatefulWidget {
-  const Lesson13({super.key});
+class Lesson14 extends StatefulWidget {
+  const Lesson14({super.key});
 
   @override
-  State<Lesson13> createState() => _Lesson13();
+  State<Lesson14> createState() => _Lesson14();
 }
 
-class _Lesson13 extends State<Lesson13> {
+class _Lesson14 extends State<Lesson14> {
   int selectedOption = -1;
 
   Widget buildQuizScreen({
@@ -87,7 +87,7 @@ class _Lesson13 extends State<Lesson13> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Lesson 13",
+                "Lesson 14",
                 style: TextStyle(
                   fontSize: size.width / 10,
                   fontWeight: FontWeight.bold,
@@ -95,7 +95,7 @@ class _Lesson13 extends State<Lesson13> {
               ),
               SizedBox(height: size.height / 60),
               Text(
-                "Final knowledge quiz",
+                "Practical Analysis of Stocks",
                 style: TextStyle(
                   fontSize: size.width / 15,
                 ),
@@ -103,90 +103,72 @@ class _Lesson13 extends State<Lesson13> {
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 0,
+                image: zoomImage(
+                  "assets/investing/lesson14/ex0.png",
+                ),
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 1,
+                image: zoomImage(
+                  "assets/investing/lesson14/ex1.png",
+                ),
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 2,
+                image: zoomImage(
+                  "assets/investing/lesson14/ex2.png",
+                ),
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 3,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 3,
+                image: zoomImage(
+                  "assets/investing/lesson14/ex3.png",
+                ),
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 4,
+                image: zoomImage(
+                  "assets/investing/lesson14/ex4.png",
+                ),
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 5,
+                image: zoomImage(
+                  "assets/investing/lesson14/ex5.png",
+                ),
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 6,
+                image: zoomImage(
+                  "assets/investing/lesson14/ex6.png",
+                ),
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 7,
+                image: zoomImage(
+                  "assets/investing/lesson14/ex7.png",
+                ),
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 8,
+                image: zoomImage(
+                  "assets/investing/lesson14/ex8.png",
+                ),
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 9,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 10,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 11,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 12,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 13,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 14,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 15,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 16,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 17,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 18,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 19,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 20,
+                image: zoomImage(
+                  "assets/investing/lesson14/ex9.png",
+                ),
               ),
               SizedBox(height: size.height / 10),
               Center(
