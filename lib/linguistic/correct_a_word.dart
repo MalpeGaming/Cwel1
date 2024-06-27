@@ -234,7 +234,8 @@ class _CorrectAWord extends State<CorrectAWord> {
                               onClick: () {
                                 if (round == 0) {
                                   startTimer();
-                                } else if (_controller.text == correctWord) {
+                                } else if (_controller.text.trim() ==
+                                    correctWord) {
                                   score += 1;
                                 } else {
                                   score -= 0.5;

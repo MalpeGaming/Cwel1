@@ -89,7 +89,7 @@ class _MemoryWordsState extends State<MemoryWords> {
     );
   }
 
-  int _remainingTime = 3;
+  int _remainingTime = 420;
   late Timer _timer;
   List<Map<String, String>> b1 = [];
   List<Map<String, String>> picked = [];

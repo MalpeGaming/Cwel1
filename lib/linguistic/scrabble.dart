@@ -289,8 +289,6 @@ class _Scrabble extends State<Scrabble> {
             margin: EdgeInsets.only(
               left: size.width / 8,
               right: size.width / 8,
-              top: size.height / 30,
-              //bottom: size.height / 10,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

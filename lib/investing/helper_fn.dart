@@ -126,7 +126,7 @@ Future<void> saveResult(int lessonId, int score) async {
 
   prefs = await SharedPreferences.getInstance();
   int? x = prefs.getInt('lesson$lessonId')?.toInt();
-  if (x != null && score < x) {
+  if (score < x!) {
     score = x;
   }
   prefs.setInt('lesson$lessonId', score);
