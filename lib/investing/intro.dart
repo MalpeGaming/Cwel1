@@ -97,10 +97,10 @@ class _Intro extends State<Intro> {
                 child: RedirectButton(
                   //route: const Lesson2(),
                   onClick: () {
-                    int score = 0;
+                    int score = 1;
                     print("wynik:");
                     print(score);
-                    saveResult(0, 1);
+                    saveResult(0, score);
                     Navigator.push(
                       context,
                       MaterialPageRoute(

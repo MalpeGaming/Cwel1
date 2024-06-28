@@ -31,6 +31,7 @@ class _Lesson16 extends State<Lesson16> {
             ? Radio<int>(
                 value: val,
                 groupValue: usersAnswers[questionNumber],
+                activeColor: Colors.blue,
                 onChanged: (value) {
                   setState(() {
                     usersAnswers[questionNumber] = value!;

@@ -4,14 +4,14 @@ import '../helper_fn.dart';
 import 'questions.dart';
 import '../menu.dart';
 
-class Lesson14 extends StatefulWidget {
-  const Lesson14({super.key});
+class Lesson18 extends StatefulWidget {
+  const Lesson18({super.key});
 
   @override
-  State<Lesson14> createState() => _Lesson14();
+  State<Lesson18> createState() => _Lesson18();
 }
 
-class _Lesson14 extends State<Lesson14> {
+class _Lesson18 extends State<Lesson18> {
   int selectedOption = -1;
 
   Widget buildQuizScreen({
@@ -81,7 +81,7 @@ class _Lesson14 extends State<Lesson14> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Lesson 14",
+                "Lesson 18",
                 style: TextStyle(
                   fontSize: size.width / 10,
                   fontWeight: FontWeight.bold,
@@ -89,60 +89,50 @@ class _Lesson14 extends State<Lesson14> {
               ),
               SizedBox(height: size.height / 60),
               Text(
-                "Practical Analysis of Stocks",
+                "Shorting, Leverage",
                 style: TextStyle(
                   fontSize: size.width / 15,
                 ),
               ),
               createDivider(context),
+              Text(
+                "ETFs come in various types, each catering to different investment goals and strategies. Below is an overview of the different types of ETFs, followed by some questions to test understanding.",
+                style: TextStyle(
+                  fontSize: size.height / 50,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              createDivider(context),
+              keyVocabulary(
+                context,
+                "Short Selling",
+                "is an investment strategy where an investor borrows shares of a stock they believe will decline in value and sells them on the open market. The idea is to repurchase these shares later at a lower price, return them to the lender, and pocket the difference as profit. For example, if an investor borrows 100 shares at \$10 each, sells them for \$1,000, and later buys them back at \$7 each, they can make a \$300 profit after returning the borrowed shares. However, if the stock price rises instead, the investor would face losses, as they still need to buy back the shares to return them.",
+              ),
+              createDivider(context),
+              keyVocabulary(
+                context,
+                "Buying with Leverage",
+                "means using borrowed funds to increase the potential returns of an investment. In simple terms, it’s like taking a loan to invest in stocks, real estate, or other assets. For instance, if an investor has \$1,000 and wants to buy \$2,000 worth of stock, they can borrow \$1,000 from a broker. If the stock’s price rises, the investor can make significant profits because their initial investment was amplified by the borrowed money. However, leverage also amplifies losses, making it a risky strategy that could lead to significant losses if the investment's value decreases.",
+              ),
+              createDivider(context),
               buildQuizScreen(
                 questionNumber: 0,
-                image: "assets/investing/lesson14/ex0.png",
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 1,
-                image: "assets/investing/lesson14/ex1.png",
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 2,
-                image: "assets/investing/lesson14/ex2.png",
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 3,
-                image: "assets/investing/lesson14/ex3.png",
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 4,
-                image: "assets/investing/lesson14/ex4.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 5,
-                image: "assets/investing/lesson14/ex5.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 6,
-                image: "assets/investing/lesson14/ex6.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 7,
-                image: "assets/investing/lesson14/ex7.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 8,
-                image: "assets/investing/lesson14/ex8.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 9,
-                image: "assets/investing/lesson14/ex9.png",
               ),
               SizedBox(height: size.height / 10),
               Center(

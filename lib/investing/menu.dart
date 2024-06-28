@@ -15,6 +15,11 @@ import 'lesson11/main.dart';
 import 'lesson12/main.dart';
 import 'lesson14/main.dart';
 import 'lesson16/main.dart';
+import 'lesson17/main.dart';
+import 'lesson18/main.dart';
+import 'lesson19/main.dart';
+import 'lesson20/main.dart';
+import 'lesson21/main.dart';
 import '../app_bar.dart';
 
 class InvestingMenu extends StatefulWidget {
@@ -107,7 +112,7 @@ GestureDetector createLesson(
 
 class _InvestingMenu extends State<InvestingMenu> {
   late SharedPreferences prefs;
-  List<int?> scores = List<int?>.filled(13, null);
+  List<int?> scores = List<int?>.filled(3000, null);
   int sum = 0;
 
   Future<void> readMemory() async {
@@ -118,6 +123,10 @@ class _InvestingMenu extends State<InvestingMenu> {
         if (scores[i] != null) {
           sum += scores[i]!;
         }
+      }
+      scores[2137] = prefs.getInt('lesson2137')?.toInt();
+      if (scores[2137] != null) {
+        sum += scores[2137]!;
       }
     });
   }
@@ -277,6 +286,36 @@ class _InvestingMenu extends State<InvestingMenu> {
                     context,
                     "16. What are ETFs ? ",
                     const Lesson16(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "17. Types of ETFs",
+                    const Lesson17(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "18. Shorting, Leverage",
+                    const Lesson18(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "19. Some of the most popular ETFs",
+                    const Lesson19(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "20. Final knowledge quiz ",
+                    const Lesson20(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "21. What are cryptocurrencies ? ",
+                    const Lesson21(),
                     scores[12] ?? 0,
                   ),
                   SizedBox(height: size.height / 20),

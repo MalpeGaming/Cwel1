@@ -15,6 +15,8 @@ class Lesson2 extends StatefulWidget {
 class _Lesson2 extends State<Lesson2> {
   int selectedOption = -1;
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
+  final controller2 = PageController(viewportFraction: 0.8, keepPage: true);
+  final controller3 = PageController(viewportFraction: 0.8, keepPage: true);
 
   Widget buildQuizScreen({
     required int questionNumber,
@@ -209,7 +211,7 @@ class _Lesson2 extends State<Lesson2> {
                     SizedBox(
                       height: 0.75 * size.width,
                       child: PageView.builder(
-                        controller: controller,
+                        controller: controller2,
                         itemCount: 4,
                         itemBuilder: (_, index) {
                           return createRecipe(context, 2, index % 4);
@@ -218,7 +220,7 @@ class _Lesson2 extends State<Lesson2> {
                     ),
                     Center(
                       child: SmoothPageIndicator(
-                        controller: controller,
+                        controller: controller2,
                         count: 4,
                         effect: const WormEffect(
                           dotHeight: 10,
@@ -242,7 +244,7 @@ class _Lesson2 extends State<Lesson2> {
                     SizedBox(
                       height: 0.75 * size.width,
                       child: PageView.builder(
-                        controller: controller,
+                        controller: controller3,
                         itemCount: 4,
                         itemBuilder: (_, index) {
                           return createRecipe(context, 4, index % 4);
@@ -251,7 +253,7 @@ class _Lesson2 extends State<Lesson2> {
                     ),
                     Center(
                       child: SmoothPageIndicator(
-                        controller: controller,
+                        controller: controller3,
                         count: 4,
                         effect: const WormEffect(
                           dotHeight: 10,
