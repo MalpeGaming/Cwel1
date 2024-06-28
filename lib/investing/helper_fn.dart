@@ -60,6 +60,8 @@ Column createExercise(
         question,
         style: TextStyle(fontSize: MediaQuery.of(context).size.height * 0.020),
       ),
+      if (image != null)
+        SizedBox(height: MediaQuery.of(context).size.height / 30),
       if (image != null) zoomImage(image),
       if (imageWidget != null) imageWidget,
       SizedBox(height: MediaQuery.of(context).size.height / 70),
@@ -125,8 +127,8 @@ Future<void> saveResult(int lessonId, int score) async {
   late SharedPreferences prefs;
 
   prefs = await SharedPreferences.getInstance();
-  int? x = prefs.getInt('lesson$lessonId')?.toInt();
-  if (score < x!) {
+  int x = prefs.getInt('lesson$lessonId')?.toInt() ?? 0;
+  if (score < x) {
     score = x;
   }
   prefs.setInt('lesson$lessonId', score);
