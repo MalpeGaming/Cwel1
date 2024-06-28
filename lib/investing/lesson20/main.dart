@@ -4,14 +4,14 @@ import '../helper_fn.dart';
 import 'questions.dart';
 import '../menu.dart';
 
-class Lesson14 extends StatefulWidget {
-  const Lesson14({super.key});
+class Lesson20 extends StatefulWidget {
+  const Lesson20({super.key});
 
   @override
-  State<Lesson14> createState() => _Lesson14();
+  State<Lesson20> createState() => _Lesson20();
 }
 
-class _Lesson14 extends State<Lesson14> {
+class _Lesson20 extends State<Lesson20> {
   int selectedOption = -1;
 
   Widget buildQuizScreen({
@@ -81,7 +81,7 @@ class _Lesson14 extends State<Lesson14> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Lesson 14",
+                "Lesson 13",
                 style: TextStyle(
                   fontSize: size.width / 10,
                   fontWeight: FontWeight.bold,
@@ -89,7 +89,7 @@ class _Lesson14 extends State<Lesson14> {
               ),
               SizedBox(height: size.height / 60),
               Text(
-                "Practical Analysis of Stocks",
+                "Final knowledge quiz",
                 style: TextStyle(
                   fontSize: size.width / 15,
                 ),
@@ -97,52 +97,86 @@ class _Lesson14 extends State<Lesson14> {
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 0,
-                image: "assets/investing/lesson14/ex0.png",
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 1,
-                image: "assets/investing/lesson14/ex1.png",
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 2,
-                image: "assets/investing/lesson14/ex2.png",
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 3,
-                image: "assets/investing/lesson14/ex3.png",
+              ),
+              createDivider(context),
+              buildQuizScreen(
+                questionNumber: 3,
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 4,
-                image: "assets/investing/lesson14/ex4.png",
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 5,
-                image: "assets/investing/lesson14/ex5.png",
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 6,
-                image: "assets/investing/lesson14/ex6.png",
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 7,
-                image: "assets/investing/lesson14/ex7.png",
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 8,
-                image: "assets/investing/lesson14/ex8.png",
               ),
               createDivider(context),
               buildQuizScreen(
                 questionNumber: 9,
-                image: "assets/investing/lesson14/ex9.png",
+              ),
+              createDivider(context),
+              buildQuizScreen(
+                questionNumber: 10,
+              ),
+              createDivider(context),
+              buildQuizScreen(
+                questionNumber: 11,
+              ),
+              createDivider(context),
+              buildQuizScreen(
+                questionNumber: 12,
+              ),
+              createDivider(context),
+              buildQuizScreen(
+                questionNumber: 13,
+              ),
+              createDivider(context),
+              buildQuizScreen(
+                questionNumber: 14,
+              ),
+              createDivider(context),
+              buildQuizScreen(
+                questionNumber: 15,
+              ),
+              createDivider(context),
+              buildQuizScreen(
+                questionNumber: 16,
+              ),
+              createDivider(context),
+              buildQuizScreen(
+                questionNumber: 17,
+              ),
+              createDivider(context),
+              buildQuizScreen(
+                questionNumber: 18,
+              ),
+              createDivider(context),
+              buildQuizScreen(
+                questionNumber: 19,
               ),
               SizedBox(height: size.height / 10),
               Center(
