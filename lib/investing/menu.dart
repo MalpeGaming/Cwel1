@@ -14,6 +14,7 @@ import 'lesson10/main.dart';
 import 'lesson11/main.dart';
 import 'lesson12/main.dart';
 import 'lesson14/main.dart';
+import 'lesson15/main.dart';
 import 'lesson16/main.dart';
 import 'lesson17/main.dart';
 import 'lesson18/main.dart';
@@ -280,6 +281,12 @@ class _InvestingMenu extends State<InvestingMenu> {
                     context,
                     "14. Practical Analysis of Stocks",
                     const Lesson14(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "15. Practical Analysis of Bonds",
+                    const Lesson15(),
                     scores[12] ?? 0,
                   ),
                   createLesson(
