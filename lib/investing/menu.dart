@@ -14,12 +14,17 @@ import 'lesson10/main.dart';
 import 'lesson11/main.dart';
 import 'lesson12/main.dart';
 import 'lesson14/main.dart';
+import 'lesson15/main.dart';
 import 'lesson16/main.dart';
 import 'lesson17/main.dart';
 import 'lesson18/main.dart';
 import 'lesson19/main.dart';
 import 'lesson20/main.dart';
 import 'lesson21/main.dart';
+import 'lesson22/main.dart';
+import 'lesson23/main.dart';
+import 'lesson26/main.dart';
+import 'lesson28/main.dart';
 import '../app_bar.dart';
 
 class InvestingMenu extends StatefulWidget {
@@ -91,7 +96,7 @@ GestureDetector createLesson(
                         text,
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: size.width / 22,
+                          fontSize: size.height / 45,
                           fontWeight: FontWeight.bold,
                           height: 1.2,
                           fontStyle: FontStyle.normal,
@@ -284,6 +289,12 @@ class _InvestingMenu extends State<InvestingMenu> {
                   ),
                   createLesson(
                     context,
+                    "15. Practical Analysis of Bonds",
+                    const Lesson15(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
                     "16. What are ETFs ? ",
                     const Lesson16(),
                     scores[12] ?? 0,
@@ -308,14 +319,38 @@ class _InvestingMenu extends State<InvestingMenu> {
                   ),
                   createLesson(
                     context,
-                    "20. Final knowledge quiz ",
+                    "20. Final knowledge quiz",
                     const Lesson20(),
                     scores[12] ?? 0,
                   ),
                   createLesson(
                     context,
-                    "21. What are cryptocurrencies ? ",
+                    "21. What are cryptocurrencies ?",
                     const Lesson21(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "22. Are cryptocurrencies worthless ?",
+                    const Lesson22(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "23. Top 5 crypto explained",
+                    const Lesson23(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "26. Financial Metrics Of crypto ",
+                    const Lesson26(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "28. Types of crypto coins.",
+                    const Lesson28(),
                     scores[12] ?? 0,
                   ),
                   SizedBox(height: size.height / 20),

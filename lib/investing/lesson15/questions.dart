@@ -63,6 +63,8 @@ var questions = [
       "Increase by approximately 1.5%",
     ],
     "correctAnswer": 1,
+    "explanation":
+        "A decrease in the yield generally causes the bond price to increase. For long-term bonds like the 30-year Treasury, even small changes in yield can lead to significant price changes.\nWith a yield decrease of 0.10%, the bond price is expected to increase by approximately 2.3% based on historical averages and the duration of a 30-year bond.",
   },
   {
     "question":
@@ -74,6 +76,8 @@ var questions = [
       "4.73%",
     ],
     "correctAnswer": 2,
+    "explanation":
+        "Current Coupon Rate: 4.63%\nNew Coupon Rate: 4.63% + 0.5% = 5.13%\nWith the bond price unchanged, the yield will match the new coupon rate.",
   },
   {
     "question":
@@ -85,6 +89,8 @@ var questions = [
       "5.18",
     ],
     "correctAnswer": 1,
+    "explanation":
+        "3-month Treasury Price: 5.24\n6-month Treasury Price: 5.16\nAverage Price: (5.24+5.16) / 2 = 5.20",
   },
   {
     "question":
@@ -96,6 +102,8 @@ var questions = [
       "\$6,280",
     ],
     "correctAnswer": 0,
+    "explanation":
+        "12-month Treasury Yield: 5.18%\n2-year Treasury Yield: 4.93%\nInterest for the first year: 50000 × 0.0518 = 2590\nInterest for the second year (based on the 2-year Treasury yield): 50000 x 0.0493 = 2465\nTotal Interest: 2590+2465 = 5055",
   },
   {
     "question":
