@@ -152,7 +152,7 @@ Widget subpoint(BuildContext context, String text, String definition) {
         padding: EdgeInsets.only(
             top: 0.05 * size.width,
             bottom: 0.05 * size.width,
-            right: 0.05 * size.width),
+            right: 0.05 * size.width,),
         child: Icon(
           Icons.circle,
           size: 0.02 * size.width,
