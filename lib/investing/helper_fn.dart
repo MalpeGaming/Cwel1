@@ -143,6 +143,29 @@ class Success extends StatefulWidget {
   State<Success> createState() => _Success();
 }
 
+Widget subpoint(BuildContext context, String text, String definition) {
+  Size size = MediaQuery.of(context).size;
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Padding(
+        padding: EdgeInsets.only(
+            top: 0.05 * size.width,
+            bottom: 0.05 * size.width,
+            right: 0.05 * size.width),
+        child: Icon(
+          Icons.circle,
+          size: 0.02 * size.width,
+        ),
+      ),
+      SizedBox(
+        width: 0.7 * size.width,
+        child: keyVocabulary(context, text, definition),
+      ),
+    ],
+  );
+}
+
 GestureDetector createRecipe(BuildContext context, int qIndx, int index) {
   Size size = MediaQuery.of(context).size;
 

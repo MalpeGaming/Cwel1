@@ -68,104 +68,108 @@ class _Lesson15 extends State<Lesson15> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          margin: EdgeInsets.only(
-            left: size.width / 10,
-            right: size.width / 10,
-            top: size.height / 15,
-            bottom: size.height / 20,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Lesson 15",
-                style: TextStyle(
-                  fontSize: size.width / 10,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: size.height / 60),
-              Text(
-                "Practical Analysis of Bonds",
-                style: TextStyle(
-                  fontSize: size.width / 15,
-                ),
-              ),
-              createDivider(context),
-              zoomImage("assets/investing/lesson15/1.png"),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(
-                questionNumber: 0,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 1,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 2,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 3,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 4,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 5,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 6,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 7,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 8,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 9,
-              ),
-              SizedBox(height: size.height / 10),
-              Center(
-                child: SizedBox(
-                  height: size.height * 0.05,
-                  width: size.width * 0.75,
-                  child: RedirectButton(
-                    //route: const Lesson2(),
-                    onClick: () {
-                      int score = 0;
-                      for (int i = 0; i < usersAnswers.length; i++) {
-                        if (usersAnswers[i] == questions[i]["correctAnswer"]) {
-                          score++;
-                        }
-                      }
-                      print("wynik:");
-                      print(score);
-                      saveResult(12, score);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const InvestingMenu(),
-                        ),
-                      );
-                    },
-                    text: 'Continue',
-                    width: size.width,
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Container(
+            margin: EdgeInsets.only(
+              left: size.width / 10,
+              right: size.width / 10,
+              top: size.height / 15,
+              bottom: size.height / 20,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Lesson 15",
+                  style: TextStyle(
+                    fontSize: size.width / 10,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-            ],
+                SizedBox(height: size.height / 60),
+                Text(
+                  "Practical Analysis of Bonds",
+                  style: TextStyle(
+                    fontSize: size.width / 15,
+                  ),
+                ),
+                createDivider(context),
+                zoomImage("assets/investing/lesson15/1.png"),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(
+                  questionNumber: 0,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 1,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 2,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 3,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 4,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 5,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 6,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 7,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 8,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 9,
+                ),
+                SizedBox(height: size.height / 10),
+                Center(
+                  child: SizedBox(
+                    height: size.height * 0.05,
+                    width: size.width * 0.75,
+                    child: RedirectButton(
+                      //route: const Lesson2(),
+                      onClick: () {
+                        int score = 0;
+                        for (int i = 0; i < usersAnswers.length; i++) {
+                          if (usersAnswers[i] ==
+                              questions[i]["correctAnswer"]) {
+                            score++;
+                          }
+                        }
+                        print("wynik:");
+                        print(score);
+                        saveResult(12, score);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const InvestingMenu(),
+                          ),
+                        );
+                      },
+                      text: 'Continue',
+                      width: size.width,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
