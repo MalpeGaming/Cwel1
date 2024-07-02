@@ -150,9 +150,10 @@ Widget subpoint(BuildContext context, String text, String definition) {
     children: [
       Padding(
         padding: EdgeInsets.only(
-            top: 0.05 * size.width,
-            bottom: 0.05 * size.width,
-            right: 0.05 * size.width,),
+          top: 0.05 * size.width,
+          bottom: 0.05 * size.width,
+          right: 0.05 * size.width,
+        ),
         child: Icon(
           Icons.circle,
           size: 0.02 * size.width,
@@ -166,7 +167,8 @@ Widget subpoint(BuildContext context, String text, String definition) {
   );
 }
 
-GestureDetector createRecipe(BuildContext context, int qIndx, int index) {
+GestureDetector createRecipe(
+    BuildContext context, int qIndx, int index, List<List<String>> images) {
   Size size = MediaQuery.of(context).size;
 
   return GestureDetector(
@@ -198,7 +200,7 @@ GestureDetector createRecipe(BuildContext context, int qIndx, int index) {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: zoomImage(
-            'assets/investing/lesson2/ex${qIndx}_$index.png',
+            images[qIndx][index],
             w: 0.6 * size.width,
             h: 0.6 * size.width,
           ),
