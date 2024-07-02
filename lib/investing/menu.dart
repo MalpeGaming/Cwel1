@@ -28,6 +28,7 @@ import 'lesson25/main.dart';
 import 'lesson26/main.dart';
 import 'lesson28/main.dart';
 import 'lesson32/main.dart';
+import 'lesson33/main.dart';
 import '../app_bar.dart';
 
 class InvestingMenu extends StatefulWidget {
@@ -372,6 +373,12 @@ class _InvestingMenu extends State<InvestingMenu> {
                     context,
                     "32. Final Knowledge Quiz",
                     const Lesson32(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "33. Harder Quiz",
+                    const Lesson33(),
                     scores[12] ?? 0,
                   ),
                   SizedBox(height: size.height / 20),
