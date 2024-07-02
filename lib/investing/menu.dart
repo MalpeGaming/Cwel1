@@ -23,6 +23,8 @@ import 'lesson20/main.dart';
 import 'lesson21/main.dart';
 import 'lesson22/main.dart';
 import 'lesson23/main.dart';
+import 'lesson24/main.dart';
+import 'lesson25/main.dart';
 import 'lesson26/main.dart';
 import 'lesson28/main.dart';
 import '../app_bar.dart';
@@ -339,6 +341,18 @@ class _InvestingMenu extends State<InvestingMenu> {
                     context,
                     "23. Top 5 crypto explained",
                     const Lesson23(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "24. Technical Analysis ",
+                    const Lesson24(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "25. Technical Analysis Exercises",
+                    const Lesson25(),
                     scores[12] ?? 0,
                   ),
                   createLesson(

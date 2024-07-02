@@ -68,6 +68,25 @@ class _Lesson2 extends State<Lesson2> {
 
   List<int> usersAnswers = List<int>.filled(questions.length, -1);
 
+  List<List<String>> images = [
+    [
+      "assets/investing/lesson2/ex1_0.png",
+      "assets/investing/lesson2/ex1_1.png",
+    ],
+    [
+      "assets/investing/lesson2/ex2_0.png",
+      "assets/investing/lesson2/ex2_1.png",
+      "assets/investing/lesson2/ex2_2.png",
+      "assets/investing/lesson2/ex2_3.png",
+    ],
+    [
+      "assets/investing/lesson2/ex4_0.png",
+      "assets/investing/lesson2/ex4_1.png",
+      "assets/investing/lesson2/ex4_2.png",
+      "assets/investing/lesson2/ex4_3.png",
+    ],
+  ];
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -129,7 +148,7 @@ class _Lesson2 extends State<Lesson2> {
                         controller: controller,
                         itemCount: 2,
                         itemBuilder: (_, index) {
-                          return createRecipe(context, 1, index % 2);
+                          return createRecipe(context, 0, index % 2, images);
                         },
                       ),
                     ),
@@ -214,7 +233,7 @@ class _Lesson2 extends State<Lesson2> {
                         controller: controller2,
                         itemCount: 4,
                         itemBuilder: (_, index) {
-                          return createRecipe(context, 2, index % 4);
+                          return createRecipe(context, 1, index % 4, images);
                         },
                       ),
                     ),
@@ -247,7 +266,7 @@ class _Lesson2 extends State<Lesson2> {
                         controller: controller3,
                         itemCount: 4,
                         itemBuilder: (_, index) {
-                          return createRecipe(context, 4, index % 4);
+                          return createRecipe(context, 2, index % 4, images);
                         },
                       ),
                     ),
