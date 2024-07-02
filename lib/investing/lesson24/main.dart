@@ -125,12 +125,18 @@ class _Lesson24 extends State<Lesson24> {
               Column(
                 children: [
                   SizedBox(
-                    height: 0.75 * size.width,
+                    height: 0.9 * size.width,
                     child: PageView.builder(
                       controller: controller,
                       itemCount: 3,
                       itemBuilder: (_, index) {
-                        return createRecipe(context, 0, index % 3, images);
+                        return createRecipe(
+                          context,
+                          0,
+                          index % 3,
+                          images,
+                          h: 0.9,
+                        );
                       },
                     ),
                   ),
@@ -182,7 +188,7 @@ class _Lesson24 extends State<Lesson24> {
               Column(
                 children: [
                   SizedBox(
-                    height: 0.75 * size.width,
+                    height: 0.9 * size.width,
                     child: PageView.builder(
                       controller: controller,
                       itemCount: 2,
@@ -236,14 +242,14 @@ class _Lesson24 extends State<Lesson24> {
                 "it may indicate that the bullish trend is weakening, and a reversal could be imminent.",
               ),
               SizedBox(height: size.height / 20),
-              zoomImage("assets/investing/lesson24/6.png"),
+              zoomImage(context, "assets/investing/lesson24/6.png"),
               SizedBox(height: size.height / 40),
               Text(
                 "Here we can see a strong downtrend. You could technically trade on the small bumps, however that is rather risky, and certainly knowing a bit more about TA would help in this case.",
                 style: TextStyle(fontSize: size.height / 60),
               ),
               SizedBox(height: size.height / 20),
-              zoomImage("assets/investing/lesson24/7.png"),
+              zoomImage(context, "assets/investing/lesson24/7.png"),
               SizedBox(height: size.height / 40),
               Text(
                 "On this image we can see the trend breaking on the 1st of March - this is a good entry.",
@@ -264,7 +270,7 @@ class _Lesson24 extends State<Lesson24> {
                 "Support is a price level where a downtrend tends to pause due to buying interest. It is seen as a floor that prevents prices from falling further.",
               ),
               SizedBox(height: size.height / 80),
-              zoomImage("assets/investing/lesson24/8.png"),
+              zoomImage(context, "assets/investing/lesson24/8.png"),
               SizedBox(height: size.height / 60),
               subpoint(
                 context,
@@ -272,7 +278,7 @@ class _Lesson24 extends State<Lesson24> {
                 "Resistance is a price level where an uptrend tends to pause due to selling interest. It acts as a ceiling that prevents prices from rising further.",
               ),
               SizedBox(height: size.height / 80),
-              zoomImage("assets/investing/lesson24/9.png"),
+              zoomImage(context, "assets/investing/lesson24/9.png"),
               createDivider(context),
               Text(
                 "When to Use Support and Resistance:",

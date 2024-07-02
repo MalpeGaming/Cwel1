@@ -228,7 +228,7 @@ class _Lesson2 extends State<Lesson2> {
                 imageWidget: Column(
                   children: [
                     SizedBox(
-                      height: 0.75 * size.width,
+                      height: 0.8 * size.width,
                       child: PageView.builder(
                         controller: controller2,
                         itemCount: 4,
