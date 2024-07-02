@@ -97,7 +97,7 @@ class _Lesson15 extends State<Lesson15> {
                   ),
                 ),
                 createDivider(context),
-                zoomImage("assets/investing/lesson15/1.png"),
+                zoomImage(context, "assets/investing/lesson15/1.png"),
                 SizedBox(height: size.height / 20),
                 buildQuizScreen(
                   questionNumber: 0,
@@ -156,6 +156,7 @@ class _Lesson15 extends State<Lesson15> {
                         print("wynik:");
                         print(score);
                         saveResult(12, score);
+                        Navigator.pop(context);
                         Navigator.push(
                           context,
                           MaterialPageRoute(

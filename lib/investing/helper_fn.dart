@@ -4,6 +4,7 @@ import 'package:widget_zoom/widget_zoom.dart';
 import '../buttons.dart';
 
 Widget keyVocabulary(BuildContext context, String text, String definition) {
+  Size size = MediaQuery.of(context).size;
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -14,23 +15,43 @@ Widget keyVocabulary(BuildContext context, String text, String definition) {
           fontWeight: FontWeight.bold,
         ),
       ),
+      SizedBox(
+        height: size.height / 200,
+      ),
       Text(
         definition,
         style: TextStyle(
-          fontSize: MediaQuery.of(context).size.height * 0.020,
+          fontSize: size.height * 0.020,
         ),
       ),
     ],
   );
 }
 
-Widget zoomImage(String image, {double? w, double? h}) {
+Widget zoomImage(BuildContext context, String image, {double? w, double? h}) {
   return WidgetZoom(
     heroAnimationTag: image.toString(),
-    zoomWidget: Image.asset(
-      image,
-      width: w,
-      height: h,
+    zoomWidget: Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Theme.of(context).colorScheme.shadow.withOpacity(1),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: const Offset(5, 5),
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Image.asset(
+          image,
+          width: w,
+          height: h,
+          fit: BoxFit.cover,
+        ),
+      ),
     ),
   );
 }
@@ -62,7 +83,7 @@ Column createExercise(
       ),
       if (image != null)
         SizedBox(height: MediaQuery.of(context).size.height / 30),
-      if (image != null) zoomImage(image),
+      if (image != null) zoomImage(context, image),
       if (imageWidget != null) imageWidget,
       SizedBox(height: MediaQuery.of(context).size.height / 70),
       Column(
@@ -150,9 +171,10 @@ Widget subpoint(BuildContext context, String text, String definition) {
     children: [
       Padding(
         padding: EdgeInsets.only(
-            top: 0.05 * size.width,
-            bottom: 0.05 * size.width,
-            right: 0.05 * size.width,),
+          top: 0.05 * size.width,
+          bottom: 0.05 * size.width,
+          right: 0.05 * size.width,
+        ),
         child: Icon(
           Icons.circle,
           size: 0.02 * size.width,
@@ -166,45 +188,52 @@ Widget subpoint(BuildContext context, String text, String definition) {
   );
 }
 
-GestureDetector createRecipe(BuildContext context, int qIndx, int index) {
+Container createRecipe(
+  BuildContext context,
+  int qIndx,
+  int index,
+  List<List<String>> images, {
+  double h = 0.9,
+}) {
   Size size = MediaQuery.of(context).size;
 
-  return GestureDetector(
-    child: Container(
-      height: 0.6 * size.width,
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: <Color>[
-            Theme.of(context).colorScheme.primary,
-            Theme.of(context).colorScheme.onPrimary,
-          ],
-          tileMode: TileMode.decal,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Theme.of(context).colorScheme.shadow.withOpacity(1),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: const Offset(5, 5),
-          ),
+  return Container(
+    height: h * size.height,
+    width: h * size.width,
+    decoration: BoxDecoration(
+      borderRadius: const BorderRadius.all(Radius.circular(20)),
+      gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: <Color>[
+          Theme.of(context).colorScheme.primary,
+          Theme.of(context).colorScheme.onPrimary,
         ],
+        tileMode: TileMode.decal,
       ),
-      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: zoomImage(
-            'assets/investing/lesson2/ex${qIndx}_$index.png',
-            w: 0.6 * size.width,
-            h: 0.6 * size.width,
-          ),
+      boxShadow: [
+        BoxShadow(
+          color: Theme.of(context).colorScheme.shadow.withOpacity(1),
+          spreadRadius: 5,
+          blurRadius: 7,
+          offset: const Offset(5, 5),
+        ),
+      ],
+    ),
+    margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+    child: Padding(
+      padding: EdgeInsets.all(size.width / 30),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: zoomImage(
+          context,
+          images[qIndx][index],
+          //w: 0.2 * size.width,
+          //h: 0.2 * size.width,
         ),
       ),
     ),
+    //),
   );
 }
 

@@ -23,8 +23,12 @@ import 'lesson20/main.dart';
 import 'lesson21/main.dart';
 import 'lesson22/main.dart';
 import 'lesson23/main.dart';
+import 'lesson24/main.dart';
+import 'lesson25/main.dart';
 import 'lesson26/main.dart';
 import 'lesson28/main.dart';
+import 'lesson32/main.dart';
+import 'lesson33/main.dart';
 import '../app_bar.dart';
 
 class InvestingMenu extends StatefulWidget {
@@ -343,6 +347,18 @@ class _InvestingMenu extends State<InvestingMenu> {
                   ),
                   createLesson(
                     context,
+                    "24. Technical Analysis ",
+                    const Lesson24(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "25. Technical Analysis Exercises",
+                    const Lesson25(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
                     "26. Financial Metrics Of crypto ",
                     const Lesson26(),
                     scores[12] ?? 0,
@@ -351,6 +367,18 @@ class _InvestingMenu extends State<InvestingMenu> {
                     context,
                     "28. Types of crypto coins.",
                     const Lesson28(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "32. Final Knowledge Quiz",
+                    const Lesson32(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "33. Harder Quiz",
+                    const Lesson33(),
                     scores[12] ?? 0,
                   ),
                   SizedBox(height: size.height / 20),
