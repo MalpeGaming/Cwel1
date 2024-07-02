@@ -141,6 +141,7 @@ class _Lesson25 extends State<Lesson25> {
                       print("wynik:");
                       print(score);
                       saveResult(12, score);
+                      Navigator.pop(context);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
