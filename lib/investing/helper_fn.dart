@@ -4,6 +4,7 @@ import 'package:widget_zoom/widget_zoom.dart';
 import '../buttons.dart';
 
 Widget keyVocabulary(BuildContext context, String text, String definition) {
+  Size size = MediaQuery.of(context).size;
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -14,10 +15,13 @@ Widget keyVocabulary(BuildContext context, String text, String definition) {
           fontWeight: FontWeight.bold,
         ),
       ),
+      SizedBox(
+        height: size.height / 200,
+      ),
       Text(
         definition,
         style: TextStyle(
-          fontSize: MediaQuery.of(context).size.height * 0.020,
+          fontSize: size.height * 0.020,
         ),
       ),
     ],
@@ -27,10 +31,13 @@ Widget keyVocabulary(BuildContext context, String text, String definition) {
 Widget zoomImage(String image, {double? w, double? h}) {
   return WidgetZoom(
     heroAnimationTag: image.toString(),
-    zoomWidget: Image.asset(
-      image,
-      width: w,
-      height: h,
+    zoomWidget: ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Image.asset(
+        image,
+        width: w,
+        height: h,
+      ),
     ),
   );
 }
@@ -168,7 +175,11 @@ Widget subpoint(BuildContext context, String text, String definition) {
 }
 
 GestureDetector createRecipe(
-    BuildContext context, int qIndx, int index, List<List<String>> images) {
+  BuildContext context,
+  int qIndx,
+  int index,
+  List<List<String>> images,
+) {
   Size size = MediaQuery.of(context).size;
 
   return GestureDetector(
@@ -205,6 +216,7 @@ GestureDetector createRecipe(
             h: 0.6 * size.width,
           ),
         ),
+        //),
       ),
     ),
   );

@@ -27,6 +27,7 @@ import 'lesson24/main.dart';
 import 'lesson25/main.dart';
 import 'lesson26/main.dart';
 import 'lesson28/main.dart';
+import 'lesson32/main.dart';
 import '../app_bar.dart';
 
 class InvestingMenu extends StatefulWidget {
@@ -365,6 +366,12 @@ class _InvestingMenu extends State<InvestingMenu> {
                     context,
                     "28. Types of crypto coins.",
                     const Lesson28(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "32. Final Knowledge Quiz",
+                    const Lesson32(),
                     scores[12] ?? 0,
                   ),
                   SizedBox(height: size.height / 20),
