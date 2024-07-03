@@ -1,7 +1,7 @@
+import 'package:brain_train_app/investing/lesson3/main.dart';
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../menu.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
 
@@ -329,7 +329,12 @@ class _Lesson2 extends State<Lesson2> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => const Success(
-                            route: InvestingMenu(),
+                            2,
+                            "Why Should You Invest? continued...",
+                            2137,
+                            3,
+                            5,
+                            Lesson3(),
                           ),
                         ),
                       );

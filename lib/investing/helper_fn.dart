@@ -156,14 +156,6 @@ Future<void> saveResult(int lessonId, int score) async {
   //print("amogus");
 }
 
-class Success extends StatefulWidget {
-  final Widget route;
-  const Success({required this.route, super.key});
-
-  @override
-  State<Success> createState() => _Success();
-}
-
 Widget subpoint(BuildContext context, String text, String definition) {
   Size size = MediaQuery.of(context).size;
   return Row(
@@ -237,11 +229,36 @@ Container createRecipe(
   );
 }
 
+class Success extends StatefulWidget {
+  final Widget route;
+  final int number;
+  final String subject;
+  final int minutes;
+  final int score;
+  final int maxscore;
+
+  const Success(
+    this.number,
+    this.subject,
+    this.minutes,
+    this.score,
+    this.maxscore,
+    this.route, {
+    super.key,
+  });
+  double get percentage => score / maxscore;
+  final int scoreoverall = 60;
+  final int maxscoreoverall = 69;
+  double get percentageoverall => scoreoverall / maxscoreoverall;
+  @override
+  State<Success> createState() => _Success();
+}
+
 class _Success extends State<Success> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    //print(widget.minutes.toString());
     return Scaffold(
       body: DecoratedBox(
         decoration: const BoxDecoration(
@@ -254,8 +271,8 @@ class _Success extends State<Success> {
         child: Align(
           child: Container(
             margin: EdgeInsets.only(
-              left: size.width / 15,
-              right: size.width / 15,
+              left: size.width / 10,
+              right: size.width / 10,
               bottom: size.height / 10,
               top: size.height / 15,
             ),
@@ -272,72 +289,132 @@ class _Success extends State<Success> {
                 ),
                 SizedBox(height: 0.03 * size.height),
                 Text(
-                  "Exercise 1 - Math practice",
+                  "Lesson ${widget.number.toString()}",
                   style: TextStyle(fontSize: 0.025 * size.height),
                 ),
+                Text(
+                  widget.subject,
+                  style: TextStyle(
+                    fontSize: 0.025 * size.height,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 SizedBox(height: 0.04 * size.height),
+
                 RichText(
                   text: TextSpan(
                     style: TextStyle(
-                      fontSize: 0.022 * size.height,
+                      fontSize: 0.025 * size.height,
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
-                    children: const [
+                    children: [
+                      const TextSpan(
+                        text: "Time Taken: ",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      TextSpan(
+                        text: "${widget.minutes.toString()} minutes",
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 0.04 * size.height),
+
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 0.025 * size.height,
+                      color: Theme.of(context).colorScheme.onSecondary,
+                    ),
+                    children: [
+                      const TextSpan(
+                        text: "Points: ",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                       TextSpan(
                         text:
-                            "In this exercises you will complete part of the ",
-                      ),
-                      TextSpan(
-                        text: "SAT Math with CALCULATOR",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      TextSpan(
-                        text: " Part.",
+                            "${widget.score.toString()} / ${widget.maxscore.toString()}",
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 0.015 * size.height),
+                SizedBox(height: 0.005 * size.height),
                 RichText(
                   text: TextSpan(
                     style: TextStyle(
-                      fontSize: 0.022 * size.height,
+                      fontSize: 0.025 * size.height,
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
-                    children: const [
-                      TextSpan(
-                        text: "You will have ",
-                      ),
-                      TextSpan(
-                        text: "350 seconds",
+                    children: [
+                      const TextSpan(
+                        text: "Percentage Score: ",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       TextSpan(
-                        text: ".",
+                        text:
+                            "${(widget.percentage * 100).toStringAsFixed(0)}%",
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 0.015 * size.height),
+                SizedBox(height: 0.01 * size.height),
+                LinearProgressIndicator(
+                  value: widget.percentage,
+                  backgroundColor: const Color.fromRGBO(135, 136, 226, 1),
+                  valueColor: const AlwaysStoppedAnimation<Color>(
+                    Color.fromRGBO(94, 23, 235, 1),
+                  ),
+                  minHeight: 0.025 * size.height,
+                  borderRadius: BorderRadius.circular(21312127),
+                ),
+                SizedBox(height: 0.025 * size.height),
+
                 RichText(
                   text: TextSpan(
                     style: TextStyle(
-                      fontSize: 0.022 * size.height,
+                      fontSize: 0.025 * size.height,
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
-                    children: const [
-                      TextSpan(
-                        text: "When ready click \"",
-                      ),
-                      TextSpan(
-                        text: "CONTINUE\"",
+                    children: [
+                      const TextSpan(
+                        text: "Overall Points: ",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       TextSpan(
-                        text: ".",
+                        text:
+                            "${widget.scoreoverall.toString()} / ${widget.maxscoreoverall.toString()}",
                       ),
                     ],
                   ),
+                ),
+                SizedBox(height: 0.005 * size.height),
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 0.025 * size.height,
+                      color: Theme.of(context).colorScheme.onSecondary,
+                    ),
+                    children: [
+                      const TextSpan(
+                        text: "Percentage Score Overall: ",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      TextSpan(
+                        text:
+                            "${(widget.percentageoverall * 100).toStringAsFixed(0)}%",
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 0.01 * size.height),
+                LinearProgressIndicator(
+                  value: widget.percentageoverall,
+                  backgroundColor: const Color.fromRGBO(135, 136, 226, 1),
+                  valueColor: const AlwaysStoppedAnimation<Color>(
+                    Color.fromRGBO(94, 23, 235, 1),
+                  ),
+                  minHeight: 0.025 * size.height,
+                  borderRadius: BorderRadius.circular(21312127),
                 ),
                 const Spacer(),
 
@@ -347,7 +424,7 @@ class _Success extends State<Success> {
                     width: size.width * 0.75,
                     child: RedirectButton(
                       route: widget.route,
-                      text: 'Continue',
+                      text: 'Next Class',
                       width: size.width,
                     ),
                   ),
