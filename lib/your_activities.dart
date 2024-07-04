@@ -15,7 +15,6 @@ import 'attention/short_term_concentration.dart';
 import 'attention/strong_concentration.dart';
 import 'attention/reading/reading.dart';
 import 'logical_thinking/sudoku.dart';
-import 'attention/find_the_word.dart';
 import 'linguistic/wordly.dart';
 import 'linguistic/hangman.dart';
 import 'logical_thinking/riddles.dart';
@@ -234,13 +233,6 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity2(
                           context,
-                          "learning_course",
-                          "LEARNING",
-                          "Course",
-                          const YourActivities(),
-                        ),
-                        createActivity2(
-                          context,
                           "sport",
                           "SPORT",
                           "Optional",
@@ -252,13 +244,6 @@ class _YourActivities extends State<YourActivities> {
                           "Self",
                           "Reflection",
                           const SelfReflection(),
-                        ),
-                        createActivity2(
-                          context,
-                          "good_deed",
-                          "GOOD",
-                          "Deed",
-                          const YourActivities(),
                         ),
                         createActivity2(
                           context,
@@ -332,13 +317,6 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity2(
                           context,
-                          "data_analysis",
-                          "Data",
-                          "ANALYSIS",
-                          const YourActivities(),
-                        ),
-                        createActivity2(
-                          context,
                           "short_term_concentration",
                           "Short-Term",
                           "CONCENTRATION",
@@ -364,13 +342,6 @@ class _YourActivities extends State<YourActivities> {
                           "READING",
                           "Out-loud",
                           const Reading(),
-                        ),
-                        createActivity2(
-                          context,
-                          "find_the_word",
-                          "FIND",
-                          "The Word",
-                          const FindTheWord(),
                         ),
                         createActivity2(
                           context,
@@ -408,24 +379,10 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity2(
                           context,
-                          "seaquance_backwards",
-                          "Seaquance",
-                          "BACKWARDS",
-                          const YourActivities(),
-                        ),
-                        createActivity2(
-                          context,
                           "faces_memory",
                           "Faces",
                           "MEMORY",
                           const Faces(),
-                        ),
-                        createActivity2(
-                          context,
-                          "find_the_image",
-                          "Find the",
-                          "Image",
-                          const YourActivities(),
                         ),
                         createActivity2(
                           context,
