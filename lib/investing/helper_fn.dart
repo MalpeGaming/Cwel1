@@ -180,6 +180,33 @@ Widget subpoint(BuildContext context, String text, String definition) {
   );
 }
 
+Widget point(BuildContext context, String text) {
+  Size size = MediaQuery.of(context).size;
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Padding(
+        padding: EdgeInsets.only(
+          right: 0.05 * size.width,
+        ),
+        child: Icon(
+          Icons.circle,
+          size: 0.02 * size.width,
+        ),
+      ),
+      SizedBox(
+        width: 0.7 * size.width,
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 0.02 * size.height,
+          ),
+        ),
+      ),
+    ],
+  );
+}
+
 Container createRecipe(
   BuildContext context,
   int qIndx,
@@ -263,7 +290,7 @@ class _Success extends State<Success> {
   Future<void> readMemory() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      for (int i = 0; i <= 12; i++) {
+      for (int i = 0; i <= 26; i++) {
         scores[i] = prefs.getInt('lesson$i')?.toInt();
         scores[10000 + i] = prefs.getInt('lesson${10000 + i}')?.toInt();
 
@@ -408,9 +435,14 @@ class _Success extends State<Success> {
                 SizedBox(height: 0.01 * size.height),
                 LinearProgressIndicator(
                   value: widget.percentage,
-                  backgroundColor: const Color.fromRGBO(135, 136, 226, 1),
-                  valueColor: const AlwaysStoppedAnimation<Color>(
-                    Color.fromRGBO(94, 23, 235, 1),
+                  backgroundColor:
+                      (Theme.of(context).brightness != Brightness.dark)
+                          ? const Color.fromRGBO(135, 136, 226, 1)
+                          : Theme.of(context).colorScheme.primary,
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    (Theme.of(context).brightness != Brightness.dark)
+                        ? const Color.fromRGBO(94, 23, 235, 1)
+                        : const Color(0xFFD4CDF4),
                   ),
                   minHeight: 0.025 * size.height,
                   borderRadius: BorderRadius.circular(21312127),
