@@ -34,7 +34,7 @@ class _ChooseBestWord extends State<ChooseBestWord> {
     return ListTile(
       title: Text(
         text,
-        style: TextStyle(fontSize: 0.025 * size.height),
+        style: TextStyle(fontSize: 0.02 * size.height),
       ),
       leading: Radio<int>(
         value: val,
@@ -163,16 +163,16 @@ class _ChooseBestWord extends State<ChooseBestWord> {
                     children: [
                       Text(
                         "Exercise 1 - Choose best word.",
-                        style: TextStyle(fontSize: size.width / 20),
+                        style: TextStyle(fontSize: size.width / 22),
                       ),
                       round == 0
                           ? const SizedBox()
                           : Column(
                               children: [
-                                const Icon(
+                                Icon(
                                   Icons.access_time_filled_sharp,
-                                  color: Colors.blue,
-                                  size: 55,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  size: size.width / 12,
                                 ),
                                 Text(
                                   "$_remainingTime s",
@@ -182,18 +182,22 @@ class _ChooseBestWord extends State<ChooseBestWord> {
                                   ),
                                 ),
                                 Container(
-                                  padding: const EdgeInsets.all(10),
+                                  width: size.width / 13,
+                                  height: size.width / 13,
+                                  //padding: const EdgeInsets.all(10),
                                   decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: Colors.green,
                                   ),
-                                  child: Text(
-                                    "$score",
-                                    style: TextStyle(
-                                      fontSize: size.width / 20,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .tertiary,
+                                  child: Center(
+                                    child: Text(
+                                      "$score",
+                                      style: TextStyle(
+                                        fontSize: size.width / 30,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .tertiary,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -218,7 +222,7 @@ class _ChooseBestWord extends State<ChooseBestWord> {
                             Text(
                               questions[questionId],
                               style: TextStyle(
-                                fontSize: size.width / 20,
+                                fontSize: size.width / 22,
                               ),
                             ),
                             SizedBox(

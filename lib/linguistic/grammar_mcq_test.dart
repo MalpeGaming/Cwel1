@@ -104,7 +104,6 @@ class _Grammar extends State<Grammar> {
                     margin: EdgeInsets.only(
                       left: size.width / 20,
                       right: size.width / 20,
-                      top: size.height / 30,
                     ),
                     child: SingleChildScrollView(
                       child: Column(
@@ -121,7 +120,8 @@ class _Grammar extends State<Grammar> {
                                     Text(
                                       "LINGUISTIC",
                                       style: TextStyle(
-                                          fontSize: 0.06 * size.height,),
+                                        fontSize: 0.06 * size.height,
+                                      ),
                                     ),
                                     Text(
                                       "INTELLIGENCE",
