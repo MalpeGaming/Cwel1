@@ -146,14 +146,22 @@ class _Game2048State extends State<Game2048> {
                             width: size.width / 10,
                             height: size.width / 10,
                             decoration: BoxDecoration(
-                              color: boardColor,
+                              color: (Theme.of(context).brightness ==
+                                      Brightness.light)
+                                  ? boardColorLight
+                                  : boardColorDark,
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            child: const Center(
-                              child: Icon(
-                                Icons.exit_to_app,
-                                color: textColorWhite,
-                              ),
+                            child: const Column(
+                              children: [
+                                Text("you lost!"),
+                                Center(
+                                  child: Icon(
+                                    Icons.exit_to_app,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -167,13 +175,16 @@ class _Game2048State extends State<Game2048> {
                             width: size.width / 10,
                             height: size.width / 10,
                             decoration: BoxDecoration(
-                              color: boardColor,
+                              color: (Theme.of(context).brightness ==
+                                      Brightness.light)
+                                  ? boardColorLight
+                                  : boardColorDark,
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: const Center(
                               child: Icon(
                                 Icons.restart_alt,
-                                color: textColorWhite,
+                                color: Colors.white,
                               ),
                             ),
                           ),
@@ -247,7 +258,10 @@ class _Game2048State extends State<Game2048> {
                             width: size.width / 5.5,
                             height: size.height / 15,
                             decoration: BoxDecoration(
-                              color: boardColor,
+                              color: (Theme.of(context).brightness ==
+                                      Brightness.light)
+                                  ? boardColorLight
+                                  : boardColorDark,
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Center(
@@ -256,7 +270,7 @@ class _Game2048State extends State<Game2048> {
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.w800,
-                                  color: textColorWhite,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
@@ -266,7 +280,10 @@ class _Game2048State extends State<Game2048> {
                             width: size.width / 6.5,
                             height: size.height / 15,
                             decoration: BoxDecoration(
-                              color: boardColor,
+                              color: (Theme.of(context).brightness ==
+                                      Brightness.light)
+                                  ? boardColorLight
+                                  : boardColorDark,
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Center(
@@ -275,7 +292,7 @@ class _Game2048State extends State<Game2048> {
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.w800,
-                                  color: textColorWhite,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
@@ -294,13 +311,16 @@ class _Game2048State extends State<Game2048> {
                               width: size.width / 10,
                               height: size.width / 10,
                               decoration: BoxDecoration(
-                                color: boardColor,
+                                color: (Theme.of(context).brightness ==
+                                        Brightness.light)
+                                    ? boardColorLight
+                                    : boardColorDark,
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: const Center(
                                 child: Icon(
                                   Icons.undo,
-                                  color: textColorWhite,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
@@ -314,13 +334,16 @@ class _Game2048State extends State<Game2048> {
                               width: size.width / 10,
                               height: size.width / 10,
                               decoration: BoxDecoration(
-                                color: boardColor,
+                                color: (Theme.of(context).brightness ==
+                                        Brightness.light)
+                                    ? boardColorLight
+                                    : boardColorDark,
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: const Center(
                                 child: Icon(
                                   Icons.restart_alt,
-                                  color: textColorWhite,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
@@ -355,7 +378,9 @@ class _Game2048State extends State<Game2048> {
                   height: boardSize,
                   width: boardSize,
                   decoration: BoxDecoration(
-                    color: boardColor,
+                    color: (Theme.of(context).brightness == Brightness.light)
+                        ? boardColorLight
+                        : boardColorDark,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Stack(
@@ -375,7 +400,10 @@ class _Game2048State extends State<Game2048> {
                           width: tileSize,
                           height: tileSize,
                           decoration: BoxDecoration(
-                            color: tileColors[tiles[i ~/ 4][i % 4]],
+                            color: (Theme.of(context).brightness ==
+                                    Brightness.light)
+                                ? tileColorsLight[tiles[i ~/ 4][i % 4]]
+                                : tileColorsDark[tiles[i ~/ 4][i % 4]],
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Center(
@@ -386,7 +414,7 @@ class _Game2048State extends State<Game2048> {
                               style: TextStyle(
                                 fontSize: size.width / 20,
                                 fontWeight: FontWeight.w700,
-                                color: textColorWhite,
+                                color: Colors.white,
                               ),
                             ),
                           ),

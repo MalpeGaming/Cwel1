@@ -1,37 +1,34 @@
 import 'dart:ui';
 
-const backgroundColor = Color(0xfffaf8ef);
-const textColor = Color(0xff776e65);
-const textColorWhite = Color(0xfff9f6f2);
-const boardColor = Color(0xffbbada0);
-const emptyTileColor = Color(0xffcdc1b4);
-const buttonColor = Color(0xff8f7a66);
-const scoreColor = Color(0xffbbada0);
-const overlayColor = Color.fromRGBO(238, 228, 218, 0.73);
+const boardColorLight = Color.fromARGB(255, 158, 161, 255);
+const boardColorDark = Color.fromARGB(255, 126, 80, 159);
 
-const color2 = Color(0xffeee4da);
-const color4 = Color(0xffeee1c9);
-const color8 = Color(0xfff3b27a);
-const color16 = Color(0xfff69664);
-const color32 = Color(0xfff77c5f);
-const color64 = Color(0xfff75f3b);
-const color128 = Color(0xffedd073);
-const color256 = Color(0xffedcc62);
-const color512 = Color(0xffedc950);
-const color1024 = Color(0xffedc53f);
-const color2048 = Color(0xffedc22e);
+const tileColorsLight = {
+  0: Color.fromARGB(255, 198, 200, 249),
+  2: Color.fromARGB(255, 245, 192, 69),
+  4: Color.fromARGB(255, 255, 103, 77),
+  8: Color.fromARGB(255, 222, 43, 54),
+  16: Color.fromARGB(255, 168, 15, 58),
+  32: Color.fromARGB(255, 155, 0, 106),
+  64: Color.fromARGB(255, 147, 0, 173),
+  128: Color.fromARGB(255, 106, 43, 209),
+  256: Color.fromARGB(255, 35, 26, 235),
+  512: Color.fromARGB(255, 24, 124, 255),
+  1024: Color.fromARGB(255, 0, 203, 216),
+  2048: Color.fromARGB(255, 23, 188, 111),
+};
 
-const tileColors = {
-  0: emptyTileColor,
-  2: color2,
-  4: color4,
-  8: color8,
-  16: color16,
-  32: color32,
-  64: color64,
-  128: color128,
-  256: color256,
-  512: color512,
-  1024: color1024,
-  2048: color2048,
+const tileColorsDark = {
+  0: Color.fromARGB(255, 205, 149, 245),
+  2: Color.fromARGB(255, 248, 213, 58),
+  4: Color.fromARGB(255, 255, 103, 77),
+  8: Color.fromARGB(255, 222, 43, 54),
+  16: Color.fromARGB(255, 168, 15, 58),
+  32: Color.fromARGB(255, 155, 0, 106),
+  64: Color.fromARGB(255, 147, 0, 173),
+  128: Color.fromARGB(255, 106, 43, 209),
+  256: Color.fromARGB(255, 35, 26, 235),
+  512: Color.fromARGB(255, 24, 124, 255),
+  1024: Color.fromARGB(255, 0, 203, 216),
+  2048: Color.fromARGB(255, 23, 188, 111),
 };
