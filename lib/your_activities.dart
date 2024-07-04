@@ -163,6 +163,22 @@ class _YourActivities extends State<YourActivities> {
     );
   }
 
+  int day = 0;
+
+  Future<void> calcDay() async {
+    DateTime firstDay = DateTime(2024, 7, 1);
+    DateTime today = DateTime.now();
+    setState(() {
+      day = today.difference(firstDay).inDays;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    calcDay();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -194,7 +210,7 @@ class _YourActivities extends State<YourActivities> {
             ),
             Center(
               child: Text(
-                "DAY 1 - ${formattedDate.toString().toUpperCase()}",
+                "DAY $day - ${formattedDate.toString().toUpperCase()}",
                 style: TextStyle(fontSize: size.width / 17),
                 textAlign: TextAlign.center,
               ),
