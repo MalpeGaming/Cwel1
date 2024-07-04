@@ -16,13 +16,14 @@ class Reading extends StatefulWidget {
 
 class _Reading extends State<Reading> {
   bool ticked = false;
+  int day = 0;
 
-  Future<void> saveStreak(int day, bool ticked) async {
+  Future<void> saveStreak(bool ticked) async {
     late SharedPreferences prefs;
 
-    DateTime firstDay = DateTime(2023, 7, 1);
+    DateTime firstDay = DateTime(2024, 7, 1);
     DateTime today = DateTime.now();
-    int day = today.difference(firstDay).inDays;
+    day = today.difference(firstDay).inDays;
 
     prefs = await SharedPreferences.getInstance();
     prefs.setInt('readingDay$day', ticked ? 1 : 0);
@@ -70,6 +71,7 @@ class _Reading extends State<Reading> {
                     setState(() {
                       ticked = !ticked;
                     });
+                    saveStreak(ticked);
                   },
                   child: Stack(
                     alignment: AlignmentDirectional.center,
@@ -174,6 +176,7 @@ class _Reading extends State<Reading> {
                 ],
               ),
             ),
+            Text(day.toString()),
           ],
         ),
       ),
