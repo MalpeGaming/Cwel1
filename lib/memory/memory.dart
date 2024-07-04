@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'memory_words.dart';
 import '../buttons.dart';
-import '../app_bar.dart';
 
 class Memory extends StatefulWidget {
   final bool? initialTest;
@@ -25,24 +24,24 @@ class _Memory extends State<Memory> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: appBar(context, ""),
-      body: Column(
-        children: [
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              "MEMORY",
-              style: TextStyle(fontSize: 0.08 * size.height),
-              textAlign: TextAlign.center,
+      body: Container(
+        margin: EdgeInsets.only(
+          left: size.width / 10,
+          right: size.width / 10,
+          top: size.height / 10,
+        ),
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.center,
+              child: Text(
+                "MEMORY",
+                style: TextStyle(fontSize: 0.08 * size.height),
+                textAlign: TextAlign.center,
+              ),
             ),
-          ),
-          SizedBox(height: 0.02 * size.height),
-          Padding(
-            padding: EdgeInsets.only(
-              left: 0.07 * size.width,
-              right: 0.07 * size.width,
-            ),
-            child: Column(
+            SizedBox(height: 0.02 * size.height),
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
@@ -58,21 +57,21 @@ class _Memory extends State<Memory> {
                 ),
               ],
             ),
-          ),
-          const Spacer(),
-          Center(
-            child: SizedBox(
-              height: size.height * 0.05,
-              width: size.width * 0.75,
-              child: RedirectButton(
-                route: const MemoryWords(),
-                text: 'Continue',
-                width: size.width,
+            const Spacer(),
+            Center(
+              child: SizedBox(
+                height: size.height * 0.05,
+                width: size.width * 0.75,
+                child: RedirectButton(
+                  route: const MemoryWords(),
+                  text: 'Continue',
+                  width: size.width,
+                ),
               ),
             ),
-          ),
-          SizedBox(height: 0.1 * size.height),
-        ],
+            SizedBox(height: 0.1 * size.height),
+          ],
+        ),
       ),
     );
   }

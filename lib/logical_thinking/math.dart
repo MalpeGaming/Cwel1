@@ -143,7 +143,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
               context,
               MaterialPageRoute(
                 builder: (context) => ShowScore(
-                  title: "math",
+                  title: "Math",
                   description: "Exercise 1 - Short Term Concentration",
                   exercise: 1,
                   yourScore: score,
@@ -185,7 +185,6 @@ class _ProblemSelectionState extends State<ProblemSelection> {
         leading: Radio<int>(
           value: val,
           groupValue: selectedOption,
-          activeColor: Colors.blue,
           onChanged: (value) {
             setState(() {
               selectedOption = value;
@@ -201,9 +200,9 @@ class _ProblemSelectionState extends State<ProblemSelection> {
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(
-            left: size.width / 15,
-            right: size.width / 15,
-            top: size.height / 15,
+            left: size.width / 10,
+            right: size.width / 10,
+            top: size.height / 10,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -220,11 +219,11 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                     children: [
                       Text(
                         "LOGICAL",
-                        style: TextStyle(fontSize: 0.08 * size.height),
+                        style: TextStyle(fontSize: 0.07 * size.height),
                       ),
                       Text(
                         "THINKING",
-                        style: TextStyle(fontSize: 0.035 * size.height),
+                        style: TextStyle(fontSize: 0.032 * size.height),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -233,7 +232,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                             (widget.riddlesMode
                                 ? "Exercise 2 -  Math riddles"
                                 : "Exercise 1 - Math practice"),
-                            style: TextStyle(fontSize: 0.043 * size.width),
+                            style: TextStyle(fontSize: 0.04 * size.width),
                           ),
                           SizedBox(width: 0.05 * size.width),
                           Icon(
@@ -241,7 +240,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                             size: 0.08 * min(size.width, size.height),
                             color: Theme.of(context).colorScheme.primary,
                           ),
-                          const SizedBox(width: 8),
+                          //SizedBox(width: size.width / 50),
                           Text(
                             "${_remainingTime.toString()}s",
                             style: TextStyle(fontSize: 0.02 * size.height),
@@ -253,7 +252,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                   ),
                 ),
               ),
-              SizedBox(height: 0.005 * size.height),
+              SizedBox(height: size.height / 20),
               ((iteration == 1 && widget.riddlesMode == false)
                   ? Align(
                       alignment: Alignment.center,
@@ -307,7 +306,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => ShowScore(
-                              title: "math",
+                              title: "Math",
                               description:
                                   "Exercise 1 - Short Term Concentration",
                               exercise: 1,

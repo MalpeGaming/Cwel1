@@ -13,6 +13,7 @@ import 'lesson9/main.dart';
 import 'lesson10/main.dart';
 import 'lesson11/main.dart';
 import 'lesson12/main.dart';
+import 'lesson13/main.dart';
 import 'lesson14/main.dart';
 import 'lesson15/main.dart';
 import 'lesson16/main.dart';
@@ -29,6 +30,7 @@ import 'lesson26/main.dart';
 import 'lesson28/main.dart';
 import 'lesson32/main.dart';
 import 'lesson33/main.dart';
+import 'lesson35/main.dart';
 import '../app_bar.dart';
 
 class InvestingMenu extends StatefulWidget {
@@ -287,6 +289,12 @@ class _InvestingMenu extends State<InvestingMenu> {
                   ),
                   createLesson(
                     context,
+                    "13. What is diversification ?",
+                    const Lesson13(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
                     "14. Practical Analysis of Stocks",
                     const Lesson14(),
                     scores[12] ?? 0,
@@ -379,6 +387,12 @@ class _InvestingMenu extends State<InvestingMenu> {
                     context,
                     "33. Harder Quiz",
                     const Lesson33(),
+                    scores[12] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "35. Final Investing Quiz",
+                    const Lesson35(),
                     scores[12] ?? 0,
                   ),
                   SizedBox(height: size.height / 20),

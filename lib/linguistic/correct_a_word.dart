@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
 import 'dart:async';
 import 'dart:math';
-import '/app_bar.dart';
 import '/progress_screen.dart';
 import '/buttons.dart';
 
@@ -91,7 +90,6 @@ class _CorrectAWord extends State<CorrectAWord> {
     return correctWords.isEmpty && incorrectWords.isEmpty
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
-            appBar: appBar(context, ""),
             body: SingleChildScrollView(
               child: Container(
                 width: size.width * 0.9,
@@ -99,7 +97,7 @@ class _CorrectAWord extends State<CorrectAWord> {
                 margin: EdgeInsets.only(
                   left: size.width / 10,
                   right: size.width / 10,
-                  top: size.height / 50,
+                  top: size.height / 10,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -148,10 +146,12 @@ class _CorrectAWord extends State<CorrectAWord> {
                                 ? const SizedBox()
                                 : Column(
                                     children: [
-                                      const Icon(
+                                      Icon(
                                         Icons.access_time_filled_sharp,
-                                        color: Colors.blue,
-                                        size: 55,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
+                                        size: size.width / 10,
                                       ),
                                       Text(
                                         "$_remainingTime s",
@@ -162,6 +162,7 @@ class _CorrectAWord extends State<CorrectAWord> {
                                       ),
                                       Container(
                                         padding: const EdgeInsets.all(10),
+                                        width: size.width / 10,
                                         decoration: const BoxDecoration(
                                           shape: BoxShape.circle,
                                           color: Colors.green,
@@ -169,7 +170,7 @@ class _CorrectAWord extends State<CorrectAWord> {
                                         child: Text(
                                           "$score",
                                           style: TextStyle(
-                                            fontSize: size.width / 20,
+                                            fontSize: size.width / 30,
                                             color: Theme.of(context)
                                                 .colorScheme
                                                 .tertiary,

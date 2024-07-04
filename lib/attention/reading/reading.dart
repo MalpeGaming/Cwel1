@@ -1,3 +1,5 @@
+import 'package:brain_train_app/attention/reading/reading_streak.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import '../../app_bar.dart';
@@ -14,6 +16,18 @@ class Reading extends StatefulWidget {
 
 class _Reading extends State<Reading> {
   bool ticked = false;
+  int day = 0;
+
+  Future<void> saveStreak(bool ticked) async {
+    late SharedPreferences prefs;
+
+    DateTime firstDay = DateTime(2024, 7, 1);
+    DateTime today = DateTime.now();
+    day = today.difference(firstDay).inDays;
+
+    prefs = await SharedPreferences.getInstance();
+    prefs.setInt('readingDay$day', ticked ? 1 : 0);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +36,8 @@ class _Reading extends State<Reading> {
       appBar: appBar(context, ""),
       body: Container(
         margin: EdgeInsets.only(
-          left: size.width / 15,
-          right: size.width / 15,
+          left: size.width / 10,
+          right: size.width / 10,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -57,6 +71,7 @@ class _Reading extends State<Reading> {
                     setState(() {
                       ticked = !ticked;
                     });
+                    saveStreak(ticked);
                   },
                   child: Stack(
                     alignment: AlignmentDirectional.center,
@@ -93,6 +108,12 @@ class _Reading extends State<Reading> {
             OutlinedButton(
               onPressed: () {
                 debugPrint('Received click');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ReadingStreak(),
+                  ),
+                );
               },
               child: Text(
                 'Check Your Streak',
@@ -115,52 +136,47 @@ class _Reading extends State<Reading> {
             Expanded(
               child: ListView(
                 children: [
-                  Container(
-                    margin: EdgeInsets.only(
-                      left: size.width / 20,
-                      right: size.width / 20,
-                    ),
-                    child: Column(
-                      children: [
-                        createActivity(
-                          context,
-                          "attention/reading/classic",
-                          "Classic",
-                          "Novels",
-                          0.025 * size.height,
-                          const Classic(),
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.onPrimary,
-                          textWidth: 0.35,
-                        ),
-                        createActivity(
-                          context,
-                          "attention/reading/business",
-                          "Business and",
-                          "Money",
-                          0.025 * size.height,
-                          const Business(),
-                          const Color.fromARGB(255, 143, 0, 226),
-                          const Color.fromARGB(255, 101, 0, 184),
-                          textWidth: 0.35,
-                        ),
-                        createActivity(
-                          context,
-                          "attention/reading/personal_development",
-                          "Personal",
-                          "Development",
-                          0.025 * size.height,
-                          const PersonalDevelopment(),
-                          const Color.fromARGB(255, 221, 65, 221),
-                          const Color.fromARGB(255, 137, 39, 176),
-                          textWidth: 0.35,
-                        ),
-                      ],
-                    ),
+                  Column(
+                    children: [
+                      createActivity(
+                        context,
+                        "attention/reading/classic",
+                        "Classic",
+                        "Novels",
+                        0.025 * size.height,
+                        const Classic(),
+                        Theme.of(context).colorScheme.primary,
+                        Theme.of(context).colorScheme.onPrimary,
+                        textWidth: 0.35,
+                      ),
+                      createActivity(
+                        context,
+                        "attention/reading/business",
+                        "Business and",
+                        "Money",
+                        0.025 * size.height,
+                        const Business(),
+                        const Color.fromARGB(255, 143, 0, 226),
+                        const Color.fromARGB(255, 101, 0, 184),
+                        textWidth: 0.35,
+                      ),
+                      createActivity(
+                        context,
+                        "attention/reading/personal_development",
+                        "Personal",
+                        "Development",
+                        0.025 * size.height,
+                        const PersonalDevelopment(),
+                        const Color.fromARGB(255, 221, 65, 221),
+                        const Color.fromARGB(255, 137, 39, 176),
+                        textWidth: 0.35,
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
+            Text(day.toString()),
           ],
         ),
       ),
