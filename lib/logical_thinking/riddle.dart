@@ -27,9 +27,10 @@ class _Riddles extends State<Riddles> {
     return Scaffold(
       body: Container(
         margin: EdgeInsets.only(
-          left: size.width / 15,
-          right: size.width / 15,
-          bottom: size.height / 15,
+          left: size.width / 10,
+          right: size.width / 10,
+          bottom: size.height / 10,
+          top: size.height / 15,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
