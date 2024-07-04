@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../menu.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
+import '../menu.dart';
 
-class Lesson16 extends StatefulWidget {
-  const Lesson16({super.key});
+class Lesson35 extends StatefulWidget {
+  const Lesson35({super.key});
 
   @override
-  State<Lesson16> createState() => _Lesson16();
+  State<Lesson35> createState() => _Lesson35();
 }
 
-class _Lesson16 extends State<Lesson16> {
+class _Lesson35 extends State<Lesson35> {
   int selectedOption = -1;
 
   Widget buildQuizScreen({
@@ -81,7 +81,7 @@ class _Lesson16 extends State<Lesson16> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Lesson 16",
+                "Lesson 33",
                 style: TextStyle(
                   fontSize: size.width / 10,
                   fontWeight: FontWeight.bold,
@@ -89,67 +89,111 @@ class _Lesson16 extends State<Lesson16> {
               ),
               SizedBox(height: size.height / 60),
               Text(
-                "What are ETFs ?",
+                "Harder Quiz",
                 style: TextStyle(
                   fontSize: size.width / 15,
                 ),
               ),
-              //SizedBox(height: size.height / 60),
+              SizedBox(height: size.height / 20),
+              Text(
+                "Certainly! Here is a 20-question multiple-choice quiz based on the lessons you provided:",
+                style: TextStyle(
+                  fontSize: size.height / 50,
+                ),
+              ),
               createDivider(context),
               Text(
-                "An Exchange-Traded Fund (ETF) is a type of investment fund that, like a stock, is traded on stock exchanges. It holds a collection of assets, which might include stocks, bonds, or commodities, depending on the fund's focus. For instance, an ETF might track the S&P 500 index, meaning it holds stocks from the top 500 companies in the U.S., giving investors broad market exposure through one security. Some ETFs focus on specific sectors like technology or healthcare, while others may follow commodities such as gold. One of the main benefits of investing in ETFs is diversification—owning a broad selection of assets—which reduces risk. Additionally, ETFs offer the flexibility of trading throughout the day, much like stocks, as opposed to mutual funds which are only priced once daily.",
+                "Knowledge-Based Questions:",
+                style: TextStyle(
+                  fontSize: size.height / 40,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 0),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 1),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 2),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 3),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 4),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 5),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 6),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 7),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 8),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 9),
+              createDivider(context),
+              Text(
+                "Calculation Questions",
+                style: TextStyle(
+                  fontSize: size.height / 40,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 10),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 11),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 12),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 13),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 14),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 15),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 16),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 17),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 18),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 19),
+              createDivider(context),
+              Text(
+                "Analysis Questions",
+                style: TextStyle(
+                  fontSize: size.height / 40,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 20),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 21),
+              createDivider(context),
+              Text(
+                "Here's a multiple-choice quiz about investment analysis, designed to test your knowledge in evaluating investments in stocks, bonds, ETFs, and cryptocurrencies.",
                 style: TextStyle(
                   fontSize: size.height / 50,
                 ),
               ),
               SizedBox(height: size.height / 20),
-              buildQuizScreen(
-                questionNumber: 0,
-              ),
-              createDivider(context),
-              Text(
-                "ETFs can be passively or actively managed. Passively managed ETFs aim to replicate the performance of an index, like the S&P 500, with minimal management intervention, keeping costs low. Actively managed ETFs, on the other hand, have portfolio managers making buying and selling decisions to try to beat a benchmark index, which can result in higher fees due to more frequent trading. Regardless of the management style, ETFs usually have lower expense ratios than mutual funds, making them a cost-effective choice for many investors.",
-                style: TextStyle(
-                  fontSize: size.height / 50,
-                ),
-              ),
+              buildQuizScreen(questionNumber: 21),
               SizedBox(height: size.height / 20),
-              buildQuizScreen(
-                questionNumber: 1,
-              ),
-              createDivider(context),
-              Text(
-                "ETFs provide diversification by holding a basket of assets within a single security. This reduces the risk associated with investing in individual stocks or bonds. However, tracking errors can occur, meaning an ETF's performance might not perfectly match the index it tracks due to fees and other factors. Liquidity can also vary, and less liquid ETFs can have wider spreads between the bid and ask prices, impacting trading efficiency.",
-                style: TextStyle(
-                  fontSize: size.height / 50,
-                ),
-              ),
+              buildQuizScreen(questionNumber: 22),
               SizedBox(height: size.height / 20),
-              buildQuizScreen(
-                questionNumber: 2,
-              ),
-              createDivider(context),
-              Text(
-                "ETFs can be an efficient way to gain exposure to various markets or asset classes, such as international stocks, specific sectors, or commodities. However, not all ETFs are structured the same. Some use leverage, borrowing funds to increase investment exposure, aiming to amplify returns. This leverage also increases potential losses, adding risk and complexity to the investment.",
-                style: TextStyle(
-                  fontSize: size.height / 50,
-                ),
-              ),
+              buildQuizScreen(questionNumber: 23),
               SizedBox(height: size.height / 20),
-              buildQuizScreen(
-                questionNumber: 3,
-              ),
-              createDivider(context),
-              Text(
-                "In terms of tax efficiency, ETFs generally have an advantage over mutual funds due to their \"in-kind\" creation and redemption mechanism. This means that when investors buy or sell ETFs, the underlying securities are swapped directly rather than liquidated for cash, thus avoiding taxable events. This structure allows ETFs to minimize taxable events and reduce capital gains distributions compared to mutual funds, which frequently have internal trading that can trigger taxes for shareholders.",
-                style: TextStyle(
-                  fontSize: size.height / 50,
-                ),
-              ),
+              buildQuizScreen(questionNumber: 24),
               SizedBox(height: size.height / 20),
-              buildQuizScreen(
-                questionNumber: 4,
-              ),
+              buildQuizScreen(questionNumber: 25),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 26),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 27),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 28),
+              SizedBox(height: size.height / 20),
+              buildQuizScreen(questionNumber: 29),
               SizedBox(height: size.height / 10),
               Center(
                 child: SizedBox(
@@ -166,9 +210,7 @@ class _Lesson16 extends State<Lesson16> {
                       }
                       print("wynik:");
                       print(score);
-                      saveResult(16, score);
-                      saveResult(10016, questions.length);
-
+                      saveResult(12, score);
                       Navigator.pop(context);
                       Navigator.push(
                         context,

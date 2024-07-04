@@ -178,10 +178,6 @@ class _Lesson13 extends State<Lesson13> {
               buildQuizScreen(
                 questionNumber: 19,
               ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 20,
-              ),
               SizedBox(height: size.height / 10),
               Center(
                 child: SizedBox(
@@ -198,7 +194,9 @@ class _Lesson13 extends State<Lesson13> {
                       }
                       print("wynik:");
                       print(score);
-                      saveResult(12, score);
+                      saveResult(13, score);
+                      saveResult(10013, questions.length);
+
                       Navigator.pop(context);
                       Navigator.push(
                         context,

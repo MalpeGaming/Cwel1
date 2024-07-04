@@ -246,26 +246,74 @@ class Success extends StatefulWidget {
     this.route, {
     super.key,
   });
-  double get percentage => score / maxscore;
-  final int scoreoverall = 60;
-  final int maxscoreoverall = 69;
-  double get percentageoverall => scoreoverall / maxscoreoverall;
+  double get percentage => ((maxscore == 0) ? 0 : score / maxscore);
+
   @override
   State<Success> createState() => _Success();
 }
 
 class _Success extends State<Success> {
+  late SharedPreferences prefs;
+  List<int?> scores = List<int?>.filled(13000, null);
+  int sum = 0, sum1 = 0;
+  int scoreoverall = 60;
+  int maxscoreoverall = 69;
+  double percentageoverall = 0.87;
+
+  Future<void> readMemory() async {
+    prefs = await SharedPreferences.getInstance();
+    setState(() {
+      for (int i = 0; i <= 12; i++) {
+        scores[i] = prefs.getInt('lesson$i')?.toInt();
+        scores[10000 + i] = prefs.getInt('lesson${10000 + i}')?.toInt();
+
+        if (scores[i] != null) {
+          sum += scores[i]!;
+        }
+        if (scores[10000 + i] != null) {
+          print("amogus");
+          sum1 += scores[10000 + i]!;
+        }
+      }
+      scores[2137] = prefs.getInt('lesson2137')?.toInt();
+      scores[12137] = prefs.getInt('lesson12137')?.toInt();
+
+      if (scores[2137] != null) {
+        sum += scores[2137]!;
+      }
+      if (scores[12137] != null) {
+        sum1 += scores[12137]!;
+      }
+      scoreoverall = sum;
+      maxscoreoverall = sum1;
+      print("ważne");
+      print(scoreoverall);
+      print(maxscoreoverall);
+
+      percentageoverall =
+          ((maxscoreoverall == 0) ? 0 : scoreoverall / maxscoreoverall);
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readMemory();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     //print(widget.minutes.toString());
+
     return Scaffold(
       body: DecoratedBox(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/investing/success_background.gif"),
+            image: const AssetImage("assets/investing/success_background.gif"),
             fit: BoxFit.cover,
-            opacity: 0.4,
+            opacity:
+                ((Theme.of(context).brightness == Brightness.dark) ? 0.3 : 0.4),
           ),
         ),
         child: Align(
@@ -382,7 +430,7 @@ class _Success extends State<Success> {
                       ),
                       TextSpan(
                         text:
-                            "${widget.scoreoverall.toString()} / ${widget.maxscoreoverall.toString()}",
+                            "${scoreoverall.toString()} / ${maxscoreoverall.toString()}",
                       ),
                     ],
                   ),
@@ -401,14 +449,14 @@ class _Success extends State<Success> {
                       ),
                       TextSpan(
                         text:
-                            "${(widget.percentageoverall * 100).toStringAsFixed(0)}%",
+                            "${(percentageoverall * 100).toStringAsFixed(0)}%",
                       ),
                     ],
                   ),
                 ),
                 SizedBox(height: 0.01 * size.height),
                 LinearProgressIndicator(
-                  value: widget.percentageoverall,
+                  value: percentageoverall,
                   backgroundColor: const Color.fromRGBO(135, 136, 226, 1),
                   valueColor: const AlwaysStoppedAnimation<Color>(
                     Color.fromRGBO(94, 23, 235, 1),

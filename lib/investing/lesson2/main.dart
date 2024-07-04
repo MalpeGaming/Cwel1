@@ -90,7 +90,7 @@ class _Lesson2 extends State<Lesson2> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    DateTime beginTime = DateTime.now();
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -322,19 +322,21 @@ class _Lesson2 extends State<Lesson2> {
                         }
                       }
                       print("wynik:");
-                      print(score);
+                      print(questions.length);
                       saveResult(2, score);
+                      saveResult(10002, questions.length);
+
                       Navigator.pop(context);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Success(
+                          builder: (context) => Success(
                             2,
                             "Why Should You Invest? continued...",
-                            2137,
-                            3,
-                            5,
-                            Lesson3(),
+                            DateTime.now().difference(beginTime).inMinutes,
+                            score,
+                            questions.length,
+                            const Lesson3(),
                           ),
                         ),
                       );

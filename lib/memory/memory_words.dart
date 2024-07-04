@@ -6,7 +6,6 @@ import 'package:xml/xml.dart' as xml;
 import 'dart:math';
 import 'dart:async';
 import 'memory_check.dart';
-import '../app_bar.dart';
 
 class MemoryWords extends StatefulWidget {
   const MemoryWords({super.key});
@@ -89,7 +88,7 @@ class _MemoryWordsState extends State<MemoryWords> {
     );
   }
 
-  int _remainingTime = 420;
+  int _remainingTime = 3;
   late Timer _timer;
   List<Map<String, String>> b1 = [];
   List<Map<String, String>> picked = [];
@@ -157,33 +156,33 @@ class _MemoryWordsState extends State<MemoryWords> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: appBar(context, ""),
       body: picked.isEmpty
           ? const Center(child: CircularProgressIndicator())
-          : Column(
-              children: [
-                Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "MEMORY",
-                    style: TextStyle(fontSize: 0.08 * size.height),
-                    textAlign: TextAlign.center,
+          : Container(
+              margin: EdgeInsets.only(
+                left: size.width / 10,
+                right: size.width / 10,
+                top: size.height / 10,
+              ),
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "MEMORY",
+                      style: TextStyle(fontSize: 0.08 * size.height),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
-                ),
-                SizedBox(height: 0.02 * size.height),
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: 0.07 * size.width,
-                    right: 0.07 * size.width,
-                  ),
-                  child: Column(
+                  SizedBox(height: 0.02 * size.height),
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [
                           Text(
                             "Exercise 1.1 - Learning",
-                            style: TextStyle(fontSize: 0.025 * size.height),
+                            style: TextStyle(fontSize: 0.022 * size.height),
                             textAlign: TextAlign.start,
                           ),
                           SizedBox(width: 0.05 * size.width),
@@ -196,7 +195,7 @@ class _MemoryWordsState extends State<MemoryWords> {
                           const SizedBox(width: 10.0),
                           Text(
                             "${_remainingTime.toString()}s",
-                            style: TextStyle(fontSize: 0.025 * size.height),
+                            style: TextStyle(fontSize: 0.02 * size.height),
                             textAlign: TextAlign.start,
                           ),
                         ],
@@ -205,8 +204,8 @@ class _MemoryWordsState extends State<MemoryWords> {
                       createPoints(picked, size, context),
                     ],
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
     );
   }
