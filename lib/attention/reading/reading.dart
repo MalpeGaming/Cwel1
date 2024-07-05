@@ -29,6 +29,25 @@ class _Reading extends State<Reading> {
     prefs.setInt('readingDay$day', ticked ? 1 : 0);
   }
 
+  Future<void> checkIfTicked() async {
+    DateTime firstDay = DateTime(2024, 7, 1);
+    DateTime today = DateTime.now();
+    day = today.difference(firstDay).inDays;
+
+    late SharedPreferences prefs;
+    prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+      ticked = prefs.getInt('readingDay$day')?.toInt() == 1 ? true : false;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    checkIfTicked();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -176,7 +195,7 @@ class _Reading extends State<Reading> {
                 ],
               ),
             ),
-            Text(day.toString()),
+            //Text(day.toString()),
           ],
         ),
       ),
