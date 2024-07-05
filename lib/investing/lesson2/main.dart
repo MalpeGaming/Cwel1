@@ -1,7 +1,7 @@
+import 'package:brain_train_app/investing/lesson3/main.dart';
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../menu.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
 
@@ -90,7 +90,7 @@ class _Lesson2 extends State<Lesson2> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    DateTime beginTime = DateTime.now();
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -322,14 +322,21 @@ class _Lesson2 extends State<Lesson2> {
                         }
                       }
                       print("wynik:");
-                      print(score);
+                      print(questions.length);
                       saveResult(2, score);
+                      saveResult(10002, questions.length);
+
                       Navigator.pop(context);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Success(
-                            route: InvestingMenu(),
+                          builder: (context) => Success(
+                            2,
+                            "Why Should You Invest? continued...",
+                            DateTime.now().difference(beginTime).inMinutes,
+                            score,
+                            questions.length,
+                            const Lesson3(),
                           ),
                         ),
                       );

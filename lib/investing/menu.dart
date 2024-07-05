@@ -27,6 +27,7 @@ import 'lesson23/main.dart';
 import 'lesson24/main.dart';
 import 'lesson25/main.dart';
 import 'lesson26/main.dart';
+import 'lesson27/main.dart';
 import 'lesson28/main.dart';
 import 'lesson32/main.dart';
 import 'lesson33/main.dart';
@@ -129,7 +130,7 @@ class _InvestingMenu extends State<InvestingMenu> {
   Future<void> readMemory() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      for (int i = 0; i <= 12; i++) {
+      for (int i = 0; i <= 26; i++) {
         scores[i] = prefs.getInt('lesson$i')?.toInt();
         if (scores[i] != null) {
           sum += scores[i]!;
@@ -291,85 +292,91 @@ class _InvestingMenu extends State<InvestingMenu> {
                     context,
                     "13. What is diversification ?",
                     const Lesson13(),
-                    scores[12] ?? 0,
+                    scores[13] ?? 0,
                   ),
                   createLesson(
                     context,
                     "14. Practical Analysis of Stocks",
                     const Lesson14(),
-                    scores[12] ?? 0,
+                    scores[14] ?? 0,
                   ),
                   createLesson(
                     context,
                     "15. Practical Analysis of Bonds",
                     const Lesson15(),
-                    scores[12] ?? 0,
+                    scores[15] ?? 0,
                   ),
                   createLesson(
                     context,
                     "16. What are ETFs ? ",
                     const Lesson16(),
-                    scores[12] ?? 0,
+                    scores[16] ?? 0,
                   ),
                   createLesson(
                     context,
                     "17. Types of ETFs",
                     const Lesson17(),
-                    scores[12] ?? 0,
+                    scores[17] ?? 0,
                   ),
                   createLesson(
                     context,
                     "18. Shorting, Leverage",
                     const Lesson18(),
-                    scores[12] ?? 0,
+                    scores[18] ?? 0,
                   ),
                   createLesson(
                     context,
                     "19. Some of the most popular ETFs",
                     const Lesson19(),
-                    scores[12] ?? 0,
+                    scores[19] ?? 0,
                   ),
                   createLesson(
                     context,
                     "20. Final knowledge quiz",
                     const Lesson20(),
-                    scores[12] ?? 0,
+                    scores[20] ?? 0,
                   ),
                   createLesson(
                     context,
                     "21. What are cryptocurrencies ?",
                     const Lesson21(),
-                    scores[12] ?? 0,
+                    scores[21] ?? 0,
                   ),
                   createLesson(
                     context,
                     "22. Are cryptocurrencies worthless ?",
                     const Lesson22(),
-                    scores[12] ?? 0,
+                    scores[22] ?? 0,
                   ),
                   createLesson(
                     context,
                     "23. Top 5 crypto explained",
                     const Lesson23(),
-                    scores[12] ?? 0,
+                    scores[23] ?? 0,
                   ),
                   createLesson(
                     context,
                     "24. Technical Analysis ",
                     const Lesson24(),
-                    scores[12] ?? 0,
+                    scores[24] ?? 0,
                   ),
                   createLesson(
                     context,
                     "25. Technical Analysis Exercises",
                     const Lesson25(),
-                    scores[12] ?? 0,
+                    scores[25] ?? 0,
                   ),
                   createLesson(
                     context,
-                    "26. Financial Metrics Of crypto ",
+                    "26. Financial Metrics Of crypto",
                     const Lesson26(),
-                    scores[12] ?? 0,
+                    scores[26] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "27. Fundamental Analysis",
+                    const Lesson27(),
+                    scores[27] ?? 0,
                   ),
                   createLesson(
                     context,

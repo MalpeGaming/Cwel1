@@ -331,7 +331,9 @@ class _Lesson24 extends State<Lesson24> {
                       }
                       print("wynik:");
                       print(score);
-                      saveResult(12, score);
+                      saveResult(24, score);
+                      saveResult(10024, questions.length);
+
                       Navigator.pop(context);
                       Navigator.push(
                         context,
