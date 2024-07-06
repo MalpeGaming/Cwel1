@@ -30,6 +30,7 @@ import 'lesson26/main.dart';
 import 'lesson27/main.dart';
 import 'lesson28/main.dart';
 import 'lesson29/main.dart';
+import 'lesson30/main.dart';
 import 'lesson32/main.dart';
 import 'lesson33/main.dart';
 import 'lesson35/main.dart';
@@ -131,7 +132,7 @@ class _InvestingMenu extends State<InvestingMenu> {
   Future<void> readMemory() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      for (int i = 0; i <= 29; i++) {
+      for (int i = 0; i <= 30; i++) {
         scores[i] = prefs.getInt('lesson$i')?.toInt();
         if (scores[i] != null) {
           sum += scores[i]!;
@@ -390,6 +391,12 @@ class _InvestingMenu extends State<InvestingMenu> {
                     "29. Where can you find info about crypto ?",
                     const Lesson29(),
                     scores[29] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "30. How to choose a coin ?",
+                    const Lesson30(),
+                    scores[30] ?? 0,
                   ),
                   createLesson(
                     context,
