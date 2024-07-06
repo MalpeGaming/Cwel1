@@ -118,7 +118,7 @@ class _Lesson29 extends State<Lesson29> {
 
               hyperlinkPoint(
                 context,
-                "coinmarketcal.com/ → all important dates",
+                "coinmarketcal.com → all important dates",
                 "https://coinmarketcal.com/en/",
               ),
               SizedBox(height: size.height / 80),

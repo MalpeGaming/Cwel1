@@ -31,6 +31,7 @@ import 'lesson27/main.dart';
 import 'lesson28/main.dart';
 import 'lesson29/main.dart';
 import 'lesson30/main.dart';
+import 'lesson31/main.dart';
 import 'lesson32/main.dart';
 import 'lesson33/main.dart';
 import 'lesson35/main.dart';
@@ -397,6 +398,12 @@ class _InvestingMenu extends State<InvestingMenu> {
                     "30. How to choose a coin ?",
                     const Lesson30(),
                     scores[30] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "31. Scam Prevention",
+                    const Lesson31(),
+                    scores[31] ?? 0,
                   ),
                   createLesson(
                     context,
