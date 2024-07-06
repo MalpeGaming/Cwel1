@@ -294,6 +294,14 @@ class _Lesson27 extends State<Lesson27> {
                 context,
                 "How many coins mined each year ? Is it inflationary  ? ",
               ),
+              createDivider(context),
+              buildQuizScreen(questionNumber: 0),
+              createDivider(context),
+              buildQuizScreen(questionNumber: 1),
+              createDivider(context),
+              buildQuizScreen(questionNumber: 2),
+              createDivider(context),
+              buildQuizScreen(questionNumber: 3),
               SizedBox(height: size.height / 10),
               Center(
                 child: SizedBox(
@@ -309,8 +317,8 @@ class _Lesson27 extends State<Lesson27> {
                       }
                       print("wynik:");
                       print(score);
-                      saveResult(26, score);
-                      saveResult(10026, questions.length);
+                      saveResult(27, score);
+                      saveResult(10027, questions.length);
 
                       Navigator.pop(context);
                       Navigator.push(
