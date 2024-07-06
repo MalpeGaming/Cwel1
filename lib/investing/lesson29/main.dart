@@ -81,14 +81,20 @@ class _Lesson29 extends State<Lesson29> {
               createDivider(context),
               //SizedBox(height: size.height / 20),
               Text(
-                "When looking for a crypto coin I recommend you go over the following questions and answer each one.",
+                "Today we will have a rather short class.",
+                style: TextStyle(
+                  fontSize: 0.02 * size.height,
+                ),
+              ),
+              SizedBox(height: size.height / 80),
+              Text(
+                "Below are a few websites that are useful when doing an analysis of a coin:",
                 style: TextStyle(
                   fontSize: 0.02 * size.height,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(height: size.height / 80),
-
               hyperlinkPoint(
                 context,
                 "www.coindesk.com → news",
