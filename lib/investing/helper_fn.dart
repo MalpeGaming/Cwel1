@@ -290,7 +290,7 @@ class _Success extends State<Success> {
   Future<void> readMemory() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      for (int i = 0; i <= 30; i++) {
+      for (int i = 0; i <= 35; i++) {
         scores[i] = prefs.getInt('lesson$i')?.toInt();
         scores[10000 + i] = prefs.getInt('lesson${10000 + i}')?.toInt();
 

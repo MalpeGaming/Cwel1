@@ -34,6 +34,7 @@ import 'lesson30/main.dart';
 import 'lesson31/main.dart';
 import 'lesson32/main.dart';
 import 'lesson33/main.dart';
+import 'lesson34/main.dart';
 import 'lesson35/main.dart';
 import '../app_bar.dart';
 
@@ -133,7 +134,7 @@ class _InvestingMenu extends State<InvestingMenu> {
   Future<void> readMemory() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      for (int i = 0; i <= 30; i++) {
+      for (int i = 0; i <= 35; i++) {
         scores[i] = prefs.getInt('lesson$i')?.toInt();
         if (scores[i] != null) {
           sum += scores[i]!;
@@ -409,19 +410,25 @@ class _InvestingMenu extends State<InvestingMenu> {
                     context,
                     "32. Final Knowledge Quiz",
                     const Lesson32(),
-                    scores[12] ?? 0,
+                    scores[32] ?? 0,
                   ),
                   createLesson(
                     context,
                     "33. Harder Quiz",
                     const Lesson33(),
-                    scores[12] ?? 0,
+                    scores[33] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "34. How to stay sane while investing ?",
+                    const Lesson34(),
+                    scores[34] ?? 0,
                   ),
                   createLesson(
                     context,
                     "35. Final Investing Quiz",
                     const Lesson35(),
-                    scores[12] ?? 0,
+                    scores[35] ?? 0,
                   ),
                   SizedBox(height: size.height / 20),
                 ],
