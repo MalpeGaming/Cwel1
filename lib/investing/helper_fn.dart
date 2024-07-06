@@ -156,14 +156,6 @@ Future<void> saveResult(int lessonId, int score) async {
   //print("amogus");
 }
 
-class Success extends StatefulWidget {
-  final Widget route;
-  const Success({required this.route, super.key});
-
-  @override
-  State<Success> createState() => _Success();
-}
-
 Widget subpoint(BuildContext context, String text, String definition) {
   Size size = MediaQuery.of(context).size;
   return Row(
@@ -183,6 +175,33 @@ Widget subpoint(BuildContext context, String text, String definition) {
       SizedBox(
         width: 0.7 * size.width,
         child: keyVocabulary(context, text, definition),
+      ),
+    ],
+  );
+}
+
+Widget point(BuildContext context, String text) {
+  Size size = MediaQuery.of(context).size;
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Padding(
+        padding: EdgeInsets.only(
+          right: 0.05 * size.width,
+        ),
+        child: Icon(
+          Icons.circle,
+          size: 0.02 * size.width,
+        ),
+      ),
+      SizedBox(
+        width: 0.7 * size.width,
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 0.02 * size.height,
+          ),
+        ),
       ),
     ],
   );
@@ -237,25 +256,98 @@ Container createRecipe(
   );
 }
 
+class Success extends StatefulWidget {
+  final Widget route;
+  final int number;
+  final String subject;
+  final int minutes;
+  final int score;
+  final int maxscore;
+
+  const Success(
+    this.number,
+    this.subject,
+    this.minutes,
+    this.score,
+    this.maxscore,
+    this.route, {
+    super.key,
+  });
+  double get percentage => ((maxscore == 0) ? 0 : score / maxscore);
+
+  @override
+  State<Success> createState() => _Success();
+}
+
 class _Success extends State<Success> {
+  late SharedPreferences prefs;
+  List<int?> scores = List<int?>.filled(13000, null);
+  int sum = 0, sum1 = 0;
+  int scoreoverall = 60;
+  int maxscoreoverall = 69;
+  double percentageoverall = 0.87;
+
+  Future<void> readMemory() async {
+    prefs = await SharedPreferences.getInstance();
+    setState(() {
+      for (int i = 0; i <= 26; i++) {
+        scores[i] = prefs.getInt('lesson$i')?.toInt();
+        scores[10000 + i] = prefs.getInt('lesson${10000 + i}')?.toInt();
+
+        if (scores[i] != null) {
+          sum += scores[i]!;
+        }
+        if (scores[10000 + i] != null) {
+          print("amogus");
+          sum1 += scores[10000 + i]!;
+        }
+      }
+      scores[2137] = prefs.getInt('lesson2137')?.toInt();
+      scores[12137] = prefs.getInt('lesson12137')?.toInt();
+
+      if (scores[2137] != null) {
+        sum += scores[2137]!;
+      }
+      if (scores[12137] != null) {
+        sum1 += scores[12137]!;
+      }
+      scoreoverall = sum;
+      maxscoreoverall = sum1;
+      print("ważne");
+      print(scoreoverall);
+      print(maxscoreoverall);
+
+      percentageoverall =
+          ((maxscoreoverall == 0) ? 0 : scoreoverall / maxscoreoverall);
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readMemory();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    //print(widget.minutes.toString());
 
     return Scaffold(
       body: DecoratedBox(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/investing/success_background.gif"),
+            image: const AssetImage("assets/investing/success_background.gif"),
             fit: BoxFit.cover,
-            opacity: 0.4,
+            opacity:
+                ((Theme.of(context).brightness == Brightness.dark) ? 0.3 : 0.4),
           ),
         ),
         child: Align(
           child: Container(
             margin: EdgeInsets.only(
-              left: size.width / 15,
-              right: size.width / 15,
+              left: size.width / 10,
+              right: size.width / 10,
               bottom: size.height / 10,
               top: size.height / 15,
             ),
@@ -272,72 +364,137 @@ class _Success extends State<Success> {
                 ),
                 SizedBox(height: 0.03 * size.height),
                 Text(
-                  "Exercise 1 - Math practice",
+                  "Lesson ${widget.number.toString()}",
                   style: TextStyle(fontSize: 0.025 * size.height),
                 ),
+                Text(
+                  widget.subject,
+                  style: TextStyle(
+                    fontSize: 0.025 * size.height,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 SizedBox(height: 0.04 * size.height),
+
                 RichText(
                   text: TextSpan(
                     style: TextStyle(
-                      fontSize: 0.022 * size.height,
+                      fontSize: 0.025 * size.height,
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
-                    children: const [
+                    children: [
+                      const TextSpan(
+                        text: "Time Taken: ",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      TextSpan(
+                        text: "${widget.minutes.toString()} minutes",
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 0.04 * size.height),
+
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 0.025 * size.height,
+                      color: Theme.of(context).colorScheme.onSecondary,
+                    ),
+                    children: [
+                      const TextSpan(
+                        text: "Points: ",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                       TextSpan(
                         text:
-                            "In this exercises you will complete part of the ",
-                      ),
-                      TextSpan(
-                        text: "SAT Math with CALCULATOR",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      TextSpan(
-                        text: " Part.",
+                            "${widget.score.toString()} / ${widget.maxscore.toString()}",
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 0.015 * size.height),
+                SizedBox(height: 0.005 * size.height),
                 RichText(
                   text: TextSpan(
                     style: TextStyle(
-                      fontSize: 0.022 * size.height,
+                      fontSize: 0.025 * size.height,
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
-                    children: const [
-                      TextSpan(
-                        text: "You will have ",
-                      ),
-                      TextSpan(
-                        text: "350 seconds",
+                    children: [
+                      const TextSpan(
+                        text: "Percentage Score: ",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       TextSpan(
-                        text: ".",
+                        text:
+                            "${(widget.percentage * 100).toStringAsFixed(0)}%",
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 0.015 * size.height),
+                SizedBox(height: 0.01 * size.height),
+                LinearProgressIndicator(
+                  value: widget.percentage,
+                  backgroundColor:
+                      (Theme.of(context).brightness != Brightness.dark)
+                          ? const Color.fromRGBO(135, 136, 226, 1)
+                          : Theme.of(context).colorScheme.primary,
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    (Theme.of(context).brightness != Brightness.dark)
+                        ? const Color.fromRGBO(94, 23, 235, 1)
+                        : const Color(0xFFD4CDF4),
+                  ),
+                  minHeight: 0.025 * size.height,
+                  borderRadius: BorderRadius.circular(21312127),
+                ),
+                SizedBox(height: 0.025 * size.height),
+
                 RichText(
                   text: TextSpan(
                     style: TextStyle(
-                      fontSize: 0.022 * size.height,
+                      fontSize: 0.025 * size.height,
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
-                    children: const [
-                      TextSpan(
-                        text: "When ready click \"",
-                      ),
-                      TextSpan(
-                        text: "CONTINUE\"",
+                    children: [
+                      const TextSpan(
+                        text: "Overall Points: ",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       TextSpan(
-                        text: ".",
+                        text:
+                            "${scoreoverall.toString()} / ${maxscoreoverall.toString()}",
                       ),
                     ],
                   ),
+                ),
+                SizedBox(height: 0.005 * size.height),
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 0.025 * size.height,
+                      color: Theme.of(context).colorScheme.onSecondary,
+                    ),
+                    children: [
+                      const TextSpan(
+                        text: "Percentage Score Overall: ",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      TextSpan(
+                        text:
+                            "${(percentageoverall * 100).toStringAsFixed(0)}%",
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 0.01 * size.height),
+                LinearProgressIndicator(
+                  value: percentageoverall,
+                  backgroundColor: const Color.fromRGBO(135, 136, 226, 1),
+                  valueColor: const AlwaysStoppedAnimation<Color>(
+                    Color.fromRGBO(94, 23, 235, 1),
+                  ),
+                  minHeight: 0.025 * size.height,
+                  borderRadius: BorderRadius.circular(21312127),
                 ),
                 const Spacer(),
 
@@ -347,7 +504,7 @@ class _Success extends State<Success> {
                     width: size.width * 0.75,
                     child: RedirectButton(
                       route: widget.route,
-                      text: 'Continue',
+                      text: 'Next Class',
                       width: size.width,
                     ),
                   ),

@@ -100,7 +100,9 @@ class _Intro extends State<Intro> {
                     int score = 1;
                     print("wynik:");
                     print(score);
-                    saveResult(0, score);
+                    saveResult(2137, score);
+                    saveResult(12137, 1);
+
                     Navigator.push(
                       context,
                       MaterialPageRoute(
