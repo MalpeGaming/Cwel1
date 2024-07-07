@@ -1,3 +1,4 @@
+import 'package:brain_train_app/investing/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:widget_zoom/widget_zoom.dart';
@@ -290,7 +291,7 @@ class _Success extends State<Success> {
   Future<void> readMemory() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      for (int i = 0; i <= 26; i++) {
+      for (int i = 0; i <= 35; i++) {
         scores[i] = prefs.getInt('lesson$i')?.toInt();
         scores[10000 + i] = prefs.getInt('lesson${10000 + i}')?.toInt();
 
@@ -497,18 +498,32 @@ class _Success extends State<Success> {
                   borderRadius: BorderRadius.circular(21312127),
                 ),
                 const Spacer(),
-
-                Center(
-                  child: SizedBox(
-                    height: size.height * 0.05,
-                    width: size.width * 0.75,
-                    child: RedirectButton(
-                      route: widget.route,
-                      text: 'Next Class',
-                      width: size.width,
+                Column(children: [
+                  if (widget.number != 35)
+                    Center(
+                      child: SizedBox(
+                        height: size.height * 0.05,
+                        width: size.width * 0.75,
+                        child: RedirectButton(
+                          route: widget.route,
+                          text: 'Next Class',
+                          width: size.width,
+                        ),
+                      ),
+                    ),
+                  if (widget.number != 35) SizedBox(height: 0.02 * size.height),
+                  Center(
+                    child: SizedBox(
+                      height: size.height * 0.05,
+                      width: size.width * 0.75,
+                      child: RedirectButton(
+                        route: InvestingMenu(),
+                        text: 'Back To Menu',
+                        width: size.width,
+                      ),
                     ),
                   ),
-                ),
+                ]),
                 //SizedBox(height: 0.1 * size.height),
               ],
             ),

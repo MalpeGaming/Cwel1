@@ -67,6 +67,7 @@ class _Lesson35 extends State<Lesson35> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    DateTime beginTime = DateTime.now();
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -81,7 +82,7 @@ class _Lesson35 extends State<Lesson35> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Lesson 33",
+                "Lesson 35",
                 style: TextStyle(
                   fontSize: size.width / 10,
                   fontWeight: FontWeight.bold,
@@ -89,7 +90,7 @@ class _Lesson35 extends State<Lesson35> {
               ),
               SizedBox(height: size.height / 60),
               Text(
-                "Harder Quiz",
+                "Final Investing quiz.",
                 style: TextStyle(
                   fontSize: size.width / 15,
                 ),
@@ -210,12 +211,20 @@ class _Lesson35 extends State<Lesson35> {
                       }
                       print("wynik:");
                       print(score);
-                      saveResult(12, score);
+                      saveResult(35, score);
+                      saveResult(10035, score);
                       Navigator.pop(context);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const InvestingMenu(),
+                          builder: (context) => Success(
+                            35,
+                            "Why Should You Invest? continued...",
+                            DateTime.now().difference(beginTime).inMinutes,
+                            score,
+                            questions.length,
+                            const InvestingMenu(),
+                          ),
                         ),
                       );
                     },

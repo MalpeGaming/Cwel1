@@ -9,7 +9,7 @@ var questions = [
       "How many coins they own",
       "All are correct",
     ],
-    "correctAnswers": 4,
+    "correctAnswer": 4,
   },
   {
     "question":

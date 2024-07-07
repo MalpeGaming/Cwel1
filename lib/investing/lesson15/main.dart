@@ -3,6 +3,7 @@ import 'package:brain_train_app/buttons.dart';
 import '../menu.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
+import 'package:brain_train_app/investing/lesson16/main.dart';
 
 class Lesson15 extends StatefulWidget {
   const Lesson15({super.key});
@@ -67,6 +68,7 @@ class _Lesson15 extends State<Lesson15> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    DateTime beginTime = DateTime.now();
 
     return PopScope(
       canPop: false,
@@ -162,7 +164,14 @@ class _Lesson15 extends State<Lesson15> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const InvestingMenu(),
+                            builder: (context) => Success(
+                              15,
+                              "Why Should You Invest? continued...",
+                              DateTime.now().difference(beginTime).inMinutes,
+                              score,
+                              questions.length,
+                              const Lesson16(),
+                            ),
                           ),
                         );
                       },
