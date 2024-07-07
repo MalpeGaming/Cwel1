@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
 import '../menu.dart';
+import 'package:brain_train_app/investing/lesson32/main.dart';
 
 class Lesson31 extends StatefulWidget {
   const Lesson31({super.key});
@@ -69,6 +70,7 @@ class _Lesson31 extends State<Lesson31> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    DateTime beginTime = DateTime.now();
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -119,35 +121,56 @@ class _Lesson31 extends State<Lesson31> {
                 ),
               ),
               SizedBox(height: size.height / 80),
-              keyVocabulary(context, "Introduction to Wallet Security:",
-                  "Cryptocurrency wallets are digital tools that allow you to store, send, and receive cryptocurrencies like Ethereum. They are crucial for managing your digital assets safely. A fundamental rule in cryptocurrency is never to share your private keys or seed phrases, as they are the only barriers protecting your assets from unauthorized access.",),
+              keyVocabulary(
+                context,
+                "Introduction to Wallet Security:",
+                "Cryptocurrency wallets are digital tools that allow you to store, send, and receive cryptocurrencies like Ethereum. They are crucial for managing your digital assets safely. A fundamental rule in cryptocurrency is never to share your private keys or seed phrases, as they are the only barriers protecting your assets from unauthorized access.",
+              ),
               SizedBox(height: size.height / 80),
-              keyVocabulary(context, "Private Keys and Seed Phrases:",
-                  "The private key is akin to a password for your cryptocurrency wallet. It should be kept secret at all times because anyone with access to it can potentially drain your wallet. Similarly, seed phrases, which are a set of words generated when you create a new wallet, should be kept secure and private. Taking screenshots or storing these phrases online can risk exposure to hackers.",),
+              keyVocabulary(
+                context,
+                "Private Keys and Seed Phrases:",
+                "The private key is akin to a password for your cryptocurrency wallet. It should be kept secret at all times because anyone with access to it can potentially drain your wallet. Similarly, seed phrases, which are a set of words generated when you create a new wallet, should be kept secure and private. Taking screenshots or storing these phrases online can risk exposure to hackers.",
+              ),
               buildQuizScreen(questionNumber: 0),
               createDivider(context),
-              keyVocabulary(context, "Using Hardware Wallets:",
-                  "For enhanced security, using a hardware wallet is recommended. Hardware wallets store your private keys offline, significantly reducing the risk of hacking. Popular options include Ledger and Trezor. These devices ensure that your private key never touches the internet and remains secure even if your computer is compromised.",),
+              keyVocabulary(
+                context,
+                "Using Hardware Wallets:",
+                "For enhanced security, using a hardware wallet is recommended. Hardware wallets store your private keys offline, significantly reducing the risk of hacking. Popular options include Ledger and Trezor. These devices ensure that your private key never touches the internet and remains secure even if your computer is compromised.",
+              ),
               SizedBox(height: size.height / 80),
               buildQuizScreen(questionNumber: 1),
               createDivider(context),
-              keyVocabulary(context, "Double-Checking Transactions:",
-                  "Always verify the recipient's address before sending cryptocurrencies, as transactions on the blockchain are irreversible. A mistake in entering the address could lead to permanent loss of funds. Additionally, setting spending limits when interacting with smart contracts can prevent losing all your funds due to a buggy or malicious contract.",),
+              keyVocabulary(
+                context,
+                "Double-Checking Transactions:",
+                "Always verify the recipient's address before sending cryptocurrencies, as transactions on the blockchain are irreversible. A mistake in entering the address could lead to permanent loss of funds. Additionally, setting spending limits when interacting with smart contracts can prevent losing all your funds due to a buggy or malicious contract.",
+              ),
               SizedBox(height: size.height / 80),
               buildQuizScreen(questionNumber: 2),
               createDivider(context),
-              keyVocabulary(context, "Recognizing Common Scams:",
-                  "Scammers often use sophisticated tactics to trick users. Common scams include phishing attempts, where users are lured to malicious sites that mimic legitimate ones, and giveaway scams, which promise doubled returns on sent funds but result in loss. Always be skeptical, verify information, and remember that genuine companies will never ask for your private keys or seed phrases.",),
+              keyVocabulary(
+                context,
+                "Recognizing Common Scams:",
+                "Scammers often use sophisticated tactics to trick users. Common scams include phishing attempts, where users are lured to malicious sites that mimic legitimate ones, and giveaway scams, which promise doubled returns on sent funds but result in loss. Always be skeptical, verify information, and remember that genuine companies will never ask for your private keys or seed phrases.",
+              ),
               SizedBox(height: size.height / 80),
               buildQuizScreen(questionNumber: 3),
               createDivider(context),
-              keyVocabulary(context, "Enhancing Security with Smart Practices:",
-                  "Using strong, unique passwords and enabling two-factor authentication (2FA) adds an extra layer of security to your online accounts, including your cryptocurrency wallets. Avoid using SMS-based 2FA due to vulnerabilities associated with SIM jacking, and consider using a security key for the highest security.",),
+              keyVocabulary(
+                context,
+                "Enhancing Security with Smart Practices:",
+                "Using strong, unique passwords and enabling two-factor authentication (2FA) adds an extra layer of security to your online accounts, including your cryptocurrency wallets. Avoid using SMS-based 2FA due to vulnerabilities associated with SIM jacking, and consider using a security key for the highest security.",
+              ),
               SizedBox(height: size.height / 80),
               buildQuizScreen(questionNumber: 4),
               createDivider(context),
-              keyVocabulary(context, "Conclusion:",
-                  "Maintaining strict security practices is essential in the world of cryptocurrencies. By understanding how to properly secure wallets, verify transactions, and recognize scams, users can protect their digital assets effectively. Always stay informed and cautious to navigate the crypto space safely.",),
+              keyVocabulary(
+                context,
+                "Conclusion:",
+                "Maintaining strict security practices is essential in the world of cryptocurrencies. By understanding how to properly secure wallets, verify transactions, and recognize scams, users can protect their digital assets effectively. Always stay informed and cautious to navigate the crypto space safely.",
+              ),
               RichText(
                 text: TextSpan(
                   style: Theme.of(context)
@@ -205,7 +228,14 @@ class _Lesson31 extends State<Lesson31> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const InvestingMenu(),
+                          builder: (context) => Success(
+                            31,
+                            "Why Should You Invest? continued...",
+                            DateTime.now().difference(beginTime).inMinutes,
+                            score,
+                            questions.length,
+                            const Lesson32(),
+                          ),
                         ),
                       );
                     },
