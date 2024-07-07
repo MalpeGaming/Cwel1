@@ -218,7 +218,7 @@ class _InvestingMenu extends State<InvestingMenu> {
                     context,
                     "Intro",
                     const Intro(),
-                    scores[0] ?? 0,
+                    scores[2137] ?? 0,
                   ),
                   createLesson(
                     context,
