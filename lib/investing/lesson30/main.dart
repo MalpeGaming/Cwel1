@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
-import 'package:brain_train_app/investing/lesson4/main.dart';
+import 'package:brain_train_app/investing/lesson31/main.dart';
 
-class Lesson3 extends StatefulWidget {
-  const Lesson3({super.key});
+class Lesson30 extends StatefulWidget {
+  const Lesson30({super.key});
 
   @override
-  State<Lesson3> createState() => _Lesson3();
+  State<Lesson30> createState() => _Lesson30();
 }
 
-class _Lesson3 extends State<Lesson3> {
+class _Lesson30 extends State<Lesson30> {
   int selectedOption = -1;
 
   Widget buildQuizScreen({
@@ -84,7 +84,7 @@ class _Lesson3 extends State<Lesson3> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Lesson 3",
+                  "Lesson 30",
                   style: TextStyle(
                     fontSize: size.width / 10,
                     fontWeight: FontWeight.bold,
@@ -92,113 +92,117 @@ class _Lesson3 extends State<Lesson3> {
                 ),
                 SizedBox(height: size.height / 60),
                 Text(
-                  "Is investing really gambling?",
+                  "How to choose a coin ?",
                   style: TextStyle(
                     fontSize: size.width / 15,
                   ),
                 ),
-                SizedBox(height: size.height / 60),
-                Text(
-                  "One of the reactions you will often receive, when telling others (especially the older generations) you would like to start investing is that you are “acting stupid, just gambling, and going to lose all your money”. Well, let’s now analyse these claims and see if they hold and truth.",
-                  style: TextStyle(
-                    fontSize: size.height / 50,
-                  ),
-                ),
                 createDivider(context),
                 Text(
-                  "Key vocabulary:",
+                  "How to Choose a Crypto Coin: A Step-by-Step Guide",
                   style: TextStyle(
-                    fontSize: size.height * 0.02,
+                    fontSize: 0.02 * size.height,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: size.height / 60),
-                keyVocabulary(
-                  context,
-                  "Investing -",
-                  "putting (money) into financial schemes, shares, property, or a commercial venture with the expectation of achieving a profit (Oxford Dictionary)",
-                ),
-                SizedBox(height: size.height / 50),
-                keyVocabulary(
-                  context,
-                  "Inflation -",
-                  "the increase of prices over time",
-                ),
-                SizedBox(height: size.height / 30),
-                Text(
-                  "Money, essentially worthless alone, gains value as a medium of exchange for goods and services. A \$10 bill, is worth \$10 dollars because we can buy with it sth that is 10 times more valuable than sth for \$1. Governments regulate the supply of money, often through printing more, but this doesn't create wealth. Increasing the money supply without a corresponding rise in production leads to inflation. This happens because more money chases the same goods and services. For instance, if the government doubles the money supply without boosting production, prices roughly double too. What are the consequences ? Our savings lose value over time, as we can buy less and less with it.",
-                  style: TextStyle(
-                    fontSize: 0.020 * size.height,
-                    color: Theme.of(context).colorScheme.onSecondary,
-                  ),
-                ),
-                createDivider(context),
-                buildQuizScreen(
-                  questionNumber: 0,
-                ),
-                SizedBox(height: size.height / 10),
-                buildQuizScreen(
-                  questionNumber: 1,
-                ),
-                SizedBox(height: size.height / 10),
-                buildQuizScreen(
-                  questionNumber: 2,
-                ),
-                createDivider(context),
-                Text(
-                  "If you still don’t believe in the power of investing then here are three examples that should convince you in the safety of investing:",
-                  style: TextStyle(
-                    fontSize: 0.02 * size.height,
-                  ),
-                ),
-                SizedBox(height: size.height / 30),
-                Text(
-                  "1. If you were to buy one S&P 500 ETF in 1928 for 17.5 \$ you would have 3 951 \$ equivalent to 235 \$ today.",
-                  style: TextStyle(
-                    fontSize: 0.02 * size.height,
-                  ),
-                ),
-                SizedBox(height: size.height / 30),
-                Text(
-                  "2. If you  bought one share of MBG.DE 10 years ago for 40 euros, you would now have 150 euros. An increase of 350%. On the other hand, if you had kept the money under the mattress, its value would have decreased by 38%.",
-                  style: TextStyle(
-                    fontSize: 0.02 * size.height,
-                  ),
-                ),
-                SizedBox(height: size.height / 30),
-                Text(
-                  "3. The average stock market return is about 10% per year for nearly the last century, as measured by the S&P 500 index - meaning that it consistently grows.",
-                  style: TextStyle(
-                    fontSize: 0.02 * size.height,
-                  ),
-                ),
-                createDivider(context),
-                Text(
-                  "Alright so now we are closing the first section of our course, and thus here is a short summary quiz for you:",
-                  style: TextStyle(
-                    fontSize: 0.02 * size.height,
-                  ),
-                ),
+                //createDivider(context),
+
                 SizedBox(height: size.height / 20),
+
                 Text(
-                  "Final Quiz:",
+                  "START with the FA (Fundamental Analysis) - answer all the questions give in the 27th lesson.",
                   style: TextStyle(
-                    fontSize: size.width / 20,
+                    fontSize: 0.03 * size.height,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(height: size.height / 40),
+                keyVocabulary(
+                  context,
+                  "Step 1: Define Your Investment Goals",
+                  "Clarify your purpose for investing in cryptocurrencies. Are you seeking long-term growth, short-term gains, or diversification? Understanding your goals will guide you in selecting coins that fit your investment strategy and risk tolerance.",
+                ),
+                SizedBox(height: size.height / 80),
+                buildQuizScreen(
+                  questionNumber: 0,
+                ),
+                SizedBox(height: size.height / 40),
+                keyVocabulary(
+                  context,
+                  "Step 2: Research the Technology and Use Case",
+                  "Understand the technology behind the coin and the problem it aims to solve. Is the coin designed for payments, smart contracts, or something else? A clear use case helps you gauge the coin's long-term potential.",
+                ),
+                SizedBox(height: size.height / 80),
+                buildQuizScreen(
+                  questionNumber: 1,
+                ),
+                SizedBox(height: size.height / 40),
+                keyVocabulary(
+                  context,
+                  "Step 3: Evaluate the Team and Community",
+                  "Look into the team behind the project. Are they experienced and transparent? Also, assess the community supporting the coin, as a strong community indicates engagement and potential adoption.",
+                ),
+                SizedBox(height: size.height / 80),
+                buildQuizScreen(
+                  questionNumber: 2,
+                ),
+                SizedBox(height: size.height / 40),
+                keyVocabulary(
+                  context,
+                  "Step 4: Analyze the Whitepaper",
+                  "A cryptocurrency's whitepaper provides in-depth details about the project, including its technology, roadmap, and vision. Analyzing the whitepaper helps you understand the project's goals and the team's ability to execute them.",
+                ),
+                SizedBox(height: size.height / 80),
+                buildQuizScreen(
+                  questionNumber: 3,
+                ),
+                SizedBox(height: size.height / 40),
+                keyVocabulary(
+                  context,
+                  "Step 5: Assess Market Liquidity and Volume",
+                  "Liquidity refers to how easily a coin can be bought or sold without affecting its price. Coins with high trading volume and liquidity are easier to trade, reducing the risk of significant price changes during transactions.",
+                ),
+                SizedBox(height: size.height / 80),
                 buildQuizScreen(
                   questionNumber: 4,
                 ),
-                SizedBox(height: size.height / 10),
+                createDivider(context),
+                Text(
+                  "Do the TA (technical Analysis) and choose a price for which you would like to buy the coin.",
+                  style: TextStyle(
+                    fontSize: 0.03 * size.height,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: size.height / 40),
+                keyVocabulary(
+                  context,
+                  "Step 6: Evaluate Risk and Volatility",
+                  "Crypto markets are known for their volatility. Assessing a coin's historical price movements helps you understand its risk profile. High volatility might offer higher returns but also brings increased risk.",
+                ),
+                SizedBox(height: size.height / 80),
                 buildQuizScreen(
                   questionNumber: 5,
                 ),
-                SizedBox(height: size.height / 10),
-                buildQuizScreen(
-                  questionNumber: 6,
+                SizedBox(height: size.height / 40),
+                keyVocabulary(
+                  context,
+                  "Step 7: Check Regulatory Compliance",
+                  "Ensure the coin complies with relevant regulations to avoid potential legal issues. This is crucial for exchanges, privacy coins, and projects that interact with traditional financial systems..",
                 ),
+                SizedBox(height: size.height / 80),
+                buildQuizScreen(questionNumber: 6),
+                SizedBox(height: size.height / 40),
+                keyVocabulary(
+                  context,
+                  "Step 8: Diversify Your Portfolio",
+                  "Avoid putting all your investment in one coin or category. Diversifying across different types of cryptocurrencies and sectors helps manage risk and reduces the impact of volatility on your portfolio.",
+                ),
+                SizedBox(height: size.height / 80),
+                buildQuizScreen(
+                  questionNumber: 7,
+                ),
+                createDivider(context),
                 SizedBox(height: size.height / 20),
                 Center(
                   child: SizedBox(
@@ -216,20 +220,20 @@ class _Lesson3 extends State<Lesson3> {
                         }
                         print("wynik:");
                         print(score);
-                        saveResult(3, score);
-                        saveResult(10003, questions.length);
+                        saveResult(30, score);
+                        saveResult(10030, questions.length);
 
                         Navigator.pop(context);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => Success(
-                              3,
-                              "Is investing really gambling?",
+                              30,
+                              "How to choose a coin ?",
                               DateTime.now().difference(beginTime).inMinutes,
                               score,
                               questions.length,
-                              const Lesson4(),
+                              const Lesson31(),
                             ),
                           ),
                         );

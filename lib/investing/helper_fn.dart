@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:widget_zoom/widget_zoom.dart';
 import '../buttons.dart';
+import '../app_bar.dart';
 
 Widget keyVocabulary(BuildContext context, String text, String definition) {
   Size size = MediaQuery.of(context).size;
@@ -290,7 +291,7 @@ class _Success extends State<Success> {
   Future<void> readMemory() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      for (int i = 0; i <= 26; i++) {
+      for (int i = 0; i <= 35; i++) {
         scores[i] = prefs.getInt('lesson$i')?.toInt();
         scores[10000 + i] = prefs.getInt('lesson${10000 + i}')?.toInt();
 
@@ -343,176 +344,186 @@ class _Success extends State<Success> {
                 ((Theme.of(context).brightness == Brightness.dark) ? 0.3 : 0.4),
           ),
         ),
-        child: Align(
-          child: Container(
-            margin: EdgeInsets.only(
-              left: size.width / 10,
-              right: size.width / 10,
-              bottom: size.height / 10,
-              top: size.height / 15,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 0.05 * size.height),
-                Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "CONGRATS",
-                    style: TextStyle(fontSize: 0.05 * size.height),
+        child: Column(
+          children: [
+            appBar(context, ""),
+            Container(
+              margin: EdgeInsets.only(
+                left: size.width / 10,
+                right: size.width / 10,
+                bottom: size.height / 10,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  //appBar(context, "Success"),
+                  SizedBox(height: 0.03 * size.height),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "CONGRATS",
+                      style: TextStyle(fontSize: 0.1 * size.width),
+                    ),
                   ),
-                ),
-                SizedBox(height: 0.03 * size.height),
-                Text(
-                  "Lesson ${widget.number.toString()}",
-                  style: TextStyle(fontSize: 0.025 * size.height),
-                ),
-                Text(
-                  widget.subject,
-                  style: TextStyle(
-                    fontSize: 0.025 * size.height,
-                    fontWeight: FontWeight.bold,
+                  SizedBox(height: 0.03 * size.height),
+                  Text(
+                    "Lesson ${widget.number.toString()}",
+                    style: TextStyle(fontSize: 0.027 * size.height),
                   ),
-                ),
-                SizedBox(height: 0.04 * size.height),
+                  Text(
+                    widget.subject,
+                    style: TextStyle(
+                      fontSize: 0.025 * size.height,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 0.04 * size.height),
 
-                RichText(
-                  text: TextSpan(
-                    style: TextStyle(
-                      fontSize: 0.025 * size.height,
-                      color: Theme.of(context).colorScheme.onSecondary,
+                  RichText(
+                    text: TextSpan(
+                      style: TextStyle(
+                        fontSize: 0.025 * size.height,
+                        color: Theme.of(context).colorScheme.onSecondary,
+                      ),
+                      children: [
+                        const TextSpan(
+                          text: "Time Taken: ",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        TextSpan(
+                          text: "${widget.minutes.toString()} minutes",
+                        ),
+                      ],
                     ),
-                    children: [
-                      const TextSpan(
-                        text: "Time Taken: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      TextSpan(
-                        text: "${widget.minutes.toString()} minutes",
-                      ),
-                    ],
                   ),
-                ),
-                SizedBox(height: 0.04 * size.height),
+                  SizedBox(height: 0.04 * size.height),
 
-                RichText(
-                  text: TextSpan(
-                    style: TextStyle(
-                      fontSize: 0.025 * size.height,
-                      color: Theme.of(context).colorScheme.onSecondary,
+                  RichText(
+                    text: TextSpan(
+                      style: TextStyle(
+                        fontSize: 0.025 * size.height,
+                        color: Theme.of(context).colorScheme.onSecondary,
+                      ),
+                      children: [
+                        const TextSpan(
+                          text: "Points: ",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        TextSpan(
+                          text:
+                              "${widget.score.toString()} / ${widget.maxscore.toString()}",
+                        ),
+                      ],
                     ),
-                    children: [
-                      const TextSpan(
-                        text: "Points: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      TextSpan(
-                        text:
-                            "${widget.score.toString()} / ${widget.maxscore.toString()}",
-                      ),
-                    ],
                   ),
-                ),
-                SizedBox(height: 0.005 * size.height),
-                RichText(
-                  text: TextSpan(
-                    style: TextStyle(
-                      fontSize: 0.025 * size.height,
-                      color: Theme.of(context).colorScheme.onSecondary,
+                  SizedBox(height: 0.005 * size.height),
+                  RichText(
+                    text: TextSpan(
+                      style: TextStyle(
+                        fontSize: 0.025 * size.height,
+                        color: Theme.of(context).colorScheme.onSecondary,
+                      ),
+                      children: [
+                        const TextSpan(
+                          text: "Percentage Score: ",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        TextSpan(
+                          text:
+                              "${(widget.percentage * 100).toStringAsFixed(0)}%",
+                        ),
+                      ],
                     ),
-                    children: [
-                      const TextSpan(
-                        text: "Percentage Score: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      TextSpan(
-                        text:
-                            "${(widget.percentage * 100).toStringAsFixed(0)}%",
-                      ),
-                    ],
                   ),
-                ),
-                SizedBox(height: 0.01 * size.height),
-                LinearProgressIndicator(
-                  value: widget.percentage,
-                  backgroundColor:
+                  SizedBox(height: 0.01 * size.height),
+                  LinearProgressIndicator(
+                    value: widget.percentage,
+                    backgroundColor:
+                        (Theme.of(context).brightness != Brightness.dark)
+                            ? const Color.fromRGBO(135, 136, 226, 1)
+                            : const Color.fromARGB(255, 174, 140, 180),
+                    valueColor: AlwaysStoppedAnimation<Color>(
                       (Theme.of(context).brightness != Brightness.dark)
-                          ? const Color.fromRGBO(135, 136, 226, 1)
-                          : Theme.of(context).colorScheme.primary,
-                  valueColor: AlwaysStoppedAnimation<Color>(
-                    (Theme.of(context).brightness != Brightness.dark)
-                        ? const Color.fromRGBO(94, 23, 235, 1)
-                        : const Color(0xFFD4CDF4),
+                          ? const Color.fromRGBO(94, 23, 235, 1)
+                          : Theme.of(context).colorScheme.onPrimary,
+                    ),
+                    minHeight: 0.025 * size.height,
+                    borderRadius: BorderRadius.circular(21312127),
                   ),
-                  minHeight: 0.025 * size.height,
-                  borderRadius: BorderRadius.circular(21312127),
-                ),
-                SizedBox(height: 0.025 * size.height),
+                  SizedBox(height: 0.025 * size.height),
 
-                RichText(
-                  text: TextSpan(
-                    style: TextStyle(
-                      fontSize: 0.025 * size.height,
-                      color: Theme.of(context).colorScheme.onSecondary,
+                  RichText(
+                    text: TextSpan(
+                      style: TextStyle(
+                        fontSize: 0.025 * size.height,
+                        color: Theme.of(context).colorScheme.onSecondary,
+                      ),
+                      children: [
+                        const TextSpan(
+                          text: "Overall Points: ",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        TextSpan(
+                          text:
+                              "${scoreoverall.toString()} / ${maxscoreoverall.toString()}",
+                        ),
+                      ],
                     ),
-                    children: [
-                      const TextSpan(
-                        text: "Overall Points: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      TextSpan(
-                        text:
-                            "${scoreoverall.toString()} / ${maxscoreoverall.toString()}",
-                      ),
-                    ],
                   ),
-                ),
-                SizedBox(height: 0.005 * size.height),
-                RichText(
-                  text: TextSpan(
-                    style: TextStyle(
-                      fontSize: 0.025 * size.height,
-                      color: Theme.of(context).colorScheme.onSecondary,
+                  SizedBox(height: 0.005 * size.height),
+                  RichText(
+                    text: TextSpan(
+                      style: TextStyle(
+                        fontSize: 0.025 * size.height,
+                        color: Theme.of(context).colorScheme.onSecondary,
+                      ),
+                      children: [
+                        const TextSpan(
+                          text: "Percentage Score Overall: ",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        TextSpan(
+                          text:
+                              "${(percentageoverall * 100).toStringAsFixed(0)}%",
+                        ),
+                      ],
                     ),
-                    children: [
-                      const TextSpan(
-                        text: "Percentage Score Overall: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      TextSpan(
-                        text:
-                            "${(percentageoverall * 100).toStringAsFixed(0)}%",
-                      ),
-                    ],
                   ),
-                ),
-                SizedBox(height: 0.01 * size.height),
-                LinearProgressIndicator(
-                  value: percentageoverall,
-                  backgroundColor: const Color.fromRGBO(135, 136, 226, 1),
-                  valueColor: const AlwaysStoppedAnimation<Color>(
-                    Color.fromRGBO(94, 23, 235, 1),
+                  SizedBox(height: 0.01 * size.height),
+                  LinearProgressIndicator(
+                    value: percentageoverall,
+                    backgroundColor:
+                        (Theme.of(context).brightness != Brightness.dark)
+                            ? const Color.fromRGBO(135, 136, 226, 1)
+                            : const Color.fromARGB(255, 174, 140, 180),
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      (Theme.of(context).brightness != Brightness.dark)
+                          ? const Color.fromRGBO(94, 23, 235, 1)
+                          : Theme.of(context).colorScheme.onPrimary,
+                    ),
+                    minHeight: 0.025 * size.height,
+                    borderRadius: BorderRadius.circular(21312127),
                   ),
-                  minHeight: 0.025 * size.height,
-                  borderRadius: BorderRadius.circular(21312127),
-                ),
-                const Spacer(),
+                  //const Spacer(),
+                  SizedBox(height: size.height * 0.1),
 
-                Center(
-                  child: SizedBox(
-                    height: size.height * 0.05,
-                    width: size.width * 0.75,
-                    child: RedirectButton(
-                      route: widget.route,
-                      text: 'Next Class',
-                      width: size.width,
-                    ),
-                  ),
-                ),
-                //SizedBox(height: 0.1 * size.height),
-              ],
+                  //SizedBox(height: 0.1 * size.height),
+                ],
+              ),
             ),
-          ),
+            if (widget.number != 35)
+              Center(
+                child: SizedBox(
+                  height: size.height * 0.05,
+                  width: size.width * 0.75,
+                  child: RedirectButton(
+                    route: widget.route,
+                    text: 'Next Class',
+                    width: size.width,
+                  ),
+                ),
+              ),
+          ],
         ),
       ),
     );

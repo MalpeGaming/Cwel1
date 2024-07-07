@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'main.dart';
 
@@ -6,7 +5,7 @@ AppBar appBar(BuildContext context, String title, {bool canReturn = true}) {
   Size size = MediaQuery.of(context).size;
   return AppBar(
     surfaceTintColor: Theme.of(context).colorScheme.background,
-    backgroundColor: Theme.of(context).colorScheme.background,
+    backgroundColor: Theme.of(context).colorScheme.background.withOpacity(0),
     leading: canReturn
         ? IconButton(
             icon: const Icon(Icons.close),

@@ -67,164 +67,177 @@ class _Lesson35 extends State<Lesson35> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    DateTime beginTime = DateTime.now();
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          margin: EdgeInsets.only(
-            left: size.width / 10,
-            right: size.width / 10,
-            top: size.height / 15,
-            bottom: size.height / 20,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Lesson 33",
-                style: TextStyle(
-                  fontSize: size.width / 10,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: size.height / 60),
-              Text(
-                "Harder Quiz",
-                style: TextStyle(
-                  fontSize: size.width / 15,
-                ),
-              ),
-              SizedBox(height: size.height / 20),
-              Text(
-                "Certainly! Here is a 20-question multiple-choice quiz based on the lessons you provided:",
-                style: TextStyle(
-                  fontSize: size.height / 50,
-                ),
-              ),
-              createDivider(context),
-              Text(
-                "Knowledge-Based Questions:",
-                style: TextStyle(
-                  fontSize: size.height / 40,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 0),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 1),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 2),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 3),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 4),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 5),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 6),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 7),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 8),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 9),
-              createDivider(context),
-              Text(
-                "Calculation Questions",
-                style: TextStyle(
-                  fontSize: size.height / 40,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 10),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 11),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 12),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 13),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 14),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 15),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 16),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 17),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 18),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 19),
-              createDivider(context),
-              Text(
-                "Analysis Questions",
-                style: TextStyle(
-                  fontSize: size.height / 40,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 20),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 21),
-              createDivider(context),
-              Text(
-                "Here's a multiple-choice quiz about investment analysis, designed to test your knowledge in evaluating investments in stocks, bonds, ETFs, and cryptocurrencies.",
-                style: TextStyle(
-                  fontSize: size.height / 50,
-                ),
-              ),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 21),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 22),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 23),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 24),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 25),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 26),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 27),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 28),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(questionNumber: 29),
-              SizedBox(height: size.height / 10),
-              Center(
-                child: SizedBox(
-                  height: size.height * 0.05,
-                  width: size.width * 0.75,
-                  child: RedirectButton(
-                    //route: const Lesson2(),
-                    onClick: () {
-                      int score = 0;
-                      for (int i = 0; i < usersAnswers.length; i++) {
-                        if (usersAnswers[i] == questions[i]["correctAnswer"]) {
-                          score++;
-                        }
-                      }
-                      print("wynik:");
-                      print(score);
-                      saveResult(12, score);
-                      Navigator.pop(context);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const InvestingMenu(),
-                        ),
-                      );
-                    },
-                    text: 'Continue',
-                    width: size.width,
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Container(
+            margin: EdgeInsets.only(
+              left: size.width / 10,
+              right: size.width / 10,
+              top: size.height / 15,
+              bottom: size.height / 20,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Lesson 35",
+                  style: TextStyle(
+                    fontSize: size.width / 10,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-            ],
+                SizedBox(height: size.height / 60),
+                Text(
+                  "Final Investing quiz.",
+                  style: TextStyle(
+                    fontSize: size.width / 15,
+                  ),
+                ),
+                SizedBox(height: size.height / 20),
+                Text(
+                  "Certainly! Here is a 20-question multiple-choice quiz based on the lessons you provided:",
+                  style: TextStyle(
+                    fontSize: size.height / 50,
+                  ),
+                ),
+                createDivider(context),
+                Text(
+                  "Knowledge-Based Questions:",
+                  style: TextStyle(
+                    fontSize: size.height / 40,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 0),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 1),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 2),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 3),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 4),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 5),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 6),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 7),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 8),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 9),
+                createDivider(context),
+                Text(
+                  "Calculation Questions",
+                  style: TextStyle(
+                    fontSize: size.height / 40,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 10),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 11),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 12),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 13),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 14),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 15),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 16),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 17),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 18),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 19),
+                createDivider(context),
+                Text(
+                  "Analysis Questions",
+                  style: TextStyle(
+                    fontSize: size.height / 40,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 20),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 21),
+                createDivider(context),
+                Text(
+                  "Here's a multiple-choice quiz about investment analysis, designed to test your knowledge in evaluating investments in stocks, bonds, ETFs, and cryptocurrencies.",
+                  style: TextStyle(
+                    fontSize: size.height / 50,
+                  ),
+                ),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 21),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 22),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 23),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 24),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 25),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 26),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 27),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 28),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(questionNumber: 29),
+                SizedBox(height: size.height / 10),
+                Center(
+                  child: SizedBox(
+                    height: size.height * 0.05,
+                    width: size.width * 0.75,
+                    child: RedirectButton(
+                      //route: const Lesson2(),
+                      onClick: () {
+                        int score = 0;
+                        for (int i = 0; i < usersAnswers.length; i++) {
+                          if (usersAnswers[i] ==
+                              questions[i]["correctAnswer"]) {
+                            score++;
+                          }
+                        }
+                        print("wynik:");
+                        print(score);
+                        saveResult(35, score);
+                        saveResult(10035, score);
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Success(
+                              35,
+                              "Final Investing quiz.",
+                              DateTime.now().difference(beginTime).inMinutes,
+                              score,
+                              questions.length,
+                              const InvestingMenu(),
+                            ),
+                          ),
+                        );
+                      },
+                      text: 'Continue',
+                      width: size.width,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

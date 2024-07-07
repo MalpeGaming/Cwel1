@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
-import '../menu.dart';
+import 'package:brain_train_app/investing/lesson27/main.dart';
 
 class Lesson26 extends StatefulWidget {
   const Lesson26({super.key});
@@ -67,136 +67,148 @@ class _Lesson26 extends State<Lesson26> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    DateTime beginTime = DateTime.now();
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          margin: EdgeInsets.only(
-            left: size.width / 10,
-            right: size.width / 10,
-            top: size.height / 15,
-            bottom: size.height / 20,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Lesson 26",
-                style: TextStyle(
-                  fontSize: size.width / 10,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: size.height / 60),
-              Text(
-                "Financial Metrics Of crypto",
-                style: TextStyle(
-                  fontSize: size.width / 15,
-                ),
-              ),
-              SizedBox(height: size.height / 20),
-              keyVocabulary(
-                context,
-                "Market Capitalization:",
-                "Market capitalization, or market cap, is the total value of all coins or tokens in circulation for a specific cryptocurrency. It's calculated by multiplying the current price per coin by the total number of coins in circulation. Market cap is used to measure a cryptocurrency’s size and market presence.",
-              ),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(
-                questionNumber: 0,
-              ),
-              createDivider(context),
-              keyVocabulary(
-                context,
-                "Volume:",
-                "Volume measures the total number of coins or tokens traded in a specific period, usually within 24 hours. A high trading volume suggests strong market interest and liquidity, while low volume can indicate low interest and liquidity.",
-              ),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(
-                questionNumber: 1,
-              ),
-              createDivider(context),
-              keyVocabulary(
-                context,
-                "Circulating Supply:",
-                "Circulating supply refers to the total number of cryptocurrency units that are currently available and circulating in the market. It excludes coins that have been burned, locked, or are otherwise unavailable for trading.",
-              ),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(
-                questionNumber: 2,
-              ),
-              createDivider(context),
-              keyVocabulary(
-                context,
-                "Liquidity:",
-                "Liquidity refers to how easily an asset can be converted into cash without significantly affecting its price. In cryptocurrencies, liquidity is essential for trading and price stability, with more liquid assets being easier to buy or sell quickly.",
-              ),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(
-                questionNumber: 3,
-              ),
-              createDivider(context),
-              keyVocabulary(
-                context,
-                "Fully Diluted Valuation:",
-                "Fully diluted valuation (FDV) represents the potential market capitalization of a cryptocurrency assuming all possible tokens or coins are in circulation. This metric is calculated by multiplying the total supply (maximum supply) by the current price per coin. FDV provides an estimate of the total potential value of a cryptocurrency if all its tokens are fully issued and circulating.",
-              ),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(
-                questionNumber: 4,
-              ),
-              createDivider(context),
-              keyVocabulary(
-                context,
-                "Total Supply:",
-                "Total supply is the number of coins or tokens that exist and are either in circulation or locked/unavailable for some reason. It includes coins that are currently locked in smart contracts, held by the project team for vesting, or otherwise restricted but excludes coins that have been burned or permanently removed from circulation.",
-              ),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(
-                questionNumber: 5,
-              ),
-              createDivider(context),
-              keyVocabulary(
-                context,
-                "Maximum Supply:",
-                "Maximum supply is the total number of coins or tokens that will ever be created for a specific cryptocurrency. It is a fixed limit set by the cryptocurrency’s code or protocol and cannot be exceeded. For example, Bitcoin has a maximum supply of 21 million coins.",
-              ),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(
-                questionNumber: 6,
-              ),
-              SizedBox(height: size.height / 10),
-              Center(
-                child: SizedBox(
-                  height: size.height * 0.05,
-                  width: size.width * 0.75,
-                  child: RedirectButton(
-                    //route: const Lesson2(),
-                    onClick: () {
-                      int score = 0;
-                      for (int i = 0; i < usersAnswers.length; i++) {
-                        if (usersAnswers[i] == questions[i]["correctAnswer"]) {
-                          score++;
-                        }
-                      }
-                      print("wynik:");
-                      print(score);
-                      saveResult(26, score);
-                      saveResult(10026, questions.length);
-
-                      Navigator.pop(context);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const InvestingMenu(),
-                        ),
-                      );
-                    },
-                    text: 'Continue',
-                    width: size.width,
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Container(
+            margin: EdgeInsets.only(
+              left: size.width / 10,
+              right: size.width / 10,
+              top: size.height / 15,
+              bottom: size.height / 20,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Lesson 26",
+                  style: TextStyle(
+                    fontSize: size.width / 10,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-            ],
+                SizedBox(height: size.height / 60),
+                Text(
+                  "Financial Metrics Of crypto",
+                  style: TextStyle(
+                    fontSize: size.width / 15,
+                  ),
+                ),
+                SizedBox(height: size.height / 20),
+                keyVocabulary(
+                  context,
+                  "Market Capitalization:",
+                  "Market capitalization, or market cap, is the total value of all coins or tokens in circulation for a specific cryptocurrency. It's calculated by multiplying the current price per coin by the total number of coins in circulation. Market cap is used to measure a cryptocurrency’s size and market presence.",
+                ),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(
+                  questionNumber: 0,
+                ),
+                createDivider(context),
+                keyVocabulary(
+                  context,
+                  "Volume:",
+                  "Volume measures the total number of coins or tokens traded in a specific period, usually within 24 hours. A high trading volume suggests strong market interest and liquidity, while low volume can indicate low interest and liquidity.",
+                ),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(
+                  questionNumber: 1,
+                ),
+                createDivider(context),
+                keyVocabulary(
+                  context,
+                  "Circulating Supply:",
+                  "Circulating supply refers to the total number of cryptocurrency units that are currently available and circulating in the market. It excludes coins that have been burned, locked, or are otherwise unavailable for trading.",
+                ),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(
+                  questionNumber: 2,
+                ),
+                createDivider(context),
+                keyVocabulary(
+                  context,
+                  "Liquidity:",
+                  "Liquidity refers to how easily an asset can be converted into cash without significantly affecting its price. In cryptocurrencies, liquidity is essential for trading and price stability, with more liquid assets being easier to buy or sell quickly.",
+                ),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(
+                  questionNumber: 3,
+                ),
+                createDivider(context),
+                keyVocabulary(
+                  context,
+                  "Fully Diluted Valuation:",
+                  "Fully diluted valuation (FDV) represents the potential market capitalization of a cryptocurrency assuming all possible tokens or coins are in circulation. This metric is calculated by multiplying the total supply (maximum supply) by the current price per coin. FDV provides an estimate of the total potential value of a cryptocurrency if all its tokens are fully issued and circulating.",
+                ),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(
+                  questionNumber: 4,
+                ),
+                createDivider(context),
+                keyVocabulary(
+                  context,
+                  "Total Supply:",
+                  "Total supply is the number of coins or tokens that exist and are either in circulation or locked/unavailable for some reason. It includes coins that are currently locked in smart contracts, held by the project team for vesting, or otherwise restricted but excludes coins that have been burned or permanently removed from circulation.",
+                ),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(
+                  questionNumber: 5,
+                ),
+                createDivider(context),
+                keyVocabulary(
+                  context,
+                  "Maximum Supply:",
+                  "Maximum supply is the total number of coins or tokens that will ever be created for a specific cryptocurrency. It is a fixed limit set by the cryptocurrency’s code or protocol and cannot be exceeded. For example, Bitcoin has a maximum supply of 21 million coins.",
+                ),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(
+                  questionNumber: 6,
+                ),
+                SizedBox(height: size.height / 10),
+                Center(
+                  child: SizedBox(
+                    height: size.height * 0.05,
+                    width: size.width * 0.75,
+                    child: RedirectButton(
+                      //route: const Lesson2(),
+                      onClick: () {
+                        int score = 0;
+                        for (int i = 0; i < usersAnswers.length; i++) {
+                          if (usersAnswers[i] ==
+                              questions[i]["correctAnswer"]) {
+                            score++;
+                          }
+                        }
+                        print("wynik:");
+                        print(score);
+                        saveResult(26, score);
+                        saveResult(10026, questions.length);
+
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Success(
+                              26,
+                              "Financial Metrics Of crypto",
+                              DateTime.now().difference(beginTime).inMinutes,
+                              score,
+                              questions.length,
+                              const Lesson27(),
+                            ),
+                          ),
+                        );
+                      },
+                      text: 'Continue',
+                      width: size.width,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

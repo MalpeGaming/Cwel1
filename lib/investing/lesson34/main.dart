@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
-import 'package:brain_train_app/investing/lesson28/main.dart';
+import 'package:brain_train_app/investing/lesson35/main.dart';
 
-class Lesson27 extends StatefulWidget {
-  const Lesson27({super.key});
+class Lesson34 extends StatefulWidget {
+  const Lesson34({super.key});
 
   @override
-  State<Lesson27> createState() => _Lesson27();
+  State<Lesson34> createState() => _Lesson34();
 }
 
-class _Lesson27 extends State<Lesson27> {
+class _Lesson34 extends State<Lesson34> {
   int selectedOption = -1;
 
   Widget buildQuizScreen({
@@ -84,7 +84,7 @@ class _Lesson27 extends State<Lesson27> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Lesson 27",
+                  "Lesson 34",
                   style: TextStyle(
                     fontSize: size.width / 10,
                     fontWeight: FontWeight.bold,
@@ -92,225 +92,172 @@ class _Lesson27 extends State<Lesson27> {
                 ),
                 SizedBox(height: size.height / 60),
                 Text(
-                  "Fundamental Analysis",
+                  "How to stay sane while investing ?",
                   style: TextStyle(
                     fontSize: size.width / 15,
                   ),
                 ),
                 SizedBox(height: size.height / 20),
                 Text(
-                  "When looking for a crypto coin I recommend you go over the following questions and answer each one.",
+                  "You may be surprised by this topic, but believe me when I tell you it’s extremely important. Investing (especially trading) is extremely addicting, and can take aways your life if you do not stay on guard. Below are some tips that will help you. ",
                   style: TextStyle(
                     fontSize: 0.02 * size.height,
-                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 createDivider(context),
+                keyVocabulary(
+                  context,
+                  "Staying Sane While Investing: Managing Emotions and Keeping Balance",
+                  "Investing, especially in volatile markets like cryptocurrencies, can be an emotional rollercoaster. It's easy to get swept up in the excitement of potential profits or the fear of losses. To navigate the market successfully, it's crucial to maintain a clear head and stick to well-planned strategies. Here are some key aspects to help you stay sane while investing:",
+                ),
+                SizedBox(height: size.height / 80),
+                keyVocabulary(
+                  context,
+                  "1. Understanding FOMO (Fear of Missing Out):",
+                  "FOMO is a powerful emotion that can lead to impulsive investment decisions, often resulting in buying at the top of a rally. The fear that others are making gains while you're missing out can cloud your judgment, leading to risky and often unprofitable decisions.",
+                ),
+                SizedBox(height: size.height / 80),
                 Text(
-                  "1. Check the project",
+                  "Tips to manage FOMO:",
                   style: TextStyle(
                     fontSize: 0.02 * size.height,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(height: size.height / 80),
-                point(
+                subpoint(
                   context,
-                  "When you want to know the intrinsic value of a stock.",
+                  "Stick to your plan:",
+                  "Have a clear strategy and set investment criteria to avoid impulsive decisions.",
                 ),
-                SizedBox(height: size.height / 80),
-                point(
+                subpoint(
                   context,
-                  "Is there a need for it ?",
+                  "Analyze before acting:",
+                  "Don't rush into investments; take time to research and evaluate the opportunity.",
                 ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "Who is the competition ? Do they have a chance of competing ?",
-                ),
-                //SizedBox(height: size.height / 10),
-                createDivider(context),
-                Text(
-                  "2. Team",
-                  style: TextStyle(
-                    fontSize: 0.02 * size.height,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "Who is the team → check their Linked.in, Twitter, etc …",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "Do they have any experience ? Fully devoted to the project ?",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "Past projects ?",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "Size of the team ?",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "Hometown laws toward cryptocurrencies ?",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "How does the team react to adverse events ?",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "DON’T INVEST IN COINS THAT DON’T SHOW WHO IS ON THE TEAM",
-                ),
-                createDivider(context),
-                Text(
-                  "3. Whitepapers",
-                  style: TextStyle(
-                    fontSize: 0.02 * size.height,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "How does it work ? Security ?",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "How active is the coin’s GitHub activity ?",
-                ),
-                createDivider(context),
-                Text(
-                  "4. Roadmap",
-                  style: TextStyle(
-                    fontSize: 0.02 * size.height,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "How they plan to improve the coin ?",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "Do they follow it ?",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "Do they do things for the created deadline ?",
-                ),
-                createDivider(context),
-                Text(
-                  "5. Community",
-                  style: TextStyle(
-                    fontSize: 0.02 * size.height,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "Is there a community ? Are people interested in the function of the coin, or only the potential capital gain ?",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "How many Exchanges list this coin ?",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "Any partners ? ",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "Followers of bigger crypto people (like Ash)",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "Is the TV increasing ?",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "Does sb have a lot of the coin ? What is his/her activity ?",
-                ),
-                createDivider(context),
-                Text(
-                  "6. Security",
-                  style: TextStyle(
-                    fontSize: 0.02 * size.height,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "How decentralized ?",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "How many miners approve a transaction ?",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "How many miners overall ?",
-                ),
-                createDivider(context),
-                Text(
-                  "7. Earnings",
-                  style: TextStyle(
-                    fontSize: 0.02 * size.height,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "Does it have like “dividends” - ex. Uniswap",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "Max Supply ?",
-                ),
-                SizedBox(height: size.height / 80),
-                point(
-                  context,
-                  "How many coins mined each year ? Is it inflationary  ? ",
-                ),
-                createDivider(context),
+                SizedBox(height: size.height / 40),
                 buildQuizScreen(questionNumber: 0),
                 createDivider(context),
+                keyVocabulary(
+                  context,
+                  "2. Avoiding Panic Selling:",
+                  "Panic selling occurs when fear overwhelms an investor, leading to the rapid sale of assets at a loss. It's often driven by market downturns and can lock in losses that could have been avoided by staying the course.",
+                ),
+                SizedBox(height: size.height / 80),
+                Text(
+                  "Tips to avoid panic selling:",
+                  style: TextStyle(
+                    fontSize: 0.02 * size.height,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: size.height / 80),
+                subpoint(
+                  context,
+                  "Trust your research:",
+                  "Stick to your research and investment thesis, even in downturns.",
+                ),
+                subpoint(
+                  context,
+                  "Have a long-term view:",
+                  "Remember that markets often recover from dips over time.",
+                ),
+                SizedBox(height: size.height / 40),
                 buildQuizScreen(questionNumber: 1),
                 createDivider(context),
+                keyVocabulary(
+                  context,
+                  "3. Maintaining Balance:",
+                  "Investing can become all-consuming, leading to burnout and poor decision-making. It's important to maintain a healthy balance between investing and other aspects of life.",
+                ),
+                SizedBox(height: size.height / 80),
+                Text(
+                  "Tips to maintain balance:",
+                  style: TextStyle(
+                    fontSize: 0.02 * size.height,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: size.height / 80),
+                subpoint(
+                  context,
+                  "Schedule downtime:",
+                  "Set aside time each week to disconnect from market activities.",
+                ),
+                subpoint(
+                  context,
+                  "Practice mindfulness:",
+                  "Techniques like meditation can help reduce stress.",
+                ),
+                SizedBox(height: size.height / 40),
                 buildQuizScreen(questionNumber: 2),
                 createDivider(context),
+                keyVocabulary(
+                  context,
+                  "4. Finding Rest Days:",
+                  "Constantly watching the markets can lead to fatigue and mistakes. Taking regular breaks helps refresh your mind and allows you to return to trading with a clearer perspective.",
+                ),
+                SizedBox(height: size.height / 80),
+                Text(
+                  "Tips for finding rest days:",
+                  style: TextStyle(
+                    fontSize: 0.02 * size.height,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: size.height / 80),
+                subpoint(
+                  context,
+                  "Designate no-trade days:",
+                  "Choose days when you will not engage in any trading activities.",
+                ),
+                subpoint(
+                  context,
+                  "Limit screen time:",
+                  "Allocate specific times for checking the market to avoid constant monitoring.",
+                ),
+                SizedBox(height: size.height / 40),
                 buildQuizScreen(questionNumber: 3),
+                createDivider(context),
+                keyVocabulary(
+                  context,
+                  "5. Trading in a Team:",
+                  "Trading in a team can help distribute the workload, provide emotional support, and offer different perspectives on market trends.",
+                ),
+                SizedBox(height: size.height / 80),
+                Text(
+                  "Tips for successful team trading:",
+                  style: TextStyle(
+                    fontSize: 0.02 * size.height,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: size.height / 80),
+                subpoint(
+                  context,
+                  "Divide responsibilities:",
+                  "Assign different roles within the team based on each member's strengths.",
+                ),
+                subpoint(
+                  context,
+                  "Communicate regularly:",
+                  "Keep everyone updated on market insights and decisions.",
+                ),
+                SizedBox(height: size.height / 40),
+                buildQuizScreen(questionNumber: 4),
+                createDivider(context),
+                keyVocabulary(
+                  context,
+                  "Conclusion",
+                  "Staying sane while investing requires discipline, self-awareness, and a well-thought-out strategy. By understanding the impact of emotions like FOMO and panic selling, maintaining balance, and finding rest days, investors can navigate the markets more effectively. Trading in a team can also offer valuable support, ensuring you're not going through the investment journey alone.",
+                ),
                 SizedBox(height: size.height / 10),
                 Center(
                   child: SizedBox(
                     height: size.height * 0.05,
                     width: size.width * 0.75,
                     child: RedirectButton(
+                      //route: const Lesson2(),
                       onClick: () {
                         int score = 0;
                         for (int i = 0; i < usersAnswers.length; i++) {
@@ -321,20 +268,20 @@ class _Lesson27 extends State<Lesson27> {
                         }
                         print("wynik:");
                         print(score);
-                        saveResult(27, score);
-                        saveResult(10027, questions.length);
+                        saveResult(34, score);
+                        saveResult(10034, score);
 
                         Navigator.pop(context);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => Success(
-                              27,
-                              "Fundamental Analysis",
+                              34,
+                              "How to stay sane while investing ?",
                               DateTime.now().difference(beginTime).inMinutes,
                               score,
                               questions.length,
-                              const Lesson28(),
+                              const Lesson35(),
                             ),
                           ),
                         );

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
-import '../menu.dart';
+import 'package:brain_train_app/investing/lesson26/main.dart';
 
 class Lesson25 extends StatefulWidget {
   const Lesson25({super.key});
@@ -67,96 +67,108 @@ class _Lesson25 extends State<Lesson25> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    DateTime beginTime = DateTime.now();
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          margin: EdgeInsets.only(
-            left: size.width / 10,
-            right: size.width / 10,
-            top: size.height / 15,
-            bottom: size.height / 20,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Lesson 25",
-                style: TextStyle(
-                  fontSize: size.width / 10,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: size.height / 60),
-              Text(
-                "Technical Analysis Exercises",
-                style: TextStyle(
-                  fontSize: size.width / 15,
-                ),
-              ),
-              SizedBox(height: size.height / 20),
-              buildQuizScreen(
-                questionNumber: 0,
-                image: "assets/investing/lesson25/ex0.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 1,
-                image: "assets/investing/lesson25/ex1.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 2,
-                image: "assets/investing/lesson25/ex2.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 3,
-                image: "assets/investing/lesson25/ex3.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 4,
-                image: "assets/investing/lesson25/ex4.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 5,
-                image: "assets/investing/lesson25/ex5.png",
-              ),
-              SizedBox(height: size.height / 10),
-              Center(
-                child: SizedBox(
-                  height: size.height * 0.05,
-                  width: size.width * 0.75,
-                  child: RedirectButton(
-                    //route: const Lesson2(),
-                    onClick: () {
-                      int score = 0;
-                      for (int i = 0; i < usersAnswers.length; i++) {
-                        if (usersAnswers[i] == questions[i]["correctAnswer"]) {
-                          score++;
-                        }
-                      }
-                      print("wynik:");
-                      print(score);
-                      saveResult(25, score);
-                      saveResult(10025, questions.length);
-
-                      Navigator.pop(context);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const InvestingMenu(),
-                        ),
-                      );
-                    },
-                    text: 'Continue',
-                    width: size.width,
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Container(
+            margin: EdgeInsets.only(
+              left: size.width / 10,
+              right: size.width / 10,
+              top: size.height / 15,
+              bottom: size.height / 20,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Lesson 25",
+                  style: TextStyle(
+                    fontSize: size.width / 10,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-            ],
+                SizedBox(height: size.height / 60),
+                Text(
+                  "Technical Analysis Exercises",
+                  style: TextStyle(
+                    fontSize: size.width / 15,
+                  ),
+                ),
+                SizedBox(height: size.height / 20),
+                buildQuizScreen(
+                  questionNumber: 0,
+                  image: "assets/investing/lesson25/ex0.png",
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 1,
+                  image: "assets/investing/lesson25/ex1.png",
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 2,
+                  image: "assets/investing/lesson25/ex2.png",
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 3,
+                  image: "assets/investing/lesson25/ex3.png",
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 4,
+                  image: "assets/investing/lesson25/ex4.png",
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 5,
+                  image: "assets/investing/lesson25/ex5.png",
+                ),
+                SizedBox(height: size.height / 10),
+                Center(
+                  child: SizedBox(
+                    height: size.height * 0.05,
+                    width: size.width * 0.75,
+                    child: RedirectButton(
+                      //route: const Lesson2(),
+                      onClick: () {
+                        int score = 0;
+                        for (int i = 0; i < usersAnswers.length; i++) {
+                          if (usersAnswers[i] ==
+                              questions[i]["correctAnswer"]) {
+                            score++;
+                          }
+                        }
+                        print("wynik:");
+                        print(score);
+                        saveResult(25, score);
+                        saveResult(10025, questions.length);
+
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Success(
+                              25,
+                              "Technical Analysis Exercises",
+                              DateTime.now().difference(beginTime).inMinutes,
+                              score,
+                              questions.length,
+                              const Lesson26(),
+                            ),
+                          ),
+                        );
+                      },
+                      text: 'Continue',
+                      width: size.width,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

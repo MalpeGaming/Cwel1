@@ -30,7 +30,7 @@ var questions = [
       "Proof of Burn",
       "Mining rewards",
     ],
-    "correctAnswer": "B",
+    "correctAnswer": 1,
   },
   {
     "question":
@@ -41,7 +41,7 @@ var questions = [
       "Serving as the foundation for Layer 1 networks",
       "Providing faster transaction speeds for Layer 2 networks",
     ],
-    "correctAnswer": "A",
+    "correctAnswer": 0,
   },
   {
     "question": "What is the primary purpose of Layer 2 networks?",
@@ -51,7 +51,7 @@ var questions = [
       "To stabilize the value of cryptocurrencies",
       "To implement Proof of Work protocols",
     ],
-    "correctAnswer": "A",
+    "correctAnswer": 0,
   },
   {
     "question":
@@ -62,7 +62,7 @@ var questions = [
       "It enables faster transactions with minimal fees",
       "It supports decentralized finance (DeFi) applications",
     ],
-    "correctAnswer": "C",
+    "correctAnswer": 2,
   },
   {
     "question": "What often drives the value of meme coins?",
@@ -72,12 +72,12 @@ var questions = [
       "Social media hype and community engagement",
       "Regulatory compliance",
     ],
-    "correctAnswer": "C",
+    "correctAnswer": 2,
   },
   {
     "question": "Which of the following is an example of a meme coin?",
     "answers": ["Ethereum", "Dogecoin", "Binance Coin", "Chainlink"],
-    "correctAnswer": "B",
+    "correctAnswer": 1,
   },
   {
     "question": "Which factor is essential when evaluating an AI coin?",
@@ -87,11 +87,11 @@ var questions = [
       "The meme community supporting the coin",
       "The maximum supply of the coin",
     ],
-    "correctAnswer": "A",
+    "correctAnswer": 0,
   },
   {
     "question": "Which of the following is an example of an AI coin?",
     "answers": ["Solana", "Tether", "Arkham", "Uniswap"],
-    "correctAnswer": "C",
+    "correctAnswer": 2,
   },
 ];

@@ -29,8 +29,12 @@ import 'lesson25/main.dart';
 import 'lesson26/main.dart';
 import 'lesson27/main.dart';
 import 'lesson28/main.dart';
+import 'lesson29/main.dart';
+import 'lesson30/main.dart';
+import 'lesson31/main.dart';
 import 'lesson32/main.dart';
 import 'lesson33/main.dart';
+import 'lesson34/main.dart';
 import 'lesson35/main.dart';
 import '../app_bar.dart';
 
@@ -49,7 +53,7 @@ GestureDetector createLesson(
   Size size = MediaQuery.of(context).size;
   return GestureDetector(
     onTap: () {
-      Navigator.pop(context);
+      //Navigator.pop(context);
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -130,7 +134,7 @@ class _InvestingMenu extends State<InvestingMenu> {
   Future<void> readMemory() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      for (int i = 0; i <= 26; i++) {
+      for (int i = 0; i <= 35; i++) {
         scores[i] = prefs.getInt('lesson$i')?.toInt();
         if (scores[i] != null) {
           sum += scores[i]!;
@@ -205,7 +209,7 @@ class _InvestingMenu extends State<InvestingMenu> {
                 ),
               ],
             ),
-            SizedBox(height: size.height / 25),
+            SizedBox(height: size.height / 50),
             Expanded(
               child: ListView(
                 children: [
@@ -214,7 +218,7 @@ class _InvestingMenu extends State<InvestingMenu> {
                     context,
                     "Intro",
                     const Intro(),
-                    scores[0] ?? 0,
+                    scores[2137] ?? 0,
                   ),
                   createLesson(
                     context,
@@ -382,25 +386,49 @@ class _InvestingMenu extends State<InvestingMenu> {
                     context,
                     "28. Types of crypto coins.",
                     const Lesson28(),
-                    scores[12] ?? 0,
+                    scores[28] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "29. Where can you find info about crypto ?",
+                    const Lesson29(),
+                    scores[29] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "30. How to choose a coin ?",
+                    const Lesson30(),
+                    scores[30] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "31. Scam Prevention",
+                    const Lesson31(),
+                    scores[31] ?? 0,
                   ),
                   createLesson(
                     context,
                     "32. Final Knowledge Quiz",
                     const Lesson32(),
-                    scores[12] ?? 0,
+                    scores[32] ?? 0,
                   ),
                   createLesson(
                     context,
                     "33. Harder Quiz",
                     const Lesson33(),
-                    scores[12] ?? 0,
+                    scores[33] ?? 0,
+                  ),
+                  createLesson(
+                    context,
+                    "34. How to stay sane while investing ?",
+                    const Lesson34(),
+                    scores[34] ?? 0,
                   ),
                   createLesson(
                     context,
                     "35. Final Investing Quiz",
                     const Lesson35(),
-                    scores[12] ?? 0,
+                    scores[35] ?? 0,
                   ),
                   SizedBox(height: size.height / 20),
                 ],

@@ -103,6 +103,7 @@ class _Intro extends State<Intro> {
                     saveResult(2137, score);
                     saveResult(12137, 1);
 
+                    Navigator.pop(context);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
