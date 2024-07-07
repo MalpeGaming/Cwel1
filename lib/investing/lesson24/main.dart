@@ -3,7 +3,6 @@ import 'package:brain_train_app/buttons.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
-import '../menu.dart';
 import 'package:brain_train_app/investing/lesson25/main.dart';
 
 class Lesson24 extends StatefulWidget {
@@ -342,7 +341,7 @@ class _Lesson24 extends State<Lesson24> {
                         MaterialPageRoute(
                           builder: (context) => Success(
                             24,
-                            "Why Should You Invest? continued...",
+                            "Technical Analysis",
                             DateTime.now().difference(beginTime).inMinutes,
                             score,
                             questions.length,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../menu.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
 import 'package:brain_train_app/investing/lesson17/main.dart';
@@ -177,7 +176,7 @@ class _Lesson16 extends State<Lesson16> {
                         MaterialPageRoute(
                           builder: (context) => Success(
                             16,
-                            "Why Should You Invest? continued...",
+                            "What are ETFs ?",
                             DateTime.now().difference(beginTime).inMinutes,
                             score,
                             questions.length,

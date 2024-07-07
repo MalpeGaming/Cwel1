@@ -237,7 +237,7 @@ class _Lesson1 extends State<Lesson1> {
                         MaterialPageRoute(
                           builder: (context) => Success(
                             2,
-                            "Why Should You Invest? continued...",
+                            "Why Should You Invest?",
                             DateTime.now().difference(beginTime).inMinutes,
                             score,
                             questions.length,

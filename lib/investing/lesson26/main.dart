@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
-import '../menu.dart';
 import 'package:brain_train_app/investing/lesson27/main.dart';
 
 class Lesson26 extends StatefulWidget {
@@ -191,7 +190,7 @@ class _Lesson26 extends State<Lesson26> {
                         MaterialPageRoute(
                           builder: (context) => Success(
                             26,
-                            "Why Should You Invest? continued...",
+                            "Financial Metrics Of crypto",
                             DateTime.now().difference(beginTime).inMinutes,
                             score,
                             questions.length,

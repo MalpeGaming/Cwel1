@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
-import '../menu.dart';
 import 'package:brain_train_app/investing/lesson20/main.dart';
 
 class Lesson19 extends StatefulWidget {
@@ -171,7 +170,7 @@ class _Lesson19 extends State<Lesson19> {
                         MaterialPageRoute(
                           builder: (context) => Success(
                             19,
-                            "Why Should You Invest? continued...",
+                            "Some of the most popular ETFs",
                             DateTime.now().difference(beginTime).inMinutes,
                             score,
                             questions.length,

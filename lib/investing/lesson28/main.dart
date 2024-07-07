@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
-import '../menu.dart';
 import 'package:brain_train_app/investing/lesson29/main.dart';
-
 
 class Lesson28 extends StatefulWidget {
   const Lesson28({super.key});
@@ -92,7 +90,7 @@ class _Lesson28 extends State<Lesson28> {
               ),
               SizedBox(height: size.height / 60),
               Text(
-                "Types of crypto coins. ",
+                "Types of crypto coins",
                 style: TextStyle(
                   fontSize: size.width / 15,
                 ),
@@ -347,7 +345,7 @@ class _Lesson28 extends State<Lesson28> {
                         MaterialPageRoute(
                           builder: (context) => Success(
                             28,
-                            "Why Should You Invest? continued...",
+                            "Types of crypto coins",
                             DateTime.now().difference(beginTime).inMinutes,
                             score,
                             questions.length,

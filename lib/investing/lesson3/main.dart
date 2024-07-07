@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
-import '../menu.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
 import 'package:brain_train_app/investing/lesson4/main.dart';
@@ -223,7 +222,7 @@ class _Lesson3 extends State<Lesson3> {
                         MaterialPageRoute(
                           builder: (context) => Success(
                             3,
-                            "Why Should You Invest? continued...",
+                            "Is investing really gambling?",
                             DateTime.now().difference(beginTime).inMinutes,
                             score,
                             questions.length,

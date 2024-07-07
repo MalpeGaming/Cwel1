@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
-import '../menu.dart';
 import 'package:brain_train_app/investing/lesson22/main.dart';
 
 class Lesson21 extends StatefulWidget {
@@ -91,7 +90,7 @@ class _Lesson21 extends State<Lesson21> {
               ),
               SizedBox(height: size.height / 60),
               Text(
-                "What are cryptocurrencies ? ",
+                "What are cryptocurrencies ?",
                 style: TextStyle(
                   fontSize: size.width / 15,
                 ),
@@ -171,7 +170,7 @@ class _Lesson21 extends State<Lesson21> {
                         MaterialPageRoute(
                           builder: (context) => Success(
                             21,
-                            "Why Should You Invest? continued...",
+                            "What are cryptocurrencies ?",
                             DateTime.now().difference(beginTime).inMinutes,
                             score,
                             questions.length,

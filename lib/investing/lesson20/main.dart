@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:brain_train_app/buttons.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
-import '../menu.dart';
 import 'package:brain_train_app/investing/lesson21/main.dart';
 
 class Lesson20 extends StatefulWidget {
@@ -205,7 +204,7 @@ class _Lesson20 extends State<Lesson20> {
                         MaterialPageRoute(
                           builder: (context) => Success(
                             20,
-                            "Why Should You Invest? continued...",
+                            "Final knowledge quiz",
                             DateTime.now().difference(beginTime).inMinutes,
                             score,
                             questions.length,

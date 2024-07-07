@@ -4,7 +4,6 @@ import 'package:brain_train_app/buttons.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
-import '../menu.dart';
 import 'package:brain_train_app/investing/lesson32/main.dart';
 
 class Lesson31 extends StatefulWidget {
@@ -230,7 +229,7 @@ class _Lesson31 extends State<Lesson31> {
                         MaterialPageRoute(
                           builder: (context) => Success(
                             31,
-                            "Why Should You Invest? continued...",
+                            "Scam Prevention",
                             DateTime.now().difference(beginTime).inMinutes,
                             score,
                             questions.length,

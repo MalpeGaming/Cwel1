@@ -439,11 +439,11 @@ class _Success extends State<Success> {
                   backgroundColor:
                       (Theme.of(context).brightness != Brightness.dark)
                           ? const Color.fromRGBO(135, 136, 226, 1)
-                          : Theme.of(context).colorScheme.primary,
+                          : const Color.fromARGB(255, 174, 140, 180),
                   valueColor: AlwaysStoppedAnimation<Color>(
                     (Theme.of(context).brightness != Brightness.dark)
                         ? const Color.fromRGBO(94, 23, 235, 1)
-                        : const Color(0xFFD4CDF4),
+                        : Theme.of(context).colorScheme.onPrimary,
                   ),
                   minHeight: 0.025 * size.height,
                   borderRadius: BorderRadius.circular(21312127),
@@ -490,40 +490,48 @@ class _Success extends State<Success> {
                 SizedBox(height: 0.01 * size.height),
                 LinearProgressIndicator(
                   value: percentageoverall,
-                  backgroundColor: const Color.fromRGBO(135, 136, 226, 1),
-                  valueColor: const AlwaysStoppedAnimation<Color>(
-                    Color.fromRGBO(94, 23, 235, 1),
+                  backgroundColor:
+                      (Theme.of(context).brightness != Brightness.dark)
+                          ? const Color.fromRGBO(135, 136, 226, 1)
+                          : const Color.fromARGB(255, 174, 140, 180),
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    (Theme.of(context).brightness != Brightness.dark)
+                        ? const Color.fromRGBO(94, 23, 235, 1)
+                        : Theme.of(context).colorScheme.onPrimary,
                   ),
                   minHeight: 0.025 * size.height,
                   borderRadius: BorderRadius.circular(21312127),
                 ),
                 const Spacer(),
-                Column(children: [
-                  if (widget.number != 35)
+                Column(
+                  children: [
+                    if (widget.number != 35)
+                      Center(
+                        child: SizedBox(
+                          height: size.height * 0.05,
+                          width: size.width * 0.75,
+                          child: RedirectButton(
+                            route: widget.route,
+                            text: 'Next Class',
+                            width: size.width,
+                          ),
+                        ),
+                      ),
+                    if (widget.number != 35)
+                      SizedBox(height: 0.02 * size.height),
                     Center(
                       child: SizedBox(
                         height: size.height * 0.05,
                         width: size.width * 0.75,
                         child: RedirectButton(
-                          route: widget.route,
-                          text: 'Next Class',
+                          route: const InvestingMenu(),
+                          text: 'Back To Menu',
                           width: size.width,
                         ),
                       ),
                     ),
-                  if (widget.number != 35) SizedBox(height: 0.02 * size.height),
-                  Center(
-                    child: SizedBox(
-                      height: size.height * 0.05,
-                      width: size.width * 0.75,
-                      child: RedirectButton(
-                        route: InvestingMenu(),
-                        text: 'Back To Menu',
-                        width: size.width,
-                      ),
-                    ),
-                  ),
-                ]),
+                  ],
+                ),
                 //SizedBox(height: 0.1 * size.height),
               ],
             ),
