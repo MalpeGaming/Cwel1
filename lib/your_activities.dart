@@ -29,6 +29,7 @@ import 'linguistic/grammar_mcq_test.dart';
 import 'linguistic/correct_a_word.dart';
 import 'investing/menu.dart';
 import 'logical_thinking/math.dart';
+import 'linguistic/poems_reading/info.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -295,7 +296,7 @@ class _YourActivities extends State<YourActivities> {
                           "poems",
                           "POEMS",
                           "Reading",
-                          const YourActivities(),
+                          const Info(),
                         ),
                         createActivity2(
                           context,
