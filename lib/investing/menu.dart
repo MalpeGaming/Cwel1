@@ -53,7 +53,7 @@ GestureDetector createLesson(
   Size size = MediaQuery.of(context).size;
   return GestureDetector(
     onTap: () {
-      Navigator.pop(context);
+      //Navigator.pop(context);
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -209,7 +209,7 @@ class _InvestingMenu extends State<InvestingMenu> {
                 ),
               ],
             ),
-            SizedBox(height: size.height / 25),
+            SizedBox(height: size.height / 50),
             Expanded(
               child: ListView(
                 children: [
