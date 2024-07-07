@@ -84,7 +84,7 @@ class _Lesson20 extends State<Lesson20> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Lesson 13",
+                  "Lesson 20",
                   style: TextStyle(
                     fontSize: size.width / 10,
                     fontWeight: FontWeight.bold,
