@@ -112,7 +112,8 @@ class _Lesson24 extends State<Lesson24> {
                     fontSize: size.width / 15,
                   ),
                 ),
-                SizedBox(height: size.height / 20),
+                //SizedBox(height: size.height / 20),
+                createDivider(context),
                 keyVocabulary(
                   context,
                   "Technical Analysis (TA):",

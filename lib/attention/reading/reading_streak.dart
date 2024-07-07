@@ -168,7 +168,7 @@ class _ReadingStreak extends State<ReadingStreak> {
                       borderRadius: BorderRadius.circular(10),
                       color: (Theme.of(context).brightness == Brightness.light)
                           ? const Color.fromARGB(255, 253, 116, 106)
-                          : const Color.fromARGB(255, 102, 0, 0)),
+                          : const Color.fromARGB(255, 102, 0, 0),),
                   width: size.width / 8,
                   height: size.width / 8,
                   //color: Colors.grey[200],
@@ -207,7 +207,7 @@ class _ReadingStreak extends State<ReadingStreak> {
                   ),
                 ),
               ],
-            )
+            ),
             //Text(streak.toString()),
             //Text(day.toString()),
           ],
