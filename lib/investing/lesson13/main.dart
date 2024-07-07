@@ -69,156 +69,160 @@ class _Lesson13 extends State<Lesson13> {
     Size size = MediaQuery.of(context).size;
     DateTime beginTime = DateTime.now();
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          margin: EdgeInsets.only(
-            left: size.width / 10,
-            right: size.width / 10,
-            top: size.height / 15,
-            bottom: size.height / 20,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Lesson 13",
-                style: TextStyle(
-                  fontSize: size.width / 10,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: size.height / 60),
-              Text(
-                "Final knowledge quiz",
-                style: TextStyle(
-                  fontSize: size.width / 15,
-                ),
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 0,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 1,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 2,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 3,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 3,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 4,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 5,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 6,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 7,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 8,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 9,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 10,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 11,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 12,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 13,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 14,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 15,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 16,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 17,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 18,
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 19,
-              ),
-              SizedBox(height: size.height / 10),
-              Center(
-                child: SizedBox(
-                  height: size.height * 0.05,
-                  width: size.width * 0.75,
-                  child: RedirectButton(
-                    //route: const Lesson2(),
-                    onClick: () {
-                      int score = 0;
-                      for (int i = 0; i < usersAnswers.length; i++) {
-                        if (usersAnswers[i] == questions[i]["correctAnswer"]) {
-                          score++;
-                        }
-                      }
-                      print("wynik:");
-                      print(score);
-                      saveResult(13, score);
-                      saveResult(10013, questions.length);
-
-                      Navigator.pop(context);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Success(
-                            13,
-                            "Final knowledge quiz",
-                            DateTime.now().difference(beginTime).inMinutes,
-                            score,
-                            questions.length,
-                            const Lesson14(),
-                          ),
-                        ),
-                      );
-                    },
-                    text: 'Continue',
-                    width: size.width,
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Container(
+            margin: EdgeInsets.only(
+              left: size.width / 10,
+              right: size.width / 10,
+              top: size.height / 15,
+              bottom: size.height / 20,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Lesson 13",
+                  style: TextStyle(
+                    fontSize: size.width / 10,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-            ],
+                SizedBox(height: size.height / 60),
+                Text(
+                  "Final knowledge quiz",
+                  style: TextStyle(
+                    fontSize: size.width / 15,
+                  ),
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 0,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 1,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 2,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 3,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 3,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 4,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 5,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 6,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 7,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 8,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 9,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 10,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 11,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 12,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 13,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 14,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 15,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 16,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 17,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 18,
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 19,
+                ),
+                SizedBox(height: size.height / 10),
+                Center(
+                  child: SizedBox(
+                    height: size.height * 0.05,
+                    width: size.width * 0.75,
+                    child: RedirectButton(
+                      //route: const Lesson2(),
+                      onClick: () {
+                        int score = 0;
+                        for (int i = 0; i < usersAnswers.length; i++) {
+                          if (usersAnswers[i] ==
+                              questions[i]["correctAnswer"]) {
+                            score++;
+                          }
+                        }
+                        print("wynik:");
+                        print(score);
+                        saveResult(13, score);
+                        saveResult(10013, questions.length);
+
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Success(
+                              13,
+                              "Final knowledge quiz",
+                              DateTime.now().difference(beginTime).inMinutes,
+                              score,
+                              questions.length,
+                              const Lesson14(),
+                            ),
+                          ),
+                        );
+                      },
+                      text: 'Continue',
+                      width: size.width,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

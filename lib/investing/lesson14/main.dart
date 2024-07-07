@@ -69,122 +69,126 @@ class _Lesson14 extends State<Lesson14> {
     Size size = MediaQuery.of(context).size;
     DateTime beginTime = DateTime.now();
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          margin: EdgeInsets.only(
-            left: size.width / 10,
-            right: size.width / 10,
-            top: size.height / 15,
-            bottom: size.height / 20,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Lesson 14",
-                style: TextStyle(
-                  fontSize: size.width / 10,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: size.height / 60),
-              Text(
-                "Practical Analysis of Stocks",
-                style: TextStyle(
-                  fontSize: size.width / 15,
-                ),
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 0,
-                image: "assets/investing/lesson14/ex0.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 1,
-                image: "assets/investing/lesson14/ex1.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 2,
-                image: "assets/investing/lesson14/ex2.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 3,
-                image: "assets/investing/lesson14/ex3.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 4,
-                image: "assets/investing/lesson14/ex4.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 5,
-                image: "assets/investing/lesson14/ex5.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 6,
-                image: "assets/investing/lesson14/ex6.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 7,
-                image: "assets/investing/lesson14/ex7.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 8,
-                image: "assets/investing/lesson14/ex8.png",
-              ),
-              createDivider(context),
-              buildQuizScreen(
-                questionNumber: 9,
-                image: "assets/investing/lesson14/ex9.png",
-              ),
-              SizedBox(height: size.height / 10),
-              Center(
-                child: SizedBox(
-                  height: size.height * 0.05,
-                  width: size.width * 0.75,
-                  child: RedirectButton(
-                    //route: const Lesson2(),
-                    onClick: () {
-                      int score = 0;
-                      for (int i = 0; i < usersAnswers.length; i++) {
-                        if (usersAnswers[i] == questions[i]["correctAnswer"]) {
-                          score++;
-                        }
-                      }
-                      print("wynik:");
-                      print(score);
-                      saveResult(14, score);
-                      saveResult(10014, questions.length);
-
-                      Navigator.pop(context);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Success(
-                            14,
-                            "Practical Analysis of Stocks",
-                            DateTime.now().difference(beginTime).inMinutes,
-                            score,
-                            questions.length,
-                            const Lesson15(),
-                          ),
-                        ),
-                      );
-                    },
-                    text: 'Continue',
-                    width: size.width,
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Container(
+            margin: EdgeInsets.only(
+              left: size.width / 10,
+              right: size.width / 10,
+              top: size.height / 15,
+              bottom: size.height / 20,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Lesson 14",
+                  style: TextStyle(
+                    fontSize: size.width / 10,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-            ],
+                SizedBox(height: size.height / 60),
+                Text(
+                  "Practical Analysis of Stocks",
+                  style: TextStyle(
+                    fontSize: size.width / 15,
+                  ),
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 0,
+                  image: "assets/investing/lesson14/ex0.png",
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 1,
+                  image: "assets/investing/lesson14/ex1.png",
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 2,
+                  image: "assets/investing/lesson14/ex2.png",
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 3,
+                  image: "assets/investing/lesson14/ex3.png",
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 4,
+                  image: "assets/investing/lesson14/ex4.png",
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 5,
+                  image: "assets/investing/lesson14/ex5.png",
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 6,
+                  image: "assets/investing/lesson14/ex6.png",
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 7,
+                  image: "assets/investing/lesson14/ex7.png",
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 8,
+                  image: "assets/investing/lesson14/ex8.png",
+                ),
+                createDivider(context),
+                buildQuizScreen(
+                  questionNumber: 9,
+                  image: "assets/investing/lesson14/ex9.png",
+                ),
+                SizedBox(height: size.height / 10),
+                Center(
+                  child: SizedBox(
+                    height: size.height * 0.05,
+                    width: size.width * 0.75,
+                    child: RedirectButton(
+                      //route: const Lesson2(),
+                      onClick: () {
+                        int score = 0;
+                        for (int i = 0; i < usersAnswers.length; i++) {
+                          if (usersAnswers[i] ==
+                              questions[i]["correctAnswer"]) {
+                            score++;
+                          }
+                        }
+                        print("wynik:");
+                        print(score);
+                        saveResult(14, score);
+                        saveResult(10014, questions.length);
+
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Success(
+                              14,
+                              "Practical Analysis of Stocks",
+                              DateTime.now().difference(beginTime).inMinutes,
+                              score,
+                              questions.length,
+                              const Lesson15(),
+                            ),
+                          ),
+                        );
+                      },
+                      text: 'Continue',
+                      width: size.width,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
