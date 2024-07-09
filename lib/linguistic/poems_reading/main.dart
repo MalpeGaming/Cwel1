@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import '../../app_bar.dart';
 import 'content.dart';
+import '../../investing/helper_fn.dart';
 
 class Poems extends StatefulWidget {
   const Poems({super.key});
@@ -49,13 +50,14 @@ class _Poems extends State<Poems> {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 0.04 * size.height),
+                createDivider(context),
                 Text(
                   poems[poemIndex]["content"].toString(),
                   style: TextStyle(
                       fontSize: size.height / 60, height: size.height / 500),
                   textAlign: TextAlign.justify,
                 ),
+                createDivider(context),
               ],
             ),
           ),
