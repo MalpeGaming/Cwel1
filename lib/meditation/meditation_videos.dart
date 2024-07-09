@@ -49,6 +49,9 @@ class _VideoListItemState extends State<VideoListItem> {
                     icon: const Icon(Icons.close),
                     color: Colors.amber,
                     onPressed: () {
+                      SystemChrome.setPreferredOrientations([
+                        DeviceOrientation.portraitUp,
+                      ]);
                       Navigator.pop(context);
                     },
                   ),
@@ -57,7 +60,7 @@ class _VideoListItemState extends State<VideoListItem> {
                   child: FlickVideoPlayer(
                     flickManager: flickManager,
                     flickVideoWithControls: const FlickVideoWithControls(
-                      controls: FlickPortraitControls(),
+                      controls: FlickLandscapeControls(),
                     ),
                     flickVideoWithControlsFullscreen:
                         const FlickVideoWithControls(
@@ -88,6 +91,9 @@ class _VideoListItemState extends State<VideoListItem> {
 
   @override
   void dispose() {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     flickManager.dispose();
     super.dispose();
   }

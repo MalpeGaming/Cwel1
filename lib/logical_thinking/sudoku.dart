@@ -29,7 +29,7 @@ class _SudokuGame extends State<SudokuGame> {
       if (scores.isEmpty) {
         lastScore = 0;
       } else {
-        lastScore = int.parse(scores[scores.length - 1]);
+        lastScore = double.parse(scores[scores.length - 1]).round();
       }
 
       if (lastScore < 5) {
