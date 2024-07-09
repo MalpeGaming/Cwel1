@@ -127,6 +127,7 @@ class _Faces extends State<Faces> {
                           }
                           seenPhotos.add(picked[currentPhoto]);
                           if (seenPhotos.length == 20) {
+                            Navigator.pop(context);
                             Navigator.push(
                               context,
                               MaterialPageRoute(
