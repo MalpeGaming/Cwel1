@@ -20,7 +20,7 @@ class _Faces extends State<Faces> {
   void initState() {
     super.initState();
 
-    List<int> allPhotos = List.generate(23, (index) => index);
+    List<int> allPhotos = List.generate(100, (index) => index);
     allPhotos.shuffle();
     for (int i = 0; i < 10; i++) {
       picked.add(allPhotos[i]);
@@ -127,6 +127,7 @@ class _Faces extends State<Faces> {
                           }
                           seenPhotos.add(picked[currentPhoto]);
                           if (seenPhotos.length == 20) {
+                            Navigator.pop(context);
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -164,6 +165,7 @@ class _Faces extends State<Faces> {
                           }
                           seenPhotos.add(picked[currentPhoto]);
                           if (seenPhotos.length == 20) {
+                            Navigator.pop(context);
                             Navigator.push(
                               context,
                               MaterialPageRoute(
