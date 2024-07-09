@@ -86,6 +86,15 @@ class _SudokuGame extends State<SudokuGame> {
     }
   }
 
+  bool checkSudoku() {
+    for (int i = 0; i < 81; ++i) {
+      if (sudoku2[i] != -1 && sudoku2[i] != sudoku.solution[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   GestureDetector buildNumerButton(
     BuildContext context,
     int indx,
@@ -97,6 +106,9 @@ class _SudokuGame extends State<SudokuGame> {
       onTap: () {
         if (tappedRow != null && tappedCol != null) {
           setState(() {
+            if (sudoku.puzzle[9 * tappedRow + tappedCol] != -1) {
+              return;
+            }
             sudoku2[9 * tappedRow + tappedCol] = indx;
             int cnt = 0;
             for (int i = 0; i < 81; ++i) {
@@ -105,13 +117,18 @@ class _SudokuGame extends State<SudokuGame> {
               }
             }
             if (cnt == 81) {
+              if (checkSudoku()) {
+                lastScore++;
+              } else {
+                lastScore--;
+              }
               Navigator.pop(context);
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => ProgressScreen(
                     name: "sudoku",
-                    score: lastScore + 1,
+                    score: lastScore.toDouble(),
                     txt: "You now have",
                   ),
                 ),
@@ -300,8 +317,10 @@ class _SudokuGame extends State<SudokuGame> {
                                           Brightness.light)
                                       ? (tappedCol == colIndex &&
                                               tappedRow == rowIndex)
-                                          ? Color.fromARGB(255, 178, 177, 250)
-                                          : Color.fromARGB(255, 223, 214, 255)
+                                          ? const Color.fromARGB(
+                                              255, 178, 177, 250)
+                                          : const Color.fromARGB(
+                                              255, 223, 214, 255)
                                       : (tappedCol == colIndex &&
                                               tappedRow == rowIndex)
                                           ? const Color.fromARGB(
