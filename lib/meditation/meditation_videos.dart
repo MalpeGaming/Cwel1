@@ -1,6 +1,4 @@
 import 'package:flick_video_player/flick_video_player.dart';
-import 'package:flutter/services.dart';
-import 'package:video_player/video_player.dart';
 import 'package:flutter/material.dart';
 import '/app_bar.dart';
 import '/buttons.dart';
@@ -21,10 +19,6 @@ class _VideoListItemState extends State<VideoListItem> {
   @override
   void initState() {
     super.initState();
-    flickManager = FlickManager(
-      videoPlayerController: VideoPlayerController.asset(widget.videoAsset),
-      autoPlay: false,
-    );
   }
 
   @override
@@ -36,10 +30,7 @@ class _VideoListItemState extends State<VideoListItem> {
           MaterialPageRoute(
             builder: (context) {
               WidgetsFlutterBinding.ensureInitialized();
-              SystemChrome.setPreferredOrientations([
-                DeviceOrientation.landscapeRight,
-                DeviceOrientation.landscapeLeft,
-              ]);
+
               return Scaffold(
                 extendBodyBehindAppBar: true,
                 appBar: AppBar(
@@ -70,15 +61,25 @@ class _VideoListItemState extends State<VideoListItem> {
           ),
         );
       },
-      child: Container(
-        margin: const EdgeInsets.all(6),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.all(Radius.circular(8)),
+        child: Container(
+          margin: const EdgeInsets.all(6),
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.35),
+                spreadRadius: 2,
+                blurRadius: 5,
+                offset: const Offset(0, 3),
+              ),
+            ],
+          ),
           child: AspectRatio(
             aspectRatio: 1,
-            child: FlickVideoPlayer(
-              flickManager: flickManager,
-              flickVideoWithControls: const FlickVideoWithControls(),
+            child: Image.network(
+              'https://img.youtube.com/vi/${widget.videoAsset.substring(widget.videoAsset.length - 11)}/0.jpg',
+              fit: BoxFit.cover,
             ),
           ),
         ),
@@ -93,40 +94,6 @@ class _VideoListItemState extends State<VideoListItem> {
   }
 }
 
-class SamplePlayer extends StatefulWidget {
-  const SamplePlayer({required Key key, required this.videoAsset})
-      : super(key: key);
-
-  final String videoAsset;
-
-  @override
-  _SamplePlayerState createState() => _SamplePlayerState();
-}
-
-class _SamplePlayerState extends State<SamplePlayer> {
-  late FlickManager flickManager;
-  @override
-  void initState() {
-    super.initState();
-    flickManager = FlickManager(
-      videoPlayerController: VideoPlayerController.asset(
-        widget.videoAsset,
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    flickManager.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return FlickVideoPlayer(flickManager: flickManager);
-  }
-}
-
 class MeditationVideos extends StatefulWidget {
   const MeditationVideos({super.key});
 
@@ -136,12 +103,12 @@ class MeditationVideos extends StatefulWidget {
 
 class _MeditationVideos extends State<MeditationVideos> {
   List<String> videoAssets = [
-    'assets/meditation/movie1.mp4',
-    'assets/meditation/movie2.mp4',
-    'assets/meditation/movie3.mp4',
-    'assets/meditation/movie4.mp4',
-    'assets/meditation/movie5.mp4',
-    'assets/meditation/movie6.mp4',
+    'https://www.youtube.com/watch?v=pTn6Ewhb27k',
+    'https://www.youtube.com/watch?v=pTn6Ewhb27k',
+    'https://www.youtube.com/watch?v=t1ZnptSEPI8',
+    'https://www.youtube.com/watch?v=pTn6Ewhb27k',
+    'https://www.youtube.com/watch?v=pTn6Ewhb27k',
+    'https://www.youtube.com/watch?v=pTn6Ewhb27k',
   ];
 
   @override
