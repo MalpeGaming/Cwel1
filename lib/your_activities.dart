@@ -14,7 +14,7 @@ import 'attention/long_term_concentration_video.dart';
 import 'attention/short_term_concentration.dart';
 import 'attention/strong_concentration.dart';
 import 'attention/reading/reading.dart';
-import 'logical_thinking/sudoku.dart';
+import 'logical_thinking/sudoku_info.dart';
 import 'linguistic/wordly.dart';
 import 'linguistic/hangman.dart';
 import 'logical_thinking/riddles.dart';
@@ -329,7 +329,7 @@ class _YourActivities extends State<YourActivities> {
                           "sudoku",
                           "SUDOKU",
                           "",
-                          const SudokuGame(),
+                          const SudokuInfo(),
                           zero: 0,
                         ),
                         createActivity2(

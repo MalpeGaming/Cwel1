@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sudoku_dart/sudoku_dart.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:math';
 import '../app_bar.dart';
-import '../your_activities.dart';
+import '../progress_screen.dart';
 
 class SudokuGame extends StatefulWidget {
   const SudokuGame({super.key});
@@ -12,7 +13,54 @@ class SudokuGame extends StatefulWidget {
 }
 
 class _SudokuGame extends State<SudokuGame> {
-  Sudoku sudoku = Sudoku.generate(Level.expert);
+  Sudoku sudoku = Sudoku.generate(Level.easy);
+  late SharedPreferences prefs;
+  int lastScore = 10;
+
+  Future<void> initMemory() async {
+    prefs = await SharedPreferences.getInstance();
+
+    List<String> scores = prefs.getStringList(
+          "sudoku_scores",
+        ) ??
+        [];
+
+    setState(() {
+      if (scores.isEmpty) {
+        lastScore = 0;
+      } else {
+        lastScore = double.parse(scores[scores.length - 1]).round();
+      }
+
+      if (lastScore < 5) {
+        sudoku = Sudoku.generate(Level.easy);
+      } else if (lastScore >= 5 && lastScore < 10) {
+        sudoku = Sudoku.generate(Level.medium);
+      } else if (lastScore >= 10 && lastScore < 15) {
+        sudoku = Sudoku.generate(Level.hard);
+      } else if (lastScore >= 15) {
+        sudoku = Sudoku.generate(Level.expert);
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      initMemory();
+    });
+    /*Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ProgressScreen(
+          name: "sudoku",
+          score: lastScore + 1,
+          txt: "You now have",
+        ),
+      ),
+    );*/
+  }
 
   int? tappedCol, tappedRow;
   List<int> sudoku2 = List<int>.generate(100, (index) => -1);
@@ -38,6 +86,15 @@ class _SudokuGame extends State<SudokuGame> {
     }
   }
 
+  bool checkSudoku() {
+    for (int i = 0; i < 81; ++i) {
+      if (sudoku2[i] != -1 && sudoku2[i] != sudoku.solution[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   GestureDetector buildNumerButton(
     BuildContext context,
     int indx,
@@ -49,6 +106,9 @@ class _SudokuGame extends State<SudokuGame> {
       onTap: () {
         if (tappedRow != null && tappedCol != null) {
           setState(() {
+            if (sudoku.puzzle[9 * tappedRow + tappedCol] != -1) {
+              return;
+            }
             sudoku2[9 * tappedRow + tappedCol] = indx;
             int cnt = 0;
             for (int i = 0; i < 81; ++i) {
@@ -57,10 +117,20 @@ class _SudokuGame extends State<SudokuGame> {
               }
             }
             if (cnt == 81) {
+              if (checkSudoku()) {
+                lastScore++;
+              } else {
+                lastScore--;
+              }
+              Navigator.pop(context);
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const YourActivities(),
+                  builder: (context) => ProgressScreen(
+                    name: "sudoku",
+                    score: lastScore.toDouble(),
+                    txt: "You now have",
+                  ),
                 ),
               );
             }
@@ -175,7 +245,7 @@ class _SudokuGame extends State<SudokuGame> {
                         ),
                       ),
                       Text(
-                        "0",
+                        lastScore.toString(),
                         style: TextStyle(
                           fontSize: 0.06 * min(size.width, size.height),
                           color: Colors.white,
@@ -243,10 +313,23 @@ class _SudokuGame extends State<SudokuGame> {
                             decoration: BoxDecoration(
                               color: (tappedCol == colIndex ||
                                       tappedRow == rowIndex)
-                                  ? (tappedCol == colIndex &&
-                                          tappedRow == rowIndex)
-                                      ? const Color.fromARGB(255, 177, 232, 250)
-                                      : const Color.fromARGB(255, 214, 245, 255)
+                                  ? (Theme.of(context).brightness ==
+                                          Brightness.light)
+                                      ? (tappedCol == colIndex &&
+                                              tappedRow == rowIndex)
+                                          ? const Color.fromARGB(
+                                              255, 178, 177, 250)
+                                          : const Color.fromARGB(
+                                              255, 223, 214, 255)
+                                      : (tappedCol == colIndex &&
+                                              tappedRow == rowIndex)
+                                          ? const Color.fromARGB(
+                                              255,
+                                              93,
+                                              14,
+                                              129,
+                                            )
+                                          : const Color.fromARGB(255, 38, 0, 70)
                                   : Theme.of(context).colorScheme.background,
                               borderRadius:
                                   _getBorderRadius(rowIndex, colIndex),
