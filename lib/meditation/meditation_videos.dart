@@ -24,48 +24,47 @@ class _VideoListItemState extends State<VideoListItem> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              WidgetsFlutterBinding.ensureInitialized();
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                WidgetsFlutterBinding.ensureInitialized();
 
-              return Scaffold(
-                extendBodyBehindAppBar: true,
-                appBar: AppBar(
-                  backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-                  elevation: 0,
-                  leading: IconButton(
-                    icon: const Icon(Icons.close),
-                    color: Colors.amber,
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                ),
-                body: Center(
-                  child: FlickVideoPlayer(
-                    flickManager: flickManager,
-                    flickVideoWithControls: const FlickVideoWithControls(
-                      controls: FlickPortraitControls(),
-                    ),
-                    flickVideoWithControlsFullscreen:
-                        const FlickVideoWithControls(
-                      controls: FlickLandscapeControls(),
+                return Scaffold(
+                  extendBodyBehindAppBar: true,
+                  appBar: AppBar(
+                    backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+                    elevation: 0,
+                    leading: IconButton(
+                      icon: const Icon(Icons.close),
+                      color: Colors.amber,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                     ),
                   ),
-                ),
-              );
-            },
-          ),
-        );
-      },
-      child: ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(8)),
+                  body: Center(
+                    child: FlickVideoPlayer(
+                      flickManager: flickManager,
+                      flickVideoWithControls: const FlickVideoWithControls(
+                        controls: FlickPortraitControls(),
+                      ),
+                      flickVideoWithControlsFullscreen:
+                          const FlickVideoWithControls(
+                        controls: FlickLandscapeControls(),
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          );
+        },
         child: Container(
           margin: const EdgeInsets.all(6),
           decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.35),
@@ -75,16 +74,17 @@ class _VideoListItemState extends State<VideoListItem> {
               ),
             ],
           ),
-          child: AspectRatio(
-            aspectRatio: 1,
-            child: Image.network(
-              'https://img.youtube.com/vi/${widget.videoAsset.substring(widget.videoAsset.length - 11)}/0.jpg',
-              fit: BoxFit.cover,
+          child: ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: Image.network(
+                'https://img.youtube.com/vi/${widget.videoAsset.substring(widget.videoAsset.length - 11)}/0.jpg',
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 
   @override
