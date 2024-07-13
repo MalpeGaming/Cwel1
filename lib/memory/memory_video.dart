@@ -57,15 +57,19 @@ class _MemoryVideo extends State<MemoryVideo> {
   int streak = 0;
   String video = films[0][0];
 
-  Future<void> saveStreak() async {
+  Future<void> saveStreak(int score) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     int? currentStreak = prefs.getInt('working_memory_streak');
     currentStreak ??= 0;
     int? currentLevel = prefs.getInt('working_memory_level');
     currentLevel ??= 0;
-    prefs.setInt('working_memory_streak', currentStreak + 1);
+    if (score == 1) {
+      prefs.setInt('working_memory_streak', currentStreak + 1);
+    } else {
+      prefs.setInt('working_memory_streak', 0);
+    }
 
-    if (currentStreak >= 2) {
+    if (currentStreak >= 2 && currentLevel < 3) {
       prefs.setInt('working_memory_level', currentLevel + 1);
       prefs.setInt('working_memory_streak', 0);
     }
@@ -207,7 +211,11 @@ class _MemoryVideo extends State<MemoryVideo> {
               ),
               RedirectButton(
                 onClick: () {
-                  if (score == 1) saveStreak();
+                  if (score == 1) {
+                    saveStreak(1);
+                  } else {
+                    saveStreak(-1);
+                  }
                   Navigator.pop(context);
                 },
                 route: (widget.initialTest)
