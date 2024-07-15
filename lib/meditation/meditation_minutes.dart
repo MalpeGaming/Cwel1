@@ -3,18 +3,21 @@ import 'package:flutter/material.dart';
 import '/app_bar.dart';
 
 class MinuteListItem extends StatefulWidget {
-  final int videoTime;
+  final int videoTimeIndex;
 
-  const MinuteListItem({super.key, required this.videoTime});
+  const MinuteListItem({super.key, required this.videoTimeIndex});
 
   @override
   _MinuteListItemState createState() => _MinuteListItemState();
 }
 
 class _MinuteListItemState extends State<MinuteListItem> {
+  List<int> minutes = [1, 2, 3, 5];
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    int videoTime = minutes[widget.videoTimeIndex];
 
     return GestureDetector(
       onTap: () {
@@ -22,7 +25,9 @@ class _MinuteListItemState extends State<MinuteListItem> {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return MeditationVideos(videoTime: widget.videoTime);
+              return MeditationVideos(
+                videoTimeIndex: widget.videoTimeIndex,
+              );
             },
           ),
         );
@@ -59,7 +64,7 @@ class _MinuteListItemState extends State<MinuteListItem> {
                       height: size.height * 0.01,
                     ),
                     Text(
-                      '${widget.videoTime} min',
+                      '$videoTime min',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: size.height * 0.025,
@@ -87,7 +92,6 @@ class _MeditationMinutes extends State<MeditationMinutes> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    const List<int> minutes = [1, 2, 3, 5];
     return Scaffold(
       appBar: appBar(context, ""),
       body: SingleChildScrollView(
@@ -151,7 +155,7 @@ class _MeditationMinutes extends State<MeditationMinutes> {
                             crossAxisCount: 2,
                             children: List.generate(4, (index) {
                               return MinuteListItem(
-                                videoTime: minutes[index],
+                                videoTimeIndex: index,
                               );
                             }),
                           ),

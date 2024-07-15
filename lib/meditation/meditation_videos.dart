@@ -5,8 +5,9 @@ import '/buttons.dart';
 
 class VideoListItem extends StatefulWidget {
   final String videoAsset;
-
-  const VideoListItem({super.key, required this.videoAsset});
+  final int videoTimeIndex;
+  const VideoListItem(
+      {super.key, required this.videoAsset, required this.videoTimeIndex});
 
   @override
   _VideoListItemState createState() => _VideoListItemState();
@@ -28,34 +29,7 @@ class _VideoListItemState extends State<VideoListItem> {
           context,
           MaterialPageRoute(
             builder: (context) {
-              WidgetsFlutterBinding.ensureInitialized();
-
-              return Scaffold(
-                extendBodyBehindAppBar: true,
-                appBar: AppBar(
-                  backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-                  elevation: 0,
-                  leading: IconButton(
-                    icon: const Icon(Icons.close),
-                    color: Colors.amber,
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                ),
-                body: Center(
-                  child: FlickVideoPlayer(
-                    flickManager: flickManager,
-                    flickVideoWithControls: const FlickVideoWithControls(
-                      controls: FlickPortraitControls(),
-                    ),
-                    flickVideoWithControlsFullscreen:
-                        const FlickVideoWithControls(
-                      controls: FlickLandscapeControls(),
-                    ),
-                  ),
-                ),
-              );
+              return Text("sani");
             },
           ),
         );
@@ -122,21 +96,51 @@ class _VideoListItemState extends State<VideoListItem> {
 }
 
 class MeditationVideos extends StatefulWidget {
-  final int videoTime;
-  const MeditationVideos({super.key, required this.videoTime});
+  final int videoTimeIndex;
+  const MeditationVideos({super.key, required this.videoTimeIndex});
 
   @override
   State<MeditationVideos> createState() => _MeditationVideos();
 }
 
 class _MeditationVideos extends State<MeditationVideos> {
-  List<String> videoAssets = [
-    'https://www.youtube.com/watch?v=pTn6Ewhb27k',
-    'https://www.youtube.com/watch?v=pTn6Ewhb27k',
-    'https://www.youtube.com/watch?v=t1ZnptSEPI8',
-    'https://www.youtube.com/watch?v=pTn6Ewhb27k',
-    'https://www.youtube.com/watch?v=pTn6Ewhb27k',
-    'https://www.youtube.com/watch?v=pTn6Ewhb27k',
+  List<List<String>> videoAssets = [
+    [
+      "https://www.youtube.com/watch?v=jMPO6-Sxtuw",
+      "https://www.youtube.com/watch?v=AnOuNPoEwOk",
+      "https://www.youtube.com/watch?v=IQeV5bdXqgU",
+      "https://www.youtube.com/watch?v=n3Y95_w9qvA",
+    ],
+    [
+      "https://www.youtube.com/watch?v=1iIuE4QCIC0",
+      "https://www.youtube.com/watch?v=W-KltSK4MQE",
+      "https://www.youtube.com/watch?v=qpRDLXn8ZEI",
+      "https://www.youtube.com/watch?v=5gCy3b3swT4",
+    ],
+    [
+      "https://www.youtube.com/watch?v=AtFx_qEkqV4",
+      "https://www.youtube.com/watch?v=BDXL5usQlvw",
+      "https://www.youtube.com/watch?v=GBT0Te_78CU",
+      "https://www.youtube.com/watch?v=PRRi2vAxUQA",
+    ],
+    [
+      "https://www.youtube.com/watch?v=Gsepsq5FWfE",
+      "https://www.youtube.com/watch?v=lkl2QH196vs",
+      "https://www.youtube.com/watch?v=h1wvvFvL9oM",
+      "https://www.youtube.com/watch?v=a3gmfSGNSB8",
+    ],
+    [
+      "https://www.youtube.com/watch?v=vcagtZoDcmk",
+      "https://www.youtube.com/watch?v=WHhccZZlc74",
+      "https://www.youtube.com/watch?v=MhjhkmhFs4o",
+      "https://www.youtube.com/watch?v=31RXIywS5-w",
+    ],
+    [
+      "https://www.youtube.com/watch?v=1Ctj3kubpNw",
+      "https://www.youtube.com/watch?v=fe-VZd1sFTU",
+      "https://www.youtube.com/watch?v=fe-VZd1sFTU",
+      "https://www.youtube.com/watch?v=Yi6oaWtKzBk",
+    ]
   ];
 
   @override
@@ -207,7 +211,8 @@ class _MeditationVideos extends State<MeditationVideos> {
                             children:
                                 List.generate(videoAssets.length, (index) {
                               return VideoListItem(
-                                videoAsset: videoAssets[index],
+                                videoAsset: videoAssets[index][0],
+                                videoTimeIndex: widget.videoTimeIndex,
                               );
                             }),
                           ),
