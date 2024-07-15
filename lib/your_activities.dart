@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'navbar.dart';
 import 'self_reflection.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'meditation/meditation.dart';
 import 'sport.dart';
 import 'yoga.dart';
@@ -165,10 +167,16 @@ class _YourActivities extends State<YourActivities> {
   }
 
   int day = 0;
+  late SharedPreferences prefs;
 
   Future<void> calcDay() async {
     DateTime firstDay = DateTime(2024, 7, 1);
     DateTime today = DateTime.now();
+    prefs = await SharedPreferences.getInstance();
+    String? beginningDate = prefs.getStringList('beginning_date')?.first;
+    if (beginningDate != null) {
+      firstDay = DateTime.parse(beginningDate);
+    }
     setState(() {
       day = today.difference(firstDay).inDays;
     });

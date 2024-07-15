@@ -53,7 +53,7 @@ GestureDetector createLesson(
   Size size = MediaQuery.of(context).size;
   return GestureDetector(
     onTap: () {
-      //Navigator.pop(context);
+      Navigator.pop(context);
       Navigator.push(
         context,
         MaterialPageRoute(
