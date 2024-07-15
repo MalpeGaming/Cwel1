@@ -1,5 +1,6 @@
 import 'package:brain_train_app/attention/find_the_number.dart';
 import 'package:brain_train_app/linguistic/choose_best_word.dart';
+import 'package:brain_train_app/linguistic/reading_comprehension.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'navbar.dart';
@@ -456,6 +457,13 @@ class _YourActivities extends State<YourActivities> {
                           "",
                           const Meme(),
                           zero: 0,
+                        ),
+                        createActivity2(
+                          context,
+                          "reading_comprehension",
+                          "Reading",
+                          "Comprehension",
+                          const ReadingComprehension(),
                         ),
                       ],
                     ),

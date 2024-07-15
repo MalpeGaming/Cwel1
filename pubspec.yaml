@@ -93,26 +93,26 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
-    - assets/memory/
-    - assets/meditation/
-    - assets/attention/
-    - assets/linguistic/
     - assets/activities/
-    - assets/diet/
-    - assets/self_reflection/
+    - assets/memory/
     - assets/memory/memory_game/
     - assets/memory/memory_game/cats/
     - assets/memory/faces/
+    - assets/meditation/
+    - assets/attention/
     - assets/attention/reading/
     - assets/attention/reading/classic/
     - assets/attention/reading/business/
     - assets/attention/reading/personal_development/
+    - assets/attention/reading/covers/
+    - assets/linguistic/
     - assets/linguistic/hangman/
+    - assets/diet/
+    - assets/diet/recipes/
+    - assets/self_reflection/
     - assets/math/
     - assets/riddles/
     - assets/logical_thinking/
-    - assets/attention/reading/covers/
-    - assets/diet/recipes/
     - assets/memes/
     - assets/navbar_icons/
     - assets/investing/
