@@ -90,6 +90,9 @@ class _VideoListItemState extends State<VideoListItem> {
 
   @override
   void dispose() {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     flickManager.dispose();
     super.dispose();
   }

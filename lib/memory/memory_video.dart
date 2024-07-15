@@ -1,6 +1,8 @@
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/services.dart';
+import 'dart:math';
 import '/account/login1.dart';
 import '/show_score.dart';
 import '../buttons.dart';
@@ -16,10 +18,78 @@ class MemoryVideo extends StatefulWidget {
   State<MemoryVideo> createState() => _MemoryVideo();
 }
 
+List<List<String>> films = [
+  [
+    "https://www.youtube.com/watch?v=_kDrRWlIkjw",
+    "https://www.youtube.com/watch?v=pNjxyFp-RfM",
+    "https://www.youtube.com/watch?v=3D4CUXMp3BY",
+    "https://www.youtube.com/watch?v=pEmAnuEU5PE",
+    "https://www.youtube.com/watch?v=MmnwHH6IFuY",
+    "https://www.youtube.com/watch?v=lvvBh8Na-wY",
+    "https://www.youtube.com/watch?v=02jqF0-Qmho",
+  ],
+  [
+    "https://www.youtube.com/watch?v=VExEBel_bnk",
+    "https://www.youtube.com/watch?v=Cs8HyHVVWsU",
+    "https://www.youtube.com/watch?v=l7NZfY-WZio",
+    "https://www.youtube.com/watch?v=h6sKvWSfvms",
+    "https://www.youtube.com/watch?v=n1YIqTO-URo",
+    "https://www.youtube.com/watch?v=r0qoeH8Eiqs",
+    "https://www.youtube.com/watch?v=XL7XyJWfC5w",
+  ],
+  [
+    "https://www.youtube.com/watch?v=FsOasNc9bt4",
+    "https://www.youtube.com/watch?v=1fKSp6eOYMM",
+    "https://www.youtube.com/watch?v=43CQBJ73GWg",
+    "https://www.youtube.com/watch?v=6125jY_z054",
+    "https://www.youtube.com/watch?v=MXaUcoWmWOc",
+    "https://www.youtube.com/watch?v=44F10ML4k3A",
+    "https://www.youtube.com/watch?v=kdl3XdSiTLA",
+  ],
+];
+
 class _MemoryVideo extends State<MemoryVideo> {
   late YoutubePlayerController _controller;
   TextEditingController textController = TextEditingController();
   double score = 0;
+
+  int level = 0;
+  int streak = 0;
+  String video = films[0][0];
+
+  Future<void> saveStreak(int score) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int? currentStreak = prefs.getInt('working_memory_streak');
+    currentStreak ??= 0;
+    int? currentLevel = prefs.getInt('working_memory_level');
+    currentLevel ??= 0;
+    if (score == 1) {
+      prefs.setInt('working_memory_streak', currentStreak + 1);
+    } else {
+      prefs.setInt('working_memory_streak', 0);
+    }
+
+    if (currentStreak >= 2 && currentLevel < 3) {
+      prefs.setInt('working_memory_level', currentLevel + 1);
+      prefs.setInt('working_memory_streak', 0);
+    }
+  }
+
+  Future<void> readLevel() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    int? currentLevel = prefs.getInt('working_memory_level');
+    int? currentStreak = prefs.getInt('working_memory_streak');
+
+    currentLevel ??= 0;
+    currentStreak ??= 0;
+    print(currentLevel);
+
+    setState(() {
+      level = currentLevel!;
+      streak = currentStreak!;
+    });
+  }
 
   @override
   void initState() {
@@ -33,13 +103,19 @@ class _MemoryVideo extends State<MemoryVideo> {
         enableKeyboard: false,
       ),
     );
+    setState(() {
+      readLevel();
+    });
 
-    _controller.loadVideo("https://www.youtube.com/watch?v=aCtjqGRQAaU");
+    //int level = 0;
   }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    video = films[level][Random().nextInt(7)];
+
+    _controller.loadVideo(video);
     return Scaffold(
       appBar: appBar(context, ""),
       body: SingleChildScrollView(
@@ -135,6 +211,11 @@ class _MemoryVideo extends State<MemoryVideo> {
               ),
               RedirectButton(
                 onClick: () {
+                  if (score == 1) {
+                    saveStreak(1);
+                  } else {
+                    saveStreak(-1);
+                  }
                   Navigator.pop(context);
                 },
                 route: (widget.initialTest)
@@ -153,6 +234,8 @@ class _MemoryVideo extends State<MemoryVideo> {
                 text: 'Continue',
                 width: size.width,
               ),
+              Text(level.toString()),
+              Text(streak.toString()),
             ],
           ),
         ),
