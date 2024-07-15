@@ -87,7 +87,7 @@ class _MeditationMinutes extends State<MeditationMinutes> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    const List<int> minutes = [1, 2, 3, 5];
     return Scaffold(
       appBar: appBar(context, ""),
       body: SingleChildScrollView(
@@ -151,7 +151,7 @@ class _MeditationMinutes extends State<MeditationMinutes> {
                             crossAxisCount: 2,
                             children: List.generate(4, (index) {
                               return MinuteListItem(
-                                videoTime: index + 1,
+                                videoTime: minutes[index],
                               );
                             }),
                           ),
