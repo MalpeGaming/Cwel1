@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '/app_bar.dart';
 import '/buttons.dart';
-import 'meditation_videos.dart';
+import 'meditation_minutes.dart';
 
 class Meditation extends StatefulWidget {
   const Meditation({super.key});
@@ -166,7 +166,7 @@ class _Meditation extends State<Meditation> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const MeditationVideos(),
+                  route: const MeditationMinutes(),
                   text: 'Continue',
                   width: size.width,
                 ),

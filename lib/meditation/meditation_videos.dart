@@ -2,7 +2,6 @@ import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import '/app_bar.dart';
 import '/buttons.dart';
-import '/your_activities.dart';
 
 class VideoListItem extends StatefulWidget {
   final String videoAsset;
@@ -24,94 +23,95 @@ class _VideoListItemState extends State<VideoListItem> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                WidgetsFlutterBinding.ensureInitialized();
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              WidgetsFlutterBinding.ensureInitialized();
 
-                return Scaffold(
-                  extendBodyBehindAppBar: true,
-                  appBar: AppBar(
-                    backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-                    elevation: 0,
-                    leading: IconButton(
-                      icon: const Icon(Icons.close),
-                      color: Colors.amber,
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
+              return Scaffold(
+                extendBodyBehindAppBar: true,
+                appBar: AppBar(
+                  backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+                  elevation: 0,
+                  leading: IconButton(
+                    icon: const Icon(Icons.close),
+                    color: Colors.amber,
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+                body: Center(
+                  child: FlickVideoPlayer(
+                    flickManager: flickManager,
+                    flickVideoWithControls: const FlickVideoWithControls(
+                      controls: FlickPortraitControls(),
+                    ),
+                    flickVideoWithControlsFullscreen:
+                        const FlickVideoWithControls(
+                      controls: FlickLandscapeControls(),
                     ),
                   ),
-                  body: Center(
-                    child: FlickVideoPlayer(
-                      flickManager: flickManager,
-                      flickVideoWithControls: const FlickVideoWithControls(
-                        controls: FlickPortraitControls(),
+                ),
+              );
+            },
+          ),
+        );
+      },
+      child: Container(
+        margin: const EdgeInsets.all(6),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.35),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          child: AspectRatio(
+            aspectRatio: 1,
+            child: Image.network(
+              'https://img.youtube.com/vi/${widget.videoAsset.substring(widget.videoAsset.length - 11)}/0.jpg',
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return const Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Center(
+                        child: Icon(
+                          Icons.clear,
+                          color: Colors.red,
+                          size: 48,
+                        ),
                       ),
-                      flickVideoWithControlsFullscreen:
-                          const FlickVideoWithControls(
-                        controls: FlickLandscapeControls(),
+                      SizedBox(height: 8),
+                      Center(
+                        child: Text(
+                          'Check internet connection',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                 );
               },
             ),
-          );
-        },
-        child: Container(
-          margin: const EdgeInsets.all(6),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.35),
-                spreadRadius: 2,
-                blurRadius: 5,
-                offset: const Offset(0, 3),
-              ),
-            ],
           ),
-          child: ClipRRect(
-            borderRadius: const BorderRadius.all(Radius.circular(10)),
-            child: AspectRatio(
-              aspectRatio: 1,
-              child: Image.network(
-                'https://img.youtube.com/vi/${widget.videoAsset.substring(widget.videoAsset.length - 11)}/0.jpg',
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) {
-                  return const Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Center(
-                          child: Icon(
-                            Icons.clear,
-                            color: Colors.red,
-                            size: 48,
-                          ),
-                        ),
-                        SizedBox(height: 8),
-                        Center(
-                          child: Text(
-                            'Check internet connection',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-          ),
-        ),);
+        ),
+      ),
+    );
   }
 
   @override
@@ -122,7 +122,8 @@ class _VideoListItemState extends State<VideoListItem> {
 }
 
 class MeditationVideos extends StatefulWidget {
-  const MeditationVideos({super.key});
+  final int videoTime;
+  const MeditationVideos({super.key, required this.videoTime});
 
   @override
   State<MeditationVideos> createState() => _MeditationVideos();
@@ -222,7 +223,10 @@ class _MeditationVideos extends State<MeditationVideos> {
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: const YourActivities(),
+                    onClick: () {
+                      Navigator.pop(context);
+                      Navigator.pop(context);
+                    },
                     text: 'Continue',
                     width: size.width,
                   ),
