@@ -15,6 +15,9 @@ class ReadingComprehension extends StatefulWidget {
 class _ReadingComprehension extends State<ReadingComprehension> {
   List<String> questions = [];
   List<List<String>> answers = [];
+  String title = "";
+  String author = "";
+  String text = "";
 
   void readData() async {
     try {
@@ -38,6 +41,9 @@ class _ReadingComprehension extends State<ReadingComprehension> {
       setState(() {
         questions = newQuestions;
         answers = newAnswers;
+        title = tasks[0]["title"];
+        author = tasks[0]["author"];
+        text = tasks[0]["text"];
       });
     } catch (e) {
       print("Error: $e");
@@ -64,43 +70,38 @@ class _ReadingComprehension extends State<ReadingComprehension> {
             left: size.width / 10,
             right: size.width / 10,
           ),
-          child: Column(
-            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Center(
-                    child: Text(
-                      "MEMORY",
+          child: SingleChildScrollView(
+            child: Column(
+              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      title.toString(),
                       style: TextStyle(
-                        fontSize: size.width / 8,
+                        fontSize: size.width / 25,
+                        fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.center,
                     ),
-                  ),
-                  SizedBox(
-                    height: size.height / 50,
-                  ),
-                  Text(
-                    "Exercise 2 -  Working memory ",
-                    style: TextStyle(fontSize: size.width / 20),
-                  ),
-                  SizedBox(
-                    height: size.height / 25,
-                  ),
-                  Text(
-                    "Follow the instructions in the video.",
-                    style: TextStyle(fontSize: size.width / 24),
-                  ),
-                  SizedBox(
-                    height: size.height / 30,
-                  ),
-                  Text(questions.toString()),
-                ],
-              ),
-            ],
+                    Text(
+                      "by $author",
+                      style: TextStyle(fontSize: size.width / 30),
+                    ),
+                    SizedBox(
+                      height: size.height / 30,
+                    ),
+                    Text(
+                      text,
+                      style: TextStyle(fontSize: size.height / 50),
+                    ),
+                    Text(questions.toString()),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
