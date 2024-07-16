@@ -335,201 +335,202 @@ class _Success extends State<Success> {
     //print(widget.minutes.toString());
 
     return PopScope(
-        canPop: false,
-        child: Scaffold(
-          body: DecoratedBox(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image:
-                    const AssetImage("assets/investing/success_background.gif"),
-                fit: BoxFit.cover,
-                opacity: ((Theme.of(context).brightness == Brightness.dark)
-                    ? 0.3
-                    : 0.4),
-              ),
-            ),
-            child: Column(
-              children: [
-                appBar(context, ""),
-                Container(
-                  margin: EdgeInsets.only(
-                    left: size.width / 10,
-                    right: size.width / 10,
-                    bottom: size.height / 10,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      //appBar(context, "Success"),
-                      SizedBox(height: 0.03 * size.height),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          "CONGRATS",
-                          style: TextStyle(fontSize: 0.1 * size.width),
-                        ),
-                      ),
-                      SizedBox(height: 0.03 * size.height),
-                      Text(
-                        "Lesson ${widget.number.toString()}",
-                        style: TextStyle(fontSize: 0.027 * size.height),
-                      ),
-                      Text(
-                        widget.subject,
-                        style: TextStyle(
-                          fontSize: 0.025 * size.height,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 0.04 * size.height),
-
-                      RichText(
-                        text: TextSpan(
-                          style: TextStyle(
-                            fontSize: 0.025 * size.height,
-                            color: Theme.of(context).colorScheme.onSecondary,
-                          ),
-                          children: [
-                            const TextSpan(
-                              text: "Time Taken: ",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            TextSpan(
-                              text: "${widget.minutes.toString()} minutes",
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 0.04 * size.height),
-
-                      RichText(
-                        text: TextSpan(
-                          style: TextStyle(
-                            fontSize: 0.025 * size.height,
-                            color: Theme.of(context).colorScheme.onSecondary,
-                          ),
-                          children: [
-                            const TextSpan(
-                              text: "Points: ",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            TextSpan(
-                              text:
-                                  "${widget.score.toString()} / ${widget.maxscore.toString()}",
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 0.005 * size.height),
-                      RichText(
-                        text: TextSpan(
-                          style: TextStyle(
-                            fontSize: 0.025 * size.height,
-                            color: Theme.of(context).colorScheme.onSecondary,
-                          ),
-                          children: [
-                            const TextSpan(
-                              text: "Percentage Score: ",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            TextSpan(
-                              text:
-                                  "${(widget.percentage * 100).toStringAsFixed(0)}%",
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 0.01 * size.height),
-                      LinearProgressIndicator(
-                        value: widget.percentage,
-                        backgroundColor:
-                            (Theme.of(context).brightness != Brightness.dark)
-                                ? const Color.fromRGBO(135, 136, 226, 1)
-                                : const Color.fromARGB(255, 174, 140, 180),
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          (Theme.of(context).brightness != Brightness.dark)
-                              ? const Color.fromRGBO(94, 23, 235, 1)
-                              : Theme.of(context).colorScheme.onPrimary,
-                        ),
-                        minHeight: 0.025 * size.height,
-                        borderRadius: BorderRadius.circular(21312127),
-                      ),
-                      SizedBox(height: 0.025 * size.height),
-
-                      RichText(
-                        text: TextSpan(
-                          style: TextStyle(
-                            fontSize: 0.025 * size.height,
-                            color: Theme.of(context).colorScheme.onSecondary,
-                          ),
-                          children: [
-                            const TextSpan(
-                              text: "Overall Points: ",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            TextSpan(
-                              text:
-                                  "${scoreoverall.toString()} / ${maxscoreoverall.toString()}",
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 0.005 * size.height),
-                      RichText(
-                        text: TextSpan(
-                          style: TextStyle(
-                            fontSize: 0.025 * size.height,
-                            color: Theme.of(context).colorScheme.onSecondary,
-                          ),
-                          children: [
-                            const TextSpan(
-                              text: "Percentage Score Overall: ",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            TextSpan(
-                              text:
-                                  "${(percentageoverall * 100).toStringAsFixed(0)}%",
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 0.01 * size.height),
-                      LinearProgressIndicator(
-                        value: percentageoverall,
-                        backgroundColor:
-                            (Theme.of(context).brightness != Brightness.dark)
-                                ? const Color.fromRGBO(135, 136, 226, 1)
-                                : const Color.fromARGB(255, 174, 140, 180),
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          (Theme.of(context).brightness != Brightness.dark)
-                              ? const Color.fromRGBO(94, 23, 235, 1)
-                              : Theme.of(context).colorScheme.onPrimary,
-                        ),
-                        minHeight: 0.025 * size.height,
-                        borderRadius: BorderRadius.circular(21312127),
-                      ),
-                      //const Spacer(),
-                      SizedBox(height: size.height * 0.1),
-
-                      //SizedBox(height: 0.1 * size.height),
-                    ],
-                  ),
-                ),
-                if (widget.number != 35)
-                  Center(
-                    child: SizedBox(
-                      height: size.height * 0.05,
-                      width: size.width * 0.75,
-                      child: RedirectButton(
-                        route: widget.route,
-                        text: 'Next Class',
-                        width: size.width,
-                      ),
-                    ),
-                  ),
-              ],
+      canPop: false,
+      child: Scaffold(
+        body: DecoratedBox(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image:
+                  const AssetImage("assets/investing/success_background.gif"),
+              fit: BoxFit.cover,
+              opacity: ((Theme.of(context).brightness == Brightness.dark)
+                  ? 0.3
+                  : 0.4),
             ),
           ),
-        ),);
+          child: Column(
+            children: [
+              appBar(context, ""),
+              Container(
+                margin: EdgeInsets.only(
+                  left: size.width / 10,
+                  right: size.width / 10,
+                  bottom: size.height / 10,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    //appBar(context, "Success"),
+                    SizedBox(height: 0.03 * size.height),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "CONGRATS",
+                        style: TextStyle(fontSize: 0.1 * size.width),
+                      ),
+                    ),
+                    SizedBox(height: 0.03 * size.height),
+                    Text(
+                      "Lesson ${widget.number.toString()}",
+                      style: TextStyle(fontSize: 0.027 * size.height),
+                    ),
+                    Text(
+                      widget.subject,
+                      style: TextStyle(
+                        fontSize: 0.025 * size.height,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 0.04 * size.height),
+
+                    RichText(
+                      text: TextSpan(
+                        style: TextStyle(
+                          fontSize: 0.025 * size.height,
+                          color: Theme.of(context).colorScheme.onSecondary,
+                        ),
+                        children: [
+                          const TextSpan(
+                            text: "Time Taken: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: "${widget.minutes.toString()} minutes",
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 0.04 * size.height),
+
+                    RichText(
+                      text: TextSpan(
+                        style: TextStyle(
+                          fontSize: 0.025 * size.height,
+                          color: Theme.of(context).colorScheme.onSecondary,
+                        ),
+                        children: [
+                          const TextSpan(
+                            text: "Points: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text:
+                                "${widget.score.toString()} / ${widget.maxscore.toString()}",
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 0.005 * size.height),
+                    RichText(
+                      text: TextSpan(
+                        style: TextStyle(
+                          fontSize: 0.025 * size.height,
+                          color: Theme.of(context).colorScheme.onSecondary,
+                        ),
+                        children: [
+                          const TextSpan(
+                            text: "Percentage Score: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text:
+                                "${(widget.percentage * 100).toStringAsFixed(0)}%",
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 0.01 * size.height),
+                    LinearProgressIndicator(
+                      value: widget.percentage,
+                      backgroundColor:
+                          (Theme.of(context).brightness != Brightness.dark)
+                              ? const Color.fromRGBO(135, 136, 226, 1)
+                              : const Color.fromARGB(255, 174, 140, 180),
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        (Theme.of(context).brightness != Brightness.dark)
+                            ? const Color.fromRGBO(94, 23, 235, 1)
+                            : Theme.of(context).colorScheme.onPrimary,
+                      ),
+                      minHeight: 0.025 * size.height,
+                      borderRadius: BorderRadius.circular(21312127),
+                    ),
+                    SizedBox(height: 0.025 * size.height),
+
+                    RichText(
+                      text: TextSpan(
+                        style: TextStyle(
+                          fontSize: 0.025 * size.height,
+                          color: Theme.of(context).colorScheme.onSecondary,
+                        ),
+                        children: [
+                          const TextSpan(
+                            text: "Overall Points: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text:
+                                "${scoreoverall.toString()} / ${maxscoreoverall.toString()}",
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 0.005 * size.height),
+                    RichText(
+                      text: TextSpan(
+                        style: TextStyle(
+                          fontSize: 0.025 * size.height,
+                          color: Theme.of(context).colorScheme.onSecondary,
+                        ),
+                        children: [
+                          const TextSpan(
+                            text: "Percentage Score Overall: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text:
+                                "${(percentageoverall * 100).toStringAsFixed(0)}%",
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 0.01 * size.height),
+                    LinearProgressIndicator(
+                      value: percentageoverall,
+                      backgroundColor:
+                          (Theme.of(context).brightness != Brightness.dark)
+                              ? const Color.fromRGBO(135, 136, 226, 1)
+                              : const Color.fromARGB(255, 174, 140, 180),
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        (Theme.of(context).brightness != Brightness.dark)
+                            ? const Color.fromRGBO(94, 23, 235, 1)
+                            : Theme.of(context).colorScheme.onPrimary,
+                      ),
+                      minHeight: 0.025 * size.height,
+                      borderRadius: BorderRadius.circular(21312127),
+                    ),
+                    //const Spacer(),
+                    SizedBox(height: size.height * 0.1),
+
+                    //SizedBox(height: 0.1 * size.height),
+                  ],
+                ),
+              ),
+              if (widget.number != 35)
+                Center(
+                  child: SizedBox(
+                    height: size.height * 0.05,
+                    width: size.width * 0.75,
+                    child: RedirectButton(
+                      route: widget.route,
+                      text: 'Next Class',
+                      width: size.width,
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

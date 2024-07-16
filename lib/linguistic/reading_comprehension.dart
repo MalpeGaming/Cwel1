@@ -15,15 +15,117 @@ class ReadingComprehension extends StatefulWidget {
 
 class _ReadingComprehension extends State<ReadingComprehension> {
   List<String> questions = [];
+  List<int> correct = [];
+  List<int> usersAnswers = [];
   List<List<String>> answers = [];
   String title = "";
   String author = "";
   String text = "";
   var rng = Random();
+  int selectedOption = -1;
+
+  Widget createExercise(BuildContext context, int index) {
+    Size size = MediaQuery.of(context).size;
+    return Center(
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(
+            Radius.circular(20),
+          ),
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: <Color>[
+              Theme.of(context).colorScheme.primary,
+              Theme.of(context).colorScheme.onPrimary,
+            ],
+            tileMode: TileMode.decal,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Theme.of(context).colorScheme.shadow.withOpacity(1),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: const Offset(5, 5),
+            ),
+          ],
+        ),
+        width: size.width * 0.8,
+        child: Container(
+          margin: const EdgeInsets.all(15),
+          child: Center(
+            child: Text(
+              questions[index],
+              style: TextStyle(
+                fontSize: size.width / 22,
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget createDot(
+    BuildContext context,
+    int usersAnswer,
+    Object correct,
+    int val,
+  ) {
+    Size size = MediaQuery.of(context).size;
+    return usersAnswer == val || correct == val
+        ? Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: size.width / 30,
+            ),
+            child: Icon(
+              correct == val ? Icons.check_circle : Icons.cancel,
+              color: correct == val ? Colors.green : Colors.red,
+            ),
+          )
+        : Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: size.width / 30,
+            ),
+            child: const Icon(Icons.circle_outlined),
+          );
+  }
+
+  ListTile createListTitle(
+      BuildContext context, int index, int val, String text) {
+    Size size = MediaQuery.of(context).size;
+
+    return ListTile(
+      title: Text(
+        text,
+        style: TextStyle(fontSize: 0.02 * size.height),
+      ),
+      leading: (usersAnswers[index] == -1)
+          ? Radio<int>(
+              value: val,
+              groupValue: usersAnswers[index],
+              activeColor: Colors.blue,
+              onChanged: (value) {
+                setState(() {
+                  usersAnswers[index] = value!;
+                });
+              },
+            )
+          : createDot(
+              context,
+              usersAnswers[index],
+              correct[index],
+              val,
+            ),
+    );
+  }
 
   void readData() async {
     try {
       List<String> newQuestions = [];
+      List<int> newCorrect = [];
       List<List<String>> newAnswers = [];
       int test = rng.nextInt(11);
 
@@ -33,7 +135,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
       print(tasks[0]["questions"]);
       for (var i = 0; i < tasks[0]["questions"].length; i++) {
         newQuestions.add(tasks[0]["questions"][i]["question"]);
-        print('xd');
+        newCorrect.add(tasks[0]["questions"][i]["correct_answer"]);
 
         newAnswers.add([]);
         for (var answer in tasks[0]["questions"][i]["answers"]) {
@@ -43,10 +145,12 @@ class _ReadingComprehension extends State<ReadingComprehension> {
 
       setState(() {
         questions = newQuestions;
+        correct = newCorrect;
         answers = newAnswers;
         title = tasks[0]["title"];
         author = tasks[0]["author"];
         text = tasks[0]["text"];
+        usersAnswers = List<int>.filled(questions.length, -1);
       });
     } catch (e) {
       print("Error: $e");
@@ -103,6 +207,14 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                           height: size.height / 700),
                     ),
                     Text(questions.toString()),
+                    createExercise(context, 0),
+                    for (int i = 0; i < answers[0].length; i++)
+                      createListTitle(
+                        context,
+                        0,
+                        i,
+                        answers[0][i],
+                      ),
                   ],
                 ),
               ],
