@@ -1,8 +1,9 @@
-questions:
-  - test:
-    - title: Pride and Prejudice
-    - author: Jane Austen
-    - text: It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.\nHowever little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered the rightful property of some one or other of their daughters.\n\n"My dear Mr. Bennet," said his lady to him one day, "have you heard that Netherfield Park is let at last?"\n\nMr. Bennet replied that he had not.\n\n"But it is," returned she; "for Mrs. Long has just been here, and she told me all about it."\n\nMr. Bennet made no answer.\n\n"Do you not want to know who has taken it?" cried his wife impatiently.\n\n"You want to tell me, and I have no objection to hearing it."\n\nThis was invitation enough.\n\n"Why, my dear, you must know, Mrs. Long says that Netherfield is taken by a young man of large fortune from the north of England; that he came down on Monday in a chaise and four to see the place, and was so much delighted with it, that he agreed with Mr. Morris immediately; that he is to take possession before Michaelmas, and some of his servants are to be in the house by the end of next week."\n\n"What is his name?"\n\n"Bingley."\n\n"Is he married or single?"\n\n"Oh! Single, my dear, to be sure! A single man of large fortune; four or five thousand a year. What a fine thing for our girls!"\n\n"How so? How can it affect them?"\n\n"My dear Mr. Bennet," replied his wife, "how can you be so tiresome! You must know that I am thinking of his marrying one of them."\n\n"Is that his design in settling here?"\n\n"Design! Nonsense, how can you talk so! But it is very likely that he may fall in love with one of them, and therefore you must visit him as soon as he comes."\n\n"I see no occasion for that. You and the girls may go, or you may send them by themselves, which perhaps will be still better, for as you are as handsome as any of them, Mr. Bingley may like you the best of the party."\n\n"My dear, you flatter me. I certainly have had my share of beauty, but I do not pretend to be anything extraordinary now. When a woman has five grown-up daughters, she ought to give over thinking of her own beauty."\n\n"In such cases, a woman has not often much beauty to think of."\n\n"But, my dear, you must indeed go and see Mr. Bingley when he comes into the neighbourhood."\n\n"It is more than I engage for, I assure you."\n\n"But consider your daughters. Only think what an establishment it would be for one of them. Sir William and Lady Lucas are determined to go, merely on that account, for in general, you know, they visit no newcomers. Indeed you must go, for it will be impossible for us to visit him if you do not."\n\n"You are over-scrupulous, surely. I dare say Mr. Bingley will be very glad to see you; and I will send a few lines by you to assure him of my hearty consent to his marrying whichever he chooses of the girls; though I must throw in a good word for my little Lizzy."\n\n"I desire you will do no such thing. Lizzy is not a bit better than the others; and I am sure she is not half so handsome as Jane, nor half so good-humoured as Lydia. But you are always giving her the preference."\n\n"They have none of them much to recommend them," replied he; "they are all silly and ignorant like other girls; but Lizzy has something more of quickness than her sisters."\n\n"Mr. Bennet, how can you abuse your own children in such a way? You take delight in vexing me. You have no compassion for my poor nerves."\n\n"You mistake me, my dear. I have a high respect for your nerves. They are my old friends. I have heard you mention them with consideration these last twenty years at least."\n\n"Ah, you do not know what I suffer."\n\n"But I hope you will get over it, and live to see many young men of four thousand a year come into the neighbourhood."\n\n"It will be no use to us, if twenty such should come, since you will not visit them."\n\n"Depend upon it, my dear, that when there are twenty, I will visit them all."\n\nMr. Bennet was so odd a mixture of quick parts, sarcastic humour, reserve, and caprice, that the experience of three-and-twenty years had been insufficient to make his wife understand his character. Her mind was less difficult to develop. She was a woman of mean understanding, little information, and uncertain temper. When she was discontented, she fancied herself nervous. The business of her life was to get her daughters married; its solace was visiting and news.
+tests:
+  0:
+  - title: Pride and Prejudice
+    author: Jane Austen
+    text: It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.\nHowever little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered the rightful property of some one or other of their daughters.\n\n"My dear Mr. Bennet," said his lady to him one day, "have you heard that Netherfield Park is let at last?"\n\nMr. Bennet replied that he had not.\n\n"But it is," returned she; "for Mrs. Long has just been here, and she told me all about it."\n\nMr. Bennet made no answer.\n\n"Do you not want to know who has taken it?" cried his wife impatiently.\n\n"You want to tell me, and I have no objection to hearing it."\n\nThis was invitation enough.\n\n"Why, my dear, you must know, Mrs. Long says that Netherfield is taken by a young man of large fortune from the north of England; that he came down on Monday in a chaise and four to see the place, and was so much delighted with it, that he agreed with Mr. Morris immediately; that he is to take possession before Michaelmas, and some of his servants are to be in the house by the end of next week."\n\n"What is his name?"\n\n"Bingley."\n\n"Is he married or single?"\n\n"Oh! Single, my dear, to be sure! A single man of large fortune; four or five thousand a year. What a fine thing for our girls!"\n\n"How so? How can it affect them?"\n\n"My dear Mr. Bennet," replied his wife, "how can you be so tiresome! You must know that I am thinking of his marrying one of them."\n\n"Is that his design in settling here?"\n\n"Design! Nonsense, how can you talk so! But it is very likely that he may fall in love with one of them, and therefore you must visit him as soon as he comes."\n\n"I see no occasion for that. You and the girls may go, or you may send them by themselves, which perhaps will be still better, for as you are as handsome as any of them, Mr. Bingley may like you the best of the party."\n\n"My dear, you flatter me. I certainly have had my share of beauty, but I do not pretend to be anything extraordinary now. When a woman has five grown-up daughters, she ought to give over thinking of her own beauty."\n\n"In such cases, a woman has not often much beauty to think of."\n\n"But, my dear, you must indeed go and see Mr. Bingley when he comes into the neighbourhood."\n\n"It is more than I engage for, I assure you."\n\n"But consider your daughters. Only think what an establishment it would be for one of them. Sir William and Lady Lucas are determined to go, merely on that account, for in general, you know, they visit no newcomers. Indeed you must go, for it will be impossible for us to visit him if you do not."\n\n"You are over-scrupulous, surely. I dare say Mr. Bingley will be very glad to see you; and I will send a few lines by you to assure him of my hearty consent to his marrying whichever he chooses of the girls; though I must throw in a good word for my little Lizzy."\n\n"I desire you will do no such thing. Lizzy is not a bit better than the others; and I am sure she is not half so handsome as Jane, nor half so good-humoured as Lydia. But you are always giving her the preference."\n\n"They have none of them much to recommend them," replied he; "they are all silly and ignorant like other girls; but Lizzy has something more of quickness than her sisters."\n\n"Mr. Bennet, how can you abuse your own children in such a way? You take delight in vexing me. You have no compassion for my poor nerves."\n\n"You mistake me, my dear. I have a high respect for your nerves. They are my old friends. I have heard you mention them with consideration these last twenty years at least."\n\n"Ah, you do not know what I suffer."\n\n"But I hope you will get over it, and live to see many young men of four thousand a year come into the neighbourhood."\n\n"It will be no use to us, if twenty such should come, since you will not visit them."\n\n"Depend upon it, my dear, that when there are twenty, I will visit them all."\n\nMr. Bennet was so odd a mixture of quick parts, sarcastic humour, reserve, and caprice, that the experience of three-and-twenty years had been insufficient to make his wife understand his character. Her mind was less difficult to develop. She was a woman of mean understanding, little information, and uncertain temper. When she was discontented, she fancied herself nervous. The business of her life was to get her daughters married; its solace was visiting and news.
+    questions:
     - answers:
       - That a single woman in possession of beauty must be in want of a husband.
       - That a single man in possession of a good fortune must be in want of a wife.
@@ -73,10 +74,11 @@ questions:
       - Playing piano.
       correct_answer: 1
       question: What is the main source of solace for Mrs. Bennet?
-  - test:
-    - title: Pride and Prejudice
-    - author: Jane Austen
-    - text: Not all that Mrs. Bennet, however, with the assistance of her five daughters, could ask on the subject, was sufficient to draw from her husband any satisfactory description of Mr. Bingley.\nThey attacked him in various ways—with barefaced questions, ingenious suppositions, and distant surmises; but he eluded the skill of them all, and they were at last obliged to accept the second-hand intelligence of their neighbour, Lady Lucas.\nHer report was highly favourable.\nSir William had been delighted with him.\nHe was quite young, wonderfully handsome, extremely agreeable, and, to crown the whole, he meant to be at the next assembly with a large party.\nNothing could be more delightful!\nTo be fond of dancing was a certain step towards falling in love; and very lively hopes of Mr. Bingley’s heart were entertained.\n\n“If I can but see one of my daughters happily settled at Netherfield,” said Mrs. Bennet to her husband, “and all the others equally well married, I shall have nothing to wish for.”\n\nIn a few days Mr. Bingley returned Mr. Bennet’s visit, and sat about ten minutes with him in his library.\nHe had entertained hopes of being admitted to a sight of the young ladies, of whose beauty he had heard much; but he saw only the father.\nThe ladies were somewhat more fortunate, for they had the advantage of ascertaining from an upper window that he wore a blue coat, and rode a black horse.\n\nAn invitation to dinner was soon afterwards dispatched; and already had Mrs. Bennet planned the courses that were to do credit to her housekeeping, when an answer arrived which deferred it all.\nMr. Bingley was obliged to be in town the following day, and, consequently, unable to accept the honour of their invitation, etc.\nMrs. Bennet was quite disconcerted.\nShe could not imagine what business he could have in town so soon after his arrival in Hertfordshire; and she began to fear that he might be always flying about from one place to another, and never settled at Netherfield as he ought to be.\nLady Lucas quieted her fears a little by starting the idea of his being gone to London only to get a large party for the ball; and a report soon followed that Mr. Bingley was to bring twelve ladies and seven gentlemen with him to the assembly.\nThe girls grieved over such a number of ladies, but were comforted the day before the ball by hearing that instead of twelve he brought only six with him from London—his five sisters and a cousin.\nAnd when the party entered the assembly room it consisted of only five altogether—Mr. Bingley, his two sisters, the husband of the eldest, and another young man.\n\nMr. Bingley was good-looking and gentlemanlike; he had a pleasant countenance, and easy, unaffected manners.\nHis sisters were fine women, with an air of decided fashion.\nHis brother-in-law, Mr. Hurst, merely looked the gentleman; but his friend Mr. Darcy soon drew the attention of the room by his fine, tall person, handsome features, noble mien, and the report which was in general circulation within five minutes after his entrance, of his having ten thousand a year.\nThe gentlemen pronounced him to be a fine figure of a man, the ladies declared he was much handsomer than Mr. Bingley, and he was looked at with great admiration for about half the evening, till his manners gave a disgust which turned the tide of his popularity; for he was discovered to be proud, to be above his company, and above being pleased; and not all his large estate in Derbyshire could then save him from having a most forbidding, disagreeable countenance, and being unworthy to be compared with his friend.
+  1:
+  - title: Pride and Prejudice
+    author: Jane Austen
+    text: Not all that Mrs. Bennet, however, with the assistance of her five daughters, could ask on the subject, was sufficient to draw from her husband any satisfactory description of Mr. Bingley.\nThey attacked him in various ways—with barefaced questions, ingenious suppositions, and distant surmises; but he eluded the skill of them all, and they were at last obliged to accept the second-hand intelligence of their neighbour, Lady Lucas.\nHer report was highly favourable.\nSir William had been delighted with him.\nHe was quite young, wonderfully handsome, extremely agreeable, and, to crown the whole, he meant to be at the next assembly with a large party.\nNothing could be more delightful!\nTo be fond of dancing was a certain step towards falling in love; and very lively hopes of Mr. Bingley’s heart were entertained.\n\n“If I can but see one of my daughters happily settled at Netherfield,” said Mrs. Bennet to her husband, “and all the others equally well married, I shall have nothing to wish for.”\n\nIn a few days Mr. Bingley returned Mr. Bennet’s visit, and sat about ten minutes with him in his library.\nHe had entertained hopes of being admitted to a sight of the young ladies, of whose beauty he had heard much; but he saw only the father.\nThe ladies were somewhat more fortunate, for they had the advantage of ascertaining from an upper window that he wore a blue coat, and rode a black horse.\n\nAn invitation to dinner was soon afterwards dispatched; and already had Mrs. Bennet planned the courses that were to do credit to her housekeeping, when an answer arrived which deferred it all.\nMr. Bingley was obliged to be in town the following day, and, consequently, unable to accept the honour of their invitation, etc.\nMrs. Bennet was quite disconcerted.\nShe could not imagine what business he could have in town so soon after his arrival in Hertfordshire; and she began to fear that he might be always flying about from one place to another, and never settled at Netherfield as he ought to be.\nLady Lucas quieted her fears a little by starting the idea of his being gone to London only to get a large party for the ball; and a report soon followed that Mr. Bingley was to bring twelve ladies and seven gentlemen with him to the assembly.\nThe girls grieved over such a number of ladies, but were comforted the day before the ball by hearing that instead of twelve he brought only six with him from London—his five sisters and a cousin.\nAnd when the party entered the assembly room it consisted of only five altogether—Mr. Bingley, his two sisters, the husband of the eldest, and another young man.\n\nMr. Bingley was good-looking and gentlemanlike; he had a pleasant countenance, and easy, unaffected manners.\nHis sisters were fine women, with an air of decided fashion.\nHis brother-in-law, Mr. Hurst, merely looked the gentleman; but his friend Mr. Darcy soon drew the attention of the room by his fine, tall person, handsome features, noble mien, and the report which was in general circulation within five minutes after his entrance, of his having ten thousand a year.\nThe gentlemen pronounced him to be a fine figure of a man, the ladies declared he was much handsomer than Mr. Bingley, and he was looked at with great admiration for about half the evening, till his manners gave a disgust which turned the tide of his popularity; for he was discovered to be proud, to be above his company, and above being pleased; and not all his large estate in Derbyshire could then save him from having a most forbidding, disagreeable countenance, and being unworthy to be compared with his friend.
+    questions: 
     - answers:
       - He had not met Mr. Bingley.
       - He evaded their questions.
@@ -147,77 +149,79 @@ questions:
       - His generosity made him beloved by all.
       correct_answer: 0
       question: How did Mr. Darcy's demeanor affect his popularity at the assembly?
-  - test:
+  c:
     - title: Pride and Prejudice
-    - author: Jane Austen
-    - text: Mr. Bingley had soon made himself acquainted with all the principal people in the room; he was lively and unreserved, danced every dance, was angry that the ball closed so early, and talked of giving one himself at Netherfield.\nSuch amiable qualities must speak for themselves.\nWhat a contrast between him and his friend!\nMr. Darcy danced only once with Mrs. Hurst and once with Miss Bingley, declined being introduced to any other lady, and spent the rest of the evening in walking about the room, speaking occasionally to one of his own party.\nHis character was decided.\nHe was the proudest, most disagreeable man in the world, and everybody hoped that he would never come there again.\nAmongst the most violent against him was Mrs. Bennet, whose dislike of his general behaviour was sharpened into particular resentment by his having slighted one of her daughters.\n\nElizabeth Bennet had been obliged, by the scarcity of gentlemen, to sit down for two dances; and during part of that time, Mr. Darcy had been standing near enough for her to hear a conversation between him and Mr. Bingley, who came from the dance for a few minutes, to press his friend to join it.\n\n“Come, Darcy,” said he, “I must have you dance. I hate to see you standing about by yourself in this stupid manner. You had much better dance.”\n\n“I certainly shall not. You know how I detest it, unless I am particularly acquainted with my partner. At such an assembly as this it would be insupportable. Your sisters are engaged, and there is not another woman in the room whom it would not be a punishment to me to stand up with.”\n\n“I would not be so fastidious as you are,” cried Mr. Bingley, “for a kingdom! Upon my honour, I never met with so many pleasant girls in my life as I have this evening; and there are several of them you see uncommonly pretty.”\n\n“You are dancing with the only handsome girl in the room,” said Mr. Darcy, looking at the eldest Miss Bennet.\n\n“Oh! She is the most beautiful creature I ever beheld! But there is one of her sisters sitting down just behind you, who is very pretty, and I dare say very agreeable. Do let me ask my partner to introduce you.”\n\n“Which do you mean?” and turning round he looked for a moment at Elizabeth, till catching her eye, he withdrew his own and coldly said: “She is tolerable, but not handsome enough to tempt me; I am in no humour at present to give consequence to young ladies who are slighted by other men. You had better return to your partner and enjoy her smiles, for you are wasting your time with me.”\n\nMr. Bingley followed his advice.\nMr. Darcy walked off; and Elizabeth remained with no very cordial feelings toward him.\nShe told the story, however, with great spirit among her friends; for she had a lively, playful disposition, which delighted in anything ridiculous.\n\nThe evening altogether passed off pleasantly to the whole family.\nMrs. Bennet had seen her eldest daughter much admired by the Netherfield party.\nMr. Bingley had danced with her twice, and she had been distinguished by his sisters.\nJane was as much gratified by this as her mother could be, though in a quieter way.\nElizabeth felt Jane’s pleasure.\nMary had heard herself mentioned to Miss Bingley as the most accomplished girl in the neighbourhood; and Catherine and Lydia had been fortunate enough never to be without partners, which was all that they had yet learnt to care for at a ball.\nThey returned, therefore, in good spirits to Longbourn, the village where they lived, and of which they were the principal inhabitants.\nThey found Mr. Bennet still up.\nWith a book he was regardless of time; and on the present occasion he had a good deal of curiosity as to the events of an evening which had raised such splendid expectations.\nHe had rather hoped that his wife’s views on the stranger would be disappointed; but he soon found out that he had a different story to hear.
-    - answers:
-      - He was lively, danced every dance, and was friendly.
-      - He was reserved and only danced once.
-      - He was quiet and avoided dancing.
-      - He was angry and refused to dance.
-      correct_answer: 0
-      question: How did Mr. Bingley conduct himself at the ball?
-    - answers:
-      - He was charming and well-liked.
-      - He was proud and disagreeable.
-      - He was humorous and entertaining.
-      - He was shy and reserved.
-      correct_answer: 1
-      question: What was the general opinion of Mr. Darcy at the ball?
-    - answers:
-      - He insulted her cooking.
-      - He slighted one of her daughters.
-      - He refused to speak with her.
-      - He ignored Mr. Bingley.
-      correct_answer: 1
-      question: Why did Mrs. Bennet particularly dislike Mr. Darcy?
-    - answers:
-      - She was flattered by his attention.
-      - She was offended by his remark.
-      - She ignored the conversation.
-      - She agreed with his opinion.
-      correct_answer: 1
-      question: What was Elizabeth's reaction to overhearing Mr. Darcy's conversation?
-    - answers:
-      - By offering him a reward.
-      - By introducing him to several ladies.
-      - By expressing his dislike for seeing him alone.
-      - By telling him it was a requirement.
-      correct_answer: 2
-      question: How did Mr. Bingley try to persuade Mr. Darcy to dance?
-    - answers:
-      - She is tolerable, but not handsome enough to tempt me.
-      - She is the most beautiful creature I ever beheld.
-      - She is uncommonly pretty and agreeable.
-      - She is not worth his time.
-      correct_answer: 0
-      question: What did Mr. Darcy say about Elizabeth when asked by Mr. Bingley?
-    - answers:
-      - She confronted him immediately.
-      - She ignored it and moved on.
-      - She told the story with great spirit among her friends.
-      - She wrote a letter of complaint.
-      correct_answer: 2
-      question: How did Elizabeth handle Mr. Darcy’s slight?
-    - answers:
-      - Mr. Darcy’s attention to Elizabeth.
-      - The fine food and decorations.
-      - Her eldest daughter was admired by the Netherfield party.
-      - The music and entertainment.
-      correct_answer: 2
-      question: What pleased Mrs. Bennet about the evening?
-    - answers:
-      - She was gratified in a quieter way.
-      - She was indifferent to it.
-      - She was embarrassed by the attention.
-      - She was angry about it.
-      correct_answer: 0
-      question: How did Jane feel about being admired by Mr. Bingley and his sisters?
-    - answers:
-      - That it was a disaster.
-      - That it raised splendid expectations.
-      - That it was boring.
-      - That it was just another ordinary ball.
-      correct_answer: 1
-      question: What did Mr. Bennet expect to hear about the evening’s events?
+      author: Jane Austen
+      text: |-
+        Mr. Bingley had soon made himself acquainted with all the principal people in the room; he was lively and unreserved, danced every dance, was angry that the ball closed so early, and talked of giving one himself at Netherfield.\nSuch amiable qualities must speak for themselves.\nWhat a contrast between him and his friend!\nMr. Darcy danced only once with Mrs. Hurst and once with Miss Bingley, declined being introduced to any other lady, and spent the rest of the evening in walking about the room, speaking occasionally to one of his own party.\nHis character was decided.\nHe was the proudest, most disagreeable man in the world, and everybody hoped that he would never come there again.\nAmongst the most violent against him was Mrs. Bennet, whose dislike of his general behaviour was sharpened into particular resentment by his having slighted one of her daughters.\n\nElizabeth Bennet had been obliged, by the scarcity of gentlemen, to sit down for two dances; and during part of that time, Mr. Darcy had been standing near enough for her to hear a conversation between him and Mr. Bingley, who came from the dance for a few minutes, to press his friend to join it.\n\n“Come, Darcy,” said he, “I must have you dance. I hate to see you standing about by yourself in this stupid manner. You had much better dance.”\n\n“I certainly shall not. You know how I detest it, unless I am particularly acquainted with my partner. At such an assembly as this it would be insupportable. Your sisters are engaged, and there is not another woman in the room whom it would not be a punishment to me to stand up with.”\n\n“I would not be so fastidious as you are,” cried Mr. Bingley, “for a kingdom! Upon my honour, I never met with so many pleasant girls in my life as I have this evening; and there are several of them you see uncommonly pretty.”\n\n“You are dancing with the only handsome girl in the room,” said Mr. Darcy, looking at the eldest Miss Bennet.\n\n“Oh! She is the most beautiful creature I ever beheld! But there is one of her sisters sitting down just behind you, who is very pretty, and I dare say very agreeable. Do let me ask my partner to introduce you.”\n\n“Which do you mean?” and turning round he looked for a moment at Elizabeth, till catching her eye, he withdrew his own and coldly said: “She is tolerable, but not handsome enough to tempt me; I am in no humour at present to give consequence to young ladies who are slighted by other men. You had better return to your partner and enjoy her smiles, for you are wasting your time with me.”\n\nMr. Bingley followed his advice.\nMr. Darcy walked off; and Elizabeth remained with no very cordial feelings toward him.\nShe told the story, however, with great spirit among her friends; for she had a lively, playful disposition, which delighted in anything ridiculous.\n\nThe evening altogether passed off pleasantly to the whole family.\nMrs. Bennet had seen her eldest daughter much admired by the Netherfield party.\nMr. Bingley had danced with her twice, and she had been distinguished by his sisters.\nJane was as much gratified by this as her mother could be, though in a quieter way.\nElizabeth felt Jane’s pleasure.\nMary had heard herself mentioned to Miss Bingley as the most accomplished girl in the neighbourhood; and Catherine and Lydia had been fortunate enough never to be without partners, which was all that they had yet learnt to care for at a ball.\nThey returned, therefore, in good spirits to Longbourn, the village where they lived, and of which they were the principal inhabitants.\nThey found Mr. Bennet still up.\nWith a book he was regardless of time; and on the present occasion he had a good deal of curiosity as to the events of an evening which had raised such splendid expectations.\nHe had rather hoped that his wife’s views on the stranger would be disappointed; but he soon found out that he had a different story to hear.
+      questions:
+      - answers:
+        - He was lively, danced every dance, and was friendly.
+        - He was reserved and only danced once.
+        - He was quiet and avoided dancing.
+        - He was angry and refused to dance.
+        correct_answer: 0
+        question: How did Mr. Bingley conduct himself at the ball?
+      - answers:
+        - He was charming and well-liked.
+        - He was proud and disagreeable.
+        - He was humorous and entertaining.
+        - He was shy and reserved.
+        correct_answer: 1
+        question: What was the general opinion of Mr. Darcy at the ball?
+      - answers:
+        - He insulted her cooking.
+        - He slighted one of her daughters.
+        - He refused to speak with her.
+        - He ignored Mr. Bingley.
+        correct_answer: 1
+        question: Why did Mrs. Bennet particularly dislike Mr. Darcy?
+      - answers:
+        - She was flattered by his attention.
+        - She was offended by his remark.
+        - She ignored the conversation.
+        - She agreed with his opinion.
+        correct_answer: 1
+        question: What was Elizabeth's reaction to overhearing Mr. Darcy's conversation?
+      - answers:
+        - By offering him a reward.
+        - By introducing him to several ladies.
+        - By expressing his dislike for seeing him alone.
+        - By telling him it was a requirement.
+        correct_answer: 2
+        question: How did Mr. Bingley try to persuade Mr. Darcy to dance?
+      - answers:
+        - She is tolerable, but not handsome enough to tempt me.
+        - She is the most beautiful creature I ever beheld.
+        - She is uncommonly pretty and agreeable.
+        - She is not worth his time.
+        correct_answer: 0
+        question: What did Mr. Darcy say about Elizabeth when asked by Mr. Bingley?
+      - answers:
+        - She confronted him immediately.
+        - She ignored it and moved on.
+        - She told the story with great spirit among her friends.
+        - She wrote a letter of complaint.
+        correct_answer: 2
+        question: How did Elizabeth handle Mr. Darcy’s slight?
+      - answers:
+        - Mr. Darcy’s attention to Elizabeth.
+        - The fine food and decorations.
+        - Her eldest daughter was admired by the Netherfield party.
+        - The music and entertainment.
+        correct_answer: 2
+        question: What pleased Mrs. Bennet about the evening?
+      - answers:
+        - She was gratified in a quieter way.
+        - She was indifferent to it.
+        - She was embarrassed by the attention.
+        - She was angry about it.
+        correct_answer: 0
+        question: How did Jane feel about being admired by Mr. Bingley and his sisters?
+      - answers:
+        - That it was a disaster.
+        - That it raised splendid expectations.
+        - That it was boring.
+        - That it was just another ordinary ball.
+        correct_answer: 1
+        question: What did Mr. Bennet expect to hear about the evening’s events?
