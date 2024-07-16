@@ -396,7 +396,7 @@ class _Scrabble extends State<Scrabble> {
                     width: size.width * 0.75,
                     child: RedirectButton(
                       route: ProgressScreen(
-                        name: "short_term_concentration",
+                        name: "scrabble",
                         score:
                             (widget.allPoints + (wordExists ? roundPoints : 0))
                                 .toDouble(),

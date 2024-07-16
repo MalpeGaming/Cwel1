@@ -19,15 +19,16 @@ class _VideoListItemState extends State<VideoListItem> {
   void initState() {
     super.initState();
     _controller = YoutubePlayerController.fromVideoId(
-        videoId: widget.videoAsset.substring(widget.videoAsset.length - 11),
-        autoPlay: true,
-        params: const YoutubePlayerParams(
-          showControls: false,
-          showFullscreenButton: false,
-          enableCaption: false,
-          showVideoAnnotations: false,
-          playsInline: true,
-        ),);
+      videoId: widget.videoAsset.substring(widget.videoAsset.length - 11),
+      autoPlay: true,
+      params: const YoutubePlayerParams(
+        showControls: false,
+        showFullscreenButton: false,
+        enableCaption: false,
+        showVideoAnnotations: false,
+        playsInline: true,
+      ),
+    );
   }
 
   @override
@@ -45,16 +46,17 @@ class _VideoListItemState extends State<VideoListItem> {
                 DeviceOrientation.landscapeRight,
               ]);
               return YoutubePlayerScaffold(
-                  autoFullScreen: true,
-                  builder: ((context, player) {
-                    return Container(
-                      color: Colors.black,
-                      child: Center(
-                        child: player,
-                      ),
-                    );
-                  }),
-                  controller: _controller,);
+                autoFullScreen: true,
+                builder: ((context, player) {
+                  return Container(
+                    color: Colors.black,
+                    child: Center(
+                      child: player,
+                    ),
+                  );
+                }),
+                controller: _controller,
+              );
             },
           ),
         );
@@ -115,10 +117,10 @@ class _VideoListItemState extends State<VideoListItem> {
 
   @override
   void dispose() {
-    super.dispose();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
+    super.dispose();
   }
 }
 

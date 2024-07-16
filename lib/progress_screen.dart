@@ -10,11 +10,13 @@ class ProgressScreen extends StatefulWidget {
     this.points = true,
     required this.name,
     required this.score,
+    this.txt = "You Received",
   });
 
   final bool points;
   final String name;
   final double score;
+  final String txt;
 
   @override
   _ProgressScreen createState() => _ProgressScreen();
@@ -51,42 +53,42 @@ class _ProgressScreen extends State<ProgressScreen>
     prefs = await SharedPreferences.getInstance();
     List<ChartData> newChartData = <ChartData>[];
 
-    List<String> longTermConcentrationTimestamps = prefs.getStringList(
+    List<String> timestamps = prefs.getStringList(
           "${widget.name}_timestamps",
         ) ??
         [];
 
-    List<String> longTermConcentrationScores = prefs.getStringList(
+    List<String> scores = prefs.getStringList(
           "${widget.name}_scores",
         ) ??
         [];
 
-    longTermConcentrationTimestamps
-        .add(DateTime.now().millisecondsSinceEpoch.toString());
-    longTermConcentrationScores.add(widget.score.toString());
+    timestamps.add(DateTime.now().millisecondsSinceEpoch.toString());
+    scores.add(widget.score.toString());
+    //scores = [];
 
     prefs.setStringList(
       "${widget.name}_timestamps",
-      longTermConcentrationTimestamps,
+      timestamps,
     );
 
     prefs.setStringList(
       "${widget.name}_scores",
-      longTermConcentrationScores,
+      scores,
     );
 
-    for (int i = 0; i < longTermConcentrationScores.length; i++) {
+    for (int i = 0; i < scores.length; i++) {
       print(
         DateTime.fromMillisecondsSinceEpoch(
-          int.parse(longTermConcentrationTimestamps[i]),
+          int.parse(timestamps[i]),
         ),
       );
       newChartData.add(
         ChartData(
           DateTime.fromMillisecondsSinceEpoch(
-            int.parse(longTermConcentrationTimestamps[i]),
+            int.parse(timestamps[i]),
           ),
-          double.parse(longTermConcentrationScores[i]),
+          double.parse(scores[i]),
         ),
       );
     }
@@ -146,14 +148,14 @@ class _ProgressScreen extends State<ProgressScreen>
                   ),
                   SizedBox(height: size.height / 18),
                   Text(
-                    "You Received",
+                    widget.txt,
                     style: TextStyle(
                       fontSize: size.width / 15,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    "${widget.score.round()} ${widget.points ? 'Points' : 'Percents'}",
+                    "${widget.score.round()} ${widget.points ? (widget.score == 1) ? 'Point' : 'Points' : 'Percents'}",
                     style: TextStyle(
                       fontSize: size.width / 15,
                       color: const Color.fromARGB(
