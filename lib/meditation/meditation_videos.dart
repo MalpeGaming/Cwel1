@@ -1,14 +1,10 @@
-import 'package:flick_video_player/flick_video_player.dart';
-import 'package:flutter/services.dart';
-import 'package:video_player/video_player.dart';
 import 'package:flutter/material.dart';
 import '/app_bar.dart';
-import '/buttons.dart';
-import '/your_activities.dart';
+import 'package:flutter/services.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class VideoListItem extends StatefulWidget {
   final String videoAsset;
-
   const VideoListItem({super.key, required this.videoAsset});
 
   @override
@@ -16,14 +12,21 @@ class VideoListItem extends StatefulWidget {
 }
 
 class _VideoListItemState extends State<VideoListItem> {
-  late FlickManager flickManager;
+  late YoutubePlayerController _controller;
 
   @override
   void initState() {
     super.initState();
-    flickManager = FlickManager(
-      videoPlayerController: VideoPlayerController.asset(widget.videoAsset),
-      autoPlay: false,
+    _controller = YoutubePlayerController.fromVideoId(
+      videoId: widget.videoAsset.substring(widget.videoAsset.length - 11),
+      autoPlay: true,
+      params: const YoutubePlayerParams(
+        showControls: false,
+        showFullscreenButton: false,
+        enableCaption: false,
+        showVideoAnnotations: false,
+        playsInline: true,
+      ),
     );
   }
 
@@ -35,39 +38,23 @@ class _VideoListItemState extends State<VideoListItem> {
           context,
           MaterialPageRoute(
             builder: (context) {
-              WidgetsFlutterBinding.ensureInitialized();
+              print(widget.videoAsset);
+
               SystemChrome.setPreferredOrientations([
-                DeviceOrientation.landscapeRight,
                 DeviceOrientation.landscapeLeft,
+                DeviceOrientation.landscapeRight,
               ]);
-              return Scaffold(
-                extendBodyBehindAppBar: true,
-                appBar: AppBar(
-                  backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-                  elevation: 0,
-                  leading: IconButton(
-                    icon: const Icon(Icons.close),
-                    color: Colors.amber,
-                    onPressed: () {
-                      SystemChrome.setPreferredOrientations([
-                        DeviceOrientation.portraitUp,
-                      ]);
-                      Navigator.pop(context);
-                    },
-                  ),
-                ),
-                body: Center(
-                  child: FlickVideoPlayer(
-                    flickManager: flickManager,
-                    flickVideoWithControls: const FlickVideoWithControls(
-                      controls: FlickLandscapeControls(),
+              return YoutubePlayerScaffold(
+                autoFullScreen: true,
+                builder: ((context, player) {
+                  return Container(
+                    color: Colors.black,
+                    child: Center(
+                      child: player,
                     ),
-                    flickVideoWithControlsFullscreen:
-                        const FlickVideoWithControls(
-                      controls: FlickLandscapeControls(),
-                    ),
-                  ),
-                ),
+                  );
+                }),
+                controller: _controller,
               );
             },
           ),
@@ -75,13 +62,51 @@ class _VideoListItemState extends State<VideoListItem> {
       },
       child: Container(
         margin: const EdgeInsets.all(6),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.35),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
         child: ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           child: AspectRatio(
             aspectRatio: 1,
-            child: FlickVideoPlayer(
-              flickManager: flickManager,
-              flickVideoWithControls: const FlickVideoWithControls(),
+            child: Image.network(
+              'https://img.youtube.com/vi/${widget.videoAsset.substring(widget.videoAsset.length - 11)}/0.jpg',
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return const Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Center(
+                        child: Icon(
+                          Icons.clear,
+                          color: Colors.red,
+                          size: 48,
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      Center(
+                        child: Text(
+                          'Check internet connection',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
             ),
           ),
         ),
@@ -94,60 +119,56 @@ class _VideoListItemState extends State<VideoListItem> {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
-    flickManager.dispose();
     super.dispose();
-  }
-}
-
-class SamplePlayer extends StatefulWidget {
-  const SamplePlayer({required Key key, required this.videoAsset})
-      : super(key: key);
-
-  final String videoAsset;
-
-  @override
-  _SamplePlayerState createState() => _SamplePlayerState();
-}
-
-class _SamplePlayerState extends State<SamplePlayer> {
-  late FlickManager flickManager;
-  @override
-  void initState() {
-    super.initState();
-    flickManager = FlickManager(
-      videoPlayerController: VideoPlayerController.asset(
-        widget.videoAsset,
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    flickManager.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return FlickVideoPlayer(flickManager: flickManager);
   }
 }
 
 class MeditationVideos extends StatefulWidget {
-  const MeditationVideos({super.key});
+  final int videoTimeIndex;
+  const MeditationVideos({super.key, required this.videoTimeIndex});
 
   @override
   State<MeditationVideos> createState() => _MeditationVideos();
 }
 
 class _MeditationVideos extends State<MeditationVideos> {
-  List<String> videoAssets = [
-    'assets/meditation/movie1.mp4',
-    'assets/meditation/movie2.mp4',
-    'assets/meditation/movie3.mp4',
-    'assets/meditation/movie4.mp4',
-    'assets/meditation/movie5.mp4',
-    'assets/meditation/movie6.mp4',
+  List<List<String>> videoAssets = [
+    [
+      "https://www.youtube.com/watch?v=jMPO6-Sxtuw",
+      "https://www.youtube.com/watch?v=AnOuNPoEwOk",
+      "https://www.youtube.com/watch?v=IQeV5bdXqgU",
+      "https://www.youtube.com/watch?v=n3Y95_w9qvA",
+    ],
+    [
+      "https://www.youtube.com/watch?v=1iIuE4QCIC0",
+      "https://www.youtube.com/watch?v=W-KltSK4MQE",
+      "https://www.youtube.com/watch?v=qpRDLXn8ZEI",
+      "https://www.youtube.com/watch?v=5gCy3b3swT4",
+    ],
+    [
+      "https://www.youtube.com/watch?v=AtFx_qEkqV4",
+      "https://www.youtube.com/watch?v=BDXL5usQlvw",
+      "https://www.youtube.com/watch?v=GBT0Te_78CU",
+      "https://www.youtube.com/watch?v=PRRi2vAxUQA",
+    ],
+    [
+      "https://www.youtube.com/watch?v=Gsepsq5FWfE",
+      "https://www.youtube.com/watch?v=lkl2QH196vs",
+      "https://www.youtube.com/watch?v=h1wvvFvL9oM",
+      "https://www.youtube.com/watch?v=a3gmfSGNSB8",
+    ],
+    [
+      "https://www.youtube.com/watch?v=vcagtZoDcmk",
+      "https://www.youtube.com/watch?v=WHhccZZlc74",
+      "https://www.youtube.com/watch?v=MhjhkmhFs4o",
+      "https://www.youtube.com/watch?v=31RXIywS5-w",
+    ],
+    [
+      "https://www.youtube.com/watch?v=1Ctj3kubpNw",
+      "https://www.youtube.com/watch?v=fe-VZd1sFTU",
+      "https://www.youtube.com/watch?v=fe-VZd1sFTU",
+      "https://www.youtube.com/watch?v=Yi6oaWtKzBk",
+    ]
   ];
 
   @override
@@ -209,7 +230,7 @@ class _MeditationVideos extends State<MeditationVideos> {
                   ),
                   SizedBox(height: size.height / 30),
                   SizedBox(
-                    height: size.height / 1.825,
+                    height: size.height,
                     child: Column(
                       children: <Widget>[
                         Expanded(
@@ -218,7 +239,8 @@ class _MeditationVideos extends State<MeditationVideos> {
                             children:
                                 List.generate(videoAssets.length, (index) {
                               return VideoListItem(
-                                videoAsset: videoAssets[index],
+                                videoAsset: videoAssets[index]
+                                    [widget.videoTimeIndex],
                               );
                             }),
                           ),
@@ -228,17 +250,6 @@ class _MeditationVideos extends State<MeditationVideos> {
                     ),
                   ),
                 ],
-              ),
-              Center(
-                child: SizedBox(
-                  height: size.height * 0.05,
-                  width: size.width * 0.75,
-                  child: RedirectButton(
-                    route: const YourActivities(),
-                    text: 'Continue',
-                    width: size.width,
-                  ),
-                ),
               ),
             ],
           ),
