@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../app_bar.dart';
 import 'package:yaml/yaml.dart';
 import 'package:flutter/services.dart';
+import 'dart:math';
 
 class ReadingComprehension extends StatefulWidget {
   const ReadingComprehension({super.key, this.initialTest = false});
@@ -18,15 +19,17 @@ class _ReadingComprehension extends State<ReadingComprehension> {
   String title = "";
   String author = "";
   String text = "";
+  var rng = Random();
 
   void readData() async {
     try {
       List<String> newQuestions = [];
       List<List<String>> newAnswers = [];
+      int test = rng.nextInt(11);
 
       final file = await rootBundle
           .loadString('assets/linguistic/reading_comprehension.yaml');
-      final tasks = loadYaml(file)["tests"][0];
+      final tasks = loadYaml(file)["tests"][test];
       print(tasks[0]["questions"]);
       for (var i = 0; i < tasks[0]["questions"].length; i++) {
         newQuestions.add(tasks[0]["questions"][i]["question"]);
@@ -95,7 +98,9 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                     ),
                     Text(
                       text,
-                      style: TextStyle(fontSize: size.height / 50),
+                      style: TextStyle(
+                          fontSize: size.height / 50,
+                          height: size.height / 700),
                     ),
                     Text(questions.toString()),
                   ],
