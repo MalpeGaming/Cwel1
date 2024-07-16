@@ -1,24 +1,33 @@
-import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import '/app_bar.dart';
 import '/buttons.dart';
+import 'package:flutter/services.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class VideoListItem extends StatefulWidget {
   final String videoAsset;
-  final int videoTimeIndex;
-  const VideoListItem(
-      {super.key, required this.videoAsset, required this.videoTimeIndex});
+  const VideoListItem({super.key, required this.videoAsset});
 
   @override
   _VideoListItemState createState() => _VideoListItemState();
 }
 
 class _VideoListItemState extends State<VideoListItem> {
-  late FlickManager flickManager;
+  late YoutubePlayerController _controller;
 
   @override
   void initState() {
     super.initState();
+    _controller = YoutubePlayerController.fromVideoId(
+        videoId: widget.videoAsset.substring(widget.videoAsset.length - 11),
+        autoPlay: true,
+        params: const YoutubePlayerParams(
+          showControls: false,
+          showFullscreenButton: false,
+          enableCaption: false,
+          showVideoAnnotations: false,
+          playsInline: true,
+        ),);
   }
 
   @override
@@ -29,7 +38,23 @@ class _VideoListItemState extends State<VideoListItem> {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return Text("sani");
+              print(widget.videoAsset);
+
+              SystemChrome.setPreferredOrientations([
+                DeviceOrientation.landscapeLeft,
+                DeviceOrientation.landscapeRight,
+              ]);
+              return YoutubePlayerScaffold(
+                  autoFullScreen: true,
+                  builder: ((context, player) {
+                    return Container(
+                      color: Colors.black,
+                      child: Center(
+                        child: player,
+                      ),
+                    );
+                  }),
+                  controller: _controller,);
             },
           ),
         );
@@ -90,8 +115,10 @@ class _VideoListItemState extends State<VideoListItem> {
 
   @override
   void dispose() {
-    flickManager.dispose();
     super.dispose();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
   }
 }
 
@@ -211,8 +238,8 @@ class _MeditationVideos extends State<MeditationVideos> {
                             children:
                                 List.generate(videoAssets.length, (index) {
                               return VideoListItem(
-                                videoAsset: videoAssets[index][0],
-                                videoTimeIndex: widget.videoTimeIndex,
+                                videoAsset: videoAssets[index]
+                                    [widget.videoTimeIndex],
                               );
                             }),
                           ),
