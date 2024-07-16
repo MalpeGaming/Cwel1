@@ -318,9 +318,9 @@ class _SudokuGame extends State<SudokuGame> {
                                       ? (tappedCol == colIndex &&
                                               tappedRow == rowIndex)
                                           ? const Color.fromARGB(
-                                              255, 178, 177, 250)
+                                              255, 178, 177, 250,)
                                           : const Color.fromARGB(
-                                              255, 223, 214, 255)
+                                              255, 223, 214, 255,)
                                       : (tappedCol == colIndex &&
                                               tappedRow == rowIndex)
                                           ? const Color.fromARGB(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '/app_bar.dart';
-import '/buttons.dart';
 import 'package:flutter/services.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
@@ -231,7 +230,7 @@ class _MeditationVideos extends State<MeditationVideos> {
                   ),
                   SizedBox(height: size.height / 30),
                   SizedBox(
-                    height: size.height / 1.825,
+                    height: size.height,
                     child: Column(
                       children: <Widget>[
                         Expanded(
@@ -251,20 +250,6 @@ class _MeditationVideos extends State<MeditationVideos> {
                     ),
                   ),
                 ],
-              ),
-              Center(
-                child: SizedBox(
-                  height: size.height * 0.05,
-                  width: size.width * 0.75,
-                  child: RedirectButton(
-                    onClick: () {
-                      Navigator.pop(context);
-                      Navigator.pop(context);
-                    },
-                    text: 'Continue',
-                    width: size.width,
-                  ),
-                ),
               ),
             ],
           ),

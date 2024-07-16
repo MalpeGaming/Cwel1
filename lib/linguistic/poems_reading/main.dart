@@ -54,7 +54,7 @@ class _Poems extends State<Poems> {
                 Text(
                   poems[poemIndex]["content"].toString(),
                   style: TextStyle(
-                      fontSize: size.height / 60, height: size.height / 500),
+                      fontSize: size.height / 60, height: size.height / 500,),
                   textAlign: TextAlign.justify,
                 ),
                 createDivider(context),
