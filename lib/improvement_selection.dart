@@ -80,7 +80,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
             ImprovementButton(
               text: "Linguistic",
               width: size.width,
-              route: const Video(),
+              route: const Video(initialTest: true),
               img: "assets/linguistic_intelligence.png",
             ),
             const Spacer(),

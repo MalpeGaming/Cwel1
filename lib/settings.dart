@@ -12,7 +12,11 @@ class Settings extends StatefulWidget {
 
 class _Settings extends State<Settings> {
   Widget element(
-      BuildContext context, String title, Widget route, String icon) {
+    BuildContext context,
+    String title,
+    Widget route,
+    String icon,
+  ) {
     Size size = MediaQuery.of(context).size;
 
     return GestureDetector(
@@ -50,8 +54,8 @@ class _Settings extends State<Settings> {
                 child: Center(
                   child: Image.asset(
                     icon,
-                    height: size.height * 0.035,
-                    width: size.height * 0.035,
+                    height: size.height * 0.05,
+                    width: size.height * 0.05,
                   ),
                 ),
               ),
@@ -109,11 +113,15 @@ class _Settings extends State<Settings> {
                   String setting = entry.value;
                   return Column(
                     children: [
-                      element(context, setting, const Text("xd"),
-                          "assets/settings/${index + 1}.png"),
+                      element(
+                        context,
+                        setting,
+                        const Text("xd"),
+                        "assets/settings/${index + 1}.png",
+                      ),
                       SizedBox(
-                          height: size.height *
-                              0.03), // Add SizedBox after each element
+                        height: size.height * 0.03,
+                      ), // Add SizedBox after each element
                     ],
                   );
                 }).toList(),

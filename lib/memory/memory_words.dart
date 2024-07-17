@@ -8,13 +8,16 @@ import 'dart:async';
 import 'memory_check.dart';
 
 class MemoryWords extends StatefulWidget {
-  const MemoryWords({super.key});
+  final bool? initialTest;
+  const MemoryWords({this.initialTest = false, super.key});
 
   @override
   State<MemoryWords> createState() => _MemoryWordsState();
 }
 
 class _MemoryWordsState extends State<MemoryWords> {
+  bool initialTest = false;
+
   late SharedPreferences prefs;
 
   List<String> words = [];
@@ -128,7 +131,8 @@ class _MemoryWordsState extends State<MemoryWords> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Memory2(picked, defs, words),
+              builder: (context) =>
+                  Memory2(initialTest: initialTest, picked, defs, words),
             ),
           );
         }
@@ -148,6 +152,7 @@ class _MemoryWordsState extends State<MemoryWords> {
   @override
   void initState() {
     super.initState();
+    initialTest = widget.initialTest!;
     initMemory();
   }
 

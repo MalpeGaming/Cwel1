@@ -63,7 +63,9 @@ class _Memory extends State<Memory> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const MemoryWords(),
+                  route: const MemoryWords(
+                    initialTest: true,
+                  ),
                   text: 'Continue',
                   width: size.width,
                 ),

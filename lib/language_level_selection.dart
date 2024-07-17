@@ -41,7 +41,7 @@ class _LangCheckList extends State<LangCheckList> {
       leading: Radio<int>(
         value: val,
         groupValue: selectedOption,
-        activeColor: Colors.blue,
+        activeColor: Theme.of(context).colorScheme.onPrimary,
         onChanged: (value) {
           setState(() {
             selectedOption = value;
