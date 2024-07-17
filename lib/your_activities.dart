@@ -32,6 +32,7 @@ import 'linguistic/correct_a_word.dart';
 import 'investing/menu.dart';
 import 'logical_thinking/math.dart';
 import 'linguistic/poems_reading/info.dart';
+import 'linguistic/idioms.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -462,9 +463,8 @@ class _YourActivities extends State<YourActivities> {
                           "idioms",
                           "Idioms, expressions and phrasal verbs",
                           "",
-                          const Meme(),
+                          const Idioms(),
                           zero: 0,
-                          fontSize: 0.8,
                         ),
                       ],
                     ),
