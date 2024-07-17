@@ -22,6 +22,7 @@ class MemoryQuiz extends StatefulWidget {
 }
 
 class _MemoryQuizState extends State<MemoryQuiz> {
+  bool initialTest = false;
   List<Map<String, String>> picked = [];
   int score = 0;
   List<String> defs = [];
@@ -75,7 +76,7 @@ class _MemoryQuizState extends State<MemoryQuiz> {
                   exercise: 1,
                   yourScore: score.toDouble(),
                   maximum: 14,
-                  page: const MemoryVideo(),
+                  page: MemoryVideo(initialTest: initialTest),
                 )
               : ProgressScreen(
                   name: "reading_comprehension",
@@ -131,6 +132,8 @@ class _MemoryQuizState extends State<MemoryQuiz> {
   void initState() {
     picked = widget.picked;
     score = widget.score;
+    initialTest = widget.initialTest;
+
     super.initState();
     loadQuestion();
   }
