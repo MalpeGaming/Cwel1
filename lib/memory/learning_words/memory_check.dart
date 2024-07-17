@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'memory_quiz.dart';
-import '../buttons.dart';
-import '../app_bar.dart';
+import '../../buttons.dart';
+import '../../app_bar.dart';
 
 class Memory2 extends StatefulWidget {
   final bool? initialTest;

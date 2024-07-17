@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'memory_words.dart';
-import '../buttons.dart';
+import '../../buttons.dart';
 
 class Memory extends StatefulWidget {
   final bool? initialTest;
