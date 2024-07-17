@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'memory_quiz.dart';
-import '../buttons.dart';
-import '../app_bar.dart';
+import '../../buttons.dart';
+import '../../app_bar.dart';
 
 class Memory2 extends StatefulWidget {
   final bool? initialTest;
@@ -130,7 +130,7 @@ class _Memory2 extends State<Memory2> {
                   width: size.width * 0.75,
                   child: RedirectButton(
                     route: MemoryQuiz(
-                        initialTest: initialTest, widget.picked, score),
+                        initialTest: initialTest, widget.picked, score,),
                     text: 'Continue',
                     width: size.width,
                   ),

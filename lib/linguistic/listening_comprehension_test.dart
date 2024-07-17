@@ -1,14 +1,14 @@
 import 'package:brain_train_app/app_bar.dart';
+import 'package:brain_train_app/linguistic/reading_comprehension_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'exercise2.dart';
 import 'package:yaml/yaml.dart';
 import '/progress_screen.dart';
 import '/show_score.dart';
 import '../buttons.dart';
 
-class Test extends StatefulWidget {
-  const Test({
+class ListeningComprehensionTest extends StatefulWidget {
+  const ListeningComprehensionTest({
     super.key,
     required this.exerciseId,
     this.initialTest = false,
@@ -18,10 +18,10 @@ class Test extends StatefulWidget {
   final int exerciseId;
 
   @override
-  State<Test> createState() => _Test();
+  State<ListeningComprehensionTest> createState() => _Test();
 }
 
-class _Test extends State<Test> {
+class _Test extends State<ListeningComprehensionTest> {
   double score = 0;
   String languageLevel = "";
   int selectedOption = -1, questionIndex = 0;
@@ -225,13 +225,15 @@ class _Test extends State<Test> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => ShowScore(
-                                    title: "ATTENTION",
+                                    title: "LINGUISTIC",
                                     description:
-                                        "Exercise 2 - Long Term Concentration",
+                                        "Exercise 1 - Listening Comprehension",
                                     exercise: 2,
                                     yourScore: score,
                                     maximum: 10,
-                                    page: const SecondLinguisticExercise(),
+                                    page: const ReadingComprehensionInfo(
+                                      initialTest: true,
+                                    ),
                                   ),
                                 ),
                               );
@@ -240,7 +242,7 @@ class _Test extends State<Test> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => ProgressScreen(
-                                    name: "long_term_concentration",
+                                    name: "listening_comprehension",
                                     score: score,
                                   ),
                                 ),

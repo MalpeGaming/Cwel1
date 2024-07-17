@@ -7,11 +7,11 @@ import 'navbar.dart';
 import 'self_reflection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'meditation/meditation.dart';
+import 'well_being/meditation/meditation.dart';
 import 'sport.dart';
 import 'yoga.dart';
 import 'memory/memory_game1.dart';
-import 'memory/memory.dart';
+import 'memory/learning_words/memory.dart';
 import 'memory/faces.dart';
 import 'attention/long_term_concentration_video.dart';
 import 'attention/short_term_concentration.dart';
@@ -21,9 +21,8 @@ import 'logical_thinking/sudoku_info.dart';
 import 'linguistic/wordly.dart';
 import 'linguistic/hangman.dart';
 import 'logical_thinking/riddles.dart';
-import 'linguistic/exercise2.dart';
-import 'linguistic/video.dart';
-import 'memory/memory_video.dart';
+import 'linguistic/listening_comprehension_video.dart';
+import 'memory/working_memory.dart';
 import 'linguistic/scrabble.dart';
 import '2048/game_2048.dart';
 import 'linguistic/spelling_mistakes.dart';
@@ -291,14 +290,14 @@ class _YourActivities extends State<YourActivities> {
                           "listening",
                           "LISTENING",
                           "Comprehension",
-                          const Video(),
+                          const ListeningComprehensionVideo(),
                         ),
                         createActivity2(
                           context,
                           "reading",
                           "READING",
                           "Comprehension",
-                          const SecondLinguisticExercise(),
+                          const ReadingComprehensionInfo(),
                         ),
                         createActivity2(
                           context,
@@ -457,13 +456,6 @@ class _YourActivities extends State<YourActivities> {
                           "",
                           const Meme(),
                           zero: 0,
-                        ),
-                        createActivity2(
-                          context,
-                          "reading_comprehension",
-                          "Reading",
-                          "Comprehension",
-                          const ReadingComprehensionInfo(),
                         ),
                       ],
                     ),

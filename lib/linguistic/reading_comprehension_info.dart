@@ -4,7 +4,10 @@ import '../../buttons.dart';
 import 'reading_comprehension.dart';
 
 class ReadingComprehensionInfo extends StatefulWidget {
-  const ReadingComprehensionInfo({super.key});
+  const ReadingComprehensionInfo({this.initialTest = false, super.key});
+
+  final bool initialTest;
+
   @override
   State<ReadingComprehensionInfo> createState() => _ReadingComprehensionInfo();
 }
@@ -56,7 +59,9 @@ class _ReadingComprehensionInfo extends State<ReadingComprehensionInfo> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const ReadingComprehension(),
+                  route: (widget.initialTest)
+                      ? const ReadingComprehension(initialTest: true)
+                      : const ReadingComprehension(),
                   text: 'Continue',
                   width: size.width,
                 ),

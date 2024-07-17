@@ -1,9 +1,9 @@
 import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
-import '../show_score.dart';
-import 'memory_video.dart';
-import '../progress_screen.dart';
+import '../../show_score.dart';
+import '../working_memory.dart';
+import '../../progress_screen.dart';
 
 class MemoryQuiz extends StatefulWidget {
   final List<Map<String, String>> picked;

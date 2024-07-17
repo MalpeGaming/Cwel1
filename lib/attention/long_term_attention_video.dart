@@ -1,22 +1,22 @@
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import 'package:flutter/material.dart';
-import 'test.dart';
+import 'long_term_attention_test.dart';
 import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
 import 'dart:math';
 import '../buttons.dart';
 import '../app_bar.dart';
 
-class Video extends StatefulWidget {
-  const Video({super.key, this.initialTest = false});
+class LongTermAttentionVideo extends StatefulWidget {
+  const LongTermAttentionVideo({super.key, this.initialTest = false});
 
   final bool initialTest;
 
   @override
-  State<Video> createState() => _Video();
+  State<LongTermAttentionVideo> createState() => _LongTermAttentionVideo();
 }
 
-class _Video extends State<Video> {
+class _LongTermAttentionVideo extends State<LongTermAttentionVideo> {
   double score = 0;
   final _controller = YoutubePlayerController(
     params: const YoutubePlayerParams(
@@ -134,11 +134,11 @@ class _Video extends State<Video> {
                         width: size.width * 0.75,
                         child: RedirectButton(
                           route: (widget.initialTest)
-                              ? Test(
+                              ? LongTermAttentionTest(
                                   initialTest: true,
                                   exerciseId: exerciseId,
                                 )
-                              : Test(
+                              : LongTermAttentionTest(
                                   exerciseId: exerciseId,
                                 ),
                           text: 'Continue',
