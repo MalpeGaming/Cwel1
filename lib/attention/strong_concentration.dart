@@ -6,6 +6,7 @@ import '/account/login1.dart';
 import '/progress_screen.dart';
 import '/show_score.dart';
 import '/buttons.dart';
+import 'package:audioplayers/audioplayers.dart';
 import '/app_bar.dart';
 
 class StrongConcentration extends StatefulWidget {
@@ -21,6 +22,7 @@ class _StrongConcentration extends State<StrongConcentration> {
   int _id = 0;
   int _remainingTime = 130;
   late Timer _timer;
+  final player = AudioPlayer();
   List<double> correctAnswers = [
     722,
     465,
@@ -36,7 +38,6 @@ class _StrongConcentration extends State<StrongConcentration> {
     6,
   ];
   List<double> userAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  double score = 0;
 
   Future<void> startTimer() async {
     _timer = Timer.periodic(
@@ -49,7 +50,6 @@ class _StrongConcentration extends State<StrongConcentration> {
             } else {
               Navigator.pop(context);
               _timer.cancel();
-              double score = countScore();
 
               if (widget.initialTest) {
                 Navigator.push(
@@ -59,7 +59,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                       title: "ATTENTION",
                       description: "Exercise 3 - Strong Concentration",
                       exercise: 3,
-                      yourScore: score,
+                      yourScore: countScore(),
                       maximum: 10,
                       page: const Login1(),
                     ),
@@ -71,7 +71,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                   MaterialPageRoute(
                     builder: (context) => ProgressScreen(
                       name: "strong_concentration",
-                      score: score,
+                      score: countScore(),
                     ),
                   ),
                 );
@@ -87,6 +87,7 @@ class _StrongConcentration extends State<StrongConcentration> {
   void initState() {
     super.initState();
     startTimer();
+    player.play(AssetSource("attention/distracting_music.mp3"));
   }
 
   Column equasion(Row text, Size size, {bool isId = true}) {
@@ -179,6 +180,13 @@ class _StrongConcentration extends State<StrongConcentration> {
         const Text(" is "),
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    player.dispose();
+    super.dispose();
   }
 
   @override
@@ -377,20 +385,20 @@ class _StrongConcentration extends State<StrongConcentration> {
                 onClick: () {
                   Navigator.pop(context);
                   _timer.cancel();
-                  score = countScore();
+                  player.dispose();
                 },
                 route: (widget.initialTest)
                     ? ShowScore(
                         title: "ATTENTION",
                         description: "Exercise 3 - Strong Concentration",
                         exercise: 3,
-                        yourScore: score,
+                        yourScore: countScore(),
                         maximum: 10,
                         page: const Login1(),
                       )
                     : ProgressScreen(
                         name: "strong_concentration",
-                        score: score,
+                        score: countScore(),
                       ),
                 text: 'Continue',
                 width: size.width,
