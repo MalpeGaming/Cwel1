@@ -1,4 +1,4 @@
-import 'package:brain_train_app/well_being/meditation/meditation_videos.dart';
+import 'meditation_videos.dart';
 import 'package:flutter/material.dart';
 import '/app_bar.dart';
 
@@ -134,13 +134,13 @@ class _MeditationMinutes extends State<MeditationMinutes> {
                         ),
                         children: const [
                           TextSpan(
-                            text: 'To which ',
+                            text: 'How much ',
                           ),
                           TextSpan(
-                            text: 'rain animation',
+                            text: 'time',
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
-                          TextSpan(text: ' would you like to meditate?'),
+                          TextSpan(text: ' would you like to meditate for ?'),
                         ],
                       ),
                     ),
