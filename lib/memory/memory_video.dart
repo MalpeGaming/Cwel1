@@ -10,9 +10,8 @@ import '../progress_screen.dart';
 import '../app_bar.dart';
 
 class MemoryVideo extends StatefulWidget {
-  const MemoryVideo({super.key, this.initialTest = false});
-
   final bool initialTest;
+  const MemoryVideo({super.key, this.initialTest = false});
 
   @override
   State<MemoryVideo> createState() => _MemoryVideo();
@@ -49,6 +48,8 @@ List<List<String>> films = [
 ];
 
 class _MemoryVideo extends State<MemoryVideo> {
+  bool initialTest = false;
+
   late YoutubePlayerController _controller;
   TextEditingController textController = TextEditingController();
   double score = 0;
@@ -94,6 +95,8 @@ class _MemoryVideo extends State<MemoryVideo> {
   @override
   void initState() {
     super.initState();
+    initialTest = widget.initialTest;
+
     _controller = YoutubePlayerController(
       params: const YoutubePlayerParams(
         showControls: true,

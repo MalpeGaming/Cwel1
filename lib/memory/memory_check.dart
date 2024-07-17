@@ -4,7 +4,15 @@ import '../buttons.dart';
 import '../app_bar.dart';
 
 class Memory2 extends StatefulWidget {
-  const Memory2(this.picked, this.defs, this.words, {super.key});
+  final bool? initialTest;
+
+  const Memory2(
+    this.picked,
+    this.defs,
+    this.words, {
+    this.initialTest = false,
+    super.key,
+  });
 
   final List<Map<String, String>> picked;
   final List<String> words;
@@ -15,6 +23,8 @@ class Memory2 extends StatefulWidget {
 }
 
 class _Memory2 extends State<Memory2> {
+  bool initialTest = false;
+
   List<Map<String, String>> picked = [];
   List<String> defs = [];
   List<String> words = [];
@@ -63,6 +73,8 @@ class _Memory2 extends State<Memory2> {
   @override
   void initState() {
     super.initState();
+    initialTest = widget.initialTest!;
+
     picked = widget.picked;
     words = widget.words;
   }
@@ -117,7 +129,8 @@ class _Memory2 extends State<Memory2> {
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: MemoryQuiz(widget.picked, score),
+                    route: MemoryQuiz(
+                        initialTest: initialTest, widget.picked, score),
                     text: 'Continue',
                     width: size.width,
                   ),
