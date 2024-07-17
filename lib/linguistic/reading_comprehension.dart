@@ -95,7 +95,11 @@ class _ReadingComprehension extends State<ReadingComprehension> {
   }
 
   ListTile createListTitle(
-      BuildContext context, int index, int val, String text) {
+    BuildContext context,
+    int index,
+    int val,
+    String text,
+  ) {
     Size size = MediaQuery.of(context).size;
 
     return ListTile(

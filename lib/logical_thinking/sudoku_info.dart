@@ -62,7 +62,7 @@ class _SudokuInfo extends State<SudokuInfo> {
                   ),
                   TextSpan(
                       text:
-                          'as you complete a 9x9 sudoku puzzle. The puzzles will get harder as you progress.'),
+                          'as you complete a 9x9 sudoku puzzle. The puzzles will get harder as you progress.',),
                 ],
               ),
             ),
@@ -77,19 +77,19 @@ class _SudokuInfo extends State<SudokuInfo> {
                 children: const <TextSpan>[
                   TextSpan(
                       text: 'correctly filled puzzle ',
-                      style: TextStyle(fontWeight: FontWeight.bold)),
+                      style: TextStyle(fontWeight: FontWeight.bold),),
                   TextSpan(text: 'completed under 15 minutes you will '),
                   TextSpan(
                       text: 'get 1 point, ',
-                      style: TextStyle(fontWeight: FontWeight.bold)),
+                      style: TextStyle(fontWeight: FontWeight.bold),),
                   TextSpan(text: 'for each '),
                   TextSpan(
                       text: 'wrongly filled puzzle ',
-                      style: TextStyle(fontWeight: FontWeight.bold)),
+                      style: TextStyle(fontWeight: FontWeight.bold),),
                   TextSpan(text: 'you will '),
                   TextSpan(
                       text: 'lose 1 point.',
-                      style: TextStyle(fontWeight: FontWeight.bold)),
+                      style: TextStyle(fontWeight: FontWeight.bold),),
                 ],
               ),
             ),

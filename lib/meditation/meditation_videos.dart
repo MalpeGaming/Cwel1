@@ -8,7 +8,7 @@ class VideoListItem extends StatefulWidget {
   final String videoAsset;
   final int videoTimeIndex;
   const VideoListItem(
-      {super.key, required this.videoAsset, required this.videoTimeIndex});
+      {super.key, required this.videoAsset, required this.videoTimeIndex,});
 
   @override
   _VideoListItemState createState() => _VideoListItemState();
