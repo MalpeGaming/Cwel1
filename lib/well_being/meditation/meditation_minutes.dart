@@ -1,4 +1,4 @@
-import 'package:brain_train_app/well_being/meditation/meditation_videos.dart';
+import 'meditation_videos.dart';
 import 'package:flutter/material.dart';
 import '/app_bar.dart';
 
