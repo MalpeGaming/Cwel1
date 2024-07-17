@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'strong_concentration_desc.dart';
 import 'package:yaml/yaml.dart';
-import '/progress_screen.dart';
-import '/show_score.dart';
+import '../score_n_progress/progress_screen.dart';
+import '../score_n_progress/show_score.dart';
 import '/app_bar.dart';
 
 class LongTermConcentrationTest extends StatefulWidget {

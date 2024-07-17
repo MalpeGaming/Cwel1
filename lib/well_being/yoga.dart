@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'sport.dart';
-import 'app_bar.dart';
+import '../app_bar.dart';
 
 class Yoga extends StatefulWidget {
   const Yoga({super.key});

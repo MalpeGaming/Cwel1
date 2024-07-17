@@ -4,9 +4,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/services.dart';
 import 'dart:math';
 import '/account/login1.dart';
-import '/show_score.dart';
+import '../score_n_progress/show_score.dart';
 import '../buttons.dart';
-import '../progress_screen.dart';
+import '../score_n_progress/progress_screen.dart';
 import '../app_bar.dart';
 
 class MemoryVideo extends StatefulWidget {

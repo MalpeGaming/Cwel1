@@ -2,7 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:flutter/material.dart';
 import 'package:confetti/confetti.dart';
-import 'app_bar.dart';
+import '../app_bar.dart';
 
 class ProgressScreen extends StatefulWidget {
   const ProgressScreen({
@@ -11,12 +11,14 @@ class ProgressScreen extends StatefulWidget {
     required this.name,
     required this.score,
     this.txt = "You Received",
+    this.pointAlternative = "Points",
   });
 
   final bool points;
   final String name;
   final double score;
   final String txt;
+  final String pointAlternative;
 
   @override
   _ProgressScreen createState() => _ProgressScreen();
@@ -155,7 +157,7 @@ class _ProgressScreen extends State<ProgressScreen>
                     ),
                   ),
                   Text(
-                    "${widget.score.round()} ${widget.points ? (widget.score == 1) ? 'Point' : 'Points' : 'Percents'}",
+                    "${widget.score.round()} ${widget.pointAlternative != "Points" ? widget.pointAlternative : (widget.score == 1) ? 'Point' : 'Points'}",
                     style: TextStyle(
                       fontSize: size.width / 15,
                       color: const Color.fromARGB(

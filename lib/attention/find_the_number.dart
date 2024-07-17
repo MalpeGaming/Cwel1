@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:async';
-import '../progress_screen.dart';
+import '../score_n_progress/progress_screen.dart';
 import '../app_bar.dart';
 
 class FindTheNumber extends StatefulWidget {

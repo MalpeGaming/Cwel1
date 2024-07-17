@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'app_bar.dart';
+import '../app_bar.dart';
 
 class SelfReflection extends StatefulWidget {
   const SelfReflection({super.key});

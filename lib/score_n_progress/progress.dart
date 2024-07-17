@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:circular_chart_flutter/circular_chart_flutter.dart';
-import 'navbar.dart';
+import '../navbar.dart';
 
 class Progress extends StatefulWidget {
   const Progress({super.key});

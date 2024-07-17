@@ -65,7 +65,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               route: const Memory(
                 initialTest: true,
               ),
-              img: "assets/memory.png",
+              img: "assets/improvement_selection/memory.png",
             ),
             const Spacer(),
             ImprovementButton(
@@ -74,14 +74,14 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               route: const ShortTermConcentration(
                 initialTest: true,
               ),
-              img: "assets/attention.png",
+              img: "assets/improvement_selection/attention.png",
             ),
             const Spacer(),
             ImprovementButton(
               text: "Linguistic",
               width: size.width,
               route: const ListeningComprehensionVideo(initialTest: true),
-              img: "assets/linguistic_intelligence.png",
+              img: "assets/improvement_selection/linguistic_intelligence.png",
             ),
             const Spacer(),
             ImprovementButton(
@@ -91,7 +91,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
                 initialTest: true,
               ),
               //const RiddlesTest( exerciseId: 1,),
-              img: "assets/logical_thinking.png",
+              img: "assets/improvement_selection/logical_thinking.png",
             ),
             const Spacer(),
           ],

@@ -2,7 +2,7 @@ import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
-import '/progress_screen.dart';
+import '../score_n_progress/progress_screen.dart';
 import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
 
 class SpellingMistakes extends StatefulWidget {

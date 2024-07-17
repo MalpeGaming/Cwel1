@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:xml/xml.dart' as xml;
 import 'package:flutter/material.dart';
-import '../score_axis.dart';
+import 'score_axis.dart';
 
 class ShowScore extends StatefulWidget {
   const ShowScore({
