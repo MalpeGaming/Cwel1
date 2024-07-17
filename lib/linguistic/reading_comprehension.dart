@@ -3,6 +3,7 @@ import '../app_bar.dart';
 import 'package:yaml/yaml.dart';
 import 'package:flutter/services.dart';
 import 'dart:math';
+import '../investing/helper_fn.dart';
 
 class ReadingComprehension extends StatefulWidget {
   const ReadingComprehension({super.key, this.initialTest = false});
@@ -50,7 +51,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
             ),
           ],
         ),
-        width: size.width * 0.8,
+        width: size.width * 0.7,
         child: Container(
           margin: const EdgeInsets.all(15),
           child: Center(
@@ -157,6 +158,24 @@ class _ReadingComprehension extends State<ReadingComprehension> {
     }
   }
 
+  Widget createQuestion(BuildContext context, int index) {
+    Size size = MediaQuery.of(context).size;
+
+    return Column(
+      children: [
+        createExercise(context, index),
+        SizedBox(height: size.height / 30),
+        for (int i = 0; i < answers[0].length; i++)
+          createListTitle(
+            context,
+            index,
+            i,
+            answers[index][i],
+          ),
+      ],
+    );
+  }
+
   @override
   void initState() {
     super.initState();
@@ -167,61 +186,60 @@ class _ReadingComprehension extends State<ReadingComprehension> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      appBar: appBar(context, ""),
-      body: SingleChildScrollView(
-        child: Container(
-          width: size.width * 0.9,
-          height: size.height * 0.9,
-          margin: EdgeInsets.only(
-            left: size.width / 10,
-            right: size.width / 10,
-          ),
-          child: SingleChildScrollView(
-            child: Column(
-              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      title.toString(),
-                      style: TextStyle(
-                        fontSize: size.width / 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      "by $author",
-                      style: TextStyle(fontSize: size.width / 30),
-                    ),
-                    SizedBox(
-                      height: size.height / 30,
-                    ),
-                    Text(
-                      text,
-                      style: TextStyle(
-                          fontSize: size.height / 50,
-                          height: size.height / 700),
-                    ),
-                    Text(questions.toString()),
-                    createExercise(context, 0),
-                    for (int i = 0; i < answers[0].length; i++)
-                      createListTitle(
-                        context,
-                        0,
-                        i,
-                        answers[0][i],
-                      ),
-                  ],
+    return questions.isEmpty & answers.isEmpty & correct.isEmpty
+        ? const Center(child: CircularProgressIndicator())
+        : Scaffold(
+            appBar: appBar(context, ""),
+            body: SingleChildScrollView(
+              child: Container(
+                width: size.width * 0.9,
+                height: size.height * 0.9,
+                margin: EdgeInsets.only(
+                  left: size.width / 10,
+                  right: size.width / 10,
                 ),
-              ],
+                child: SingleChildScrollView(
+                  child: Column(
+                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            title.toString(),
+                            style: TextStyle(
+                              fontSize: size.width / 25,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            "by $author",
+                            style: TextStyle(fontSize: size.width / 30),
+                          ),
+                          SizedBox(
+                            height: size.height / 30,
+                          ),
+                          Text(
+                            text,
+                            style: TextStyle(fontSize: size.height / 50),
+                          ),
+                          for (int i = 0; i < questions.length; i++)
+                            Column(
+                              children: [
+                                createDivider(context),
+                                createQuestion(context, 0),
+                              ],
+                            ),
+                        ],
+                      ),
+                      SizedBox(height: size.height / 10),
+                    ],
+                  ),
+                ),
+              ),
             ),
-          ),
-        ),
-      ),
-    );
+          );
   }
 }
