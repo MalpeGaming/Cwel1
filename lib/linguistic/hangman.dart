@@ -180,6 +180,7 @@ class _Hangman extends State<Hangman> {
                       Center(
                         child: SizedBox(
                           width: 0.7 * size.width,
+                          height: mistakes == 9 ? null : 0.4 * size.height,
                           child: Image.asset(
                             'assets/linguistic/hangman/$mistakes.png',
                             fit: BoxFit.cover,
