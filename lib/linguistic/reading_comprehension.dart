@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 import 'dart:math';
 import '../investing/helper_fn.dart';
 import '../buttons.dart';
-import '../show_score.dart';
-import '../progress_screen.dart';
+import '../score_n_progress/show_score.dart';
+import '../score_n_progress/progress_screen.dart';
 import '../improvement_selection.dart';
 
 class ReadingComprehension extends StatefulWidget {

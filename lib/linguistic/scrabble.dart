@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '/buttons.dart';
 import 'dart:math';
 import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
-import '/progress_screen.dart';
+import '../score_n_progress/progress_screen.dart';
 import '/app_bar.dart';
 
 final Map<String, int> scrabblePoints = {

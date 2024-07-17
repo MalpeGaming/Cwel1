@@ -1,8 +1,8 @@
 import 'package:brain_train_app/buttons.dart';
 import 'package:brain_train_app/improvement_selection.dart';
 import 'package:flutter/material.dart';
-import '/show_score.dart';
-import '/progress_screen.dart';
+import '../score_n_progress/show_score.dart';
+import '../score_n_progress/progress_screen.dart';
 import 'riddle.dart';
 import 'dart:async';
 import 'dart:math';

@@ -4,7 +4,7 @@ import 'package:yaml/yaml.dart';
 import 'dart:async';
 import 'dart:math';
 import '/app_bar.dart';
-import '/progress_screen.dart';
+import '../score_n_progress/progress_screen.dart';
 import '/buttons.dart';
 
 class ChooseBestWord extends StatefulWidget {

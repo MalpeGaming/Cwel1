@@ -58,7 +58,7 @@ class _MinuteListItemState extends State<MinuteListItem> {
                     Icon(
                       Icons.access_time,
                       color: Colors.white,
-                      size: size.height * 0.08,
+                      size: size.height * 0.06,
                     ),
                     SizedBox(
                       height: size.height * 0.01,
@@ -119,7 +119,7 @@ class _MeditationMinutes extends State<MeditationMinutes> {
                   Center(
                     child: Text(
                       'STEP BY STEP',
-                      style: TextStyle(fontSize: size.width / 22),
+                      style: TextStyle(fontSize: size.width / 20),
                     ),
                   ),
                   SizedBox(height: 0.04 * size.height),

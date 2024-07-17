@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'app_bar.dart';
+import '../app_bar.dart';
 
 class Sport extends StatefulWidget {
   const Sport({super.key});

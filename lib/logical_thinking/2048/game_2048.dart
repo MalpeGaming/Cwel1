@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../app_bar.dart';
+import '../../app_bar.dart';
 import 'colors.dart';
 
 class Game2048 extends StatefulWidget {

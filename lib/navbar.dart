@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
-import 'progress.dart';
+import 'score_n_progress/progress.dart';
 import 'your_activities.dart';
 import 'diet/nutrition_tips.dart';
 

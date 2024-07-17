@@ -3,7 +3,7 @@ import 'package:sudoku_dart/sudoku_dart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:math';
 import '../app_bar.dart';
-import '../progress_screen.dart';
+import '../score_n_progress/progress_screen.dart';
 
 class SudokuGame extends StatefulWidget {
   const SudokuGame({super.key});
@@ -318,9 +318,17 @@ class _SudokuGame extends State<SudokuGame> {
                                       ? (tappedCol == colIndex &&
                                               tappedRow == rowIndex)
                                           ? const Color.fromARGB(
-                                              255, 178, 177, 250,)
+                                              255,
+                                              178,
+                                              177,
+                                              250,
+                                            )
                                           : const Color.fromARGB(
-                                              255, 223, 214, 255,)
+                                              255,
+                                              223,
+                                              214,
+                                              255,
+                                            )
                                       : (tappedCol == colIndex &&
                                               tappedRow == rowIndex)
                                           ? const Color.fromARGB(
