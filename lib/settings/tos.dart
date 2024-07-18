@@ -27,6 +27,7 @@ class _TermsOfService extends State<TermsOfService> {
 ## Introduction
 
 Welcome to Brain Train, a brain improvement app designed to help users enhance their cognitive abilities through various brain training exercises. By using our app, you agree to the following terms and conditions. Please read them carefully.
+&nbsp;
 
 ## General Terms
 
@@ -38,6 +39,7 @@ Welcome to Brain Train, a brain improvement app designed to help users enhance t
     
     You must be at least 18 years old to use the Brain Train app. If you are under 18, you may only use the app with the involvement of a parent or guardian.
     
+&nbsp;
 
 ## Disclaimers
 
@@ -49,16 +51,19 @@ Welcome to Brain Train, a brain improvement app designed to help users enhance t
     
     If you have any health concerns or experience any issues while using the Brain Train app, you should contact your healthcare professional immediately. The Brain Train team is not responsible for any injuries or problems that may arise from using the app.
     
+&nbsp;
 
 ## Neurological Basis
 
 1. **Training Concept**
 The Brain Train app is based on the neurological concept that says, "What fires together, wires together." This means that the more you practice a certain activity, the better you get at it. The exercises in our app are designed to reinforce neural pathways through repeated practice.
+&nbsp;
 
 ## User Responsibility
 
 1. **Use at Your Own Risk**
 You are using the Brain Train app at your own risk ("na własną odpowiedzialność"). We do not warrant that the app will meet your specific requirements or that it will be free from errors or interruptions.
+&nbsp;
 
 ## Contact Information
 
@@ -66,16 +71,19 @@ You are using the Brain Train app at your own risk ("na własną odpowiedzialno�
 If you have any questions or need support, you can contact us at:
     - Email: [appbraintrain@gmail.com](mailto:appbraintrain@gmail.com)
     - Phone: +48 577 568 833
+&nbsp;
 
 ## Amendments
 
 1. **Changes to Terms**
 We reserve the right to modify these Terms of Use at any time. Any changes will be effective immediately upon posting the revised terms within the app. Your continued use of the app after any changes are posted constitutes your acceptance of the new terms.
+&nbsp;
 
 ## Termination
 
 1. **Termination of Use**
 We reserve the right to terminate or suspend your access to the Brain Train app at our sole discretion, without prior notice, for conduct that we believe violates these Terms of Use or is harmful to other users of the app, us, or third parties, or for any other reason.
+&nbsp;
 
 ## Governing Law
 

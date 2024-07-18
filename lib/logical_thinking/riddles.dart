@@ -12,12 +12,12 @@ import '../app_bar.dart';
 class RiddlesTest extends StatefulWidget {
   const RiddlesTest({
     super.key,
-    required this.exerciseId,
+    required this.difficulty,
     this.initialTest = false,
   });
 
   final bool initialTest;
-  final int exerciseId;
+  final int difficulty;
 
   @override
   State<RiddlesTest> createState() => _RiddlesTest();
@@ -30,6 +30,7 @@ class _RiddlesTest extends State<RiddlesTest> {
   List<int> correctAnswers = [];
   List<String> questions = [];
   List<List<String>> answers = [];
+  int numberOfQuestions = 0;
 
   @override
   void initState() {
@@ -37,7 +38,9 @@ class _RiddlesTest extends State<RiddlesTest> {
     readData();
     super.initState();
     _remainingTime = 480;
-
+    numberOfQuestions =
+        (widget.difficulty == 3 ? 25 : (widget.difficulty == 4 ? 25 : 23));
+    questionIndex = Random().nextInt(numberOfQuestions);
     initMemory();
   }
 
@@ -48,12 +51,10 @@ class _RiddlesTest extends State<RiddlesTest> {
       List<List<String>> newAnswers = [];
       final file =
           await rootBundle.loadString('assets/logical_thinking/riddles.yaml');
-      final tasks = loadYaml(file)["questions"]["3points"];
-      print(tasks);
+      final tasks = loadYaml(file)["questions"]["${widget.difficulty}points"];
+      print(tasks.length);
       for (var i = 0; i < tasks.length; i++) {
         newQuestions.add(tasks[i]["question"]);
-        print('xd');
-        print(tasks[i]);
 
         newCorrectAnswers.add(tasks[i]["correct_answer"]);
 
@@ -227,7 +228,8 @@ class _RiddlesTest extends State<RiddlesTest> {
 
                                 if (questionIndex < questions.length - 1) {
                                   setState(() {
-                                    questionIndex += 1;
+                                    questionIndex =
+                                        Random().nextInt(numberOfQuestions);
                                     selectedOption = -1;
                                     print(questionIndex);
                                     print(answers.join("\n"));

@@ -329,7 +329,7 @@ class _YourActivities extends State<YourActivities> {
                           "RIDDLES",
                           "",
                           const RiddlesTest(
-                            exerciseId: 0,
+                            difficulty: 3,
                           ),
                           zero: 0,
                         ),
