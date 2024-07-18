@@ -67,6 +67,7 @@ dependencies:
   flick_video_player: ^0.7.0
   smooth_page_indicator: ^1.1.0
   widget_zoom: ^0.0.4
+  audioplayers: ^6.0.0
 
 dev_dependencies:
   flutter_test:
@@ -123,6 +124,7 @@ flutter:
     - assets/investing/lesson15/
     - assets/investing/lesson24/
     - assets/investing/lesson25/
+    - assets/settings/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
