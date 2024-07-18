@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:word_generator/word_generator.dart';
 import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
 import '../app_bar.dart';
+import '../score_n_progress/progress_screen.dart';
 
 class Hangman extends StatefulWidget {
   const Hangman({super.key, this.testVersion = false});
@@ -48,6 +49,20 @@ class _Hangman extends State<Hangman> {
         }
         if (found == false && !blocked[row][indx]) {
           mistakes++;
+        }
+        if (mistakes == 9 || found) {
+          Navigator.pop(context);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProgressScreen(
+                name: "idioms",
+                score: mistakes.toDouble(),
+                txt: "You tried",
+                pointAlternative: "letters",
+              ),
+            ),
+          );
         }
         blocked[row][indx] = true;
       });

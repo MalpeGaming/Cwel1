@@ -7,14 +7,14 @@ import '/app_bar.dart';
 import '../score_n_progress/progress_screen.dart';
 import '/buttons.dart';
 
-class ChooseBestWord extends StatefulWidget {
-  const ChooseBestWord({super.key});
+class Idioms extends StatefulWidget {
+  const Idioms({super.key});
 
   @override
-  _ChooseBestWord createState() => _ChooseBestWord();
+  _Idioms createState() => _Idioms();
 }
 
-class _ChooseBestWord extends State<ChooseBestWord> {
+class _Idioms extends State<Idioms> {
   double score = 0;
   int round = 0;
   int _remainingTime = 60;
@@ -39,7 +39,6 @@ class _ChooseBestWord extends State<ChooseBestWord> {
       leading: Radio<int>(
         value: val,
         groupValue: selectedOption,
-        activeColor: Colors.blue,
         onChanged: (value) {
           setState(() {
             selectedOption = value;
@@ -65,7 +64,7 @@ class _ChooseBestWord extends State<ChooseBestWord> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => ProgressScreen(
-                    name: "choose_best_word",
+                    name: "idioms",
                     score: score,
                   ),
                 ),
@@ -83,8 +82,7 @@ class _ChooseBestWord extends State<ChooseBestWord> {
       List<String> newQuestions = [];
       List<List<String>> newAnswers = [];
 
-      final file =
-          await rootBundle.loadString('assets/linguistic/choose_best_word.yml');
+      final file = await rootBundle.loadString('assets/linguistic/idioms.yaml');
       final tests = loadYaml(file)["tests"];
 
       for (int i = 0; i < tests.length; i++) {
@@ -161,9 +159,12 @@ class _ChooseBestWord extends State<ChooseBestWord> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Exercise 1 - Choose best word.",
-                        style: TextStyle(fontSize: size.width / 22),
+                      SizedBox(
+                        width: 0.6 * size.width,
+                        child: Text(
+                          "Exercise 1 - Idioms, expressions, and phrasal verbs.",
+                          style: TextStyle(fontSize: size.width / 25),
+                        ),
                       ),
                       round == 0
                           ? const SizedBox()
@@ -181,6 +182,7 @@ class _ChooseBestWord extends State<ChooseBestWord> {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
+                                SizedBox(height: size.height / 50),
                                 Container(
                                   width: size.width / 13,
                                   height: size.width / 13,

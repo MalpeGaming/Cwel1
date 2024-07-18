@@ -1,0 +1,421 @@
+tests:
+  - answers:
+      - Greek
+      - French
+      - Italian
+      - English
+    correct_answer: 0
+    question: I couldn't make heads or tails of the new software; it was all ______ to me.
+  - answers:
+      - Shoot
+      - Chew
+      - Bite
+      - Catch
+    correct_answer: 2
+    question: The CEO decided to _____ the bullet and apologized to the staff for his mistake.
+  - answers:
+      - Before
+      - After
+      - Until
+      - Unless
+    correct_answer: 2
+    question: My father always says, "Don't count your chickens _____ they're hatched."
+  - answers:
+      - Pull
+      - Push
+      - Let
+      - Hold
+    correct_answer: 2
+    question: He decided to _____ the cat out of the bag and tell them about our plans.
+  - answers:
+      - Sun
+      - Cloud
+      - Weather
+      - Sky
+    correct_answer: 2
+    question: I was feeling under the _____ today and decided to stay home from work.
+  - answers:
+      - Music
+      - Dance
+      - Symphony
+      - Band
+    correct_answer: 0
+    question: It's time to face the _____ and deal with the problem.
+  - answers:
+      - Bush
+      - Tree
+      - Plant
+      - Grass
+    correct_answer: 0
+    question: Stop beating around the _____ and tell me what you want.
+  - answers:
+      - Wrong
+      - Right
+      - Old
+      - Young
+    correct_answer: 0
+    question: You are barking up the _____ tree. She was not the one who spread the rumor.
+  - answers:
+      - Chew
+      - Swallow
+      - Bite
+      - Eat
+    correct_answer: 2
+    question: I know you don't want to go to the meeting, but you'll just have to _____ the bullet.
+  - answers:
+      - Throw
+      - Fold
+      - Wave
+      - Hold
+    correct_answer: 0
+    question: You can't just _____ in the towel because the task is hard.
+  - answers:
+      - Wears
+      - Puts
+      - Hangs
+      - Holds
+    correct_answer: 0
+    question: She always _____ her heart on her sleeve, so there's no doubt about how she feels.
+  - answers:
+      - Got
+      - Felt
+      - Had
+      - Took
+    correct_answer: 0
+    question: He _____ cold feet about getting married just days before the wedding.
+  - answers:
+      - Pulled
+      - Twisted
+      - Pressed
+      - Pushed
+    correct_answer: 1
+    question: I didn't want to go to the party, but my friend _____ my arm.
+  - answers:
+      - Car
+      - Boat
+      - Wheel
+      - Plane
+    correct_answer: 2
+    question: I'm not asking you to reinvent the _____; just make a few changes to the design.
+  - answers:
+      - Jumping
+      - Falling
+      - Rolling
+      - Tumbling
+    correct_answer: 1
+    question: I'm _____ over heels in love with her.
+  - answers:
+      - Blink
+      - Wink
+      - Close
+      - Open
+    correct_answer: 0
+    question: I'm not going to _____ an eye at a few small mistakes.
+  - answers:
+      - Candle
+      - Stick
+      - Match
+      - Light
+    correct_answer: 0
+    question: I've been burning the _____ at both ends, and I need a break.
+  - answers:
+      - Dropped
+      - Threw
+      - Kicked
+      - Hit
+    correct_answer: 0
+    question: She _____ the ball on that project.
+  - answers:
+      - Get
+      - Have
+      - Put
+      - Line
+    correct_answer: 0
+    question: We need to _____ our ducks in a row before we start the project.
+  - answers:
+      - Shape
+      - Tune
+      - Gear
+      - Wind
+    correct_answer: 0
+    question: You need to _____ up or ship out.
+  - answers:
+      - Cut
+      - Push
+      - Hammer
+      - Pull
+    correct_answer: 2
+    question: I can't figure out this problem; it's like trying to _____ a square peg into a round hole.
+  - answers:
+      - Fell
+      - Broke
+      - Crashed
+      - Shattered
+    correct_answer: 0
+    question: The negotiations _____ through because they couldn't agree on the price.
+  - answers:
+      - Skip
+      - Slide
+      - Sneak
+      - Jump
+    correct_answer: 2
+    question: He's been trying to _____ his way out of doing any work.
+  - answers:
+      - Hold
+      - Put
+      - Push
+      - Delay
+    correct_answer: 1
+    question: I'm going to _____ off going to the dentist for as long as possible.
+  - answers:
+      - Move
+      - Run
+      - Push
+      - Charge
+    correct_answer: 0
+    question: They decided to _____ ahead with the project despite the risks.
+  - answers:
+      - Chasing
+      - Running
+      - Going
+      - Jumping
+    correct_answer: 2
+    question: She's been _____ after that promotion for months.
+  - answers:
+      - Hunker
+      - Settle
+      - Sit
+      - Drop
+    correct_answer: 0
+    question: You need to _____ down and get to work if you want to meet the deadline.
+  - answers:
+      - Pull
+      - Jump
+      - Step
+      - Back
+    correct_answer: 0
+    question: They decided to _____ out of the deal at the last minute.
+  - answers:
+      - Stirring
+      - Mixing
+      - Whipping
+      - Brewing
+    correct_answer: 0
+    question: He's been _____ up trouble wherever he goes.
+  - answers:
+      - Get
+      - Climb
+      - Jump
+      - Rise
+    correct_answer: 0
+    question: She's been trying to _____ over her fear of flying.
+  - answers:
+      - Held
+      - Hung
+      - Stuck
+      - Stalled
+    correct_answer: 3
+    question: The project was _____ up due to lack of funding.
+  - answers:
+      - Dance
+      - Skip
+      - Circle
+      - Jump
+    correct_answer: 0
+    question: He's been trying to _____ around the issue instead of addressing it directly.
+  - answers:
+      - Push
+      - Pull
+      - Drag
+      - Delay
+    correct_answer: 0
+    question: They decided to _____ off the meeting until next week.
+  - answers:
+      - Walking
+      - Skating
+      - Treading
+      - Slipping
+    correct_answer: 1
+    question: She's been _____ on thin ice with her boss lately.
+  - answers:
+      - Cut
+      - Pull
+      - Push
+      - Pare
+    correct_answer: 0
+    question: The company decided to _____ back on their expenses.
+  - answers:
+      - Digging
+      - Looking
+      - Searching
+      - Hunting
+    correct_answer: 1
+    question: He's been _____ around for a solution to the problem.
+  - answers:
+      - Jump
+      - Dive
+      - Plunge
+      - Leap
+    correct_answer: 0
+    question: She decided to _____ in and help with the project.
+  - answers:
+      - Tear
+      - Rip
+      - Break
+      - Throw
+    correct_answer: 0
+    question: They decided to _____ up the old plan and start fresh.
+  - answers:
+      - Biting
+      - Chewing
+      - Eating
+      - Taking
+    correct_answer: 0
+    question: He's been _____ off more than he can chew with this project.
+  - answers:
+      - Clean
+      - Clear
+      - Fix
+      - Tidy
+    correct_answer: 0
+    question: You need to _____ up your act if you want to succeed.
+  - answers:
+      - Pull
+      - Push
+      - Let
+      - Hold
+    correct_answer: 2
+    question: He decided to _____ the cat out of the bag and reveal the secret.
+  - answers:
+      - Around
+      - Against
+      - Beyond
+      - Through
+    correct_answer: 0
+    question: She's been working _____ the clock to finish the project on time.
+  - answers:
+      - Pulling
+      - Carrying
+      - Lifting
+      - Dragging
+    correct_answer: 0
+    question: He's been _____ his weight in the team project.
+  - answers:
+      - Under
+      - Over
+      - Beyond
+      - Against
+    correct_answer: 0
+    question: She's been feeling _____ the weather recently.
+  - answers:
+      - Swim
+      - Flow
+      - Sail
+      - Fight
+    correct_answer: 3
+    question: He decided to _____ the tide and go against the popular opinion.
+  - answers:
+      - Getting
+      - Setting
+      - Keeping
+      - Pushing
+    correct_answer: 2
+    question: She's been _____ the ball rolling on the new initiative.
+  - answers:
+      - Walking
+      - Treading
+      - Skipping
+      - Crossing
+    correct_answer: 1
+    question: He's been _____ the line between right and wrong.
+  - answers:
+      - Take
+      - Bear
+      - Endure
+      - Absorb
+    correct_answer: 0
+    question: She decided to _____ the heat and face the criticism.
+  - answers:
+      - Passing
+      - Shifting
+      - Moving
+      - Throwing
+    correct_answer: 0
+    question: He's been _____ the buck instead of taking responsibility.
+  - answers:
+      - Pink
+      - Blue
+      - Red
+      - Green
+    correct_answer: 0
+    question: She's been in the _____ of health recently.
+  - answers:
+      - Rock
+      - Shake
+      - Stir
+      - Move
+    correct_answer: 0
+    question: He decided to _____ the boat and challenge the status quo.
+  - answers:
+      - Crying
+      - Laughing
+      - Singing
+      - Shouting
+    correct_answer: 0
+    question: She's been _____ her heart out after the sad news.
+  - answers:
+      - Going
+      - Running
+      - Walking
+      - Moving
+    correct_answer: 0
+    question: He's been _____ the extra mile to impress his boss.
+  - answers:
+      - Bite
+      - Chew
+      - Swallow
+      - Spit
+    correct_answer: 0
+    question: She decided to _____ the bullet and face the difficult situation.
+  - answers:
+      - Learning
+      - Tying
+      - Pulling
+      - Skipping
+    correct_answer: 0
+    question: He's been _____ the ropes in his new job.
+  - answers:
+      - Turning
+      - Casting
+      - Shutting
+      - Closing
+    correct_answer: 0
+    question: She's been _____ a blind eye to the problems in her team.
+  - answers:
+      - Extend
+      - Offer
+      - Give
+      - Hold
+    correct_answer: 0
+    question: He decided to _____ the olive branch and make peace.
+  - answers:
+      - Driving
+      - Pushing
+      - Pulling
+      - Carrying
+    correct_answer: 0
+    question: She's been _____ a hard bargain during the negotiations.
+  - answers:
+      - On
+      - Under
+      - In
+      - Behind
+    correct_answer: 0
+    question: He's been _____ the wagon since he decided to quit drinking.
+  - answers:
+      - Called on
+      - Pulled over
+      - Dragged across
+      - Called to
+    correct_answer: 0
+    question: She's been _____ the carpet for her mistakes.

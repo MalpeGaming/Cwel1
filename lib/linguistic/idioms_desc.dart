@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import '../../app_bar.dart';
 import '../../buttons.dart';
-import 'reading_comprehension.dart';
+import 'idioms.dart';
 
-class ReadingComprehensionInfo extends StatefulWidget {
-  const ReadingComprehensionInfo({this.initialTest = false, super.key});
+class IdiomsDesc extends StatefulWidget {
+  const IdiomsDesc({this.initialTest = false, super.key});
 
   final bool initialTest;
 
   @override
-  State<ReadingComprehensionInfo> createState() => _ReadingComprehensionInfo();
+  State<IdiomsDesc> createState() => _IdiomsDesc();
 }
 
-class _ReadingComprehensionInfo extends State<ReadingComprehensionInfo> {
+class _IdiomsDesc extends State<IdiomsDesc> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -44,13 +44,13 @@ class _ReadingComprehensionInfo extends State<ReadingComprehensionInfo> {
             ),
             SizedBox(height: 0.04 * size.height),
             Text(
-              " Exercise 1 -  Reading Comprehension",
+              "Exercise 1 - Idioms, expressions, and phrasal verbs.",
               style: TextStyle(fontSize: 0.05 * size.width),
               textAlign: TextAlign.start,
             ),
             SizedBox(height: 0.04 * size.height),
             Text(
-              "In this exercise, you will be presented with a passage of 500-900 words, followed by 10 multiple-choice questions. You will be able to go back to the reading passage at any time. When you are ready to start, click CONTINUE.",
+              "In the following exercise you will have  60 seconds to complete as many exercises as you can.\n\nFor each correctly completed exercise you will get 1 point and for each mistake you will lose 0.5 points.\n\nClick “Continue” when you are ready.",
               style: TextStyle(fontSize: size.height / 50),
             ),
             const Spacer(),
@@ -59,9 +59,7 @@ class _ReadingComprehensionInfo extends State<ReadingComprehensionInfo> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: (widget.initialTest)
-                      ? const ReadingComprehension(initialTest: true)
-                      : const ReadingComprehension(),
+                  route: (widget.initialTest) ? const Idioms() : const Idioms(),
                   text: 'Continue',
                   width: size.width,
                 ),

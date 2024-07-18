@@ -4,6 +4,10 @@ import 'package:yaml/yaml.dart';
 import 'package:flutter/services.dart';
 import 'dart:math';
 import '../investing/helper_fn.dart';
+import '../buttons.dart';
+import '../score_n_progress/show_score.dart';
+import '../score_n_progress/progress_screen.dart';
+import '../improvement_selection.dart';
 
 class ReadingComprehension extends StatefulWidget {
   const ReadingComprehension({super.key, this.initialTest = false});
@@ -239,6 +243,53 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                         ],
                       ),
                       SizedBox(height: size.height / 10),
+                      Center(
+                        child: SizedBox(
+                          height: size.height * 0.05,
+                          width: size.width * 0.75,
+                          child: RedirectButton(
+                            text: 'Continue',
+                            width: size.width,
+                            requirement: selectedOption != -1,
+                            onClick: () {
+                              int score = 0;
+                              for (int i = 0; i < usersAnswers.length; i++) {
+                                if (usersAnswers[i] == correct[i]) {
+                                  score++;
+                                }
+                              }
+                              Navigator.pop(context);
+
+                              if (widget.initialTest) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ShowScore(
+                                      title: "LINGUISTIC",
+                                      description:
+                                          "Exercise 1 -  Reading Comprehension",
+                                      exercise: 2,
+                                      yourScore: score.toDouble(),
+                                      maximum: 10,
+                                      page: const ImprovementSelection(),
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ProgressScreen(
+                                      name: "listening_comprehension",
+                                      score: score.toDouble(),
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),

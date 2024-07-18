@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:async';
 import '../app_bar.dart';
-import '../progress_screen.dart';
+import '../score_n_progress/progress_screen.dart';
 
 class MemoryGame2 extends StatefulWidget {
   const MemoryGame2({super.key});

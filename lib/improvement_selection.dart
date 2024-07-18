@@ -1,9 +1,9 @@
 import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
 import 'attention/short_term_concentration.dart';
-import 'memory/memory.dart';
+import 'memory/learning_words/memory.dart';
 import 'logical_thinking/logical_thinking.dart';
-import 'linguistic/video.dart';
+import 'linguistic/listening_comprehension_video.dart';
 
 class ImprovementSelection extends StatefulWidget {
   const ImprovementSelection({super.key});
@@ -31,7 +31,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               style: TextStyle(
                 fontSize: size.width / 13,
                 fontWeight: FontWeight.bold,
-                color: Theme.of(context).colorScheme.onPrimary,
+                color: Theme.of(context).colorScheme.primary,
               ),
               textAlign: TextAlign.center,
             ),
@@ -65,7 +65,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               route: const Memory(
                 initialTest: true,
               ),
-              img: "assets/memory.png",
+              img: "assets/improvement_selection/memory.png",
             ),
             const Spacer(),
             ImprovementButton(
@@ -74,14 +74,14 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               route: const ShortTermConcentration(
                 initialTest: true,
               ),
-              img: "assets/attention.png",
+              img: "assets/improvement_selection/attention.png",
             ),
             const Spacer(),
             ImprovementButton(
               text: "Linguistic",
               width: size.width,
-              route: const Video(initialTest: true),
-              img: "assets/linguistic_intelligence.png",
+              route: const ListeningComprehensionVideo(initialTest: true),
+              img: "assets/improvement_selection/linguistic_intelligence.png",
             ),
             const Spacer(),
             ImprovementButton(
@@ -91,7 +91,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
                 initialTest: true,
               ),
               //const RiddlesTest( exerciseId: 1,),
-              img: "assets/logical_thinking.png",
+              img: "assets/improvement_selection/logical_thinking.png",
             ),
             const Spacer(),
           ],

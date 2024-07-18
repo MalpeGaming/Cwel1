@@ -4,14 +4,14 @@ import 'package:brain_train_app/linguistic/reading_comprehension_info.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'navbar.dart';
-import 'self_reflection.dart';
+import 'well_being/self_reflection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'meditation/meditation.dart';
-import 'sport.dart';
-import 'yoga.dart';
+import 'well_being/meditation/meditation.dart';
+import 'well_being/sport.dart';
+import 'well_being/yoga.dart';
 import 'memory/memory_game1.dart';
-import 'memory/memory.dart';
+import 'memory/learning_words/memory.dart';
 import 'memory/faces.dart';
 import 'attention/long_term_concentration_video.dart';
 import 'attention/short_term_concentration.dart';
@@ -21,11 +21,10 @@ import 'logical_thinking/sudoku_info.dart';
 import 'linguistic/wordly.dart';
 import 'linguistic/hangman.dart';
 import 'logical_thinking/riddles.dart';
-import 'linguistic/exercise2.dart';
-import 'linguistic/video.dart';
-import 'memory/memory_video.dart';
+import 'linguistic/listening_comprehension_video.dart';
+import 'memory/working_memory.dart';
 import 'linguistic/scrabble.dart';
-import '2048/game_2048.dart';
+import 'logical_thinking/2048/game_2048.dart';
 import 'linguistic/spelling_mistakes.dart';
 import 'well_being/memes.dart';
 import 'linguistic/grammar_mcq_test.dart';
@@ -33,6 +32,7 @@ import 'linguistic/correct_a_word.dart';
 import 'investing/menu.dart';
 import 'logical_thinking/math.dart';
 import 'linguistic/poems_reading/info.dart';
+import 'linguistic/idioms.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -291,14 +291,14 @@ class _YourActivities extends State<YourActivities> {
                           "listening",
                           "LISTENING",
                           "Comprehension",
-                          const Video(),
+                          const ListeningComprehensionVideo(),
                         ),
                         createActivity2(
                           context,
                           "reading",
                           "READING",
                           "Comprehension",
-                          const SecondLinguisticExercise(),
+                          const ReadingComprehensionInfo(),
                         ),
                         createActivity2(
                           context,
@@ -460,10 +460,11 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity2(
                           context,
-                          "reading_comprehension",
-                          "Reading",
-                          "Comprehension",
-                          const ReadingComprehensionInfo(),
+                          "idioms",
+                          "Idioms, expressions and phrasal verbs",
+                          "",
+                          const Idioms(),
+                          zero: 0,
                         ),
                       ],
                     ),
