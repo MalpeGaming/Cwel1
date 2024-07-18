@@ -65,7 +65,9 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               route: const Memory(
                 initialTest: true,
               ),
-              img: "assets/improvement_selection/memory.png",
+              img: (Theme.of(context).brightness == Brightness.light)
+                  ? "memory_light.png"
+                  : "memory_dark.png",
             ),
             const Spacer(),
             ImprovementButton(
@@ -74,14 +76,18 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               route: const ShortTermConcentration(
                 initialTest: true,
               ),
-              img: "assets/improvement_selection/attention.png",
+              img: (Theme.of(context).brightness == Brightness.light)
+                  ? "attention_light.png"
+                  : "attention_dark.png",
             ),
             const Spacer(),
             ImprovementButton(
               text: "Linguistic",
               width: size.width,
               route: const ListeningComprehensionVideo(initialTest: true),
-              img: "assets/improvement_selection/linguistic_intelligence.png",
+              img: (Theme.of(context).brightness == Brightness.light)
+                  ? "linguistic_light.png"
+                  : "linguistic_dark.png",
             ),
             const Spacer(),
             ImprovementButton(
@@ -91,7 +97,21 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
                 initialTest: true,
               ),
               //const RiddlesTest( exerciseId: 1,),
-              img: "assets/improvement_selection/logical_thinking.png",
+              img: (Theme.of(context).brightness == Brightness.light)
+                  ? "logical_light.png"
+                  : "logical_dark.png",
+            ),
+            const Spacer(),
+            ImprovementButton(
+              text: "Just fun",
+              width: size.width,
+              route: const LogicalThinking(
+                initialTest: true,
+              ),
+              //const RiddlesTest( exerciseId: 1,),
+              img: (Theme.of(context).brightness == Brightness.light)
+                  ? "fun_light.png"
+                  : "fun_dark.png",
             ),
             const Spacer(),
           ],
