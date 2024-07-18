@@ -3,7 +3,7 @@ import 'home.dart';
 import 'score_n_progress/progress.dart';
 import 'your_activities.dart';
 import 'diet/nutrition_tips.dart';
-import 'settings.dart';
+import 'settings/settings.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
   const MyBottomNavigationBar({super.key});

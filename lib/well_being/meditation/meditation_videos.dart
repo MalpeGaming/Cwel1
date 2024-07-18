@@ -34,16 +34,14 @@ class _VideoListItemState extends State<VideoListItem> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        SystemChrome.setPreferredOrientations([
+          DeviceOrientation.landscapeLeft,
+        ]);
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) {
               print(widget.videoAsset);
-
-              SystemChrome.setPreferredOrientations([
-                DeviceOrientation.landscapeLeft,
-                DeviceOrientation.landscapeRight,
-              ]);
               return YoutubePlayerScaffold(
                 autoFullScreen: true,
                 builder: ((context, player) {
@@ -116,9 +114,7 @@ class _VideoListItemState extends State<VideoListItem> {
 
   @override
   void dispose() {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-    ]);
+    SystemChrome.setPreferredOrientations([]);
     super.dispose();
   }
 }
