@@ -171,7 +171,7 @@ class _YourActivities extends State<YourActivities> {
   late SharedPreferences prefs;
 
   Future<void> calcDay() async {
-    DateTime firstDay = DateTime(2024, 7, 1);
+    DateTime firstDay = DateTime.now();
     DateTime today = DateTime.now();
     prefs = await SharedPreferences.getInstance();
     String? beginningDate = prefs.getStringList('beginning_date')?.first;
@@ -179,7 +179,7 @@ class _YourActivities extends State<YourActivities> {
       firstDay = DateTime.parse(beginningDate);
     }
     setState(() {
-      day = today.difference(firstDay).inDays;
+      day = today.difference(firstDay).inDays + 1;
     });
   }
 
