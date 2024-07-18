@@ -123,6 +123,7 @@ flutter:
     - assets/investing/lesson15/
     - assets/investing/lesson24/
     - assets/investing/lesson25/
+    - assets/settings/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

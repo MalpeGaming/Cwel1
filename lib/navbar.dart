@@ -3,6 +3,7 @@ import 'home.dart';
 import 'progress.dart';
 import 'your_activities.dart';
 import 'diet/nutrition_tips.dart';
+import 'settings.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
   const MyBottomNavigationBar({super.key});
@@ -27,6 +28,8 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
               return const Progress();
             } else if (index == 3) {
               return const NutritionTips();
+            } else if (index == 4) {
+              return const Settings();
             } else {
               return const Home();
             }
