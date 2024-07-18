@@ -11,7 +11,6 @@ class Restart extends StatefulWidget {
 }
 
 class _Restart extends State<Restart> {
-  bool initialTest = false;
   Future<void> restartApp() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     await preferences.clear();
@@ -31,7 +30,10 @@ class _Restart extends State<Restart> {
 
 class Site {
   static void launch() {
-    launchUrl(Uri.parse(
-        "https://braintrain-by-wk.shorthandstories.com/thebraintrainapp/index.html#article"));
+    launchUrl(
+      Uri.parse(
+        "https://braintrain-by-wk.shorthandstories.com/thebraintrainapp/index.html#article",
+      ),
+    );
   }
 }

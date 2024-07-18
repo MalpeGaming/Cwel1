@@ -3,23 +3,13 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:brain_train_app/app_bar.dart';
 
 class TermsOfService extends StatefulWidget {
-  final bool? initialTest;
-  const TermsOfService({this.initialTest = false, super.key});
+  const TermsOfService({super.key});
 
   @override
   State<TermsOfService> createState() => _TermsOfService();
 }
 
 class _TermsOfService extends State<TermsOfService> {
-  bool initialTest = false;
-
-  @override
-  void initState() {
-    super.initState();
-    initialTest = widget.initialTest!;
-    print(initialTest);
-  }
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -30,7 +20,8 @@ class _TermsOfService extends State<TermsOfService> {
           left: size.width / 15,
           right: size.width / 15,
         ),
-        child: const Markdown(data: '''
+        child: const Markdown(
+          data: '''
 # Terms of Use for Brain Train App
 
 ## Introduction
@@ -93,7 +84,8 @@ These terms and conditions are governed by and construed in accordance with the 
 
 By using the Brain Train app, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use.
 
-        ''',),
+        ''',
+        ),
       ),
     );
   }
