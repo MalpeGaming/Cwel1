@@ -3,6 +3,7 @@ import '/navbar.dart';
 import 'tos.dart';
 import 'contact.dart';
 import '../../app_bar.dart';
+import 'functions.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -31,7 +32,7 @@ class _Settings extends State<Settings> {
   List<Widget> routes = [
     const TermsOfService(),
     const Contact(),
-    const Text("x"),
+    const Restart(),
     const Text("x"),
     const Text("x"),
     const Text("x"),
