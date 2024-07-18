@@ -78,58 +78,63 @@ class _Settings extends State<Settings> {
         colors[index] = false;
         print(icons);
       }),
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: colors[index]
-                ? const Color(0xFF004AAD)
-                : Theme.of(context).colorScheme.primary,
-            width: 4.0,
+      child: Stack(
+        alignment: Alignment.centerLeft,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: colors[index]
+                    ? const Color(0xFF004AAD)
+                    : Theme.of(context).colorScheme.primary,
+                width: 4.0,
+              ),
+              color: Theme.of(context).colorScheme.secondary,
+              borderRadius: BorderRadius.circular(2137.0),
+            ),
+            width: double.infinity,
+            height: size.height * 0.07,
+            //margin: EdgeInsets.only(top: 10),
           ),
-          color: Theme.of(context).colorScheme.secondary,
-          borderRadius: BorderRadius.circular(2137.0),
-        ),
-        width: double.infinity,
-        height: size.height * 0.07,
-        //margin: EdgeInsets.only(top: 10),
-        child: Align(
-          alignment: Alignment.centerLeft,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: colors[index]
-                          ? const Color(0xFF004AAD)
-                          : Theme.of(context).colorScheme.primary,
-                      width: 4.0,
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: colors[index]
+                            ? const Color(0xFF004AAD)
+                            : Theme.of(context).colorScheme.primary,
+                        width: 4.0,
+                      ),
                     ),
-                  ),
-                  height: size.height * 0.07 - 8,
-                  width: size.height * 0.07 - 8,
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Image.asset(
-                      "assets/settings/${icons[index]}.png",
-                      fit: BoxFit.fill,
+                    height: size.height * 0.07,
+                    width: size.height * 0.07,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Image.asset(
+                        "assets/settings/${icons[index]}.png",
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                width: size.width * 0.04,
-              ),
-              Text(
-                settings[index],
-                style: TextStyle(fontSize: size.width / 20),
-              ),
-            ],
+                SizedBox(
+                  width: size.width * 0.04,
+                ),
+                Text(
+                  settings[index],
+                  style: TextStyle(fontSize: size.width / 20),
+                ),
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
