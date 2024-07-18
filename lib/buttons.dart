@@ -233,9 +233,9 @@ class _ImprovementButtonState extends State<ImprovementButton> {
       child: Row(
         children: [
           Image.asset(
-            widget.img,
-            height: widget.width / 7.5,
-            width: widget.width / 7.5,
+            "assets/improvement_selection/${widget.img}",
+            //height: widget.width / 5,
+            //width: widget.width / 7.5,
           ),
           SizedBox(
             width: widget.width / 16,
