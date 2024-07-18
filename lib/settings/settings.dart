@@ -38,6 +38,15 @@ class _Settings extends State<Settings> {
     const Text("x"),
   ];
   List<bool> colors = [false, false, false, false, false, false];
+  Color darken(Color color, [double amount = .1]) {
+    assert(amount >= 0 && amount <= 1);
+
+    final hsl = HSLColor.fromColor(color);
+    final hslDark = hsl.withLightness((hsl.lightness - amount).clamp(0.0, 1.0));
+
+    return hslDark.toColor();
+  }
+
   Widget element(
     BuildContext context,
     int index,
@@ -45,46 +54,24 @@ class _Settings extends State<Settings> {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => routes[index]),
-        );
+        (index != 4)
+            ? Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => routes[index]),
+              )
+            : Site.launch();
       },
-      onTapUp: (details) => setState(
-        () {
-          if (icons[index] > 6) {
-            icons[index] -= 6;
-          }
-          colors[index] = false;
-          print(icons);
-        },
-      ),
-      onTapDown: (details) {
-        setState(() {
-          if (icons[index] <= 6) {
-            icons[index] += 6;
-          }
-          colors[index] = true;
-          print("amogus");
-          print(icons);
-        });
-      },
-      onTapCancel: () => setState(() {
-        if (icons[index] > 6) {
-          icons[index] -= 6;
-        }
-        colors[index] = false;
-        print(icons);
-      }),
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
-            color: colors[index]
+            color: (Theme.of(context).brightness == Brightness.dark)
                 ? const Color(0xFF004AAD)
                 : Theme.of(context).colorScheme.primary,
-            width: 5.0,
+            width: 4.0,
           ),
-          color: Theme.of(context).colorScheme.secondary,
+          color: (Theme.of(context).brightness == Brightness.dark)
+              ? darken(Theme.of(context).colorScheme.secondary, .5)
+              : Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(2137.0),
         ),
         width: double.infinity,
@@ -101,18 +88,18 @@ class _Settings extends State<Settings> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: colors[index]
+                      color: (Theme.of(context).brightness == Brightness.dark)
                           ? const Color(0xFF004AAD)
                           : Theme.of(context).colorScheme.primary,
                       width: 4.0,
                     ),
                   ),
-                  height: size.height * 0.07 - 10,
-                  width: size.height * 0.07 - 10,
+                  height: size.height * 0.07 - 8,
+                  width: size.height * 0.07 - 8,
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Image.asset(
-                      "assets/settings/${icons[index]}.png",
+                      "assets/settings/${icons[index] + ((Theme.of(context).brightness == Brightness.dark) ? 6 : 0)}.png",
                       fit: BoxFit.fill,
                     ),
                   ),

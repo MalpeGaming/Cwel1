@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:brain_train_app/title_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Restart extends StatefulWidget {
   const Restart({super.key});
@@ -25,5 +26,12 @@ class _Restart extends State<Restart> {
   @override
   Widget build(BuildContext context) {
     return const TitlePage(title: 'The Brain Train App');
+  }
+}
+
+class Site {
+  static void launch() {
+    launchUrl(Uri.parse(
+        "https://braintrain-by-wk.shorthandstories.com/thebraintrainapp/index.html#article"));
   }
 }
