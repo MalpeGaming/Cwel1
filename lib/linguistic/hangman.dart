@@ -27,6 +27,7 @@ class _Hangman extends State<Hangman> {
   int act = 0;
   int actRow = 0;
   int mistakes = 0;
+  String password = "";
   final guessedKeys = <String>[];
   final guessedKeys2 = <String>[];
   final notGuessedKeys = <String>[];
@@ -50,7 +51,7 @@ class _Hangman extends State<Hangman> {
         if (found == false && !blocked[row][indx]) {
           mistakes++;
         }
-        if (mistakes == 9 || found) {
+        if (mistakes == 9 || currentWord.toLowerCase() == noun.toLowerCase()) {
           Navigator.pop(context);
           Navigator.push(
             context,
@@ -153,6 +154,9 @@ class _Hangman extends State<Hangman> {
       qwerty.length,
       (i) => List.generate(qwerty[i].length, (j) => false),
     );
+    setState(() {
+      password = noun;
+    });
   }
 
   @override
@@ -183,7 +187,7 @@ class _Hangman extends State<Hangman> {
                           right: size.width / 20,
                         ),
                         child: Text(
-                          '$mistakes letters tried',
+                          '$mistakes letters mistook',
                           style: TextStyle(
                             fontSize: size.width / 20,
                             fontWeight: FontWeight.w500,
