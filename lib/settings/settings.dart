@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '/navbar.dart';
 import 'tos.dart';
-
+import 'contact.dart';
 import '../../app_bar.dart';
 
 class Settings extends StatefulWidget {
@@ -30,7 +30,7 @@ class _Settings extends State<Settings> {
   ];
   List<Widget> routes = [
     const TermsOfService(),
-    const Text("x"),
+    const Contact(),
     const Text("x"),
     const Text("x"),
     const Text("x"),
@@ -158,14 +158,18 @@ class _Settings extends State<Settings> {
               ),
               SizedBox(height: 0.05 * size.height),
               Column(
-                  children: List.generate(
-                      6,
-                      (index) => Column(children: [
-                            element(context, index),
-                            SizedBox(
-                              height: size.height * 0.03,
-                            ),
-                          ],),),),
+                children: List.generate(
+                  6,
+                  (index) => Column(
+                    children: [
+                      element(context, index),
+                      SizedBox(
+                        height: size.height * 0.03,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
