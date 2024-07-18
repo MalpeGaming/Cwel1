@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '/navbar.dart';
+import 'tos.dart';
 
 import '../../app_bar.dart';
 
@@ -28,12 +29,12 @@ class _Settings extends State<Settings> {
     6,
   ];
   List<Widget> routes = [
-    Text("x"),
-    Text("x"),
-    Text("x"),
-    Text("x"),
-    Text("x"),
-    Text("x"),
+    const TermsOfService(),
+    const Text("x"),
+    const Text("x"),
+    const Text("x"),
+    const Text("x"),
+    const Text("x"),
   ];
   List<bool> colors = [false, false, false, false, false, false];
   Widget element(
@@ -78,7 +79,7 @@ class _Settings extends State<Settings> {
         decoration: BoxDecoration(
           border: Border.all(
             color: colors[index]
-                ? Color(0xFF004AAD)
+                ? const Color(0xFF004AAD)
                 : Theme.of(context).colorScheme.primary,
             width: 5.0,
           ),
@@ -100,7 +101,7 @@ class _Settings extends State<Settings> {
                     shape: BoxShape.circle,
                     border: Border.all(
                       color: colors[index]
-                          ? Color(0xFF004AAD)
+                          ? const Color(0xFF004AAD)
                           : Theme.of(context).colorScheme.primary,
                       width: 4.0,
                     ),
@@ -164,7 +165,7 @@ class _Settings extends State<Settings> {
                             SizedBox(
                               height: size.height * 0.03,
                             ),
-                          ]))),
+                          ],),),),
             ],
           ),
         ),
