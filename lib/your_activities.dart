@@ -328,9 +328,7 @@ class _YourActivities extends State<YourActivities> {
                           "riddles",
                           "RIDDLES",
                           "",
-                          const RiddlesTest(
-                            difficulty: 3,
-                          ),
+                          const RiddlesTest(),
                           zero: 0,
                         ),
                         createActivity2(

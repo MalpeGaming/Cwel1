@@ -142,7 +142,6 @@ class _Riddles extends State<Riddles> {
                 width: size.width * 0.75,
                 child: RedirectButton(
                   route: const RiddlesTest(
-                    difficulty: 3,
                     initialTest: true,
                   ),
                   text: 'Continue',
