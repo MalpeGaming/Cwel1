@@ -248,7 +248,7 @@ class _YourActivities extends State<YourActivities> {
                           "working_memory",
                           "Working",
                           "MEMORY",
-                          const MemoryVideo(),
+                          const WorkingMemory(),
                         ),
                         createActivity2(
                           context,

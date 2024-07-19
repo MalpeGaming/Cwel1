@@ -237,7 +237,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                             Column(
                               children: [
                                 createDivider(context),
-                                createQuestion(context, 0),
+                                createQuestion(context, i),
                               ],
                             ),
                         ],
@@ -280,7 +280,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => ProgressScreen(
-                                      name: "listening_comprehension",
+                                      name: "reading_comprehension",
                                       score: score.toDouble(),
                                     ),
                                   ),
@@ -290,6 +290,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                           ),
                         ),
                       ),
+                      SizedBox(height: size.height / 10),
                     ],
                   ),
                 ),
