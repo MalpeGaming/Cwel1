@@ -138,7 +138,6 @@ var games = [
     const Game2048(),
     const Info(),
     const Meditation(),
-    5,
     const Meme(),
     const Sport(),
     const Yoga(),

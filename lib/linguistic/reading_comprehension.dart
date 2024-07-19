@@ -280,7 +280,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => ProgressScreen(
-                                      name: "listening_comprehension",
+                                      name: "reading_comprehension",
                                       score: score.toDouble(),
                                     ),
                                   ),

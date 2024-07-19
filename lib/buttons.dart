@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'language_level_selection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -230,18 +229,17 @@ class _ImprovementButtonState extends State<ImprovementButton> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     //initMemory();
-    return Container(
+    return SizedBox(
       //flex: 1,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset(
             "assets/improvement_selection/${widget.img}",
-            height: size.width / 7,
-            //width: widget.width / 7.5,
+            height: size.width / 6,
           ),
           SizedBox(
-            width: size.width / 20,
+            width: size.width / 40,
           ),
           SizedBox(
             height: size.height / 15,
@@ -261,7 +259,7 @@ class _ImprovementButtonState extends State<ImprovementButton> {
                 );
               },
               child: Container(
-                width: widget.width * 0.6,
+                width: widget.width * 0.5,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
                   gradient: LinearGradient(
