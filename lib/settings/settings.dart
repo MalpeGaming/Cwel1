@@ -37,7 +37,13 @@ class _Settings extends State<Settings> {
     const SizedBox(),
     const SizedBox(),
   ];
-  List<bool> colors = [false, false, false, false, false, false];
+  List<bool> highlighted = [false, false, false, false, false, false];
+  List<Color> colors = [
+    const Color(0xFF8388E1),
+    const Color(0xFF004AAD),
+    const Color(0xFF6B418D),
+    const Color(0xFFE7D1FF),
+  ];
   Widget element(
     BuildContext context,
     int index,
@@ -57,8 +63,7 @@ class _Settings extends State<Settings> {
           if (icons[index] > 6) {
             icons[index] -= 6;
           }
-          colors[index] = false;
-          print(icons);
+          highlighted[index] = false;
         },
       ),
       onTapDown: (details) {
@@ -66,17 +71,14 @@ class _Settings extends State<Settings> {
           if (icons[index] <= 6) {
             icons[index] += 6;
           }
-          colors[index] = true;
-          print("amogus");
-          print(icons);
+          highlighted[index] = true;
         });
       },
       onTapCancel: () => setState(() {
         if (icons[index] > 6) {
           icons[index] -= 6;
         }
-        colors[index] = false;
-        print(icons);
+        highlighted[index] = false;
       }),
       child: Stack(
         alignment: Alignment.centerLeft,
@@ -84,12 +86,15 @@ class _Settings extends State<Settings> {
           Container(
             decoration: BoxDecoration(
               border: Border.all(
-                color: colors[index]
-                    ? const Color(0xFF004AAD)
-                    : Theme.of(context).colorScheme.primary,
+                color: colors[((Theme.of(context).brightness == Brightness.dark)
+                        ? 2
+                        : 0) +
+                    (highlighted[index] ? 1 : 0)],
                 width: 4.0,
               ),
-              color: Theme.of(context).colorScheme.secondary,
+              color: (Theme.of(context).brightness == Brightness.dark)
+                  ? Theme.of(context).colorScheme.background
+                  : Theme.of(context).colorScheme.secondary,
               borderRadius: BorderRadius.circular(2137.0),
             ),
             width: double.infinity,
@@ -107,9 +112,11 @@ class _Settings extends State<Settings> {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: colors[index]
-                            ? const Color(0xFF004AAD)
-                            : Theme.of(context).colorScheme.primary,
+                        color: colors[
+                            ((Theme.of(context).brightness == Brightness.dark)
+                                    ? 2
+                                    : 0) +
+                                (highlighted[index] ? 1 : 0)],
                         width: 4.0,
                       ),
                     ),
@@ -118,7 +125,7 @@ class _Settings extends State<Settings> {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Image.asset(
-                        "assets/settings/${icons[index]}.png",
+                        "assets/settings/${icons[index] + ((Theme.of(context).brightness == Brightness.dark) ? 12 : 0)}.png",
                         fit: BoxFit.fill,
                       ),
                     ),
