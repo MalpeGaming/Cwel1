@@ -21,14 +21,7 @@ class _Settings extends State<Settings> {
     "Our Website",
     "Your Certificates",
   ];
-  List<int> icons = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-  ];
+
   List<Widget> routes = [
     const TermsOfService(),
     const Contact(),
@@ -37,7 +30,13 @@ class _Settings extends State<Settings> {
     const SizedBox(),
     const SizedBox(),
   ];
-  List<bool> colors = [false, false, false, false, false, false];
+  List<bool> highlighted = [false, false, false, false, false, false];
+  List<Color> colors = [
+    const Color(0xFF8388E1),
+    const Color(0xFF004AAD),
+    const Color(0xFF6B418D),
+    const Color(0xFFE7D1FF),
+  ];
   Widget element(
     BuildContext context,
     int index,
@@ -54,82 +53,79 @@ class _Settings extends State<Settings> {
       },
       onTapUp: (details) => setState(
         () {
-          if (icons[index] > 6) {
-            icons[index] -= 6;
-          }
-          colors[index] = false;
-          print(icons);
+          highlighted[index] = false;
         },
       ),
       onTapDown: (details) {
         setState(() {
-          if (icons[index] <= 6) {
-            icons[index] += 6;
-          }
-          colors[index] = true;
-          print("amogus");
-          print(icons);
+          highlighted[index] = true;
         });
       },
       onTapCancel: () => setState(() {
-        if (icons[index] > 6) {
-          icons[index] -= 6;
-        }
-        colors[index] = false;
-        print(icons);
+        highlighted[index] = false;
       }),
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: colors[index]
-                ? const Color(0xFF004AAD)
-                : Theme.of(context).colorScheme.primary,
-            width: 4.0,
+      child: Stack(
+        alignment: Alignment.centerLeft,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: colors[((Theme.of(context).brightness == Brightness.dark)
+                        ? 2
+                        : 0) +
+                    (highlighted[index] ? 1 : 0)],
+                width: 4.0,
+              ),
+              color: (Theme.of(context).brightness == Brightness.dark)
+                  ? Theme.of(context).colorScheme.background
+                  : Theme.of(context).colorScheme.secondary,
+              borderRadius: BorderRadius.circular(2137.0),
+            ),
+            width: double.infinity,
+            height: size.height * 0.07,
+            //margin: EdgeInsets.only(top: 10),
           ),
-          color: Theme.of(context).colorScheme.secondary,
-          borderRadius: BorderRadius.circular(2137.0),
-        ),
-        width: double.infinity,
-        height: size.height * 0.07,
-        //margin: EdgeInsets.only(top: 10),
-        child: Align(
-          alignment: Alignment.centerLeft,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: colors[index]
-                          ? const Color(0xFF004AAD)
-                          : Theme.of(context).colorScheme.primary,
-                      width: 4.0,
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: colors[
+                            ((Theme.of(context).brightness == Brightness.dark)
+                                    ? 2
+                                    : 0) +
+                                (highlighted[index] ? 1 : 0)],
+                        width: 4.0,
+                      ),
                     ),
-                  ),
-                  height: size.height * 0.07 - 8,
-                  width: size.height * 0.07 - 8,
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Image.asset(
-                      "assets/settings/${icons[index]}.png",
-                      fit: BoxFit.fill,
+                    height: size.height * 0.07,
+                    width: size.height * 0.07,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Image.asset(
+                        "assets/settings/${index + 1 + (highlighted[index] ? 6 : 0) + ((Theme.of(context).brightness == Brightness.dark) ? 12 : 0)}.png",
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                width: size.width * 0.04,
-              ),
-              Text(
-                settings[index],
-                style: TextStyle(fontSize: size.width / 20),
-              ),
-            ],
+                SizedBox(
+                  width: size.width * 0.04,
+                ),
+                Text(
+                  settings[index],
+                  style: TextStyle(fontSize: size.width / 20),
+                ),
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
