@@ -21,14 +21,7 @@ class _Settings extends State<Settings> {
     "Our Website",
     "Your Certificates",
   ];
-  List<int> icons = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-  ];
+
   List<Widget> routes = [
     const TermsOfService(),
     const Contact(),
@@ -60,24 +53,15 @@ class _Settings extends State<Settings> {
       },
       onTapUp: (details) => setState(
         () {
-          if (icons[index] > 6) {
-            icons[index] -= 6;
-          }
           highlighted[index] = false;
         },
       ),
       onTapDown: (details) {
         setState(() {
-          if (icons[index] <= 6) {
-            icons[index] += 6;
-          }
           highlighted[index] = true;
         });
       },
       onTapCancel: () => setState(() {
-        if (icons[index] > 6) {
-          icons[index] -= 6;
-        }
         highlighted[index] = false;
       }),
       child: Stack(
@@ -125,7 +109,7 @@ class _Settings extends State<Settings> {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Image.asset(
-                        "assets/settings/${icons[index] + ((Theme.of(context).brightness == Brightness.dark) ? 12 : 0)}.png",
+                        "assets/settings/${index + 1 + (highlighted[index] ? 6 : 0) + ((Theme.of(context).brightness == Brightness.dark) ? 12 : 0)}.png",
                         fit: BoxFit.fill,
                       ),
                     ),
