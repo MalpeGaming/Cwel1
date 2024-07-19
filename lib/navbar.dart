@@ -18,6 +18,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      Navigator.pop(context);
       Navigator.push(
         context,
         MaterialPageRoute(
