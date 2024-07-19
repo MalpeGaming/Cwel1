@@ -237,7 +237,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                             Column(
                               children: [
                                 createDivider(context),
-                                createQuestion(context, 0),
+                                createQuestion(context, i),
                               ],
                             ),
                         ],
@@ -290,6 +290,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                           ),
                         ),
                       ),
+                      SizedBox(height: size.height / 10),
                     ],
                   ),
                 ),

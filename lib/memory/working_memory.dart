@@ -9,12 +9,12 @@ import '../buttons.dart';
 import '../score_n_progress/progress_screen.dart';
 import '../app_bar.dart';
 
-class MemoryVideo extends StatefulWidget {
+class WorkingMemory extends StatefulWidget {
   final bool initialTest;
-  const MemoryVideo({super.key, this.initialTest = false});
+  const WorkingMemory({super.key, this.initialTest = false});
 
   @override
-  State<MemoryVideo> createState() => _MemoryVideo();
+  State<WorkingMemory> createState() => _WorkingMemory();
 }
 
 List<List<String>> films = [
@@ -47,7 +47,7 @@ List<List<String>> films = [
   ],
 ];
 
-class _MemoryVideo extends State<MemoryVideo> {
+class _WorkingMemory extends State<WorkingMemory> {
   bool initialTest = false;
 
   late YoutubePlayerController _controller;

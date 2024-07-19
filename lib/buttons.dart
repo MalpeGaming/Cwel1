@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'language_level_selection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -227,61 +228,68 @@ class _ImprovementButtonState extends State<ImprovementButton> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     //initMemory();
-    return Expanded(
-      flex: 1,
+    return Container(
+      //flex: 1,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset(
             "assets/improvement_selection/${widget.img}",
-            //height: widget.width / 5,
+            height: size.width / 7,
             //width: widget.width / 7.5,
           ),
           SizedBox(
-            width: widget.width / 16,
+            width: size.width / 20,
           ),
-          InkWell(
-            onHover: (value) {
-              setState(() {
-                hovered = value;
-              });
-            },
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => widget.route,
-                ),
-              );
-            },
-            child: Container(
-              width: widget.width * 0.6,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25),
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[
-                    Theme.of(context).colorScheme.primary,
-                    Theme.of(context).colorScheme.onPrimary,
-                  ],
-                  tileMode: TileMode.decal,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Theme.of(context).colorScheme.shadow.withOpacity(1),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: const Offset(5, 5),
+          SizedBox(
+            height: size.height / 15,
+            width: size.width * 0.6,
+            child: InkWell(
+              onHover: (value) {
+                setState(() {
+                  hovered = value;
+                });
+              },
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => widget.route,
                   ),
-                ],
-              ),
-              child: Center(
-                child: Text(
-                  widget.text,
-                  style: TextStyle(
-                    fontSize: widget.width / 16,
-                    color: Theme.of(context).colorScheme.tertiary,
+                );
+              },
+              child: Container(
+                width: widget.width * 0.6,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: <Color>[
+                      Theme.of(context).colorScheme.primary,
+                      Theme.of(context).colorScheme.onPrimary,
+                    ],
+                    tileMode: TileMode.decal,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color:
+                          Theme.of(context).colorScheme.shadow.withOpacity(1),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: const Offset(5, 5),
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Text(
+                    widget.text,
+                    style: TextStyle(
+                      fontSize: widget.width / 16,
+                      color: Theme.of(context).colorScheme.tertiary,
+                    ),
                   ),
                 ),
               ),
