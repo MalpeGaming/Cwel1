@@ -33,6 +33,7 @@ import 'investing/menu.dart';
 import 'logical_thinking/math.dart';
 import 'linguistic/poems_reading/info.dart';
 import 'linguistic/idioms.dart';
+import 'activities_for_each_section.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -151,34 +152,47 @@ class _YourActivities extends State<YourActivities> {
     double zero = 1,
   }) {
     Size size = MediaQuery.of(context).size;
-    return createActivity(
-      context,
-      "activities/$img",
-      txt1,
-      txt2,
-      0.022 * size.height * fontSize,
-      route,
-      Theme.of(context).colorScheme.primary,
-      Theme.of(context).colorScheme.onPrimary,
-      zero: zero,
-      blocked: false,
-      textWidth: 0.45,
-      title: false,
-    );
+    //if (memoryList.any((pair) => pair[0] == route)) {
+    if (skillLists[skill]!.contains(route.toString())) {
+      return createActivity(
+        context,
+        "activities/$img",
+        txt1,
+        txt2,
+        0.022 * size.height * fontSize,
+        route,
+        Theme.of(context).colorScheme.primary,
+        Theme.of(context).colorScheme.onPrimary,
+        zero: zero,
+        blocked: false,
+        textWidth: 0.45,
+        title: false,
+      );
+    }
+    //}
+
+    return SizedBox();
   }
 
   int day = 0;
   late SharedPreferences prefs;
+  String skill = "";
+
+  Future<void> getSkill() async {
+    prefs = await SharedPreferences.getInstance();
+    setState(() {
+      skill = prefs.getString('skill')!;
+    });
+  }
 
   Future<void> calcDay() async {
     DateTime firstDay = DateTime.now();
     DateTime today = DateTime.now();
     prefs = await SharedPreferences.getInstance();
-    String? beginningDate = prefs.getStringList('beginning_date')?.first;
+    String beginningDate = prefs.getString('beginning_date')!;
     print(beginningDate);
-    if (beginningDate != null) {
-      firstDay = DateTime.parse(beginningDate);
-    }
+    firstDay = DateTime.parse(beginningDate);
+
     setState(() {
       day = today.difference(firstDay).inDays + 1;
     });
@@ -187,6 +201,7 @@ class _YourActivities extends State<YourActivities> {
   @override
   void initState() {
     super.initState();
+    getSkill();
     calcDay();
   }
 

@@ -24,10 +24,10 @@ import 'package:brain_train_app/linguistic/spelling_mistakes.dart';
 import 'package:brain_train_app/linguistic/grammar_mcq_test.dart';
 import 'package:brain_train_app/linguistic/choose_best_word.dart';
 import 'package:brain_train_app/linguistic/idioms.dart';
-import 'package:brain_train_app/logical_thinking/riddles.dart';
+import 'package:brain_train_app/logical_thinking/riddles_info.dart';
 import 'package:brain_train_app/memory/learning_words/memory.dart';
 
-var memory = [
+var memoryList = [
   [
     {const Memory(), 10},
     {const WorkingMemory(), 5},
@@ -47,10 +47,28 @@ var memory = [
     const Meme(),
     const Sport(),
     const Yoga(),
+  ],
+  [
+    'Memory',
+    'WorkingMemory',
+    'MemoryGame1',
+    'Faces',
+    'LongTermConcentrationVideo',
+    'Intro',
+    'Reading',
+    'Scrabble(iteration: 1, allPoints: 0)',
+    'Hangman',
+    'SudokuInfo',
+    'Wordly',
+    'Game2048',
+    'Meditation',
+    'Meme',
+    'Sport',
+    'Yoga',
   ]
 ];
 
-var attention = [
+var attentionList = [
   [
     {const StrongConcentrationDesc(), 5},
     {const ShortTermConcentration(), 5},
@@ -71,10 +89,29 @@ var attention = [
     const Meme(),
     const Sport(),
     const Yoga(),
+  ],
+  [
+    'StrongConcentrationDesc',
+    'ShortTermConcentration',
+    'LongTermConcentrationVideo',
+    'Memory',
+    'MemoryGame1',
+    'FindTheNumber',
+    'Reading',
+    'Scrabble(iteration: 1, allPoints: 0)',
+    'Hangman',
+    'SudokuInfo',
+    'Wordly',
+    'Game2048',
+    'Intro',
+    'Meditation',
+    'Meme',
+    'Sport',
+    'Yoga',
   ]
 ];
 
-var linguistic = [
+var linguisticList = [
   [
     {const Memory(), 10},
     {const Info(), 5},
@@ -99,31 +136,70 @@ var linguistic = [
     const Meme(),
     const Sport(),
     const Yoga(),
+  ],
+  [
+    'Memory',
+    'Info',
+    'ReadingComprehension',
+    'ListeningComprehensionVideo',
+    'SpellingMistakes(exerciseId: 0)',
+    'CorrectAWord',
+    'Grammar(exerciseId: 0)',
+    'SpellingMistakes(exerciseId: 0)',
+    'ChooseBestWord',
+    'Idioms',
+    'Scrabble(iteration: 1, allPoints: 0)',
+    'Hangman',
+    'Wordly',
+    'Reading',
+    'SudokuInfo',
+    'Game2048',
+    'Intro',
+    'Meditation',
+    'Meme',
+    'Sport',
+    'Yoga',
   ]
 ];
 
-var logical = [
+var logicalList = [
   [
     {const StrongConcentrationDesc(), 5},
-    {const RiddlesTest(exerciseId: 0), 10},
+    {const Riddles(), 10},
     {const Game2048(), 5},
     {const SudokuInfo(), 10},
     {const Info(), 15},
   ],
   [
-    {const Scrabble(iteration: 1, allPoints: 0)},
-    {const Hangman()},
-    {const Wordly()},
-    {const MemoryGame1()},
-    {const Reading()},
+    const Scrabble(iteration: 1, allPoints: 0),
+    const Hangman(),
+    const Wordly(),
+    const MemoryGame1(),
+    const Reading(),
     const Meditation(),
     const Meme(),
     const Sport(),
     const Yoga(),
+  ],
+  [
+    'StrongConcentrationDesc',
+    'Riddles',
+    'Game2048',
+    'SudokuInfo',
+    'Info',
+    'Scrabble(iteration: 1, allPoints: 0)',
+    'Hangman',
+    'Wordly',
+    'MemoryGame1',
+    'Reading',
+    'Meditation',
+    'Meme',
+    'Sport',
+    'Yoga',
   ]
 ];
 
-var games = [
+var gamesList = [
   [
     {const Scrabble(iteration: 1, allPoints: 0), 5},
     {const Hangman(), 5},
@@ -141,5 +217,29 @@ var games = [
     const Meme(),
     const Sport(),
     const Yoga(),
+  ],
+  [
+    'Scrabble(iteration: 1, allPoints: 0)',
+    'Hangman',
+    'Wordly',
+    'Game2048',
+    'SudokuInfo',
+    'FindTheNumber',
+    'MemoryGame1',
+    'Reading',
+    'Game2048',
+    'Info',
+    'Meditation',
+    'Meme',
+    'Sport',
+    'Yoga',
   ]
 ];
+
+var skillLists = {
+  'memory': memoryList[2],
+  'attention': attentionList[2],
+  'linguistic': linguisticList[2],
+  'logical': logicalList[2],
+  'games': gamesList[2],
+};

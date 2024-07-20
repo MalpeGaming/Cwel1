@@ -32,9 +32,9 @@ class _StartButtonState extends State<StartButton> {
       onTap: () {
         Future<void> initMemory() async {
           prefs = await SharedPreferences.getInstance();
-          prefs.setStringList(
+          prefs.setString(
             'beginning_date',
-            [DateTime(now.year, now.month, now.day).toString()],
+            DateTime(now.year, now.month, now.day).toString(),
           );
         }
 
@@ -209,6 +209,7 @@ class ImprovementButton extends StatefulWidget {
   final double width;
   final Widget route;
   final String img;
+  final String name;
 
   const ImprovementButton({
     super.key,
@@ -216,6 +217,7 @@ class ImprovementButton extends StatefulWidget {
     required this.width,
     required this.route,
     required this.img,
+    required this.name,
   });
 
   @override
@@ -228,6 +230,7 @@ class _ImprovementButtonState extends State<ImprovementButton> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    late SharedPreferences prefs;
     //initMemory();
     return SizedBox(
       //flex: 1,
@@ -251,6 +254,17 @@ class _ImprovementButtonState extends State<ImprovementButton> {
                 });
               },
               onTap: () {
+                Future<void> initMemory() async {
+                  prefs = await SharedPreferences.getInstance();
+                  prefs.setString(
+                    'skill',
+                    widget.name,
+                  );
+                  print(widget.name);
+                }
+
+                initMemory();
+
                 Navigator.push(
                   context,
                   MaterialPageRoute(
