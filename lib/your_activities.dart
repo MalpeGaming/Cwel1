@@ -15,12 +15,12 @@ import 'memory/learning_words/memory.dart';
 import 'memory/faces.dart';
 import 'attention/long_term_concentration_video.dart';
 import 'attention/short_term_concentration.dart';
-import 'attention/strong_concentration.dart';
+import 'attention/strong_concentration_desc.dart';
 import 'attention/reading/reading.dart';
 import 'logical_thinking/sudoku_info.dart';
 import 'linguistic/wordly.dart';
 import 'linguistic/hangman.dart';
-import 'logical_thinking/riddles.dart';
+import 'logical_thinking/riddles_info.dart';
 import 'linguistic/listening_comprehension_video.dart';
 import 'memory/working_memory.dart';
 import 'linguistic/scrabble.dart';
@@ -171,7 +171,7 @@ class _YourActivities extends State<YourActivities> {
     }
     //}
 
-    return SizedBox();
+    return const SizedBox();
   }
 
   int day = 0;
@@ -268,35 +268,6 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity2(
                           context,
-                          "memory_game",
-                          "MEMORY",
-                          "Game",
-                          const MemoryGame1(),
-                        ),
-                        createActivity2(
-                          context,
-                          "sport",
-                          "SPORT",
-                          "Optional",
-                          const Sport(),
-                        ),
-                        createActivity2(
-                          context,
-                          "self_reflection",
-                          "Self",
-                          "Reflection",
-                          const SelfReflection(),
-                        ),
-                        createActivity2(
-                          context,
-                          "meditation",
-                          "MEDITATION",
-                          "",
-                          const Meditation(),
-                          zero: 0,
-                        ),
-                        createActivity2(
-                          context,
                           "find_the_number",
                           "Find the",
                           "NUMBER",
@@ -344,9 +315,7 @@ class _YourActivities extends State<YourActivities> {
                           "riddles",
                           "RIDDLES",
                           "",
-                          const RiddlesTest(
-                            difficulty: 3,
-                          ),
+                          const Riddles(),
                           zero: 0,
                         ),
                         createActivity2(
@@ -376,7 +345,7 @@ class _YourActivities extends State<YourActivities> {
                           "strong_concentration",
                           "Strong",
                           "CONCENTRATION",
-                          const StrongConcentration(),
+                          const StrongConcentrationDesc(),
                         ),
                         createActivity2(
                           context,
@@ -428,14 +397,6 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity2(
                           context,
-                          "yoga",
-                          "Yoga",
-                          "",
-                          const Yoga(),
-                          zero: 0,
-                        ),
-                        createActivity2(
-                          context,
                           "correct_a_word",
                           "Correct a word",
                           "",
@@ -468,18 +429,55 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity2(
                           context,
-                          "memes",
-                          "Memes",
-                          "",
-                          const Meme(),
-                          zero: 0,
-                        ),
-                        createActivity2(
-                          context,
                           "idioms",
                           "Idioms, expressions and phrasal verbs",
                           "",
                           const Idioms(),
+                          zero: 0,
+                        ),
+                        createActivity2(
+                          context,
+                          "memory_game",
+                          "MEMORY",
+                          "Game",
+                          const MemoryGame1(),
+                        ),
+                        createActivity2(
+                          context,
+                          "sport",
+                          "SPORT",
+                          "Optional",
+                          const Sport(),
+                        ),
+                        createActivity2(
+                          context,
+                          "yoga",
+                          "Yoga",
+                          "",
+                          const Yoga(),
+                          zero: 0,
+                        ),
+                        createActivity2(
+                          context,
+                          "self_reflection",
+                          "Self",
+                          "Reflection",
+                          const SelfReflection(),
+                        ),
+                        createActivity2(
+                          context,
+                          "meditation",
+                          "MEDITATION",
+                          "",
+                          const Meditation(),
+                          zero: 0,
+                        ),
+                        createActivity2(
+                          context,
+                          "memes",
+                          "Memes",
+                          "",
+                          const Meme(),
                           zero: 0,
                         ),
                       ],

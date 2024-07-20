@@ -19,7 +19,7 @@ import 'package:brain_train_app/well_being/yoga.dart';
 import 'package:brain_train_app/attention/short_term_concentration.dart';
 import 'package:brain_train_app/attention/find_the_number.dart';
 import 'package:brain_train_app/linguistic/poems_reading/info.dart';
-import 'package:brain_train_app/linguistic/reading_comprehension.dart';
+import 'package:brain_train_app/linguistic/reading_comprehension_info.dart';
 import 'package:brain_train_app/linguistic/spelling_mistakes.dart';
 import 'package:brain_train_app/linguistic/grammar_mcq_test.dart';
 import 'package:brain_train_app/linguistic/choose_best_word.dart';
@@ -56,7 +56,7 @@ var memoryList = [
     'LongTermConcentrationVideo',
     'Intro',
     'Reading',
-    'Scrabble(iteration: 1, allPoints: 0)',
+    'Scrabble',
     'Hangman',
     'SudokuInfo',
     'Wordly',
@@ -98,7 +98,7 @@ var attentionList = [
     'MemoryGame1',
     'FindTheNumber',
     'Reading',
-    'Scrabble(iteration: 1, allPoints: 0)',
+    'Scrabble',
     'Hangman',
     'SudokuInfo',
     'Wordly',
@@ -115,7 +115,7 @@ var linguisticList = [
   [
     {const Memory(), 10},
     {const Info(), 5},
-    {const ReadingComprehension(), 10},
+    {const ReadingComprehensionInfo(), 10},
     {const ListeningComprehensionVideo(), 10},
     {const SpellingMistakes(exerciseId: 0), 5},
     {const CorrectAWord(), 5},
@@ -140,15 +140,15 @@ var linguisticList = [
   [
     'Memory',
     'Info',
-    'ReadingComprehension',
+    'ReadingComprehensionInfo',
     'ListeningComprehensionVideo',
-    'SpellingMistakes(exerciseId: 0)',
+    'SpellingMistakes',
     'CorrectAWord',
-    'Grammar(exerciseId: 0)',
-    'SpellingMistakes(exerciseId: 0)',
+    'Grammar',
+    'SpellingMistakes',
     'ChooseBestWord',
     'Idioms',
-    'Scrabble(iteration: 1, allPoints: 0)',
+    'Scrabble',
     'Hangman',
     'Wordly',
     'Reading',
@@ -187,7 +187,7 @@ var logicalList = [
     'Game2048',
     'SudokuInfo',
     'Info',
-    'Scrabble(iteration: 1, allPoints: 0)',
+    'Scrabble',
     'Hangman',
     'Wordly',
     'MemoryGame1',
@@ -211,7 +211,6 @@ var gamesList = [
   ],
   [
     const Reading(),
-    const Game2048(),
     const Info(),
     const Meditation(),
     const Meme(),
@@ -219,7 +218,7 @@ var gamesList = [
     const Yoga(),
   ],
   [
-    'Scrabble(iteration: 1, allPoints: 0)',
+    'Scrabble',
     'Hangman',
     'Wordly',
     'Game2048',
@@ -227,7 +226,6 @@ var gamesList = [
     'FindTheNumber',
     'MemoryGame1',
     'Reading',
-    'Game2048',
     'Info',
     'Meditation',
     'Meme',
