@@ -24,6 +24,7 @@ class StartButton extends StatefulWidget {
 class _StartButtonState extends State<StartButton> {
   bool hovered = false;
   late SharedPreferences prefs;
+  DateTime now = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +34,8 @@ class _StartButtonState extends State<StartButton> {
           prefs = await SharedPreferences.getInstance();
           prefs.setStringList(
             'beginning_date',
-            [DateTime.now().toString()],
+            [DateTime(now.year, now.month, now.day).toString()],
           );
-          print("amogus");
         }
 
         initMemory();
