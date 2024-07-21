@@ -250,7 +250,6 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                           child: RedirectButton(
                             text: 'Continue',
                             width: size.width,
-                            requirement: selectedOption != -1,
                             onClick: () {
                               int score = 0;
                               for (int i = 0; i < usersAnswers.length; i++) {
