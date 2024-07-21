@@ -23,8 +23,8 @@ class _Home extends State<Home> {
     Future<void> readMemory() async {
       prefs = await SharedPreferences.getInstance();
       print("amogus");
-      print(prefs.getStringList('beginning_date').toString());
-      String? beginningDate = prefs.getStringList('beginning_date')?.first;
+      print(prefs.getString('beginning_date'));
+      String? beginningDate = prefs.getString('beginning_date');
       if (beginningDate != null) {
         DateTime beginningDateTime = DateTime.parse(beginningDate);
         Duration daysPassed = DateTime.now().difference(beginningDateTime);
@@ -83,7 +83,8 @@ class _Home extends State<Home> {
                 groupValue: 1,
                 //activeColor: Theme.of(context).colorScheme.primary,
                 fillColor: MaterialStateProperty.all(
-                    Theme.of(context).colorScheme.primary,),
+                  Theme.of(context).colorScheme.primary,
+                ),
                 splashRadius: 25,
                 onChanged: (value) {},
               ),

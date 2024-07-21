@@ -1,7 +1,7 @@
 import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'improvement_selection.dart';
+import 'time_selection.dart';
 
 class LangCheckList extends StatefulWidget {
   const LangCheckList({
@@ -136,7 +136,7 @@ class _LanguageLevelSelectionState extends State<LanguageLevelSelection> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const ImprovementSelection(),
+                  route: const TimeSelection(),
                   text: 'Continue',
                   width: size.width,
                   requirement: selectedOption != null,

@@ -15,12 +15,12 @@ import 'memory/learning_words/memory.dart';
 import 'memory/faces.dart';
 import 'attention/long_term_concentration_video.dart';
 import 'attention/short_term_concentration.dart';
-import 'attention/strong_concentration.dart';
+import 'attention/strong_concentration_desc.dart';
 import 'attention/reading/reading.dart';
 import 'logical_thinking/sudoku_info.dart';
 import 'linguistic/wordly.dart';
 import 'linguistic/hangman.dart';
-import 'logical_thinking/riddles.dart';
+import 'logical_thinking/riddles_info.dart';
 import 'linguistic/listening_comprehension_video.dart';
 import 'memory/working_memory.dart';
 import 'linguistic/scrabble.dart';
@@ -33,6 +33,7 @@ import 'investing/menu.dart';
 import 'logical_thinking/math.dart';
 import 'linguistic/poems_reading/info.dart';
 import 'linguistic/idioms.dart';
+import 'activities_for_each_section.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -151,33 +152,47 @@ class _YourActivities extends State<YourActivities> {
     double zero = 1,
   }) {
     Size size = MediaQuery.of(context).size;
-    return createActivity(
-      context,
-      "activities/$img",
-      txt1,
-      txt2,
-      0.022 * size.height * fontSize,
-      route,
-      Theme.of(context).colorScheme.primary,
-      Theme.of(context).colorScheme.onPrimary,
-      zero: zero,
-      blocked: false,
-      textWidth: 0.45,
-      title: false,
-    );
+    //if (memoryList.any((pair) => pair[0] == route)) {
+    if (skillLists[skill]!.contains(route.toString())) {
+      return createActivity(
+        context,
+        "activities/$img",
+        txt1,
+        txt2,
+        0.022 * size.height * fontSize,
+        route,
+        Theme.of(context).colorScheme.primary,
+        Theme.of(context).colorScheme.onPrimary,
+        zero: zero,
+        blocked: false,
+        textWidth: 0.45,
+        title: false,
+      );
+    }
+    //}
+
+    return const SizedBox();
   }
 
   int day = 0;
   late SharedPreferences prefs;
+  String skill = "";
+
+  Future<void> getSkill() async {
+    prefs = await SharedPreferences.getInstance();
+    setState(() {
+      skill = prefs.getString('skill')!;
+    });
+  }
 
   Future<void> calcDay() async {
     DateTime firstDay = DateTime.now();
     DateTime today = DateTime.now();
     prefs = await SharedPreferences.getInstance();
-    String? beginningDate = prefs.getStringList('beginning_date')?.first;
-    if (beginningDate != null) {
-      firstDay = DateTime.parse(beginningDate);
-    }
+    String beginningDate = prefs.getString('beginning_date')!;
+    print(beginningDate);
+    firstDay = DateTime.parse(beginningDate);
+
     setState(() {
       day = today.difference(firstDay).inDays + 1;
     });
@@ -186,6 +201,7 @@ class _YourActivities extends State<YourActivities> {
   @override
   void initState() {
     super.initState();
+    getSkill();
     calcDay();
   }
 
@@ -248,36 +264,7 @@ class _YourActivities extends State<YourActivities> {
                           "working_memory",
                           "Working",
                           "MEMORY",
-                          const MemoryVideo(),
-                        ),
-                        createActivity2(
-                          context,
-                          "memory_game",
-                          "MEMORY",
-                          "Game",
-                          const MemoryGame1(),
-                        ),
-                        createActivity2(
-                          context,
-                          "sport",
-                          "SPORT",
-                          "Optional",
-                          const Sport(),
-                        ),
-                        createActivity2(
-                          context,
-                          "self_reflection",
-                          "Self",
-                          "Reflection",
-                          const SelfReflection(),
-                        ),
-                        createActivity2(
-                          context,
-                          "meditation",
-                          "MEDITATION",
-                          "",
-                          const Meditation(),
-                          zero: 0,
+                          const WorkingMemory(),
                         ),
                         createActivity2(
                           context,
@@ -328,7 +315,7 @@ class _YourActivities extends State<YourActivities> {
                           "riddles",
                           "RIDDLES",
                           "",
-                          const RiddlesTest(),
+                          const Riddles(),
                           zero: 0,
                         ),
                         createActivity2(
@@ -358,7 +345,7 @@ class _YourActivities extends State<YourActivities> {
                           "strong_concentration",
                           "Strong",
                           "CONCENTRATION",
-                          const StrongConcentration(),
+                          const StrongConcentrationDesc(),
                         ),
                         createActivity2(
                           context,
@@ -410,14 +397,6 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity2(
                           context,
-                          "yoga",
-                          "Yoga",
-                          "",
-                          const Yoga(),
-                          zero: 0,
-                        ),
-                        createActivity2(
-                          context,
                           "correct_a_word",
                           "Correct a word",
                           "",
@@ -450,18 +429,55 @@ class _YourActivities extends State<YourActivities> {
                         ),
                         createActivity2(
                           context,
-                          "memes",
-                          "Memes",
-                          "",
-                          const Meme(),
-                          zero: 0,
-                        ),
-                        createActivity2(
-                          context,
                           "idioms",
                           "Idioms, expressions and phrasal verbs",
                           "",
                           const Idioms(),
+                          zero: 0,
+                        ),
+                        createActivity2(
+                          context,
+                          "memory_game",
+                          "MEMORY",
+                          "Game",
+                          const MemoryGame1(),
+                        ),
+                        createActivity2(
+                          context,
+                          "sport",
+                          "SPORT",
+                          "Optional",
+                          const Sport(),
+                        ),
+                        createActivity2(
+                          context,
+                          "yoga",
+                          "Yoga",
+                          "",
+                          const Yoga(),
+                          zero: 0,
+                        ),
+                        createActivity2(
+                          context,
+                          "self_reflection",
+                          "Self",
+                          "Reflection",
+                          const SelfReflection(),
+                        ),
+                        createActivity2(
+                          context,
+                          "meditation",
+                          "MEDITATION",
+                          "",
+                          const Meditation(),
+                          zero: 0,
+                        ),
+                        createActivity2(
+                          context,
+                          "memes",
+                          "Memes",
+                          "",
+                          const Meme(),
                           zero: 0,
                         ),
                       ],
