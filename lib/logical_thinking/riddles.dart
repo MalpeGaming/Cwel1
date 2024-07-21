@@ -12,12 +12,10 @@ import '../app_bar.dart';
 class RiddlesTest extends StatefulWidget {
   const RiddlesTest({
     super.key,
-    required this.difficulty,
     this.initialTest = false,
   });
 
   final bool initialTest;
-  final int difficulty;
 
   @override
   State<RiddlesTest> createState() => _RiddlesTest();
@@ -31,6 +29,8 @@ class _RiddlesTest extends State<RiddlesTest> {
   List<String> questions = [];
   List<List<String>> answers = [];
   int numberOfQuestions = 0;
+  int difficulty = 3;
+  int passed = 0;
 
   @override
   void initState() {
@@ -38,8 +38,7 @@ class _RiddlesTest extends State<RiddlesTest> {
     readData();
     super.initState();
     _remainingTime = 480;
-    numberOfQuestions =
-        (widget.difficulty == 3 ? 25 : (widget.difficulty == 4 ? 25 : 23));
+    numberOfQuestions = (difficulty == 3 ? 25 : (difficulty == 4 ? 25 : 23));
     questionIndex = Random().nextInt(numberOfQuestions);
     initMemory();
   }
@@ -51,7 +50,7 @@ class _RiddlesTest extends State<RiddlesTest> {
       List<List<String>> newAnswers = [];
       final file =
           await rootBundle.loadString('assets/logical_thinking/riddles.yaml');
-      final tasks = loadYaml(file)["questions"]["${widget.difficulty}points"];
+      final tasks = loadYaml(file)["questions"]["${difficulty}points"];
       print(tasks.length);
       for (var i = 0; i < tasks.length; i++) {
         newQuestions.add(tasks[i]["question"]);
@@ -226,7 +225,8 @@ class _RiddlesTest extends State<RiddlesTest> {
                                   score += 1;
                                 }
 
-                                if (questionIndex < questions.length - 1) {
+                                if (passed < 1) {
+                                  passed += 1;
                                   setState(() {
                                     questionIndex =
                                         Random().nextInt(numberOfQuestions);
