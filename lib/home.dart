@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:intl/intl.dart';
 import 'navbar.dart';
+import 'activities_for_each_section.dart';
+import 'dart:math';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -13,6 +14,67 @@ class Home extends StatefulWidget {
 
 class _Home extends State<Home> {
   late SharedPreferences prefs;
+  String skill = "";
+  int trainingTime = 0;
+  var rng = Random();
+  List<String> plan = [];
+
+  Future<void> readMemory() async {
+    prefs = await SharedPreferences.getInstance();
+    print("amogus");
+    print(prefs.getString('beginning_date'));
+    String? beginningDate = prefs.getString('beginning_date');
+    if (beginningDate != null) {
+      DateTime beginningDateTime = DateTime.parse(beginningDate);
+      Duration daysPassed = DateTime.now().difference(beginningDateTime);
+      print("Days passed since beginning date: ${daysPassed.inDays}");
+    }
+  }
+
+  Future<void> getSkill() async {
+    prefs = await SharedPreferences.getInstance();
+    String newSkill = prefs.getString('skill')!;
+    int newTrainingTime = prefs.getInt('training_time')!;
+    //var skillList = skillLists[skill]![0].first;
+
+    //while (currentTime < newTrainingTime) {
+    //  int el = rng.nextInt(skillLists[skill]!.length);
+    //  skillList.removeAt(el);
+    //}
+    setState(() {
+      skill = newSkill;
+      trainingTime = newTrainingTime;
+    });
+  }
+
+  Future<void> createPlan() async {
+    prefs = await SharedPreferences.getInstance();
+    List<String> newPlan = [];
+    var skillBaseList = skillBaseLists[skill]!;
+
+    int currentTime = 0;
+
+    while (currentTime < trainingTime) {
+      int el = rng.nextInt(skillBaseList.length);
+      print("!!!!");
+      print(skillBaseList[el].toList()[0].toString());
+      newPlan.add(skillBaseList[el].toString());
+      skillBaseList.removeAt(el);
+      currentTime += 5;
+    }
+    setState(() {
+      plan = newPlan;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readMemory();
+    getSkill();
+    createPlan();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -20,19 +82,7 @@ class _Home extends State<Home> {
     DateTime now = DateTime.now();
     var formatter = DateFormat('E. dd MMM');
     String formattedDate = formatter.format(now);
-    Future<void> readMemory() async {
-      prefs = await SharedPreferences.getInstance();
-      print("amogus");
-      print(prefs.getString('beginning_date'));
-      String? beginningDate = prefs.getString('beginning_date');
-      if (beginningDate != null) {
-        DateTime beginningDateTime = DateTime.parse(beginningDate);
-        Duration daysPassed = DateTime.now().difference(beginningDateTime);
-        print("Days passed since beginning date: ${daysPassed.inDays}");
-      }
-    }
 
-    readMemory();
     //print("Xd");
     //readMemory();
 
@@ -89,6 +139,11 @@ class _Home extends State<Home> {
                 onChanged: (value) {},
               ),
             ),
+            Text(skill),
+            Text(trainingTime.toString()),
+            if (skillBaseLists[skill] != null)
+              Text(skillBaseLists[skill]![0][0].toString()),
+            Text(plan.toString()),
           ],
         ),
       ),
