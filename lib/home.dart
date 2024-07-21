@@ -24,25 +24,13 @@ class _Home extends State<Home> {
     DateTime firstDay = DateTime.now();
     DateTime today = DateTime.now();
     prefs = await SharedPreferences.getInstance();
-    String beginningDate = prefs.getString('beginning_date')!;
-    print(beginningDate);
-    firstDay = DateTime.parse(beginningDate);
+    if (prefs.getString('beginning_date') != null) {
+      firstDay = DateTime.parse(prefs.getString('beginning_date')!);
+    }
 
     setState(() {
       day = today.difference(firstDay).inDays + 1;
     });
-  }
-
-  Future<void> readMemory() async {
-    prefs = await SharedPreferences.getInstance();
-    print("amogus");
-    print(prefs.getString('beginning_date'));
-    String? beginningDate = prefs.getString('beginning_date');
-    if (beginningDate != null) {
-      DateTime beginningDateTime = DateTime.parse(beginningDate);
-      Duration daysPassed = DateTime.now().difference(beginningDateTime);
-      print("Days passed since beginning date: ${daysPassed.inDays}");
-    }
   }
 
   Future<void> getSkill() async {
@@ -65,6 +53,7 @@ class _Home extends State<Home> {
     prefs = await SharedPreferences.getInstance();
     List<String> newPlan = prefs.getStringList("basePlanDay$day") ?? [];
     if (newPlan.isNotEmpty) {
+      print("day $day");
       setState(() {
         plan = newPlan;
       });
@@ -88,13 +77,16 @@ class _Home extends State<Home> {
     });
   }
 
+  Future<void> readMemory() async {
+    await calcDay();
+    await getSkill();
+    await createPlan();
+  }
+
   @override
-  void initState() {
+  initState() {
     super.initState();
-    calcDay();
     readMemory();
-    getSkill();
-    createPlan();
   }
 
   @override
