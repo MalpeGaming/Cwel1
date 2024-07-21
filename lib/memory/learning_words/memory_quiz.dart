@@ -76,7 +76,7 @@ class _MemoryQuizState extends State<MemoryQuiz> {
                   exercise: 1,
                   yourScore: score.toDouble(),
                   maximum: 14,
-                  page: MemoryVideo(initialTest: initialTest),
+                  page: WorkingMemory(initialTest: initialTest),
                 )
               : ProgressScreen(
                   name: "reading_comprehension",

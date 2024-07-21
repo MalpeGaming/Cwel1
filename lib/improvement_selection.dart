@@ -68,6 +68,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               img: (Theme.of(context).brightness == Brightness.light)
                   ? "memory_light.png"
                   : "memory_dark.png",
+              name: "memory",
             ),
             const Spacer(),
             ImprovementButton(
@@ -79,6 +80,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               img: (Theme.of(context).brightness == Brightness.light)
                   ? "attention_light.png"
                   : "attention_dark.png",
+              name: "attention",
             ),
             const Spacer(),
             ImprovementButton(
@@ -88,6 +90,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               img: (Theme.of(context).brightness == Brightness.light)
                   ? "linguistic_light.png"
                   : "linguistic_dark.png",
+              name: "linguistic",
             ),
             const Spacer(),
             ImprovementButton(
@@ -100,6 +103,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               img: (Theme.of(context).brightness == Brightness.light)
                   ? "logical_light.png"
                   : "logical_dark.png",
+              name: "logical",
             ),
             const Spacer(),
             ImprovementButton(
@@ -112,6 +116,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               img: (Theme.of(context).brightness == Brightness.light)
                   ? "fun_light.png"
                   : "fun_dark.png",
+              name: "games",
             ),
             const Spacer(),
           ],
