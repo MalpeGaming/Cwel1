@@ -18,6 +18,20 @@ class _Home extends State<Home> {
   int trainingTime = 0;
   var rng = Random();
   List<String> plan = [];
+  int day = 0;
+
+  Future<void> calcDay() async {
+    DateTime firstDay = DateTime.now();
+    DateTime today = DateTime.now();
+    prefs = await SharedPreferences.getInstance();
+    String beginningDate = prefs.getString('beginning_date')!;
+    print(beginningDate);
+    firstDay = DateTime.parse(beginningDate);
+
+    setState(() {
+      day = today.difference(firstDay).inDays + 1;
+    });
+  }
 
   Future<void> readMemory() async {
     prefs = await SharedPreferences.getInstance();
@@ -49,8 +63,14 @@ class _Home extends State<Home> {
 
   Future<void> createPlan() async {
     prefs = await SharedPreferences.getInstance();
-    List<String> newPlan = [];
-    var skillBaseList = skillBaseLists[skill]!;
+    List<String> newPlan = prefs.getStringList("basePlanDay$day") ?? [];
+    if (newPlan.isNotEmpty) {
+      setState(() {
+        plan = newPlan;
+      });
+      return;
+    }
+    var skillBaseList = List.from(skillBaseLists[skill]!);
 
     int currentTime = 0;
 
@@ -59,9 +79,10 @@ class _Home extends State<Home> {
       print("!!!!");
       print(skillBaseList[el].toList()[0].toString());
       newPlan.add(skillBaseList[el].toString());
+      currentTime += skillBaseList[el].toList()[1] as int;
       skillBaseList.removeAt(el);
-      currentTime += 5;
     }
+    prefs.setStringList("basePlanDay$day", newPlan);
     setState(() {
       plan = newPlan;
     });
@@ -70,6 +91,7 @@ class _Home extends State<Home> {
   @override
   void initState() {
     super.initState();
+    calcDay();
     readMemory();
     getSkill();
     createPlan();
@@ -141,6 +163,8 @@ class _Home extends State<Home> {
             ),
             Text(skill),
             Text(trainingTime.toString()),
+            if (skillBaseLists[skill] != null)
+              Text(skillBaseLists[skill]!.length.toString()),
             if (skillBaseLists[skill] != null)
               Text(skillBaseLists[skill]![0][0].toString()),
             Text(plan.toString()),
