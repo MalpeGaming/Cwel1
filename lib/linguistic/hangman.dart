@@ -36,7 +36,7 @@ class _Hangman extends State<Hangman> {
   final dMSAJson = DictionaryMSAFlutter();
 
   void tappedKey(BuildContext context, int row, int indx) {
-    if (mistakes != 8) {
+    if (mistakes != 9) {
       setState(() {
         String tappedLetter = qwerty[row][indx];
         bool found = false;
@@ -51,7 +51,7 @@ class _Hangman extends State<Hangman> {
         if (found == false && !blocked[row][indx]) {
           mistakes++;
         }
-        if (mistakes == 8 || currentWord.toLowerCase() == noun.toLowerCase()) {
+        if (mistakes == 9 || currentWord.toLowerCase() == noun.toLowerCase()) {
           Navigator.pop(context);
           Navigator.push(
             context,
@@ -191,7 +191,10 @@ class _Hangman extends State<Hangman> {
                           style: TextStyle(
                             fontSize: size.width / 20,
                             fontWeight: FontWeight.w500,
-                            color: Colors.indigo[900],
+                            color: (Theme.of(context).brightness ==
+                                    Brightness.dark)
+                                ? Colors.white
+                                : Colors.black,
                           ),
                         ),
                       ),
@@ -199,9 +202,9 @@ class _Hangman extends State<Hangman> {
                       Center(
                         child: SizedBox(
                           width: 0.7 * size.width,
-                          height: mistakes == 8 ? null : 0.4 * size.height,
+                          height: mistakes == 9 ? null : 0.4 * size.height,
                           child: Image.asset(
-                            'assets/linguistic/hangman/$mistakes.png',
+                            'assets/linguistic/hangman/${mistakes + ((Theme.of(context).brightness == Brightness.dark) ? 9 : 0)}.png',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -215,7 +218,10 @@ class _Hangman extends State<Hangman> {
                             letterSpacing: 7,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Monospace',
-                            color: Colors.indigo[900],
+                            color: (Theme.of(context).brightness ==
+                                    Brightness.dark)
+                                ? Colors.white
+                                : Colors.black,
                           ),
                         ),
                       ),
