@@ -153,7 +153,7 @@ class _YourActivities extends State<YourActivities> {
   }) {
     Size size = MediaQuery.of(context).size;
     //if (memoryList.any((pair) => pair[0] == route)) {
-    if (skillLists[skill]!.contains(route.toString())) {
+    if (skillAllLists[skill]!.contains(route.toString())) {
       return createActivity(
         context,
         "activities/$img",

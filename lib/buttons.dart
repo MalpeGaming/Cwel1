@@ -32,6 +32,7 @@ class _StartButtonState extends State<StartButton> {
       onTap: () {
         Future<void> initMemory() async {
           prefs = await SharedPreferences.getInstance();
+          await prefs.remove('plan');
           prefs.setString(
             'beginning_date',
             DateTime(now.year, now.month, now.day).toString(),
