@@ -2,7 +2,7 @@ import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
 import 'attention/short_term_concentration.dart';
 import 'memory/learning_words/memory.dart';
-import 'logical_thinking/logical_thinking.dart';
+import 'logical_thinking/math_info.dart';
 import 'linguistic/listening_comprehension_video.dart';
 
 class ImprovementSelection extends StatefulWidget {

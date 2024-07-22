@@ -83,19 +83,11 @@ class _Hangman extends State<Hangman> {
             width: 0.085 * size.width,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(5)),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: (blocked[row][indx])
-                    ? [
-                        const Color.fromARGB(255, 212, 237, 255),
-                        const Color.fromARGB(255, 174, 190, 201),
-                      ]
-                    : [
-                        const Color.fromARGB(255, 140, 201, 248),
-                        const Color.fromARGB(255, 99, 168, 228),
-                      ],
-              ),
+              color: (!blocked[row][indx]
+                  ? Theme.of(context).colorScheme.primary
+                  : (Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xFFD4CDF4)
+                      : const Color(0xFF231942))),
             ),
             child: Center(
               child: Text(
@@ -141,8 +133,8 @@ class _Hangman extends State<Hangman> {
   String currentWord = "";
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
+  void initState() {
+    super.initState();
     while (noun.length < 7 || noun.length > 10) {
       noun = wordGenerator.randomNoun();
     }
@@ -191,7 +183,10 @@ class _Hangman extends State<Hangman> {
                           style: TextStyle(
                             fontSize: size.width / 20,
                             fontWeight: FontWeight.w500,
-                            color: Colors.indigo[900],
+                            color: (Theme.of(context).brightness ==
+                                    Brightness.dark)
+                                ? Colors.white
+                                : Colors.black,
                           ),
                         ),
                       ),
@@ -201,7 +196,7 @@ class _Hangman extends State<Hangman> {
                           width: 0.7 * size.width,
                           height: mistakes == 9 ? null : 0.4 * size.height,
                           child: Image.asset(
-                            'assets/linguistic/hangman/$mistakes.png',
+                            'assets/linguistic/hangman/${mistakes + ((Theme.of(context).brightness == Brightness.dark) ? 9 : 0)}.png',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -215,7 +210,10 @@ class _Hangman extends State<Hangman> {
                             letterSpacing: 7,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Monospace',
-                            color: Colors.indigo[900],
+                            color: (Theme.of(context).brightness ==
+                                    Brightness.dark)
+                                ? Colors.white
+                                : Colors.black,
                           ),
                         ),
                       ),
