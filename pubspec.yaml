@@ -69,6 +69,7 @@ dependencies:
   widget_zoom: ^0.0.4
   audioplayers: ^6.0.0
   flutter_markdown: ^0.7.3
+  tuple: ^2.0.2
 
 dev_dependencies:
   flutter_test:

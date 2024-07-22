@@ -126,7 +126,7 @@ class _RiddlesTest extends State<RiddlesTest> {
     if ((prefs.getInt('riddles_difficulty')) == null) {
       await prefs.setInt('riddles_difficulty', 3);
     }
-    if ((prefs.getInt('riddles_streak')!) >= 5 &&
+    if ((prefs.getInt('riddles_streak')!) >= 6 &&
         (prefs.getInt('riddles_difficulty')!) < 5) {
       await prefs.setInt(
         'riddles_difficulty',
@@ -250,7 +250,9 @@ class _RiddlesTest extends State<RiddlesTest> {
 
                                 if (selectedOption ==
                                     correctAnswers[questionIndex]) {
-                                  score += 1;
+                                  score += 5;
+                                } else {
+                                  score -= 2;
                                 }
 
                                 if (passed < 1) {
@@ -269,7 +271,6 @@ class _RiddlesTest extends State<RiddlesTest> {
 
                                 if (widget.initialTest) {
                                   _timer.cancel();
-                                  write((score.toInt() == 2) ? 1 : 0);
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -286,6 +287,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                                   );
                                 } else {
                                   _timer.cancel();
+                                  write((score.toInt() == 10) ? 1 : 0);
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
