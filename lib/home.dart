@@ -34,33 +34,41 @@ class _Home extends State<Home> {
     });
   }
 
+  Future<void> setWellBeingTicked() async {
+    prefs = await SharedPreferences.getInstance();
+
+    List<String> newWellBeingTickedString = ["0", "0", "0", "0"];
+
+    for (int i = 0; i < wellBeingTicked.length; i++) {
+      newWellBeingTickedString[i] = (wellBeingTicked[i] ? "1" : "0");
+    }
+    print("!!");
+    print(wellBeingTicked);
+    print(newWellBeingTickedString);
+
+    prefs.setStringList("wellBeingTicked", newWellBeingTickedString);
+  }
+
   Future<void> getWellBeingTicked() async {
     prefs = await SharedPreferences.getInstance();
 
     List<String> newWellBeingTickedString =
-        prefs.getStringList('wellBeingTicked')!;
+        prefs.getStringList('wellBeingTicked') ?? [];
     List<bool> newWellBeingTicked = [false, false, false, false];
 
     for (int i = 0; i < newWellBeingTickedString.length; i++) {
       newWellBeingTicked[i] =
           (newWellBeingTickedString[i] == "1" ? true : false);
     }
+    if (newWellBeingTicked.isEmpty) {
+      newWellBeingTicked = [false, false, false, false];
+    }
+    print("!");
+    print(newWellBeingTicked);
 
     setState(() {
       wellBeingTicked = newWellBeingTicked;
     });
-  }
-
-  Future<void> setWellBeingTicked() async {
-    prefs = await SharedPreferences.getInstance();
-
-    List<String> newWellBeingTickedString = [];
-
-    for (int i = 0; i < wellBeingTicked.length; i++) {
-      newWellBeingTickedString[i] = (wellBeingTicked[i] ? "1" : "0");
-    }
-
-    prefs.setStringList("wellBeingTicked", newWellBeingTickedString);
   }
 
   Future<void> getSkill() async {
@@ -162,10 +170,10 @@ class _Home extends State<Home> {
           for (int i = 0; i < wellbeing.length; i++)
             InkWell(
               onTap: () {
-                setWellBeingTicked();
                 setState(() {
                   wellBeingTicked[i] = !wellBeingTicked[i];
                 });
+                setWellBeingTicked();
               },
               child: Column(
                 children: [
@@ -283,7 +291,6 @@ class _Home extends State<Home> {
             Text(plan.toString()),
             if (skillBaseLists[skill] != null)
               Text(skillBaseLists[skill]![0][0].toString()),*/
-            Text(wellBeingTicked.toString()),
           ],
         ),
       ),
