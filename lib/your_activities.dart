@@ -181,7 +181,11 @@ class _YourActivities extends State<YourActivities> {
   Future<void> getSkill() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      skill = prefs.getString('skill')!;
+      if (prefs.getString('skill') != null) {
+        skill = prefs.getString('skill')!;
+      } else {
+        skill = "memory";
+      }
     });
   }
 
