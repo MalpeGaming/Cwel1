@@ -19,6 +19,7 @@ class _Home extends State<Home> {
   var rng = Random();
   List<String> plan = [];
   int day = 0;
+  List<bool> wellBeingTicked = [false, false, false, false];
 
   Future<void> calcDay() async {
     DateTime firstDay = DateTime.now();
@@ -33,16 +34,40 @@ class _Home extends State<Home> {
     });
   }
 
+  Future<void> getWellBeingTicked() async {
+    prefs = await SharedPreferences.getInstance();
+
+    List<String> newWellBeingTickedString =
+        prefs.getStringList('wellBeingTicked')!;
+    List<bool> newWellBeingTicked = [false, false, false, false];
+
+    for (int i = 0; i < newWellBeingTickedString.length; i++) {
+      newWellBeingTicked[i] =
+          (newWellBeingTickedString[i] == "1" ? true : false);
+    }
+
+    setState(() {
+      wellBeingTicked = newWellBeingTicked;
+    });
+  }
+
+  Future<void> setWellBeingTicked() async {
+    prefs = await SharedPreferences.getInstance();
+
+    List<String> newWellBeingTickedString = [];
+
+    for (int i = 0; i < wellBeingTicked.length; i++) {
+      newWellBeingTickedString[i] = (wellBeingTicked[i] ? "1" : "0");
+    }
+
+    prefs.setStringList("wellBeingTicked", newWellBeingTickedString);
+  }
+
   Future<void> getSkill() async {
     prefs = await SharedPreferences.getInstance();
     String newSkill = prefs.getString('skill')!;
     int newTrainingTime = prefs.getInt('training_time')!;
-    //var skillList = skillLists[skill]![0].first;
 
-    //while (currentTime < newTrainingTime) {
-    //  int el = rng.nextInt(skillLists[skill]!.length);
-    //  skillList.removeAt(el);
-    //}
     setState(() {
       skill = newSkill;
       trainingTime = newTrainingTime;
@@ -67,7 +92,7 @@ class _Home extends State<Home> {
       int el = rng.nextInt(skillBaseList.length);
       print("!!!!");
       print(skillBaseList[el].toList()[0].toString());
-      newPlan.add(skillBaseList[el].toString());
+      newPlan.add(skillBaseList[el][0].toString());
       currentTime += skillBaseList[el].toList()[1] as int;
       skillBaseList.removeAt(el);
     }
@@ -79,6 +104,7 @@ class _Home extends State<Home> {
 
   Future<void> readMemory() async {
     await calcDay();
+    await getWellBeingTicked();
     await getSkill();
     await createPlan();
   }
@@ -87,6 +113,102 @@ class _Home extends State<Home> {
   initState() {
     super.initState();
     readMemory();
+  }
+
+  Widget createBaseProgram(
+    BuildContext context,
+  ) {
+    Size size = MediaQuery.of(context).size;
+    return Column(
+      children: [
+        for (int i = 0; i < plan.length; i++)
+          Column(
+            children: [
+              Row(
+                children: [
+                  Icon(
+                    Icons.done_rounded,
+                    size: 30,
+                    color: Theme.of(context)
+                        .colorScheme
+                        .onSecondary
+                        .withOpacity(0.3),
+                  ),
+                  SizedBox(width: size.width / 40),
+                  Flexible(
+                    child: Text(
+                      "${sectionNames[plan[i]]} - ${sectionTimes[plan[i]]} min",
+                      style: TextStyle(
+                        fontSize: size.width / 22,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 0.01 * size.height),
+            ],
+          ),
+      ],
+    );
+  }
+
+  Widget createWellBeing(
+    BuildContext context,
+  ) {
+    Size size = MediaQuery.of(context).size;
+    return InkWell(
+      child: Column(
+        children: [
+          for (int i = 0; i < wellbeing.length; i++)
+            InkWell(
+              onTap: () {
+                setWellBeingTicked();
+                setState(() {
+                  wellBeingTicked[i] = !wellBeingTicked[i];
+                });
+              },
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: size.width / 12,
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: size.width / 12,
+                          child: Icon(
+                            wellBeingTicked[i]
+                                ? Icons.done_all_rounded
+                                : Icons.done_rounded,
+                            size: wellBeingTicked[i]
+                                ? size.width / 12
+                                : size.width / 15,
+                            color: wellBeingTicked[i]
+                                ? Colors.green
+                                : Theme.of(context)
+                                    .colorScheme
+                                    .onSecondary
+                                    .withOpacity(0.3),
+                          ),
+                        ),
+                        SizedBox(width: size.width / 40),
+                        Flexible(
+                          child: Text(
+                            wellbeing[i].toString(),
+                            style: TextStyle(
+                              fontSize: size.width / 22,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 0.01 * size.height),
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -140,26 +262,28 @@ class _Home extends State<Home> {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            ListTile(
-              autofocus: true,
-              leading: Radio<int>(
-                value: 1,
-                groupValue: 1,
-                //activeColor: Theme.of(context).colorScheme.primary,
-                fillColor: MaterialStateProperty.all(
-                  Theme.of(context).colorScheme.primary,
-                ),
-                splashRadius: 25,
-                onChanged: (value) {},
+            SizedBox(height: 0.01 * size.height),
+            createBaseProgram(context),
+            SizedBox(height: size.height / 25),
+            Text(
+              "Well-Being Section",
+              style: TextStyle(
+                fontSize: size.width / 17,
+                fontWeight: FontWeight.w700,
               ),
             ),
-            Text(skill),
+            SizedBox(height: 0.01 * size.height),
+            createWellBeing(context),
+            /*Text(skill),
             Text(trainingTime.toString()),
             if (skillBaseLists[skill] != null)
               Text(skillBaseLists[skill]!.length.toString()),
             if (skillBaseLists[skill] != null)
               Text(skillBaseLists[skill]![0][0].toString()),
             Text(plan.toString()),
+            if (skillBaseLists[skill] != null)
+              Text(skillBaseLists[skill]![0][0].toString()),*/
+            Text(wellBeingTicked.toString()),
           ],
         ),
       ),

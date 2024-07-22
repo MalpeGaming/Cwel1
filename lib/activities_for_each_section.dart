@@ -253,3 +253,58 @@ var skillAllLists = {
   'logical': logicalAllList,
   'games': gamesAllList,
 };
+
+var sectionTimes = {
+  'Memory': 10,
+  'WorkingMemory': 5,
+  'MemoryGame1': 5,
+  'Faces': 5,
+  'LongTermConcentrationVideo': 10,
+  'StrongConcentrationDesc': 5,
+  'ShortTermConcentration': 5,
+  'FindTheNumber': 5,
+  'Info': 5,
+  'ReadingComprehensionInfo': 10,
+  'ListeningComprehensionVideo': 10,
+  'SpellingMistakes': 5,
+  'CorrectAWord': 5,
+  'Grammar': 5,
+  'ChooseBestWord': 5,
+  'Idioms': 5,
+  'Scrabble': 5,
+  'Hangman': 5,
+  'Wordly': 5,
+  'Riddles': 10,
+  'Game2048': 5,
+  'SudokuInfo': 10,
+};
+
+var sectionNames = {
+  'Memory': 'Learning words',
+  'Faces': 'Faces Memory',
+  'LongTermConcentrationVideo': 'Long Term Concentration',
+  'StrongConcentrationDesc': 'Strong Concentration',
+  'ShortTermConcentration': 'Short Term Concentration',
+  'FindTheNumber': 'Find The Number',
+  'Info': 'Reading out-loud',
+  'ReadingComprehensionInfo': 'Reading Comprehension',
+  'ListeningComprehensionVideo': 'Listening Comprehension',
+  'SpellingMistakes': 'Spelling Mistakes',
+  'CorrectAWord': 'Correct a Word',
+  'Grammar': 'Grammar',
+  'ChooseBestWord': 'Choose Best Word',
+  'Idioms': 'Idioms, expressions and phrasal verbs',
+  'Scrabble': 'Like Scrabble',
+  'Hangman': 'Hangman',
+  'Wordly': 'Wordly',
+  'Riddles': 'Riddles',
+  'Game2048': '2048',
+  'SudokuInfo': 'Sudoku',
+};
+
+var wellbeing = [
+  'Sport / Yoga',
+  'Self reflection',
+  'Outdoor time',
+  'Mediation',
+];
