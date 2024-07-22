@@ -20,7 +20,7 @@ import 'attention/reading/reading.dart';
 import 'logical_thinking/sudoku_info.dart';
 import 'linguistic/wordly.dart';
 import 'linguistic/hangman.dart';
-import 'logical_thinking/riddles_info.dart';
+import 'logical_thinking/riddles.dart';
 import 'linguistic/listening_comprehension_video.dart';
 import 'memory/working_memory.dart';
 import 'linguistic/scrabble.dart';
@@ -315,7 +315,7 @@ class _YourActivities extends State<YourActivities> {
                           "riddles",
                           "RIDDLES",
                           "",
-                          const Riddles(),
+                          const RiddlesTest(),
                           zero: 0,
                         ),
                         createActivity2(
