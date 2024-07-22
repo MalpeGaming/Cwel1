@@ -83,19 +83,11 @@ class _Hangman extends State<Hangman> {
             width: 0.085 * size.width,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(5)),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: (blocked[row][indx])
-                    ? [
-                        const Color.fromARGB(255, 212, 237, 255),
-                        const Color.fromARGB(255, 174, 190, 201),
-                      ]
-                    : [
-                        const Color.fromARGB(255, 140, 201, 248),
-                        const Color.fromARGB(255, 99, 168, 228),
-                      ],
-              ),
+              color: (!blocked[row][indx]
+                  ? Theme.of(context).colorScheme.primary
+                  : (Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xFFD4CDF4)
+                      : const Color(0xFF231942))),
             ),
             child: Center(
               child: Text(
