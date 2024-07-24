@@ -226,6 +226,7 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                                     builder: (context) => ProgressScreen(
                                       name: "long_term_concentration",
                                       score: score,
+                                      exercise: "LongTermConcentrationVideo",
                                     ),
                                   ),
                                 );

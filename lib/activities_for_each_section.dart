@@ -300,6 +300,7 @@ var sectionNames = {
   'Riddles': 'Riddles',
   'Game2048': '2048',
   'SudokuInfo': 'Sudoku',
+  'WorkingMemory': 'Working memory',
 };
 
 var wellbeing = [

@@ -75,6 +75,7 @@ class _MemoryGame2 extends State<MemoryGame2> {
                         builder: (context) => ProgressScreen(
                           name: "strong_concentration",
                           score: flipped.toDouble(),
+                          exercise: 'Info',
                         ),
                       ),
                     );

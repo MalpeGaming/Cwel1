@@ -310,6 +310,7 @@ class _Grammar extends State<Grammar> {
                                         builder: (context) => ProgressScreen(
                                           name: "grammar_mcq",
                                           score: score,
+                                          exercise: 'Grammar',
                                         ),
                                       ),
                                     );

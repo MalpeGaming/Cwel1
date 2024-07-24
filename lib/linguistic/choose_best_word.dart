@@ -67,6 +67,7 @@ class _ChooseBestWord extends State<ChooseBestWord> {
                   builder: (context) => ProgressScreen(
                     name: "choose_best_word",
                     score: score,
+                    exercise: 'ChooseBestWord',
                   ),
                 ),
               );

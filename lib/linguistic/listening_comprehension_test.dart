@@ -244,6 +244,7 @@ class _Test extends State<ListeningComprehensionTest> {
                                   builder: (context) => ProgressScreen(
                                     name: "listening_comprehension",
                                     score: score,
+                                    exercise: 'ListeningComprehensionVideo',
                                   ),
                                 ),
                               );

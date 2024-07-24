@@ -61,6 +61,7 @@ class _Hangman extends State<Hangman> {
                 score: mistakes.toDouble(),
                 txt: "You tried",
                 pointAlternative: "letters",
+                exercise: 'Hangman',
               ),
             ),
           );

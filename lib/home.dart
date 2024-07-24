@@ -18,6 +18,7 @@ class _Home extends State<Home> {
   int trainingTime = 0;
   var rng = Random();
   List<String> plan = [];
+  List<String> basePlanTicked = ["0", "0", "0", "0"];
   int day = 0;
   List<bool> wellBeingTicked = [false, false, false, false];
 
@@ -46,14 +47,14 @@ class _Home extends State<Home> {
     print(wellBeingTicked);
     print(newWellBeingTickedString);
 
-    prefs.setStringList("wellBeingTicked", newWellBeingTickedString);
+    prefs.setStringList("wellBeingTickedDay$day", newWellBeingTickedString);
   }
 
   Future<void> getWellBeingTicked() async {
     prefs = await SharedPreferences.getInstance();
 
     List<String> newWellBeingTickedString =
-        prefs.getStringList('wellBeingTicked') ?? [];
+        prefs.getStringList('wellBeingTickedDay$day') ?? [];
     List<bool> newWellBeingTicked = [false, false, false, false];
 
     for (int i = 0; i < newWellBeingTickedString.length; i++) {
@@ -110,11 +111,24 @@ class _Home extends State<Home> {
     });
   }
 
+  Future<void> getBasePlanTicked() async {
+    prefs = await SharedPreferences.getInstance();
+    List<String> newBasePlanTicked = ["0", "0", "0", "0"];
+
+    for (int i = 0; i < plan.length; ++i) {
+      newBasePlanTicked[i] = prefs.getString("${plan[i]}TickedDay$day") ?? "0";
+    }
+    setState(() {
+      basePlanTicked = newBasePlanTicked;
+    });
+  }
+
   Future<void> readMemory() async {
     await calcDay();
-    await getWellBeingTicked();
     await getSkill();
+    await getWellBeingTicked();
     await createPlan();
+    await getBasePlanTicked();
   }
 
   @override
@@ -134,13 +148,22 @@ class _Home extends State<Home> {
             children: [
               Row(
                 children: [
-                  Icon(
-                    Icons.done_rounded,
-                    size: 30,
-                    color: Theme.of(context)
-                        .colorScheme
-                        .onSecondary
-                        .withOpacity(0.3),
+                  SizedBox(
+                    width: size.width / 12,
+                    child: Icon(
+                      (basePlanTicked[i] == "1")
+                          ? Icons.done_all
+                          : Icons.done_rounded,
+                      size: basePlanTicked[i] == "1"
+                          ? size.width / 12
+                          : size.width / 15,
+                      color: basePlanTicked[i] == "1"
+                          ? Colors.green
+                          : Theme.of(context)
+                              .colorScheme
+                              .onSecondary
+                              .withOpacity(0.3),
+                    ),
                   ),
                   SizedBox(width: size.width / 40),
                   Flexible(
@@ -290,7 +313,10 @@ class _Home extends State<Home> {
               Text(skillBaseLists[skill]![0][0].toString()),
             Text(plan.toString()),
             if (skillBaseLists[skill] != null)
-              Text(skillBaseLists[skill]![0][0].toString()),*/
+              Text(skillBaseLists[skill]![0][0].toString()),
+            if (plan.isNotEmpty) Text(plan[0]),
+            Text(day.toString()),
+            Text(basePlanTicked.toString()),*/
           ],
         ),
       ),
