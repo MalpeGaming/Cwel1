@@ -4,6 +4,7 @@ import 'attention/short_term_concentration.dart';
 import 'memory/learning_words/memory.dart';
 import 'logical_thinking/math_info.dart';
 import 'linguistic/listening_comprehension_video.dart';
+import 'logical_thinking/riddles_info.dart';
 
 class ImprovementSelection extends StatefulWidget {
   const ImprovementSelection({super.key});
@@ -96,7 +97,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
             ImprovementButton(
               text: "Logical Thinking",
               width: size.width,
-              route: const LogicalThinking(
+              route: const Riddles(
                 initialTest: true,
               ),
               //const RiddlesTest( exerciseId: 1,),

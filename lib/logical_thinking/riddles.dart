@@ -8,6 +8,7 @@ import 'package:brain_train_app/buttons.dart';
 import 'dart:async';
 import 'dart:math';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:brain_train_app/account/login1.dart';
 import '../app_bar.dart';
 
 class RiddlesTest extends StatefulWidget {
@@ -255,7 +256,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                                   score -= 2;
                                 }
 
-                                if (passed < 1) {
+                                if (passed < 1 || widget.initialTest) {
                                   passed += 1;
                                   setState(() {
                                     questionIndex =
@@ -281,7 +282,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                                         exercise: 1,
                                         yourScore: score,
                                         maximum: 10,
-                                        page: const ImprovementSelection(),
+                                        page: const Login1(),
                                       ),
                                     ),
                                   );

@@ -114,6 +114,12 @@ class _WorkingMemory extends State<WorkingMemory> {
   }
 
   @override
+  dispose() {
+    _controller.close();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     video = films[level][Random().nextInt(7)];

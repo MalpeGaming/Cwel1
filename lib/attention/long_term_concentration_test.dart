@@ -179,6 +179,9 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                             createListTitle(i, answers[questionIndex][i]),
                         ],
                       ),
+                      SizedBox(
+                        height: size.height / 20,
+                      ),
                       Column(
                         children: [
                           SizedBox(

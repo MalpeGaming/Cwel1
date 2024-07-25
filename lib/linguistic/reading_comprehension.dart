@@ -7,7 +7,7 @@ import '../investing/helper_fn.dart';
 import '../buttons.dart';
 import '../score_n_progress/show_score.dart';
 import '../score_n_progress/progress_screen.dart';
-import '../improvement_selection.dart';
+import '/account/login1.dart';
 
 class ReadingComprehension extends StatefulWidget {
   const ReadingComprehension({super.key, this.initialTest = false});
@@ -270,7 +270,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                                       exercise: 2,
                                       yourScore: score.toDouble(),
                                       maximum: 10,
-                                      page: const ImprovementSelection(),
+                                      page: const Login1(),
                                     ),
                                   ),
                                 );

@@ -210,11 +210,11 @@ class _Wordly extends State<Wordly> {
   String noun = "";
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
+  void initState() {
     while (noun.length != 5) {
       noun = wordGenerator.randomNoun();
     }
+    super.initState();
   }
 
   @override
