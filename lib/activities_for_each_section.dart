@@ -300,6 +300,8 @@ var sectionNames = {
   'Riddles': 'Riddles',
   'Game2048': '2048',
   'SudokuInfo': 'Sudoku',
+  'WorkingMemory': 'Working memory',
+  'MemoryGame1': 'Memory Game',
 };
 
 var wellbeing = [
@@ -308,3 +310,10 @@ var wellbeing = [
   'Outdoor time',
   'Mediation',
 ];
+
+var wellbeingTimes = {
+  'Sport / Yoga': 4,
+  'Self reflection': 2,
+  'Outdoor time': 2,
+  'Mediation': 2,
+};

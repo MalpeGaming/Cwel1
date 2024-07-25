@@ -233,6 +233,7 @@ class _WorkingMemory extends State<WorkingMemory> {
                     : ProgressScreen(
                         name: "working_memory",
                         score: score,
+                        exercise: "WorkingMemory",
                       ),
                 text: 'Continue',
                 width: size.width,

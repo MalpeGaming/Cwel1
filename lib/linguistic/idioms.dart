@@ -66,6 +66,7 @@ class _Idioms extends State<Idioms> {
                   builder: (context) => ProgressScreen(
                     name: "idioms",
                     score: score,
+                    exercise: 'Idioms',
                   ),
                 ),
               );

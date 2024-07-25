@@ -294,6 +294,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                                       builder: (context) => ProgressScreen(
                                         name: "long_term_concentration",
                                         score: score,
+                                        exercise: 'Riddles',
                                       ),
                                     ),
                                   );

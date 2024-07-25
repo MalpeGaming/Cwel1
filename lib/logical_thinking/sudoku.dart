@@ -130,6 +130,7 @@ class _SudokuGame extends State<SudokuGame> {
                     name: "sudoku",
                     score: lastScore.toDouble(),
                     txt: "You now have",
+                    exercise: 'SudokuInfo',
                   ),
                 ),
               );

@@ -79,8 +79,9 @@ class _MemoryQuizState extends State<MemoryQuiz> {
                   page: WorkingMemory(initialTest: initialTest),
                 )
               : ProgressScreen(
-                  name: "reading_comprehension",
+                  name: "learning_words",
                   score: score.toDouble(),
+                  exercise: 'Memory',
                 ),
         ),
       );

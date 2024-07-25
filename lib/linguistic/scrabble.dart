@@ -400,6 +400,7 @@ class _Scrabble extends State<Scrabble> {
                         score:
                             (widget.allPoints + (wordExists ? roundPoints : 0))
                                 .toDouble(),
+                        exercise: 'Scrabble',
                       ),
                       text: 'Continue',
                       width: size.width,

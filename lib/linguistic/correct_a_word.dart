@@ -44,6 +44,7 @@ class _CorrectAWord extends State<CorrectAWord> {
                   builder: (context) => ProgressScreen(
                     name: "correct_a_word",
                     score: score,
+                    exercise: 'CorrectAWord',
                   ),
                 ),
               );
