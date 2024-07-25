@@ -137,10 +137,10 @@ class _RedirectButtonState extends State<RedirectButton> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => widget.route!,
-                    ))
+                    ),)
                 : Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(builder: (context) => widget.route!),
-                    (Route<dynamic> route) => false);
+                    (Route<dynamic> route) => false,);
             print("tryb");
             print(widget.clearAllWindows);
           }
