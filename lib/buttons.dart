@@ -93,6 +93,7 @@ class RedirectButton extends StatefulWidget {
   final Widget? route;
   final bool requirement;
   final void Function() onClick;
+  final bool clearAllWindows;
 
   const RedirectButton({
     super.key,
@@ -102,6 +103,7 @@ class RedirectButton extends StatefulWidget {
     this.route,
     this.requirement = true,
     this.onClick = nuthin,
+    this.clearAllWindows = false,
   });
 
   @override
@@ -130,12 +132,17 @@ class _RedirectButtonState extends State<RedirectButton> {
           //
           if (widget.route != null) {
             Navigator.pop(context);
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => widget.route!,
-              ),
-            );
+            (widget.clearAllWindows == false)
+                ? Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => widget.route!,
+                    ))
+                : Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => widget.route!),
+                    (Route<dynamic> route) => false);
+            print("tryb");
+            print(widget.clearAllWindows);
           }
         } else if (!toRed) {
           setState(() {
@@ -238,9 +245,13 @@ class _ImprovementButtonState extends State<ImprovementButton> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(
-            "assets/improvement_selection/${widget.img}",
+          SizedBox(
             height: size.width / 6,
+            width: size.width / 6,
+            child: Image.asset(
+              "assets/improvement_selection/${widget.img}",
+              height: size.width / 6,
+            ),
           ),
           SizedBox(
             width: size.width / 40,
