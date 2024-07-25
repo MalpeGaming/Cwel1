@@ -309,14 +309,13 @@ class _SpellingMistakes extends State<SpellingMistakes> {
                               }
 
                               Navigator.pop(context);
-
-//amogus
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => ProgressScreen(
                                     name: "long_term_concentration",
                                     score: score.toDouble(),
+                                    exercise: 'SpellingMistakes',
                                   ),
                                 ),
                               );

@@ -72,6 +72,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                     builder: (context) => ProgressScreen(
                       name: "strong_concentration",
                       score: countScore(),
+                      exercise: 'StrongConcentrationDesc',
                     ),
                   ),
                 );
@@ -399,6 +400,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                     : ProgressScreen(
                         name: "strong_concentration",
                         score: countScore(),
+                        exercise: 'StrongConcentrationDesc',
                       ),
                 text: 'Continue',
                 width: size.width,

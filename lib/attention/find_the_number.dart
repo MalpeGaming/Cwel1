@@ -116,6 +116,7 @@ class _FindTheNumber extends State<FindTheNumber> {
                   builder: (context) => ProgressScreen(
                     name: "find_the_number",
                     score: score.toDouble(),
+                    exercise: "FindTheNumber",
                   ),
                 ),
               );

@@ -281,6 +281,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                                     builder: (context) => ProgressScreen(
                                       name: "reading_comprehension",
                                       score: score.toDouble(),
+                                      exercise: 'ReadingComprehensionInfo',
                                     ),
                                   ),
                                 );

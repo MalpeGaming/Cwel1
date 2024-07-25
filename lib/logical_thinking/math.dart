@@ -328,6 +328,7 @@ class _ProblemSelectionState extends State<ProblemSelection> {
                             builder: (context) => ProgressScreen(
                               name: "short_term_concentration",
                               score: score,
+                              exercise: 'ShortTermConcentration',
                             ),
                           ),
                         );

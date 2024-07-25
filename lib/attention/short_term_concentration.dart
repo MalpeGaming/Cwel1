@@ -139,6 +139,7 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
                     : ProgressScreen(
                         name: "short_term_concentration",
                         score: score,
+                        exercise: "ShortTermConcentration",
                       ),
                 text: 'Continue',
                 width: size.width,
