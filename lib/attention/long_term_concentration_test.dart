@@ -100,148 +100,152 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                   left: size.width / 20,
                   right: size.width / 20,
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Center(
-                          child: Text(
-                            "ATTENTION",
-                            style: TextStyle(
-                              fontSize: size.width / 8,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        Center(
-                          child: Text(
-                            "Exercise 2 - Long Term Concentration",
-                            style: TextStyle(
-                              fontSize: size.width / 18,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        SizedBox(
-                          height: size.height / 20,
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(20)),
-                            gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: <Color>[
-                                Theme.of(context).colorScheme.primary,
-                                Theme.of(context).colorScheme.onPrimary,
-                              ],
-                              tileMode: TileMode.decal,
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .shadow
-                                    .withOpacity(1),
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: const Offset(5, 5),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Center(
+                            child: Text(
+                              "ATTENTION",
+                              style: TextStyle(
+                                fontSize: size.width / 8,
                               ),
-                            ],
+                              textAlign: TextAlign.center,
+                            ),
                           ),
-                          width: size.width * 0.9,
-                          child: Container(
-                            margin: const EdgeInsets.all(15),
-                            child: Center(
-                              child: Text(
-                                questions[questionIndex],
-                                style: TextStyle(
-                                  fontSize: size.width / 20,
-                                  color: Colors.white,
+                          Center(
+                            child: Text(
+                              "Exercise 2 - Long Term Concentration",
+                              style: TextStyle(
+                                fontSize: size.width / 18,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          SizedBox(
+                            height: size.height / 20,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(20)),
+                              gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: <Color>[
+                                  Theme.of(context).colorScheme.primary,
+                                  Theme.of(context).colorScheme.onPrimary,
+                                ],
+                                tileMode: TileMode.decal,
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .shadow
+                                      .withOpacity(1),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: const Offset(5, 5),
                                 ),
-                                textAlign: TextAlign.center,
+                              ],
+                            ),
+                            width: size.width * 0.9,
+                            child: Container(
+                              margin: const EdgeInsets.all(15),
+                              child: Center(
+                                child: Text(
+                                  questions[questionIndex],
+                                  style: TextStyle(
+                                    fontSize: size.width / 20,
+                                    color: Colors.white,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          height: size.height / 25,
-                        ),
-                        for (int i = 0; i < answers[questionIndex].length; i++)
-                          createListTitle(i, answers[questionIndex][i]),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        SizedBox(
-                          height: size.height * 0.05,
-                          width: size.width * 0.75,
-                          child: RedirectButton(
-                            onClick: () {
-                              if (selectedOption == -1) return;
+                          SizedBox(
+                            height: size.height / 25,
+                          ),
+                          for (int i = 0;
+                              i < answers[questionIndex].length;
+                              i++)
+                            createListTitle(i, answers[questionIndex][i]),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          SizedBox(
+                            height: size.height * 0.05,
+                            width: size.width * 0.75,
+                            child: RedirectButton(
+                              onClick: () {
+                                if (selectedOption == -1) return;
 
-                              if (selectedOption ==
-                                  correctAnswers[questionIndex]) {
-                                score += 1;
-                              }
+                                if (selectedOption ==
+                                    correctAnswers[questionIndex]) {
+                                  score += 1;
+                                }
 
-                              if (questionIndex < questions.length - 1) {
-                                setState(() {
-                                  questionIndex += 1;
-                                  selectedOption = -1;
-                                  print(questionIndex);
-                                  print(answers.join("\n"));
-                                });
-                                return;
-                              }
+                                if (questionIndex < questions.length - 1) {
+                                  setState(() {
+                                    questionIndex += 1;
+                                    selectedOption = -1;
+                                    print(questionIndex);
+                                    print(answers.join("\n"));
+                                  });
+                                  return;
+                                }
 
-                              Navigator.pop(context);
+                                Navigator.pop(context);
 
-                              if (widget.initialTest) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ShowScore(
-                                      title: "ATTENTION",
-                                      description:
-                                          "Exercise 2 - Long Term Concentration",
-                                      exercise: 2,
-                                      yourScore: score,
-                                      maximum: 10,
-                                      page: const StrongConcentrationDesc(
-                                        initialTest: true,
+                                if (widget.initialTest) {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => ShowScore(
+                                        title: "ATTENTION",
+                                        description:
+                                            "Exercise 2 - Long Term Concentration",
+                                        exercise: 2,
+                                        yourScore: score,
+                                        maximum: 10,
+                                        page: const StrongConcentrationDesc(
+                                          initialTest: true,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              } else {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ProgressScreen(
-                                      name: "long_term_concentration",
-                                      score: score,
-                                      exercise: "LongTermConcentrationVideo",
+                                  );
+                                } else {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => ProgressScreen(
+                                        name: "long_term_concentration",
+                                        score: score,
+                                        exercise: "LongTermConcentrationVideo",
+                                      ),
                                     ),
-                                  ),
-                                );
-                              }
-                            },
-                            text: 'Continue',
-                            width: size.width,
+                                  );
+                                }
+                              },
+                              text: 'Continue',
+                              width: size.width,
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: size.height / 20,
-                        ),
-                      ],
-                    ),
-                  ],
+                          SizedBox(
+                            height: size.height / 20,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

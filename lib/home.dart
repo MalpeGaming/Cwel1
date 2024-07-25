@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:circular_chart_flutter/circular_chart_flutter.dart';
 import 'package:intl/intl.dart';
 import 'navbar.dart';
 import 'activities_for_each_section.dart';
@@ -21,6 +23,27 @@ class _Home extends State<Home> {
   List<String> basePlanTicked = ["0", "0", "0", "0"];
   int day = 0;
   List<bool> wellBeingTicked = [false, false, false, false];
+  int points = 0;
+
+  GlobalKey<AnimatedCircularChartState> key =
+      GlobalKey<AnimatedCircularChartState>();
+
+  double summ = 100.0;
+  double value = 40.0;
+  double value2 = 60.0;
+  double value3 = 00.0;
+  double value32 = 50.0;
+
+  void calcValues() {
+    int procent = int.parse((points / trainingTime * 100).toStringAsFixed(0));
+    setState(() {
+      value = min(procent.toDouble(), 100);
+      value2 = 100 - value;
+      value3 = (procent > 100) ? procent % 100 : 0;
+      List<CircularStackEntry> data = _generateChartData();
+      key.currentState!.updateData(data);
+    });
+  }
 
   Future<void> calcDay() async {
     DateTime firstDay = DateTime.now();
@@ -53,6 +76,8 @@ class _Home extends State<Home> {
   Future<void> getWellBeingTicked() async {
     prefs = await SharedPreferences.getInstance();
 
+    int newPoints = points;
+
     List<String> newWellBeingTickedString =
         prefs.getStringList('wellBeingTickedDay$day') ?? [];
     List<bool> newWellBeingTicked = [false, false, false, false];
@@ -60,6 +85,9 @@ class _Home extends State<Home> {
     for (int i = 0; i < newWellBeingTickedString.length; i++) {
       newWellBeingTicked[i] =
           (newWellBeingTickedString[i] == "1" ? true : false);
+      if (newWellBeingTicked[i]) {
+        newPoints += wellbeingTimes[wellbeing[i]]!;
+      }
     }
     if (newWellBeingTicked.isEmpty) {
       newWellBeingTicked = [false, false, false, false];
@@ -69,6 +97,7 @@ class _Home extends State<Home> {
 
     setState(() {
       wellBeingTicked = newWellBeingTicked;
+      points = newPoints;
     });
   }
 
@@ -87,6 +116,7 @@ class _Home extends State<Home> {
     prefs = await SharedPreferences.getInstance();
     List<String> newPlan = prefs.getStringList("basePlanDay$day") ?? [];
     if (newPlan.isNotEmpty) {
+      print("not empty!!!!");
       print("day $day");
       setState(() {
         plan = newPlan;
@@ -101,7 +131,7 @@ class _Home extends State<Home> {
       int el = rng.nextInt(skillBaseList.length);
       print("!!!!");
       print(skillBaseList[el].toList()[0].toString());
-      newPlan.add(skillBaseList[el][0].toString());
+      newPlan.add(skillBaseList[el].toList()[0].toString());
       currentTime += skillBaseList[el].toList()[1] as int;
       skillBaseList.removeAt(el);
     }
@@ -114,27 +144,52 @@ class _Home extends State<Home> {
   Future<void> getBasePlanTicked() async {
     prefs = await SharedPreferences.getInstance();
     List<String> newBasePlanTicked = ["0", "0", "0", "0"];
+    int newPoints = points;
 
     for (int i = 0; i < plan.length; ++i) {
       newBasePlanTicked[i] = prefs.getString("${plan[i]}TickedDay$day") ?? "0";
+      if (newBasePlanTicked[i] == "1") {
+        newPoints += sectionTimes[plan[i]]!;
+        print(newPoints + sectionTimes[plan[i]]!);
+      }
     }
     setState(() {
       basePlanTicked = newBasePlanTicked;
+      points = newPoints;
+      calcValues();
+    });
+  }
+
+  void getPoints() {
+    int newPoints = points;
+    for (int i = 0; i < wellBeingTicked.length; ++i) {
+      if (wellBeingTicked[i]) newPoints += wellbeingTimes[wellbeing[1]]!;
+    }
+    setState(() {
+      points = newPoints;
+      calcValues();
     });
   }
 
   Future<void> readMemory() async {
     await calcDay();
+    print(day);
     await getSkill();
     await getWellBeingTicked();
     await createPlan();
     await getBasePlanTicked();
+    //getPoints();
   }
 
   @override
   initState() {
     super.initState();
     readMemory();
+  }
+
+  Future<void> updatePoints() async {
+    prefs = await SharedPreferences.getInstance();
+    prefs.setInt("pointsDay$day", points);
   }
 
   Widget createBaseProgram(
@@ -149,7 +204,7 @@ class _Home extends State<Home> {
               Row(
                 children: [
                   SizedBox(
-                    width: size.width / 12,
+                    width: size.width / 15,
                     child: Icon(
                       (basePlanTicked[i] == "1")
                           ? Icons.done_all
@@ -195,13 +250,20 @@ class _Home extends State<Home> {
               onTap: () {
                 setState(() {
                   wellBeingTicked[i] = !wellBeingTicked[i];
+                  if (wellBeingTicked[i]) {
+                    points += wellbeingTimes[wellbeing[i]]!;
+                  } else {
+                    points -= wellbeingTimes[wellbeing[i]]!;
+                  }
+                  calcValues();
                 });
                 setWellBeingTicked();
+                updatePoints();
               },
               child: Column(
                 children: [
                   SizedBox(
-                    height: size.width / 12,
+                    height: size.width / 15,
                     child: Row(
                       children: [
                         SizedBox(
@@ -224,7 +286,7 @@ class _Home extends State<Home> {
                         SizedBox(width: size.width / 40),
                         Flexible(
                           child: Text(
-                            wellbeing[i].toString(),
+                            wellbeing[i],
                             style: TextStyle(
                               fontSize: size.width / 22,
                             ),
@@ -238,6 +300,53 @@ class _Home extends State<Home> {
               ),
             ),
         ],
+      ),
+    );
+  }
+
+  List<CircularStackEntry> _generateChartData() {
+    Color? dialColor = const Color.fromARGB(255, 0, 60, 255);
+    Color? dialColor2 = const Color.fromARGB(255, 198, 223, 255);
+    Color? dialColor3 = const Color.fromARGB(255, 255, 136, 255);
+
+    List<CircularStackEntry> data = <CircularStackEntry>[
+      CircularStackEntry(
+        <CircularSegmentEntry>[
+          CircularSegmentEntry(
+            value3,
+            dialColor3,
+            rankKey: 'percentage3',
+          ),
+          CircularSegmentEntry(
+            value,
+            dialColor,
+            rankKey: 'percentage1',
+          ),
+          CircularSegmentEntry(
+            value2,
+            dialColor2,
+            rankKey: 'percentage4',
+          ),
+        ],
+        rankKey: 'percentage4',
+      ),
+    ];
+    return data;
+  }
+
+  SizedBox buildChart(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return SizedBox(
+      width: size.width / 3,
+      height: size.width / 3,
+      child: AnimatedCircularChart(
+        key: key,
+        size: Size(size.width / 2, size.width / 2),
+        initialChartData: _generateChartData(),
+        holeRadius: size.width / 30,
+        chartType: CircularChartType.Radial,
+        edgeStyle: SegmentEdgeStyle.round,
+        percentageValues: true,
       ),
     );
   }
@@ -289,34 +398,41 @@ class _Home extends State<Home> {
             Text(
               "Base program",
               style: TextStyle(
-                fontSize: size.width / 17,
+                fontSize: size.width / 20,
                 fontWeight: FontWeight.w700,
               ),
             ),
             SizedBox(height: 0.01 * size.height),
             createBaseProgram(context),
-            SizedBox(height: size.height / 25),
+            SizedBox(height: size.height / 40),
             Text(
               "Well-Being Section",
               style: TextStyle(
-                fontSize: size.width / 17,
+                fontSize: size.width / 20,
                 fontWeight: FontWeight.w700,
               ),
             ),
             SizedBox(height: 0.01 * size.height),
             createWellBeing(context),
-            /*Text(skill),
-            Text(trainingTime.toString()),
-            if (skillBaseLists[skill] != null)
-              Text(skillBaseLists[skill]!.length.toString()),
-            if (skillBaseLists[skill] != null)
-              Text(skillBaseLists[skill]![0][0].toString()),
-            Text(plan.toString()),
-            if (skillBaseLists[skill] != null)
-              Text(skillBaseLists[skill]![0][0].toString()),
-            if (plan.isNotEmpty) Text(plan[0]),
-            Text(day.toString()),
-            Text(basePlanTicked.toString()),*/
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Column(
+                  children: [
+                    Text(
+                      "Your points today",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: size.width / 25,
+                      ),
+                    ),
+                    const Text("(calculaterd based\non the time spent)"),
+                  ],
+                ),
+                SizedBox(width: 0.01 * size.width),
+                buildChart(context),
+              ],
+            ),
           ],
         ),
       ),

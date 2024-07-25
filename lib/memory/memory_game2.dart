@@ -73,9 +73,9 @@ class _MemoryGame2 extends State<MemoryGame2> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => ProgressScreen(
-                          name: "strong_concentration",
+                          name: "memory_game",
                           score: flipped.toDouble(),
-                          exercise: 'Info',
+                          exercise: 'MemoryGame1',
                         ),
                       ),
                     );
