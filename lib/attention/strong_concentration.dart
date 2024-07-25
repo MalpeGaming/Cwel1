@@ -186,6 +186,7 @@ class _StrongConcentration extends State<StrongConcentration> {
   @override
   void dispose() {
     _timer.cancel();
+    player.audioCache.clearAll();
     player.dispose();
     super.dispose();
   }

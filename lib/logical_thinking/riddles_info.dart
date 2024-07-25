@@ -54,7 +54,7 @@ class _Riddles extends State<Riddles> {
             ),
             SizedBox(height: 0.03 * size.height),
             Text(
-              "Exercise 2 - Math riddles",
+              "Exercise 1 - Math riddles",
               style: TextStyle(fontSize: 0.025 * size.height),
             ),
             SizedBox(height: 0.04 * size.height),
