@@ -6,7 +6,6 @@ import 'package:intl/intl.dart';
 import 'navbar.dart';
 import 'well_being/self_reflection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'well_being/meditation/meditation.dart';
 import 'well_being/sport.dart';
 import 'well_being/yoga.dart';
