@@ -5,7 +5,7 @@ import 'reading_comprehension.dart';
 
 class ReadingComprehensionInfo extends StatefulWidget {
   const ReadingComprehensionInfo(
-      {this.initialTest = false, this.endingTest = false, super.key});
+      {this.initialTest = false, this.endingTest = false, super.key,});
 
   final bool initialTest;
   final bool endingTest;

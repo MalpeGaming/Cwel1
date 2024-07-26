@@ -12,7 +12,7 @@ class MemoryWords extends StatefulWidget {
   final bool endingTest;
 
   const MemoryWords(
-      {this.initialTest = false, this.endingTest = false, super.key});
+      {this.initialTest = false, this.endingTest = false, super.key,});
 
   @override
   State<MemoryWords> createState() => _MemoryWordsState();

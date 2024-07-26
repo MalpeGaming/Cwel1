@@ -5,7 +5,7 @@ import 'idioms.dart';
 
 class IdiomsDesc extends StatefulWidget {
   const IdiomsDesc(
-      {this.initialTest = false, this.endingTest = false, super.key});
+      {this.initialTest = false, this.endingTest = false, super.key,});
 
   final bool initialTest;
   final bool endingTest;

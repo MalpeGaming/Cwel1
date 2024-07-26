@@ -6,7 +6,7 @@ class LogicalThinking extends StatefulWidget {
   final bool endingTest;
 
   const LogicalThinking(
-      {this.initialTest = false, this.endingTest = false, super.key});
+      {this.initialTest = false, this.endingTest = false, super.key,});
 
   @override
   State<LogicalThinking> createState() => _LogicalThinking();
@@ -125,7 +125,7 @@ class _LogicalThinking extends State<LogicalThinking> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: Text("nie"),
+                  route: const Text("nie"),
                   text: 'Continue',
                   width: size.width,
                 ),
