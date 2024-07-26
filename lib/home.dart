@@ -55,6 +55,7 @@ class _Home extends State<Home> {
 
     setState(() {
       day = today.difference(firstDay).inDays + 1;
+      day = 2;
     });
   }
 
@@ -190,6 +191,7 @@ class _Home extends State<Home> {
   Future<void> updatePoints() async {
     prefs = await SharedPreferences.getInstance();
     prefs.setInt("pointsDay$day", points);
+    print("clicked well weing");
   }
 
   Widget createBaseProgram(
@@ -369,71 +371,73 @@ class _Home extends State<Home> {
           right: size.width / 10,
           top: size.height / 10,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Center(
-                  child: Text(
-                    "YOUR PLAN",
-                    style: TextStyle(
-                      fontSize: size.width / 8,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Center(
-                  child: Text(
-                    "DAY 1 - ${formattedDate.toString().toUpperCase()}",
-                    style: TextStyle(fontSize: size.width / 17),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 0.05 * size.height),
-            Text(
-              "Base program",
-              style: TextStyle(
-                fontSize: size.width / 20,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            SizedBox(height: 0.01 * size.height),
-            createBaseProgram(context),
-            SizedBox(height: size.height / 40),
-            Text(
-              "Well-Being Section",
-              style: TextStyle(
-                fontSize: size.width / 20,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            SizedBox(height: 0.01 * size.height),
-            createWellBeing(context),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      "Your points today",
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Center(
+                    child: Text(
+                      "YOUR PLAN",
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: size.width / 25,
+                        fontSize: size.width / 8,
                       ),
+                      textAlign: TextAlign.center,
                     ),
-                    const Text("(calculaterd based\non the time spent)"),
-                  ],
+                  ),
+                  Center(
+                    child: Text(
+                      "DAY 1 - ${formattedDate.toString().toUpperCase()}",
+                      style: TextStyle(fontSize: size.width / 17),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 0.05 * size.height),
+              Text(
+                "Base program",
+                style: TextStyle(
+                  fontSize: size.width / 20,
+                  fontWeight: FontWeight.w700,
                 ),
-                SizedBox(width: 0.01 * size.width),
-                buildChart(context),
-              ],
-            ),
-          ],
+              ),
+              SizedBox(height: 0.01 * size.height),
+              createBaseProgram(context),
+              SizedBox(height: size.height / 40),
+              Text(
+                "Well-Being Section",
+                style: TextStyle(
+                  fontSize: size.width / 20,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(height: 0.01 * size.height),
+              createWellBeing(context),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        "Your points today",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: size.width / 25,
+                        ),
+                      ),
+                      const Text("(calculaterd based\non the time spent)"),
+                    ],
+                  ),
+                  SizedBox(width: 0.01 * size.width),
+                  buildChart(context),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: const MyBottomNavigationBar(),

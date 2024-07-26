@@ -162,19 +162,22 @@ class _CorrectAWord extends State<CorrectAWord> {
                                         ),
                                       ),
                                       Container(
-                                        padding: const EdgeInsets.all(10),
+                                        padding: const EdgeInsets.all(2),
                                         width: size.width / 10,
+                                        height: size.width / 10,
                                         decoration: const BoxDecoration(
                                           shape: BoxShape.circle,
                                           color: Colors.green,
                                         ),
-                                        child: Text(
-                                          "$score",
-                                          style: TextStyle(
-                                            fontSize: size.width / 30,
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .tertiary,
+                                        child: Center(
+                                          child: Text(
+                                            "$score",
+                                            style: TextStyle(
+                                              fontSize: size.width / 30,
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .tertiary,
+                                            ),
                                           ),
                                         ),
                                       ),

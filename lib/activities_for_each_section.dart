@@ -1,6 +1,6 @@
 import 'package:brain_train_app/attention/long_term_concentration_video.dart';
 import 'package:brain_train_app/attention/strong_concentration_desc.dart';
-import 'package:brain_train_app/investing/intro.dart';
+import 'package:brain_train_app/investing/menu.dart';
 import 'package:brain_train_app/linguistic/correct_a_word.dart';
 import 'package:brain_train_app/linguistic/hangman.dart';
 import 'package:brain_train_app/linguistic/listening_comprehension_video.dart';
@@ -36,7 +36,7 @@ var memoryBaseList = [
 ];
 
 var memoryRestList = [
-  const Intro(),
+  const InvestingMenu(),
   const Reading(),
   const Scrabble(iteration: 1, allPoints: 0),
   const Hangman(),
@@ -55,7 +55,7 @@ var memoryAllList = [
   'MemoryGame1',
   'Faces',
   'LongTermConcentrationVideo',
-  'Intro',
+  'InvestingMenu',
   'Reading',
   'Scrabble',
   'Hangman',
@@ -84,7 +84,7 @@ var attentionRestList = [
   const SudokuInfo(),
   const Wordly(),
   const Game2048(),
-  const Intro(),
+  const InvestingMenu(),
   const Meditation(),
   const Meme(),
   const Sport(),
@@ -104,7 +104,7 @@ var attentionAllList = [
   'SudokuInfo',
   'Wordly',
   'Game2048',
-  'Intro',
+  'InvestingMenu',
   'Meditation',
   'Meme',
   'Sport',
@@ -131,7 +131,7 @@ var linguisticRestList = [
   const Reading(),
   const SudokuInfo(),
   const Game2048(),
-  const Intro(),
+  const InvestingMenu(),
   const Meditation(),
   const Meme(),
   const Sport(),
@@ -155,11 +155,12 @@ var linguisticAllList = [
   'Reading',
   'SudokuInfo',
   'Game2048',
-  'Intro',
+  'InvestingMenu',
   'Meditation',
   'Meme',
   'Sport',
   'Yoga',
+  'InvestingMenu',
 ];
 
 var logicalBaseList = [
@@ -167,7 +168,7 @@ var logicalBaseList = [
   [const Riddles(), 10],
   [const Game2048(), 5],
   [const SudokuInfo(), 10],
-  [const Info(), 15],
+  [const InvestingMenu(), 15],
 ];
 var logicalRestList = [
   const Scrabble(iteration: 1, allPoints: 0),
@@ -277,6 +278,7 @@ var sectionTimes = {
   'Riddles': 10,
   'Game2048': 5,
   'SudokuInfo': 10,
+  'InvestingMenu': 15,
 };
 
 var sectionNames = {
@@ -302,6 +304,7 @@ var sectionNames = {
   'SudokuInfo': 'Sudoku',
   'WorkingMemory': 'Working memory',
   'MemoryGame1': 'Memory Game',
+  'InvestingMenu': 'Short Learning Course',
 };
 
 var wellbeing = [
