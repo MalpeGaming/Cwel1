@@ -55,6 +55,7 @@ class _Home extends State<Home> {
 
     setState(() {
       day = today.difference(firstDay).inDays + 1;
+      day = 2;
     });
   }
 
@@ -66,10 +67,6 @@ class _Home extends State<Home> {
     for (int i = 0; i < wellBeingTicked.length; i++) {
       newWellBeingTickedString[i] = (wellBeingTicked[i] ? "1" : "0");
     }
-    print("!!");
-    print(wellBeingTicked);
-    print(newWellBeingTickedString);
-
     prefs.setStringList("wellBeingTickedDay$day", newWellBeingTickedString);
   }
 
@@ -92,8 +89,6 @@ class _Home extends State<Home> {
     if (newWellBeingTicked.isEmpty) {
       newWellBeingTicked = [false, false, false, false];
     }
-    print("!");
-    print(newWellBeingTicked);
 
     setState(() {
       wellBeingTicked = newWellBeingTicked;
@@ -116,8 +111,6 @@ class _Home extends State<Home> {
     prefs = await SharedPreferences.getInstance();
     List<String> newPlan = prefs.getStringList("basePlanDay$day") ?? [];
     if (newPlan.isNotEmpty) {
-      print("not empty!!!!");
-      print("day $day");
       setState(() {
         plan = newPlan;
       });
@@ -129,8 +122,6 @@ class _Home extends State<Home> {
 
     while (currentTime < trainingTime) {
       int el = rng.nextInt(skillBaseList.length);
-      print("!!!!");
-      print(skillBaseList[el].toList()[0].toString());
       newPlan.add(skillBaseList[el].toList()[0].toString());
       currentTime += skillBaseList[el].toList()[1] as int;
       skillBaseList.removeAt(el);
@@ -150,7 +141,6 @@ class _Home extends State<Home> {
       newBasePlanTicked[i] = prefs.getString("${plan[i]}TickedDay$day") ?? "0";
       if (newBasePlanTicked[i] == "1") {
         newPoints += sectionTimes[plan[i]]!;
-        print(newPoints + sectionTimes[plan[i]]!);
       }
     }
     setState(() {
@@ -173,12 +163,10 @@ class _Home extends State<Home> {
 
   Future<void> readMemory() async {
     await calcDay();
-    print(day);
     await getSkill();
     await getWellBeingTicked();
     await createPlan();
     await getBasePlanTicked();
-    //getPoints();
   }
 
   @override
@@ -305,9 +293,12 @@ class _Home extends State<Home> {
   }
 
   List<CircularStackEntry> _generateChartData() {
-    Color? dialColor = const Color.fromARGB(255, 0, 60, 255);
-    Color? dialColor2 = const Color.fromARGB(255, 198, 223, 255);
-    Color? dialColor3 = const Color.fromARGB(255, 255, 136, 255);
+    Color? dialColor = Theme.of(context).colorScheme.onPrimary;
+    Color? dialColor2 =
+        Theme.of(context).colorScheme.onPrimary.withOpacity(0.2);
+    Color? dialColor3 = (Theme.of(context).brightness == Brightness.light)
+        ? const Color.fromARGB(255, 255, 136, 255)
+        : const Color.fromARGB(255, 211, 54, 198);
 
     List<CircularStackEntry> data = <CircularStackEntry>[
       CircularStackEntry(
@@ -359,9 +350,6 @@ class _Home extends State<Home> {
     var formatter = DateFormat('E. dd MMM');
     String formattedDate = formatter.format(now);
 
-    //print("Xd");
-    //readMemory();
-
     return Scaffold(
       body: Container(
         margin: EdgeInsets.only(
@@ -369,71 +357,73 @@ class _Home extends State<Home> {
           right: size.width / 10,
           top: size.height / 10,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Center(
-                  child: Text(
-                    "YOUR PLAN",
-                    style: TextStyle(
-                      fontSize: size.width / 8,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Center(
-                  child: Text(
-                    "DAY 1 - ${formattedDate.toString().toUpperCase()}",
-                    style: TextStyle(fontSize: size.width / 17),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 0.05 * size.height),
-            Text(
-              "Base program",
-              style: TextStyle(
-                fontSize: size.width / 20,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            SizedBox(height: 0.01 * size.height),
-            createBaseProgram(context),
-            SizedBox(height: size.height / 40),
-            Text(
-              "Well-Being Section",
-              style: TextStyle(
-                fontSize: size.width / 20,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            SizedBox(height: 0.01 * size.height),
-            createWellBeing(context),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      "Your points today",
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Center(
+                    child: Text(
+                      "YOUR PLAN",
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: size.width / 25,
+                        fontSize: size.width / 8,
                       ),
+                      textAlign: TextAlign.center,
                     ),
-                    const Text("(calculaterd based\non the time spent)"),
-                  ],
+                  ),
+                  Center(
+                    child: Text(
+                      "DAY 1 - ${formattedDate.toString().toUpperCase()}",
+                      style: TextStyle(fontSize: size.width / 17),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 0.05 * size.height),
+              Text(
+                "Base program",
+                style: TextStyle(
+                  fontSize: size.width / 20,
+                  fontWeight: FontWeight.w700,
                 ),
-                SizedBox(width: 0.01 * size.width),
-                buildChart(context),
-              ],
-            ),
-          ],
+              ),
+              SizedBox(height: 0.01 * size.height),
+              createBaseProgram(context),
+              SizedBox(height: size.height / 40),
+              Text(
+                "Well-Being Section",
+                style: TextStyle(
+                  fontSize: size.width / 20,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(height: 0.01 * size.height),
+              createWellBeing(context),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        "Your points today",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: size.width / 25,
+                        ),
+                      ),
+                      const Text("(calculaterd based\non the time spent)"),
+                    ],
+                  ),
+                  SizedBox(width: 0.01 * size.width),
+                  buildChart(context),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: const MyBottomNavigationBar(),

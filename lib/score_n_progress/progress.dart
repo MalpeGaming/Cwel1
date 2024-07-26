@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:circular_chart_flutter/circular_chart_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../navbar.dart';
+import 'dart:math';
 
 class Progress extends StatefulWidget {
   const Progress({super.key});
@@ -9,6 +11,8 @@ class Progress extends StatefulWidget {
 }
 
 class _Progress extends State<Progress> {
+  late SharedPreferences prefs;
+
   List<GlobalKey<AnimatedCircularChartState>> keys =
       List.generate(31, (index) => GlobalKey<AnimatedCircularChartState>());
 
@@ -19,40 +23,73 @@ class _Progress extends State<Progress> {
   List<double> value32 = List.generate(31, (index) => 60.0);
   Color? labelColor = Colors.blue[200];
 
-  void _increment1(int no) {
-    Future.delayed(const Duration(seconds: 1), () {
-      setState(() {
-        if (summ[no] + value32[no] >= 100) {
-          summ[no] += value32[no];
-          double x = summ[no] - 100;
-          value[no] = summ[no] - x;
-        } else {
-          value[no] += value32[no];
-          value2[no] -= value32[no];
-          summ[no] += value32[no];
-        }
-        List<CircularStackEntry> data = _generateChartData(no);
-        keys[no].currentState!.updateData(data);
-      });
+  int day = 0;
+  int trainingTime = 0;
+
+  Future<void> calcDay() async {
+    DateTime firstDay = DateTime.now();
+    DateTime today = DateTime.now();
+    prefs = await SharedPreferences.getInstance();
+    if (prefs.getString('beginning_date') != null) {
+      firstDay = DateTime.parse(prefs.getString('beginning_date')!);
+    }
+
+    setState(() {
+      day = today.difference(firstDay).inDays + 1;
     });
   }
 
-  void _increment2(int no) {
-    Future.delayed(const Duration(milliseconds: 1300), () {
+  Future<void> getTrainingTime() async {
+    prefs = await SharedPreferences.getInstance();
+    int newTrainingTime = prefs.getInt('training_time')!;
+
+    setState(() {
+      trainingTime = newTrainingTime;
+    });
+  }
+
+  Future<void> getValues() async {
+    prefs = await SharedPreferences.getInstance();
+    for (int i = 1; i <= 30; ++i) {
+      int points = prefs.getInt('pointsDay$i') ?? 0;
+      int procent = int.parse((points / trainingTime * 100).toStringAsFixed(0));
+
       setState(() {
-        if (summ[no] >= 100) {
-          value3[no] = summ[no] - 100;
-        }
-        List<CircularStackEntry> data = _generateChartData(no);
-        keys[no].currentState!.updateData(data);
+        value[i] = min(procent.toDouble(), 100);
+        value2[i] = 100 - value[i];
+        //value3[i] = (procent > 100) ? procent % 100 : 0;
+        List<CircularStackEntry> data = _generateChartData(i);
+        keys[i].currentState!.updateData(data);
       });
+    }
+  }
+
+  Future<void> getValues2() async {
+    prefs = await SharedPreferences.getInstance();
+    Future.delayed(const Duration(milliseconds: 500), () {
+      for (int i = 1; i <= 30; ++i) {
+        int points = prefs.getInt('pointsDay$i') ?? 0;
+        int procent =
+            int.parse((points / trainingTime * 100).toStringAsFixed(0));
+
+        setState(() {
+          value[i] = min(procent.toDouble(), 100);
+          value2[i] = 100 - value[i];
+          value3[i] = (procent > 100) ? procent % 100 : 0;
+          List<CircularStackEntry> data = _generateChartData(i);
+          keys[i].currentState!.updateData(data);
+        });
+      }
     });
   }
 
   List<CircularStackEntry> _generateChartData(int dayNum) {
-    Color? dialColor = const Color.fromARGB(255, 0, 60, 255);
-    Color? dialColor2 = const Color.fromARGB(255, 198, 223, 255);
-    Color? dialColor3 = const Color.fromARGB(255, 255, 136, 255);
+    Color? dialColor = Theme.of(context).colorScheme.onPrimary;
+    Color? dialColor2 =
+        Theme.of(context).colorScheme.onPrimary.withOpacity(0.2);
+    Color? dialColor3 = (Theme.of(context).brightness == Brightness.light)
+        ? const Color.fromARGB(255, 255, 136, 255)
+        : const Color.fromARGB(255, 211, 54, 198);
 
     List<CircularStackEntry> data = <CircularStackEntry>[
       CircularStackEntry(
@@ -79,12 +116,21 @@ class _Progress extends State<Progress> {
     return data;
   }
 
+  Future<void> readMemory() async {
+    await calcDay();
+    await getTrainingTime();
+    await getValues();
+    await getValues2();
+  }
+
   @override
   void initState() {
     super.initState();
 
-    _increment1(1);
-    _increment2(1);
+    readMemory();
+
+    //_increment1(1);
+    //_increment2(1);
     for (int i = 1; i <= 30; ++i) {}
   }
 

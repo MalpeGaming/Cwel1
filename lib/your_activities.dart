@@ -194,7 +194,6 @@ class _YourActivities extends State<YourActivities> {
     DateTime today = DateTime.now();
     prefs = await SharedPreferences.getInstance();
     String beginningDate = prefs.getString('beginning_date')!;
-    print(beginningDate);
     firstDay = DateTime.parse(beginningDate);
 
     setState(() {
