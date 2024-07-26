@@ -11,7 +11,13 @@ import '../app_bar.dart';
 
 class WorkingMemory extends StatefulWidget {
   final bool initialTest;
-  const WorkingMemory({super.key, this.initialTest = false});
+  final bool endingTest;
+
+  const WorkingMemory({
+    super.key,
+    this.initialTest = false,
+    this.endingTest = false,
+  });
 
   @override
   State<WorkingMemory> createState() => _WorkingMemory();

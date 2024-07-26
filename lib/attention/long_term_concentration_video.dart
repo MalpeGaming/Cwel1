@@ -8,9 +8,14 @@ import 'dart:math';
 import '../app_bar.dart';
 
 class LongTermConcentrationVideo extends StatefulWidget {
-  const LongTermConcentrationVideo({super.key, this.initialTest = false});
+  const LongTermConcentrationVideo({
+    super.key,
+    this.initialTest = false,
+    this.endingTest = false,
+  });
 
   final bool initialTest;
+  final bool endingTest;
 
   @override
   State<LongTermConcentrationVideo> createState() =>

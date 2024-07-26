@@ -15,9 +15,11 @@ class RiddlesTest extends StatefulWidget {
   const RiddlesTest({
     super.key,
     this.initialTest = false,
+    this.endingTest = false,
   });
 
   final bool initialTest;
+  final bool endingTest;
 
   @override
   State<RiddlesTest> createState() => _RiddlesTest();

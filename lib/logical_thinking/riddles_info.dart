@@ -5,7 +5,9 @@ import 'riddles.dart';
 
 class Riddles extends StatefulWidget {
   final bool? initialTest;
-  const Riddles({this.initialTest = false, super.key});
+  final bool endingTest;
+
+  const Riddles({this.initialTest = false, this.endingTest = false, super.key});
 
   @override
   State<Riddles> createState() => _Riddles();

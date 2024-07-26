@@ -3,7 +3,10 @@ import '../buttons.dart';
 
 class LogicalThinking extends StatefulWidget {
   final bool? initialTest;
-  const LogicalThinking({this.initialTest = false, super.key});
+  final bool endingTest;
+
+  const LogicalThinking(
+      {this.initialTest = false, this.endingTest = false, super.key});
 
   @override
   State<LogicalThinking> createState() => _LogicalThinking();

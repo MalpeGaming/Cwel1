@@ -12,9 +12,11 @@ class LongTermConcentrationTest extends StatefulWidget {
     super.key,
     required this.exerciseId,
     this.initialTest = false,
+    this.endingTest = false,
   });
 
   final bool initialTest;
+  final bool endingTest;
   final int exerciseId;
 
   @override
@@ -208,7 +210,7 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
 
                                 Navigator.pop(context);
 
-                                if (widget.initialTest) {
+                                if (widget.initialTest || widget.endingTest) {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
