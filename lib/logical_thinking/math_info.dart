@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../buttons.dart';
 
-import 'math.dart';
-
 class LogicalThinking extends StatefulWidget {
   final bool? initialTest;
   const LogicalThinking({this.initialTest = false, super.key});
@@ -124,9 +122,7 @@ class _LogicalThinking extends State<LogicalThinking> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const ProblemSelection(
-                    testVersion: true,
-                  ),
+                  route: Text("nie"),
                   text: 'Continue',
                   width: size.width,
                 ),
