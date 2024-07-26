@@ -56,8 +56,6 @@ class _Progress extends State<Progress> {
 
       setState(() {
         value[i] = min(procent.toDouble(), 100);
-        print(i);
-        print(procent);
         value2[i] = 100 - value[i];
         //value3[i] = (procent > 100) ? procent % 100 : 0;
         List<CircularStackEntry> data = _generateChartData(i);
@@ -76,8 +74,6 @@ class _Progress extends State<Progress> {
 
         setState(() {
           value[i] = min(procent.toDouble(), 100);
-          print(i);
-          print(procent);
           value2[i] = 100 - value[i];
           value3[i] = (procent > 100) ? procent % 100 : 0;
           List<CircularStackEntry> data = _generateChartData(i);
@@ -88,9 +84,12 @@ class _Progress extends State<Progress> {
   }
 
   List<CircularStackEntry> _generateChartData(int dayNum) {
-    Color? dialColor = const Color.fromARGB(255, 0, 60, 255);
-    Color? dialColor2 = const Color.fromARGB(255, 198, 223, 255);
-    Color? dialColor3 = const Color.fromARGB(255, 255, 136, 255);
+    Color? dialColor = Theme.of(context).colorScheme.onPrimary;
+    Color? dialColor2 =
+        Theme.of(context).colorScheme.onPrimary.withOpacity(0.2);
+    Color? dialColor3 = (Theme.of(context).brightness == Brightness.light)
+        ? const Color.fromARGB(255, 255, 136, 255)
+        : const Color.fromARGB(255, 211, 54, 198);
 
     List<CircularStackEntry> data = <CircularStackEntry>[
       CircularStackEntry(
