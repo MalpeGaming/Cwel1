@@ -9,6 +9,7 @@ import '../buttons.dart';
 import '../score_n_progress/progress_screen.dart';
 import '../app_bar.dart';
 import '../score_n_progress/show_improvement.dart';
+import '../title_page.dart';
 
 class WorkingMemory extends StatefulWidget {
   final bool initialTest;
@@ -247,7 +248,9 @@ class _WorkingMemory extends State<WorkingMemory> {
                             exercise: 2,
                             yourScore: score,
                             maximum: 10,
-                            page: const Home(),
+                            page: const TitlePage(
+                              title: 'The Brain Train App',
+                            ),
                           )
                         : ProgressScreen(
                             name: "working_memory",

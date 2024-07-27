@@ -11,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '/home.dart';
 import '../app_bar.dart';
 import '../score_n_progress/show_improvement.dart';
+import '../title_page.dart';
 
 class RiddlesTest extends StatefulWidget {
   const RiddlesTest({
@@ -304,7 +305,9 @@ class _RiddlesTest extends State<RiddlesTest> {
                                         exercise: 1,
                                         yourScore: score,
                                         maximum: 10,
-                                        page: const Home(),
+                                        page: const TitlePage(
+                                          title: 'The Brain Train App',
+                                        ),
                                       ),
                                     ),
                                   );

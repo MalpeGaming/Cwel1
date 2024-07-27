@@ -116,14 +116,18 @@ class _LongTermConcentrationVideo extends State<LongTermConcentrationVideo> {
                     ],
                   ),
                   SizedBox(height: size.height / 5),
-                  RedirectButton(
-                    route: LongTermConcentrationTest(
-                      exerciseId: exerciseId,
-                      initialTest: widget.initialTest,
-                      endingTest: widget.endingTest,
+                  SizedBox(
+                    height: size.height * 0.05,
+                    width: size.width * 0.75,
+                    child: RedirectButton(
+                      route: LongTermConcentrationTest(
+                        exerciseId: exerciseId,
+                        initialTest: widget.initialTest,
+                        endingTest: widget.endingTest,
+                      ),
+                      text: 'Continue',
+                      width: size.width,
                     ),
-                    text: 'Continue',
-                    width: size.width,
                   ),
                 ],
               ),

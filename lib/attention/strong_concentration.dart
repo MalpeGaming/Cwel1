@@ -1,3 +1,4 @@
+import 'package:brain_train_app/title_page.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -81,7 +82,9 @@ class _StrongConcentration extends State<StrongConcentration> {
                       exercise: 3,
                       yourScore: countScore(),
                       maximum: 10,
-                      page: const Home(),
+                      page: const TitlePage(
+                        title: 'The Brain Train App',
+                      ),
                     ),
                   ),
                 );
@@ -403,37 +406,43 @@ class _StrongConcentration extends State<StrongConcentration> {
               SizedBox(
                 height: size.height / 25,
               ),
-              RedirectButton(
-                onClick: () {
-                  Navigator.pop(context);
-                  _timer.cancel();
-                  player.dispose();
-                },
-                route: (widget.initialTest)
-                    ? ShowScore(
-                        title: "ATTENTION",
-                        description: "Exercise 3 - Strong Concentration",
-                        exercise: 3,
-                        yourScore: countScore(),
-                        maximum: 10,
-                        page: const Home(),
-                      )
-                    : (widget.endingTest
-                        ? ShowImprovement(
-                            title: "ATTENTION",
-                            description: "Exercise 3 - Strong Concentration",
-                            exercise: 3,
-                            yourScore: countScore(),
-                            maximum: 10,
-                            page: const Home(),
-                          )
-                        : ProgressScreen(
-                            name: "strong_concentration",
-                            score: countScore(),
-                            exercise: 'StrongConcentrationDesc',
-                          )),
-                text: 'Continue',
-                width: size.width,
+              SizedBox(
+                height: size.height * 0.05,
+                width: size.width * 0.75,
+                child: RedirectButton(
+                  onClick: () {
+                    _timer.cancel();
+                    player.dispose();
+                  },
+                  route: (widget.initialTest)
+                      ? ShowScore(
+                          title: "ATTENTION",
+                          description: "Exercise 3 - Strong Concentration",
+                          exercise: 3,
+                          yourScore: countScore(),
+                          maximum: 10,
+                          page: const Home(),
+                        )
+                      : (widget.endingTest
+                          ? ShowImprovement(
+                              title: "ATTENTION",
+                              description: "Exercise 3 - Strong Concentration",
+                              exercise: 3,
+                              yourScore: countScore(),
+                              maximum: 10,
+                              page: const TitlePage(
+                                title: 'The Brain Train App',
+                              ),
+                            )
+                          : ProgressScreen(
+                              name: "strong_concentration",
+                              score: countScore(),
+                              exercise: 'StrongConcentrationDesc',
+                            )),
+                  text: 'Continue',
+                  width: size.width,
+                  clearAllWindows: true,
+                ),
               ),
               SizedBox(
                 height: size.height / 25,
