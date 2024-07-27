@@ -259,7 +259,9 @@ class _RiddlesTest extends State<RiddlesTest> {
                                   score -= 2;
                                 }
 
-                                if (passed < 1 || widget.initialTest) {
+                                if (passed < 1 ||
+                                    widget.initialTest ||
+                                    widget.endingTest) {
                                   passed += 1;
                                   setState(() {
                                     questionIndex =
@@ -279,6 +281,40 @@ class _RiddlesTest extends State<RiddlesTest> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => ShowScore(
+                                        title: "Riddles",
+                                        description:
+                                            "Exercise 1 - Short Term Concentration",
+                                        exercise: 1,
+                                        yourScore: score,
+                                        maximum: 10,
+                                        page: const Home(),
+                                      ),
+                                    ),
+                                  );
+                                }
+                                if (widget.endingTest) {
+                                  _timer.cancel();
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => ShowImprovement(
+                                        title: "Riddles",
+                                        description:
+                                            "Exercise 1 - Short Term Concentration",
+                                        exercise: 1,
+                                        yourScore: score,
+                                        maximum: 10,
+                                        page: const Home(),
+                                      ),
+                                    ),
+                                  );
+                                }
+                                if (widget.endingTest) {
+                                  _timer.cancel();
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => ShowImprovement(
                                         title: "Riddles",
                                         description:
                                             "Exercise 1 - Short Term Concentration",

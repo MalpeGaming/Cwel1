@@ -280,6 +280,21 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                                     ),
                                   ),
                                 );
+                              } else if (widget.endingTest) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ShowImprovement(
+                                      title: "LINGUISTIC",
+                                      description:
+                                          "Exercise 1 -  Reading Comprehension",
+                                      exercise: 2,
+                                      yourScore: score.toDouble(),
+                                      maximum: 10,
+                                      page: const Home(),
+                                    ),
+                                  ),
+                                );
                               } else {
                                 Navigator.push(
                                   context,

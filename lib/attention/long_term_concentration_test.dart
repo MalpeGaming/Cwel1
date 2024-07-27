@@ -228,6 +228,23 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                                       ),
                                     ),
                                   );
+                                } else if (widget.endingTest) {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => ShowImprovement(
+                                        title: "ATTENTION",
+                                        description:
+                                            "Exercise 2 - Long Term Concentration",
+                                        exercise: 2,
+                                        yourScore: score,
+                                        maximum: 10,
+                                        page: const StrongConcentrationDesc(
+                                          endingTest: true,
+                                        ),
+                                      ),
+                                    ),
+                                  );
                                 } else {
                                   Navigator.push(
                                     context,

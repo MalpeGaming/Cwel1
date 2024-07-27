@@ -3,7 +3,7 @@ import '../buttons.dart';
 import '../score_n_progress/show_improvement.dart';
 
 class LogicalThinking extends StatefulWidget {
-  final bool? initialTest;
+  final bool initialTest;
   final bool endingTest;
 
   const LogicalThinking({
@@ -17,13 +17,9 @@ class LogicalThinking extends StatefulWidget {
 }
 
 class _LogicalThinking extends State<LogicalThinking> {
-  bool initialTest = false;
-
   @override
   void initState() {
     super.initState();
-    initialTest = widget.initialTest!;
-    print(initialTest);
   }
 
   @override

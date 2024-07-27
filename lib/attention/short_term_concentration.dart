@@ -142,11 +142,23 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
                           initialTest: true,
                         ),
                       )
-                    : ProgressScreen(
-                        name: "short_term_concentration",
-                        score: score,
-                        exercise: "ShortTermConcentration",
-                      ),
+                    : (widget.endingTest
+                        ? ShowImprovement(
+                            title: "ATTENTION",
+                            description:
+                                "Exercise 1 - Short Term Concentration",
+                            exercise: 1,
+                            yourScore: score,
+                            maximum: 10,
+                            page: const LongTermConcentrationVideo(
+                              endingTest: true,
+                            ),
+                          )
+                        : ProgressScreen(
+                            name: "short_term_concentration",
+                            score: score,
+                            exercise: "ShortTermConcentration",
+                          )),
                 text: 'Continue',
                 width: size.width,
               ),

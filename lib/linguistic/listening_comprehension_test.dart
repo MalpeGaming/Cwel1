@@ -240,6 +240,23 @@ class _Test extends State<ListeningComprehensionTest> {
                                   ),
                                 ),
                               );
+                            } else if (widget.endingTest) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ShowImprovement(
+                                    title: "LINGUISTIC",
+                                    description:
+                                        "Exercise 1 - Listening Comprehension",
+                                    exercise: 2,
+                                    yourScore: score,
+                                    maximum: 10,
+                                    page: const ReadingComprehensionInfo(
+                                      endingTest: true,
+                                    ),
+                                  ),
+                                ),
+                              );
                             } else {
                               Navigator.push(
                                 context,

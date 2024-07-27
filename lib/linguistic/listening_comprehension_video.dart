@@ -139,14 +139,11 @@ class _Video extends State<ListeningComprehensionVideo> {
                         height: size.height * 0.05,
                         width: size.width * 0.75,
                         child: RedirectButton(
-                          route: (widget.initialTest)
-                              ? ListeningComprehensionTest(
-                                  initialTest: true,
-                                  exerciseId: exerciseId,
-                                )
-                              : ListeningComprehensionTest(
-                                  exerciseId: exerciseId,
-                                ),
+                          route: ListeningComprehensionTest(
+                            initialTest: widget.initialTest,
+                            endingTest: widget.endingTest,
+                            exerciseId: exerciseId,
+                          ),
                           text: 'Continue',
                           width: size.width,
                         ),

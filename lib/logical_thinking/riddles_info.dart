@@ -5,7 +5,7 @@ import '../score_n_progress/show_improvement.dart';
 import 'riddles.dart';
 
 class Riddles extends StatefulWidget {
-  final bool? initialTest;
+  final bool initialTest;
   final bool endingTest;
 
   const Riddles({this.initialTest = false, this.endingTest = false, super.key});
@@ -15,13 +15,9 @@ class Riddles extends StatefulWidget {
 }
 
 class _Riddles extends State<Riddles> {
-  bool initialTest = false;
-
   @override
   void initState() {
     super.initState();
-    initialTest = widget.initialTest!;
-    print(initialTest);
   }
 
   @override
@@ -144,8 +140,9 @@ class _Riddles extends State<Riddles> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const RiddlesTest(
-                    initialTest: true,
+                  route: RiddlesTest(
+                    initialTest: widget.initialTest,
+                    endingTest: widget.endingTest,
                   ),
                   text: 'Continue',
                   width: size.width,

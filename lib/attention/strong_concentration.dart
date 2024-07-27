@@ -71,6 +71,20 @@ class _StrongConcentration extends State<StrongConcentration> {
                     ),
                   ),
                 );
+              } else if (widget.endingTest) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ShowImprovement(
+                      title: "ATTENTION",
+                      description: "Exercise 3 - Strong Concentration",
+                      exercise: 3,
+                      yourScore: countScore(),
+                      maximum: 10,
+                      page: const Home(),
+                    ),
+                  ),
+                );
               } else {
                 Navigator.push(
                   context,
@@ -404,11 +418,20 @@ class _StrongConcentration extends State<StrongConcentration> {
                         maximum: 10,
                         page: const Home(),
                       )
-                    : ProgressScreen(
-                        name: "strong_concentration",
-                        score: countScore(),
-                        exercise: 'StrongConcentrationDesc',
-                      ),
+                    : (widget.endingTest
+                        ? ShowImprovement(
+                            title: "ATTENTION",
+                            description: "Exercise 3 - Strong Concentration",
+                            exercise: 3,
+                            yourScore: countScore(),
+                            maximum: 10,
+                            page: const Home(),
+                          )
+                        : ProgressScreen(
+                            name: "strong_concentration",
+                            score: countScore(),
+                            exercise: 'StrongConcentrationDesc',
+                          )),
                 text: 'Continue',
                 width: size.width,
               ),

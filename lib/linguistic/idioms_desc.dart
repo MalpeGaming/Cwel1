@@ -65,7 +65,7 @@ class _IdiomsDesc extends State<IdiomsDesc> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: (widget.initialTest) ? const Idioms() : const Idioms(),
+                  route: const Idioms(),
                   text: 'Continue',
                   width: size.width,
                 ),

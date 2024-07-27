@@ -4,7 +4,7 @@ import '../../buttons.dart';
 import '../../score_n_progress/show_improvement.dart';
 
 class Memory extends StatefulWidget {
-  final bool? initialTest;
+  final bool initialTest;
   final bool endingTest;
 
   const Memory({this.initialTest = false, this.endingTest = false, super.key});
@@ -14,13 +14,9 @@ class Memory extends StatefulWidget {
 }
 
 class _Memory extends State<Memory> {
-  bool initialTest = false;
-
   @override
   void initState() {
     super.initState();
-    initialTest = widget.initialTest!;
-    print(initialTest);
   }
 
   @override
@@ -67,7 +63,8 @@ class _Memory extends State<Memory> {
                 width: size.width * 0.75,
                 child: RedirectButton(
                   route: MemoryWords(
-                    initialTest: initialTest,
+                    initialTest: widget.initialTest,
+                    endingTest: widget.endingTest,
                   ),
                   text: 'Continue',
                   width: size.width,

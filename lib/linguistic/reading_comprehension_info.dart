@@ -65,9 +65,10 @@ class _ReadingComprehensionInfo extends State<ReadingComprehensionInfo> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: (widget.initialTest)
-                      ? const ReadingComprehension(initialTest: true)
-                      : const ReadingComprehension(),
+                  route: ReadingComprehension(
+                    initialTest: widget.initialTest,
+                    endingTest: widget.endingTest,
+                  ),
                   text: 'Continue',
                   width: size.width,
                 ),
