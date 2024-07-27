@@ -5,7 +5,7 @@ import 'tos.dart';
 import 'contact.dart';
 import '../../app_bar.dart';
 import 'functions.dart';
-import '../score_n_progress/show_score.dart';
+import '../score_n_progress/show_improvement.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
