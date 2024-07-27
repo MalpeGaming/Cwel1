@@ -308,23 +308,6 @@ class _RiddlesTest extends State<RiddlesTest> {
                                       ),
                                     ),
                                   );
-                                }
-                                if (widget.endingTest) {
-                                  _timer.cancel();
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => ShowImprovement(
-                                        title: "Riddles",
-                                        description:
-                                            "Exercise 1 - Short Term Concentration",
-                                        exercise: 1,
-                                        yourScore: score,
-                                        maximum: 10,
-                                        page: const Home(),
-                                      ),
-                                    ),
-                                  );
                                 } else {
                                   _timer.cancel();
                                   write((score.toInt() == 10) ? 1 : 0);
