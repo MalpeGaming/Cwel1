@@ -441,7 +441,6 @@ class _StrongConcentration extends State<StrongConcentration> {
                             )),
                   text: 'Continue',
                   width: size.width,
-                  clearAllWindows: true,
                 ),
               ),
               SizedBox(

@@ -7,11 +7,8 @@ import 'navbar.dart';
 import 'activities_for_each_section.dart';
 import 'dart:math';
 import 'score_n_progress/finish_screen.dart';
-import 'package:brain_train_app/buttons.dart';
-import 'package:flutter/material.dart';
 import 'attention/short_term_concentration.dart';
 import 'memory/learning_words/memory.dart';
-import 'logical_thinking/math_info.dart';
 import 'linguistic/listening_comprehension_video.dart';
 import 'logical_thinking/riddles_info.dart';
 

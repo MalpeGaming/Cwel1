@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
 import 'dart:math';
 import '../app_bar.dart';
-import '../score_n_progress/show_improvement.dart';
 
 class LongTermConcentrationVideo extends StatefulWidget {
   const LongTermConcentrationVideo({

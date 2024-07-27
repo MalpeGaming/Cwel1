@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../../app_bar.dart';
 import '../../buttons.dart';
 import 'reading_comprehension.dart';
-import '../score_n_progress/show_improvement.dart';
 
 class ReadingComprehensionInfo extends StatefulWidget {
   const ReadingComprehensionInfo({

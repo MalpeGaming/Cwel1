@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'strong_concentration.dart';
-import '../score_n_progress/show_improvement.dart';
 
 class StrongConcentrationDesc extends StatefulWidget {
   const StrongConcentrationDesc({

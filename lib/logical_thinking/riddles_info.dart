@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../buttons.dart';
-import '../score_n_progress/show_improvement.dart';
 
 import 'riddles.dart';
 

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:widget_zoom/widget_zoom.dart';
 import '../buttons.dart';
 import '../app_bar.dart';
 
@@ -55,17 +53,17 @@ class _Finish extends State<Finish> {
                       height: 0.01 * size.height,
                     ),
                     Text("You have just finished",
-                        style: TextStyle(fontSize: 0.05 * size.width)),
+                        style: TextStyle(fontSize: 0.05 * size.width),),
                     SizedBox(height: 0.01 * size.height),
                     Text("your 30 day",
-                        style: TextStyle(fontSize: 0.05 * size.width)),
+                        style: TextStyle(fontSize: 0.05 * size.width),),
                     SizedBox(height: 0.01 * size.height),
                     Text("Brain Improvement Program",
-                        style: TextStyle(fontSize: 0.05 * size.width)),
+                        style: TextStyle(fontSize: 0.05 * size.width),),
                   ],
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Center(
                 child: SizedBox(
                   height: size.height * 0.05,
@@ -79,7 +77,7 @@ class _Finish extends State<Finish> {
               ),
               SizedBox(
                 height: size.height / 10,
-              )
+              ),
             ],
           ),
         ),

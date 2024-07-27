@@ -78,7 +78,7 @@ class _MemoryQuizState extends State<MemoryQuiz> {
                   exercise: 1,
                   yourScore: score.toDouble(),
                   maximum: 14,
-                  page: WorkingMemory(initialTest: true),
+                  page: const WorkingMemory(initialTest: true),
                 )
               : (widget.endingTest
                   ? ShowImprovement(
@@ -87,7 +87,7 @@ class _MemoryQuizState extends State<MemoryQuiz> {
                       exercise: 1,
                       yourScore: score.toDouble(),
                       maximum: 14,
-                      page: WorkingMemory(endingTest: true),
+                      page: const WorkingMemory(endingTest: true),
                     )
                   : ProgressScreen(
                       name: "learning_words",
