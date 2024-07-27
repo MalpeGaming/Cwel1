@@ -210,7 +210,7 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
 
                                 Navigator.pop(context);
 
-                                if (widget.initialTest || widget.endingTest) {
+                                if (widget.initialTest) {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(

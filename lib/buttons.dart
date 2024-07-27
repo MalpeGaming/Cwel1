@@ -25,20 +25,19 @@ class _StartButtonState extends State<StartButton> {
   bool hovered = false;
   late SharedPreferences prefs;
   DateTime now = DateTime.now();
+  Future<void> initMemory() async {
+    prefs = await SharedPreferences.getInstance();
+    await prefs.remove('plan');
+    prefs.setString(
+      'beginning_date',
+      DateTime(now.year, now.month, now.day).toString(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Future<void> initMemory() async {
-          prefs = await SharedPreferences.getInstance();
-          await prefs.remove('plan');
-          prefs.setString(
-            'beginning_date',
-            DateTime(now.year, now.month, now.day).toString(),
-          );
-        }
-
         initMemory();
         Navigator.push(
           context,
