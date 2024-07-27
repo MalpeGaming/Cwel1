@@ -8,9 +8,14 @@ import '/buttons.dart';
 import '/app_bar.dart';
 
 class ShortTermConcentration extends StatefulWidget {
-  const ShortTermConcentration({super.key, this.initialTest = false});
+  const ShortTermConcentration({
+    super.key,
+    this.initialTest = false,
+    this.endingTest = false,
+  });
 
   final bool initialTest;
+  final bool endingTest;
 
   @override
   State<ShortTermConcentration> createState() => _ShortTermConcentration();

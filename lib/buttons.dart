@@ -25,20 +25,19 @@ class _StartButtonState extends State<StartButton> {
   bool hovered = false;
   late SharedPreferences prefs;
   DateTime now = DateTime.now();
+  Future<void> initMemory() async {
+    prefs = await SharedPreferences.getInstance();
+    await prefs.remove('plan');
+    prefs.setString(
+      'beginning_date',
+      DateTime(now.year, now.month, now.day).toString(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Future<void> initMemory() async {
-          prefs = await SharedPreferences.getInstance();
-          await prefs.remove('plan');
-          prefs.setString(
-            'beginning_date',
-            DateTime(now.year, now.month, now.day).toString(),
-          );
-        }
-
         initMemory();
         Navigator.push(
           context,
@@ -93,6 +92,7 @@ class RedirectButton extends StatefulWidget {
   final Widget? route;
   final bool requirement;
   final void Function() onClick;
+  final bool clearAllWindows;
 
   const RedirectButton({
     super.key,
@@ -102,6 +102,7 @@ class RedirectButton extends StatefulWidget {
     this.route,
     this.requirement = true,
     this.onClick = nuthin,
+    this.clearAllWindows = false,
   });
 
   @override
@@ -130,12 +131,20 @@ class _RedirectButtonState extends State<RedirectButton> {
           //
           if (widget.route != null) {
             Navigator.pop(context);
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => widget.route!,
-              ),
-            );
+            widget.clearAllWindows
+                ? Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => widget.route!),
+                    (Route<dynamic> route) => false,
+                  )
+                : Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => widget.route!,
+                    ),
+                  );
+
+            print("tryb");
+            print(widget.clearAllWindows);
           }
         } else if (!toRed) {
           setState(() {
@@ -238,9 +247,13 @@ class _ImprovementButtonState extends State<ImprovementButton> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(
-            "assets/improvement_selection/${widget.img}",
+          SizedBox(
             height: size.width / 6,
+            width: size.width / 6,
+            child: Image.asset(
+              "assets/improvement_selection/${widget.img}",
+              height: size.width / 6,
+            ),
           ),
           SizedBox(
             width: size.width / 40,

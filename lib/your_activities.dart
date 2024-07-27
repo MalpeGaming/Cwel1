@@ -6,7 +6,6 @@ import 'package:intl/intl.dart';
 import 'navbar.dart';
 import 'well_being/self_reflection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'well_being/meditation/meditation.dart';
 import 'well_being/sport.dart';
 import 'well_being/yoga.dart';
@@ -20,7 +19,7 @@ import 'attention/reading/reading.dart';
 import 'logical_thinking/sudoku_info.dart';
 import 'linguistic/wordly.dart';
 import 'linguistic/hangman.dart';
-import 'logical_thinking/riddles_info.dart';
+import 'logical_thinking/riddles.dart';
 import 'linguistic/listening_comprehension_video.dart';
 import 'memory/working_memory.dart';
 import 'linguistic/scrabble.dart';
@@ -30,7 +29,6 @@ import 'well_being/memes.dart';
 import 'linguistic/grammar_mcq_test.dart';
 import 'linguistic/correct_a_word.dart';
 import 'investing/menu.dart';
-import 'logical_thinking/math.dart';
 import 'linguistic/poems_reading/info.dart';
 import 'linguistic/idioms.dart';
 import 'activities_for_each_section.dart';
@@ -182,7 +180,11 @@ class _YourActivities extends State<YourActivities> {
   Future<void> getSkill() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      skill = prefs.getString('skill')!;
+      if (prefs.getString('skill') != null) {
+        skill = prefs.getString('skill')!;
+      } else {
+        skill = "memory";
+      }
     });
   }
 
@@ -303,19 +305,20 @@ class _YourActivities extends State<YourActivities> {
                             exerciseId: 0,
                           ),
                         ),
+                        /*
                         createActivity2(
                           context,
                           "math",
                           "MATH",
                           "Exercises",
                           const ProblemSelection(),
-                        ),
+                        ),*/
                         createActivity2(
                           context,
                           "riddles",
                           "RIDDLES",
                           "",
-                          const Riddles(),
+                          const RiddlesTest(),
                           zero: 0,
                         ),
                         createActivity2(

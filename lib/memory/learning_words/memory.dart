@@ -4,7 +4,9 @@ import '../../buttons.dart';
 
 class Memory extends StatefulWidget {
   final bool? initialTest;
-  const Memory({this.initialTest = false, super.key});
+  final bool endingTest;
+
+  const Memory({this.initialTest = false, this.endingTest = false, super.key});
 
   @override
   State<Memory> createState() => _Memory();

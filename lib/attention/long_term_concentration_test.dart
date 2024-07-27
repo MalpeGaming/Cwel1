@@ -12,9 +12,11 @@ class LongTermConcentrationTest extends StatefulWidget {
     super.key,
     required this.exerciseId,
     this.initialTest = false,
+    this.endingTest = false,
   });
 
   final bool initialTest;
+  final bool endingTest;
   final int exerciseId;
 
   @override
@@ -178,6 +180,9 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                               i++)
                             createListTitle(i, answers[questionIndex][i]),
                         ],
+                      ),
+                      SizedBox(
+                        height: size.height / 20,
                       ),
                       Column(
                         children: [

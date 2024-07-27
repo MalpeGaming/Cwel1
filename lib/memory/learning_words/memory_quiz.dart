@@ -9,12 +9,14 @@ class MemoryQuiz extends StatefulWidget {
   final List<Map<String, String>> picked;
   final int score;
   final bool initialTest;
+  final bool endingTest;
 
   const MemoryQuiz(
     this.picked,
     this.score, {
     super.key,
     this.initialTest = false,
+    this.endingTest = false,
   });
 
   @override

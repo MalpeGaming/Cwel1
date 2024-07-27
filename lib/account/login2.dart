@@ -59,6 +59,7 @@ class _Login2 extends State<Login2> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    print("jestem tutak");
     return Scaffold(
       body: Container(
         width: size.width * 0.9,
@@ -132,6 +133,7 @@ class _Login2 extends State<Login2> {
                   text: 'Continue',
                   width: size.width,
                   requirement: selectedOption != null,
+                  clearAllWindows: true,
                 ),
               ),
             ),
