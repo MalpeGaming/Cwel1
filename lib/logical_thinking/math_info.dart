@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import '../buttons.dart';
+import '../score_n_progress/show_improvement.dart';
 
 class LogicalThinking extends StatefulWidget {
   final bool? initialTest;
   final bool endingTest;
 
-  const LogicalThinking(
-      {this.initialTest = false, this.endingTest = false, super.key,});
+  const LogicalThinking({
+    this.initialTest = false,
+    this.endingTest = false,
+    super.key,
+  });
 
   @override
   State<LogicalThinking> createState() => _LogicalThinking();

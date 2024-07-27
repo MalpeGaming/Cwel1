@@ -8,6 +8,7 @@ import '../score_n_progress/show_score.dart';
 import '/buttons.dart';
 import 'package:audioplayers/audioplayers.dart';
 import '/app_bar.dart';
+import '../score_n_progress/show_improvement.dart';
 
 class StrongConcentration extends StatefulWidget {
   const StrongConcentration({

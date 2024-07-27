@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
 import '../score_n_progress/progress_screen.dart';
 import '/app_bar.dart';
+import '../score_n_progress/show_improvement.dart';
 
 final Map<String, int> scrabblePoints = {
   'A': 1,

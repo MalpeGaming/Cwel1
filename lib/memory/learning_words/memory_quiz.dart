@@ -4,6 +4,7 @@ import 'dart:math';
 import '../../score_n_progress/show_score.dart';
 import '../working_memory.dart';
 import '../../score_n_progress/progress_screen.dart';
+import '../../score_n_progress/show_improvement.dart';
 
 class MemoryQuiz extends StatefulWidget {
   final List<Map<String, String>> picked;

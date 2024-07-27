@@ -6,6 +6,7 @@ import '../score_n_progress/progress_screen.dart';
 import '../score_n_progress/show_score.dart';
 import '/buttons.dart';
 import '/app_bar.dart';
+import '../score_n_progress/show_improvement.dart';
 
 class ShortTermConcentration extends StatefulWidget {
   const ShortTermConcentration({
