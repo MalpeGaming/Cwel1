@@ -60,7 +60,7 @@ class _Settings extends State<Settings> {
               'By restarting the program, you will return to the welcome screen. Your ',
               'scores will be lost.',
               '',
-              'Would you like to restart your Program?',
+              'Would you like to restart the same Program?',
               restartApp,
             );
           } else if (index == 4) {
@@ -75,9 +75,9 @@ class _Settings extends State<Settings> {
           popUp(
             context,
             'By ending the program, you will ',
-            'recieve a final test,',
+            'recieve a final test, ',
             'and be transported to the welcome screen.',
-            'Do you want to end the program?',
+            'Do you want to end the Program?',
             endProgram,
           );
         } else if (index == 4) {
