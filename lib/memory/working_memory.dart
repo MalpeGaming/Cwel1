@@ -8,6 +8,8 @@ import '../score_n_progress/show_score.dart';
 import '../buttons.dart';
 import '../score_n_progress/progress_screen.dart';
 import '../app_bar.dart';
+import '../score_n_progress/show_improvement.dart';
+import '../title_page.dart';
 
 class WorkingMemory extends StatefulWidget {
   final bool initialTest;
@@ -54,8 +56,6 @@ List<List<String>> films = [
 ];
 
 class _WorkingMemory extends State<WorkingMemory> {
-  bool initialTest = false;
-
   late YoutubePlayerController _controller;
   TextEditingController textController = TextEditingController();
   double score = 0;
@@ -101,7 +101,6 @@ class _WorkingMemory extends State<WorkingMemory> {
   @override
   void initState() {
     super.initState();
-    initialTest = widget.initialTest;
 
     _controller = YoutubePlayerController(
       params: const YoutubePlayerParams(
@@ -242,11 +241,22 @@ class _WorkingMemory extends State<WorkingMemory> {
                         maximum: 10,
                         page: const Home(),
                       )
-                    : ProgressScreen(
-                        name: "working_memory",
-                        score: score,
-                        exercise: "WorkingMemory",
-                      ),
+                    : (widget.endingTest
+                        ? ShowImprovement(
+                            title: "MEMORY",
+                            description: "Exercise 2 -  Working memory",
+                            exercise: 2,
+                            yourScore: score,
+                            maximum: 10,
+                            page: const TitlePage(
+                              title: 'The Brain Train App',
+                            ),
+                          )
+                        : ProgressScreen(
+                            name: "working_memory",
+                            score: score,
+                            exercise: "WorkingMemory",
+                          )),
                 text: 'Continue',
                 width: size.width,
               ),

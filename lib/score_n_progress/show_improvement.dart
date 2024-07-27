@@ -70,7 +70,11 @@ class _ShowImprovement extends State<ShowImprovement>
         ChartDataImprovement("day 1", oldscore),
         ChartDataImprovement("day 30", widget.yourScore),
       ];
-      improvementrate = ((widget.yourScore / oldscore - 1) * 100).toInt();
+      if (oldscore == 0) {
+        improvementrate = 100;
+      } else {
+        improvementrate = ((widget.yourScore / oldscore - 1) * 100).toInt();
+      }
     });
   }
 

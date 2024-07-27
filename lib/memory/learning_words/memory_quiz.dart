@@ -4,6 +4,7 @@ import 'dart:math';
 import '../../score_n_progress/show_score.dart';
 import '../working_memory.dart';
 import '../../score_n_progress/progress_screen.dart';
+import '../../score_n_progress/show_improvement.dart';
 
 class MemoryQuiz extends StatefulWidget {
   final List<Map<String, String>> picked;
@@ -24,7 +25,6 @@ class MemoryQuiz extends StatefulWidget {
 }
 
 class _MemoryQuizState extends State<MemoryQuiz> {
-  bool initialTest = false;
   List<Map<String, String>> picked = [];
   int score = 0;
   List<String> defs = [];
@@ -78,13 +78,22 @@ class _MemoryQuizState extends State<MemoryQuiz> {
                   exercise: 1,
                   yourScore: score.toDouble(),
                   maximum: 14,
-                  page: WorkingMemory(initialTest: initialTest),
+                  page: const WorkingMemory(initialTest: true),
                 )
-              : ProgressScreen(
-                  name: "learning_words",
-                  score: score.toDouble(),
-                  exercise: 'Memory',
-                ),
+              : (widget.endingTest
+                  ? ShowImprovement(
+                      title: "MEMORY",
+                      description: "Exercise 1 - Learning",
+                      exercise: 1,
+                      yourScore: score.toDouble(),
+                      maximum: 14,
+                      page: const WorkingMemory(endingTest: true),
+                    )
+                  : ProgressScreen(
+                      name: "learning_words",
+                      score: score.toDouble(),
+                      exercise: 'Memory',
+                    )),
         ),
       );
     }
@@ -135,7 +144,6 @@ class _MemoryQuizState extends State<MemoryQuiz> {
   void initState() {
     picked = widget.picked;
     score = widget.score;
-    initialTest = widget.initialTest;
 
     super.initState();
     loadQuestion();

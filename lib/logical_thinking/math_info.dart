@@ -2,24 +2,23 @@ import 'package:flutter/material.dart';
 import '../buttons.dart';
 
 class LogicalThinking extends StatefulWidget {
-  final bool? initialTest;
+  final bool initialTest;
   final bool endingTest;
 
-  const LogicalThinking(
-      {this.initialTest = false, this.endingTest = false, super.key,});
+  const LogicalThinking({
+    this.initialTest = false,
+    this.endingTest = false,
+    super.key,
+  });
 
   @override
   State<LogicalThinking> createState() => _LogicalThinking();
 }
 
 class _LogicalThinking extends State<LogicalThinking> {
-  bool initialTest = false;
-
   @override
   void initState() {
     super.initState();
-    initialTest = widget.initialTest!;
-    print(initialTest);
   }
 
   @override
