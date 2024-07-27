@@ -8,6 +8,8 @@ import '../buttons.dart';
 import '../score_n_progress/show_score.dart';
 import '../score_n_progress/progress_screen.dart';
 import '/home.dart';
+import '../score_n_progress/show_improvement.dart';
+import '../title_page.dart';
 
 class ReadingComprehension extends StatefulWidget {
   const ReadingComprehension({
@@ -276,6 +278,23 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                                       yourScore: score.toDouble(),
                                       maximum: 10,
                                       page: const Home(),
+                                    ),
+                                  ),
+                                );
+                              } else if (widget.endingTest) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ShowImprovement(
+                                      title: "LINGUISTIC",
+                                      description:
+                                          "Exercise 1 -  Reading Comprehension",
+                                      exercise: 2,
+                                      yourScore: score.toDouble(),
+                                      maximum: 10,
+                                      page: const TitlePage(
+                                        title: 'The Brain Train App',
+                                      ),
                                     ),
                                   ),
                                 );

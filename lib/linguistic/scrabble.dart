@@ -71,7 +71,7 @@ class LetterItem {
 class Scrabble extends StatefulWidget {
   final int iteration;
   final int allPoints;
-  final bool? initialTest;
+  final bool initialTest;
   final bool endingTest;
 
   const Scrabble({
@@ -91,13 +91,10 @@ class _Scrabble extends State<Scrabble> {
   List usedList = List.generate(9, (index) => false);
   bool wordExists = false;
   int roundPoints = 0;
-  bool initialTest = false;
   List<int> word = [];
   @override
   void initState() {
     super.initState();
-    initialTest = widget.initialTest!;
-    print(initialTest);
   }
 
   void toggleUnused() {
@@ -425,7 +422,8 @@ class _Scrabble extends State<Scrabble> {
                               allPoints: wordExists
                                   ? (widget.allPoints + roundPoints)
                                   : widget.allPoints,
-                              initialTest: initialTest,
+                              initialTest: widget.initialTest,
+                              endingTest: widget.endingTest,
                             ),
                           ),
                         );

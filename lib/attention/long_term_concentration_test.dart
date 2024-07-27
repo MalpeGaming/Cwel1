@@ -6,6 +6,7 @@ import 'package:yaml/yaml.dart';
 import '../score_n_progress/progress_screen.dart';
 import '../score_n_progress/show_score.dart';
 import '/app_bar.dart';
+import '../score_n_progress/show_improvement.dart';
 
 class LongTermConcentrationTest extends StatefulWidget {
   const LongTermConcentrationTest({
@@ -223,6 +224,23 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                                         maximum: 10,
                                         page: const StrongConcentrationDesc(
                                           initialTest: true,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                } else if (widget.endingTest) {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => ShowImprovement(
+                                        title: "ATTENTION",
+                                        description:
+                                            "Exercise 2 - Long Term Concentration",
+                                        exercise: 2,
+                                        yourScore: score,
+                                        maximum: 10,
+                                        page: const StrongConcentrationDesc(
+                                          endingTest: true,
                                         ),
                                       ),
                                     ),

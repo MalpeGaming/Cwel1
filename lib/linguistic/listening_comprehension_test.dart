@@ -6,6 +6,7 @@ import 'package:yaml/yaml.dart';
 import '../score_n_progress/progress_screen.dart';
 import '../score_n_progress/show_score.dart';
 import '../buttons.dart';
+import '../score_n_progress/show_improvement.dart';
 
 class ListeningComprehensionTest extends StatefulWidget {
   const ListeningComprehensionTest({
@@ -235,6 +236,23 @@ class _Test extends State<ListeningComprehensionTest> {
                                     maximum: 10,
                                     page: const ReadingComprehensionInfo(
                                       initialTest: true,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            } else if (widget.endingTest) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ShowImprovement(
+                                    title: "LINGUISTIC",
+                                    description:
+                                        "Exercise 1 - Listening Comprehension",
+                                    exercise: 2,
+                                    yourScore: score,
+                                    maximum: 10,
+                                    page: const ReadingComprehensionInfo(
+                                      endingTest: true,
                                     ),
                                   ),
                                 ),

@@ -83,6 +83,7 @@ class _StrongConcentrationDesc extends State<StrongConcentrationDesc> {
                       MaterialPageRoute(
                         builder: (context) => StrongConcentration(
                           initialTest: widget.initialTest,
+                          endingTest: widget.endingTest,
                         ),
                       ),
                     );

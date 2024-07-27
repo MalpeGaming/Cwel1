@@ -6,6 +6,7 @@ import '../score_n_progress/progress_screen.dart';
 import '../score_n_progress/show_score.dart';
 import '/buttons.dart';
 import '/app_bar.dart';
+import '../score_n_progress/show_improvement.dart';
 
 class ShortTermConcentration extends StatefulWidget {
   const ShortTermConcentration({
@@ -129,25 +130,41 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
                 ),
               ),
               const Spacer(),
-              RedirectButton(
-                route: (widget.initialTest)
-                    ? ShowScore(
-                        title: "ATTENTION",
-                        description: "Exercise 1 - Short Term Concentration",
-                        exercise: 1,
-                        yourScore: score,
-                        maximum: 10,
-                        page: const LongTermConcentrationVideo(
-                          initialTest: true,
-                        ),
-                      )
-                    : ProgressScreen(
-                        name: "short_term_concentration",
-                        score: score,
-                        exercise: "ShortTermConcentration",
-                      ),
-                text: 'Continue',
-                width: size.width,
+              SizedBox(
+                height: size.height * 0.05,
+                width: size.width * 0.75,
+                child: RedirectButton(
+                  route: (widget.initialTest)
+                      ? ShowScore(
+                          title: "ATTENTION",
+                          description: "Exercise 1 - Short Term Concentration",
+                          exercise: 1,
+                          yourScore: score,
+                          maximum: 10,
+                          page: const LongTermConcentrationVideo(
+                            initialTest: true,
+                          ),
+                        )
+                      : (widget.endingTest
+                          ? ShowImprovement(
+                              title: "ATTENTION",
+                              description:
+                                  "Exercise 1 - Short Term Concentration",
+                              exercise: 1,
+                              yourScore: score,
+                              maximum: 10,
+                              page: const LongTermConcentrationVideo(
+                                endingTest: true,
+                              ),
+                            )
+                          : ProgressScreen(
+                              name: "short_term_concentration",
+                              score: score,
+                              exercise: "ShortTermConcentration",
+                            )),
+                  text: 'Continue',
+                  width: size.width,
+                ),
               ),
               SizedBox(
                 height: size.height / 25,
