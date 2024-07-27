@@ -2,7 +2,7 @@ import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
-import '/account/login1.dart';
+import '/home.dart';
 import '../score_n_progress/progress_screen.dart';
 import '../score_n_progress/show_score.dart';
 import '/buttons.dart';
@@ -66,7 +66,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                       exercise: 3,
                       yourScore: countScore(),
                       maximum: 10,
-                      page: const Login1(),
+                      page: const Home(),
                     ),
                   ),
                 );
@@ -401,7 +401,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                         exercise: 3,
                         yourScore: countScore(),
                         maximum: 10,
-                        page: const Login1(),
+                        page: const Home(),
                       )
                     : ProgressScreen(
                         name: "strong_concentration",

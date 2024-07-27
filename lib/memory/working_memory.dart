@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/services.dart';
 import 'dart:math';
-import '/account/login1.dart';
+import '/home.dart';
 import '../score_n_progress/show_score.dart';
 import '../buttons.dart';
 import '../score_n_progress/progress_screen.dart';
@@ -240,7 +240,7 @@ class _WorkingMemory extends State<WorkingMemory> {
                         exercise: 2,
                         yourScore: score,
                         maximum: 10,
-                        page: const Login1(),
+                        page: const Home(),
                       )
                     : ProgressScreen(
                         name: "working_memory",

@@ -5,7 +5,7 @@ import 'tos.dart';
 import 'contact.dart';
 import '../../app_bar.dart';
 import 'functions.dart';
-import '../score_n_progress/show_score.dart';
+import '../score_n_progress/show_improvement.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -24,10 +24,10 @@ class _Settings extends State<Settings> {
     "Your Certificates",
   ];
 
-  List<Widget> routes = [
+  List<Widget?> routes = [
     const TermsOfService(),
     const Contact(),
-    const Restart(),
+    null,
     const ShowImprovement(
       title: "ATTENTION",
       description: "Exercise 2 - Long Term Concentration",
@@ -53,12 +53,41 @@ class _Settings extends State<Settings> {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
-        (index != 4)
-            ? Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => routes[index]),
-              )
-            : Site.launch();
+        if (index == 2) {
+          if (index == 2) {
+            popUp(
+              context,
+              'By restarting the program, you will return to the welcome screen. Your ',
+              'scores will be lost.',
+              '',
+              'Would you like to restart the same Program?',
+              restartApp,
+            );
+          } else if (index == 4) {
+            Site.launch();
+          } else {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => routes[index]!),
+            );
+          }
+        } else if (index == 3) {
+          popUp(
+            context,
+            'By ending the program, you will ',
+            'recieve a final test, ',
+            'and be transported to the welcome screen.',
+            'Do you want to end the Program?',
+            endProgram,
+          );
+        } else if (index == 4) {
+          Site.launch();
+        } else {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => routes[index]!),
+          );
+        }
       },
       onTapUp: (details) => setState(
         () {
