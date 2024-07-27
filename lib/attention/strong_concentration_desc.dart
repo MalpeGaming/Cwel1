@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'strong_concentration.dart';
 
 class StrongConcentrationDesc extends StatefulWidget {
-  const StrongConcentrationDesc({super.key, this.initialTest = false});
+  const StrongConcentrationDesc({
+    super.key,
+    this.initialTest = false,
+    this.endingTest = false,
+  });
 
   final bool initialTest;
+  final bool endingTest;
 
   @override
   State<StrongConcentrationDesc> createState() => _StrongConcentrationDesc();

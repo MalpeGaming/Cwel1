@@ -10,10 +10,12 @@ class Grammar extends StatefulWidget {
     super.key,
     required this.exerciseId,
     this.initialTest = false,
+    this.endingTest = false,
   });
 
   final bool initialTest;
   final int exerciseId;
+  final bool endingTest;
 
   @override
   State<Grammar> createState() => _Grammar();

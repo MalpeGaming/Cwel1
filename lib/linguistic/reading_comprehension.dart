@@ -10,9 +10,14 @@ import '../score_n_progress/progress_screen.dart';
 import '/account/login1.dart';
 
 class ReadingComprehension extends StatefulWidget {
-  const ReadingComprehension({super.key, this.initialTest = false});
+  const ReadingComprehension({
+    super.key,
+    this.initialTest = false,
+    this.endingTest = false,
+  });
 
   final bool initialTest;
+  final bool endingTest;
 
   @override
   State<ReadingComprehension> createState() => _ReadingComprehension();

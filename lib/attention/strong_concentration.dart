@@ -10,9 +10,14 @@ import 'package:audioplayers/audioplayers.dart';
 import '/app_bar.dart';
 
 class StrongConcentration extends StatefulWidget {
-  const StrongConcentration({super.key, this.initialTest = false});
+  const StrongConcentration({
+    super.key,
+    this.initialTest = false,
+    this.endingTest = false,
+  });
 
   final bool initialTest;
+  final bool endingTest;
 
   @override
   State<StrongConcentration> createState() => _StrongConcentration();

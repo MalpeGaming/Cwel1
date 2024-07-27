@@ -1,9 +1,11 @@
+import 'package:brain_train_app/home.dart';
 import 'package:flutter/material.dart';
 import '/navbar.dart';
 import 'tos.dart';
 import 'contact.dart';
 import '../../app_bar.dart';
 import 'functions.dart';
+import '../score_n_progress/show_score.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -26,7 +28,14 @@ class _Settings extends State<Settings> {
     const TermsOfService(),
     const Contact(),
     const Restart(),
-    const SizedBox(),
+    const ShowImprovement(
+      title: "ATTENTION",
+      description: "Exercise 2 - Long Term Concentration",
+      exercise: 2,
+      yourScore: 1.0,
+      maximum: 10,
+      page: Home(),
+    ),
     const SizedBox(),
     const SizedBox(),
   ];
@@ -111,6 +120,7 @@ class _Settings extends State<Settings> {
                       child: Image.asset(
                         "assets/settings/${index + 1 + (highlighted[index] ? 6 : 0) + ((Theme.of(context).brightness == Brightness.dark) ? 12 : 0)}.png",
                         fit: BoxFit.fill,
+                        gaplessPlayback: true,
                       ),
                     ),
                   ),

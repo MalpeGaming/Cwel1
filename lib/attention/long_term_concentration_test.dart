@@ -12,9 +12,11 @@ class LongTermConcentrationTest extends StatefulWidget {
     super.key,
     required this.exerciseId,
     this.initialTest = false,
+    this.endingTest = false,
   });
 
   final bool initialTest;
+  final bool endingTest;
   final int exerciseId;
 
   @override

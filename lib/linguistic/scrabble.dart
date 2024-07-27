@@ -72,10 +72,13 @@ class Scrabble extends StatefulWidget {
   final int iteration;
   final int allPoints;
   final bool? initialTest;
+  final bool endingTest;
+
   const Scrabble({
     required this.iteration,
     required this.allPoints,
     this.initialTest = false,
+    this.endingTest = false,
     super.key,
   });
   @override

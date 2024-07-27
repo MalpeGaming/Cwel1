@@ -9,7 +9,10 @@ import 'memory_check.dart';
 
 class MemoryWords extends StatefulWidget {
   final bool? initialTest;
-  const MemoryWords({this.initialTest = false, super.key});
+  final bool endingTest;
+
+  const MemoryWords(
+      {this.initialTest = false, this.endingTest = false, super.key,});
 
   @override
   State<MemoryWords> createState() => _MemoryWordsState();

@@ -4,9 +4,11 @@ import '../../buttons.dart';
 import 'reading_comprehension.dart';
 
 class ReadingComprehensionInfo extends StatefulWidget {
-  const ReadingComprehensionInfo({this.initialTest = false, super.key});
+  const ReadingComprehensionInfo(
+      {this.initialTest = false, this.endingTest = false, super.key,});
 
   final bool initialTest;
+  final bool endingTest;
 
   @override
   State<ReadingComprehensionInfo> createState() => _ReadingComprehensionInfo();

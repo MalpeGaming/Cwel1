@@ -8,9 +8,14 @@ import '../buttons.dart';
 import '../app_bar.dart';
 
 class ListeningComprehensionVideo extends StatefulWidget {
-  const ListeningComprehensionVideo({super.key, this.initialTest = false});
+  const ListeningComprehensionVideo({
+    super.key,
+    this.initialTest = false,
+    this.endingTest = false,
+  });
 
   final bool initialTest;
+  final bool endingTest;
 
   @override
   State<ListeningComprehensionVideo> createState() => _Video();

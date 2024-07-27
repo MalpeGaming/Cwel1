@@ -4,9 +4,11 @@ import '../../buttons.dart';
 import 'idioms.dart';
 
 class IdiomsDesc extends StatefulWidget {
-  const IdiomsDesc({this.initialTest = false, super.key});
+  const IdiomsDesc(
+      {this.initialTest = false, this.endingTest = false, super.key,});
 
   final bool initialTest;
+  final bool endingTest;
 
   @override
   State<IdiomsDesc> createState() => _IdiomsDesc();

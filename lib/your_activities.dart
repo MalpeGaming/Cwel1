@@ -29,7 +29,6 @@ import 'well_being/memes.dart';
 import 'linguistic/grammar_mcq_test.dart';
 import 'linguistic/correct_a_word.dart';
 import 'investing/menu.dart';
-import 'logical_thinking/math.dart';
 import 'linguistic/poems_reading/info.dart';
 import 'linguistic/idioms.dart';
 import 'activities_for_each_section.dart';
@@ -306,13 +305,14 @@ class _YourActivities extends State<YourActivities> {
                             exerciseId: 0,
                           ),
                         ),
+                        /*
                         createActivity2(
                           context,
                           "math",
                           "MATH",
                           "Exercises",
                           const ProblemSelection(),
-                        ),
+                        ),*/
                         createActivity2(
                           context,
                           "riddles",

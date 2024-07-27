@@ -12,10 +12,12 @@ class ListeningComprehensionTest extends StatefulWidget {
     super.key,
     required this.exerciseId,
     this.initialTest = false,
+    this.endingTest = false,
   });
 
   final bool initialTest;
   final int exerciseId;
+  final bool endingTest;
 
   @override
   State<ListeningComprehensionTest> createState() => _Test();
