@@ -1,4 +1,3 @@
-import 'package:brain_train_app/improvement_selection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
@@ -109,7 +108,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                   exercise: 1,
                   yourScore: score,
                   maximum: 10,
-                  page: const ImprovementSelection(),
+                  page: const Home(),
                 ),
               ),
             );
