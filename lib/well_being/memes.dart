@@ -14,6 +14,21 @@ class _MemeState extends State<Meme> {
 
   int numerek = 0;
 
+  Future<void> calcDay() async {
+    DateTime firstDay = DateTime.now();
+    DateTime today = DateTime.now();
+    prefs = await SharedPreferences.getInstance();
+    if (prefs.getString('beginning_date') != null) {
+      firstDay = DateTime.parse(prefs.getString('beginning_date')!);
+    }
+    print(firstDay);
+
+    setState(() {
+      numerek = today.difference(firstDay).inDays + 1;
+      zdjecie = "assets/memes/$numerek.png";
+    });
+  }
+
   Future<void> readMemory() async {
     prefs = await SharedPreferences.getInstance();
     print("amogus");
@@ -35,7 +50,7 @@ class _MemeState extends State<Meme> {
   @override
   void initState() {
     super.initState();
-    readMemory();
+    calcDay();
   }
 
   @override
