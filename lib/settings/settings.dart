@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '/navbar.dart';
 import 'tos.dart';
 import 'contact.dart';
-import '../../app_bar.dart';
 import 'functions.dart';
 import '../score_n_progress/show_improvement.dart';
 
@@ -174,7 +173,6 @@ class _Settings extends State<Settings> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: appBar(context, ""),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(
