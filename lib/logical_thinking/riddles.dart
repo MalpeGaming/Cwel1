@@ -308,6 +308,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                                         page: const TitlePage(
                                           title: 'The Brain Train App',
                                         ),
+                                        lastin: true,
                                       ),
                                     ),
                                   );

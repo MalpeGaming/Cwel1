@@ -85,6 +85,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                       page: const TitlePage(
                         title: 'The Brain Train App',
                       ),
+                      lastin: true,
                     ),
                   ),
                 );
@@ -433,6 +434,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                               page: const TitlePage(
                                 title: 'The Brain Train App',
                               ),
+                              lastin: true,
                             )
                           : ProgressScreen(
                               name: "strong_concentration",

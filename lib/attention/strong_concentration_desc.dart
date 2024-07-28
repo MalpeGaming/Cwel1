@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'strong_concentration.dart';
+import '/buttons.dart';
 
 class StrongConcentrationDesc extends StatefulWidget {
   const StrongConcentrationDesc({
@@ -75,32 +76,17 @@ class _StrongConcentrationDesc extends State<StrongConcentrationDesc> {
               child: SizedBox(
                 height: size.height * 0.05,
                 width: size.width * 0.75,
-                child: FloatingActionButton.extended(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => StrongConcentration(
-                          initialTest: widget.initialTest,
-                          endingTest: widget.endingTest,
-                        ),
-                      ),
-                    );
-                  },
-                  tooltip: 'Continue',
-                  label: Text(
-                    "Continue",
-                    style: TextStyle(fontSize: size.width / 16),
+                child: SizedBox(
+                  height: size.height * 0.05,
+                  width: size.width * 0.75,
+                  child: RedirectButton(
+                    route: StrongConcentration(
+                      initialTest: widget.initialTest,
+                      endingTest: widget.endingTest,
+                    ),
+                    text: 'Continue',
+                    width: size.width,
                   ),
-                  icon: Icon(
-                    Icons.arrow_forward_rounded,
-                    size: size.width / 16,
-                  ),
-                  backgroundColor: Colors.blue[400],
-                  hoverColor: Colors.blue[900],
-                  autofocus: true,
-                  heroTag: "continue",
                 ),
               ),
             ),

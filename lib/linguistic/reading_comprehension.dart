@@ -295,6 +295,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                                       page: const TitlePage(
                                         title: 'The Brain Train App',
                                       ),
+                                      lastin: true,
                                     ),
                                   ),
                                 );
