@@ -1,3 +1,4 @@
+import 'package:brain_train_app/title_page.dart';
 import 'package:flutter/material.dart';
 import '../buttons.dart';
 import '../app_bar.dart';
@@ -47,6 +48,11 @@ class _Finish extends State<Finish> {
         functionToRun = const Riddles(
           endingTest: true,
         );
+      } else if (skill == "games") {
+        functionToRun = const TitlePage(
+          title: 'The Brain Train App',
+        );
+        prefs.clear();
       }
     });
   }
@@ -113,7 +119,9 @@ class _Finish extends State<Finish> {
                   width: size.width * 0.75,
                   child: RedirectButton(
                     route: functionToRun,
-                    text: 'Begin The Final Test',
+                    text: (skill == "games")
+                        ? "Continue"
+                        : 'Begin The Final Test',
                     width: size.width,
                   ),
                 ),

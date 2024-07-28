@@ -81,7 +81,9 @@ class _ShowImprovement extends State<ShowImprovement>
         improvementrate = ((widget.yourScore / oldscore - 1) * 100).toInt();
       }
     });
-    prefs.clear();
+    if (widget.lastin) {
+      prefs.clear();
+    }
   }
 
   @override

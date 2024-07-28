@@ -1,8 +1,8 @@
 import 'package:brain_train_app/buttons.dart';
+import 'package:brain_train_app/home.dart';
 import 'package:flutter/material.dart';
 import 'attention/short_term_concentration.dart';
 import 'memory/learning_words/memory.dart';
-import 'logical_thinking/math_info.dart';
 import 'linguistic/listening_comprehension_video.dart';
 import 'logical_thinking/riddles_info.dart';
 
@@ -110,9 +110,7 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
             ImprovementButton(
               text: "Just fun",
               width: size.width,
-              route: const LogicalThinking(
-                initialTest: true,
-              ),
+              route: const Home(),
               //const RiddlesTest( exerciseId: 1,),
               img: (Theme.of(context).brightness == Brightness.light)
                   ? "fun_light.png"
