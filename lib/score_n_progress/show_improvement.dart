@@ -18,6 +18,7 @@ class ShowImprovement extends StatefulWidget {
     required this.yourScore,
     required this.maximum,
     required this.page,
+    this.lastin = false,
     this.subtitle = "",
   });
 
@@ -28,7 +29,7 @@ class ShowImprovement extends StatefulWidget {
   final double yourScore;
   final double maximum;
   final Widget page;
-
+  final bool lastin;
   @override
   State<ShowImprovement> createState() => _ShowImprovement();
 }
@@ -71,11 +72,18 @@ class _ShowImprovement extends State<ShowImprovement>
         ChartDataImprovement("day 30", widget.yourScore),
       ];
       if (oldscore == 0) {
-        improvementrate = 100;
+        if (widget.yourScore == 0) {
+          improvementrate = 0;
+        } else {
+          improvementrate = 100;
+        }
       } else {
         improvementrate = ((widget.yourScore / oldscore - 1) * 100).toInt();
       }
     });
+    if (widget.lastin) {
+      prefs.clear();
+    }
   }
 
   @override

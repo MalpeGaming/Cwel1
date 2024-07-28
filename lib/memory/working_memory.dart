@@ -251,6 +251,7 @@ class _WorkingMemory extends State<WorkingMemory> {
                             page: const TitlePage(
                               title: 'The Brain Train App',
                             ),
+                            lastin: true,
                           )
                         : ProgressScreen(
                             name: "working_memory",
