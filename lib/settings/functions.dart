@@ -1,9 +1,8 @@
+import 'package:brain_train_app/score_n_progress/finish_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:brain_train_app/title_page.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '/score_n_progress/show_improvement.dart';
-import 'package:brain_train_app/home.dart';
 
 Future<void> popUp(
   BuildContext context,
@@ -106,18 +105,10 @@ Future<void> popUp(
 
 void endProgram(BuildContext context) {
   SharedPreferences.getInstance().then((prefs) {
-    prefs.clear();
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => const ShowImprovement(
-          title: "ATTENTION",
-          description: "Exercise 2 - Long Term Concentration",
-          exercise: 2,
-          yourScore: 1.0,
-          maximum: 10,
-          page: Home(),
-        ),
+        builder: (context) => const Finish(),
       ),
     );
   });

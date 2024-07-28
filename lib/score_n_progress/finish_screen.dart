@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import '../buttons.dart';
 import '../app_bar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../attention/short_term_concentration.dart';
+import '../memory/learning_words/memory.dart';
+import '../linguistic/listening_comprehension_video.dart';
+import '../logical_thinking/riddles_info.dart';
 
 class Finish extends StatefulWidget {
-  final Widget route;
   const Finish({
-    required this.route,
     super.key,
   });
 
@@ -14,6 +17,40 @@ class Finish extends StatefulWidget {
 }
 
 class _Finish extends State<Finish> {
+  late SharedPreferences prefs;
+  String skill = "";
+  Widget functionToRun = const Memory(
+    endingTest: true,
+  );
+  Future<void> getSkill() async {
+    prefs = await SharedPreferences.getInstance();
+    String newSkill = prefs.getString('skill')!;
+
+    setState(() {
+      skill = newSkill;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getSkill().then((value) {
+      if (skill == "attention") {
+        functionToRun = const ShortTermConcentration(
+          endingTest: true,
+        );
+      } else if (skill == "linguistic") {
+        functionToRun = const ListeningComprehensionVideo(
+          endingTest: true,
+        );
+      } else if (skill == "logical_thinking") {
+        functionToRun = const Riddles(
+          endingTest: true,
+        );
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -52,14 +89,20 @@ class _Finish extends State<Finish> {
                     SizedBox(
                       height: 0.01 * size.height,
                     ),
-                    Text("You have just finished",
-                        style: TextStyle(fontSize: 0.05 * size.width),),
+                    Text(
+                      "You have just finished",
+                      style: TextStyle(fontSize: 0.05 * size.width),
+                    ),
                     SizedBox(height: 0.01 * size.height),
-                    Text("your 30 day",
-                        style: TextStyle(fontSize: 0.05 * size.width),),
+                    Text(
+                      "your 30 day",
+                      style: TextStyle(fontSize: 0.05 * size.width),
+                    ),
                     SizedBox(height: 0.01 * size.height),
-                    Text("Brain Improvement Program",
-                        style: TextStyle(fontSize: 0.05 * size.width),),
+                    Text(
+                      "Brain Improvement Program",
+                      style: TextStyle(fontSize: 0.05 * size.width),
+                    ),
                   ],
                 ),
               ),
@@ -69,7 +112,7 @@ class _Finish extends State<Finish> {
                   height: size.height * 0.05,
                   width: size.width * 0.75,
                   child: RedirectButton(
-                    route: widget.route,
+                    route: functionToRun,
                     text: 'Begin The Final Test',
                     width: size.width,
                   ),
