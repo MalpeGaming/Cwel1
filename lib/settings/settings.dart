@@ -183,11 +183,12 @@ class _Settings extends State<Settings> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              SizedBox(height: 0.07 * size.height),
               Center(
                 child: Text(
                   "SETTINGS",
                   style: TextStyle(
-                    fontSize: size.width / 10,
+                    fontSize: size.width / 8,
                   ),
                   textAlign: TextAlign.center,
                 ),

@@ -48,7 +48,7 @@ class _ShowScore extends State<ShowScore> {
           int.parse(element.findElements('exercise').first.innerText);
       double score =
           double.parse(element.findElements('score').first.innerText);
-      meanScores[exercise] = score;
+      meanScores[exercise] = 0.8 * widget.maximum;
     });
 
     return meanScores;

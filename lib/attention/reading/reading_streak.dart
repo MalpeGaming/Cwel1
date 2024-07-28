@@ -15,15 +15,18 @@ class _ReadingStreak extends State<ReadingStreak> {
   int day = 0;
   int missed = 0, done = 0, future = 0;
 
-  Future<void> getDay() async {
-    DateTime firstDay = DateTime(2024, 7, 1);
+  Future<void> calcDay() async {
+    DateTime firstDay = DateTime.now();
     DateTime today = DateTime.now();
-
-    //late SharedPreferences prefs;
-    //prefs = await SharedPreferences.getInstance();
+    prefs = await SharedPreferences.getInstance();
+    if (prefs.getString('beginning_date') != null) {
+      firstDay = DateTime.parse(prefs.getString('beginning_date')!);
+    }
+    print(firstDay);
 
     setState(() {
-      day = today.difference(firstDay).inDays;
+      day = today.difference(firstDay).inDays + 1;
+      print(day);
     });
   }
 
@@ -81,7 +84,7 @@ class _ReadingStreak extends State<ReadingStreak> {
   void initState() {
     super.initState();
     readMemory();
-    getDay();
+    calcDay();
   }
 
   @override
@@ -165,10 +168,11 @@ class _ReadingStreak extends State<ReadingStreak> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: (Theme.of(context).brightness == Brightness.light)
-                          ? const Color.fromARGB(255, 253, 116, 106)
-                          : const Color.fromARGB(255, 102, 0, 0),),
+                    borderRadius: BorderRadius.circular(10),
+                    color: (Theme.of(context).brightness == Brightness.light)
+                        ? const Color.fromARGB(255, 253, 116, 106)
+                        : const Color.fromARGB(255, 102, 0, 0),
+                  ),
                   width: size.width / 8,
                   height: size.width / 8,
                   //color: Colors.grey[200],
