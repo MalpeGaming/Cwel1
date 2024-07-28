@@ -213,7 +213,7 @@ class _ReadingStreak extends State<ReadingStreak> {
               ],
             ),
             //Text(streak.toString()),
-            //Text(day.toString()),
+            Text(day.toString()),
           ],
         ),
       ),
