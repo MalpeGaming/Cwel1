@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'title_page.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'home.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,6 +31,25 @@ class _MyAppState extends State<MyApp> {
   List<ThemeMode> themes = [ThemeMode.light, ThemeMode.dark];
   int actTheme = 0;
   ThemeMode _themeMode = ThemeMode.light;
+
+  late SharedPreferences prefs;
+  bool firstTime = true;
+
+  Future<void> initData() async {
+    prefs = await SharedPreferences.getInstance();
+    var plan = prefs.getStringList('basePlanDay1');
+
+    setState(() {
+      if (plan == null) {
+        firstTime = false;
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +86,9 @@ class _MyAppState extends State<MyApp> {
         fontFamily: 'Arial',
       ),
       themeMode: _themeMode,
-      home: const TitlePage(title: 'The Brain Train App'),
+      home: firstTime
+          ? const TitlePage(title: 'The Brain Train App')
+          : const Home(),
     );
   }
 

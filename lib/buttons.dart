@@ -58,7 +58,7 @@ class _StartButtonState extends State<StartButton> {
           color: hovered
               ? Theme.of(context).colorScheme.secondary
               : Theme.of(context).colorScheme.primary,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.35),
@@ -74,7 +74,7 @@ class _StartButtonState extends State<StartButton> {
             child: Text(
               widget.text,
               style: TextStyle(
-                fontSize: widget.width / 16,
+                fontSize: widget.width / 14,
                 color: const Color.fromARGB(255, 224, 246, 255),
               ),
             ),

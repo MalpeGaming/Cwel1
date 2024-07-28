@@ -6,7 +6,6 @@ import 'cal_requirements_calc.dart';
 import 'brain_supplements.dart';
 import 'food_table.dart';
 import 'recipes.dart';
-import '../app_bar.dart';
 
 class NutritionTips extends StatefulWidget {
   const NutritionTips({super.key});
@@ -20,7 +19,6 @@ class _NutritionTips extends State<NutritionTips> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: appBar(context, ""),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(
@@ -30,6 +28,7 @@ class _NutritionTips extends State<NutritionTips> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: 0.07 * size.height),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,

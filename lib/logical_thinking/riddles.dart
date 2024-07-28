@@ -1,4 +1,3 @@
-import 'package:brain_train_app/improvement_selection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
@@ -100,19 +99,56 @@ class _RiddlesTest extends State<RiddlesTest> {
             _remainingTime--;
           } else {
             _timer.cancel();
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ShowScore(
-                  title: "riddles",
-                  description: "Exercise 1 - Short Term Concentration",
-                  exercise: 1,
-                  yourScore: score,
-                  maximum: 10,
-                  page: const ImprovementSelection(),
+            Navigator.pop(context);
+
+            if (widget.initialTest) {
+              _timer.cancel();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ShowScore(
+                    title: "Riddles",
+                    description: "Exercise 1 - Short Term Concentration",
+                    exercise: 1,
+                    yourScore: score,
+                    maximum: 10,
+                    page: const Home(),
+                  ),
                 ),
-              ),
-            );
+              );
+            }
+            if (widget.endingTest) {
+              _timer.cancel();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ShowImprovement(
+                    title: "Riddles",
+                    description: "Exercise 1 - Short Term Concentration",
+                    exercise: 1,
+                    yourScore: score,
+                    maximum: 10,
+                    page: const TitlePage(
+                      title: 'The Brain Train App',
+                    ),
+                    lastin: true,
+                  ),
+                ),
+              );
+            } else {
+              _timer.cancel();
+              write((score.toInt() == 10) ? 1 : 0);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProgressScreen(
+                    name: "long_term_concentration",
+                    score: score,
+                    exercise: 'Riddles',
+                  ),
+                ),
+              );
+            }
           }
         });
       }

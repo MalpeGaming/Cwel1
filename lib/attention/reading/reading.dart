@@ -18,22 +18,31 @@ class _Reading extends State<Reading> {
   bool ticked = false;
   int day = 0;
 
+  late SharedPreferences prefs;
+
   Future<void> saveStreak(bool ticked) async {
     late SharedPreferences prefs;
-
-    DateTime firstDay = DateTime(2024, 7, 1);
-    DateTime today = DateTime.now();
-    day = today.difference(firstDay).inDays;
 
     prefs = await SharedPreferences.getInstance();
     prefs.setInt('readingDay$day', ticked ? 1 : 0);
   }
 
-  Future<void> checkIfTicked() async {
-    DateTime firstDay = DateTime(2024, 7, 1);
+  Future<void> calcDay() async {
+    DateTime firstDay = DateTime.now();
     DateTime today = DateTime.now();
-    day = today.difference(firstDay).inDays;
+    prefs = await SharedPreferences.getInstance();
+    if (prefs.getString('beginning_date') != null) {
+      firstDay = DateTime.parse(prefs.getString('beginning_date')!);
+    }
+    print(firstDay);
 
+    setState(() {
+      day = today.difference(firstDay).inDays + 1;
+      print(day);
+    });
+  }
+
+  Future<void> checkIfTicked() async {
     late SharedPreferences prefs;
     prefs = await SharedPreferences.getInstance();
 
@@ -45,6 +54,7 @@ class _Reading extends State<Reading> {
   @override
   void initState() {
     super.initState();
+    calcDay();
     checkIfTicked();
   }
 
@@ -195,7 +205,7 @@ class _Reading extends State<Reading> {
                 ],
               ),
             ),
-            //Text(day.toString()),
+            Text(day.toString()),
           ],
         ),
       ),

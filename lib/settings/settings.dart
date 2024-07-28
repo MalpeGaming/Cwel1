@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '/navbar.dart';
 import 'tos.dart';
 import 'contact.dart';
-import '../../app_bar.dart';
 import 'functions.dart';
 import '../score_n_progress/show_improvement.dart';
 
@@ -174,7 +173,6 @@ class _Settings extends State<Settings> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: appBar(context, ""),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(
@@ -185,11 +183,12 @@ class _Settings extends State<Settings> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              SizedBox(height: 0.07 * size.height),
               Center(
                 child: Text(
                   "SETTINGS",
                   style: TextStyle(
-                    fontSize: size.width / 10,
+                    fontSize: size.width / 8,
                   ),
                   textAlign: TextAlign.center,
                 ),
