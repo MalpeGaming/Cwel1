@@ -22,7 +22,7 @@ class _Home extends State<Home> {
   var rng = Random();
   List<String> plan = [];
   List<String> basePlanTicked = ["0", "0", "0", "0"];
-  int day = 0;
+  int day = 1;
   List<bool> wellBeingTicked = [false, false, false, false];
   int points = 0;
 
@@ -166,10 +166,11 @@ class _Home extends State<Home> {
       if (day == 30) {
         Navigator.pop(context);
         Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const Finish(),
-            ),);
+          context,
+          MaterialPageRoute(
+            builder: (context) => const Finish(),
+          ),
+        );
       }
     });
     await getSkill();

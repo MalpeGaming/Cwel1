@@ -173,7 +173,7 @@ class _YourActivities extends State<YourActivities> {
     return const SizedBox();
   }
 
-  int day = 0;
+  int day = 1;
   late SharedPreferences prefs;
   String skill = "";
 
