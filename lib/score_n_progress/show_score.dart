@@ -46,8 +46,6 @@ class _ShowScore extends State<ShowScore> {
     xdoc.findAllElements("mean_score").forEach((element) {
       int exercise =
           int.parse(element.findElements('exercise').first.innerText);
-      double score =
-          double.parse(element.findElements('score').first.innerText);
       meanScores[exercise] = 0.8 * widget.maximum;
     });
 
