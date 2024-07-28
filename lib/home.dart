@@ -7,10 +7,6 @@ import 'navbar.dart';
 import 'activities_for_each_section.dart';
 import 'dart:math';
 import 'score_n_progress/finish_screen.dart';
-import 'attention/short_term_concentration.dart';
-import 'memory/learning_words/memory.dart';
-import 'linguistic/listening_comprehension_video.dart';
-import 'logical_thinking/riddles_info.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -166,37 +162,20 @@ class _Home extends State<Home> {
   }
 
   Future<void> readMemory() async {
-    await calcDay();
+    await calcDay().then((_) {
+      if (day == 30) {
+        Navigator.pop(context);
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const Finish(),
+            ),);
+      }
+    });
     await getSkill();
     await getWellBeingTicked();
     await createPlan();
-    await getBasePlanTicked().then((value) {
-      if (day == 30) {
-        Widget functionToRun = const Memory(
-          endingTest: true,
-        );
-        if (skill == "attention") {
-          functionToRun = const ShortTermConcentration(
-            endingTest: true,
-          );
-        } else if (skill == "linguistic") {
-          functionToRun = const ListeningComprehensionVideo(
-            endingTest: true,
-          );
-        } else if (skill == "logical_thinking") {
-          functionToRun = const Riddles(
-            endingTest: true,
-          );
-        }
-
-        print(skill);
-        Navigator.pop(context);
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => Finish(route: functionToRun)),
-        );
-      }
-    });
+    await getBasePlanTicked();
   }
 
   @override
