@@ -17,17 +17,6 @@ class _VideoListItemState extends State<VideoListItem> {
   @override
   void initState() {
     super.initState();
-    _controller = YoutubePlayerController.fromVideoId(
-      videoId: widget.videoAsset.substring(widget.videoAsset.length - 11),
-      autoPlay: true,
-      params: const YoutubePlayerParams(
-        showControls: true,
-        showFullscreenButton: true,
-        enableCaption: true,
-        showVideoAnnotations: false,
-        playsInline: true,
-      ),
-    );
   }
 
   @override
@@ -37,6 +26,17 @@ class _VideoListItemState extends State<VideoListItem> {
         /*SystemChrome.setPreferredOrientations([
           DeviceOrientation.landscapeLeft,
         ]);*/
+        _controller = YoutubePlayerController.fromVideoId(
+          videoId: widget.videoAsset.substring(widget.videoAsset.length - 11),
+          autoPlay: true,
+          params: const YoutubePlayerParams(
+            showControls: true,
+            showFullscreenButton: true,
+            enableCaption: true,
+            showVideoAnnotations: false,
+            playsInline: true,
+          ),
+        );
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -125,6 +125,7 @@ class _VideoListItemState extends State<VideoListItem> {
   @override
   void dispose() {
     SystemChrome.setPreferredOrientations([]);
+    _controller.close();
     super.dispose();
   }
 }

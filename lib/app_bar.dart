@@ -19,9 +19,6 @@ AppBar appBar(
             icon: const Icon(Icons.close),
             onPressed: () {
               Navigator.pop(context);
-              if (meditation) {
-                Navigator.pop(context);
-              }
             },
           )
         : null,
