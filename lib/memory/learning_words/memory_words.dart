@@ -136,11 +136,12 @@ class _MemoryWordsState extends State<MemoryWords> {
             context,
             MaterialPageRoute(
               builder: (context) => Memory2(
-                  initialTest: widget.initialTest,
-                  endingTest: widget.endingTest,
-                  picked,
-                  defs,
-                  words,),
+                initialTest: widget.initialTest,
+                endingTest: widget.endingTest,
+                picked,
+                defs,
+                words,
+              ),
             ),
           );
         }

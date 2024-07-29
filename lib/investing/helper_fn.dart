@@ -154,7 +154,6 @@ Future<void> saveResult(int lessonId, int score) async {
     score = x;
   }
   prefs.setInt('lesson$lessonId', score);
-  //print("amogus");
 }
 
 Widget subpoint(BuildContext context, String text, String definition) {
@@ -299,7 +298,6 @@ class _Success extends State<Success> {
           sum += scores[i]!;
         }
         if (scores[10000 + i] != null) {
-          print("amogus");
           sum1 += scores[10000 + i]!;
         }
       }
@@ -314,9 +312,6 @@ class _Success extends State<Success> {
       }
       scoreoverall = sum;
       maxscoreoverall = sum1;
-      print("ważne");
-      print(scoreoverall);
-      print(maxscoreoverall);
 
       percentageoverall =
           ((maxscoreoverall == 0) ? 0 : scoreoverall / maxscoreoverall);
@@ -332,7 +327,6 @@ class _Success extends State<Success> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    //print(widget.minutes.toString());
 
     return PopScope(
       canPop: false,

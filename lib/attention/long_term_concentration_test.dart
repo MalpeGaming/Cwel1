@@ -203,8 +203,6 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                                   setState(() {
                                     questionIndex += 1;
                                     selectedOption = -1;
-                                    print(questionIndex);
-                                    print(answers.join("\n"));
                                   });
                                   return;
                                 }

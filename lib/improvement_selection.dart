@@ -3,7 +3,6 @@ import 'package:brain_train_app/home.dart';
 import 'package:flutter/material.dart';
 import 'attention/short_term_concentration.dart';
 import 'memory/learning_words/memory.dart';
-import '/home.dart';
 import 'linguistic/listening_comprehension_video.dart';
 import 'logical_thinking/riddles_info.dart';
 

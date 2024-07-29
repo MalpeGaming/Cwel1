@@ -21,9 +21,9 @@ class _VideoListItemState extends State<VideoListItem> {
       videoId: widget.videoAsset.substring(widget.videoAsset.length - 11),
       autoPlay: true,
       params: const YoutubePlayerParams(
-        showControls: false,
-        showFullscreenButton: false,
-        enableCaption: false,
+        showControls: true,
+        showFullscreenButton: true,
+        enableCaption: true,
         showVideoAnnotations: false,
         playsInline: true,
       ),
@@ -34,25 +34,34 @@ class _VideoListItemState extends State<VideoListItem> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        SystemChrome.setPreferredOrientations([
+        /*SystemChrome.setPreferredOrientations([
           DeviceOrientation.landscapeLeft,
-        ]);
+        ]);*/
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) {
-              print(widget.videoAsset);
-              return YoutubePlayerScaffold(
-                autoFullScreen: true,
-                builder: ((context, player) {
-                  return Container(
-                    color: Colors.black,
-                    child: Center(
-                      child: player,
+              return SizedBox(
+                height: MediaQuery.of(context).size.height * 0.5,
+                width: MediaQuery.of(context).size.width * 0.5,
+                child: Column(
+                  children: [
+                    appBar(context, "", meditation: true),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.8,
+                      child: YoutubePlayerScaffold(
+                        autoFullScreen: false,
+                        enableFullScreenOnVerticalDrag: false,
+                        builder: ((context, player) {
+                          return Center(
+                            child: player,
+                          );
+                        }),
+                        controller: _controller,
+                      ),
                     ),
-                  );
-                }),
-                controller: _controller,
+                  ],
+                ),
               );
             },
           ),
@@ -64,7 +73,8 @@ class _VideoListItemState extends State<VideoListItem> {
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.35),
+              color: Theme.of(context).colorScheme.background,
+              //color: Colors.black.withOpacity(0.35),
               spreadRadius: 2,
               blurRadius: 5,
               offset: const Offset(0, 3),
@@ -77,7 +87,7 @@ class _VideoListItemState extends State<VideoListItem> {
             aspectRatio: 1,
             child: Image.network(
               'https://img.youtube.com/vi/${widget.videoAsset.substring(widget.videoAsset.length - 11)}/0.jpg',
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
               errorBuilder: (context, error, stackTrace) {
                 return const Center(
                   child: Column(

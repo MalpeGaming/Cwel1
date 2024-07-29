@@ -90,7 +90,6 @@ class _WorkingMemory extends State<WorkingMemory> {
 
     currentLevel ??= 0;
     currentStreak ??= 0;
-    print(currentLevel);
 
     setState(() {
       level = currentLevel!;
@@ -230,7 +229,6 @@ class _WorkingMemory extends State<WorkingMemory> {
                   } else {
                     saveStreak(-1);
                   }
-                  Navigator.pop(context);
                 },
                 route: (widget.initialTest)
                     ? ShowScore(
@@ -261,8 +259,6 @@ class _WorkingMemory extends State<WorkingMemory> {
                 text: 'Continue',
                 width: size.width,
               ),
-              Text(level.toString()),
-              Text(streak.toString()),
             ],
           ),
         ),

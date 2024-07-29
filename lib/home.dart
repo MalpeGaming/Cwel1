@@ -7,6 +7,7 @@ import 'navbar.dart';
 import 'activities_for_each_section.dart';
 import 'dart:math';
 import 'score_n_progress/finish_screen.dart';
+import '/memory/faces.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -56,6 +57,7 @@ class _Home extends State<Home> {
 
     setState(() {
       day = today.difference(firstDay).inDays + 1;
+      day = 30;
     });
   }
 
@@ -96,6 +98,10 @@ class _Home extends State<Home> {
     });
   }
 
+  var skillBaseList = [
+    [Faces, 10],
+  ];
+
   Future<void> getSkill() async {
     prefs = await SharedPreferences.getInstance();
     String newSkill = prefs.getString('skill')!;
@@ -116,7 +122,7 @@ class _Home extends State<Home> {
       });
       return;
     }
-    var skillBaseList = List.from(skillBaseLists[skill]!);
+    skillBaseList = List.from(skillBaseLists[skill]!);
 
     int currentTime = 0;
 
@@ -163,13 +169,14 @@ class _Home extends State<Home> {
 
   Future<void> readMemory() async {
     await calcDay().then((_) {
-      if (day == 30) {
+      if (day >= 30) {
         Navigator.pop(context);
         Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const Finish(),
-            ),);
+          context,
+          MaterialPageRoute(
+            builder: (context) => const Finish(),
+          ),
+        );
       }
     });
     await getSkill();

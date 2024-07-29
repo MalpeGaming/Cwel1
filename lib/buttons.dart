@@ -58,7 +58,7 @@ class _StartButtonState extends State<StartButton> {
           color: hovered
               ? Theme.of(context).colorScheme.secondary
               : Theme.of(context).colorScheme.primary,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.35),
@@ -74,7 +74,7 @@ class _StartButtonState extends State<StartButton> {
             child: Text(
               widget.text,
               style: TextStyle(
-                fontSize: widget.width / 16,
+                fontSize: widget.width / 14,
                 color: const Color.fromARGB(255, 224, 246, 255),
               ),
             ),
@@ -137,9 +137,7 @@ class _RedirectButtonState extends State<RedirectButton> {
                 (Route<dynamic> route) => false,
               );
             } else {
-              print("usunieto");
               Navigator.pop(context);
-              print("po usunieto");
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -147,8 +145,6 @@ class _RedirectButtonState extends State<RedirectButton> {
                 ),
               );
             }
-            print("tryb");
-            print(widget.clearAllWindows);
           }
         } else if (!toRed) {
           setState(() {
@@ -278,7 +274,6 @@ class _ImprovementButtonState extends State<ImprovementButton> {
                     'skill',
                     widget.name,
                   );
-                  print(widget.name);
                 }
 
                 initMemory();

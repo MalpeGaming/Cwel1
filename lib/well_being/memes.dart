@@ -21,7 +21,6 @@ class _MemeState extends State<Meme> {
     if (prefs.getString('beginning_date') != null) {
       firstDay = DateTime.parse(prefs.getString('beginning_date')!);
     }
-    print(firstDay);
 
     setState(() {
       numerek = today.difference(firstDay).inDays + 1;
@@ -31,18 +30,14 @@ class _MemeState extends State<Meme> {
 
   Future<void> readMemory() async {
     prefs = await SharedPreferences.getInstance();
-    print("amogus");
-    print(prefs.getStringList('beginning_date').toString());
     String? beginningDate = prefs.getStringList('beginning_date')?.first;
     if (beginningDate != null) {
       DateTime beginningDateTime = DateTime.parse(beginningDate);
       Duration daysPassed = DateTime.now().difference(beginningDateTime);
-      print("Days passed since beginning date: ${daysPassed.inDays}");
       numerek = (daysPassed.inDays) % 30;
       setState(() {
         zdjecie = "assets/memes/$numerek.png";
       });
-      print(zdjecie);
     }
   }
 
