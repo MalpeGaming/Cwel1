@@ -222,42 +222,46 @@ class _WorkingMemory extends State<WorkingMemory> {
               SizedBox(
                 height: size.height / 7,
               ),
-              RedirectButton(
-                onClick: () {
-                  if (score == 1) {
-                    saveStreak(1);
-                  } else {
-                    saveStreak(-1);
-                  }
-                },
-                route: (widget.initialTest)
-                    ? ShowScore(
-                        title: "MEMORY",
-                        description: "Exercise 2 -  Working memory",
-                        exercise: 2,
-                        yourScore: score,
-                        maximum: 10,
-                        page: const Home(),
-                      )
-                    : (widget.endingTest
-                        ? ShowImprovement(
-                            title: "MEMORY",
-                            description: "Exercise 2 -  Working memory",
-                            exercise: 2,
-                            yourScore: score,
-                            maximum: 10,
-                            page: const TitlePage(
-                              title: 'The Brain Train App',
-                            ),
-                            lastin: true,
-                          )
-                        : ProgressScreen(
-                            name: "working_memory",
-                            score: score,
-                            exercise: "WorkingMemory",
-                          )),
-                text: 'Continue',
-                width: size.width,
+              SizedBox(
+                height: size.height * 0.05,
+                width: size.width * 0.75,
+                child: RedirectButton(
+                  onClick: () {
+                    if (score == 1) {
+                      saveStreak(1);
+                    } else {
+                      saveStreak(-1);
+                    }
+                  },
+                  route: (widget.initialTest)
+                      ? ShowScore(
+                          title: "MEMORY",
+                          description: "Exercise 2 -  Working memory",
+                          exercise: 2,
+                          yourScore: score,
+                          maximum: 10,
+                          page: const Home(),
+                        )
+                      : (widget.endingTest
+                          ? ShowImprovement(
+                              title: "MEMORY",
+                              description: "Exercise 2 -  Working memory",
+                              exercise: 2,
+                              yourScore: score,
+                              maximum: 10,
+                              page: const TitlePage(
+                                title: 'The Brain Train App',
+                              ),
+                              lastin: true,
+                            )
+                          : ProgressScreen(
+                              name: "working_memory",
+                              score: score,
+                              exercise: "WorkingMemory",
+                            )),
+                  text: 'Continue',
+                  width: size.width,
+                ),
               ),
             ],
           ),
