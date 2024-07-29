@@ -230,7 +230,6 @@ class _WorkingMemory extends State<WorkingMemory> {
                   } else {
                     saveStreak(-1);
                   }
-                  Navigator.pop(context);
                 },
                 route: (widget.initialTest)
                     ? ShowScore(
@@ -261,8 +260,6 @@ class _WorkingMemory extends State<WorkingMemory> {
                 text: 'Continue',
                 width: size.width,
               ),
-              Text(level.toString()),
-              Text(streak.toString()),
             ],
           ),
         ),

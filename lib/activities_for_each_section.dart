@@ -28,11 +28,11 @@ import 'package:brain_train_app/logical_thinking/riddles_info.dart';
 import 'package:brain_train_app/memory/learning_words/memory.dart';
 
 var memoryBaseList = [
-  [const Memory(), 10],
-  [const WorkingMemory(), 5],
-  [const MemoryGame1(), 5],
-  [const Faces(), 5],
-  [const LongTermConcentrationVideo(), 10],
+  [Memory, 10],
+  [WorkingMemory, 5],
+  [MemoryGame1, 5],
+  [Faces, 5],
+  [LongTermConcentrationVideo, 10],
 ];
 
 var memoryRestList = [

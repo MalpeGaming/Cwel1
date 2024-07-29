@@ -21,9 +21,9 @@ class _VideoListItemState extends State<VideoListItem> {
       videoId: widget.videoAsset.substring(widget.videoAsset.length - 11),
       autoPlay: true,
       params: const YoutubePlayerParams(
-        showControls: false,
-        showFullscreenButton: false,
-        enableCaption: false,
+        showControls: true,
+        showFullscreenButton: true,
+        enableCaption: true,
         showVideoAnnotations: false,
         playsInline: true,
       ),
@@ -34,25 +34,32 @@ class _VideoListItemState extends State<VideoListItem> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        SystemChrome.setPreferredOrientations([
+        /*SystemChrome.setPreferredOrientations([
           DeviceOrientation.landscapeLeft,
-        ]);
+        ]);*/
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) {
               print(widget.videoAsset);
-              return YoutubePlayerScaffold(
-                autoFullScreen: true,
-                builder: ((context, player) {
-                  return Container(
-                    color: Colors.black,
-                    child: Center(
-                      child: player,
-                    ),
-                  );
-                }),
-                controller: _controller,
+              return Column(
+                children: [
+                  appBar(context, "", meditation: true),
+                  YoutubePlayerScaffold(
+                    backgroundColor: Theme.of(context).colorScheme.background,
+                    autoFullScreen: false,
+                    enableFullScreenOnVerticalDrag: false,
+                    builder: ((context, player) {
+                      return Container(
+                        color: Theme.of(context).colorScheme.background,
+                        child: Center(
+                          child: player,
+                        ),
+                      );
+                    }),
+                    controller: _controller,
+                  ),
+                ],
               );
             },
           ),
@@ -64,7 +71,8 @@ class _VideoListItemState extends State<VideoListItem> {
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.35),
+              color: Theme.of(context).colorScheme.background,
+              //color: Colors.black.withOpacity(0.35),
               spreadRadius: 2,
               blurRadius: 5,
               offset: const Offset(0, 3),

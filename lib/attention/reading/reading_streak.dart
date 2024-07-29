@@ -22,11 +22,9 @@ class _ReadingStreak extends State<ReadingStreak> {
     if (prefs.getString('beginning_date') != null) {
       firstDay = DateTime.parse(prefs.getString('beginning_date')!);
     }
-    print(firstDay);
 
     setState(() {
       day = today.difference(firstDay).inDays + 1;
-      print(day);
     });
   }
 
@@ -212,8 +210,6 @@ class _ReadingStreak extends State<ReadingStreak> {
                 ),
               ],
             ),
-            //Text(streak.toString()),
-            Text(day.toString()),
           ],
         ),
       ),

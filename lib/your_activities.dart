@@ -31,7 +31,7 @@ import 'linguistic/correct_a_word.dart';
 import 'investing/menu.dart';
 import 'linguistic/poems_reading/info.dart';
 import 'linguistic/idioms.dart';
-import 'activities_for_each_section.dart';
+import 'package:brain_train_app/activities_for_each_section.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -145,14 +145,15 @@ class _YourActivities extends State<YourActivities> {
     String img,
     String txt1,
     String txt2,
-    Widget route, {
+    Widget route,
+    String activityName, {
     double fontSize = 1,
     double zero = 1,
   }) {
     Size size = MediaQuery.of(context).size;
     //if (memoryList.any((pair) => pair[0] == route)) {
     if (skillAllLists[skill] != null &&
-        skillAllLists[skill]!.contains(route.toString())) {
+        skillAllLists[skill]!.contains(activityName)) {
       return createActivity(
         context,
         "activities/$img",
@@ -175,7 +176,7 @@ class _YourActivities extends State<YourActivities> {
 
   int day = 0;
   late SharedPreferences prefs;
-  String skill = "";
+  String skill = "attention";
 
   Future<void> getSkill() async {
     prefs = await SharedPreferences.getInstance();
@@ -183,7 +184,7 @@ class _YourActivities extends State<YourActivities> {
       if (prefs.getString('skill') != null) {
         skill = prefs.getString('skill')!;
       } else {
-        skill = "memory";
+        skill = "attention";
       }
     });
   }
@@ -260,6 +261,7 @@ class _YourActivities extends State<YourActivities> {
                           "LEARNING",
                           "Words",
                           const Memory(),
+                          "Memory",
                         ),
                         createActivity2(
                           context,
@@ -267,6 +269,7 @@ class _YourActivities extends State<YourActivities> {
                           "Working",
                           "MEMORY",
                           const WorkingMemory(),
+                          "WorkingMemory",
                         ),
                         createActivity2(
                           context,
@@ -274,6 +277,7 @@ class _YourActivities extends State<YourActivities> {
                           "Find the",
                           "NUMBER",
                           const FindTheNumber(),
+                          "FindTheNumber",
                         ),
                         createActivity2(
                           context,
@@ -281,6 +285,7 @@ class _YourActivities extends State<YourActivities> {
                           "LISTENING",
                           "Comprehension",
                           const ListeningComprehensionVideo(),
+                          "ListeningComprehensionVideo",
                         ),
                         createActivity2(
                           context,
@@ -288,6 +293,7 @@ class _YourActivities extends State<YourActivities> {
                           "READING",
                           "Comprehension",
                           const ReadingComprehensionInfo(),
+                          "ReadingComprehensionInfo",
                         ),
                         createActivity2(
                           context,
@@ -295,6 +301,7 @@ class _YourActivities extends State<YourActivities> {
                           "POEMS",
                           "Reading",
                           const Info(),
+                          "Info",
                         ),
                         createActivity2(
                           context,
@@ -304,6 +311,7 @@ class _YourActivities extends State<YourActivities> {
                           const SpellingMistakes(
                             exerciseId: 0,
                           ),
+                          "SpellingMistakes",
                         ),
                         /*
                         createActivity2(
@@ -319,6 +327,7 @@ class _YourActivities extends State<YourActivities> {
                           "RIDDLES",
                           "",
                           const RiddlesTest(),
+                          "RiddlesTest",
                           zero: 0,
                         ),
                         createActivity2(
@@ -327,6 +336,7 @@ class _YourActivities extends State<YourActivities> {
                           "SUDOKU",
                           "",
                           const SudokuInfo(),
+                          "SudokuInfo",
                           zero: 0,
                         ),
                         createActivity2(
@@ -335,6 +345,7 @@ class _YourActivities extends State<YourActivities> {
                           "Short-Term",
                           "CONCENTRATION",
                           const ShortTermConcentration(),
+                          "ShortTermConcentration",
                         ),
                         createActivity2(
                           context,
@@ -342,6 +353,7 @@ class _YourActivities extends State<YourActivities> {
                           "Long-Term",
                           "CONCENTRATION",
                           const LongTermConcentrationVideo(),
+                          "LongTermConcentrationVideo",
                         ),
                         createActivity2(
                           context,
@@ -349,6 +361,7 @@ class _YourActivities extends State<YourActivities> {
                           "Strong",
                           "CONCENTRATION",
                           const StrongConcentrationDesc(),
+                          "StrongConcentrationDesc",
                         ),
                         createActivity2(
                           context,
@@ -356,6 +369,7 @@ class _YourActivities extends State<YourActivities> {
                           "READING",
                           "Out-loud",
                           const Reading(),
+                          "Reading",
                         ),
                         createActivity2(
                           context,
@@ -363,6 +377,7 @@ class _YourActivities extends State<YourActivities> {
                           "HANGMAN",
                           "",
                           const Hangman(),
+                          "Hangman",
                           zero: 0,
                         ),
                         createActivity2(
@@ -371,6 +386,7 @@ class _YourActivities extends State<YourActivities> {
                           "WORDLY",
                           "",
                           const Wordly(),
+                          "Wordly",
                           zero: 0,
                         ),
                         createActivity2(
@@ -379,6 +395,7 @@ class _YourActivities extends State<YourActivities> {
                           "2048",
                           "",
                           const Game2048(),
+                          "Game2048",
                           zero: 0,
                         ),
                         createActivity2(
@@ -390,6 +407,7 @@ class _YourActivities extends State<YourActivities> {
                             iteration: 1,
                             allPoints: 0,
                           ),
+                          "Scrabble",
                         ),
                         createActivity2(
                           context,
@@ -397,6 +415,7 @@ class _YourActivities extends State<YourActivities> {
                           "Faces",
                           "MEMORY",
                           const Faces(),
+                          "Faces",
                         ),
                         createActivity2(
                           context,
@@ -404,6 +423,7 @@ class _YourActivities extends State<YourActivities> {
                           "Correct a word",
                           "",
                           const CorrectAWord(),
+                          "CorrectAWord",
                           zero: 0,
                         ),
                         createActivity2(
@@ -412,6 +432,7 @@ class _YourActivities extends State<YourActivities> {
                           "Investing",
                           "Course",
                           const InvestingMenu(),
+                          "InvestingMenu",
                         ),
                         createActivity2(
                           context,
@@ -421,6 +442,7 @@ class _YourActivities extends State<YourActivities> {
                           const Grammar(
                             exerciseId: 0,
                           ),
+                          "Grammar",
                           zero: 0,
                         ),
                         createActivity2(
@@ -429,6 +451,7 @@ class _YourActivities extends State<YourActivities> {
                           "Choose the",
                           "best WORD",
                           const ChooseBestWord(),
+                          "ChooseBestWord",
                         ),
                         createActivity2(
                           context,
@@ -436,6 +459,7 @@ class _YourActivities extends State<YourActivities> {
                           "Idioms, expressions and phrasal verbs",
                           "",
                           const Idioms(),
+                          "Idioms",
                           zero: 0,
                         ),
                         createActivity2(
@@ -444,6 +468,7 @@ class _YourActivities extends State<YourActivities> {
                           "MEMORY",
                           "Game",
                           const MemoryGame1(),
+                          "MemoryGame1",
                         ),
                         createActivity2(
                           context,
@@ -451,6 +476,7 @@ class _YourActivities extends State<YourActivities> {
                           "SPORT",
                           "Optional",
                           const Sport(),
+                          "Sport",
                         ),
                         createActivity2(
                           context,
@@ -458,6 +484,7 @@ class _YourActivities extends State<YourActivities> {
                           "Yoga",
                           "",
                           const Yoga(),
+                          "Yoga",
                           zero: 0,
                         ),
                         createActivity2(
@@ -466,6 +493,7 @@ class _YourActivities extends State<YourActivities> {
                           "Self",
                           "Reflection",
                           const SelfReflection(),
+                          "SelfReflection",
                         ),
                         createActivity2(
                           context,
@@ -473,6 +501,7 @@ class _YourActivities extends State<YourActivities> {
                           "MEDITATION",
                           "",
                           const Meditation(),
+                          "Meditation",
                           zero: 0,
                         ),
                         createActivity2(
@@ -481,6 +510,7 @@ class _YourActivities extends State<YourActivities> {
                           "Memes",
                           "",
                           const Meme(),
+                          "Meme",
                           zero: 0,
                         ),
                       ],

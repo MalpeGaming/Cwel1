@@ -95,7 +95,7 @@ class _MemoryWordsState extends State<MemoryWords> {
     );
   }
 
-  int _remainingTime = 420;
+  int _remainingTime = 2;
   late Timer _timer;
   List<Map<String, String>> b1 = [];
   List<Map<String, String>> picked = [];
@@ -136,11 +136,12 @@ class _MemoryWordsState extends State<MemoryWords> {
             context,
             MaterialPageRoute(
               builder: (context) => Memory2(
-                  initialTest: widget.initialTest,
-                  endingTest: widget.endingTest,
-                  picked,
-                  defs,
-                  words,),
+                initialTest: widget.initialTest,
+                endingTest: widget.endingTest,
+                picked,
+                defs,
+                words,
+              ),
             ),
           );
         }
