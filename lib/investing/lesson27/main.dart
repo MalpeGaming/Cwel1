@@ -319,8 +319,7 @@ class _Lesson27 extends State<Lesson27> {
                             score++;
                           }
                         }
-                        print("wynik:");
-                        print(score);
+
                         saveResult(27, score);
                         saveResult(10027, questions.length);
 
