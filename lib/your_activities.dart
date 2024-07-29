@@ -151,6 +151,7 @@ class _YourActivities extends State<YourActivities> {
     double zero = 1,
   }) {
     Size size = MediaQuery.of(context).size;
+    print(skillAllLists[skill]);
     //if (memoryList.any((pair) => pair[0] == route)) {
     if (skillAllLists[skill] != null &&
         skillAllLists[skill]!.contains(activityName)) {
@@ -327,7 +328,7 @@ class _YourActivities extends State<YourActivities> {
                           "RIDDLES",
                           "",
                           const RiddlesTest(),
-                          "RiddlesTest",
+                          "Riddles",
                           zero: 0,
                         ),
                         createActivity2(

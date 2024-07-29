@@ -57,7 +57,6 @@ class _Home extends State<Home> {
 
     setState(() {
       day = today.difference(firstDay).inDays + 1;
-      day = 30;
     });
   }
 
@@ -169,6 +168,7 @@ class _Home extends State<Home> {
 
   Future<void> readMemory() async {
     await calcDay().then((_) {
+      print("day: $day");
       if (day >= 30) {
         Navigator.pop(context);
         Navigator.push(

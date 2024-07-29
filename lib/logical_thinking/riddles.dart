@@ -115,8 +115,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                   ),
                 ),
               );
-            }
-            if (widget.endingTest) {
+            } else if (widget.endingTest) {
               _timer.cancel();
               Navigator.push(
                 context,
@@ -323,8 +322,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                                       ),
                                     ),
                                   );
-                                }
-                                if (widget.endingTest) {
+                                } else if (widget.endingTest) {
                                   _timer.cancel();
                                   Navigator.push(
                                     context,
