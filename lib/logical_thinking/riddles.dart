@@ -64,7 +64,6 @@ class _RiddlesTest extends State<RiddlesTest> {
       final file =
           await rootBundle.loadString('assets/logical_thinking/riddles.yaml');
       final tasks = loadYaml(file)["questions"]["${difficulty}points"];
-      print(tasks.length);
       for (var i = 0; i < tasks.length; i++) {
         newQuestions.add(tasks[i]["question"]);
 
@@ -138,8 +137,6 @@ class _RiddlesTest extends State<RiddlesTest> {
       );
       await prefs.setInt('riddles_streak', 0);
     }
-    print("streak: ${prefs.getInt('riddles_streak')}");
-    print("difficulty: ${prefs.getInt('riddles_difficulty')}");
   }
 
   @override
@@ -267,8 +264,6 @@ class _RiddlesTest extends State<RiddlesTest> {
                                     questionIndex =
                                         Random().nextInt(numberOfQuestions);
                                     selectedOption = -1;
-                                    print(questionIndex);
-                                    print(answers.join("\n"));
                                   });
                                   return;
                                 }

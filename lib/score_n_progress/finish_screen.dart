@@ -1,7 +1,6 @@
 import 'package:brain_train_app/title_page.dart';
 import 'package:flutter/material.dart';
 import '../buttons.dart';
-import '../app_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../attention/short_term_concentration.dart';
 import '../memory/learning_words/memory.dart';
@@ -60,7 +59,6 @@ class _Finish extends State<Finish> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    //print(widget.minutes.toString());
 
     return PopScope(
       canPop: false,
@@ -78,7 +76,6 @@ class _Finish extends State<Finish> {
           ),
           child: Column(
             children: [
-              appBar(context, ""),
               Container(
                 margin: EdgeInsets.only(
                   left: size.width / 10,

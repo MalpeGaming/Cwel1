@@ -54,10 +54,10 @@ class _Home extends State<Home> {
     if (prefs.getString('beginning_date') != null) {
       firstDay = DateTime.parse(prefs.getString('beginning_date')!);
     }
-    print(firstDay);
 
     setState(() {
       day = today.difference(firstDay).inDays + 1;
+      day = 30;
     });
   }
 
@@ -123,7 +123,6 @@ class _Home extends State<Home> {
       return;
     }
     skillBaseList = List.from(skillBaseLists[skill]!);
-    print(skillBaseList);
 
     int currentTime = 0;
 
@@ -170,7 +169,7 @@ class _Home extends State<Home> {
 
   Future<void> readMemory() async {
     await calcDay().then((_) {
-      if (day == 30) {
+      if (day >= 30) {
         Navigator.pop(context);
         Navigator.push(
           context,

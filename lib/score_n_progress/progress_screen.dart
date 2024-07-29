@@ -101,11 +101,6 @@ class _ProgressScreen extends State<ProgressScreen>
     );
 
     for (int i = 0; i < scores.length; i++) {
-      print(
-        DateTime.fromMillisecondsSinceEpoch(
-          int.parse(timestamps[i]),
-        ),
-      );
       newChartData.add(
         ChartData(
           DateTime.fromMillisecondsSinceEpoch(

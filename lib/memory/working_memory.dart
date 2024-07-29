@@ -90,7 +90,6 @@ class _WorkingMemory extends State<WorkingMemory> {
 
     currentLevel ??= 0;
     currentStreak ??= 0;
-    print(currentLevel);
 
     setState(() {
       level = currentLevel!;

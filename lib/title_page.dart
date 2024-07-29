@@ -21,12 +21,10 @@ class _TitlePageState extends State<TitlePage> {
   Future<void> initData() async {
     prefs = await SharedPreferences.getInstance();
     var plan = prefs.getStringList('basePlanDay1');
-    print("plan ${plan.toString()}");
     setState(() {
       if (plan == null) {
         firstTime = true;
       }
-      print("fristtimr $firstTime");
     });
   }
 

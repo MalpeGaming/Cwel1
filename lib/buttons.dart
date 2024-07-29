@@ -137,9 +137,7 @@ class _RedirectButtonState extends State<RedirectButton> {
                 (Route<dynamic> route) => false,
               );
             } else {
-              print("usunieto");
               Navigator.pop(context);
-              print("po usunieto");
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -147,8 +145,6 @@ class _RedirectButtonState extends State<RedirectButton> {
                 ),
               );
             }
-            print("tryb");
-            print(widget.clearAllWindows);
           }
         } else if (!toRed) {
           setState(() {
@@ -278,7 +274,6 @@ class _ImprovementButtonState extends State<ImprovementButton> {
                     'skill',
                     widget.name,
                   );
-                  print(widget.name);
                 }
 
                 initMemory();

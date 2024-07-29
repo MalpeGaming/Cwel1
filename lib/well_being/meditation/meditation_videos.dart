@@ -41,25 +41,27 @@ class _VideoListItemState extends State<VideoListItem> {
           context,
           MaterialPageRoute(
             builder: (context) {
-              print(widget.videoAsset);
-              return Column(
-                children: [
-                  appBar(context, "", meditation: true),
-                  YoutubePlayerScaffold(
-                    backgroundColor: Theme.of(context).colorScheme.background,
-                    autoFullScreen: false,
-                    enableFullScreenOnVerticalDrag: false,
-                    builder: ((context, player) {
-                      return Container(
-                        color: Theme.of(context).colorScheme.background,
-                        child: Center(
-                          child: player,
-                        ),
-                      );
-                    }),
-                    controller: _controller,
-                  ),
-                ],
+              return SizedBox(
+                height: MediaQuery.of(context).size.height * 0.5,
+                width: MediaQuery.of(context).size.width * 0.5,
+                child: Column(
+                  children: [
+                    appBar(context, "", meditation: true),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.8,
+                      child: YoutubePlayerScaffold(
+                        autoFullScreen: false,
+                        enableFullScreenOnVerticalDrag: false,
+                        builder: ((context, player) {
+                          return Center(
+                            child: player,
+                          );
+                        }),
+                        controller: _controller,
+                      ),
+                    ),
+                  ],
+                ),
               );
             },
           ),
@@ -85,7 +87,7 @@ class _VideoListItemState extends State<VideoListItem> {
             aspectRatio: 1,
             child: Image.network(
               'https://img.youtube.com/vi/${widget.videoAsset.substring(widget.videoAsset.length - 11)}/0.jpg',
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
               errorBuilder: (context, error, stackTrace) {
                 return const Center(
                   child: Column(

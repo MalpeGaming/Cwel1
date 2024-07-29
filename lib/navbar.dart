@@ -78,7 +78,6 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
 
   BottomNavigationBarItem buildMenuIcon(int index, String lab) {
     Size size = MediaQuery.of(context).size;
-    print(MediaQuery.of(context).platformBrightness);
     return BottomNavigationBarItem(
       icon: Stack(
         children: [
