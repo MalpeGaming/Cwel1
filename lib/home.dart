@@ -23,7 +23,7 @@ class _Home extends State<Home> {
   var rng = Random();
   List<String> plan = [];
   List<String> basePlanTicked = ["0", "0", "0", "0"];
-  int day = 0;
+  int day = 1;
   List<bool> wellBeingTicked = [false, false, false, false];
   int points = 0;
 
