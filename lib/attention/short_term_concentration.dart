@@ -212,7 +212,6 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          hintText: "9",
                         ),
                       ),
                     ),
@@ -222,43 +221,47 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
               SizedBox(
                 height: size.height / 7,
               ),
-              RedirectButton(
-                onClick: () {
-                  if (score == 1) {
-                    saveStreak(1);
-                  } else {
-                    saveStreak(-1);
-                  }
-                },
-                route: (widget.initialTest)
-                    ? ShowScore(
-                        title: "ATTENTION",
-                        description: "Exercise 1 - Short Term Concentration",
-                        exercise: 2,
-                        yourScore: score,
-                        maximum: 10,
-                        page: const Home(),
-                      )
-                    : (widget.endingTest
-                        ? ShowImprovement(
-                            title: "ATTENTION",
-                            description:
-                                "Exercise 1 - Short Term Concentration",
-                            exercise: 2,
-                            yourScore: score,
-                            maximum: 10,
-                            page: const TitlePage(
-                              title: 'The Brain Train App',
-                            ),
-                            lastin: true,
-                          )
-                        : ProgressScreen(
-                            name: "short_term_concentration",
-                            score: score,
-                            exercise: "ShortTermConcentration",
-                          )),
-                text: 'Continue',
-                width: size.width,
+              SizedBox(
+                height: size.height * 0.05,
+                width: size.width * 0.75,
+                child: RedirectButton(
+                  onClick: () {
+                    if (score == 1) {
+                      saveStreak(1);
+                    } else {
+                      saveStreak(-1);
+                    }
+                  },
+                  route: (widget.initialTest)
+                      ? ShowScore(
+                          title: "ATTENTION",
+                          description: "Exercise 1 - Short Term Concentration",
+                          exercise: 2,
+                          yourScore: score,
+                          maximum: 10,
+                          page: const Home(),
+                        )
+                      : (widget.endingTest
+                          ? ShowImprovement(
+                              title: "ATTENTION",
+                              description:
+                                  "Exercise 1 - Short Term Concentration",
+                              exercise: 2,
+                              yourScore: score,
+                              maximum: 10,
+                              page: const TitlePage(
+                                title: 'The Brain Train App',
+                              ),
+                              lastin: true,
+                            )
+                          : ProgressScreen(
+                              name: "short_term_concentration",
+                              score: score,
+                              exercise: "ShortTermConcentration",
+                            )),
+                  text: 'Continue',
+                  width: size.width,
+                ),
               ),
             ],
           ),
