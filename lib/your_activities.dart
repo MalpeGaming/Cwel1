@@ -151,6 +151,7 @@ class _YourActivities extends State<YourActivities> {
     double zero = 1,
   }) {
     Size size = MediaQuery.of(context).size;
+    print(skillAllLists[skill]);
     //if (memoryList.any((pair) => pair[0] == route)) {
     if (skillAllLists[skill] != null &&
         skillAllLists[skill]!.contains(activityName)) {
@@ -174,7 +175,7 @@ class _YourActivities extends State<YourActivities> {
     return const SizedBox();
   }
 
-  int day = 0;
+  int day = 1;
   late SharedPreferences prefs;
   String skill = "attention";
 
