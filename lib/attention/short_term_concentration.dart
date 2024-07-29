@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/services.dart';
 import 'dart:math';
-import '/home.dart';
+import 'long_term_concentration_video.dart';
 import '../score_n_progress/show_score.dart';
 import '../buttons.dart';
 import '../score_n_progress/progress_screen.dart';
@@ -237,7 +237,8 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
                         exercise: 2,
                         yourScore: score,
                         maximum: 10,
-                        page: const Home(),
+                        page:
+                            const LongTermConcentrationVideo(initialTest: true),
                       )
                     : (widget.endingTest
                         ? ShowImprovement(

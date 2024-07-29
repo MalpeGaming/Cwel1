@@ -57,7 +57,6 @@ class _Home extends State<Home> {
 
     setState(() {
       day = today.difference(firstDay).inDays + 1;
-      day = 30;
     });
   }
 

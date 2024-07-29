@@ -186,7 +186,6 @@ var logicalAllList = [
   'Riddles',
   'Game2048',
   'SudokuInfo',
-  'Info',
   'Scrabble',
   'Hangman',
   'Wordly',
