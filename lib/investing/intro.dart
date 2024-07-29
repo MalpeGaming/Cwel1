@@ -98,8 +98,6 @@ class _Intro extends State<Intro> {
                   //route: const Lesson2(),
                   onClick: () {
                     int score = 1;
-                    print("wynik:");
-                    print(score);
                     saveResult(2137, score);
                     saveResult(12137, 1);
 

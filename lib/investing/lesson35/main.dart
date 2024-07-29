@@ -212,8 +212,7 @@ class _Lesson35 extends State<Lesson35> {
                             score++;
                           }
                         }
-                        print("wynik:");
-                        print(score);
+
                         saveResult(35, score);
                         saveResult(10035, score);
                         Navigator.pop(context);

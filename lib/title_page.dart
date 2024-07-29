@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'app_bar.dart';
 import 'buttons.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'home.dart';
 
 class TitlePage extends StatefulWidget {
   const TitlePage({super.key, required this.title});
@@ -13,6 +15,27 @@ class TitlePage extends StatefulWidget {
 }
 
 class _TitlePageState extends State<TitlePage> {
+  late SharedPreferences prefs;
+  bool firstTime = false;
+
+  Future<void> initData() async {
+    prefs = await SharedPreferences.getInstance();
+    var plan = prefs.getStringList('basePlanDay1');
+    print("plan ${plan.toString()}");
+    setState(() {
+      if (plan == null) {
+        firstTime = true;
+      }
+      print("fristtimr $firstTime");
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    initData();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -86,11 +109,17 @@ class _TitlePageState extends State<TitlePage> {
               SizedBox(
                 height: size.height * 0.05,
                 width: size.width * 0.75,
-                child: StartButton(
-                  text: "Test Yourself!",
-                  width: size.width,
-                  tooltip: 'Smart Decision!',
-                ),
+                child: firstTime
+                    ? StartButton(
+                        text: "Test Yourself!",
+                        width: size.width,
+                        tooltip: 'Smart Decision!',
+                      )
+                    : RedirectButton(
+                        route: const Home(),
+                        text: 'Continue',
+                        width: size.width,
+                      ),
               ),
             ],
           ),
