@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'title_page.dart';
 import 'package:flutter/services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'home.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,64 +30,42 @@ class _MyAppState extends State<MyApp> {
   int actTheme = 0;
   ThemeMode _themeMode = ThemeMode.light;
 
-  late SharedPreferences prefs;
-  bool firstTime = true;
-
-  Future<void> initData() async {
-    prefs = await SharedPreferences.getInstance();
-    var plan = prefs.getStringList('basePlanDay1');
-
-    setState(() {
-      if (plan == null) {
-        firstTime = false;
-      }
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'The Brain Train App',
-      theme: ThemeData(
-        brightness: Brightness.light,
-        colorScheme: const ColorScheme.light(
-          primary: Color.fromARGB(255, 133, 138, 227),
-          onPrimary: Color.fromARGB(255, 95, 102, 248),
-          secondary: Color.fromARGB(255, 244, 250, 255),
-          onSecondary: Colors.black,
-          tertiary: Colors.white,
-          background: Color.fromARGB(255, 252, 252, 252),
-          error: Color.fromARGB(255, 238, 51, 38),
-          shadow: Color.fromARGB(255, 167, 167, 167),
+        title: 'The Brain Train App',
+        theme: ThemeData(
+          brightness: Brightness.light,
+          colorScheme: const ColorScheme.light(
+            primary: Color.fromARGB(255, 133, 138, 227),
+            onPrimary: Color.fromARGB(255, 95, 102, 248),
+            secondary: Color.fromARGB(255, 244, 250, 255),
+            onSecondary: Colors.black,
+            tertiary: Colors.white,
+            background: Color.fromARGB(255, 252, 252, 252),
+            error: Color.fromARGB(255, 238, 51, 38),
+            shadow: Color.fromARGB(255, 167, 167, 167),
+          ),
+          useMaterial3: true,
+          fontFamily: 'Arial',
         ),
-        useMaterial3: true,
-        fontFamily: 'Arial',
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        colorScheme: const ColorScheme.dark(
-          primary: Color.fromARGB(255, 126, 82, 160),
-          onPrimary: Color.fromARGB(255, 117, 72, 151),
-          secondary: Color.fromARGB(255, 102, 148, 190),
-          onSecondary: Colors.white,
-          tertiary: Colors.black,
-          background: Color.fromARGB(255, 19, 19, 19),
-          error: Color.fromARGB(255, 234, 31, 17),
-          shadow: Color.fromARGB(255, 0, 0, 0),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          colorScheme: const ColorScheme.dark(
+            primary: Color.fromARGB(255, 126, 82, 160),
+            onPrimary: Color.fromARGB(255, 117, 72, 151),
+            secondary: Color.fromARGB(255, 102, 148, 190),
+            onSecondary: Colors.white,
+            tertiary: Colors.black,
+            background: Color.fromARGB(255, 19, 19, 19),
+            error: Color.fromARGB(255, 234, 31, 17),
+            shadow: Color.fromARGB(255, 0, 0, 0),
+          ),
+          useMaterial3: true,
+          fontFamily: 'Arial',
         ),
-        useMaterial3: true,
-        fontFamily: 'Arial',
-      ),
-      themeMode: _themeMode,
-      home: firstTime
-          ? const TitlePage(title: 'The Brain Train App')
-          : const Home(),
-    );
+        themeMode: _themeMode,
+        home: const TitlePage(title: 'The Brain Train App'));
   }
 
   void switchTheme() {
