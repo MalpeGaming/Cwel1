@@ -30,8 +30,8 @@ class _VideoListItemState extends State<VideoListItem> {
           videoId: widget.videoAsset.substring(widget.videoAsset.length - 11),
           autoPlay: true,
           params: const YoutubePlayerParams(
-            showControls: true,
-            showFullscreenButton: true,
+            showControls: false,
+            showFullscreenButton: false,
             enableCaption: true,
             showVideoAnnotations: false,
             playsInline: true,
@@ -39,32 +39,23 @@ class _VideoListItemState extends State<VideoListItem> {
         );
         Navigator.push(
           context,
-          MaterialPageRoute(
-            builder: (context) {
-              return SizedBox(
-                height: MediaQuery.of(context).size.height * 0.5,
-                width: MediaQuery.of(context).size.width * 0.5,
-                child: Column(
-                  children: [
+          MaterialPageRoute(builder: (context) {
+            return SizedBox(
+              height: MediaQuery.of(context).size.height * 0.5,
+              width: MediaQuery.of(context).size.width * 0.5,
+              child: YoutubePlayerScaffold(
+                autoFullScreen: false,
+                enableFullScreenOnVerticalDrag: false,
+                builder: ((context, player) {
+                  return Stack(alignment: Alignment.topCenter, children: [
+                    player,
                     appBar(context, "", meditation: true),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.8,
-                      child: YoutubePlayerScaffold(
-                        autoFullScreen: false,
-                        enableFullScreenOnVerticalDrag: false,
-                        builder: ((context, player) {
-                          return Center(
-                            child: player,
-                          );
-                        }),
-                        controller: _controller,
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
+                  ],);
+                }),
+                controller: _controller,
+              ),
+            );
+          },),
         );
       },
       child: Container(
