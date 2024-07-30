@@ -26,6 +26,7 @@ class _VideoListItemState extends State<VideoListItem> {
         /*SystemChrome.setPreferredOrientations([
           DeviceOrientation.landscapeLeft,
         ]);*/
+
         _controller = YoutubePlayerController.fromVideoId(
           videoId: widget.videoAsset.substring(widget.videoAsset.length - 11),
           autoPlay: true,
@@ -39,23 +40,33 @@ class _VideoListItemState extends State<VideoListItem> {
         );
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) {
-            return SizedBox(
-              height: MediaQuery.of(context).size.height * 0.5,
-              width: MediaQuery.of(context).size.width * 0.5,
-              child: YoutubePlayerScaffold(
-                autoFullScreen: false,
-                enableFullScreenOnVerticalDrag: false,
-                builder: ((context, player) {
-                  return Stack(alignment: Alignment.topCenter, children: [
-                    player,
-                    appBar(context, "", meditation: true),
-                  ],);
-                }),
-                controller: _controller,
-              ),
-            );
-          },),
+          MaterialPageRoute(
+            builder: (context) {
+              SystemChrome.setPreferredOrientations(
+                [
+                  DeviceOrientation.landscapeLeft,
+                ],
+              );
+              return SizedBox(
+                height: MediaQuery.of(context).size.height * 0.5,
+                width: MediaQuery.of(context).size.width * 0.5,
+                child: YoutubePlayerScaffold(
+                  autoFullScreen: false,
+                  enableFullScreenOnVerticalDrag: false,
+                  builder: ((context, player) {
+                    return Stack(
+                      alignment: Alignment.topCenter,
+                      children: [
+                        player,
+                        appBar(context, "", meditation: true),
+                      ],
+                    );
+                  }),
+                  controller: _controller,
+                ),
+              );
+            },
+          ),
         );
       },
       child: Container(
@@ -115,7 +126,12 @@ class _VideoListItemState extends State<VideoListItem> {
 
   @override
   void dispose() {
-    SystemChrome.setPreferredOrientations([]);
+    SystemChrome.setPreferredOrientations(
+      [
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+      ],
+    );
     _controller.close();
     super.dispose();
   }
