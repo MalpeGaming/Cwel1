@@ -35,14 +35,7 @@ Widget zoomImage(BuildContext context, String image, {double? w, double? h}) {
     zoomWidget: Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Theme.of(context).colorScheme.shadow.withOpacity(1),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: const Offset(5, 5),
-          ),
-        ],
+        color: Theme.of(context).colorScheme.background,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
