@@ -50,7 +50,17 @@ class _MinuteListItemState extends State<MinuteListItem> {
           child: AspectRatio(
             aspectRatio: 1,
             child: Container(
-              color: Theme.of(context).colorScheme.primary,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.onPrimary,
+                  ],
+                  tileMode: TileMode.decal,
+                ),
+              ),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
