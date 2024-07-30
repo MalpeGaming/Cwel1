@@ -196,6 +196,13 @@ class _Scrabble extends State<Scrabble> {
               child: Text(
                 letter,
                 style: TextStyle(
+                  shadows: [
+                    Shadow(
+                      color: Colors.black.withOpacity(0.3),
+                      blurRadius: 5,
+                      offset: const Offset(2, 2),
+                    ),
+                  ],
                   fontSize: (size.width * 0.14) / 2,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -212,6 +219,13 @@ class _Scrabble extends State<Scrabble> {
                   child: Text(
                     scrabblePoints[letter].toString(),
                     style: TextStyle(
+                      shadows: [
+                        Shadow(
+                          color: Colors.black.withOpacity(0.3),
+                          blurRadius: 5,
+                          offset: const Offset(2, 2),
+                        ),
+                      ],
                       fontSize: (size.width * 0.14) / 3,
                       color: Colors.white,
                       decoration: TextDecoration.none,
@@ -315,11 +329,15 @@ class _Scrabble extends State<Scrabble> {
                 ),
                 SizedBox(height: 0.04 * size.height),
                 Text(
-                  "Points: $roundPoints, ${wordExists ? "Word Exists" : "Word does not exist"}",
+                  "Points: $roundPoints, ${wordExists ? "Word Exists" : "Current word does not exist"}",
                   style: TextStyle(fontSize: 0.02 * size.height),
                 ),
                 Text(
                   "Attempt: ${widget.iteration}",
+                  style: TextStyle(fontSize: 0.02 * size.height),
+                ),
+                Text(
+                  "All Points: ${widget.allPoints + roundPoints}",
                   style: TextStyle(fontSize: 0.02 * size.height),
                 ),
                 SizedBox(height: 0.03 * size.height),
@@ -351,21 +369,26 @@ class _Scrabble extends State<Scrabble> {
                         );
                       }),
                     ),
-                    //SizedBox(height: 0.02 * size.height),
-                    //Text(word.toString()),
-                    //Text(word.map((e) => picked[e]).join('')),
                     Align(
                       alignment: Alignment.centerRight,
                       child: IconButton(
-                        icon: const Icon(Icons.backspace_rounded),
+                        icon: Icon(
+                          Icons.backspace_rounded,
+                          shadows: [
+                            Shadow(
+                              color: Colors.black.withOpacity(0.3),
+                              blurRadius: 5,
+                              offset: const Offset(2, 2),
+                            ),
+                          ],
+                        ),
                         color: Theme.of(context).colorScheme.primary,
                         onPressed: () {
                           if (word.isNotEmpty) {
                             toggleUnused();
                           }
                         },
-                        iconSize: (size.width *
-                            0.12), // Increase the icon size to make it bigger
+                        iconSize: (size.width * 0.12),
                       ),
                     ),
                     Align(

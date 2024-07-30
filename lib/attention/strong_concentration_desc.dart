@@ -1,3 +1,4 @@
+import 'package:brain_train_app/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'strong_concentration.dart';
 import '/buttons.dart';
@@ -21,13 +22,13 @@ class _StrongConcentrationDesc extends State<StrongConcentrationDesc> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: appBar(context, ""),
       body: Container(
         width: size.width * 0.9,
         height: size.height * 0.9,
         margin: EdgeInsets.only(
           left: size.width / 10,
           right: size.width / 10,
-          top: size.height / 10,
           bottom: size.height / 10,
         ),
         child: Column(

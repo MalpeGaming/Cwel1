@@ -5,6 +5,7 @@ import 'dart:async';
 import 'dart:math';
 import '../score_n_progress/progress_screen.dart';
 import '/buttons.dart';
+import 'package:brain_train_app/app_bar.dart';
 
 class CorrectAWord extends StatefulWidget {
   const CorrectAWord({super.key});
@@ -91,6 +92,7 @@ class _CorrectAWord extends State<CorrectAWord> {
     return correctWords.isEmpty && incorrectWords.isEmpty
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
+            appBar: appBar(context, ""),
             body: SingleChildScrollView(
               child: Container(
                 width: size.width * 0.9,

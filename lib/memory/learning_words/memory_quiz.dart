@@ -5,6 +5,7 @@ import '../../score_n_progress/show_score.dart';
 import '../working_memory.dart';
 import '../../score_n_progress/progress_screen.dart';
 import '../../score_n_progress/show_improvement.dart';
+import '../../app_bar.dart';
 
 class MemoryQuiz extends StatefulWidget {
   final List<Map<String, String>> picked;
@@ -154,12 +155,14 @@ class _MemoryQuizState extends State<MemoryQuiz> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: appBar(context, ""),
       body: SingleChildScrollView(
         child: Container(
           width: size.width * 0.9,
-          margin: EdgeInsets.symmetric(
-            horizontal: size.width / 10,
-            vertical: size.height / 20,
+          margin: EdgeInsets.only(
+            bottom: size.width / 10,
+            left: size.height / 20,
+            right: size.height / 20,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

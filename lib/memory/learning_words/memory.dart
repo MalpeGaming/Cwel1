@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'memory_words.dart';
 import '../../buttons.dart';
+import '../../app_bar.dart';
 
 class Memory extends StatefulWidget {
   final bool initialTest;
@@ -22,11 +23,11 @@ class _Memory extends State<Memory> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: appBar(context, ""),
       body: Container(
         margin: EdgeInsets.only(
           left: size.width / 10,
           right: size.width / 10,
-          top: size.height / 10,
         ),
         child: Column(
           children: [

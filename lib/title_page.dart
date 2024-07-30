@@ -138,7 +138,7 @@ class _TitlePageState extends State<TitlePage> {
                           color: Theme.of(context)
                               .colorScheme
                               .onSecondary
-                              .withOpacity(0.5),
+                              .withOpacity(0.4),
                         ),
                       ),
                       TextSpan(
@@ -150,7 +150,7 @@ class _TitlePageState extends State<TitlePage> {
                           color: Theme.of(context)
                               .colorScheme
                               .onSecondary
-                              .withOpacity(0.5),
+                              .withOpacity(0.4),
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {

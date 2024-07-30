@@ -3,6 +3,7 @@ import 'package:brain_train_app/buttons.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
 import 'package:brain_train_app/investing/lesson13/main.dart';
+import 'package:brain_train_app/app_bar.dart';
 
 class Lesson12 extends StatefulWidget {
   const Lesson12({super.key});
@@ -72,12 +73,12 @@ class _Lesson12 extends State<Lesson12> {
     return PopScope(
       canPop: false,
       child: Scaffold(
+        appBar: appBar(context, ""),
         body: SingleChildScrollView(
           child: Container(
             margin: EdgeInsets.only(
               left: size.width / 10,
               right: size.width / 10,
-              top: size.height / 15,
               bottom: size.height / 20,
             ),
             child: Column(

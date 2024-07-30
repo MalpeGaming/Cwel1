@@ -26,6 +26,7 @@ class _Home extends State<Home> {
   int day = 1;
   List<bool> wellBeingTicked = [false, false, false, false];
   int points = 0;
+  int procent = 0;
 
   GlobalKey<AnimatedCircularChartState> key =
       GlobalKey<AnimatedCircularChartState>();
@@ -37,8 +38,8 @@ class _Home extends State<Home> {
   double value32 = 50.0;
 
   void calcValues() {
-    int procent = int.parse((points / trainingTime * 100).toStringAsFixed(0));
     setState(() {
+      procent = int.parse((points / trainingTime * 100).toStringAsFixed(0));
       if (procent >= 200) {
         value = 100;
         value2 = 0;
@@ -360,6 +361,12 @@ class _Home extends State<Home> {
         chartType: CircularChartType.Radial,
         edgeStyle: SegmentEdgeStyle.round,
         percentageValues: true,
+        holeLabel: '$procent%',
+        labelStyle: TextStyle(
+          color: Theme.of(context).colorScheme.onSecondary.withOpacity(0.3),
+          fontWeight: FontWeight.bold,
+          fontSize: size.width / 20,
+        ),
       ),
     );
   }

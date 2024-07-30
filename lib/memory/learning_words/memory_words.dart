@@ -1,11 +1,11 @@
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:xml/xml.dart' as xml;
 import 'dart:math';
 import 'dart:async';
 import 'memory_check.dart';
+import 'package:brain_train_app/app_bar.dart';
 
 class MemoryWords extends StatefulWidget {
   final bool initialTest;
@@ -95,7 +95,7 @@ class _MemoryWordsState extends State<MemoryWords> {
     );
   }
 
-  int _remainingTime = 420;
+  int _remainingTime = 2;
   late Timer _timer;
   List<Map<String, String>> b1 = [];
   List<Map<String, String>> picked = [];
@@ -169,13 +169,13 @@ class _MemoryWordsState extends State<MemoryWords> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: appBar(context, ""),
       body: picked.isEmpty
           ? const Center(child: CircularProgressIndicator())
           : Container(
               margin: EdgeInsets.only(
                 left: size.width / 10,
                 right: size.width / 10,
-                top: size.height / 10,
               ),
               child: Column(
                 children: [
