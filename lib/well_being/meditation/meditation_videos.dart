@@ -87,28 +87,28 @@ class _VideoListItemState extends State<VideoListItem> {
             aspectRatio: 1,
             child: Image.network(
               'https://img.youtube.com/vi/${widget.videoAsset.substring(widget.videoAsset.length - 11)}/0.jpg',
-              fit: BoxFit.fill,
+              filterQuality: FilterQuality.high,
+              fit: BoxFit.none,
               errorBuilder: (context, error, stackTrace) {
-                return const Center(
+                return Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Center(
-                        child: Icon(
-                          Icons.clear,
-                          color: Colors.red,
-                          size: 48,
-                        ),
-                      ),
-                      SizedBox(height: 8),
+                      const Center(child: CircularProgressIndicator()),
+                      const SizedBox(height: 8),
                       Center(
                         child: Text(
                           'Check internet connection',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSecondary
+                                .withOpacity(0.5),
                           ),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ],

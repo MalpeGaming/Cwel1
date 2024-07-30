@@ -218,8 +218,6 @@ class _Progress extends State<Progress> {
             ),
             SizedBox(height: 0.05 * size.height),
             buildChartColumn(context),
-
-            //buildChart(1, 1),
           ],
         ),
       ),
