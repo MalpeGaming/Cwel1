@@ -3,6 +3,9 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'app_bar.dart';
 import 'buttons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/gestures.dart';
+import 'settings/tos.dart';
+
 import 'home.dart';
 
 class TitlePage extends StatefulWidget {
@@ -119,6 +122,39 @@ class _TitlePageState extends State<TitlePage> {
                         width: size.width,
                       ),
               ),
+              SizedBox(height: 0.02 * size.height),
+              if (firstTime)
+                RichText(
+                  text: TextSpan(
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium, // Use the default body text style
+
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: "By pressing Test Yourselt, you agree to our ",
+                        style: TextStyle(
+                          fontSize: 0.02 * size.height,
+                        ),
+                      ),
+                      TextSpan(
+                        text: "Terms of Service",
+                        style: TextStyle(
+                          decoration:
+                              TextDecoration.underline, // Underline decoration
+                          fontSize: 0.02 * size.height,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => TermsOfService()));
+                          },
+                      ),
+                    ],
+                  ),
+                ),
             ],
           ),
         ),

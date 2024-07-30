@@ -47,23 +47,19 @@ class _VideoListItemState extends State<VideoListItem> {
                   DeviceOrientation.landscapeLeft,
                 ],
               );
-              return SizedBox(
-                height: MediaQuery.of(context).size.height * 0.5,
-                width: MediaQuery.of(context).size.width * 0.5,
-                child: YoutubePlayerScaffold(
-                  autoFullScreen: false,
-                  enableFullScreenOnVerticalDrag: false,
-                  builder: ((context, player) {
-                    return Stack(
-                      alignment: Alignment.topCenter,
-                      children: [
-                        player,
-                        appBar(context, "", meditation: true),
-                      ],
-                    );
-                  }),
-                  controller: _controller,
-                ),
+              return YoutubePlayerScaffold(
+                autoFullScreen: false,
+                enableFullScreenOnVerticalDrag: false,
+                builder: ((context, player) {
+                  return Stack(
+                    alignment: Alignment.topCenter,
+                    children: [
+                      player,
+                      appBar(context, "", meditation: true),
+                    ],
+                  );
+                }),
+                controller: _controller,
               );
             },
           ),
