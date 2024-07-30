@@ -132,9 +132,13 @@ class _TitlePageState extends State<TitlePage> {
 
                     children: <TextSpan>[
                       TextSpan(
-                        text: "By pressing Test Yourselt, you agree to our ",
+                        text: "By using our App, you agree to our ",
                         style: TextStyle(
-                          fontSize: 0.02 * size.height,
+                          fontSize: 0.015 * size.height,
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onSecondary
+                              .withOpacity(0.4),
                         ),
                       ),
                       TextSpan(
@@ -142,14 +146,20 @@ class _TitlePageState extends State<TitlePage> {
                         style: TextStyle(
                           decoration:
                               TextDecoration.underline, // Underline decoration
-                          fontSize: 0.02 * size.height,
+                          fontSize: 0.015 * size.height,
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onSecondary
+                              .withOpacity(0.4),
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => TermsOfService()));
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const TermsOfService(),
+                              ),
+                            );
                           },
                       ),
                     ],

@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
 import '../score_n_progress/progress_screen.dart';
 import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
+import 'package:brain_train_app/app_bar.dart';
 
 class SpellingMistakes extends StatefulWidget {
   const SpellingMistakes({
@@ -125,6 +126,7 @@ class _SpellingMistakes extends State<SpellingMistakes> {
     return questions.isEmpty & answers.isEmpty
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
+            appBar: appBar(context, ""),
             body: SingleChildScrollView(
               child: Container(
                 height: size.height * 0.9,

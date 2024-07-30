@@ -6,6 +6,7 @@ import '../attention/short_term_concentration.dart';
 import '../memory/learning_words/memory.dart';
 import '../linguistic/listening_comprehension_video.dart';
 import '../logical_thinking/riddles_info.dart';
+import 'package:brain_train_app/app_bar.dart';
 
 class Finish extends StatefulWidget {
   const Finish({
@@ -63,6 +64,7 @@ class _Finish extends State<Finish> {
     return PopScope(
       canPop: false,
       child: Scaffold(
+        appBar: appBar(context, ""),
         body: DecoratedBox(
           decoration: BoxDecoration(
             image: DecorationImage(

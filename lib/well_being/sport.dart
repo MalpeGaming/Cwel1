@@ -22,6 +22,7 @@ GestureDetector createDay(
   Size size = MediaQuery.of(context).size;
   return GestureDetector(
     onTap: () {
+      if (videoId == null) return;
       final youtubeUrl = 'https://www.youtube.com/watch?v=$videoId';
       launchURL(youtubeUrl);
     },

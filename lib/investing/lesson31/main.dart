@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
 import 'package:brain_train_app/investing/lesson32/main.dart';
+import 'package:brain_train_app/app_bar.dart';
 
 class Lesson31 extends StatefulWidget {
   const Lesson31({super.key});
@@ -74,12 +75,12 @@ class _Lesson31 extends State<Lesson31> {
     return PopScope(
       canPop: false,
       child: Scaffold(
+        appBar: appBar(context, ""),
         body: SingleChildScrollView(
           child: Container(
             margin: EdgeInsets.only(
               left: size.width / 10,
               right: size.width / 10,
-              top: size.height / 15,
               bottom: size.height / 20,
             ),
             child: Column(
