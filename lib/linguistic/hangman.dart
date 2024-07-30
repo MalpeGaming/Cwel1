@@ -52,19 +52,23 @@ class _Hangman extends State<Hangman> {
           mistakes++;
         }
         if (mistakes == 9 || currentWord.toLowerCase() == noun.toLowerCase()) {
-          Navigator.pop(context);
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ProgressScreen(
-                name: "idioms",
-                score: mistakes.toDouble(),
-                txt: "You tried",
-                pointAlternative: "letters",
-                exercise: 'Hangman',
+          currentWord = noun;
+          Future.delayed(Duration(seconds: 5), () {
+            // Code to execute after 5 seconds delay
+            Navigator.pop(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProgressScreen(
+                  name: "idioms",
+                  score: mistakes.toDouble(),
+                  txt: "You tried",
+                  pointAlternative: "letters",
+                  exercise: 'Hangman',
+                ),
               ),
-            ),
-          );
+            );
+          });
         }
         blocked[row][indx] = true;
       });
@@ -199,6 +203,7 @@ class _Hangman extends State<Hangman> {
                           child: Image.asset(
                             'assets/linguistic/hangman/${mistakes + ((Theme.of(context).brightness == Brightness.dark) ? 9 : 0)}.png',
                             fit: BoxFit.cover,
+                            gaplessPlayback: true,
                           ),
                         ),
                       ),
