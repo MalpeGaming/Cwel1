@@ -60,36 +60,39 @@ GestureDetector createDay(
                   ),
                   height: 0.08 * size.height,
                   width: 0.15 * size.height,
-                  child: Image.network(
-                    'https://img.youtube.com/vi/$videoId/0.jpg',
-                    fit: BoxFit.fitWidth,
-                    errorBuilder: (context, error, stackTrace) {
-                      return const Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Center(
-                              child: Icon(
-                                Icons.clear,
-                                color: Colors.red,
-                                size: 48,
-                              ),
-                            ),
-                            SizedBox(height: 8),
-                            Center(
-                              child: Text(
-                                'Check internet connection',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    child: Image.network(
+                      'https://img.youtube.com/vi/$videoId/0.jpg',
+                      fit: BoxFit.fitWidth,
+                      errorBuilder: (context, error, stackTrace) {
+                        return const Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Center(
+                                child: Icon(
+                                  Icons.clear,
+                                  color: Colors.red,
+                                  size: 48,
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
+                              SizedBox(height: 8),
+                              Center(
+                                child: Text(
+                                  'Check internet connection',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
               SizedBox(width: 0.03 * size.width),
