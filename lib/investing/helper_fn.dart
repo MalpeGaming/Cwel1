@@ -50,7 +50,6 @@ Widget zoomImage(BuildContext context, String image, {double? w, double? h}) {
           image,
           width: w,
           height: h,
-          fit: BoxFit.cover,
         ),
       ),
     ),
