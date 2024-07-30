@@ -39,9 +39,15 @@ class _Home extends State<Home> {
   void calcValues() {
     int procent = int.parse((points / trainingTime * 100).toStringAsFixed(0));
     setState(() {
-      value = min(procent.toDouble(), 100);
-      value2 = 100 - value;
-      value3 = (procent > 100) ? procent % 100 : 0;
+      if (procent >= 200) {
+        value = 100;
+        value2 = 0;
+        value3 = 100;
+      } else {
+        value = min(procent.toDouble(), 100);
+        value2 = 100 - value;
+        value3 = (procent > 100) ? procent % 100 : 0;
+      }
       List<CircularStackEntry> data = _generateChartData();
       key.currentState!.updateData(data);
     });
