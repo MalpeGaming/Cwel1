@@ -66,7 +66,7 @@ The Brain Train app is based on the neurological concept that says, "What fires 
 ## User Responsibility
 
 1. **Use at Your Own Risk**
-You are using the Brain Train app at your own risk ("na własną odpowiedzialność"). We do not warrant that the app will meet your specific requirements or that it will be free from errors or interruptions.
+You are using the Brain Train app at your own risk. We do not warrant that the app will meet your specific requirements or that it will be free from errors or interruptions.
 
 &nbsp;
 

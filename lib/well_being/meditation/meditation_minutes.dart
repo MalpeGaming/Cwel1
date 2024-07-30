@@ -66,9 +66,16 @@ class _MinuteListItemState extends State<MinuteListItem> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      Icons.access_time,
+                      Icons.access_time_rounded,
                       color: Colors.white,
                       size: size.height * 0.06,
+                      shadows: [
+                        Shadow(
+                          color: Colors.black.withOpacity(0.2),
+                          blurRadius: 10,
+                          offset: const Offset(5, 5),
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: size.height * 0.01,
@@ -78,6 +85,13 @@ class _MinuteListItemState extends State<MinuteListItem> {
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: size.height * 0.025,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black.withOpacity(0.2),
+                            blurRadius: 10,
+                            offset: const Offset(5, 5),
+                          ),
+                        ],
                       ),
                     ),
                   ],

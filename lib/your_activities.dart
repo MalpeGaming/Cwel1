@@ -116,6 +116,13 @@ GestureDetector createActivity(
                         height: 1.2,
                         fontStyle:
                             (title) ? FontStyle.italic : FontStyle.normal,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 10,
+                            offset: const Offset(5, 5),
+                          ),
+                        ],
                       ),
                     ),
                     Text(
@@ -125,6 +132,13 @@ GestureDetector createActivity(
                         fontSize: zero * fontSize,
                         fontWeight: FontWeight.bold,
                         height: 1.2,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 10,
+                            offset: const Offset(5, 5),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -152,7 +166,7 @@ class _YourActivities extends State<YourActivities> {
   }) {
     Size size = MediaQuery.of(context).size;
     print(skillAllLists[skill]);
-    //if (memoryList.any((pair) => pair[0] == route)) {
+
     if (skillAllLists[skill] != null &&
         skillAllLists[skill]!.contains(activityName)) {
       return createActivity(
@@ -160,7 +174,7 @@ class _YourActivities extends State<YourActivities> {
         "activities/$img",
         txt1,
         txt2,
-        0.022 * size.height * fontSize,
+        0.023 * size.height * fontSize,
         route,
         Theme.of(context).colorScheme.primary,
         Theme.of(context).colorScheme.onPrimary,
@@ -170,7 +184,6 @@ class _YourActivities extends State<YourActivities> {
         title: false,
       );
     }
-    //}
 
     return const SizedBox();
   }
