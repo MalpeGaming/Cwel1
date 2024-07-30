@@ -35,7 +35,7 @@ class _MinuteListItemState extends State<MinuteListItem> {
       child: Container(
         margin: const EdgeInsets.all(6),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(25),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.35),
@@ -46,11 +46,21 @@ class _MinuteListItemState extends State<MinuteListItem> {
           ],
         ),
         child: ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          borderRadius: const BorderRadius.all(Radius.circular(25)),
           child: AspectRatio(
             aspectRatio: 1,
             child: Container(
-              color: Theme.of(context).colorScheme.primary,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.onPrimary,
+                  ],
+                  tileMode: TileMode.decal,
+                ),
+              ),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

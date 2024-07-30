@@ -28,7 +28,7 @@ class _NutritionTips extends State<NutritionTips> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 0.07 * size.height),
+              SizedBox(height: 0.08 * size.height),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,

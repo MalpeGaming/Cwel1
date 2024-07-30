@@ -57,7 +57,6 @@ class _Progress extends State<Progress> {
       setState(() {
         value[i] = min(procent.toDouble(), 100);
         value2[i] = 100 - value[i];
-        //value3[i] = (procent > 100) ? procent % 100 : 0;
         List<CircularStackEntry> data = _generateChartData(i);
         keys[i].currentState!.updateData(data);
       });
@@ -73,9 +72,16 @@ class _Progress extends State<Progress> {
             int.parse((points / trainingTime * 100).toStringAsFixed(0));
 
         setState(() {
-          value[i] = min(procent.toDouble(), 100);
-          value2[i] = 100 - value[i];
-          value3[i] = (procent > 100) ? procent % 100 : 0;
+          if (procent >= 200) {
+            value[i] = 100;
+            value2[i] = 0;
+            value3[i] = 100;
+          } else {
+            value[i] = min(procent.toDouble(), 100);
+            value2[i] = 100 - value[i];
+            value3[i] = (procent > 100) ? procent % 100 : 0;
+          }
+
           List<CircularStackEntry> data = _generateChartData(i);
           keys[i].currentState!.updateData(data);
         });
@@ -218,8 +224,6 @@ class _Progress extends State<Progress> {
             ),
             SizedBox(height: 0.05 * size.height),
             buildChartColumn(context),
-
-            //buildChart(1, 1),
           ],
         ),
       ),

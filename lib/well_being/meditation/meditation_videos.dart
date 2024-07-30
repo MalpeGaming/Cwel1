@@ -26,12 +26,13 @@ class _VideoListItemState extends State<VideoListItem> {
         /*SystemChrome.setPreferredOrientations([
           DeviceOrientation.landscapeLeft,
         ]);*/
+
         _controller = YoutubePlayerController.fromVideoId(
           videoId: widget.videoAsset.substring(widget.videoAsset.length - 11),
           autoPlay: true,
           params: const YoutubePlayerParams(
-            showControls: true,
-            showFullscreenButton: true,
+            showControls: false,
+            showFullscreenButton: false,
             enableCaption: true,
             showVideoAnnotations: false,
             playsInline: true,
@@ -41,27 +42,24 @@ class _VideoListItemState extends State<VideoListItem> {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return SizedBox(
-                height: MediaQuery.of(context).size.height * 0.5,
-                width: MediaQuery.of(context).size.width * 0.5,
-                child: Column(
-                  children: [
-                    appBar(context, "", meditation: true),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.8,
-                      child: YoutubePlayerScaffold(
-                        autoFullScreen: false,
-                        enableFullScreenOnVerticalDrag: false,
-                        builder: ((context, player) {
-                          return Center(
-                            child: player,
-                          );
-                        }),
-                        controller: _controller,
-                      ),
-                    ),
-                  ],
-                ),
+              SystemChrome.setPreferredOrientations(
+                [
+                  DeviceOrientation.landscapeLeft,
+                ],
+              );
+              return YoutubePlayerScaffold(
+                autoFullScreen: false,
+                enableFullScreenOnVerticalDrag: false,
+                builder: ((context, player) {
+                  return Stack(
+                    alignment: Alignment.topCenter,
+                    children: [
+                      player,
+                      appBar(context, "", meditation: true),
+                    ],
+                  );
+                }),
+                controller: _controller,
               );
             },
           ),
@@ -87,28 +85,28 @@ class _VideoListItemState extends State<VideoListItem> {
             aspectRatio: 1,
             child: Image.network(
               'https://img.youtube.com/vi/${widget.videoAsset.substring(widget.videoAsset.length - 11)}/0.jpg',
-              fit: BoxFit.fill,
+              filterQuality: FilterQuality.high,
+              fit: BoxFit.none,
               errorBuilder: (context, error, stackTrace) {
-                return const Center(
+                return Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Center(
-                        child: Icon(
-                          Icons.clear,
-                          color: Colors.red,
-                          size: 48,
-                        ),
-                      ),
-                      SizedBox(height: 8),
+                      const Center(child: CircularProgressIndicator()),
+                      const SizedBox(height: 8),
                       Center(
                         child: Text(
                           'Check internet connection',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSecondary
+                                .withOpacity(0.5),
                           ),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ],
@@ -124,7 +122,12 @@ class _VideoListItemState extends State<VideoListItem> {
 
   @override
   void dispose() {
-    SystemChrome.setPreferredOrientations([]);
+    SystemChrome.setPreferredOrientations(
+      [
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+      ],
+    );
     _controller.close();
     super.dispose();
   }

@@ -20,7 +20,6 @@ class _Settings extends State<Settings> {
     "Restart The App",
     "End The Program",
     "Our Website",
-    "Your Certificates",
   ];
 
   List<Widget?> routes = [
@@ -35,7 +34,6 @@ class _Settings extends State<Settings> {
       maximum: 10,
       page: Home(),
     ),
-    const SizedBox(),
     const SizedBox(),
   ];
   List<bool> highlighted = [false, false, false, false, false, false];
@@ -183,7 +181,7 @@ class _Settings extends State<Settings> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              SizedBox(height: 0.07 * size.height),
+              SizedBox(height: 0.1 * size.height),
               Center(
                 child: Text(
                   "SETTINGS",
@@ -196,7 +194,7 @@ class _Settings extends State<Settings> {
               SizedBox(height: 0.05 * size.height),
               Column(
                 children: List.generate(
-                  6,
+                  5,
                   (index) => Column(
                     children: [
                       element(context, index),
