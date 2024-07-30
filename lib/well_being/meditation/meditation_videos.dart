@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '/app_bar.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class VideoListItem extends StatefulWidget {
   final String videoAsset;
@@ -19,51 +20,17 @@ class _VideoListItemState extends State<VideoListItem> {
     super.initState();
   }
 
+  Future<void> launchURL(String url) async {
+    await launchUrl(Uri.parse(url));
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        /*SystemChrome.setPreferredOrientations([
-          DeviceOrientation.landscapeLeft,
-        ]);*/
-
-        _controller = YoutubePlayerController.fromVideoId(
-          videoId: widget.videoAsset.substring(widget.videoAsset.length - 11),
-          autoPlay: true,
-          params: const YoutubePlayerParams(
-            showControls: false,
-            showFullscreenButton: false,
-            enableCaption: true,
-            showVideoAnnotations: false,
-            playsInline: true,
-          ),
-        );
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              SystemChrome.setPreferredOrientations(
-                [
-                  DeviceOrientation.landscapeLeft,
-                ],
-              );
-              return YoutubePlayerScaffold(
-                autoFullScreen: false,
-                enableFullScreenOnVerticalDrag: false,
-                builder: ((context, player) {
-                  return Stack(
-                    alignment: Alignment.topCenter,
-                    children: [
-                      player,
-                      appBar(context, "", meditation: true),
-                    ],
-                  );
-                }),
-                controller: _controller,
-              );
-            },
-          ),
-        );
+        final youtubeUrl =
+            'https://www.youtube.com/watch?v=${widget.videoAsset.substring(widget.videoAsset.length - 11)}';
+        launchURL(youtubeUrl);
       },
       child: Container(
         margin: const EdgeInsets.all(6),
