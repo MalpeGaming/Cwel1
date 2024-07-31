@@ -321,9 +321,15 @@ class _Success extends State<Success> {
     });
   }
 
+  Future<void> saveResult() async {
+    prefs = await SharedPreferences.getInstance();
+    prefs.setString("InvestingMenuTickedDay$day", "1");
+  }
+
   Future<void> initMemory() async {
     await calcDay();
     await readMemory();
+    await saveResult();
   }
 
   @override
