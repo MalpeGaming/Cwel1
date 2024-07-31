@@ -310,8 +310,6 @@ class _Wordly extends State<Wordly> {
                               (index) => buildKey(context, 2, index),
                             ),
                           ),
-                          Text(act.toString()),
-                          Text(noun),
                         ],
                       );
                     },
