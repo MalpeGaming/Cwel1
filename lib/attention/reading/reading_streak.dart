@@ -67,22 +67,26 @@ class _ReadingStreak extends State<ReadingStreak> {
     setState(() {
       for (int i = 1; i <= 30; i++) {
         streak[i] = prefs.getInt('readingDay$i')?.toInt();
-        if (streak[i] != 1 && i < day) {
-          missed++;
-        } else if (i <= day && streak[i] == 1) {
+        if (streak[i] == 1) {
           done++;
-        } else if (i >= day && streak[i] != 1) {
+        } else if (i < day) {
+          missed++;
+        } else {
           future++;
         }
       }
     });
   }
 
+  Future<void> initMemory() async {
+    await calcDay();
+    await readMemory();
+  }
+
   @override
   void initState() {
     super.initState();
-    readMemory();
-    calcDay();
+    initMemory();
   }
 
   @override

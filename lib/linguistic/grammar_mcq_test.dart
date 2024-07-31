@@ -84,7 +84,6 @@ class _Grammar extends State<Grammar> {
         leading: Radio<int>(
           value: val,
           groupValue: selectedOption,
-          activeColor: Colors.blue,
           onChanged: (value) {
             setState(() {
               selectedOption = value!;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:word_generator/word_generator.dart';
 import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
 import '../app_bar.dart';
+import '../score_n_progress/progress_screen.dart';
 
 class Wordly extends StatefulWidget {
   const Wordly({super.key, this.testVersion = false});
@@ -40,13 +41,13 @@ class _Wordly extends State<Wordly> {
           end: Alignment.bottomRight,
           colors: (guessed[(indx - indx % 6) ~/ 6][indx % 6] == 0)
               ? [
-                  const Color.fromARGB(255, 201, 233, 255),
-                  const Color.fromARGB(255, 164, 205, 236),
+                  Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                  Theme.of(context).colorScheme.onPrimary.withOpacity(0.5),
                 ]
               : (guessed[(indx - indx % 6) ~/ 6][indx % 6] == 1)
                   ? [
-                      const Color.fromARGB(255, 122, 163, 194),
-                      const Color.fromARGB(255, 123, 167, 206),
+                      Theme.of(context).colorScheme.primary,
+                      Theme.of(context).colorScheme.onPrimary,
                     ]
                   : (guessed[(indx - indx % 6) ~/ 6][indx % 6] == 2)
                       ? [
@@ -110,12 +111,18 @@ class _Wordly extends State<Wordly> {
                       ]
                     : (notGuessedKeys.contains(qwerty[row][indx].toUpperCase()))
                         ? [
-                            const Color.fromARGB(255, 201, 233, 255),
-                            const Color.fromARGB(255, 164, 205, 236),
+                            Theme.of(context)
+                                .colorScheme
+                                .primary
+                                .withOpacity(0.5),
+                            Theme.of(context)
+                                .colorScheme
+                                .onPrimary
+                                .withOpacity(0.5),
                           ]
                         : [
-                            const Color.fromARGB(255, 140, 186, 221),
-                            const Color.fromARGB(255, 91, 140, 182),
+                            Theme.of(context).colorScheme.primary,
+                            Theme.of(context).colorScheme.onPrimary,
                           ],
           ),
         ),
@@ -162,6 +169,18 @@ class _Wordly extends State<Wordly> {
       word += letters[(act - act % 6) ~/ 6][i];
     }
     word = word.toLowerCase();
+    if (word == noun || act == 35) {
+      Navigator.pop(context);
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => ProgressScreen(
+            name: "wordly",
+            score: (6 - act ~/ 6).toDouble(),
+            exercise: 'Wordly',
+          ),
+        ),
+      );
+    }
     print(word);
     if (await dMSAJson.hasEntry(word)) {
       return true;
@@ -291,6 +310,8 @@ class _Wordly extends State<Wordly> {
                               (index) => buildKey(context, 2, index),
                             ),
                           ),
+                          Text(act.toString()),
+                          Text(noun),
                         ],
                       );
                     },

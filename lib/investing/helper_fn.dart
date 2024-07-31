@@ -39,11 +39,7 @@ Widget zoomImage(BuildContext context, String image, {double? w, double? h}) {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: Image.asset(
-          image,
-          width: w,
-          height: h,
-        ),
+        child: Image.asset(image),
       ),
     ),
   );
@@ -209,8 +205,8 @@ Container createRecipe(
   Size size = MediaQuery.of(context).size;
 
   return Container(
-    height: h * size.height,
-    width: h * size.width,
+    //height: h * size.height,
+    //width: h * size.width,
     decoration: BoxDecoration(
       borderRadius: const BorderRadius.all(Radius.circular(20)),
       gradient: LinearGradient(
@@ -236,11 +232,11 @@ Container createRecipe(
       padding: EdgeInsets.all(size.width / 30),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: zoomImage(
-          context,
-          images[qIndx][index],
-          //w: 0.2 * size.width,
-          //h: 0.2 * size.width,
+        child: FittedBox(
+          child: zoomImage(
+            context,
+            images[qIndx][index],
+          ),
         ),
       ),
     ),
@@ -372,7 +368,7 @@ class _Success extends State<Success> {
                     RichText(
                       text: TextSpan(
                         style: TextStyle(
-                          fontSize: 0.025 * size.height,
+                          fontSize: 0.022 * size.height,
                           color: Theme.of(context).colorScheme.onSecondary,
                         ),
                         children: [
@@ -391,7 +387,7 @@ class _Success extends State<Success> {
                     RichText(
                       text: TextSpan(
                         style: TextStyle(
-                          fontSize: 0.025 * size.height,
+                          fontSize: 0.022 * size.height,
                           color: Theme.of(context).colorScheme.onSecondary,
                         ),
                         children: [
@@ -410,7 +406,7 @@ class _Success extends State<Success> {
                     RichText(
                       text: TextSpan(
                         style: TextStyle(
-                          fontSize: 0.025 * size.height,
+                          fontSize: 0.022 * size.height,
                           color: Theme.of(context).colorScheme.onSecondary,
                         ),
                         children: [
@@ -440,12 +436,12 @@ class _Success extends State<Success> {
                       minHeight: 0.025 * size.height,
                       borderRadius: BorderRadius.circular(21312127),
                     ),
-                    SizedBox(height: 0.025 * size.height),
+                    SizedBox(height: 0.07 * size.height),
 
                     RichText(
                       text: TextSpan(
                         style: TextStyle(
-                          fontSize: 0.025 * size.height,
+                          fontSize: 0.022 * size.height,
                           color: Theme.of(context).colorScheme.onSecondary,
                         ),
                         children: [
@@ -464,7 +460,7 @@ class _Success extends State<Success> {
                     RichText(
                       text: TextSpan(
                         style: TextStyle(
-                          fontSize: 0.025 * size.height,
+                          fontSize: 0.022 * size.height,
                           color: Theme.of(context).colorScheme.onSecondary,
                         ),
                         children: [

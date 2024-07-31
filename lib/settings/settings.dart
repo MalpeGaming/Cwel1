@@ -57,7 +57,7 @@ class _Settings extends State<Settings> {
               'By restarting the program, you will return to the welcome screen. Your ',
               'scores will be lost.',
               '',
-              'Would you like to restart the same Program?',
+              'Would you like to restart the App?',
               restartApp,
             );
           } else if (index == 4) {

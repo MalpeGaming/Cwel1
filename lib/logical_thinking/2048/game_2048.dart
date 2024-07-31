@@ -1,9 +1,9 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../app_bar.dart';
 import 'colors.dart';
+import '/score_n_progress/progress_screen.dart';
 
 class Game2048 extends StatefulWidget {
   const Game2048({super.key});
@@ -125,7 +125,7 @@ class _Game2048State extends State<Game2048> {
                   children: [
                     SizedBox(height: size.height / 25),
                     Text(
-                      "You lose!\nYou lose again!",
+                      "You lose!",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: size.width / 15,
@@ -141,49 +141,36 @@ class _Game2048State extends State<Game2048> {
                           onTap: () {
                             Navigator.of(context).pop();
                             Navigator.of(context).pop();
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => ProgressScreen(
+                                  name: "2048",
+                                  score: score.toDouble(),
+                                  exercise: 'Game2048',
+                                ),
+                              ),
+                            );
                           },
                           child: Container(
-                            width: size.width / 10,
-                            height: size.width / 10,
+                            width: size.width / 7,
+                            height: size.width / 7,
                             decoration: BoxDecoration(
                               color: (Theme.of(context).brightness ==
                                       Brightness.light)
                                   ? boardColorLight
                                   : boardColorDark,
                               borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: const Column(
-                              children: [
-                                Text("you lost!"),
-                                Center(
-                                  child: Icon(
-                                    Icons.exit_to_app,
-                                    color: Colors.white,
-                                  ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  blurRadius: 6,
+                                  offset: const Offset(0, 3),
                                 ),
                               ],
                             ),
-                          ),
-                        ),
-                        SizedBox(width: size.width / 25),
-                        InkWell(
-                          onTap: () {
-                            Navigator.of(context).pop();
-                            restartGame();
-                          },
-                          child: Container(
-                            width: size.width / 10,
-                            height: size.width / 10,
-                            decoration: BoxDecoration(
-                              color: (Theme.of(context).brightness ==
-                                      Brightness.light)
-                                  ? boardColorLight
-                                  : boardColorDark,
-                              borderRadius: BorderRadius.circular(8),
-                            ),
                             child: const Center(
                               child: Icon(
-                                Icons.restart_alt,
+                                Icons.exit_to_app,
                                 color: Colors.white,
                               ),
                             ),
@@ -227,7 +214,7 @@ class _Game2048State extends State<Game2048> {
     final tileSize = sizePerTile - 12.0 - (12.0 / 4);
 
     return Scaffold(
-      appBar: appBar(context, "", canReturn: false),
+      appBar: appBar(context, ""),
       body: Center(
         child: Container(
           margin: EdgeInsets.only(
@@ -263,14 +250,28 @@ class _Game2048State extends State<Game2048> {
                                   ? boardColorLight
                                   : boardColorDark,
                               borderRadius: BorderRadius.circular(8),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  blurRadius: 6,
+                                  offset: const Offset(5, 5),
+                                ),
+                              ],
                             ),
                             child: Center(
                               child: Text(
                                 "SCORE\n$score",
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontWeight: FontWeight.w800,
                                   color: Colors.white,
+                                  shadows: [
+                                    Shadow(
+                                      color: Colors.black.withOpacity(0.3),
+                                      blurRadius: 6,
+                                      offset: const Offset(0, 3),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -285,14 +286,28 @@ class _Game2048State extends State<Game2048> {
                                   ? boardColorLight
                                   : boardColorDark,
                               borderRadius: BorderRadius.circular(8),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  blurRadius: 6,
+                                  offset: const Offset(5, 5),
+                                ),
+                              ],
                             ),
                             child: Center(
                               child: Text(
                                 "BEST\n$bestScore",
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontWeight: FontWeight.w800,
                                   color: Colors.white,
+                                  shadows: [
+                                    Shadow(
+                                      color: Colors.black.withOpacity(0.3),
+                                      blurRadius: 6,
+                                      offset: const Offset(0, 3),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -316,11 +331,25 @@ class _Game2048State extends State<Game2048> {
                                     ? boardColorLight
                                     : boardColorDark,
                                 borderRadius: BorderRadius.circular(8),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.2),
+                                    blurRadius: 6,
+                                    offset: const Offset(5, 5),
+                                  ),
+                                ],
                               ),
-                              child: const Center(
+                              child: Center(
                                 child: Icon(
                                   Icons.undo,
                                   color: Colors.white,
+                                  shadows: [
+                                    Shadow(
+                                      color: Colors.black.withOpacity(0.3),
+                                      blurRadius: 6,
+                                      offset: const Offset(0, 3),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -339,11 +368,25 @@ class _Game2048State extends State<Game2048> {
                                     ? boardColorLight
                                     : boardColorDark,
                                 borderRadius: BorderRadius.circular(8),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.3),
+                                    blurRadius: 6,
+                                    offset: const Offset(5, 5),
+                                  ),
+                                ],
                               ),
-                              child: const Center(
+                              child: Center(
                                 child: Icon(
                                   Icons.restart_alt,
                                   color: Colors.white,
+                                  shadows: [
+                                    Shadow(
+                                      color: Colors.black.withOpacity(0.3),
+                                      blurRadius: 6,
+                                      offset: const Offset(0, 3),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -382,6 +425,13 @@ class _Game2048State extends State<Game2048> {
                         ? boardColorLight
                         : boardColorDark,
                     borderRadius: BorderRadius.circular(8),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        blurRadius: 6,
+                        offset: const Offset(5, 5),
+                      ),
+                    ],
                   ),
                   child: Stack(
                     children: List.generate(16, (i) {
