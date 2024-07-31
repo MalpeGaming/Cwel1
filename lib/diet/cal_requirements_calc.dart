@@ -73,7 +73,7 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
           text,
           style: TextStyle(
               fontSize: 0.045 * size.width,
-              color: Theme.of(context).colorScheme.onSecondary),
+              color: Theme.of(context).colorScheme.onSecondary,),
         ),
       ),
     );
