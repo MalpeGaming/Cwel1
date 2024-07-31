@@ -105,7 +105,7 @@ class _Home extends State<Home> {
   }
 
   var skillBaseList = [
-    [Faces, 10],
+    [Faces, "Faces", 10],
   ];
 
   Future<void> getSkill() async {
@@ -122,6 +122,7 @@ class _Home extends State<Home> {
   Future<void> createPlan() async {
     prefs = await SharedPreferences.getInstance();
     List<String> newPlan = prefs.getStringList("basePlanDay$day") ?? [];
+    print("poczatek newPlan: $newPlan");
     if (newPlan.isNotEmpty) {
       setState(() {
         plan = newPlan;
@@ -129,15 +130,16 @@ class _Home extends State<Home> {
       return;
     }
     skillBaseList = List.from(skillBaseLists[skill]!);
-
+    print("skillBaseList: $skillBaseList");
     int currentTime = 0;
 
     while (currentTime < trainingTime) {
       int el = rng.nextInt(skillBaseList.length);
-      newPlan.add(skillBaseList[el].toList()[0].toString());
-      currentTime += skillBaseList[el].toList()[1] as int;
+      newPlan.add(skillBaseList[el].toList()[1].toString());
+      currentTime += skillBaseList[el].toList()[2] as int;
       skillBaseList.removeAt(el);
     }
+    print("newPlan: $newPlan");
     prefs.setStringList("basePlanDay$day", newPlan);
     setState(() {
       plan = newPlan;

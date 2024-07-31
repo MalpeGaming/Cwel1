@@ -28,11 +28,11 @@ import 'package:brain_train_app/logical_thinking/riddles_info.dart';
 import 'package:brain_train_app/memory/learning_words/memory.dart';
 
 var memoryBaseList = [
-  [Memory, 10],
-  [WorkingMemory, 5],
-  [MemoryGame1, 5],
-  [Faces, 5],
-  [LongTermConcentrationVideo, 10],
+  [Memory, "Memory", 10],
+  [WorkingMemory, "WorkingMemory", 5],
+  [MemoryGame1, "MemoryGame1", 5],
+  [Faces, "Faces", 5],
+  [LongTermConcentrationVideo, "LongTermConcentrationVideo", 10],
 ];
 
 var memoryRestList = [
@@ -69,12 +69,12 @@ var memoryAllList = [
 ];
 
 var attentionBaseList = [
-  [const StrongConcentrationDesc(), 5],
-  [const ShortTermConcentration(), 5],
-  [const LongTermConcentrationVideo(), 10],
-  [const Memory(), 10],
-  [const MemoryGame1(), 5],
-  [const FindTheNumber(), 5],
+  [StrongConcentrationDesc, "StrongConcentrationDesc", 5],
+  [ShortTermConcentration, "ShortTermConcentration", 5],
+  [LongTermConcentrationVideo, "LongTermConcentrationVideo", 10],
+  [Memory, "Memory", 10],
+  [MemoryGame1, "MemoryGame1", 5],
+  [FindTheNumber, "FindTheNumber", 5],
 ];
 
 var attentionRestList = [
@@ -112,19 +112,19 @@ var attentionAllList = [
 ];
 
 var linguisticBaseList = [
-  [const Memory(), 10],
-  [const Info(), 5],
-  [const ReadingComprehensionInfo(), 10],
-  [const ListeningComprehensionVideo(), 10],
-  [const SpellingMistakes(exerciseId: 0), 5],
-  [const CorrectAWord(), 5],
-  [const Grammar(exerciseId: 0), 5],
-  [const SpellingMistakes(exerciseId: 0), 5],
-  [const ChooseBestWord(), 5],
-  [const Idioms(), 5],
-  [const Scrabble(iteration: 1, allPoints: 0), 5],
-  [const Hangman(), 5],
-  [const Wordly(), 5],
+  [Memory, "Memory", 10],
+  [Info, "Info", 5],
+  [ReadingComprehensionInfo, "ReadingComprehensionInfo", 10],
+  [ListeningComprehensionVideo, "ListeningComprehensionVideo", 10],
+  [const SpellingMistakes(exerciseId: 0), "SpellingMistakes", 5],
+  [const CorrectAWord(), "CorrectAWord", 5],
+  [const Grammar(exerciseId: 0), "Grammar", 5],
+  [const SpellingMistakes(exerciseId: 0), "SpellingMistakes", 5],
+  [const ChooseBestWord(), "ChooseBestWord", 5],
+  [const Idioms(), "Idioms", 5],
+  [const Scrabble(iteration: 1, allPoints: 0), "Scrabble", 5],
+  [const Hangman(), "Hangman", 5],
+  [const Wordly(), "Wordly", 5],
 ];
 
 var linguisticRestList = [
@@ -164,11 +164,11 @@ var linguisticAllList = [
 ];
 
 var logicalBaseList = [
-  [const StrongConcentrationDesc(), 5],
-  [const Riddles(), 10],
-  [const Game2048(), 5],
-  [const SudokuInfo(), 10],
-  [const InvestingMenu(), 15],
+  [const StrongConcentrationDesc(), "StrongConcentrationDesc", 5],
+  [const Riddles(), "Riddles", 10],
+  [const Game2048(), "Game2048", 5],
+  [const SudokuInfo(), "SudokuInfo", 10],
+  [const InvestingMenu(), "InvestingMenu", 15],
 ];
 var logicalRestList = [
   const Scrabble(iteration: 1, allPoints: 0),
@@ -199,13 +199,13 @@ var logicalAllList = [
 ];
 
 var gamesBaseList = [
-  [const Scrabble(iteration: 1, allPoints: 0), 5],
-  [const Hangman(), 5],
-  [const Wordly(), 5],
-  [const Game2048(), 5],
-  [const SudokuInfo(), 5],
-  [const FindTheNumber(), 5],
-  [const MemoryGame1(), 5],
+  [const Scrabble(iteration: 1, allPoints: 0), "Scrabble", 5],
+  [const Hangman(), "Hangman", 5],
+  [const Wordly(), "Wordly", 5],
+  [const Game2048(), "Game2048", 5],
+  [const SudokuInfo(), "SudokuInfo", 5],
+  [const FindTheNumber(), "FindTheNumber", 5],
+  [const MemoryGame1(), "MemoryGame1", 5],
 ];
 var gamesRestList = [
   const Reading(),
