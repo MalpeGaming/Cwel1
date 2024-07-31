@@ -36,7 +36,7 @@ class _Hangman extends State<Hangman> {
   final dMSAJson = DictionaryMSAFlutter();
 
   void tappedKey(BuildContext context, int row, int indx) {
-    if (mistakes != 9) {
+    if (mistakes != 8) {
       setState(() {
         String tappedLetter = qwerty[row][indx];
         bool found = false;
@@ -51,10 +51,9 @@ class _Hangman extends State<Hangman> {
         if (found == false && !blocked[row][indx]) {
           mistakes++;
         }
-        if (mistakes == 9 || currentWord.toLowerCase() == noun.toLowerCase()) {
+        if (mistakes == 8 || currentWord.toLowerCase() == noun.toLowerCase()) {
           currentWord = noun;
-          Future.delayed(Duration(seconds: 5), () {
-            // Code to execute after 5 seconds delay
+          Future.delayed(const Duration(seconds: 2), () {
             Navigator.pop(context);
             Navigator.push(
               context,
@@ -199,9 +198,9 @@ class _Hangman extends State<Hangman> {
                       Center(
                         child: SizedBox(
                           width: 0.7 * size.width,
-                          height: mistakes == 9 ? null : 0.4 * size.height,
+                          height: mistakes == 8 ? null : 0.4 * size.height,
                           child: Image.asset(
-                            'assets/linguistic/hangman/${mistakes + ((Theme.of(context).brightness == Brightness.dark) ? 9 : 0)}.png',
+                            'assets/linguistic/hangman/${mistakes + ((Theme.of(context).brightness == Brightness.dark) ? 8 : 0)}.png',
                             fit: BoxFit.cover,
                             gaplessPlayback: true,
                           ),

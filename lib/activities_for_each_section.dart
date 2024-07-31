@@ -195,6 +195,7 @@ var logicalAllList = [
   'Meme',
   'Sport',
   'Yoga',
+  'InvestingMenu',
 ];
 
 var gamesBaseList = [
@@ -213,6 +214,7 @@ var gamesRestList = [
   const Meme(),
   const Sport(),
   const Yoga(),
+  const InvestingMenu(),
 ];
 var gamesAllList = [
   'Scrabble',

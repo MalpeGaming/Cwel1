@@ -44,7 +44,7 @@ Widget timeButton(BuildContext context, int txt) {
         ),
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).colorScheme.shadow.withOpacity(1),
+            color: Colors.black.withOpacity(0.3),
             spreadRadius: 5,
             blurRadius: 7,
             offset: const Offset(5, 5),
@@ -56,7 +56,14 @@ Widget timeButton(BuildContext context, int txt) {
           "$txt min",
           style: TextStyle(
             fontSize: size.width / 16,
-            color: Theme.of(context).colorScheme.tertiary,
+            color: Colors.white,
+            shadows: <Shadow>[
+              Shadow(
+                offset: const Offset(2.0, 2.0),
+                blurRadius: 3.0,
+                color: Colors.black.withOpacity(0.3),
+              ),
+            ],
           ),
         ),
       ),

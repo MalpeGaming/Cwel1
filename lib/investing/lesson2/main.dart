@@ -146,7 +146,7 @@ class _Lesson2 extends State<Lesson2> {
                   imageWidget: Column(
                     children: [
                       SizedBox(
-                        height: 0.75 * size.width,
+                        height: 0.73 * size.width,
                         child: PageView.builder(
                           controller: controller,
                           itemCount: 2,
@@ -231,7 +231,7 @@ class _Lesson2 extends State<Lesson2> {
                   imageWidget: Column(
                     children: [
                       SizedBox(
-                        height: 0.8 * size.width,
+                        height: 0.7 * size.width,
                         child: PageView.builder(
                           controller: controller2,
                           itemCount: 4,
@@ -264,7 +264,7 @@ class _Lesson2 extends State<Lesson2> {
                   imageWidget: Column(
                     children: [
                       SizedBox(
-                        height: 0.75 * size.width,
+                        height: 0.7 * size.width,
                         child: PageView.builder(
                           controller: controller3,
                           itemCount: 4,

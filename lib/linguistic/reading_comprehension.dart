@@ -201,7 +201,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return questions.isEmpty & answers.isEmpty & correct.isEmpty
+    return questions.isEmpty && answers.isEmpty && correct.isEmpty
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
             appBar: appBar(context, ""),

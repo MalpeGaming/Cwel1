@@ -66,7 +66,7 @@ class FoodTable extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: appBar(context, "Food Table"),
+      appBar: appBar(context, ""),
       body: Container(
         margin: EdgeInsets.only(
           left: size.width / 10,
@@ -80,8 +80,12 @@ class FoodTable extends StatelessWidget {
             createContainer(
               context,
               3.5,
-              Colors.purple[300],
-              Colors.purple[200],
+              (Theme.of(context).brightness == Brightness.light)
+                  ? Colors.purple[300]
+                  : Colors.purple[800],
+              (Theme.of(context).brightness == Brightness.light)
+                  ? Colors.purple[200]
+                  : Colors.purple[700],
               "Eat As Much As You Can",
               [
                 [
@@ -101,8 +105,12 @@ class FoodTable extends StatelessWidget {
             createContainer(
               context,
               5,
-              Colors.indigo[300],
-              Colors.indigo[200],
+              (Theme.of(context).brightness == Brightness.light)
+                  ? Colors.indigo[300]
+                  : Colors.indigo[800],
+              (Theme.of(context).brightness == Brightness.light)
+                  ? Colors.indigo[200]
+                  : Colors.indigo[700],
               "Eat Often",
               [
                 [
@@ -128,8 +136,12 @@ class FoodTable extends StatelessWidget {
                 createContainer(
                   context,
                   3.5,
-                  Colors.green[300],
-                  Colors.green[200],
+                  (Theme.of(context).brightness == Brightness.light)
+                      ? Colors.green[300]
+                      : Colors.green[800],
+                  (Theme.of(context).brightness == Brightness.light)
+                      ? Colors.green[200]
+                      : Colors.green[700],
                   "Avoid Eating",
                   [
                     [
@@ -155,7 +167,9 @@ class FoodTable extends StatelessWidget {
                   ),
                   height: size.height / 3.5,
                   width: size.width * 13 / 60,
-                  color: Colors.yellow[400],
+                  color: (Theme.of(context).brightness == Brightness.light)
+                      ? Colors.yellow[300]
+                      : Colors.yellow[800],
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -169,7 +183,10 @@ class FoodTable extends StatelessWidget {
                       Expanded(
                         child: Container(
                           height: double.infinity,
-                          color: Colors.yellow[200],
+                          color:
+                              (Theme.of(context).brightness == Brightness.light)
+                                  ? Colors.yellow[200]
+                                  : Colors.yellow[700],
                           child: Container(
                             alignment: Alignment.center,
                             width: double.infinity,

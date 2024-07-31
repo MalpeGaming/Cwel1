@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'app_bar.dart';
 import 'buttons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/gestures.dart';
@@ -42,14 +41,13 @@ class _TitlePageState extends State<TitlePage> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: appBar(context, "", canReturn: false),
       body: Center(
         child: Container(
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
-            top: size.height / 15,
-            bottom: size.height / 10,
+            top: size.height / 7,
+            bottom: size.height / 15,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

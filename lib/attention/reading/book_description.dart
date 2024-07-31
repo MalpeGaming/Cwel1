@@ -35,7 +35,7 @@ class BookDescriptionPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: size.height / 20),
+            SizedBox(height: size.height / 40),
             Text(
               title,
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
