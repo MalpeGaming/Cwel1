@@ -274,6 +274,7 @@ class _Success extends State<Success> {
   int scoreoverall = 60;
   int maxscoreoverall = 69;
   double percentageoverall = 0.87;
+  int day = 0;
 
   Future<void> readMemory() async {
     prefs = await SharedPreferences.getInstance();
@@ -306,10 +307,29 @@ class _Success extends State<Success> {
     });
   }
 
+  Future<void> calcDay() async {
+    DateTime firstDay = DateTime.now();
+    DateTime today = DateTime.now();
+    prefs = await SharedPreferences.getInstance();
+    if (prefs.getString('beginning_date') != null) {
+      firstDay = DateTime.parse(prefs.getString('beginning_date')!);
+    }
+    prefs.setString("InvestingMenuTickedDay$day", "1");
+
+    setState(() {
+      day = today.difference(firstDay).inDays + 1;
+    });
+  }
+
+  Future<void> initMemory() async {
+    await calcDay();
+    await readMemory();
+  }
+
   @override
   void initState() {
     super.initState();
-    readMemory();
+    initMemory();
   }
 
   @override
