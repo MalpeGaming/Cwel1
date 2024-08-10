@@ -4,9 +4,14 @@ import '../../buttons.dart';
 import 'idioms.dart';
 
 class IdiomsDesc extends StatefulWidget {
-  const IdiomsDesc({this.initialTest = false, super.key});
+  const IdiomsDesc({
+    this.initialTest = false,
+    this.endingTest = false,
+    super.key,
+  });
 
   final bool initialTest;
+  final bool endingTest;
 
   @override
   State<IdiomsDesc> createState() => _IdiomsDesc();
@@ -59,7 +64,7 @@ class _IdiomsDesc extends State<IdiomsDesc> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: (widget.initialTest) ? const Idioms() : const Idioms(),
+                  route: const Idioms(),
                   text: 'Continue',
                   width: size.width,
                 ),

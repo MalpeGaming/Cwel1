@@ -15,15 +15,16 @@ class _ReadingStreak extends State<ReadingStreak> {
   int day = 0;
   int missed = 0, done = 0, future = 0;
 
-  Future<void> getDay() async {
-    DateTime firstDay = DateTime(2024, 7, 1);
+  Future<void> calcDay() async {
+    DateTime firstDay = DateTime.now();
     DateTime today = DateTime.now();
-
-    //late SharedPreferences prefs;
-    //prefs = await SharedPreferences.getInstance();
+    prefs = await SharedPreferences.getInstance();
+    if (prefs.getString('beginning_date') != null) {
+      firstDay = DateTime.parse(prefs.getString('beginning_date')!);
+    }
 
     setState(() {
-      day = today.difference(firstDay).inDays;
+      day = today.difference(firstDay).inDays + 1;
     });
   }
 
@@ -66,22 +67,26 @@ class _ReadingStreak extends State<ReadingStreak> {
     setState(() {
       for (int i = 1; i <= 30; i++) {
         streak[i] = prefs.getInt('readingDay$i')?.toInt();
-        if (streak[i] != 1 && i < day) {
-          missed++;
-        } else if (i <= day && streak[i] == 1) {
+        if (streak[i] == 1) {
           done++;
-        } else if (i >= day && streak[i] != 1) {
+        } else if (i < day) {
+          missed++;
+        } else {
           future++;
         }
       }
     });
   }
 
+  Future<void> initMemory() async {
+    await calcDay();
+    await readMemory();
+  }
+
   @override
   void initState() {
     super.initState();
-    readMemory();
-    getDay();
+    initMemory();
   }
 
   @override
@@ -165,10 +170,11 @@ class _ReadingStreak extends State<ReadingStreak> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: (Theme.of(context).brightness == Brightness.light)
-                          ? const Color.fromARGB(255, 253, 116, 106)
-                          : const Color.fromARGB(255, 102, 0, 0),),
+                    borderRadius: BorderRadius.circular(10),
+                    color: (Theme.of(context).brightness == Brightness.light)
+                        ? const Color.fromARGB(255, 253, 116, 106)
+                        : const Color.fromARGB(255, 102, 0, 0),
+                  ),
                   width: size.width / 8,
                   height: size.width / 8,
                   //color: Colors.grey[200],
@@ -208,8 +214,6 @@ class _ReadingStreak extends State<ReadingStreak> {
                 ),
               ],
             ),
-            //Text(streak.toString()),
-            //Text(day.toString()),
           ],
         ),
       ),

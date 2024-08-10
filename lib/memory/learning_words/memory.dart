@@ -1,34 +1,33 @@
 import 'package:flutter/material.dart';
 import 'memory_words.dart';
 import '../../buttons.dart';
+import '../../app_bar.dart';
 
 class Memory extends StatefulWidget {
-  final bool? initialTest;
-  const Memory({this.initialTest = false, super.key});
+  final bool initialTest;
+  final bool endingTest;
+
+  const Memory({this.initialTest = false, this.endingTest = false, super.key});
 
   @override
   State<Memory> createState() => _Memory();
 }
 
 class _Memory extends State<Memory> {
-  bool initialTest = false;
-
   @override
   void initState() {
     super.initState();
-    initialTest = widget.initialTest!;
-    print(initialTest);
   }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: appBar(context, ""),
       body: Container(
         margin: EdgeInsets.only(
           left: size.width / 10,
           right: size.width / 10,
-          top: size.height / 10,
         ),
         child: Column(
           children: [
@@ -63,8 +62,9 @@ class _Memory extends State<Memory> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  route: const MemoryWords(
-                    initialTest: true,
+                  route: MemoryWords(
+                    initialTest: widget.initialTest,
+                    endingTest: widget.endingTest,
                   ),
                   text: 'Continue',
                   width: size.width,

@@ -61,7 +61,7 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                   : oneOption ||
                           (!isGender && onclick == pressedNum) ||
                           (isGender && !isMan == pressedNum)
-                      ? const Color.fromARGB(255, 162, 218, 255)
+                      ? Theme.of(context).colorScheme.primary.withOpacity(0.5)
                       : Theme.of(context).colorScheme.background;
             },
           ),
@@ -71,7 +71,9 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
         ),
         child: Text(
           text,
-          style: TextStyle(fontSize: 0.045 * size.width),
+          style: TextStyle(
+              fontSize: 0.045 * size.width,
+              color: Theme.of(context).colorScheme.onSecondary,),
         ),
       ),
     );
@@ -147,7 +149,7 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
                       color: Theme.of(context)
                           .colorScheme
                           .onSecondary
-                          .withOpacity(0.2),
+                          .withOpacity(0.4),
                     ),
                   ),
                 ),

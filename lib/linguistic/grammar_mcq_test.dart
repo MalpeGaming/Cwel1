@@ -10,10 +10,12 @@ class Grammar extends StatefulWidget {
     super.key,
     required this.exerciseId,
     this.initialTest = false,
+    this.endingTest = false,
   });
 
   final bool initialTest;
   final int exerciseId;
+  final bool endingTest;
 
   @override
   State<Grammar> createState() => _Grammar();
@@ -82,7 +84,6 @@ class _Grammar extends State<Grammar> {
         leading: Radio<int>(
           value: val,
           groupValue: selectedOption,
-          activeColor: Colors.blue,
           onChanged: (value) {
             setState(() {
               selectedOption = value!;
@@ -310,6 +311,7 @@ class _Grammar extends State<Grammar> {
                                         builder: (context) => ProgressScreen(
                                           name: "grammar_mcq",
                                           score: score,
+                                          exercise: 'Grammar',
                                         ),
                                       ),
                                     );

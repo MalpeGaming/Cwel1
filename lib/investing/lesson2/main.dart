@@ -4,6 +4,7 @@ import 'package:brain_train_app/buttons.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
+import 'package:brain_train_app/app_bar.dart';
 
 class Lesson2 extends StatefulWidget {
   const Lesson2({super.key});
@@ -94,12 +95,12 @@ class _Lesson2 extends State<Lesson2> {
     return PopScope(
       canPop: false,
       child: Scaffold(
+        appBar: appBar(context, ""),
         body: SingleChildScrollView(
           child: Container(
             margin: EdgeInsets.only(
               left: size.width / 10,
               right: size.width / 10,
-              top: size.height / 15,
               bottom: size.height / 20,
             ),
             child: Column(
@@ -145,7 +146,7 @@ class _Lesson2 extends State<Lesson2> {
                   imageWidget: Column(
                     children: [
                       SizedBox(
-                        height: 0.75 * size.width,
+                        height: 0.73 * size.width,
                         child: PageView.builder(
                           controller: controller,
                           itemCount: 2,
@@ -230,7 +231,7 @@ class _Lesson2 extends State<Lesson2> {
                   imageWidget: Column(
                     children: [
                       SizedBox(
-                        height: 0.8 * size.width,
+                        height: 0.7 * size.width,
                         child: PageView.builder(
                           controller: controller2,
                           itemCount: 4,
@@ -263,7 +264,7 @@ class _Lesson2 extends State<Lesson2> {
                   imageWidget: Column(
                     children: [
                       SizedBox(
-                        height: 0.75 * size.width,
+                        height: 0.7 * size.width,
                         child: PageView.builder(
                           controller: controller3,
                           itemCount: 4,

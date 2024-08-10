@@ -102,7 +102,7 @@ class _Meditation extends State<Meditation> {
                   child: Text(
                     "MEDITATION",
                     style: TextStyle(
-                      fontSize: size.width / 11,
+                      fontSize: size.width / 9,
                     ),
                   ),
                 ),
@@ -161,6 +161,7 @@ class _Meditation extends State<Meditation> {
                 ),
               ],
             ),
+            const Spacer(),
             Center(
               child: SizedBox(
                 height: size.height * 0.05,
@@ -172,6 +173,7 @@ class _Meditation extends State<Meditation> {
                 ),
               ),
             ),
+            SizedBox(height: size.height / 15),
           ],
         ),
       ),

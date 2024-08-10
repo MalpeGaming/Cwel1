@@ -6,7 +6,6 @@ import 'package:intl/intl.dart';
 import 'navbar.dart';
 import 'well_being/self_reflection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'well_being/meditation/meditation.dart';
 import 'well_being/sport.dart';
 import 'well_being/yoga.dart';
@@ -15,7 +14,7 @@ import 'memory/learning_words/memory.dart';
 import 'memory/faces.dart';
 import 'attention/long_term_concentration_video.dart';
 import 'attention/short_term_concentration.dart';
-import 'attention/strong_concentration.dart';
+import 'attention/strong_concentration_desc.dart';
 import 'attention/reading/reading.dart';
 import 'logical_thinking/sudoku_info.dart';
 import 'linguistic/wordly.dart';
@@ -30,9 +29,9 @@ import 'well_being/memes.dart';
 import 'linguistic/grammar_mcq_test.dart';
 import 'linguistic/correct_a_word.dart';
 import 'investing/menu.dart';
-import 'logical_thinking/math.dart';
 import 'linguistic/poems_reading/info.dart';
 import 'linguistic/idioms.dart';
+import 'package:brain_train_app/activities_for_each_section.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -117,6 +116,13 @@ GestureDetector createActivity(
                         height: 1.2,
                         fontStyle:
                             (title) ? FontStyle.italic : FontStyle.normal,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 10,
+                            offset: const Offset(5, 5),
+                          ),
+                        ],
                       ),
                     ),
                     Text(
@@ -126,6 +132,13 @@ GestureDetector createActivity(
                         fontSize: zero * fontSize,
                         fontWeight: FontWeight.bold,
                         height: 1.2,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 10,
+                            offset: const Offset(5, 5),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -146,46 +159,66 @@ class _YourActivities extends State<YourActivities> {
     String img,
     String txt1,
     String txt2,
-    Widget route, {
+    Widget route,
+    String activityName, {
     double fontSize = 1,
     double zero = 1,
   }) {
     Size size = MediaQuery.of(context).size;
-    return createActivity(
-      context,
-      "activities/$img",
-      txt1,
-      txt2,
-      0.022 * size.height * fontSize,
-      route,
-      Theme.of(context).colorScheme.primary,
-      Theme.of(context).colorScheme.onPrimary,
-      zero: zero,
-      blocked: false,
-      textWidth: 0.45,
-      title: false,
-    );
+    print(skillAllLists[skill]);
+
+    if (skillAllLists[skill] != null &&
+        skillAllLists[skill]!.contains(activityName)) {
+      return createActivity(
+        context,
+        "activities/$img",
+        txt1,
+        txt2,
+        0.023 * size.height * fontSize,
+        route,
+        Theme.of(context).colorScheme.primary,
+        Theme.of(context).colorScheme.onPrimary,
+        zero: zero,
+        blocked: false,
+        textWidth: 0.45,
+        title: false,
+      );
+    }
+
+    return const SizedBox();
   }
 
-  int day = 0;
+  int day = 1;
   late SharedPreferences prefs;
+  String skill = "attention";
+
+  Future<void> getSkill() async {
+    prefs = await SharedPreferences.getInstance();
+    setState(() {
+      if (prefs.getString('skill') != null) {
+        skill = prefs.getString('skill')!;
+      } else {
+        skill = "attention";
+      }
+    });
+  }
 
   Future<void> calcDay() async {
-    DateTime firstDay = DateTime(2024, 7, 1);
+    DateTime firstDay = DateTime.now();
     DateTime today = DateTime.now();
     prefs = await SharedPreferences.getInstance();
-    String? beginningDate = prefs.getStringList('beginning_date')?.first;
-    if (beginningDate != null) {
-      firstDay = DateTime.parse(beginningDate);
-    }
+    String beginningDate = prefs.getString('beginning_date')!;
+    firstDay = DateTime.parse(beginningDate);
+
     setState(() {
-      day = today.difference(firstDay).inDays;
+      day = today.difference(firstDay).inDays + 1;
     });
   }
 
   @override
   void initState() {
     super.initState();
+    getSkill();
     calcDay();
   }
 
@@ -242,42 +275,15 @@ class _YourActivities extends State<YourActivities> {
                           "LEARNING",
                           "Words",
                           const Memory(),
+                          "Memory",
                         ),
                         createActivity2(
                           context,
                           "working_memory",
                           "Working",
                           "MEMORY",
-                          const MemoryVideo(),
-                        ),
-                        createActivity2(
-                          context,
-                          "memory_game",
-                          "MEMORY",
-                          "Game",
-                          const MemoryGame1(),
-                        ),
-                        createActivity2(
-                          context,
-                          "sport",
-                          "SPORT",
-                          "Optional",
-                          const Sport(),
-                        ),
-                        createActivity2(
-                          context,
-                          "self_reflection",
-                          "Self",
-                          "Reflection",
-                          const SelfReflection(),
-                        ),
-                        createActivity2(
-                          context,
-                          "meditation",
-                          "MEDITATION",
-                          "",
-                          const Meditation(),
-                          zero: 0,
+                          const WorkingMemory(),
+                          "WorkingMemory",
                         ),
                         createActivity2(
                           context,
@@ -285,6 +291,7 @@ class _YourActivities extends State<YourActivities> {
                           "Find the",
                           "NUMBER",
                           const FindTheNumber(),
+                          "FindTheNumber",
                         ),
                         createActivity2(
                           context,
@@ -292,6 +299,7 @@ class _YourActivities extends State<YourActivities> {
                           "LISTENING",
                           "Comprehension",
                           const ListeningComprehensionVideo(),
+                          "ListeningComprehensionVideo",
                         ),
                         createActivity2(
                           context,
@@ -299,6 +307,7 @@ class _YourActivities extends State<YourActivities> {
                           "READING",
                           "Comprehension",
                           const ReadingComprehensionInfo(),
+                          "ReadingComprehensionInfo",
                         ),
                         createActivity2(
                           context,
@@ -306,6 +315,7 @@ class _YourActivities extends State<YourActivities> {
                           "POEMS",
                           "Reading",
                           const Info(),
+                          "Info",
                         ),
                         createActivity2(
                           context,
@@ -315,22 +325,23 @@ class _YourActivities extends State<YourActivities> {
                           const SpellingMistakes(
                             exerciseId: 0,
                           ),
+                          "SpellingMistakes",
                         ),
+                        /*
                         createActivity2(
                           context,
                           "math",
                           "MATH",
                           "Exercises",
                           const ProblemSelection(),
-                        ),
+                        ),*/
                         createActivity2(
                           context,
                           "riddles",
                           "RIDDLES",
                           "",
-                          const RiddlesTest(
-                            exerciseId: 0,
-                          ),
+                          const RiddlesTest(),
+                          "Riddles",
                           zero: 0,
                         ),
                         createActivity2(
@@ -339,6 +350,7 @@ class _YourActivities extends State<YourActivities> {
                           "SUDOKU",
                           "",
                           const SudokuInfo(),
+                          "SudokuInfo",
                           zero: 0,
                         ),
                         createActivity2(
@@ -347,6 +359,7 @@ class _YourActivities extends State<YourActivities> {
                           "Short-Term",
                           "CONCENTRATION",
                           const ShortTermConcentration(),
+                          "ShortTermConcentration",
                         ),
                         createActivity2(
                           context,
@@ -354,13 +367,15 @@ class _YourActivities extends State<YourActivities> {
                           "Long-Term",
                           "CONCENTRATION",
                           const LongTermConcentrationVideo(),
+                          "LongTermConcentrationVideo",
                         ),
                         createActivity2(
                           context,
                           "strong_concentration",
                           "Strong",
                           "CONCENTRATION",
-                          const StrongConcentration(),
+                          const StrongConcentrationDesc(),
+                          "StrongConcentrationDesc",
                         ),
                         createActivity2(
                           context,
@@ -368,6 +383,7 @@ class _YourActivities extends State<YourActivities> {
                           "READING",
                           "Out-loud",
                           const Reading(),
+                          "Reading",
                         ),
                         createActivity2(
                           context,
@@ -375,6 +391,7 @@ class _YourActivities extends State<YourActivities> {
                           "HANGMAN",
                           "",
                           const Hangman(),
+                          "Hangman",
                           zero: 0,
                         ),
                         createActivity2(
@@ -383,6 +400,7 @@ class _YourActivities extends State<YourActivities> {
                           "WORDLY",
                           "",
                           const Wordly(),
+                          "Wordly",
                           zero: 0,
                         ),
                         createActivity2(
@@ -391,6 +409,7 @@ class _YourActivities extends State<YourActivities> {
                           "2048",
                           "",
                           const Game2048(),
+                          "Game2048",
                           zero: 0,
                         ),
                         createActivity2(
@@ -402,6 +421,7 @@ class _YourActivities extends State<YourActivities> {
                             iteration: 1,
                             allPoints: 0,
                           ),
+                          "Scrabble",
                         ),
                         createActivity2(
                           context,
@@ -409,14 +429,7 @@ class _YourActivities extends State<YourActivities> {
                           "Faces",
                           "MEMORY",
                           const Faces(),
-                        ),
-                        createActivity2(
-                          context,
-                          "yoga",
-                          "Yoga",
-                          "",
-                          const Yoga(),
-                          zero: 0,
+                          "Faces",
                         ),
                         createActivity2(
                           context,
@@ -424,6 +437,7 @@ class _YourActivities extends State<YourActivities> {
                           "Correct a word",
                           "",
                           const CorrectAWord(),
+                          "CorrectAWord",
                           zero: 0,
                         ),
                         createActivity2(
@@ -432,6 +446,7 @@ class _YourActivities extends State<YourActivities> {
                           "Investing",
                           "Course",
                           const InvestingMenu(),
+                          "InvestingMenu",
                         ),
                         createActivity2(
                           context,
@@ -441,6 +456,7 @@ class _YourActivities extends State<YourActivities> {
                           const Grammar(
                             exerciseId: 0,
                           ),
+                          "Grammar",
                           zero: 0,
                         ),
                         createActivity2(
@@ -449,14 +465,7 @@ class _YourActivities extends State<YourActivities> {
                           "Choose the",
                           "best WORD",
                           const ChooseBestWord(),
-                        ),
-                        createActivity2(
-                          context,
-                          "memes",
-                          "Memes",
-                          "",
-                          const Meme(),
-                          zero: 0,
+                          "ChooseBestWord",
                         ),
                         createActivity2(
                           context,
@@ -464,6 +473,58 @@ class _YourActivities extends State<YourActivities> {
                           "Idioms, expressions and phrasal verbs",
                           "",
                           const Idioms(),
+                          "Idioms",
+                          zero: 0,
+                        ),
+                        createActivity2(
+                          context,
+                          "memory_game",
+                          "MEMORY",
+                          "Game",
+                          const MemoryGame1(),
+                          "MemoryGame1",
+                        ),
+                        createActivity2(
+                          context,
+                          "sport",
+                          "SPORT",
+                          "Optional",
+                          const Sport(),
+                          "Sport",
+                        ),
+                        createActivity2(
+                          context,
+                          "yoga",
+                          "Yoga",
+                          "",
+                          const Yoga(),
+                          "Yoga",
+                          zero: 0,
+                        ),
+                        createActivity2(
+                          context,
+                          "self_reflection",
+                          "Self",
+                          "Reflection",
+                          const SelfReflection(),
+                          "SelfReflection",
+                        ),
+                        createActivity2(
+                          context,
+                          "meditation",
+                          "MEDITATION",
+                          "",
+                          const Meditation(),
+                          "Meditation",
+                          zero: 0,
+                        ),
+                        createActivity2(
+                          context,
+                          "memes",
+                          "Memes",
+                          "",
+                          const Meme(),
+                          "Meme",
                           zero: 0,
                         ),
                       ],

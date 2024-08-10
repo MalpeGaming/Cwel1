@@ -3,6 +3,7 @@ import 'package:brain_train_app/buttons.dart';
 import '../helper_fn.dart';
 import 'questions.dart';
 import 'package:brain_train_app/investing/lesson4/main.dart';
+import 'package:brain_train_app/app_bar.dart';
 
 class Lesson3 extends StatefulWidget {
   const Lesson3({super.key});
@@ -72,12 +73,12 @@ class _Lesson3 extends State<Lesson3> {
     return PopScope(
       canPop: false,
       child: Scaffold(
+        appBar: appBar(context, ""),
         body: SingleChildScrollView(
           child: Container(
             margin: EdgeInsets.only(
               left: size.width / 10,
               right: size.width / 10,
-              top: size.height / 15,
               bottom: size.height / 20,
             ),
             child: Column(
@@ -214,8 +215,7 @@ class _Lesson3 extends State<Lesson3> {
                             score++;
                           }
                         }
-                        print("wynik:");
-                        print(score);
+
                         saveResult(3, score);
                         saveResult(10003, questions.length);
 

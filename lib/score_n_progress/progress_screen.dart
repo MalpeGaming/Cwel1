@@ -10,6 +10,7 @@ class ProgressScreen extends StatefulWidget {
     this.points = true,
     required this.name,
     required this.score,
+    required this.exercise,
     this.txt = "You Received",
     this.pointAlternative = "Points",
   });
@@ -19,6 +20,7 @@ class ProgressScreen extends StatefulWidget {
   final double score;
   final String txt;
   final String pointAlternative;
+  final String exercise;
 
   @override
   _ProgressScreen createState() => _ProgressScreen();
@@ -35,20 +37,39 @@ class _ProgressScreen extends State<ProgressScreen>
   late SharedPreferences prefs;
   late List<ChartData> chartData = <ChartData>[];
   late ConfettiController _confettiController;
+  int day = 0;
 
   @override
   void initState() {
     super.initState();
-    initMemory();
+    readMemory();
     _confettiController =
         ConfettiController(duration: const Duration(seconds: 1));
     _confettiController.play();
+  }
+
+  Future<void> readMemory() async {
+    await calcDay();
+    await initMemory();
   }
 
   @override
   void dispose() {
     _confettiController.dispose();
     super.dispose();
+  }
+
+  Future<void> calcDay() async {
+    DateTime firstDay = DateTime.now();
+    DateTime today = DateTime.now();
+    prefs = await SharedPreferences.getInstance();
+    if (prefs.getString('beginning_date') != null) {
+      firstDay = DateTime.parse(prefs.getString('beginning_date')!);
+    }
+
+    setState(() {
+      day = today.difference(firstDay).inDays + 1;
+    });
   }
 
   Future<void> initMemory() async {
@@ -80,11 +101,6 @@ class _ProgressScreen extends State<ProgressScreen>
     );
 
     for (int i = 0; i < scores.length; i++) {
-      print(
-        DateTime.fromMillisecondsSinceEpoch(
-          int.parse(timestamps[i]),
-        ),
-      );
       newChartData.add(
         ChartData(
           DateTime.fromMillisecondsSinceEpoch(
@@ -94,6 +110,8 @@ class _ProgressScreen extends State<ProgressScreen>
         ),
       );
     }
+
+    prefs.setString("${widget.exercise}TickedDay$day", "1");
 
     setState(() {
       chartData = newChartData;
@@ -194,6 +212,8 @@ class _ProgressScreen extends State<ProgressScreen>
                             ],
                           ),
                   ),
+                  //Text(day.toString()),
+                  //Text(widget.exercise),
                   SizedBox(height: size.height / 25),
                 ],
               ),

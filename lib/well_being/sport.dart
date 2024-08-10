@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../app_bar.dart';
 
@@ -23,6 +22,7 @@ GestureDetector createDay(
   Size size = MediaQuery.of(context).size;
   return GestureDetector(
     onTap: () {
+      if (videoId == null) return;
       final youtubeUrl = 'https://www.youtube.com/watch?v=$videoId';
       launchURL(youtubeUrl);
     },
@@ -55,19 +55,45 @@ GestureDetector createDay(
             children: [
               SizedBox(width: 0.05 * size.width),
               if (videoId != null)
-                SizedBox(
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                  ),
                   height: 0.08 * size.height,
                   width: 0.15 * size.height,
-                  child: YoutubePlayer(
-                    controller: YoutubePlayerController(
-                      initialVideoId: videoId,
-                      flags: const YoutubePlayerFlags(
-                        autoPlay: false,
-                        mute: false,
-                        showLiveFullscreenButton: true,
-                      ),
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    child: Image.network(
+                      'https://img.youtube.com/vi/$videoId/0.jpg',
+                      fit: BoxFit.fitWidth,
+                      errorBuilder: (context, error, stackTrace) {
+                        return const Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Center(
+                                child: Icon(
+                                  Icons.clear,
+                                  color: Colors.red,
+                                  size: 48,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+                              Center(
+                                child: Text(
+                                  'Check internet connection',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
                     ),
-                    showVideoProgressIndicator: true,
                   ),
                 ),
               SizedBox(width: 0.03 * size.width),
@@ -115,7 +141,6 @@ class _Sport extends State<Sport> {
         margin: EdgeInsets.only(
           left: size.width / 20,
           right: size.width / 20,
-          top: size.height / 30,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -205,31 +230,31 @@ class _Sport extends State<Sport> {
                   createDay(
                     context,
                     2,
-                    ' - 20 min HIIT',
-                    'jS6AyzMM6bk',
+                    ' - Strenght Full Body Workout',
+                    'LdFgFco_8p8',
                   ),
                   createDay(context, 3, ' - 30 min Outdoor Run'),
                   createDay(context, 4, ' - Outdoor Walk'),
                   createDay(
                     context,
                     5,
-                    ' - 30 min Abs and Legs',
-                    'f0q73wo9tAo',
+                    ' - Strenght Abs And Glutes Workout',
+                    'O2f93wRCNmo',
                   ),
                   createDay(context, 6, ' - Outdoor Walk'),
                   createDay(
                     context,
                     7,
-                    ' - 20 min Abs',
-                    '-Z0fowkU210',
+                    ' - High Intensity Cardio Workout',
+                    'qnkBM6xsv0Q',
                   ),
                   createDay(context, 8, ' - Outdoor Walk'),
                   createDay(context, 9, ' - 30 min Outdoor Run'),
                   createDay(
                     context,
                     10,
-                    ' - 20 min Legs Workout',
-                    'Tp12CLjdZV0',
+                    ' - Strenght Abs And Glutes Workout',
+                    'MDnOqSh5M0E',
                   ),
                   SizedBox(height: 0.1 * size.height),
                 ],

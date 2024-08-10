@@ -27,6 +27,7 @@ class _Hangman extends State<Hangman> {
   int act = 0;
   int actRow = 0;
   int mistakes = 0;
+  String password = "";
   final guessedKeys = <String>[];
   final guessedKeys2 = <String>[];
   final notGuessedKeys = <String>[];
@@ -35,7 +36,7 @@ class _Hangman extends State<Hangman> {
   final dMSAJson = DictionaryMSAFlutter();
 
   void tappedKey(BuildContext context, int row, int indx) {
-    if (mistakes != 9) {
+    if (mistakes != 8) {
       setState(() {
         String tappedLetter = qwerty[row][indx];
         bool found = false;
@@ -50,19 +51,23 @@ class _Hangman extends State<Hangman> {
         if (found == false && !blocked[row][indx]) {
           mistakes++;
         }
-        if (mistakes == 9 || found) {
-          Navigator.pop(context);
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ProgressScreen(
-                name: "idioms",
-                score: mistakes.toDouble(),
-                txt: "You tried",
-                pointAlternative: "letters",
+        if (mistakes == 8 || currentWord.toLowerCase() == noun.toLowerCase()) {
+          currentWord = noun;
+          Future.delayed(const Duration(seconds: 2), () {
+            Navigator.pop(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProgressScreen(
+                  name: "idioms",
+                  score: mistakes.toDouble(),
+                  txt: "You tried",
+                  pointAlternative: "letters",
+                  exercise: 'Hangman',
+                ),
               ),
-            ),
-          );
+            );
+          });
         }
         blocked[row][indx] = true;
       });
@@ -82,19 +87,11 @@ class _Hangman extends State<Hangman> {
             width: 0.085 * size.width,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(5)),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: (blocked[row][indx])
-                    ? [
-                        const Color.fromARGB(255, 212, 237, 255),
-                        const Color.fromARGB(255, 174, 190, 201),
-                      ]
-                    : [
-                        const Color.fromARGB(255, 140, 201, 248),
-                        const Color.fromARGB(255, 99, 168, 228),
-                      ],
-              ),
+              color: (!blocked[row][indx]
+                  ? Theme.of(context).colorScheme.primary
+                  : (Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xFFD4CDF4)
+                      : const Color(0xFF231942))),
             ),
             child: Center(
               child: Text(
@@ -140,8 +137,8 @@ class _Hangman extends State<Hangman> {
   String currentWord = "";
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
+  void initState() {
+    super.initState();
     while (noun.length < 7 || noun.length > 10) {
       noun = wordGenerator.randomNoun();
     }
@@ -153,6 +150,9 @@ class _Hangman extends State<Hangman> {
       qwerty.length,
       (i) => List.generate(qwerty[i].length, (j) => false),
     );
+    setState(() {
+      password = noun;
+    });
   }
 
   @override
@@ -183,11 +183,14 @@ class _Hangman extends State<Hangman> {
                           right: size.width / 20,
                         ),
                         child: Text(
-                          '$mistakes letters tried',
+                          '$mistakes letters mistook',
                           style: TextStyle(
                             fontSize: size.width / 20,
                             fontWeight: FontWeight.w500,
-                            color: Colors.indigo[900],
+                            color: (Theme.of(context).brightness ==
+                                    Brightness.dark)
+                                ? Colors.white
+                                : Colors.black,
                           ),
                         ),
                       ),
@@ -195,10 +198,11 @@ class _Hangman extends State<Hangman> {
                       Center(
                         child: SizedBox(
                           width: 0.7 * size.width,
-                          height: mistakes == 9 ? null : 0.4 * size.height,
+                          height: mistakes == 8 ? null : 0.4 * size.height,
                           child: Image.asset(
-                            'assets/linguistic/hangman/$mistakes.png',
+                            'assets/linguistic/hangman/${mistakes + ((Theme.of(context).brightness == Brightness.dark) ? 8 : 0)}.png',
                             fit: BoxFit.cover,
+                            gaplessPlayback: true,
                           ),
                         ),
                       ),
@@ -211,7 +215,10 @@ class _Hangman extends State<Hangman> {
                             letterSpacing: 7,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Monospace',
-                            color: Colors.indigo[900],
+                            color: (Theme.of(context).brightness ==
+                                    Brightness.dark)
+                                ? Colors.white
+                                : Colors.black,
                           ),
                         ),
                       ),

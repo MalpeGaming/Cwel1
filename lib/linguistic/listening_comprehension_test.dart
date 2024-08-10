@@ -6,16 +6,19 @@ import 'package:yaml/yaml.dart';
 import '../score_n_progress/progress_screen.dart';
 import '../score_n_progress/show_score.dart';
 import '../buttons.dart';
+import '../score_n_progress/show_improvement.dart';
 
 class ListeningComprehensionTest extends StatefulWidget {
   const ListeningComprehensionTest({
     super.key,
     required this.exerciseId,
     this.initialTest = false,
+    this.endingTest = false,
   });
 
   final bool initialTest;
   final int exerciseId;
+  final bool endingTest;
 
   @override
   State<ListeningComprehensionTest> createState() => _Test();
@@ -218,8 +221,6 @@ class _Test extends State<ListeningComprehensionTest> {
                               return;
                             }
 
-                            Navigator.pop(context);
-
                             if (widget.initialTest) {
                               Navigator.push(
                                 context,
@@ -237,6 +238,23 @@ class _Test extends State<ListeningComprehensionTest> {
                                   ),
                                 ),
                               );
+                            } else if (widget.endingTest) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ShowImprovement(
+                                    title: "LINGUISTIC",
+                                    description:
+                                        "Exercise 1 - Listening Comprehension",
+                                    exercise: 2,
+                                    yourScore: score,
+                                    maximum: 10,
+                                    page: const ReadingComprehensionInfo(
+                                      endingTest: true,
+                                    ),
+                                  ),
+                                ),
+                              );
                             } else {
                               Navigator.push(
                                 context,
@@ -244,6 +262,7 @@ class _Test extends State<ListeningComprehensionTest> {
                                   builder: (context) => ProgressScreen(
                                     name: "listening_comprehension",
                                     score: score,
+                                    exercise: 'ListeningComprehensionVideo',
                                   ),
                                 ),
                               );

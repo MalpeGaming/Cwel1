@@ -2,6 +2,8 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:xml/xml.dart' as xml;
 import 'package:flutter/material.dart';
 import 'score_axis.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../buttons.dart';
 
 class ShowScore extends StatefulWidget {
   const ShowScore({
@@ -29,6 +31,7 @@ class ShowScore extends StatefulWidget {
 
 class _ShowScore extends State<ShowScore> {
   int selectedOption = 0;
+  late SharedPreferences prefs;
 
   Future<String> loadAsset() async {
     return await rootBundle
@@ -43,9 +46,7 @@ class _ShowScore extends State<ShowScore> {
     xdoc.findAllElements("mean_score").forEach((element) {
       int exercise =
           int.parse(element.findElements('exercise').first.innerText);
-      double score =
-          double.parse(element.findElements('score').first.innerText);
-      meanScores[exercise] = score;
+      meanScores[exercise] = 0.8 * widget.maximum;
     });
 
     return meanScores;
@@ -68,11 +69,20 @@ class _ShowScore extends State<ShowScore> {
   void initState() {
     super.initState();
     initMemory();
+    saveScore();
   }
 
   Future<void> initMemory() async {
     meanScores = await getMeanScores();
     setState(() {});
+  }
+
+  Future<void> saveScore() async {
+    prefs = await SharedPreferences.getInstance();
+    prefs.setDouble(
+      '${widget.title}_${widget.exercise}_initialText',
+      widget.yourScore,
+    );
   }
 
   @override
@@ -100,8 +110,8 @@ class _ShowScore extends State<ShowScore> {
                         children: [
                           TextSpan(
                             text: widget.subtitle.isEmpty
-                                ? widget.title
-                                : "${widget.title}\n",
+                                ? widget.title.toUpperCase()
+                                : "${widget.title.toUpperCase()}\n",
                             style: TextStyle(
                               fontSize: size.width / 8,
                             ),
@@ -134,73 +144,17 @@ class _ShowScore extends State<ShowScore> {
                     widget.maximum,
                   ),
                   const Spacer(),
-                  Text(
-                    "Do you want to practice this skill in your 30-day program?",
-                    style: TextStyle(
-                      fontSize: size.width / 20,
+                  Center(
+                    child: SizedBox(
+                      height: size.height * 0.05,
+                      width: size.width * 0.75,
+                      child: RedirectButton(
+                        route: widget.page,
+                        text: 'Continue',
+                        width: size.width,
+                        clearAllWindows: true,
+                      ),
                     ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                    height: size.height / 15,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: size.height * 0.05,
-                        width: size.width * 0.3,
-                        child: FloatingActionButton.extended(
-                          onPressed: () {
-                            navigateToPage(widget.page);
-                          },
-                          tooltip: 'YES',
-                          label: Text(
-                            "YES",
-                            style: TextStyle(
-                              fontSize: size.width / 25,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          backgroundColor: Colors.green[500],
-                          hoverColor: Colors.green[900],
-                          heroTag: "yes",
-                          shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(size.width * 0.1),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: size.width / 15,
-                      ),
-                      SizedBox(
-                        height: size.height * 0.05,
-                        width: size.width * 0.3,
-                        child: FloatingActionButton.extended(
-                          onPressed: () {
-                            navigateToPage(widget.page);
-                          },
-                          tooltip: 'NO',
-                          label: Text(
-                            "NO",
-                            style: TextStyle(
-                              fontSize: size.width / 25,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          backgroundColor: Colors.red[500],
-                          hoverColor: Colors.red[900],
-                          heroTag: "no",
-                          shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(size.width * 0.1),
-                          ),
-                        ),
-                      ),
-                    ],
                   ),
                   SizedBox(
                     height: size.height / 10,

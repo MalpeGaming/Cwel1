@@ -73,8 +73,9 @@ class _MemoryGame2 extends State<MemoryGame2> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => ProgressScreen(
-                          name: "strong_concentration",
+                          name: "memory_game",
                           score: flipped.toDouble(),
+                          exercise: 'MemoryGame1',
                         ),
                       ),
                     );
@@ -93,15 +94,19 @@ class _MemoryGame2 extends State<MemoryGame2> {
               height: 0.25 * size.width,
               width: 0.25 * size.width,
               decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color:
-                        Theme.of(context).colorScheme.shadow.withOpacity(0.5),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: const Offset(5, 5),
-                  ),
-                ],
+                boxShadow: (!blocked[no])
+                    ? [
+                        BoxShadow(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .shadow
+                              .withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: const Offset(5, 5),
+                        ),
+                      ]
+                    : null,
                 gradient: (blocked[no])
                     ? LinearGradient(
                         begin: Alignment.topLeft,

@@ -111,7 +111,7 @@ class _BMI extends State<BMI> {
               return states.contains(MaterialState.pressed)
                   ? Theme.of(context).colorScheme.secondary
                   : onclick == pressedNum
-                      ? const Color.fromARGB(255, 162, 218, 255)
+                      ? Theme.of(context).colorScheme.primary.withOpacity(0.5)
                       : Theme.of(context).colorScheme.background;
             },
           ),
@@ -121,7 +121,9 @@ class _BMI extends State<BMI> {
         ),
         child: Text(
           text,
-          style: TextStyle(fontSize: 0.045 * size.width),
+          style: TextStyle(
+              fontSize: 0.045 * size.width,
+              color: Theme.of(context).colorScheme.onSecondary,),
         ),
       ),
     );
@@ -182,6 +184,12 @@ class _BMI extends State<BMI> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     hintText: hintText.toString(),
+                    hintStyle: TextStyle(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onSecondary
+                          .withOpacity(0.4),
+                    ),
                   ),
                 ),
               ),
@@ -280,6 +288,7 @@ class _BMI extends State<BMI> {
                               }
                             }(),
                             style: TextStyle(
+                              fontWeight: FontWeight.bold,
                               color: (() {
                                 try {
                                   if (height.text.isEmpty ||

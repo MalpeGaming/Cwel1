@@ -1,4 +1,3 @@
-import 'package:brain_train_app/improvement_selection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
@@ -7,17 +6,21 @@ import '../score_n_progress/show_score.dart';
 import 'package:brain_train_app/buttons.dart';
 import 'dart:async';
 import 'dart:math';
+import 'package:shared_preferences/shared_preferences.dart';
+import '/home.dart';
 import '../app_bar.dart';
+import '../score_n_progress/show_improvement.dart';
+import '../title_page.dart';
 
 class RiddlesTest extends StatefulWidget {
   const RiddlesTest({
     super.key,
-    required this.exerciseId,
     this.initialTest = false,
+    this.endingTest = false,
   });
 
   final bool initialTest;
-  final int exerciseId;
+  final bool endingTest;
 
   @override
   State<RiddlesTest> createState() => _RiddlesTest();
@@ -30,15 +33,27 @@ class _RiddlesTest extends State<RiddlesTest> {
   List<int> correctAnswers = [];
   List<String> questions = [];
   List<List<String>> answers = [];
+  int numberOfQuestions = 0;
+  int difficulty = 3;
+  int passed = 0;
+  late SharedPreferences prefs;
+  Future<void> init() async {
+    prefs = await SharedPreferences.getInstance();
+    if ((prefs.getInt('riddles_difficulty')) != null) {
+      difficulty = prefs.getInt('riddles_difficulty')!;
+    }
+    readData();
+
+    _remainingTime = 480;
+    numberOfQuestions = (difficulty == 3 ? 25 : (difficulty == 4 ? 25 : 23));
+    questionIndex = Random().nextInt(numberOfQuestions);
+  }
 
   @override
   void initState() {
     super.initState();
-    readData();
-    super.initState();
-    _remainingTime = 480;
-
-    initMemory();
+    init();
+    startTimer();
   }
 
   void readData() async {
@@ -48,12 +63,9 @@ class _RiddlesTest extends State<RiddlesTest> {
       List<List<String>> newAnswers = [];
       final file =
           await rootBundle.loadString('assets/logical_thinking/riddles.yaml');
-      final tasks = loadYaml(file)["questions"]["3points"];
-      print(tasks);
+      final tasks = loadYaml(file)["questions"]["${difficulty}points"];
       for (var i = 0; i < tasks.length; i++) {
         newQuestions.add(tasks[i]["question"]);
-        print('xd');
-        print(tasks[i]);
 
         newCorrectAnswers.add(tasks[i]["correct_answer"]);
 
@@ -86,28 +98,81 @@ class _RiddlesTest extends State<RiddlesTest> {
             _remainingTime--;
           } else {
             _timer.cancel();
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ShowScore(
-                  title: "riddles",
-                  description: "Exercise 1 - Short Term Concentration",
-                  exercise: 1,
-                  yourScore: score,
-                  maximum: 10,
-                  page: const ImprovementSelection(),
+            Navigator.pop(context);
+
+            if (widget.initialTest) {
+              _timer.cancel();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ShowScore(
+                    title: "Riddles",
+                    description: "Exercise 1 - Short Term Concentration",
+                    exercise: 1,
+                    yourScore: score,
+                    maximum: 10,
+                    page: const Home(),
+                  ),
                 ),
-              ),
-            );
+              );
+            } else if (widget.endingTest) {
+              _timer.cancel();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ShowImprovement(
+                    title: "Riddles",
+                    description: "Exercise 1 - Short Term Concentration",
+                    exercise: 1,
+                    yourScore: score,
+                    maximum: 10,
+                    page: const TitlePage(
+                      title: 'The Brain Train App',
+                    ),
+                    lastin: true,
+                  ),
+                ),
+              );
+            } else {
+              _timer.cancel();
+              write((score.toInt() == 10) ? 1 : 0);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProgressScreen(
+                    name: "long_term_concentration",
+                    score: score,
+                    exercise: 'Riddles',
+                  ),
+                ),
+              );
+            }
           }
         });
       }
     });
   }
 
-  Future<void> initMemory() async {
-    setState(() {});
-    startTimer();
+  Future<void> write(int add) async {
+    prefs = await SharedPreferences.getInstance();
+    if ((prefs.getInt('riddles_streak')) == null) {
+      await prefs.setInt('riddles_streak', 0);
+    }
+    await prefs.setInt(
+      'riddles_streak',
+      prefs.getInt('riddles_streak')! + add,
+    );
+    if ((prefs.getInt('riddles_difficulty')) == null) {
+      await prefs.setInt('riddles_difficulty', 3);
+    }
+    if ((prefs.getInt('riddles_streak')!) >= 6 &&
+        (prefs.getInt('riddles_difficulty')!) < 5) {
+      await prefs.setInt(
+        'riddles_difficulty',
+        prefs.getInt('riddles_difficulty')! + 1,
+      );
+      await prefs.setInt('riddles_streak', 0);
+    }
   }
 
   @override
@@ -222,15 +287,19 @@ class _RiddlesTest extends State<RiddlesTest> {
 
                                 if (selectedOption ==
                                     correctAnswers[questionIndex]) {
-                                  score += 1;
+                                  score += 5;
+                                } else {
+                                  score -= 2;
                                 }
 
-                                if (questionIndex < questions.length - 1) {
+                                if (passed < 1 ||
+                                    widget.initialTest ||
+                                    widget.endingTest) {
+                                  passed += 1;
                                   setState(() {
-                                    questionIndex += 1;
+                                    questionIndex =
+                                        Random().nextInt(numberOfQuestions);
                                     selectedOption = -1;
-                                    print(questionIndex);
-                                    print(answers.join("\n"));
                                   });
                                   return;
                                 }
@@ -249,18 +318,39 @@ class _RiddlesTest extends State<RiddlesTest> {
                                         exercise: 1,
                                         yourScore: score,
                                         maximum: 10,
-                                        page: const ImprovementSelection(),
+                                        page: const Home(),
+                                      ),
+                                    ),
+                                  );
+                                } else if (widget.endingTest) {
+                                  _timer.cancel();
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => ShowImprovement(
+                                        title: "Riddles",
+                                        description:
+                                            "Exercise 1 - Short Term Concentration",
+                                        exercise: 1,
+                                        yourScore: score,
+                                        maximum: 10,
+                                        page: const TitlePage(
+                                          title: 'The Brain Train App',
+                                        ),
+                                        lastin: true,
                                       ),
                                     ),
                                   );
                                 } else {
                                   _timer.cancel();
+                                  write((score.toInt() == 10) ? 1 : 0);
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => ProgressScreen(
                                         name: "long_term_concentration",
                                         score: score,
+                                        exercise: 'Riddles',
                                       ),
                                     ),
                                   );

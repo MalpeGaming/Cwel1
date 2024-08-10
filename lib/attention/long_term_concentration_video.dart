@@ -8,9 +8,14 @@ import 'dart:math';
 import '../app_bar.dart';
 
 class LongTermConcentrationVideo extends StatefulWidget {
-  const LongTermConcentrationVideo({super.key, this.initialTest = false});
+  const LongTermConcentrationVideo({
+    super.key,
+    this.initialTest = false,
+    this.endingTest = false,
+  });
 
   final bool initialTest;
+  final bool endingTest;
 
   @override
   State<LongTermConcentrationVideo> createState() =>
@@ -110,17 +115,18 @@ class _LongTermConcentrationVideo extends State<LongTermConcentrationVideo> {
                     ],
                   ),
                   SizedBox(height: size.height / 5),
-                  RedirectButton(
-                    route: (widget.initialTest)
-                        ? LongTermConcentrationTest(
-                            initialTest: true,
-                            exerciseId: exerciseId,
-                          )
-                        : LongTermConcentrationTest(
-                            exerciseId: exerciseId,
-                          ),
-                    text: 'Continue',
-                    width: size.width,
+                  SizedBox(
+                    height: size.height * 0.05,
+                    width: size.width * 0.75,
+                    child: RedirectButton(
+                      route: LongTermConcentrationTest(
+                        exerciseId: exerciseId,
+                        initialTest: widget.initialTest,
+                        endingTest: widget.endingTest,
+                      ),
+                      text: 'Continue',
+                      width: size.width,
+                    ),
                   ),
                 ],
               ),

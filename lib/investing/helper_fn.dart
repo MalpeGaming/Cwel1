@@ -35,23 +35,11 @@ Widget zoomImage(BuildContext context, String image, {double? w, double? h}) {
     zoomWidget: Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Theme.of(context).colorScheme.shadow.withOpacity(1),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: const Offset(5, 5),
-          ),
-        ],
+        color: Theme.of(context).colorScheme.background,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: Image.asset(
-          image,
-          width: w,
-          height: h,
-          fit: BoxFit.cover,
-        ),
+        child: Image.asset(image),
       ),
     ),
   );
@@ -154,7 +142,6 @@ Future<void> saveResult(int lessonId, int score) async {
     score = x;
   }
   prefs.setInt('lesson$lessonId', score);
-  //print("amogus");
 }
 
 Widget subpoint(BuildContext context, String text, String definition) {
@@ -218,8 +205,8 @@ Container createRecipe(
   Size size = MediaQuery.of(context).size;
 
   return Container(
-    height: h * size.height,
-    width: h * size.width,
+    //height: h * size.height,
+    //width: h * size.width,
     decoration: BoxDecoration(
       borderRadius: const BorderRadius.all(Radius.circular(20)),
       gradient: LinearGradient(
@@ -245,11 +232,11 @@ Container createRecipe(
       padding: EdgeInsets.all(size.width / 30),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: zoomImage(
-          context,
-          images[qIndx][index],
-          //w: 0.2 * size.width,
-          //h: 0.2 * size.width,
+        child: FittedBox(
+          child: zoomImage(
+            context,
+            images[qIndx][index],
+          ),
         ),
       ),
     ),
@@ -287,6 +274,7 @@ class _Success extends State<Success> {
   int scoreoverall = 60;
   int maxscoreoverall = 69;
   double percentageoverall = 0.87;
+  int day = 0;
 
   Future<void> readMemory() async {
     prefs = await SharedPreferences.getInstance();
@@ -299,7 +287,6 @@ class _Success extends State<Success> {
           sum += scores[i]!;
         }
         if (scores[10000 + i] != null) {
-          print("amogus");
           sum1 += scores[10000 + i]!;
         }
       }
@@ -314,25 +301,46 @@ class _Success extends State<Success> {
       }
       scoreoverall = sum;
       maxscoreoverall = sum1;
-      print("ważne");
-      print(scoreoverall);
-      print(maxscoreoverall);
 
       percentageoverall =
           ((maxscoreoverall == 0) ? 0 : scoreoverall / maxscoreoverall);
     });
   }
 
+  Future<void> calcDay() async {
+    DateTime firstDay = DateTime.now();
+    DateTime today = DateTime.now();
+    prefs = await SharedPreferences.getInstance();
+    if (prefs.getString('beginning_date') != null) {
+      firstDay = DateTime.parse(prefs.getString('beginning_date')!);
+    }
+    prefs.setString("InvestingMenuTickedDay$day", "1");
+
+    setState(() {
+      day = today.difference(firstDay).inDays + 1;
+    });
+  }
+
+  Future<void> saveResult() async {
+    prefs = await SharedPreferences.getInstance();
+    prefs.setString("InvestingMenuTickedDay$day", "1");
+  }
+
+  Future<void> initMemory() async {
+    await calcDay();
+    await readMemory();
+    await saveResult();
+  }
+
   @override
   void initState() {
     super.initState();
-    readMemory();
+    initMemory();
   }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    //print(widget.minutes.toString());
 
     return PopScope(
       canPop: false,
@@ -386,7 +394,7 @@ class _Success extends State<Success> {
                     RichText(
                       text: TextSpan(
                         style: TextStyle(
-                          fontSize: 0.025 * size.height,
+                          fontSize: 0.022 * size.height,
                           color: Theme.of(context).colorScheme.onSecondary,
                         ),
                         children: [
@@ -405,7 +413,7 @@ class _Success extends State<Success> {
                     RichText(
                       text: TextSpan(
                         style: TextStyle(
-                          fontSize: 0.025 * size.height,
+                          fontSize: 0.022 * size.height,
                           color: Theme.of(context).colorScheme.onSecondary,
                         ),
                         children: [
@@ -424,7 +432,7 @@ class _Success extends State<Success> {
                     RichText(
                       text: TextSpan(
                         style: TextStyle(
-                          fontSize: 0.025 * size.height,
+                          fontSize: 0.022 * size.height,
                           color: Theme.of(context).colorScheme.onSecondary,
                         ),
                         children: [
@@ -454,12 +462,12 @@ class _Success extends State<Success> {
                       minHeight: 0.025 * size.height,
                       borderRadius: BorderRadius.circular(21312127),
                     ),
-                    SizedBox(height: 0.025 * size.height),
+                    SizedBox(height: 0.07 * size.height),
 
                     RichText(
                       text: TextSpan(
                         style: TextStyle(
-                          fontSize: 0.025 * size.height,
+                          fontSize: 0.022 * size.height,
                           color: Theme.of(context).colorScheme.onSecondary,
                         ),
                         children: [
@@ -478,7 +486,7 @@ class _Success extends State<Success> {
                     RichText(
                       text: TextSpan(
                         style: TextStyle(
-                          fontSize: 0.025 * size.height,
+                          fontSize: 0.022 * size.height,
                           color: Theme.of(context).colorScheme.onSecondary,
                         ),
                         children: [

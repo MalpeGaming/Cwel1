@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'app_bar.dart';
 import 'buttons.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/gestures.dart';
+import 'settings/tos.dart';
+
 import 'home.dart';
 
 class TitlePage extends StatefulWidget {
@@ -14,19 +17,37 @@ class TitlePage extends StatefulWidget {
 }
 
 class _TitlePageState extends State<TitlePage> {
+  late SharedPreferences prefs;
+  bool firstTime = false;
+
+  Future<void> initData() async {
+    prefs = await SharedPreferences.getInstance();
+    var plan = prefs.getStringList('basePlanDay1');
+    setState(() {
+      if (plan == null) {
+        firstTime = true;
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    initData();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: appBar(context, "", canReturn: false),
       body: Center(
         child: Container(
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
-            top: size.height / 15,
-            bottom: size.height / 10,
+            top: size.height / 7,
+            bottom: size.height / 15,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -87,21 +108,61 @@ class _TitlePageState extends State<TitlePage> {
               SizedBox(
                 height: size.height * 0.05,
                 width: size.width * 0.75,
-                child: StartButton(
-                  text: "Test Yourself!",
-                  width: size.width,
-                  tooltip: 'Smart Decision!',
-                ),
+                child: firstTime
+                    ? StartButton(
+                        text: "Test Yourself!",
+                        width: size.width,
+                        tooltip: 'Smart Decision!',
+                      )
+                    : RedirectButton(
+                        route: const Home(),
+                        text: 'Continue',
+                        width: size.width,
+                      ),
               ),
-              SizedBox(
-                height: size.height * 0.05,
-                width: size.width * 0.75,
-                child: RedirectButton(
-                  route: const Home(),
-                  text: 'Continue',
-                  width: size.width,
+              SizedBox(height: 0.02 * size.height),
+              if (firstTime)
+                RichText(
+                  text: TextSpan(
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium, // Use the default body text style
+
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: "By using our App, you agree to our ",
+                        style: TextStyle(
+                          fontSize: 0.015 * size.height,
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onSecondary
+                              .withOpacity(0.4),
+                        ),
+                      ),
+                      TextSpan(
+                        text: "Terms of Service",
+                        style: TextStyle(
+                          decoration:
+                              TextDecoration.underline, // Underline decoration
+                          fontSize: 0.015 * size.height,
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onSecondary
+                              .withOpacity(0.4),
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const TermsOfService(),
+                              ),
+                            );
+                          },
+                      ),
+                    ],
+                  ),
                 ),
-              ),
             ],
           ),
         ),

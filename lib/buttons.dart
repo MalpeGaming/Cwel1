@@ -24,20 +24,20 @@ class StartButton extends StatefulWidget {
 class _StartButtonState extends State<StartButton> {
   bool hovered = false;
   late SharedPreferences prefs;
+  DateTime now = DateTime.now();
+  Future<void> initMemory() async {
+    prefs = await SharedPreferences.getInstance();
+    await prefs.remove('plan');
+    prefs.setString(
+      'beginning_date',
+      DateTime(now.year, now.month, now.day).toString(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Future<void> initMemory() async {
-          prefs = await SharedPreferences.getInstance();
-          prefs.setStringList(
-            'beginning_date',
-            [DateTime.now().toString()],
-          );
-          print("amogus");
-        }
-
         initMemory();
         Navigator.push(
           context,
@@ -58,7 +58,7 @@ class _StartButtonState extends State<StartButton> {
           color: hovered
               ? Theme.of(context).colorScheme.secondary
               : Theme.of(context).colorScheme.primary,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.35),
@@ -74,7 +74,7 @@ class _StartButtonState extends State<StartButton> {
             child: Text(
               widget.text,
               style: TextStyle(
-                fontSize: widget.width / 16,
+                fontSize: widget.width / 14,
                 color: const Color.fromARGB(255, 224, 246, 255),
               ),
             ),
@@ -92,6 +92,7 @@ class RedirectButton extends StatefulWidget {
   final Widget? route;
   final bool requirement;
   final void Function() onClick;
+  final bool clearAllWindows;
 
   const RedirectButton({
     super.key,
@@ -101,6 +102,7 @@ class RedirectButton extends StatefulWidget {
     this.route,
     this.requirement = true,
     this.onClick = nuthin,
+    this.clearAllWindows = false,
   });
 
   @override
@@ -128,13 +130,21 @@ class _RedirectButtonState extends State<RedirectButton> {
           widget.onClick();
           //
           if (widget.route != null) {
-            Navigator.pop(context);
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => widget.route!,
-              ),
-            );
+            //Navigator.pop(context);
+            if (widget.clearAllWindows) {
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => widget.route!),
+                (Route<dynamic> route) => false,
+              );
+            } else {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => widget.route!,
+                ),
+              );
+            }
           }
         } else if (!toRed) {
           setState(() {
@@ -209,6 +219,7 @@ class ImprovementButton extends StatefulWidget {
   final double width;
   final Widget route;
   final String img;
+  final String name;
 
   const ImprovementButton({
     super.key,
@@ -216,6 +227,7 @@ class ImprovementButton extends StatefulWidget {
     required this.width,
     required this.route,
     required this.img,
+    required this.name,
   });
 
   @override
@@ -227,61 +239,88 @@ class _ImprovementButtonState extends State<ImprovementButton> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    late SharedPreferences prefs;
     //initMemory();
-    return Expanded(
-      flex: 1,
+    return SizedBox(
+      //flex: 1,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(
-            widget.img,
-            height: widget.width / 7.5,
-            width: widget.width / 7.5,
+          SizedBox(
+            height: size.width / 6,
+            width: size.width / 6,
+            child: Image.asset(
+              "assets/improvement_selection/${widget.img}",
+              height: size.width / 6,
+            ),
           ),
           SizedBox(
-            width: widget.width / 16,
+            width: size.width / 40,
           ),
-          InkWell(
-            onHover: (value) {
-              setState(() {
-                hovered = value;
-              });
-            },
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => widget.route,
-                ),
-              );
-            },
-            child: Container(
-              width: widget.width * 0.6,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25),
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[
-                    Theme.of(context).colorScheme.primary,
-                    Theme.of(context).colorScheme.onPrimary,
-                  ],
-                  tileMode: TileMode.decal,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Theme.of(context).colorScheme.shadow.withOpacity(1),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: const Offset(5, 5),
+          SizedBox(
+            height: size.height / 15,
+            width: size.width * 0.6,
+            child: InkWell(
+              onHover: (value) {
+                setState(() {
+                  hovered = value;
+                });
+              },
+              onTap: () {
+                Future<void> initMemory() async {
+                  prefs = await SharedPreferences.getInstance();
+                  prefs.setString(
+                    'skill',
+                    widget.name,
+                  );
+                }
+
+                initMemory();
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => widget.route,
                   ),
-                ],
-              ),
-              child: Center(
-                child: Text(
-                  widget.text,
-                  style: TextStyle(
-                    fontSize: widget.width / 16,
-                    color: Theme.of(context).colorScheme.tertiary,
+                );
+              },
+              child: Container(
+                width: widget.width * 0.5,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: <Color>[
+                      Theme.of(context).colorScheme.primary,
+                      Theme.of(context).colorScheme.onPrimary,
+                    ],
+                    tileMode: TileMode.decal,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.3),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: const Offset(5, 5),
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Text(
+                    widget.text,
+                    style: TextStyle(
+                      fontSize: widget.width / 16,
+                      color: Colors.white,
+                      shadows: <Shadow>[
+                        Shadow(
+                          offset: const Offset(2.0, 2.0),
+                          blurRadius: 3.0,
+                          color: Colors.black.withOpacity(0.3),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -3,7 +3,7 @@ import 'home.dart';
 import 'score_n_progress/progress.dart';
 import 'your_activities.dart';
 import 'diet/nutrition_tips.dart';
-import 'settings.dart';
+import 'settings/settings.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
   const MyBottomNavigationBar({super.key});
@@ -18,6 +18,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      Navigator.pop(context);
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -77,7 +78,6 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
 
   BottomNavigationBarItem buildMenuIcon(int index, String lab) {
     Size size = MediaQuery.of(context).size;
-    print(MediaQuery.of(context).platformBrightness);
     return BottomNavigationBarItem(
       icon: Stack(
         children: [

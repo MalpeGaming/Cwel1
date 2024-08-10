@@ -1,9 +1,10 @@
 import 'package:brain_train_app/buttons.dart';
+import 'package:brain_train_app/home.dart';
 import 'package:flutter/material.dart';
 import 'attention/short_term_concentration.dart';
 import 'memory/learning_words/memory.dart';
-import 'logical_thinking/logical_thinking.dart';
 import 'linguistic/listening_comprehension_video.dart';
+import 'logical_thinking/riddles_info.dart';
 
 class ImprovementSelection extends StatefulWidget {
   const ImprovementSelection({super.key});
@@ -65,7 +66,10 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               route: const Memory(
                 initialTest: true,
               ),
-              img: "assets/improvement_selection/memory.png",
+              img: (Theme.of(context).brightness == Brightness.light)
+                  ? "memory_light.png"
+                  : "memory_dark.png",
+              name: "memory",
             ),
             const Spacer(),
             ImprovementButton(
@@ -74,24 +78,44 @@ class _ImprovementSelectionState extends State<ImprovementSelection> {
               route: const ShortTermConcentration(
                 initialTest: true,
               ),
-              img: "assets/improvement_selection/attention.png",
+              img: (Theme.of(context).brightness == Brightness.light)
+                  ? "attention_light.png"
+                  : "attention_dark.png",
+              name: "attention",
             ),
             const Spacer(),
             ImprovementButton(
               text: "Linguistic",
               width: size.width,
               route: const ListeningComprehensionVideo(initialTest: true),
-              img: "assets/improvement_selection/linguistic_intelligence.png",
+              img: (Theme.of(context).brightness == Brightness.light)
+                  ? "linguistic_light.png"
+                  : "linguistic_dark.png",
+              name: "linguistic",
             ),
             const Spacer(),
             ImprovementButton(
               text: "Logical Thinking",
               width: size.width,
-              route: const LogicalThinking(
+              route: const Riddles(
                 initialTest: true,
               ),
               //const RiddlesTest( exerciseId: 1,),
-              img: "assets/improvement_selection/logical_thinking.png",
+              img: (Theme.of(context).brightness == Brightness.light)
+                  ? "logical_light.png"
+                  : "logical_dark.png",
+              name: "logical",
+            ),
+            const Spacer(),
+            ImprovementButton(
+              text: "Just fun",
+              width: size.width,
+              route: const Home(),
+              //const RiddlesTest( exerciseId: 1,),
+              img: (Theme.of(context).brightness == Brightness.light)
+                  ? "fun_light.png"
+                  : "fun_dark.png",
+              name: "games",
             ),
             const Spacer(),
           ],

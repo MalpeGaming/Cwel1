@@ -134,6 +134,7 @@ class _Faces extends State<Faces> {
                                 builder: (context) => ProgressScreen(
                                   name: "faces_memory",
                                   score: points,
+                                  exercise: 'Faces',
                                 ),
                               ),
                             );
@@ -172,6 +173,7 @@ class _Faces extends State<Faces> {
                                 builder: (context) => ProgressScreen(
                                   name: "faces_memory",
                                   score: points,
+                                  exercise: 'Faces',
                                 ),
                               ),
                             );

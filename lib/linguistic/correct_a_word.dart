@@ -5,6 +5,7 @@ import 'dart:async';
 import 'dart:math';
 import '../score_n_progress/progress_screen.dart';
 import '/buttons.dart';
+import 'package:brain_train_app/app_bar.dart';
 
 class CorrectAWord extends StatefulWidget {
   const CorrectAWord({super.key});
@@ -44,6 +45,7 @@ class _CorrectAWord extends State<CorrectAWord> {
                   builder: (context) => ProgressScreen(
                     name: "correct_a_word",
                     score: score,
+                    exercise: 'CorrectAWord',
                   ),
                 ),
               );
@@ -90,6 +92,7 @@ class _CorrectAWord extends State<CorrectAWord> {
     return correctWords.isEmpty && incorrectWords.isEmpty
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
+            appBar: appBar(context, ""),
             body: SingleChildScrollView(
               child: Container(
                 width: size.width * 0.9,
@@ -161,19 +164,22 @@ class _CorrectAWord extends State<CorrectAWord> {
                                         ),
                                       ),
                                       Container(
-                                        padding: const EdgeInsets.all(10),
+                                        padding: const EdgeInsets.all(2),
                                         width: size.width / 10,
+                                        height: size.width / 10,
                                         decoration: const BoxDecoration(
                                           shape: BoxShape.circle,
                                           color: Colors.green,
                                         ),
-                                        child: Text(
-                                          "$score",
-                                          style: TextStyle(
-                                            fontSize: size.width / 30,
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .tertiary,
+                                        child: Center(
+                                          child: Text(
+                                            "$score",
+                                            style: TextStyle(
+                                              fontSize: size.width / 30,
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .tertiary,
+                                            ),
                                           ),
                                         ),
                                       ),

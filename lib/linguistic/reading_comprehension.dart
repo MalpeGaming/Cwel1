@@ -7,12 +7,19 @@ import '../investing/helper_fn.dart';
 import '../buttons.dart';
 import '../score_n_progress/show_score.dart';
 import '../score_n_progress/progress_screen.dart';
-import '../improvement_selection.dart';
+import '/home.dart';
+import '../score_n_progress/show_improvement.dart';
+import '../title_page.dart';
 
 class ReadingComprehension extends StatefulWidget {
-  const ReadingComprehension({super.key, this.initialTest = false});
+  const ReadingComprehension({
+    super.key,
+    this.initialTest = false,
+    this.endingTest = false,
+  });
 
   final bool initialTest;
+  final bool endingTest;
 
   @override
   State<ReadingComprehension> createState() => _ReadingComprehension();
@@ -194,7 +201,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return questions.isEmpty & answers.isEmpty & correct.isEmpty
+    return questions.isEmpty && answers.isEmpty && correct.isEmpty
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
             appBar: appBar(context, ""),
@@ -237,7 +244,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                             Column(
                               children: [
                                 createDivider(context),
-                                createQuestion(context, 0),
+                                createQuestion(context, i),
                               ],
                             ),
                         ],
@@ -250,7 +257,6 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                           child: RedirectButton(
                             text: 'Continue',
                             width: size.width,
-                            requirement: selectedOption != -1,
                             onClick: () {
                               int score = 0;
                               for (int i = 0; i < usersAnswers.length; i++) {
@@ -271,7 +277,25 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                                       exercise: 2,
                                       yourScore: score.toDouble(),
                                       maximum: 10,
-                                      page: const ImprovementSelection(),
+                                      page: const Home(),
+                                    ),
+                                  ),
+                                );
+                              } else if (widget.endingTest) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ShowImprovement(
+                                      title: "LINGUISTIC",
+                                      description:
+                                          "Exercise 1 -  Reading Comprehension",
+                                      exercise: 2,
+                                      yourScore: score.toDouble(),
+                                      maximum: 10,
+                                      page: const TitlePage(
+                                        title: 'The Brain Train App',
+                                      ),
+                                      lastin: true,
                                     ),
                                   ),
                                 );
@@ -280,8 +304,9 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => ProgressScreen(
-                                      name: "listening_comprehension",
+                                      name: "reading_comprehension",
                                       score: score.toDouble(),
+                                      exercise: 'ReadingComprehensionInfo',
                                     ),
                                   ),
                                 );
@@ -290,6 +315,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                           ),
                         ),
                       ),
+                      SizedBox(height: size.height / 10),
                     ],
                   ),
                 ),

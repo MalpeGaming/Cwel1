@@ -3,18 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/services.dart';
 import 'dart:math';
-import '/account/login1.dart';
+import '/home.dart';
 import '../score_n_progress/show_score.dart';
 import '../buttons.dart';
 import '../score_n_progress/progress_screen.dart';
 import '../app_bar.dart';
+import '../score_n_progress/show_improvement.dart';
+import '../title_page.dart';
 
-class MemoryVideo extends StatefulWidget {
+class WorkingMemory extends StatefulWidget {
   final bool initialTest;
-  const MemoryVideo({super.key, this.initialTest = false});
+  final bool endingTest;
+
+  const WorkingMemory({
+    super.key,
+    this.initialTest = false,
+    this.endingTest = false,
+  });
 
   @override
-  State<MemoryVideo> createState() => _MemoryVideo();
+  State<WorkingMemory> createState() => _WorkingMemory();
 }
 
 List<List<String>> films = [
@@ -47,9 +55,7 @@ List<List<String>> films = [
   ],
 ];
 
-class _MemoryVideo extends State<MemoryVideo> {
-  bool initialTest = false;
-
+class _WorkingMemory extends State<WorkingMemory> {
   late YoutubePlayerController _controller;
   TextEditingController textController = TextEditingController();
   double score = 0;
@@ -84,7 +90,6 @@ class _MemoryVideo extends State<MemoryVideo> {
 
     currentLevel ??= 0;
     currentStreak ??= 0;
-    print(currentLevel);
 
     setState(() {
       level = currentLevel!;
@@ -95,7 +100,6 @@ class _MemoryVideo extends State<MemoryVideo> {
   @override
   void initState() {
     super.initState();
-    initialTest = widget.initialTest;
 
     _controller = YoutubePlayerController(
       params: const YoutubePlayerParams(
@@ -111,6 +115,12 @@ class _MemoryVideo extends State<MemoryVideo> {
     });
 
     //int level = 0;
+  }
+
+  @override
+  dispose() {
+    _controller.close();
+    super.dispose();
   }
 
   @override
@@ -212,33 +222,47 @@ class _MemoryVideo extends State<MemoryVideo> {
               SizedBox(
                 height: size.height / 7,
               ),
-              RedirectButton(
-                onClick: () {
-                  if (score == 1) {
-                    saveStreak(1);
-                  } else {
-                    saveStreak(-1);
-                  }
-                  Navigator.pop(context);
-                },
-                route: (widget.initialTest)
-                    ? ShowScore(
-                        title: "MEMORY",
-                        description: "Exercise 2 -  Working memory",
-                        exercise: 2,
-                        yourScore: score,
-                        maximum: 10,
-                        page: const Login1(),
-                      )
-                    : ProgressScreen(
-                        name: "working_memory",
-                        score: score,
-                      ),
-                text: 'Continue',
-                width: size.width,
+              SizedBox(
+                height: size.height * 0.05,
+                width: size.width * 0.75,
+                child: RedirectButton(
+                  onClick: () {
+                    if (score == 1) {
+                      saveStreak(1);
+                    } else {
+                      saveStreak(-1);
+                    }
+                  },
+                  route: (widget.initialTest)
+                      ? ShowScore(
+                          title: "MEMORY",
+                          description: "Exercise 2 -  Working memory",
+                          exercise: 2,
+                          yourScore: score,
+                          maximum: 10,
+                          page: const Home(),
+                        )
+                      : (widget.endingTest
+                          ? ShowImprovement(
+                              title: "MEMORY",
+                              description: "Exercise 2 -  Working memory",
+                              exercise: 2,
+                              yourScore: score,
+                              maximum: 10,
+                              page: const TitlePage(
+                                title: 'The Brain Train App',
+                              ),
+                              lastin: true,
+                            )
+                          : ProgressScreen(
+                              name: "working_memory",
+                              score: score,
+                              exercise: "WorkingMemory",
+                            )),
+                  text: 'Continue',
+                  width: size.width,
+                ),
               ),
-              Text(level.toString()),
-              Text(streak.toString()),
             ],
           ),
         ),

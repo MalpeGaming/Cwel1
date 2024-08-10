@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '/app_bar.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class VideoListItem extends StatefulWidget {
   final String videoAsset;
@@ -17,48 +18,19 @@ class _VideoListItemState extends State<VideoListItem> {
   @override
   void initState() {
     super.initState();
-    _controller = YoutubePlayerController.fromVideoId(
-      videoId: widget.videoAsset.substring(widget.videoAsset.length - 11),
-      autoPlay: true,
-      params: const YoutubePlayerParams(
-        showControls: false,
-        showFullscreenButton: false,
-        enableCaption: false,
-        showVideoAnnotations: false,
-        playsInline: true,
-      ),
-    );
+  }
+
+  Future<void> launchURL(String url) async {
+    await launchUrl(Uri.parse(url));
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              print(widget.videoAsset);
-
-              SystemChrome.setPreferredOrientations([
-                DeviceOrientation.landscapeLeft,
-                DeviceOrientation.landscapeRight,
-              ]);
-              return YoutubePlayerScaffold(
-                autoFullScreen: true,
-                builder: ((context, player) {
-                  return Container(
-                    color: Colors.black,
-                    child: Center(
-                      child: player,
-                    ),
-                  );
-                }),
-                controller: _controller,
-              );
-            },
-          ),
-        );
+        final youtubeUrl =
+            'https://www.youtube.com/watch?v=${widget.videoAsset.substring(widget.videoAsset.length - 11)}';
+        launchURL(youtubeUrl);
       },
       child: Container(
         margin: const EdgeInsets.all(6),
@@ -66,7 +38,8 @@ class _VideoListItemState extends State<VideoListItem> {
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.35),
+              color: Theme.of(context).colorScheme.background,
+              //color: Colors.black.withOpacity(0.35),
               spreadRadius: 2,
               blurRadius: 5,
               offset: const Offset(0, 3),
@@ -79,28 +52,28 @@ class _VideoListItemState extends State<VideoListItem> {
             aspectRatio: 1,
             child: Image.network(
               'https://img.youtube.com/vi/${widget.videoAsset.substring(widget.videoAsset.length - 11)}/0.jpg',
-              fit: BoxFit.cover,
+              filterQuality: FilterQuality.high,
+              fit: BoxFit.none,
               errorBuilder: (context, error, stackTrace) {
-                return const Center(
+                return Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Center(
-                        child: Icon(
-                          Icons.clear,
-                          color: Colors.red,
-                          size: 48,
-                        ),
-                      ),
-                      SizedBox(height: 8),
+                      const Center(child: CircularProgressIndicator()),
+                      const SizedBox(height: 8),
                       Center(
                         child: Text(
                           'Check internet connection',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSecondary
+                                .withOpacity(0.5),
                           ),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ],
@@ -116,9 +89,13 @@ class _VideoListItemState extends State<VideoListItem> {
 
   @override
   void dispose() {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-    ]);
+    SystemChrome.setPreferredOrientations(
+      [
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+      ],
+    );
+    _controller.close();
     super.dispose();
   }
 }

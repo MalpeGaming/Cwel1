@@ -12,30 +12,27 @@ class Meme extends StatefulWidget {
 class _MemeState extends State<Meme> {
   late SharedPreferences prefs;
 
-  int numerek = 0;
+  int day = 0;
+  String zdjecie = "assets/memes/1.png";
 
-  Future<void> readMemory() async {
+  Future<void> calcDay() async {
+    DateTime firstDay = DateTime.now();
+    DateTime today = DateTime.now();
     prefs = await SharedPreferences.getInstance();
-    print("amogus");
-    print(prefs.getStringList('beginning_date').toString());
-    String? beginningDate = prefs.getStringList('beginning_date')?.first;
-    if (beginningDate != null) {
-      DateTime beginningDateTime = DateTime.parse(beginningDate);
-      Duration daysPassed = DateTime.now().difference(beginningDateTime);
-      print("Days passed since beginning date: ${daysPassed.inDays}");
-      numerek = (daysPassed.inDays) % 30;
-      setState(() {
-        zdjecie = "assets/memes/$numerek.png";
-      });
-      print(zdjecie);
+    if (prefs.getString('beginning_date') != null) {
+      firstDay = DateTime.parse(prefs.getString('beginning_date')!);
     }
+    day = today.difference(firstDay).inDays + 1;
+
+    setState(() {
+      zdjecie = "assets/memes/$day.png";
+    });
   }
 
-  String zdjecie = "assets/memes/0.png";
   @override
   void initState() {
     super.initState();
-    readMemory();
+    calcDay();
   }
 
   @override

@@ -1,23 +1,27 @@
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:xml/xml.dart' as xml;
 import 'dart:math';
 import 'dart:async';
 import 'memory_check.dart';
+import 'package:brain_train_app/app_bar.dart';
 
 class MemoryWords extends StatefulWidget {
-  final bool? initialTest;
-  const MemoryWords({this.initialTest = false, super.key});
+  final bool initialTest;
+  final bool endingTest;
+
+  const MemoryWords({
+    this.initialTest = false,
+    this.endingTest = false,
+    super.key,
+  });
 
   @override
   State<MemoryWords> createState() => _MemoryWordsState();
 }
 
 class _MemoryWordsState extends State<MemoryWords> {
-  bool initialTest = false;
-
   late SharedPreferences prefs;
 
   List<String> words = [];
@@ -91,7 +95,7 @@ class _MemoryWordsState extends State<MemoryWords> {
     );
   }
 
-  int _remainingTime = 3;
+  int _remainingTime = 420;
   late Timer _timer;
   List<Map<String, String>> b1 = [];
   List<Map<String, String>> picked = [];
@@ -131,8 +135,13 @@ class _MemoryWordsState extends State<MemoryWords> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) =>
-                  Memory2(initialTest: initialTest, picked, defs, words),
+              builder: (context) => Memory2(
+                initialTest: widget.initialTest,
+                endingTest: widget.endingTest,
+                picked,
+                defs,
+                words,
+              ),
             ),
           );
         }
@@ -152,7 +161,6 @@ class _MemoryWordsState extends State<MemoryWords> {
   @override
   void initState() {
     super.initState();
-    initialTest = widget.initialTest!;
     initMemory();
   }
 
@@ -161,13 +169,13 @@ class _MemoryWordsState extends State<MemoryWords> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: appBar(context, ""),
       body: picked.isEmpty
           ? const Center(child: CircularProgressIndicator())
           : Container(
               margin: EdgeInsets.only(
                 left: size.width / 10,
                 right: size.width / 10,
-                top: size.height / 10,
               ),
               child: Column(
                 children: [

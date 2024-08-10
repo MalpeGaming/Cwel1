@@ -50,6 +50,8 @@ class _SudokuGame extends State<SudokuGame> {
     setState(() {
       initMemory();
     });
+    tappedCol = tappedRow = null;
+    sudoku = Sudoku.generate(Level.easy);
     /*Navigator.push(
       context,
       MaterialPageRoute(
@@ -64,13 +66,6 @@ class _SudokuGame extends State<SudokuGame> {
 
   int? tappedCol, tappedRow;
   List<int> sudoku2 = List<int>.generate(100, (index) => -1);
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    tappedCol = tappedRow = null;
-    sudoku = Sudoku.generate(Level.easy);
-  }
 
   BorderRadius _getBorderRadius(int rowIndex, int colIndex) {
     if (rowIndex == 0 && colIndex == 0) {
@@ -130,6 +125,7 @@ class _SudokuGame extends State<SudokuGame> {
                     name: "sudoku",
                     score: lastScore.toDouble(),
                     txt: "You now have",
+                    exercise: 'SudokuInfo',
                   ),
                 ),
               );
@@ -172,9 +168,9 @@ class _SudokuGame extends State<SudokuGame> {
             style: TextStyle(
               fontSize: 0.07 * size.width,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).brightness == Brightness.light
-                  ? Theme.of(context).colorScheme.onPrimary
-                  : Colors.white,
+              color: (Theme.of(context).brightness == Brightness.light)
+                  ? Theme.of(context).colorScheme.primary
+                  : Theme.of(context).colorScheme.onSecondary,
             ),
           ),
         ),
