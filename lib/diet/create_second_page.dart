@@ -135,7 +135,7 @@ createSecondPage(
         listItems: list,
         style: TextStyle(
           fontSize: 0.025 * size.height,
-          color: Colors.black,
+          color: Theme.of(context).colorScheme.onSecondary,
         ),
       ),
     ],

@@ -99,7 +99,7 @@ class _NutritionTips extends State<NutritionTips> {
               createActivity(
                 context,
                 "diet/recipes",
-                "5 brain train recipes",
+                "5 Brain Train recipes",
                 "",
                 0.025 * size.height,
                 const Recipes(),

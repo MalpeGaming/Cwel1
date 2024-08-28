@@ -50,7 +50,7 @@ class _Memory extends State<Memory> {
                 ),
                 SizedBox(height: 0.02 * size.height),
                 Text(
-                  "In this exercises you will be given 7 minutes to learn as many words as you can. When you are ready to start, click CONTINUE.",
+                  "In this exercises you will be given 5 minutes to learn as many words as you can. When you are ready to start, click CONTINUE.",
                   style: TextStyle(fontSize: 0.02 * size.height),
                   textAlign: TextAlign.start,
                 ),

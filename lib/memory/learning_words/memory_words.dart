@@ -95,7 +95,7 @@ class _MemoryWordsState extends State<MemoryWords> {
     );
   }
 
-  int _remainingTime = 420;
+  int _remainingTime = 2;
   late Timer _timer;
   List<Map<String, String>> b1 = [];
   List<Map<String, String>> picked = [];
@@ -177,47 +177,49 @@ class _MemoryWordsState extends State<MemoryWords> {
                 left: size.width / 10,
                 right: size.width / 10,
               ),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "MEMORY",
-                      style: TextStyle(fontSize: 0.08 * size.height),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  SizedBox(height: 0.02 * size.height),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            "Exercise 1.1 - Learning",
-                            style: TextStyle(fontSize: 0.022 * size.height),
-                            textAlign: TextAlign.start,
-                          ),
-                          SizedBox(width: 0.05 * size.width),
-                          const Spacer(),
-                          Icon(
-                            Icons.timer,
-                            size: 0.08 * min(size.width, size.height),
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
-                          const SizedBox(width: 10.0),
-                          Text(
-                            "${_remainingTime.toString()}s",
-                            style: TextStyle(fontSize: 0.02 * size.height),
-                            textAlign: TextAlign.start,
-                          ),
-                        ],
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "MEMORY",
+                        style: TextStyle(fontSize: 0.08 * size.height),
+                        textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 0.05 * size.height),
-                      createPoints(picked, size, context),
-                    ],
-                  ),
-                ],
+                    ),
+                    SizedBox(height: 0.02 * size.height),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              "Exercise 1.1 - Learning",
+                              style: TextStyle(fontSize: 0.022 * size.height),
+                              textAlign: TextAlign.start,
+                            ),
+                            SizedBox(width: 0.05 * size.width),
+                            const Spacer(),
+                            Icon(
+                              Icons.timer,
+                              size: 0.08 * min(size.width, size.height),
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                            const SizedBox(width: 10.0),
+                            Text(
+                              "${_remainingTime.toString()}s",
+                              style: TextStyle(fontSize: 0.02 * size.height),
+                              textAlign: TextAlign.start,
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 0.05 * size.height),
+                        createPoints(picked, size, context),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
     );

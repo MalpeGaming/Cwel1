@@ -152,10 +152,10 @@ class _Omega3V2 extends State<Omega3V2> {
                 text: TextSpan(
                   text: 'Consuming omega-3 fatty acids has been linked to ',
                   style: TextStyle(
-                    color: Colors.black,
                     fontStyle: FontStyle.italic,
                     fontSize: size.width / 25,
                     height: 1.2,
+                    color: Theme.of(context).colorScheme.onSecondary,
                   ),
                   children: const <TextSpan>[
                     TextSpan(
