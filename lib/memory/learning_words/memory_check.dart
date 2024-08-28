@@ -51,6 +51,7 @@ class _Memory2 extends State<Memory2> {
               width: 0.8 * size.width,
               child: TextFormField(
                 controller: conList[i],
+                enableSuggestions: false,
                 onSaved: (String? value) {},
                 decoration: const InputDecoration(
                   contentPadding: EdgeInsets.symmetric(vertical: 12.0),

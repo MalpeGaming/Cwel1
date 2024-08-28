@@ -162,7 +162,7 @@ class Recipe extends StatelessWidget {
                 SizedBox(width: size.width / 20),
                 Expanded(
                   child: Text(
-                    pages[0],
+                    pages[index],
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: size.width / 16,
