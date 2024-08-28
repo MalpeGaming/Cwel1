@@ -45,10 +45,10 @@ class _Info extends State<Info> {
               style: TextStyle(fontSize: 0.05 * size.width),
               textAlign: TextAlign.start,
             ),
-            SizedBox(height: 0.04 * size.height),
+            SizedBox(height: 0.07 * size.height),
             Text(
-              "In this exercises you will be given a popular poem by some of the best-known authors. You task is to read the poems in the correct speed with proper pronunciation. You can repeat the task as many times as you want.",
-              style: TextStyle(fontSize: size.height / 50),
+              "Poem for today : )",
+              style: TextStyle(fontSize: size.height / 30),
             ),
             const Spacer(),
             Center(
