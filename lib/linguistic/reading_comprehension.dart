@@ -205,119 +205,117 @@ class _ReadingComprehension extends State<ReadingComprehension> {
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
             appBar: appBar(context, ""),
-            body: SingleChildScrollView(
-              child: Container(
-                width: size.width * 0.9,
-                height: size.height * 0.9,
-                margin: EdgeInsets.only(
-                  left: size.width / 10,
-                  right: size.width / 10,
-                ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            title.toString(),
-                            style: TextStyle(
-                              fontSize: size.width / 25,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textAlign: TextAlign.center,
+            body: Container(
+              width: size.width * 0.9,
+              height: size.height * 0.9,
+              margin: EdgeInsets.only(
+                left: size.width / 10,
+                right: size.width / 10,
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          title.toString(),
+                          style: TextStyle(
+                            fontSize: size.width / 25,
+                            fontWeight: FontWeight.bold,
                           ),
-                          Text(
-                            "by $author",
-                            style: TextStyle(fontSize: size.width / 30),
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          "by $author",
+                          style: TextStyle(fontSize: size.width / 30),
+                        ),
+                        SizedBox(
+                          height: size.height / 30,
+                        ),
+                        Text(
+                          text,
+                          style: TextStyle(fontSize: size.height / 50),
+                        ),
+                        for (int i = 0; i < questions.length; i++)
+                          Column(
+                            children: [
+                              createDivider(context),
+                              createQuestion(context, i),
+                            ],
                           ),
-                          SizedBox(
-                            height: size.height / 30,
-                          ),
-                          Text(
-                            text,
-                            style: TextStyle(fontSize: size.height / 50),
-                          ),
-                          for (int i = 0; i < questions.length; i++)
-                            Column(
-                              children: [
-                                createDivider(context),
-                                createQuestion(context, i),
-                              ],
-                            ),
-                        ],
-                      ),
-                      SizedBox(height: size.height / 10),
-                      Center(
-                        child: SizedBox(
-                          height: size.height * 0.05,
-                          width: size.width * 0.75,
-                          child: RedirectButton(
-                            text: 'Continue',
-                            width: size.width,
-                            onClick: () {
-                              int score = 0;
-                              for (int i = 0; i < usersAnswers.length; i++) {
-                                if (usersAnswers[i] == correct[i]) {
-                                  score++;
-                                }
+                      ],
+                    ),
+                    SizedBox(height: size.height / 10),
+                    Center(
+                      child: SizedBox(
+                        height: size.height * 0.05,
+                        width: size.width * 0.75,
+                        child: RedirectButton(
+                          text: 'Continue',
+                          width: size.width,
+                          onClick: () {
+                            int score = 0;
+                            for (int i = 0; i < usersAnswers.length; i++) {
+                              if (usersAnswers[i] == correct[i]) {
+                                score++;
                               }
-                              Navigator.pop(context);
+                            }
+                            Navigator.pop(context);
 
-                              if (widget.initialTest) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ShowScore(
-                                      title: "LINGUISTIC",
-                                      description:
-                                          "Exercise 1 -  Reading Comprehension",
-                                      exercise: 2,
-                                      yourScore: score.toDouble(),
-                                      maximum: 10,
-                                      page: const Home(),
-                                    ),
+                            if (widget.initialTest) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ShowScore(
+                                    title: "LINGUISTIC",
+                                    description:
+                                        "Exercise 1 -  Reading Comprehension",
+                                    exercise: 2,
+                                    yourScore: score.toDouble(),
+                                    maximum: 10,
+                                    page: const Home(),
                                   ),
-                                );
-                              } else if (widget.endingTest) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ShowImprovement(
-                                      title: "LINGUISTIC",
-                                      description:
-                                          "Exercise 1 -  Reading Comprehension",
-                                      exercise: 2,
-                                      yourScore: score.toDouble(),
-                                      maximum: 10,
-                                      page: const TitlePage(
-                                        title: 'The Brain Train App',
-                                      ),
-                                      lastin: true,
+                                ),
+                              );
+                            } else if (widget.endingTest) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ShowImprovement(
+                                    title: "LINGUISTIC",
+                                    description:
+                                        "Exercise 1 -  Reading Comprehension",
+                                    exercise: 2,
+                                    yourScore: score.toDouble(),
+                                    maximum: 10,
+                                    page: const TitlePage(
+                                      title: 'The Brain Train App',
                                     ),
+                                    lastin: true,
                                   ),
-                                );
-                              } else {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ProgressScreen(
-                                      name: "reading_comprehension",
-                                      score: score.toDouble(),
-                                      exercise: 'ReadingComprehensionInfo',
-                                    ),
+                                ),
+                              );
+                            } else {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ProgressScreen(
+                                    name: "reading_comprehension",
+                                    score: score.toDouble(),
+                                    exercise: 'ReadingComprehensionInfo',
                                   ),
-                                );
-                              }
-                            },
-                          ),
+                                ),
+                              );
+                            }
+                          },
                         ),
                       ),
-                      SizedBox(height: size.height / 10),
-                    ],
-                  ),
+                    ),
+                    SizedBox(height: size.height / 10),
+                  ],
                 ),
               ),
             ),
