@@ -309,25 +309,12 @@ class _Scrabble extends State<Scrabble> {
               children: [
                 Align(
                   alignment: Alignment.center,
-                  child: Column(
-                    children: [
-                      Text(
-                        "LINGUISTIC",
-                        style: TextStyle(fontSize: 0.06 * size.height),
-                      ),
-                      Text(
-                        "INTELLIGENCE",
-                        style: TextStyle(fontSize: 0.035 * size.height),
-                      ),
-                    ],
+                  child: Text(
+                    "SCRABBLE",
+                    style: TextStyle(fontSize: 0.06 * size.height),
                   ),
                 ),
                 SizedBox(height: 0.03 * size.height),
-                Text(
-                  "Exercise 1 - Like Scrabbles",
-                  style: TextStyle(fontSize: 0.025 * size.height),
-                ),
-                SizedBox(height: 0.04 * size.height),
                 Text(
                   "Points: $roundPoints, ${wordExists ? "Word Exists" : "Current word does not exist"}",
                   style: TextStyle(fontSize: 0.02 * size.height),
@@ -340,8 +327,29 @@ class _Scrabble extends State<Scrabble> {
                   "All Points: ${widget.allPoints + roundPoints}",
                   style: TextStyle(fontSize: 0.02 * size.height),
                 ),
-                SizedBox(height: 0.03 * size.height),
               ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: IconButton(
+              icon: Icon(
+                Icons.backspace_rounded,
+                shadows: [
+                  Shadow(
+                    color: Colors.black.withOpacity(0.3),
+                    blurRadius: 5,
+                    offset: const Offset(2, 2),
+                  ),
+                ],
+              ),
+              color: Theme.of(context).colorScheme.primary,
+              onPressed: () {
+                if (word.isNotEmpty) {
+                  toggleUnused();
+                }
+              },
+              iconSize: (size.width * 0.12),
             ),
           ),
           Container(
@@ -353,7 +361,6 @@ class _Scrabble extends State<Scrabble> {
             child: Column(
               //crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 0.05 * size.height),
                 Column(
                   children: [
                     Wrap(
@@ -369,28 +376,7 @@ class _Scrabble extends State<Scrabble> {
                         );
                       }),
                     ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.backspace_rounded,
-                          shadows: [
-                            Shadow(
-                              color: Colors.black.withOpacity(0.3),
-                              blurRadius: 5,
-                              offset: const Offset(2, 2),
-                            ),
-                          ],
-                        ),
-                        color: Theme.of(context).colorScheme.primary,
-                        onPressed: () {
-                          if (word.isNotEmpty) {
-                            toggleUnused();
-                          }
-                        },
-                        iconSize: (size.width * 0.12),
-                      ),
-                    ),
+                    SizedBox(height: size.height / 30),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Wrap(
@@ -406,8 +392,6 @@ class _Scrabble extends State<Scrabble> {
                     ),
                   ],
                 ),
-                //izedBox.shrink(),
-                //
               ],
             ),
           ),

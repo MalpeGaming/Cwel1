@@ -31,7 +31,7 @@ tests:
     - 4 000
     - 3 000
     correct_answer: 2
-    question: South American growers also domesticated rice around … years ago
+    question: South American growers also domesticated rice around … years ago.
   - answers:
     - Annaprashan
     - Yaren
@@ -67,7 +67,7 @@ tests:
     - 15
     - 25
     correct_answer: 3
-    question: Methanogens produce methane
+    question: Methanogens produce methane - a greenhouse gas … times more potent than carbon dioxide.
   - answers:
     - 10%
     - 20%
@@ -110,7 +110,7 @@ tests:
     - steamboat
     - train
     correct_answer: 2
-    question: The popularity of pooch skyrocketed after the invention of the …
+    question: The popularity of pooch skyrocketed after the invention of the ….
   - answers:
     - James Buchanan’s
     - Andrew Johnson’s
@@ -249,7 +249,7 @@ tests:
   - answers:
     - elephants
     - sperm whales
-    - 'orkas '
+    - orkas
     - humans
     correct_answer: 1
     question: … have the largest brains of all animals.
@@ -520,17 +520,16 @@ tests:
     - Carbon
     - Nitrogen
     - Neuronium
-    - 'Uranium '
+    - Uranium
     correct_answer: 2
-    question: According to the scenario presented in the video, life on the planet
-      depends entirely on …
+    question: According to the scenario presented in the video, life on the planet depends entirely on … .
   - answers:
     - now emits a pollutant that lowers fertility in the species.
     - is becoming a scarce resource, due to overuse.
     - is contributing to the global warming on the planet.
     - was found to be radioactive, and as a result trigger the release of cortisol.
     correct_answer: 0
-    question: According to the scenario presented in the video, neuronium … .
+    question: 'According to the scenario presented in the video, neuronium:'
   - answers:
     - Ethylen
     - Polixate
@@ -914,3 +913,225 @@ tests:
     - dripping
     correct_answer: 1
     question: The heart of most battery recycling is a process called … .
+- name: flow state
+  video_id: 0rIjFCNay2Q
+  questions:
+  - answers:
+    - a unique mental state of effortless engagement.
+    - a state of complete distraction and reduced productivity.
+    - a condition where multitasking is maximized, enhancing efficiency.
+    - a mental state where the mind is entirely focused on the past or future, rather than the present moment.
+    correct_answer: 0
+    question: The state of flow is defined as
+  - answers:
+      - 'true'
+      - 'false'
+      - not given
+    correct_answer: 1
+    question: Only professional athletes and scientists can find flow.
+  - answers:
+      - positive emotions
+      - fatigue 
+      - creativity
+      - satisfaction
+    correct_answer: 1
+    question: >
+      According to the video, those who more frequently experience flow report higher levels of all except:
+  - answers:
+      - 'true' 
+      - 'false'
+      - not given
+    correct_answer: 0
+    question: Psychologists go so far as to define flow as an altered state of consciousness.
+  - answers:
+      - Flow diminishes feelings of worry.
+      - During flow, time seems to fly by.
+      - During flow, it’s difficult to stop an activity.
+      - During flow, it’s difficult to start an activity.
+    correct_answer: 3
+    question: Which description of the state of flow is not accurate?
+  - answers:
+      - attention
+      - self-awareness
+      - self-consciousness
+      - memory retention
+    correct_answer: 3
+    question: >
+      Brain imaging studies have shown that flow is accompanied by changes in neural activity, notably in regions that play a role in all except:
+  - answers:
+      - we find enjoyable and purposeful.
+      - require external rewards to maintain interest.
+      - feel like obligations or chores.
+      - we engage in solely for social approval.
+    correct_answer: 0
+    question: >
+      Activities that are intrinsically motivating are those that:
+  - answers:
+      - avoid any challenging tasks to prevent frustration.
+      - focus on the outcome rather than the process.
+      - balance our personal skill level with the activity’s challenge.
+      - engage in repetitive tasks that require minimal effort or thought.
+    correct_answer: 2
+    question: >
+      The second theory mentioned in the video suggests that in order to achieve a state of flow, one needs to:
+  - answers:
+      - the activity is very easy for us.
+      - the activity is very hard for us.
+      - the activity is not too easy and not too hard for us.
+    correct_answer: 2
+    question: >
+      It is easiest to enter the state of flow when:
+  - answers:
+      - limiting distractions.
+      - focusing on achieving the state of flow.
+      - setting clear goals.
+      - breaking down the task into smaller tasks, which are easier to track.
+    correct_answer: 1
+    question: >
+      Which of these is not a strategy to reach the state of flow:
+- name: food expiration
+  video_id: jDg8DQl7ZeQ
+  questions:
+  - answers:
+    - 12%
+    - 23%
+    - 37%
+    - 45%
+    correct_answer: 2
+    question: … of US food waste comes from individual households.
+  - answers:
+    - Supermarkets began stocking processed foods.
+    - New refrigeration technology made all food appear equally fresh.
+    - Packaging innovations masked signs of spoilage.
+    - Food labeling regulations removed expiration dates from products.
+    correct_answer: 0
+    question: >
+      It became harder to assess the freshness of food, because:
+  - answers:
+    - How many people had touched a certain food product.
+    - How long food had been on the shelves.
+    - The temperature at which the food was stored during transportation.
+    - The number of times the food was restocked on the shelves.
+    correct_answer: 1
+    question: >
+      In the US groceries used packing codes to track:
+  - answers:
+    - 'true'
+    - 'false'
+    - not given
+    correct_answer: 1
+    question: There are strict regulations that dictate how open dating should be calculated by the manufacturer.
+  - answers:
+    - Enhance the flavor and texture of frozen foods.
+    - Prevent the loss of nutritional value over time.
+    - Keep bacteria that cause food poisoning in check.
+    - Ensure that food remains fresh without any packaging.
+    correct_answer: 2
+    question: >
+      The freezer temperatures:
+  - answers:
+    - The produce contains unhealthy amounts of pathogens.
+    - The produce is covered by mold.
+    - The produce has a slimy surface.
+    - The produce has lost its tenderness.
+    correct_answer: 3
+    question: Which of these characteristics does not automatically indicate that the food is spoiled?
+  - answers:
+    - minority
+    - majority
+    correct_answer: 1
+    question: The … of US citizens use the food labels to assess the freshness of food products.
+  - answers:
+    - packed cookies
+    - canned goods
+    - vegetarian meat options
+    - infant formula
+    correct_answer: 3
+    question: The dates on … are regulated to indicate safety.
+  - answers:
+    - Create a clear distinction between “freshness” and “eatability” of food.
+    - Reduce the shelf life of all produce to ensure quicker turnover.
+    - Encourage consumers to purchase only the most visually appealing produce.
+    - Mandate that all produce be sold before it reaches peak ripeness.
+    correct_answer: 0
+    question: >
+      One of the ways to limit the amount of produce thrown out is:
+  - answers:
+    - 'True'
+    - 'False'
+    - Not given
+    correct_answer: 1
+    question: Grocery stores all around the world are prohibited from donating unsold food.
+- name: ozone layer
+  video_id: 5wVJeq4mLL0
+  questions:
+  - answers:
+    - damages plant and animal DNA.
+    - improves plant growth by increasing photosynthesis.
+    - makes animals more resistant to diseases.
+    - strengthens plant and animal DNA over time.
+    correct_answer: 0
+    question: Too much exposure to the sun’s UV radiation …
+  - answers:
+    - absorbed by ozone molecules.
+    - reflected back into space by clouds.
+    - absorbed by the Earth's surface.
+    - scattered by dust particles in the atmosphere.
+    correct_answer: 0
+    question: About 98% of the UV radiation is …
+  - answers:
+    - only found at ground level.
+    - concentrated in the Earth's core.
+    - absorbed directly by living organisms.
+    - dispersed in the stratosphere.
+    correct_answer: 3
+    question: Ozone molecules are …
+  - answers:
+    - CFCs increase the production of ozone in the atmosphere.
+    - CFCs upset the balance between the amount of ozone produced and broken down.
+    - CFCs have no effect on the ozone layer.
+    - CFCs only affect the ozone layer in polar regions.
+    correct_answer: 1
+    question: >
+      Choose the correct statement:
+  - answers:
+    - coolant for refrigerators.
+    - fertilisers for crops.
+    - cleaning agents for electronics.
+    - fuel for jet engines.
+    correct_answer: 0
+    question: >
+      CFCs were developed by three US-based corporations as:
+  - answers:
+    - 'true'
+    - 'false'
+    - not given
+    correct_answer: 1
+    question: One CFC molecule can damage only one ozone molecule.
+  - answers:
+    - cold temperature (which can be found for e.g. in Antarctica).
+    - increased levels of carbon dioxide.
+    - high humidity in tropical regions.
+    - warmer temperatures in the stratosphere.
+    correct_answer: 0
+    question: >
+      One of the factors that accelerates ozone depletion is:
+  - answers:
+    - rates of skin cancer would skyrocket.
+    - photosynthesis would be impaired.
+    - global agricultural production would plummet.
+    - the Earth's magnetic field would weaken.
+    correct_answer: 3
+    question: Which of these sentence endings is not true. If ozone depletion continued …
+  - answers:
+    - 'true'
+    - 'false'
+    - not given
+    correct_answer: 0
+    question: The use of CFCs was eventually banned in the 20th century.
+  - answers:
+    - true
+    - false
+    - not given
+    correct_answer: 0
+    question: The ozone hole is predicted to disappear one day.

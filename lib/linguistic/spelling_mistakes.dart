@@ -133,7 +133,6 @@ class _SpellingMistakes extends State<SpellingMistakes> {
                 margin: EdgeInsets.only(
                   left: size.width / 10,
                   right: size.width / 10,
-                  top: size.height / 10,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -77,7 +77,7 @@ class _Test extends State<ListeningComprehensionTest> {
         child: ListTile(
           title: Text(
             text,
-            style: TextStyle(fontSize: 0.025 * size.height),
+            style: TextStyle(fontSize: 0.022 * size.height),
           ),
           leading: Radio<int>(
             value: val,
@@ -147,42 +147,44 @@ class _Test extends State<ListeningComprehensionTest> {
                         SizedBox(
                           height: size.height / 20,
                         ),
-                        Container(
-                          width: size.width * 0.9,
-                          decoration: BoxDecoration(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(20)),
-                            gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: <Color>[
-                                Theme.of(context).colorScheme.primary,
-                                Theme.of(context).colorScheme.onPrimary,
-                              ],
-                              tileMode: TileMode.decal,
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .shadow
-                                    .withOpacity(1),
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: const Offset(5, 5),
-                              ),
-                            ],
-                          ),
+                        Center(
                           child: Container(
-                            margin: const EdgeInsets.all(15),
-                            child: Center(
-                              child: Text(
-                                questions[questionIndex],
-                                style: TextStyle(
-                                  fontSize: size.width / 20,
-                                  color: Colors.white,
+                            width: size.width * 0.8,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(20)),
+                              gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: <Color>[
+                                  Theme.of(context).colorScheme.primary,
+                                  Theme.of(context).colorScheme.onPrimary,
+                                ],
+                                tileMode: TileMode.decal,
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .shadow
+                                      .withOpacity(1),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: const Offset(5, 5),
                                 ),
-                                textAlign: TextAlign.center,
+                              ],
+                            ),
+                            child: Container(
+                              margin: const EdgeInsets.all(15),
+                              child: Center(
+                                child: Text(
+                                  questions[questionIndex],
+                                  style: TextStyle(
+                                    fontSize: size.width / 20,
+                                    color: Colors.white,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
                             ),
                           ),

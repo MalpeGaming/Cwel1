@@ -380,11 +380,6 @@ questions:
     - wiered
     question: Which is the correct spelling version
   - answers:
-    - wich
-    - which
-    - witch
-    question: Which is the correct spelling version
-  - answers:
     - wilderniss
     - wilderness
     - wildernes
@@ -933,11 +928,6 @@ questions:
     - weird
     - wierd
     - weired
-    question: Which is the correct spelling version
-  - answers:
-    - which
-    - wich
-    - witch
     question: Which is the correct spelling version
   - answers:
     - wilderness

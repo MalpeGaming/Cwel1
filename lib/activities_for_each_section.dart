@@ -47,6 +47,7 @@ var memoryRestList = [
   const Meme(),
   const Sport(),
   const Yoga(),
+  const FindTheNumber(),
 ];
 
 var memoryAllList = [
@@ -66,6 +67,7 @@ var memoryAllList = [
   'Meme',
   'Sport',
   'Yoga',
+  'FindTheNumber',
 ];
 
 var attentionBaseList = [
@@ -136,6 +138,7 @@ var linguisticRestList = [
   const Meme(),
   const Sport(),
   const Yoga(),
+  const FindTheNumber(),
 ];
 
 var linguisticAllList = [
@@ -161,6 +164,7 @@ var linguisticAllList = [
   'Sport',
   'Yoga',
   'InvestingMenu',
+  'FindTheNumber',
 ];
 
 var logicalBaseList = [
@@ -180,6 +184,7 @@ var logicalRestList = [
   const Meme(),
   const Sport(),
   const Yoga(),
+  const FindTheNumber(),
 ];
 var logicalAllList = [
   'StrongConcentrationDesc',
@@ -196,6 +201,7 @@ var logicalAllList = [
   'Sport',
   'Yoga',
   'InvestingMenu',
+  'FindTheNumber'
 ];
 
 var gamesBaseList = [

@@ -18,7 +18,7 @@ tests:
       - After
       - Until
       - Unless
-    correct_answer: 2
+    correct_answer: 0
     question: My father always says, "Don't count your chickens _____ they're hatched."
   - answers:
       - Pull
@@ -142,7 +142,7 @@ tests:
   - answers:
       - Cut
       - Push
-      - Hammer
+      - Fit
       - Pull
     correct_answer: 2
     question: I can't figure out this problem; it's like trying to _____ a square peg into a round hole.
