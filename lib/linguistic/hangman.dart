@@ -183,7 +183,7 @@ class _Hangman extends State<Hangman> {
                           right: size.width / 20,
                         ),
                         child: Text(
-                          '$mistakes letters mistook',
+                          '$mistakes letters mistaken',
                           style: TextStyle(
                             fontSize: size.width / 20,
                             fontWeight: FontWeight.w500,

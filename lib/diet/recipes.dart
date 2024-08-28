@@ -16,9 +16,12 @@ List<String> pages = [
   "Grilled Salmon with Vegetables",
   "Baked Lemon Herb Chicken",
   "Vegetarian Stir-Fry",
+  "Greek Yogurt Parfait",
+  "Oatmeal with Nut Butter and Banana",
+  "Whole Grain Pancakes",
+  "Egg and Veggie Breakfast Wrap",
+  "Lentil and Vegetable Soup",
 ];
-
-List<int> calories = [588, 622, 622, 622, 616];
 
 class _Recipes extends State<Recipes> {
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
@@ -149,7 +152,7 @@ class _Recipes extends State<Recipes> {
               children: <Widget>[
                 Center(
                   child: Text(
-                    "5 BRAIN RECIPES",
+                    "10 BRAIN RECIPES",
                     style: TextStyle(
                       fontSize: size.width / 11,
                       fontWeight: FontWeight.bold,
@@ -169,9 +172,9 @@ class _Recipes extends State<Recipes> {
                   height: 0.5 * size.height,
                   child: PageView.builder(
                     controller: controller,
-                    itemCount: 5,
+                    itemCount: 10,
                     itemBuilder: (_, index) {
-                      return createRecipe(context, index % 5);
+                      return createRecipe(context, index % 10);
                     },
                   ),
                 ),
@@ -179,7 +182,7 @@ class _Recipes extends State<Recipes> {
                 Center(
                   child: SmoothPageIndicator(
                     controller: controller,
-                    count: 5,
+                    count: 10,
                     effect: const WormEffect(
                       dotHeight: 10,
                       dotWidth: 10,

@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'recipes.dart';
 import '../app_bar.dart';
 
-final List<int> C = [39, 63, 29, 67, 73];
-final List<int> F = [41, 24, 17, 10, 22];
-final List<int> P = [23, 17, 27, 68, 35];
+final List<int> C = [39, 63, 29, 67, 73, 58, 80, 54, 23, 73];
+final List<int> F = [41, 24, 17, 10, 22, 31, 30, 34, 40, 12];
+final List<int> P = [23, 17, 27, 68, 35, 20, 25, 14, 23, 20];
+final List<int> calories = [588, 622, 622, 622, 616, 601, 630, 600, 543, 484];
+final List<int> time = [20, 5, 50, 50, 40, 5, 20, 35, 15, 30];
 
 final List<List<String>> ingredients = [
   [
@@ -38,13 +40,52 @@ final List<List<String>> ingredients = [
     "1 Teaspoon of Butter",
   ],
   [
-    "5 Tablespoons of Quinoa  (Pre-Cooked)",
+    "5 Tablespoons of Quinoa (Pre-Cooked)",
     "150 g Tofu",
     "1 Tablespoon of Oil",
     "2 Tablespoons of Soy Sauce",
     "1 Tablespoon of Honey",
     "2 Carrots",
     "5 Broccoli Florets",
+  ],
+  [
+    "1 Cup Plain Greek Yogurt",
+    "1 Handful of Berries ",
+    "1 Teaspoon of Honey ",
+    "4 Tablespoons of Granola",
+  ],
+  [
+    "10 Tablespoons of Rolled Oats",
+    "1 Cup of Whole Milk ",
+    "1 Tablespoon of Nut Butter ",
+    "1 Banana",
+    "Pinch of Cinnamon",
+  ],
+  [
+    "1 Medium Egg",
+    "0.5 Cup of Flour ",
+    "1 Teaspoon Baking Powder",
+    "Pinch of Salt",
+    "Some Sweetener",
+    "0.4 Cup of Milk ",
+    "Toppings: Mixed Berries and 1 Tablespoon of Greek Yogurt",
+  ],
+  [
+    "1 Tortilla Wrap (40 g)",
+    "2 Medium Eggs",
+    "2 Teaspoons of Butter",
+    "1 Handful of Spinach",
+    "0.5 Avocado",
+    "1 Slice of Mozzarella Cheese (15 g) ",
+    "1 Bell Pepper",
+  ],
+  [
+    "1 Cup of Vegetable Broth",
+    "4 Tablespoons of Dried Lentils",
+    "100 g of Potatoes (Pre-Cooked)",
+    "2 Carrots",
+    "1 Slice of Toast",
+    "1 Tablespoon of Oil ",
   ],
 ];
 
@@ -54,9 +95,12 @@ final List<String> instructions = [
   "Bake the vegetables at 400* F first for 30 minutes, then add the salmon and continue baking for 10 minutes.",
   "Cook the rice (30 min) and broccoli (10 min) in salted water. Bake the chicken for 20-25 min at 400* F with lemon juice, herbs and spices. Put everything on the plate, and add a teaspoon of butter and 2 tablespoons of soy sauce.",
   "Cook the quinoa (20 min + 10 min rest) and broccoli (10 min) in salted water. Sauté the vegetables on a hot pan, add tofu and wait till it turns slightly brown. Lastly add the honey and soy sauce.",
+  "Layer Greek yogurt, berries, and granola in a glass. Drizzle honey between the layers.",
+  "Cook oats with milk (around 5-7 min), top with sliced banana, nut butter, and a sprinkle of cinnamon.",
+  "Mix flour, milk, 1 egg, salt, sweetener, baking powder and make pancakes on the pan. Top with berries and yogurt.",
+  "Fill a wrap with scrambled eggs, sautéed veggies, and avocado. Roll up and enjoy.",
+  "Cook the lentils, the cubed potatoes and carrots in the vegetable broth for 20 minutes. Add a tablespoon of oil and toast the bread.",
 ];
-
-final List<int> time = [20, 5, 50, 50, 40];
 
 class Recipe extends StatelessWidget {
   const Recipe(this.index, {super.key});
@@ -219,6 +263,7 @@ class Recipe extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 0.01 * size.height),
             Align(
               alignment: Alignment.centerLeft,
               child: RichText(
