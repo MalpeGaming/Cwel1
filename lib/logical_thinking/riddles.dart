@@ -325,57 +325,59 @@ class _RiddlesTest extends State<RiddlesTest> {
                         ],
                       ),
                       if (widget.initialTest || widget.endingTest)
-                        Column(children: [
-                          SizedBox(height: 0.1 * size.height),
-                          SizedBox(
-                            height: size.height * 0.05,
-                            width: size.width * 0.75,
-                            child: RedirectButton(
-                              onClick: () {
-                                Navigator.pop(context);
-                                if (widget.initialTest) {
-                                  _timer.cancel();
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => ShowScore(
-                                        title: "Riddles",
-                                        description:
-                                            "Exercise 1 - Short Term Concentration",
-                                        exercise: 1,
-                                        yourScore: score,
-                                        maximum: 10,
-                                        page: const Home(),
-                                        clearAllWindows: true,
-                                      ),
-                                    ),
-                                  );
-                                } else {
-                                  _timer.cancel();
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => ShowImprovement(
-                                        title: "Riddles",
-                                        description:
-                                            "Exercise 1 - Short Term Concentration",
-                                        exercise: 1,
-                                        yourScore: score,
-                                        maximum: 10,
-                                        page: const TitlePage(
-                                          title: 'The Brain Train App',
-                                        ),
-                                        lastin: true,
-                                      ),
-                                    ),
-                                  );
-                                }
-                              },
-                              text: "End session",
+                        Column(
+                          children: [
+                            SizedBox(height: 0.1 * size.height),
+                            SizedBox(
+                              height: size.height * 0.05,
                               width: size.width * 0.75,
+                              child: RedirectButton(
+                                onClick: () {
+                                  Navigator.pop(context);
+                                  if (widget.initialTest) {
+                                    _timer.cancel();
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ShowScore(
+                                          title: "Riddles",
+                                          description:
+                                              "Exercise 1 - Short Term Concentration",
+                                          exercise: 1,
+                                          yourScore: score,
+                                          maximum: 10,
+                                          page: const Home(),
+                                          clearAllWindows: true,
+                                        ),
+                                      ),
+                                    );
+                                  } else {
+                                    _timer.cancel();
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ShowImprovement(
+                                          title: "Riddles",
+                                          description:
+                                              "Exercise 1 - Short Term Concentration",
+                                          exercise: 1,
+                                          yourScore: score,
+                                          maximum: 10,
+                                          page: const TitlePage(
+                                            title: 'The Brain Train App',
+                                          ),
+                                          lastin: true,
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                },
+                                text: "End session",
+                                width: size.width * 0.75,
+                              ),
                             ),
-                          ),
-                        ]),
+                          ],
+                        ),
                     ],
                   ),
                 ),
