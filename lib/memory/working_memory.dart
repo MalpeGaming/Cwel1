@@ -241,6 +241,7 @@ class _WorkingMemory extends State<WorkingMemory> {
                           yourScore: score,
                           maximum: 10,
                           page: const Home(),
+                          clearAllWindows: true,
                         )
                       : (widget.endingTest
                           ? ShowImprovement(

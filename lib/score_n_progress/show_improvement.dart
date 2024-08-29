@@ -20,7 +20,6 @@ class ShowImprovement extends StatefulWidget {
     required this.page,
     this.lastin = false,
     this.subtitle = "",
-    this.clearAllWindows = false,
   });
 
   final String title;
@@ -31,7 +30,6 @@ class ShowImprovement extends StatefulWidget {
   final double maximum;
   final Widget page;
   final bool lastin;
-  final bool clearAllWindows;
   @override
   State<ShowImprovement> createState() => _ShowImprovement();
 }
@@ -193,7 +191,7 @@ class _ShowImprovement extends State<ShowImprovement>
                   route: widget.page,
                   text: 'Continue',
                   width: size.width,
-                  clearAllWindows: widget.clearAllWindows,
+                  clearAllWindows: widget.lastin,
                 ),
               ),
             ),

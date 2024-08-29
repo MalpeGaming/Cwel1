@@ -51,21 +51,6 @@ class _MemoryQuizState extends State<MemoryQuiz> {
         );
       }
     } else {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            content: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(score.toString()),
-              ],
-            ),
-          );
-        },
-      );
-
       Navigator.pop(context);
 
       Navigator.push(
