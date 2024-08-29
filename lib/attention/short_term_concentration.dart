@@ -230,7 +230,6 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
                     } else {
                       saveStreak(-1);
                     }
-                    Navigator.pop(context);
                   },
                   route: (widget.initialTest)
                       ? ShowScore(
@@ -254,7 +253,6 @@ class _ShortTermConcentration extends State<ShortTermConcentration> {
                               page: const LongTermConcentrationVideo(
                                 endingTest: true,
                               ),
-                              lastin: true,
                             )
                           : ProgressScreen(
                               name: "short_term_concentration",

@@ -56,6 +56,12 @@ class _LongTermConcentrationVideo extends State<LongTermConcentrationVideo> {
   }
 
   @override
+  dispose() {
+    _controller.close();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return videoId.isEmpty
