@@ -214,7 +214,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
               ),
               child: RawScrollbar(
                 thumbColor: Theme.of(context).colorScheme.onPrimary,
-                radius: Radius.circular(20),
+                radius: const Radius.circular(20),
                 thickness: 5,
                 child: SingleChildScrollView(
                   child: Column(

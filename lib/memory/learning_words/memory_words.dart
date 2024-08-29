@@ -131,6 +131,8 @@ class _MemoryWordsState extends State<MemoryWords> {
         if (_remainingTime > 0) {
           _remainingTime--;
         } else {
+          _timer.cancel();
+          Navigator.pop(context);
           Navigator.push(
             context,
             MaterialPageRoute(

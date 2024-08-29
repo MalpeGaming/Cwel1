@@ -44,7 +44,6 @@ class _RiddlesTest extends State<RiddlesTest> {
     }
     readData();
 
-    _remainingTime = 480;
     numberOfQuestions = (difficulty == 3 ? 25 : (difficulty == 4 ? 25 : 23));
     questionIndex = Random().nextInt(numberOfQuestions);
   }
@@ -85,7 +84,7 @@ class _RiddlesTest extends State<RiddlesTest> {
     }
   }
 
-  int _remainingTime = 2137;
+  int _remainingTime = 480;
   late Timer _timer;
 
   void startTimer() {

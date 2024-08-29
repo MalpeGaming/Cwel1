@@ -69,7 +69,7 @@ class _Finish extends State<Finish> {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: const AssetImage(
-                        "assets/investing/success_background.gif"),
+                        "assets/investing/success_background.gif",),
                     fit: BoxFit.cover,
                     opacity: ((Theme.of(context).brightness == Brightness.dark)
                         ? 0.3
