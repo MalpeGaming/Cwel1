@@ -49,7 +49,7 @@ class _ReadingComprehensionInfo extends State<ReadingComprehensionInfo> {
             ),
             SizedBox(height: 0.04 * size.height),
             Text(
-              " Exercise 1 -  Reading Comprehension",
+              " Exercise 2 -  Reading Comprehension",
               style: TextStyle(fontSize: 0.05 * size.width),
               textAlign: TextAlign.start,
             ),

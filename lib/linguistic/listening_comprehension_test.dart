@@ -222,7 +222,7 @@ class _Test extends State<ListeningComprehensionTest> {
                               });
                               return;
                             }
-
+                            Navigator.pop(context);
                             if (widget.initialTest) {
                               Navigator.push(
                                 context,
