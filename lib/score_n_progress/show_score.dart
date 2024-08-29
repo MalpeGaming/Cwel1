@@ -54,17 +54,6 @@ class _ShowScore extends State<ShowScore> {
     return meanScores;
   }
 
-  void navigateToPage(Widget? page) {
-    if (page != null) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => page,
-        ),
-      );
-    }
-  }
-
   Map<int, double> meanScores = {};
 
   @override
