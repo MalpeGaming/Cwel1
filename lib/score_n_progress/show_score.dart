@@ -15,6 +15,7 @@ class ShowScore extends StatefulWidget {
     required this.maximum,
     required this.page,
     this.subtitle = "",
+    this.clearAllWindows = false,
   });
 
   final String title;
@@ -24,6 +25,7 @@ class ShowScore extends StatefulWidget {
   final double yourScore;
   final double maximum;
   final Widget? page;
+  final bool clearAllWindows;
 
   @override
   State<ShowScore> createState() => _ShowScore();
@@ -152,7 +154,7 @@ class _ShowScore extends State<ShowScore> {
                         route: widget.page,
                         text: 'Continue',
                         width: size.width,
-                        clearAllWindows: true,
+                        clearAllWindows: widget.clearAllWindows,
                       ),
                     ),
                   ),

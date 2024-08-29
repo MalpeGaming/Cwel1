@@ -212,7 +212,7 @@ class _WorkingMemory extends State<WorkingMemory> {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          hintText: "9",
+                          hintText: "",
                         ),
                       ),
                     ),

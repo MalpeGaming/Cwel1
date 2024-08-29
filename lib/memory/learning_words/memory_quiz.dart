@@ -67,7 +67,6 @@ class _MemoryQuizState extends State<MemoryQuiz> {
       );
 
       Navigator.pop(context);
-      Navigator.pop(context);
 
       Navigator.push(
         context,
