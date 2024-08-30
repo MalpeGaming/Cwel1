@@ -7,6 +7,7 @@ import '../score_n_progress/progress_screen.dart';
 import '../score_n_progress/show_score.dart';
 import '/app_bar.dart';
 import '../score_n_progress/show_improvement.dart';
+import '../create_dot.dart';
 
 class LongTermConcentrationTest extends StatefulWidget {
   const LongTermConcentrationTest({
@@ -75,20 +76,28 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
 
     ListTile createListTitle(int val, String text) {
       return ListTile(
+        dense: true,
         title: Text(
           text,
-          style: TextStyle(fontSize: 0.025 * size.height),
+          style: TextStyle(fontSize: 0.02 * size.height),
         ),
-        leading: Radio<int>(
-          value: val,
-          groupValue: selectedOption,
-          activeColor: Theme.of(context).colorScheme.primary,
-          onChanged: (value) {
-            setState(() {
-              selectedOption = value!;
-            });
-          },
-        ),
+        leading: (selectedOption == -1)
+            ? Radio<int>(
+                value: val,
+                groupValue: selectedOption,
+                activeColor: Colors.blue,
+                onChanged: (value) {
+                  setState(() {
+                    selectedOption = value!;
+                  });
+                },
+              )
+            : createDot(
+                context,
+                selectedOption,
+                correctAnswers[questionIndex],
+                val,
+              ),
       );
     }
 

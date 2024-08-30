@@ -6,6 +6,7 @@ import 'dart:math';
 import '/app_bar.dart';
 import '../score_n_progress/progress_screen.dart';
 import '/buttons.dart';
+import '../create_dot.dart';
 
 class Idioms extends StatefulWidget {
   const Idioms({super.key});
@@ -27,24 +28,30 @@ class _Idioms extends State<Idioms> {
   late List<String> questions;
   late List<List<String>> answers;
 
-  ListTile createListTitle(
-    int val,
-    String text,
-  ) {
+  ListTile createListTitle(int val, String text) {
     return ListTile(
+      dense: true,
       title: Text(
         text,
         style: TextStyle(fontSize: 0.02 * size.height),
       ),
-      leading: Radio<int>(
-        value: val,
-        groupValue: selectedOption,
-        onChanged: (value) {
-          setState(() {
-            selectedOption = value;
-          });
-        },
-      ),
+      leading: (selectedOption == null)
+          ? Radio<int>(
+              value: val,
+              groupValue: selectedOption,
+              activeColor: Colors.blue,
+              onChanged: (value) {
+                setState(() {
+                  selectedOption = value!;
+                });
+              },
+            )
+          : createDot(
+              context,
+              selectedOption!,
+              correctAnswers[questionId],
+              val,
+            ),
     );
   }
 

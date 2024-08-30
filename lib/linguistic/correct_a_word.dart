@@ -222,8 +222,14 @@ class _CorrectAWord extends State<CorrectAWord> {
                                   TextField(
                                     decoration: InputDecoration(
                                       hintText: incorrectWord,
+                                      hintStyle: TextStyle(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onSecondary
+                                              .withOpacity(0.3)),
                                     ),
                                     controller: _controller,
+                                    enableSuggestions: false,
                                   ),
                                 ],
                               ),
