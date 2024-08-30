@@ -320,7 +320,7 @@ class _Scrabble extends State<Scrabble> {
                   style: TextStyle(fontSize: 0.02 * size.height),
                 ),
                 Text(
-                  "Attempt: ${widget.iteration}",
+                  "Attempt: ${widget.iteration} / 10",
                   style: TextStyle(fontSize: 0.02 * size.height),
                 ),
                 Text(
