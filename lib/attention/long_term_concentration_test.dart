@@ -7,6 +7,7 @@ import '../score_n_progress/progress_screen.dart';
 import '../score_n_progress/show_score.dart';
 import '/app_bar.dart';
 import '../score_n_progress/show_improvement.dart';
+import '../create_dot.dart';
 
 class LongTermConcentrationTest extends StatefulWidget {
   const LongTermConcentrationTest({
@@ -72,31 +73,6 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
-    Widget createDot(
-      BuildContext context,
-      int usersAnswer,
-      Object correct,
-      int val,
-    ) {
-      Size size = MediaQuery.of(context).size;
-      return usersAnswer == val || correct == val
-          ? Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: size.width / 30,
-              ),
-              child: Icon(
-                correct == val ? Icons.check_circle : Icons.cancel,
-                color: correct == val ? Colors.green : Colors.red,
-              ),
-            )
-          : Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: size.width / 30,
-              ),
-              child: const Icon(Icons.circle_outlined),
-            );
-    }
 
     ListTile createListTitle(int val, String text) {
       return ListTile(
