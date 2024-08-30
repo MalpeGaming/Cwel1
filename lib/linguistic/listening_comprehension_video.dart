@@ -143,6 +143,7 @@ class _Video extends State<ListeningComprehensionVideo> {
                             endingTest: widget.endingTest,
                             exerciseId: exerciseId,
                           ),
+                          //clearAllWindows: true,
                           text: 'Continue',
                           width: size.width,
                         ),
