@@ -11,6 +11,7 @@ import '/home.dart';
 import '../app_bar.dart';
 import '../score_n_progress/show_improvement.dart';
 import '../title_page.dart';
+import '../create_dot.dart';
 
 class RiddlesTest extends StatefulWidget {
   const RiddlesTest({
@@ -181,20 +182,27 @@ class _RiddlesTest extends State<RiddlesTest> {
 
     ListTile createListTitle(int val, String text) {
       return ListTile(
+        dense: true,
         title: Text(
           text,
           style: TextStyle(fontSize: 0.02 * size.height),
         ),
-        leading: Radio<int>(
-          value: val,
-          groupValue: selectedOption,
-          activeColor: Theme.of(context).colorScheme.primary,
-          onChanged: (value) {
-            setState(() {
-              selectedOption = value!;
-            });
-          },
-        ),
+        leading: (selectedOption == -1)
+            ? Radio<int>(
+                value: val,
+                groupValue: selectedOption,
+                onChanged: (value) {
+                  setState(() {
+                    selectedOption = value!;
+                  });
+                },
+              )
+            : createDot(
+                context,
+                selectedOption,
+                correctAnswers[questionIndex],
+                val,
+              ),
       );
     }
 

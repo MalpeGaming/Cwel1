@@ -42,8 +42,13 @@ class _FindTheNumber extends State<FindTheNumber> {
   GestureDetector createButton(BuildContext context, int i, int j) {
     return GestureDetector(
       onTap: () {
+        print(i);
+        print(j);
+        
         setState(() {
-          score++;
+          if (randomNumbers[i][j] == excludedNumber) {
+          ++score;
+          }
           int randomNum;
           do {
             randomNum = Random().nextInt(10);
@@ -217,6 +222,8 @@ class _FindTheNumber extends State<FindTheNumber> {
                   },
                 ),
               ),
+              Text(excludedNumber.toString()),
+              Text(score.toString())
             ],
           ),
         ),

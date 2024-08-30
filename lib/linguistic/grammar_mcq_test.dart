@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
 import '../score_n_progress/progress_screen.dart';
 import '/app_bar.dart';
+import '../create_dot.dart';
 
 class Grammar extends StatefulWidget {
   const Grammar({
@@ -77,19 +78,27 @@ class _Grammar extends State<Grammar> {
 
     ListTile createListTitle(int val, String text) {
       return ListTile(
+        dense: true,
         title: Text(
           text,
           style: TextStyle(fontSize: 0.02 * size.height),
         ),
-        leading: Radio<int>(
-          value: val,
-          groupValue: selectedOption,
-          onChanged: (value) {
-            setState(() {
-              selectedOption = value!;
-            });
-          },
-        ),
+        leading: (selectedOption == -1)
+            ? Radio<int>(
+                value: val,
+                groupValue: selectedOption,
+                onChanged: (value) {
+                  setState(() {
+                    selectedOption = value!;
+                  });
+                },
+              )
+            : createDot(
+                context,
+                selectedOption,
+                correctAnswers[questionIndex],
+                val,
+              ),
       );
     }
 

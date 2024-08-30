@@ -7,6 +7,7 @@ import '../score_n_progress/progress_screen.dart';
 import '../score_n_progress/show_score.dart';
 import '../buttons.dart';
 import '../score_n_progress/show_improvement.dart';
+import '../create_dot.dart';
 
 class ListeningComprehensionTest extends StatefulWidget {
   const ListeningComprehensionTest({
@@ -72,24 +73,30 @@ class _Test extends State<ListeningComprehensionTest> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    SingleChildScrollView createListTitle(int val, String text) {
-      return SingleChildScrollView(
-        child: ListTile(
-          title: Text(
-            text,
-            style: TextStyle(fontSize: 0.022 * size.height),
-          ),
-          leading: Radio<int>(
-            value: val,
-            groupValue: selectedOption,
-            //activeColor: Theme.of(context).colorScheme.primary,
-            onChanged: (value) {
-              setState(() {
-                selectedOption = value!;
-              });
-            },
-          ),
+    ListTile createListTitle(int val, String text) {
+      return ListTile(
+        dense: true,
+        title: Text(
+          text,
+          style: TextStyle(fontSize: 0.02 * size.height),
         ),
+        leading: (selectedOption == -1)
+            ? Radio<int>(
+                value: val,
+                groupValue: selectedOption,
+                activeColor: Colors.blue,
+                onChanged: (value) {
+                  setState(() {
+                    selectedOption = value!;
+                  });
+                },
+              )
+            : createDot(
+                context,
+                selectedOption,
+                correctAnswers[questionIndex],
+                val,
+              ),
       );
     }
 
