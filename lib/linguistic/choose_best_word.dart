@@ -123,8 +123,6 @@ class _ChooseBestWord extends State<ChooseBestWord> {
       appBar: appBar(context, ""),
       body: SingleChildScrollView(
         child: Container(
-          width: size.width * 0.9,
-          height: size.height * 0.9,
           margin: EdgeInsets.only(
             left: size.width / 10,
             right: size.width / 10,
@@ -132,7 +130,7 @@ class _ChooseBestWord extends State<ChooseBestWord> {
           ),
           child: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -245,6 +243,10 @@ class _ChooseBestWord extends State<ChooseBestWord> {
                           ),
                   ],
                 ),
+                if (round == 0)
+                  SizedBox(height: size.height / 5)
+                else
+                  SizedBox(height: size.height / 20),
                 Column(
                   children: [
                     Align(
