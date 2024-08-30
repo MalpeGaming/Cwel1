@@ -118,7 +118,7 @@ class _Test extends State<ListeningComprehensionTest> {
             : createDot(
                 context,
                 selectedOption,
-                correctAnswers[questionIndex]!,
+                correctAnswers[questionIndex],
                 val,
               ),
       );
