@@ -35,7 +35,7 @@ class _MemoryQuizState extends State<MemoryQuiz> {
   String definition = "";
 
   void check(int selected) {
-    if (defs[selected - 1] == definition) ++score;
+    if (defs[selected] == definition) ++score;
   }
 
   void handleContinue() {
@@ -106,22 +106,52 @@ class _MemoryQuizState extends State<MemoryQuiz> {
     defs.shuffle();
   }
 
+  Widget createDot(
+    BuildContext context,
+    int usersAnswer,
+    int indx,
+  ) {
+    Size size = MediaQuery.of(context).size;
+    return (selectedOption == indx || defs[indx] == definition)
+        ? Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: size.width / 30,
+            ),
+            child: Icon(
+              defs[indx] == definition ? Icons.check_circle : Icons.cancel,
+              color: defs[indx] == definition ? Colors.green : Colors.red,
+            ),
+          )
+        : Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: size.width / 30,
+            ),
+            child: const Icon(Icons.circle_outlined),
+          );
+  }
+
   ListTile createListTitle(int indx) {
     return ListTile(
       title: Text(defs[indx]),
-      leading: Radio<int>(
-        value: indx + 1,
-        groupValue: selectedOption,
-        activeColor: Theme.of(context).colorScheme.primary,
-        fillColor:
-            MaterialStateProperty.all(Theme.of(context).colorScheme.primary),
-        splashRadius: 25,
-        onChanged: (value) {
-          setState(() {
-            selectedOption = value;
-          });
-        },
-      ),
+      leading: selectedOption == null
+          ? Radio<int>(
+              value: indx,
+              groupValue: selectedOption,
+              activeColor: Theme.of(context).colorScheme.primary,
+              fillColor: MaterialStateProperty.all(
+                  Theme.of(context).colorScheme.primary),
+              splashRadius: 25,
+              onChanged: (value) {
+                setState(() {
+                  selectedOption = value;
+                });
+              },
+            )
+          : createDot(
+              context,
+              selectedOption!,
+              indx,
+            ),
     );
   }
 
@@ -235,6 +265,8 @@ class _MemoryQuizState extends State<MemoryQuiz> {
                   width: size.width,
                 ),
               ),
+              Text(defs[0]),
+              Text(definition)
             ],
           ),
         ),
