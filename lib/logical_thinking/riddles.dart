@@ -44,7 +44,6 @@ class _RiddlesTest extends State<RiddlesTest> {
     }
     readData();
 
-    _remainingTime = 480;
     numberOfQuestions = (difficulty == 3 ? 25 : (difficulty == 4 ? 25 : 23));
     questionIndex = Random().nextInt(numberOfQuestions);
   }
@@ -85,7 +84,7 @@ class _RiddlesTest extends State<RiddlesTest> {
     }
   }
 
-  int _remainingTime = 2137;
+  int _remainingTime = 480;
   late Timer _timer;
 
   void startTimer() {
@@ -112,6 +111,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                     yourScore: score,
                     maximum: 10,
                     page: const Home(),
+                    clearAllWindows: true,
                   ),
                 ),
               );
@@ -304,57 +304,19 @@ class _RiddlesTest extends State<RiddlesTest> {
                                   return;
                                 }
 
+                                _timer.cancel();
+                                write((score.toInt() == 10) ? 1 : 0);
                                 Navigator.pop(context);
-
-                                if (widget.initialTest) {
-                                  _timer.cancel();
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => ShowScore(
-                                        title: "Riddles",
-                                        description:
-                                            "Exercise 1 - Short Term Concentration",
-                                        exercise: 1,
-                                        yourScore: score,
-                                        maximum: 10,
-                                        page: const Home(),
-                                      ),
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ProgressScreen(
+                                      name: "long_term_concentration",
+                                      score: score,
+                                      exercise: 'Riddles',
                                     ),
-                                  );
-                                } else if (widget.endingTest) {
-                                  _timer.cancel();
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => ShowImprovement(
-                                        title: "Riddles",
-                                        description:
-                                            "Exercise 1 - Short Term Concentration",
-                                        exercise: 1,
-                                        yourScore: score,
-                                        maximum: 10,
-                                        page: const TitlePage(
-                                          title: 'The Brain Train App',
-                                        ),
-                                        lastin: true,
-                                      ),
-                                    ),
-                                  );
-                                } else {
-                                  _timer.cancel();
-                                  write((score.toInt() == 10) ? 1 : 0);
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => ProgressScreen(
-                                        name: "long_term_concentration",
-                                        score: score,
-                                        exercise: 'Riddles',
-                                      ),
-                                    ),
-                                  );
-                                }
+                                  ),
+                                );
                               },
                               text: 'Continue',
                               width: size.width,
@@ -362,6 +324,60 @@ class _RiddlesTest extends State<RiddlesTest> {
                           ),
                         ],
                       ),
+                      if (widget.initialTest || widget.endingTest)
+                        Column(
+                          children: [
+                            SizedBox(height: 0.1 * size.height),
+                            SizedBox(
+                              height: size.height * 0.05,
+                              width: size.width * 0.75,
+                              child: RedirectButton(
+                                onClick: () {
+                                  Navigator.pop(context);
+                                  if (widget.initialTest) {
+                                    _timer.cancel();
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ShowScore(
+                                          title: "Riddles",
+                                          description:
+                                              "Exercise 1 - Short Term Concentration",
+                                          exercise: 1,
+                                          yourScore: score,
+                                          maximum: 10,
+                                          page: const Home(),
+                                          clearAllWindows: true,
+                                        ),
+                                      ),
+                                    );
+                                  } else {
+                                    _timer.cancel();
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ShowImprovement(
+                                          title: "Riddles",
+                                          description:
+                                              "Exercise 1 - Short Term Concentration",
+                                          exercise: 1,
+                                          yourScore: score,
+                                          maximum: 10,
+                                          page: const TitlePage(
+                                            title: 'The Brain Train App',
+                                          ),
+                                          lastin: true,
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                },
+                                text: "End session",
+                                width: size.width * 0.75,
+                              ),
+                            ),
+                          ],
+                        ),
                     ],
                   ),
                 ),

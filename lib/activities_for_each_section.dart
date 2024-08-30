@@ -201,7 +201,7 @@ var logicalAllList = [
   'Sport',
   'Yoga',
   'InvestingMenu',
-  'FindTheNumber'
+  'FindTheNumber',
 ];
 
 var gamesBaseList = [

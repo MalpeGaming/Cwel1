@@ -191,7 +191,7 @@ class _ShowImprovement extends State<ShowImprovement>
                   route: widget.page,
                   text: 'Continue',
                   width: size.width,
-                  clearAllWindows: true,
+                  clearAllWindows: widget.lastin,
                 ),
               ),
             ),

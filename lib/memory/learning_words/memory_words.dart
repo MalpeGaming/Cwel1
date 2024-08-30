@@ -1,3 +1,4 @@
+import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -95,7 +96,7 @@ class _MemoryWordsState extends State<MemoryWords> {
     );
   }
 
-  int _remainingTime = 2;
+  int _remainingTime = 300;
   late Timer _timer;
   List<Map<String, String>> b1 = [];
   List<Map<String, String>> picked = [];
@@ -218,6 +219,32 @@ class _MemoryWordsState extends State<MemoryWords> {
                         createPoints(picked, size, context),
                       ],
                     ),
+                    SizedBox(height: 0.05 * size.height),
+                    SizedBox(
+                      height: size.height * 0.05,
+                      width: size.width * 0.75,
+                      child: RedirectButton(
+                        onClick: () {
+                          _timer.cancel();
+                          Navigator.pop(context);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Memory2(
+                                initialTest: widget.initialTest,
+                                endingTest: widget.endingTest,
+                                picked,
+                                defs,
+                                words,
+                              ),
+                            ),
+                          );
+                        },
+                        text: "Skip",
+                        width: size.width * 0.75,
+                      ),
+                    ),
+                    SizedBox(height: 0.05 * size.height),
                   ],
                 ),
               ),
