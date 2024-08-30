@@ -274,7 +274,7 @@ class _Grammar extends State<Grammar> {
                               ),
                             ],
                           ),
-                          SizedBox(height: size.height / 20),
+                          SizedBox(height: size.height / 30),
                           Column(
                             children: [
                               SizedBox(
