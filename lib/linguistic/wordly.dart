@@ -163,15 +163,16 @@ class _Wordly extends State<Wordly> {
     });
   }
 
-  Future<bool> lookupWord() async {
+  Future<bool> lookupWord(BuildContext context) async {
     String word = "";
     for (int i = 1; i <= 5; ++i) {
       word += letters[(act - act % 6) ~/ 6][i];
     }
     word = word.toLowerCase();
-    if (word == noun || act == 35) {
+    if (word == noun) {
       Navigator.pop(context);
-      Navigator.of(context).push(
+      Navigator.push(
+        context,
         MaterialPageRoute(
           builder: (context) => ProgressScreen(
             name: "wordly",
@@ -180,8 +181,46 @@ class _Wordly extends State<Wordly> {
           ),
         ),
       );
+    } else if (act == 35) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(
+              'You Lose!',
+              style: TextStyle(
+                fontSize: MediaQuery.of(context).size.width / 16,
+              ),
+            ),
+            content: Text(
+              'The word was $noun',
+              style: TextStyle(
+                fontSize: MediaQuery.of(context).size.width / 20,
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProgressScreen(
+                        name: "wordly",
+                        score: (6 - act ~/ 6).toDouble(),
+                        exercise: 'Wordly',
+                      ),
+                    ),
+                  );
+                },
+                child: const Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
     }
-    print(word);
     if (await dMSAJson.hasEntry(word)) {
       return true;
     } else {
@@ -198,7 +237,7 @@ class _Wordly extends State<Wordly> {
             --act;
           }
         } else if (qwerty[row][indx] == "ENTER") {
-          handleEnter();
+          handleEnter(context);
         } else if (act % 6 == 5 &&
             letters[(act - act % 6) ~/ 6][act % 6] != "") {
         } else if (letters[((act + 1) - (act + 1) % 6) ~/ 6][(act + 1) % 6] ==
@@ -208,11 +247,10 @@ class _Wordly extends State<Wordly> {
         }
       },
     );
-    print(qwerty[row][indx]);
   }
 
-  Future<void> handleEnter() async {
-    bool result = await lookupWord();
+  Future<void> handleEnter(BuildContext context) async {
+    bool result = await lookupWord(context);
     if (act % 6 == 5 && result == true) {
       ++act;
       clickedEnter(act);
