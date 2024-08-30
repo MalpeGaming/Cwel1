@@ -423,6 +423,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                           yourScore: countScore(),
                           maximum: 10,
                           page: const Home(),
+                          clearAllWindows: true,
                         )
                       : (widget.endingTest
                           ? ShowImprovement(

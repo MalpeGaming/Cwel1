@@ -205,14 +205,17 @@ class _ReadingComprehension extends State<ReadingComprehension> {
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
             appBar: appBar(context, ""),
-            body: SingleChildScrollView(
-              child: Container(
-                width: size.width * 0.9,
-                height: size.height * 0.9,
-                margin: EdgeInsets.only(
-                  left: size.width / 10,
-                  right: size.width / 10,
-                ),
+            body: Container(
+              width: size.width * 0.9,
+              height: size.height * 0.9,
+              margin: EdgeInsets.only(
+                left: size.width / 10,
+                right: size.width / 10,
+              ),
+              child: RawScrollbar(
+                thumbColor: Theme.of(context).colorScheme.onPrimary,
+                radius: const Radius.circular(20),
+                thickness: 5,
                 child: SingleChildScrollView(
                   child: Column(
                     //mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -273,11 +276,12 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                                     builder: (context) => ShowScore(
                                       title: "LINGUISTIC",
                                       description:
-                                          "Exercise 1 -  Reading Comprehension",
+                                          "Exercise 2 -  Reading Comprehension",
                                       exercise: 2,
                                       yourScore: score.toDouble(),
                                       maximum: 10,
                                       page: const Home(),
+                                      clearAllWindows: true,
                                     ),
                                   ),
                                 );
@@ -288,7 +292,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                                     builder: (context) => ShowImprovement(
                                       title: "LINGUISTIC",
                                       description:
-                                          "Exercise 1 -  Reading Comprehension",
+                                          "Exercise 2 -  Reading Comprehension",
                                       exercise: 2,
                                       yourScore: score.toDouble(),
                                       maximum: 10,
