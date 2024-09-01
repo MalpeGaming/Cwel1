@@ -295,7 +295,7 @@ var sectionNames = {
   'StrongConcentrationDesc': 'Strong Concentration',
   'ShortTermConcentration': 'Short Term Concentration',
   'FindTheNumber': 'Find The Number',
-  'Info': 'Reading out-loud',
+  'Info': 'Poem reading',
   'ReadingComprehensionInfo': 'Reading Comprehension',
   'ListeningComprehensionVideo': 'Listening Comprehension',
   'SpellingMistakes': 'Spelling Mistakes',
