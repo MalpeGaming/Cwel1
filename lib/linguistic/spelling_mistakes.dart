@@ -80,8 +80,7 @@ class _SpellingMistakes extends State<SpellingMistakes> {
         saveCorrectAnswer(newAnswers[newAnswers.length - 1], i);
       }
 
-      shuffledNumbers =
-          List.generate(newAnswers.length - 1, (index) => index + 1);
+      shuffledNumbers = List.generate(newAnswers.length, (index) => index);
       shuffledNumbers.shuffle();
 
       setState(() {
