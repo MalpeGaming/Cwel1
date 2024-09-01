@@ -133,6 +133,21 @@ class _Home extends State<Home> {
     print("skillBaseList: $skillBaseList");
     int currentTime = 0;
 
+    if (skill == 'linguistic') {
+      int x = rng.nextInt(4);
+      if (x == 0) {
+        int el = 2;
+        newPlan.add(skillBaseList[el].toList()[1].toString());
+        currentTime += skillBaseList[el].toList()[2] as int;
+        skillBaseList.removeAt(el);
+      } else if (x == 1) {
+        int el = 3;
+        newPlan.add(skillBaseList[el].toList()[1].toString());
+        currentTime += skillBaseList[el].toList()[2] as int;
+        skillBaseList.removeAt(el);
+      }
+    }
+
     while (currentTime < trainingTime) {
       int el = rng.nextInt(skillBaseList.length);
       newPlan.add(skillBaseList[el].toList()[1].toString());

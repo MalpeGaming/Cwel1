@@ -13,6 +13,16 @@ class Lesson29 extends StatefulWidget {
 }
 
 class _Lesson29 extends State<Lesson29> {
+  DateTime beginTime = DateTime.now();
+
+  @override
+  void initState() {
+    setState(() {
+      beginTime = DateTime.now();
+    });
+    super.initState();
+  }
+
   Widget hyperlinkPoint(BuildContext context, String text, String url) {
     Size size = MediaQuery.of(context).size;
     return Row(
@@ -52,7 +62,6 @@ class _Lesson29 extends State<Lesson29> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    DateTime beginTime = DateTime.now();
 
     return PopScope(
       canPop: false,

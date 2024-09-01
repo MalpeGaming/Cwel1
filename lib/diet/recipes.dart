@@ -183,7 +183,12 @@ class _Recipes extends State<Recipes> {
                   child: SmoothPageIndicator(
                     controller: controller,
                     count: 10,
-                    effect: const WormEffect(
+                    effect: WormEffect(
+                      dotColor: Theme.of(context)
+                          .colorScheme
+                          .onSecondary
+                          .withOpacity(0.2),
+                      activeDotColor: Theme.of(context).colorScheme.onPrimary,
                       dotHeight: 10,
                       dotWidth: 10,
                       type: WormType.thinUnderground,
