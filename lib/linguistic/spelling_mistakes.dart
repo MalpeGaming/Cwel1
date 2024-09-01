@@ -5,6 +5,7 @@ import 'package:yaml/yaml.dart';
 import '../score_n_progress/progress_screen.dart';
 import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
 import 'package:brain_train_app/app_bar.dart';
+import '../create_dot.dart';
 
 class SpellingMistakes extends StatefulWidget {
   const SpellingMistakes({
@@ -33,43 +34,42 @@ class _SpellingMistakes extends State<SpellingMistakes> {
     readData();
   }
 
-  Future<void> lookupWord(String word) async {
-    bool wordExists = true;
-    Future<bool> lookupWordd(word2) async {
-      if (await dMSAJson.hasEntry(word2)) {
-        return true;
-      } else {
-        return false;
-      }
+  Future<bool> wordExistsInDict(word2) async {
+    if (await dMSAJson.hasEntry(word2)) {
+      return true;
+    } else {
+      return false;
     }
+  }
+
+  Future<bool> lookupWord(String word) async {
+    bool wordExists = true;
 
     final splitted = word.split(" ");
-    Future<void> amogus() async {
-      for (var word2 in splitted) {
-        bool wordExists2 = await lookupWordd(word2);
-        if (!wordExists2) wordExists = false;
-        print(wordExists2);
-      }
-      //wordExists = await lookupWord();
-      print("final:");
-      print(wordExists);
+    for (var word2 in splitted) {
+      if (!(await wordExistsInDict(word2))) wordExists = false;
     }
-
-    await amogus();
-    setState(() {
-      score += wordExists ? 1 : 0;
-      print("score:");
-      print(score);
-    });
+    return wordExists;
   }
 
   List<int> shuffledNumbers = [];
+  List<int> correctAnswers = [];
+  Future<void> saveCorrectAnswer(List<String> answers, int questionId) async {
+    int correctAnswer = -1;
+    for (var i = 0; i < answers.length; ++i) {
+      var answer = answers[i];
+      if (await lookupWord(answer)) {
+        correctAnswer = i;
+        break;
+      }
+    }
+    correctAnswers[questionId] = correctAnswer;
+  }
 
   void readData() async {
     try {
       List<String> newQuestions = [];
       List<List<String>> newAnswers = [];
-
       final file = await rootBundle
           .loadString('assets/linguistic/spelling_mistakes.yaml');
       final tasks = loadYaml(file)["questions"];
@@ -81,10 +81,11 @@ class _SpellingMistakes extends State<SpellingMistakes> {
         newQuestions.add(tasks[i]["question"]);
         //newCorrectAnswers.add(tasks[i]["correct_answer"]);
         newAnswers.add([]);
-
         for (var answer in tasks[i]["answers"]) {
           newAnswers[newAnswers.length - 1].add(answer.toString());
         }
+        correctAnswers.add(-1);
+        saveCorrectAnswer(newAnswers[newAnswers.length - 1], i);
       }
 
       shuffledNumbers =
@@ -110,15 +111,23 @@ class _SpellingMistakes extends State<SpellingMistakes> {
           text,
           style: TextStyle(fontSize: 0.025 * size.height),
         ),
-        leading: Radio<int>(
-          value: val,
-          groupValue: selectedOption,
-          onChanged: (value) {
-            setState(() {
-              selectedOption = value!;
-            });
-          },
-        ),
+        dense: true,
+        leading: (selectedOption == -1)
+            ? Radio<int>(
+                value: val,
+                groupValue: selectedOption,
+                onChanged: (value) {
+                  setState(() {
+                    selectedOption = value!;
+                  });
+                },
+              )
+            : createDot(
+                context,
+                selectedOption,
+                correctAnswers[shuffledNumbers[questionIndex]],
+                val,
+              ),
       );
     }
 
@@ -294,12 +303,11 @@ class _SpellingMistakes extends State<SpellingMistakes> {
                               print("selectedOption");
                               if (selectedOption == -1) return;
 
-                              lookupWord(
-                                answers[shuffledNumbers[questionIndex]]
-                                        [selectedOption]
-                                    .toLowerCase(),
-                              );
-
+                              if (selectedOption ==
+                                  correctAnswers[
+                                      shuffledNumbers[questionIndex]]) {
+                                score += 1;
+                              }
                               if (questionIndex < 10) {
                                 setState(() {
                                   questionIndex += 1;

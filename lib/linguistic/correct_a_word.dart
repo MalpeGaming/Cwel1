@@ -226,7 +226,7 @@ class _CorrectAWord extends State<CorrectAWord> {
                                           color: Theme.of(context)
                                               .colorScheme
                                               .onSecondary
-                                              .withOpacity(0.3)),
+                                              .withOpacity(0.3),),
                                     ),
                                     controller: _controller,
                                     enableSuggestions: false,

@@ -22,6 +22,6 @@ Widget createDot(
             horizontal: size.width / 30,
           ),
           child: Icon(Icons.circle_outlined,
-              color: Theme.of(context).colorScheme.primary),
+              color: Theme.of(context).colorScheme.primary,),
         );
 }
