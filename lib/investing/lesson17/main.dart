@@ -14,6 +14,15 @@ class Lesson17 extends StatefulWidget {
 
 class _Lesson17 extends State<Lesson17> {
   int selectedOption = -1;
+  DateTime beginTime = DateTime.now();
+
+  @override
+  void initState() {
+    setState(() {
+      beginTime = DateTime.now();
+    });
+    super.initState();
+  }
 
   Widget buildQuizScreen({
     required int questionNumber,
@@ -68,7 +77,6 @@ class _Lesson17 extends State<Lesson17> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    DateTime beginTime = DateTime.now();
 
     return PopScope(
       canPop: false,

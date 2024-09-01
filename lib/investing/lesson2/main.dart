@@ -18,6 +18,15 @@ class _Lesson2 extends State<Lesson2> {
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
   final controller2 = PageController(viewportFraction: 0.8, keepPage: true);
   final controller3 = PageController(viewportFraction: 0.8, keepPage: true);
+  DateTime beginTime = DateTime.now();
+
+  @override
+  void initState() {
+    setState(() {
+      beginTime = DateTime.now();
+    });
+    super.initState();
+  }
 
   Widget buildQuizScreen({
     required int questionNumber,
@@ -91,7 +100,7 @@ class _Lesson2 extends State<Lesson2> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    DateTime beginTime = DateTime.now();
+
     return PopScope(
       canPop: false,
       child: Scaffold(
