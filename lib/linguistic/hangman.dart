@@ -3,6 +3,7 @@ import 'package:word_generator/word_generator.dart';
 import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
 import '../app_bar.dart';
 import '../score_n_progress/progress_screen.dart';
+import 'dart:math';
 
 class Hangman extends StatefulWidget {
   const Hangman({super.key, this.testVersion = false});
@@ -61,8 +62,8 @@ class _Hangman extends State<Hangman> {
                 builder: (context) => ProgressScreen(
                   name: "idioms",
                   score: mistakes.toDouble(),
-                  txt: "You tried",
-                  pointAlternative: "letters",
+                  txt: "You got",
+                  pointAlternative: "letters wrong",
                   exercise: 'Hangman',
                 ),
               ),
@@ -136,6 +137,10 @@ class _Hangman extends State<Hangman> {
   String noun = "";
   String currentWord = "";
 
+  String repeat(String s, int times) {
+    return List.filled(times, s).join('');
+  }
+
   @override
   void initState() {
     super.initState();
@@ -150,8 +155,16 @@ class _Hangman extends State<Hangman> {
       qwerty.length,
       (i) => List.generate(qwerty[i].length, (j) => false),
     );
+    var rng = Random();
+    int givenLetterIdx = rng.nextInt(noun.length);
+
+    String currentWord2 = repeat('_', givenLetterIdx) +
+        noun[givenLetterIdx] +
+        repeat('_', noun.length - givenLetterIdx - 1);
+
     setState(() {
       password = noun;
+      currentWord = currentWord2;
     });
   }
 
@@ -200,7 +213,7 @@ class _Hangman extends State<Hangman> {
                           width: 0.7 * size.width,
                           height: mistakes == 8 ? null : 0.4 * size.height,
                           child: Image.asset(
-                            'assets/linguistic/hangman/${mistakes + ((Theme.of(context).brightness == Brightness.dark) ? 8 : 0)}.png',
+                            'assets/linguistic/hangman/${mistakes + ((Theme.of(context).brightness == Brightness.dark) ? 9 : 0)}.png',
                             fit: BoxFit.cover,
                             gaplessPlayback: true,
                           ),
