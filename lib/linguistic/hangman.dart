@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:word_generator/word_generator.dart';
-import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
 import '../app_bar.dart';
 import '../score_n_progress/progress_screen.dart';
 import 'dart:math';
+import 'wordlist.dart';
 
 class Hangman extends StatefulWidget {
   const Hangman({super.key, this.testVersion = false});
@@ -34,7 +33,6 @@ class _Hangman extends State<Hangman> {
   final notGuessedKeys = <String>[];
 
   final cText = TextEditingController();
-  final dMSAJson = DictionaryMSAFlutter();
 
   void tappedKey(BuildContext context, int row, int indx) {
     if (mistakes != 8) {
@@ -54,7 +52,7 @@ class _Hangman extends State<Hangman> {
         }
         if (mistakes == 8 || currentWord.toLowerCase() == noun.toLowerCase()) {
           currentWord = noun;
-          Future.delayed(const Duration(seconds: 2), () {
+          Future.delayed(const Duration(seconds: 3), () {
             Navigator.pop(context);
             Navigator.push(
               context,
@@ -113,26 +111,10 @@ class _Hangman extends State<Hangman> {
     );
   }
 
-  Future<bool> lookupWord() async {
-    String word = "";
-    for (int i = 1; i <= 5; ++i) {
-      word += letters[(act - act % 6) ~/ 6][i];
-    }
-    word = word.toLowerCase();
-    print(word);
-    if (await dMSAJson.hasEntry(word)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   List<List<int>> guessed = List.generate(7, (i) => List.generate(6, (j) => 0));
 
   List<List<String>> letters =
       List.generate(7, (i) => List.generate(7, (j) => ''));
-
-  final wordGenerator = WordGenerator();
 
   String noun = "";
   String currentWord = "";
@@ -144,10 +126,8 @@ class _Hangman extends State<Hangman> {
   @override
   void initState() {
     super.initState();
-    while (noun.length < 7 || noun.length > 10) {
-      noun = wordGenerator.randomNoun();
-    }
-    noun = noun.toUpperCase();
+    var rng = Random();
+    noun = wordlist[rng.nextInt(wordlist.length)].toUpperCase();
     for (int i = 0; i < noun.length; i++) {
       currentWord += '_';
     }
@@ -155,7 +135,6 @@ class _Hangman extends State<Hangman> {
       qwerty.length,
       (i) => List.generate(qwerty[i].length, (j) => false),
     );
-    var rng = Random();
     int givenLetterIdx = rng.nextInt(noun.length);
 
     String currentWord2 = repeat('_', givenLetterIdx) +

@@ -5,6 +5,7 @@ import 'package:yaml/yaml.dart';
 import '../score_n_progress/progress_screen.dart';
 import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
 import 'package:brain_train_app/app_bar.dart';
+import '../create_dot.dart';
 
 class SpellingMistakes extends StatefulWidget {
   const SpellingMistakes({
@@ -25,7 +26,6 @@ class _SpellingMistakes extends State<SpellingMistakes> {
   List<String> questions = [];
   List<List<String>> answers = [];
   final dMSAJson = DictionaryMSAFlutter();
-  int correct = 0, incorrect = 0;
 
   @override
   void initState() {
@@ -33,62 +33,54 @@ class _SpellingMistakes extends State<SpellingMistakes> {
     readData();
   }
 
-  Future<void> lookupWord(String word) async {
-    bool wordExists = true;
-    Future<bool> lookupWordd(word2) async {
-      if (await dMSAJson.hasEntry(word2)) {
-        return true;
-      } else {
-        return false;
-      }
+  Future<bool> wordExistsInDict(word2) async {
+    if (await dMSAJson.hasEntry(word2.toLowerCase())) {
+      return true;
+    } else {
+      return false;
     }
+  }
+
+  Future<bool> lookupWord(String word) async {
+    bool wordExists = true;
 
     final splitted = word.split(" ");
-    Future<void> amogus() async {
-      for (var word2 in splitted) {
-        bool wordExists2 = await lookupWordd(word2);
-        if (!wordExists2) wordExists = false;
-        print(wordExists2);
-      }
-      //wordExists = await lookupWord();
-      print("final:");
-      print(wordExists);
+    for (var word2 in splitted) {
+      if (!(await wordExistsInDict(word2))) wordExists = false;
     }
-
-    await amogus();
-    setState(() {
-      score += wordExists ? 1 : 0;
-      print("score:");
-      print(score);
-    });
+    return wordExists;
   }
 
   List<int> shuffledNumbers = [];
+  List<int> correctAnswers = [];
+  Future<void> saveCorrectAnswer(List<String> answers, int questionId) async {
+    for (var i = 0; i < answers.length; ++i) {
+      if (await lookupWord(answers[i])) {
+        correctAnswers[questionId] = i;
+        break;
+      }
+    }
+  }
 
   void readData() async {
     try {
       List<String> newQuestions = [];
       List<List<String>> newAnswers = [];
-
       final file = await rootBundle
           .loadString('assets/linguistic/spelling_mistakes.yaml');
       final tasks = loadYaml(file)["questions"];
-      //[widget.exerciseId];
-      print("amogus");
-      print(tasks[0]);
 
       for (var i = 0; i < tasks.length; i++) {
         newQuestions.add(tasks[i]["question"]);
-        //newCorrectAnswers.add(tasks[i]["correct_answer"]);
         newAnswers.add([]);
-
         for (var answer in tasks[i]["answers"]) {
           newAnswers[newAnswers.length - 1].add(answer.toString());
         }
+        correctAnswers.add(-1);
+        saveCorrectAnswer(newAnswers[newAnswers.length - 1], i);
       }
 
-      shuffledNumbers =
-          List.generate(newAnswers.length - 1, (index) => index + 1);
+      shuffledNumbers = List.generate(newAnswers.length, (index) => index);
       shuffledNumbers.shuffle();
 
       setState(() {
@@ -110,15 +102,23 @@ class _SpellingMistakes extends State<SpellingMistakes> {
           text,
           style: TextStyle(fontSize: 0.025 * size.height),
         ),
-        leading: Radio<int>(
-          value: val,
-          groupValue: selectedOption,
-          onChanged: (value) {
-            setState(() {
-              selectedOption = value!;
-            });
-          },
-        ),
+        dense: true,
+        leading: (selectedOption == -1)
+            ? Radio<int>(
+                value: val,
+                groupValue: selectedOption,
+                onChanged: (value) {
+                  setState(() {
+                    selectedOption = value!;
+                  });
+                },
+              )
+            : createDot(
+                context,
+                selectedOption,
+                correctAnswers[shuffledNumbers[questionIndex]],
+                val,
+              ),
       );
     }
 
@@ -291,15 +291,13 @@ class _SpellingMistakes extends State<SpellingMistakes> {
                           width: size.width * 0.75,
                           child: RedirectButton(
                             onClick: () {
-                              print("selectedOption");
                               if (selectedOption == -1) return;
 
-                              lookupWord(
-                                answers[shuffledNumbers[questionIndex]]
-                                        [selectedOption]
-                                    .toLowerCase(),
-                              );
-
+                              if (selectedOption ==
+                                  correctAnswers[
+                                      shuffledNumbers[questionIndex]]) {
+                                score += 1;
+                              }
                               if (questionIndex < 10) {
                                 setState(() {
                                   questionIndex += 1;

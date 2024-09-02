@@ -139,7 +139,7 @@ class _MemoryQuizState extends State<MemoryQuiz> {
               groupValue: selectedOption,
               activeColor: Theme.of(context).colorScheme.primary,
               fillColor: MaterialStateProperty.all(
-                  Theme.of(context).colorScheme.primary),
+                  Theme.of(context).colorScheme.primary,),
               splashRadius: 25,
               onChanged: (value) {
                 setState(() {
@@ -266,7 +266,7 @@ class _MemoryQuizState extends State<MemoryQuiz> {
                 ),
               ),
               Text(defs[0]),
-              Text(definition)
+              Text(definition),
             ],
           ),
         ),
