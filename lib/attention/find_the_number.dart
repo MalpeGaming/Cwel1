@@ -223,7 +223,7 @@ class _FindTheNumber extends State<FindTheNumber> {
                 ),
               ),
               Text(excludedNumber.toString()),
-              Text(score.toString())
+              Text(score.toString()),
             ],
           ),
         ),

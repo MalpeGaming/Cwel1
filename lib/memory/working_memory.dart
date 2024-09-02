@@ -196,7 +196,7 @@ class _WorkingMemory extends State<WorkingMemory> {
                           FilteringTextInputFormatter.digitsOnly,
                           TextInputFormatter.withFunction((oldValue, newValue) {
                             String text = newValue.text;
-                            if (text.isEmpty || int.parse(text) <= 10) {
+                            if (text.isEmpty || int.parse(text) <= 3) {
                               score = double.parse(text);
                               return newValue;
                             }
