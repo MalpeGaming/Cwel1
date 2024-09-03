@@ -15,14 +15,11 @@ class MemoryQuiz extends StatefulWidget {
 
   const MemoryQuiz(
     this.picked,
-    this.score,
-    this.input, {
+    this.score,{
     super.key,
     this.initialTest = false,
     this.endingTest = false,
   });
-
-  final List<String> input;
 
   @override
   State<MemoryQuiz> createState() => _MemoryQuizState();
@@ -36,7 +33,6 @@ class _MemoryQuizState extends State<MemoryQuiz> {
   int questionIndex = 0;
   String word = "";
   String definition = "";
-  List<String> input = [];
 
   bool check(int selected) {
     return (defs[selected] == definition);
@@ -271,11 +267,6 @@ class _MemoryQuizState extends State<MemoryQuiz> {
                   width: size.width,
                 ),
               ),
-              Text(score.toString()),
-              if (selectedOption != null)
-                Text(defs[selectedOption!].toString()),
-              Text(definition),
-              Text(input.toString()),
             ],
           ),
         ),

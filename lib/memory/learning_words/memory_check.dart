@@ -53,9 +53,6 @@ class _Memory2 extends State<Memory2> {
                 controller: conList[i],
                 enableSuggestions: false,
                 onSaved: (String? value) {},
-                onChanged: (String value) {
-                  usersInput[i] = conList[i].text;
-                },
                 decoration: const InputDecoration(
                   contentPadding: EdgeInsets.symmetric(vertical: 12.0),
                 ),
@@ -74,16 +71,6 @@ class _Memory2 extends State<Memory2> {
     );
   }
 
-  List<String> usersInput = List.generate(10, (index) => "");
-
-  void handleContinue() {
-    setState(() {
-      for (int i = 0; i < 10; ++i) {
-        if (words.contains(usersInput[i])) ++score;
-      }
-    });
-  }
-
   @override
   void initState() {
     super.initState();
@@ -94,6 +81,14 @@ class _Memory2 extends State<Memory2> {
     for (int i = 0; i < 10; ++i) {
       words.add(picked[i].keys.first.toLowerCase());
     }
+  }
+
+  int calcScore() {
+    int score = 0;
+    for (int i = 0; i < 10; ++i) {
+      if (words.contains(conList[i].text)) ++score;
+    }
+    return score;
   }
 
   @override
@@ -146,22 +141,17 @@ class _Memory2 extends State<Memory2> {
                     height: size.height * 0.05,
                     width: size.width * 0.75,
                     child: RedirectButton(
-                      onClick: handleContinue,
                       route: MemoryQuiz(
                         initialTest: widget.initialTest,
                         endingTest: widget.endingTest,
                         widget.picked,
-                        score,
-                        usersInput,
+                        calcScore(),
                       ),
                       text: 'Continue',
                       width: size.width,
                     ),
                   ),
                 ),
-                Text(conList[0].text),
-                Text(words.toString()),
-                Text(usersInput.toString()),
               ],
             ),
           ),
