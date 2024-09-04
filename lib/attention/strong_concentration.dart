@@ -1,5 +1,4 @@
 import 'package:brain_train_app/title_page.dart';
-import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
@@ -10,6 +9,7 @@ import '/buttons.dart';
 import 'package:audioplayers/audioplayers.dart';
 import '/app_bar.dart';
 import '../score_n_progress/show_improvement.dart';
+import 'equations.dart';
 
 class StrongConcentration extends StatefulWidget {
   const StrongConcentration({
@@ -30,20 +30,6 @@ class _StrongConcentration extends State<StrongConcentration> {
   int _remainingTime = 130;
   late Timer _timer;
   final player = AudioPlayer();
-  List<double> correctAnswers = [
-    722,
-    465,
-    90,
-    9,
-    72,
-    12,
-    135,
-    1.625,
-    81,
-    800,
-    7,
-    6,
-  ];
   List<double> userAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
   Future<void> startTimer() async {
@@ -69,6 +55,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                       yourScore: countScore(),
                       maximum: 10,
                       page: const Home(),
+                      clearAllWindows: true,
                     ),
                   ),
                 );
@@ -112,10 +99,14 @@ class _StrongConcentration extends State<StrongConcentration> {
   void initState() {
     super.initState();
     startTimer();
+
+    equations.shuffle();
+    print(equations.sublist(0, 12));
     player.play(AssetSource("attention/distracting_music.mp3"));
+    player.setReleaseMode(ReleaseMode.loop);
   }
 
-  Column equasion(Row text, Size size, {bool isId = true}) {
+  Column equation(Row text, Size size, {bool isId = true}) {
     _id++;
     final thisId = _id;
     return Column(
@@ -166,43 +157,23 @@ class _StrongConcentration extends State<StrongConcentration> {
     double score = 0;
 
     for (var i = 0; i < 12; i++) {
-      if (userAnswers[i] == correctAnswers[i]) {
+      if (userAnswers[i] == equations[i][1]) {
         score++;
       }
     }
     return score;
   }
 
-  Row createEquasion(double smallText, String text, {bool isId = true}) {
+  Row createEquation(double smallText, String text, {bool isId = true}) {
     return Row(
       children: [
-        Math.tex(
+        Text(
           text,
-          mathStyle: MathStyle.display,
-          textStyle: TextStyle(fontSize: smallText),
+          style: TextStyle(fontSize: smallText),
         ),
         const SizedBox(
           width: 5,
         ),
-      ],
-    );
-  }
-
-  Row createEquasion2(double smallText, String text1, String text2) {
-    return Row(
-      children: [
-        Math.tex(
-          text1,
-          mathStyle: MathStyle.display,
-          textStyle: TextStyle(fontSize: smallText),
-        ),
-        const Text(" from "),
-        Math.tex(
-          text2,
-          mathStyle: MathStyle.display,
-          textStyle: TextStyle(fontSize: smallText),
-        ),
-        const Text(" is "),
       ],
     );
   }
@@ -279,58 +250,13 @@ class _StrongConcentration extends State<StrongConcentration> {
                               left: size.width / 20,
                             ),
                             child: Column(
-                              children: [
-                                equasion(
-                                  createEquasion(smallText, r"235 + 487 = "),
+                              children: List.generate(12, (index) {
+                                return equation(
+                                  createEquation(smallText,
+                                      equations[index][0].toString(),),
                                   size,
-                                ),
-                                equasion(
-                                  createEquasion(smallText, r"789 - 324 = "),
-                                  size,
-                                ),
-                                equasion(
-                                  createEquasion(smallText, r"25 \cdot 3.6 = "),
-                                  size,
-                                ),
-                                equasion(
-                                  createEquasion(smallText, r"\frac{72}{8} = "),
-                                  size,
-                                ),
-                                equasion(
-                                  createEquasion2(smallText, r"15\%", r"480"),
-                                  size,
-                                ),
-                                equasion(
-                                  createEquasion(smallText, r"\sqrt{144} = "),
-                                  size,
-                                ),
-                                equasion(
-                                  createEquasion2(smallText, r"30\%", r"450"),
-                                  size,
-                                ),
-                                equasion(
-                                  createEquasion(
-                                    smallText,
-                                    r"\frac{7}{8} + \frac{3}{4} = ",
-                                  ),
-                                  size,
-                                ),
-                                equasion(
-                                  createEquasion(smallText, r"9^2 = "),
-                                  size,
-                                ),
-                                equasion(
-                                  createEquasion2(
-                                    smallText,
-                                    r"\frac{2}{5}",
-                                    r"2000",
-                                  ),
-                                  size,
-                                ),
-                                SizedBox(
-                                  height: size.height / 50,
-                                ),
-                              ],
+                                );
+                              }),
                             ),
                           ),
                         ],
@@ -355,52 +281,6 @@ class _StrongConcentration extends State<StrongConcentration> {
                         ],
                       ),
                     ],
-                  ),
-                  Text(
-                    "Find x:",
-                    style: TextStyle(
-                      fontSize: size.width / 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(
-                      left: size.width / 20,
-                    ),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            const Text("11.   "),
-                            Math.tex(
-                              r"3x - 7 = 14",
-                              mathStyle: MathStyle.display,
-                              textStyle: TextStyle(fontSize: smallText),
-                            ),
-                          ],
-                        ),
-                        equasion(
-                          createEquasion(smallText, r"x = "),
-                          size,
-                          isId: false,
-                        ),
-                        Row(
-                          children: [
-                            const Text("12.   "),
-                            Math.tex(
-                              r"2x + 5 = 17",
-                              mathStyle: MathStyle.display,
-                              textStyle: TextStyle(fontSize: smallText),
-                            ),
-                          ],
-                        ),
-                        equasion(
-                          createEquasion(smallText, r"x = "),
-                          size,
-                          isId: false,
-                        ),
-                      ],
-                    ),
                   ),
                 ],
               ),
@@ -444,6 +324,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                             )),
                   text: 'Continue',
                   width: size.width,
+                  requirement: userAnswers.every((element) => element != 0),
                 ),
               ),
               SizedBox(

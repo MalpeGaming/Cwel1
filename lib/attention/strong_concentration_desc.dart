@@ -65,6 +65,13 @@ class _StrongConcentrationDesc extends State<StrongConcentrationDesc> {
                   height: size.height / 25,
                 ),
                 Text(
+                  "Remember to tap ✓ on keyboard after finishing last excercise.",
+                  style: TextStyle(fontSize: size.width / 24),
+                ),
+                SizedBox(
+                  height: size.height / 25,
+                ),
+                Text(
                   "Turn the volume up.",
                   style: TextStyle(fontSize: size.width / 24),
                 ),
