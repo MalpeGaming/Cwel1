@@ -43,6 +43,12 @@ SfLinearGauge scoreAxis(
         position: LinearElementPosition.outside,
         child: const Text("Your\nScore"),
       ),
+      LinearWidgetPointer(
+        value: yourScore,
+        offset: -60,
+        position: LinearElementPosition.inside,
+        child: Text(yourScore.toString()),
+      ),
       LinearShapePointer(
         value: meanScore,
         shapeType: LinearShapePointerType.rectangle,

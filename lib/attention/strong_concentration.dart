@@ -253,7 +253,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                               children: List.generate(12, (index) {
                                 return equation(
                                   createEquation(smallText,
-                                      equations[index][0].toString()),
+                                      equations[index][0].toString(),),
                                   size,
                                 );
                               }),
