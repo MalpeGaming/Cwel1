@@ -26,9 +26,9 @@ class _LongTermConcentrationVideo extends State<LongTermConcentrationVideo> {
   double score = 0;
   final _controller = YoutubePlayerController(
     params: const YoutubePlayerParams(
-      showControls: true,
+      showControls: false,
       mute: false,
-      showFullscreenButton: true,
+      showFullscreenButton: false,
       loop: false,
       enableKeyboard: false,
     ),

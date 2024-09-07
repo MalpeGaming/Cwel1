@@ -8,6 +8,7 @@ import '../score_n_progress/show_score.dart';
 import '/app_bar.dart';
 import '../score_n_progress/show_improvement.dart';
 import '../create_dot.dart';
+import 'package:page_transition/page_transition.dart';
 
 class LongTermConcentrationTest extends StatefulWidget {
   const LongTermConcentrationTest({
@@ -221,8 +222,9 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                                 if (widget.initialTest) {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(
-                                      builder: (context) => ShowScore(
+                                    PageTransition(
+                                      type: PageTransitionType.fade,
+                                      child: ShowScore(
                                         title: "ATTENTION",
                                         description:
                                             "Exercise 2 - Long Term Concentration",
@@ -233,13 +235,17 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                                           initialTest: true,
                                         ),
                                       ),
+                                      reverseDuration:
+                                          const Duration(milliseconds: 100),
+                                      opaque: true,
                                     ),
                                   );
                                 } else if (widget.endingTest) {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(
-                                      builder: (context) => ShowImprovement(
+                                    PageTransition(
+                                      type: PageTransitionType.fade,
+                                      child: ShowImprovement(
                                         title: "ATTENTION",
                                         description:
                                             "Exercise 2 - Long Term Concentration",
@@ -250,6 +256,9 @@ class _LongTermConcentrationTest extends State<LongTermConcentrationTest> {
                                           endingTest: true,
                                         ),
                                       ),
+                                      reverseDuration:
+                                          const Duration(milliseconds: 100),
+                                      opaque: true,
                                     ),
                                   );
                                 } else {

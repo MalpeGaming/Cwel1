@@ -32,6 +32,7 @@ import 'investing/menu.dart';
 import 'linguistic/poems_reading/info.dart';
 import 'linguistic/idioms.dart';
 import 'package:brain_train_app/activities_for_each_section.dart';
+import 'package:page_transition/page_transition.dart';
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -59,8 +60,11 @@ GestureDetector createActivity(
       if (!blocked) {
         Navigator.push(
           context,
-          MaterialPageRoute(
-            builder: (context) => route,
+          PageTransition(
+            type: PageTransitionType.fade,
+            child: route,
+            reverseDuration: const Duration(milliseconds: 100),
+            opaque: true,
           ),
         );
       }
@@ -92,11 +96,15 @@ GestureDetector createActivity(
           child: Row(
             children: [
               SizedBox(
-                height: 0.115 * size.height,
+                height: 0.115 * size.height, // Określenie wysokości
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: SizedBox.fromSize(
-                    child: Image.asset('assets/$img.png', fit: BoxFit.cover),
+                  borderRadius: BorderRadius.circular(20), // Zaokrąglenie rogów
+                  child: FadeInImage(
+                    placeholder: const AssetImage(
+                        'assets/placeholder.png'), // Placeholder
+                    image: AssetImage('assets/$img.png'), // Obraz docelowy
+                    fit: BoxFit.cover, // Dopasowanie obrazu
+                    fadeInDuration: const Duration(milliseconds: 200),
                   ),
                 ),
               ),

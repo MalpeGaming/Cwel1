@@ -3,6 +3,7 @@ import 'dart:math';
 import 'dart:async';
 import '../score_n_progress/progress_screen.dart';
 import '../app_bar.dart';
+import 'package:page_transition/page_transition.dart';
 
 class FindTheNumber extends StatefulWidget {
   const FindTheNumber({super.key});
@@ -44,10 +45,10 @@ class _FindTheNumber extends State<FindTheNumber> {
       onTap: () {
         print(i);
         print(j);
-        
+
         setState(() {
           if (randomNumbers[i][j] == excludedNumber) {
-          ++score;
+            ++score;
           }
           int randomNum;
           do {
@@ -117,12 +118,15 @@ class _FindTheNumber extends State<FindTheNumber> {
               Navigator.pop(context);
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => ProgressScreen(
+                PageTransition(
+                  type: PageTransitionType.fade,
+                  child: ProgressScreen(
                     name: "find_the_number",
                     score: score.toDouble(),
                     exercise: "FindTheNumber",
                   ),
+                  reverseDuration: const Duration(milliseconds: 100),
+                  opaque: true,
                 ),
               );
             }
@@ -222,8 +226,6 @@ class _FindTheNumber extends State<FindTheNumber> {
                   },
                 ),
               ),
-              Text(excludedNumber.toString()),
-              Text(score.toString()),
             ],
           ),
         ),

@@ -4,6 +4,7 @@ import 'score_n_progress/progress.dart';
 import 'your_activities.dart';
 import 'diet/nutrition_tips.dart';
 import 'settings/settings.dart';
+import 'package:page_transition/page_transition.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
   const MyBottomNavigationBar({super.key});
@@ -21,8 +22,9 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       Navigator.pop(context);
       Navigator.push(
         context,
-        MaterialPageRoute(
-          builder: (context) {
+        PageTransition(
+          type: PageTransitionType.fade,
+          child: () {
             if (index == 0) {
               return const YourActivities();
             } else if (index == 1) {
@@ -34,7 +36,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
             } else {
               return const Home();
             }
-          },
+          }(),
         ),
       );
     });

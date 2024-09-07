@@ -71,6 +71,7 @@ dependencies:
   flutter_markdown: ^0.7.3
   tuple: ^2.0.2
   flutter_launcher_icons: ^0.13.1
+  page_transition: ^2.1.0
 
 dev_dependencies:
   flutter_test:
