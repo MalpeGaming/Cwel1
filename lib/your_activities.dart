@@ -16,7 +16,7 @@ import 'attention/long_term_concentration_video.dart';
 import 'attention/short_term_concentration.dart';
 import 'attention/strong_concentration_desc.dart';
 import 'attention/reading/reading.dart';
-import 'logical_thinking/sudoku_info.dart';
+import 'logical_thinking/sudoku.dart';
 import 'linguistic/wordly.dart';
 import 'linguistic/hangman.dart';
 import 'logical_thinking/riddles.dart';
@@ -29,7 +29,7 @@ import 'well_being/memes.dart';
 import 'linguistic/grammar_mcq_test.dart';
 import 'linguistic/correct_a_word.dart';
 import 'investing/menu.dart';
-import 'linguistic/poems_reading/info.dart';
+import 'linguistic/poems_reading/poems_info.dart';
 import 'linguistic/idioms.dart';
 import 'package:brain_train_app/activities_for_each_section.dart';
 import 'package:page_transition/page_transition.dart';
@@ -101,7 +101,8 @@ GestureDetector createActivity(
                   borderRadius: BorderRadius.circular(20), // Zaokrąglenie rogów
                   child: FadeInImage(
                     placeholder: const AssetImage(
-                        'assets/placeholder.png'), // Placeholder
+                      'assets/placeholder.png',
+                    ), // Placeholder
                     image: AssetImage('assets/$img.png'), // Obraz docelowy
                     fit: BoxFit.cover, // Dopasowanie obrazu
                     fadeInDuration: const Duration(milliseconds: 200),
@@ -322,8 +323,8 @@ class _YourActivities extends State<YourActivities> {
                           "poems",
                           "POEMS",
                           "Reading",
-                          const Info(),
-                          "Info",
+                          const PoemsInfo(),
+                          "PoemsInfo",
                         ),
                         createActivity2(
                           context,
@@ -357,8 +358,8 @@ class _YourActivities extends State<YourActivities> {
                           "sudoku",
                           "SUDOKU",
                           "",
-                          const SudokuInfo(),
-                          "SudokuInfo",
+                          const SudokuGame(),
+                          "SudokuGame",
                           zero: 0,
                         ),
                         createActivity2(

@@ -1,3 +1,4 @@
+import 'package:brain_train_app/linguistic/scrabble_info.dart';
 import 'package:flutter/material.dart';
 import '/buttons.dart';
 import 'dart:math';
@@ -330,28 +331,6 @@ class _Scrabble extends State<Scrabble> {
               ],
             ),
           ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: IconButton(
-              icon: Icon(
-                Icons.backspace_rounded,
-                shadows: [
-                  Shadow(
-                    color: Colors.black.withOpacity(0.3),
-                    blurRadius: 5,
-                    offset: const Offset(2, 2),
-                  ),
-                ],
-              ),
-              color: Theme.of(context).colorScheme.primary,
-              onPressed: () {
-                if (word.isNotEmpty) {
-                  toggleUnused();
-                }
-              },
-              iconSize: (size.width * 0.12),
-            ),
-          ),
           Container(
             margin: EdgeInsets.only(
               left: size.width / 12,
@@ -361,6 +340,31 @@ class _Scrabble extends State<Scrabble> {
             child: Column(
               //crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const InstructionsButton(ScrabbleInfo()),
+                    IconButton(
+                      icon: Icon(
+                        Icons.backspace_rounded,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black.withOpacity(0.3),
+                            blurRadius: 5,
+                            offset: const Offset(2, 2),
+                          ),
+                        ],
+                      ),
+                      color: Theme.of(context).colorScheme.primary,
+                      onPressed: () {
+                        if (word.isNotEmpty) {
+                          toggleUnused();
+                        }
+                      },
+                      iconSize: (size.width * 0.12),
+                    ),
+                  ],
+                ),
                 Column(
                   children: [
                     Wrap(

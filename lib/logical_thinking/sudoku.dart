@@ -1,3 +1,5 @@
+import 'package:brain_train_app/buttons.dart';
+import 'package:brain_train_app/logical_thinking/sudoku_info.dart';
 import 'package:flutter/material.dart';
 import 'package:sudoku_dart/sudoku_dart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -125,7 +127,7 @@ class _SudokuGame extends State<SudokuGame> {
                     name: "sudoku",
                     score: lastScore.toDouble(),
                     txt: "You now have",
-                    exercise: 'SudokuInfo',
+                    exercise: 'SudokuGame',
                   ),
                 ),
               );
@@ -200,6 +202,7 @@ class _SudokuGame extends State<SudokuGame> {
             children: [
               SizedBox(height: 0.03 * size.height),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
                     onTap: () {
@@ -228,34 +231,39 @@ class _SudokuGame extends State<SudokuGame> {
                       ],
                     ),
                   ),
-                  const Spacer(),
-                  Stack(
-                    alignment: AlignmentDirectional.center,
+                  const InstructionsButton(SudokuInfo()),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Container(
-                        width: 0.1 * min(size.width, size.height),
-                        height: 0.1 * min(size.width, size.height),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
+                      Stack(
+                        alignment: AlignmentDirectional.center,
+                        children: [
+                          Container(
+                            width: 0.1 * min(size.width, size.height),
+                            height: 0.1 * min(size.width, size.height),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                          ),
+                          Text(
+                            lastScore.toString(),
+                            style: TextStyle(
+                              fontSize: 0.06 * min(size.width, size.height),
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
+                      SizedBox(width: 0.03 * size.width),
                       Text(
-                        lastScore.toString(),
+                        "Points",
                         style: TextStyle(
-                          fontSize: 0.06 * min(size.width, size.height),
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 0.05 * min(size.width, size.height),
                         ),
                       ),
                     ],
-                  ),
-                  SizedBox(width: 0.03 * size.width),
-                  Text(
-                    "Points",
-                    style: TextStyle(
-                      fontSize: 0.05 * min(size.width, size.height),
-                    ),
                   ),
                 ],
               ),

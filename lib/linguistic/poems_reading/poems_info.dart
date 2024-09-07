@@ -3,13 +3,13 @@ import '../../app_bar.dart';
 import '../../buttons.dart';
 import 'main.dart';
 
-class Info extends StatefulWidget {
-  const Info({super.key});
+class PoemsInfo extends StatefulWidget {
+  const PoemsInfo({super.key});
   @override
-  State<Info> createState() => _Info();
+  State<PoemsInfo> createState() => _PoemsInfo();
 }
 
-class _Info extends State<Info> {
+class _PoemsInfo extends State<PoemsInfo> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

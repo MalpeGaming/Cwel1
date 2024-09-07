@@ -1,13 +1,13 @@
+import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:word_generator/word_generator.dart';
 import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
 import '../app_bar.dart';
 import '../score_n_progress/progress_screen.dart';
+import 'wordly_info.dart';
 
 class Wordly extends StatefulWidget {
-  const Wordly({super.key, this.testVersion = false});
-
-  final bool testVersion;
+  const Wordly({super.key});
 
   @override
   State<Wordly> createState() => _Wordly();
@@ -164,6 +164,7 @@ class _Wordly extends State<Wordly> {
   }
 
   Future<bool> lookupWord(BuildContext context) async {
+    Size size = MediaQuery.of(context).size;
     String word = "";
     for (int i = 1; i <= 5; ++i) {
       word += letters[(act - act % 6) ~/ 6][i];
@@ -185,38 +186,86 @@ class _Wordly extends State<Wordly> {
       showDialog(
         context: context,
         builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text(
-              'You Lose!',
-              style: TextStyle(
-                fontSize: MediaQuery.of(context).size.width / 16,
+          return PopScope(
+            canPop: false,
+            child: AlertDialog(
+              backgroundColor: Theme.of(context).colorScheme.onPrimary,
+              scrollable: true,
+              content: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Form(
+                  child: Column(
+                    children: <Widget>[
+                      RichText(
+                        text: TextSpan(
+                          text: "You Lose!\n\n",
+                          style: TextStyle(
+                            fontSize: size.width / 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: 'The word was ',
+                              style: TextStyle(
+                                fontSize: size.width / 20,
+                              ),
+                            ),
+                            TextSpan(
+                              text: '"$noun"',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: size.width / 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-            content: Text(
-              'The word was $noun',
-              style: TextStyle(
-                fontSize: MediaQuery.of(context).size.width / 20,
-              ),
-            ),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.pop(context);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ProgressScreen(
-                        name: "wordly",
-                        score: (6 - act ~/ 6).toDouble(),
-                        exercise: 'Wordly',
+              actions: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProgressScreen(
+                              name: "wordly",
+                              score: (6 - act ~/ 6).toDouble(),
+                              exercise: 'Wordly',
+                            ),
+                          ),
+                        );
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          Theme.of(context).colorScheme.primary,
+                        ),
+                      ),
+                      child: SizedBox(
+                        width: size.width / 8,
+                        child: Center(
+                          child: Text(
+                            "OK",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: size.width / 25,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  );
-                },
-                child: const Text('OK'),
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           );
         },
       );
@@ -293,6 +342,9 @@ class _Wordly extends State<Wordly> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
+                  const Center(
+                    child: InstructionsButton(WordlyInfo()),
+                  ),
                   Center(
                     child: Text(
                       "WORDLY",
@@ -302,6 +354,7 @@ class _Wordly extends State<Wordly> {
                       textAlign: TextAlign.center,
                     ),
                   ),
+
                   /*Text(
                     noun,
                     style: TextStyle(fontSize: size.width / 20),
@@ -324,7 +377,7 @@ class _Wordly extends State<Wordly> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 0.08 * size.height),
+                          SizedBox(height: 0.04 * size.height),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: List.generate(
