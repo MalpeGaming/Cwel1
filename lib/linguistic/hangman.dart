@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../app_bar.dart';
 import '../score_n_progress/progress_screen.dart';
 import 'dart:math';
-import 'wordlist.dart';
+import 'hangman_wordlist.dart';
 
 class Hangman extends StatefulWidget {
   const Hangman({super.key, this.testVersion = false});

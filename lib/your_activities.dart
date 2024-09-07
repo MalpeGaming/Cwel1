@@ -101,7 +101,7 @@ GestureDetector createActivity(
                   borderRadius: BorderRadius.circular(20), // Zaokrąglenie rogów
                   child: FadeInImage(
                     placeholder: const AssetImage(
-                        'assets/placeholder.png'), // Placeholder
+                        'assets/placeholder.png',), // Placeholder
                     image: AssetImage('assets/$img.png'), // Obraz docelowy
                     fit: BoxFit.cover, // Dopasowanie obrazu
                     fadeInDuration: const Duration(milliseconds: 200),

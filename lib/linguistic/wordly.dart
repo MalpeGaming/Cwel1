@@ -164,6 +164,7 @@ class _Wordly extends State<Wordly> {
   }
 
   Future<bool> lookupWord(BuildContext context) async {
+    Size size = MediaQuery.of(context).size;
     String word = "";
     for (int i = 1; i <= 5; ++i) {
       word += letters[(act - act % 6) ~/ 6][i];
@@ -185,38 +186,86 @@ class _Wordly extends State<Wordly> {
       showDialog(
         context: context,
         builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text(
-              'You Lose!',
-              style: TextStyle(
-                fontSize: MediaQuery.of(context).size.width / 16,
+          return PopScope(
+            canPop: false,
+            child: AlertDialog(
+              backgroundColor: Theme.of(context).colorScheme.onPrimary,
+              scrollable: true,
+              content: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Form(
+                  child: Column(
+                    children: <Widget>[
+                      RichText(
+                        text: TextSpan(
+                          text: "You Lose!\n\n",
+                          style: TextStyle(
+                            fontSize: size.width / 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: 'The word was ',
+                              style: TextStyle(
+                                fontSize: size.width / 20,
+                              ),
+                            ),
+                            TextSpan(
+                              text: '"$noun"',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: size.width / 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-            content: Text(
-              'The word was $noun',
-              style: TextStyle(
-                fontSize: MediaQuery.of(context).size.width / 20,
-              ),
-            ),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.pop(context);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ProgressScreen(
-                        name: "wordly",
-                        score: (6 - act ~/ 6).toDouble(),
-                        exercise: 'Wordly',
+              actions: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProgressScreen(
+                              name: "wordly",
+                              score: (6 - act ~/ 6).toDouble(),
+                              exercise: 'Wordly',
+                            ),
+                          ),
+                        );
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          Theme.of(context).colorScheme.primary,
+                        ),
+                      ),
+                      child: SizedBox(
+                        width: size.width / 8,
+                        child: Center(
+                          child: Text(
+                            "OK",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: size.width / 25,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  );
-                },
-                child: const Text('OK'),
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           );
         },
       );
