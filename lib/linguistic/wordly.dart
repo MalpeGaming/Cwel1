@@ -1,3 +1,4 @@
+import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:word_generator/word_generator.dart';
 import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
@@ -341,29 +342,8 @@ class _Wordly extends State<Wordly> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const WordlyInfo(),
-                          ),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.grey[400],
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                      ),
-                      child: const Text(
-                        '? Instructions ?',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                  const Center(
+                    child: InstructionsButton(WordlyInfo()),
                   ),
                   Center(
                     child: Text(
