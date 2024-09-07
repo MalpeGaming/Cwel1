@@ -42,8 +42,6 @@ class _StrongConcentration extends State<StrongConcentration> {
               _remainingTime--;
             } else {
               Navigator.pop(context);
-              _timer.cancel();
-
               if (widget.initialTest) {
                 Navigator.push(
                   context,
@@ -252,8 +250,10 @@ class _StrongConcentration extends State<StrongConcentration> {
                             child: Column(
                               children: List.generate(12, (index) {
                                 return equation(
-                                  createEquation(smallText,
-                                      equations[index][0].toString(),),
+                                  createEquation(
+                                    smallText,
+                                    equations[index][0].toString(),
+                                  ),
                                   size,
                                 );
                               }),
@@ -291,10 +291,6 @@ class _StrongConcentration extends State<StrongConcentration> {
                 height: size.height * 0.05,
                 width: size.width * 0.75,
                 child: RedirectButton(
-                  onClick: () {
-                    _timer.cancel();
-                    player.dispose();
-                  },
                   route: (widget.initialTest)
                       ? ShowScore(
                           title: "ATTENTION",

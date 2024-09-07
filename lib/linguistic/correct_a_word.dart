@@ -37,7 +37,6 @@ class _CorrectAWord extends State<CorrectAWord> {
               _remainingTime--;
             } else {
               Navigator.pop(context);
-              _timer.cancel();
 
               Navigator.push(
                 context,
@@ -84,6 +83,12 @@ class _CorrectAWord extends State<CorrectAWord> {
   void initState() {
     super.initState();
     readData();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 
   @override
@@ -223,10 +228,11 @@ class _CorrectAWord extends State<CorrectAWord> {
                                     decoration: InputDecoration(
                                       hintText: incorrectWord,
                                       hintStyle: TextStyle(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .onSecondary
-                                              .withOpacity(0.3),),
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onSecondary
+                                            .withOpacity(0.3),
+                                      ),
                                     ),
                                     controller: _controller,
                                     enableSuggestions: false,

@@ -131,7 +131,6 @@ class _MemoryWordsState extends State<MemoryWords> {
         if (_remainingTime > 0) {
           _remainingTime--;
         } else {
-          _timer.cancel();
           Navigator.pop(context);
           Navigator.push(
             context,
@@ -163,6 +162,12 @@ class _MemoryWordsState extends State<MemoryWords> {
   void initState() {
     super.initState();
     initMemory();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 
   @override
@@ -225,7 +230,6 @@ class _MemoryWordsState extends State<MemoryWords> {
                       width: size.width * 0.75,
                       child: RedirectButton(
                         onClick: () {
-                          _timer.cancel();
                           Navigator.pop(context);
                           Navigator.push(
                             context,

@@ -65,8 +65,6 @@ class _Idioms extends State<Idioms> {
               _remainingTime--;
             } else {
               Navigator.pop(context);
-              _timer.cancel();
-
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -113,6 +111,12 @@ class _Idioms extends State<Idioms> {
   void initState() {
     super.initState();
     readData();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 
   @override
