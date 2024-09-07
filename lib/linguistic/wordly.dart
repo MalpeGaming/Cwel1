@@ -3,11 +3,10 @@ import 'package:word_generator/word_generator.dart';
 import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
 import '../app_bar.dart';
 import '../score_n_progress/progress_screen.dart';
+import 'wordly_info.dart';
 
 class Wordly extends StatefulWidget {
-  const Wordly({super.key, this.testVersion = false});
-
-  final bool testVersion;
+  const Wordly({super.key});
 
   @override
   State<Wordly> createState() => _Wordly();
@@ -343,6 +342,30 @@ class _Wordly extends State<Wordly> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const WordlyInfo(),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.grey[400],
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                      ),
+                      child: const Text(
+                        '? Instructions ?',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Center(
                     child: Text(
                       "WORDLY",
                       style: TextStyle(
@@ -351,6 +374,7 @@ class _Wordly extends State<Wordly> {
                       textAlign: TextAlign.center,
                     ),
                   ),
+
                   /*Text(
                     noun,
                     style: TextStyle(fontSize: size.width / 20),
@@ -373,7 +397,7 @@ class _Wordly extends State<Wordly> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 0.08 * size.height),
+                          SizedBox(height: 0.04 * size.height),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: List.generate(
