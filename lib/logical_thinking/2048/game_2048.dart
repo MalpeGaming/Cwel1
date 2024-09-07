@@ -1,9 +1,11 @@
 import 'dart:math';
+import 'package:brain_train_app/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../app_bar.dart';
 import 'colors.dart';
 import '/score_n_progress/progress_screen.dart';
+import 'info_2048.dart';
 
 class Game2048 extends StatefulWidget {
   const Game2048({super.key});
@@ -53,6 +55,7 @@ class _Game2048State extends State<Game2048> {
   }
 
   void move(int direction) {
+    prevTiles = tiles;
     prevScore = score;
     List<List<int>> newTiles = tiles;
 
@@ -84,7 +87,6 @@ class _Game2048State extends State<Game2048> {
     }
 
     setState(() {
-      prevTiles = tiles;
       tiles = newTiles;
       bestScore = max(bestScore, score);
 
@@ -195,6 +197,7 @@ class _Game2048State extends State<Game2048> {
     initMemory();
 
     generateNewTile();
+    prevTiles = tiles;
   }
 
   Future<void> initMemory() async {
@@ -227,13 +230,18 @@ class _Game2048State extends State<Game2048> {
             children: <Widget>[
               Row(
                 children: [
-                  Text(
-                    "2048",
-                    style: TextStyle(
-                      fontSize: size.width / 8,
-                      fontWeight: FontWeight.w900,
-                    ),
-                  ),
+                  Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "2048",
+                          style: TextStyle(
+                            fontSize: size.width / 8,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                        const InstructionsButton(Info2048()),
+                      ],),
                   const Spacer(),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,

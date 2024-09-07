@@ -47,15 +47,15 @@ class _InstructionsButtonState extends State<InstructionsButton> {
         );
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.grey[400],
+        backgroundColor: Theme.of(context).colorScheme.background,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50),
         ),
       ),
-      child: const Text(
+      child: Text(
         '? Instructions ?',
         style: TextStyle(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.onSecondary,
         ),
       ),
     );
