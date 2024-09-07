@@ -36,6 +36,12 @@ class _Video extends State<ListeningComprehensionVideo> {
   late int exerciseId = 0;
 
   @override
+  void dispose() {
+    _controller.close();
+    super.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
     chooseVideo();

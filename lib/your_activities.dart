@@ -336,14 +336,6 @@ class _YourActivities extends State<YourActivities> {
                           ),
                           "SpellingMistakes",
                         ),
-                        /*
-                        createActivity2(
-                          context,
-                          "math",
-                          "MATH",
-                          "Exercises",
-                          const ProblemSelection(),
-                        ),*/
                         createActivity2(
                           context,
                           "riddles",
