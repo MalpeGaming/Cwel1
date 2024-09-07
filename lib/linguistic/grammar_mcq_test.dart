@@ -124,35 +124,13 @@ class _Grammar extends State<Grammar> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Center(
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "LINGUISTIC",
-                                      style: TextStyle(
-                                        fontSize: 0.06 * size.height,
-                                      ),
-                                    ),
-                                    Text(
-                                      "INTELLIGENCE",
-                                      style: TextStyle(
-                                        fontSize: 0.035 * size.height,
-                                      ),
-                                    ),
-                                  ],
+                              Text(
+                                "Grammar MCQ Test",
+                                style: TextStyle(
+                                  fontSize: size.width / 15,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                              ),
-                              SizedBox(
-                                height: size.height / 40,
-                              ),
-                              Center(
-                                child: Text(
-                                  "Exercise 1 - Grammar MCQ Test",
-                                  style: TextStyle(
-                                    fontSize: size.width / 20,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
+                                textAlign: TextAlign.center,
                               ),
                               SizedBox(
                                 height: size.height / 20,

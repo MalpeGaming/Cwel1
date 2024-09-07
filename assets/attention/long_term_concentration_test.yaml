@@ -924,71 +924,65 @@ tests:
     correct_answer: 0
     question: The state of flow is defined as
   - answers:
-      - 'true'
-      - 'false'
-      - not given
+    - 'true'
+    - 'false'
+    - not given
     correct_answer: 1
     question: Only professional athletes and scientists can find flow.
   - answers:
-      - positive emotions
-      - fatigue 
-      - creativity
-      - satisfaction
+    - positive emotions
+    - fatigue 
+    - creativity
+    - satisfaction
     correct_answer: 1
-    question: >
-      According to the video, those who more frequently experience flow report higher levels of all except:
+    question: According to the video, those who more frequently experience flow report higher levels of all except
   - answers:
-      - 'true' 
-      - 'false'
-      - not given
+    - 'true' 
+    - 'false'
+    - not given
     correct_answer: 0
     question: Psychologists go so far as to define flow as an altered state of consciousness.
   - answers:
-      - Flow diminishes feelings of worry.
-      - During flow, time seems to fly by.
-      - During flow, it’s difficult to stop an activity.
-      - During flow, it’s difficult to start an activity.
+    - Flow diminishes feelings of worry.
+    - During flow, time seems to fly by.
+    - During flow, it’s difficult to stop an activity.
+    - During flow, it’s difficult to start an activity.
     correct_answer: 3
     question: Which description of the state of flow is not accurate?
   - answers:
-      - attention
-      - self-awareness
-      - self-consciousness
-      - memory retention
+    - attention
+    - self-awareness
+    - self-consciousness
+    - memory retention
     correct_answer: 3
-    question: >
-      Brain imaging studies have shown that flow is accompanied by changes in neural activity, notably in regions that play a role in all except:
+    question: Brain imaging studies have shown that flow is accompanied by changes in neural activity, notably in regions that play a role in all except ...
   - answers:
-      - we find enjoyable and purposeful.
-      - require external rewards to maintain interest.
-      - feel like obligations or chores.
-      - we engage in solely for social approval.
+    - we find enjoyable and purposeful.
+    - require external rewards to maintain interest.
+    - feel like obligations or chores.
+    - we engage in solely for social approval.
     correct_answer: 0
-    question: >
-      Activities that are intrinsically motivating are those that:
+    question: Activities that are intrinsically motivating are those that ...
   - answers:
-      - avoid any challenging tasks to prevent frustration.
-      - focus on the outcome rather than the process.
-      - balance our personal skill level with the activity’s challenge.
-      - engage in repetitive tasks that require minimal effort or thought.
+    - avoid any challenging tasks to prevent frustration.
+    - focus on the outcome rather than the process.
+    - balance our personal skill level with the activity’s challenge.
+    - engage in repetitive tasks that require minimal effort or thought.
     correct_answer: 2
-    question: >
-      The second theory mentioned in the video suggests that in order to achieve a state of flow, one needs to:
+    question: The second theory mentioned in the video suggests that in order to achieve a state of flow, one needs to ...
   - answers:
-      - the activity is very easy for us.
-      - the activity is very hard for us.
-      - the activity is not too easy and not too hard for us.
+    - the activity is very easy for us.
+    - the activity is very hard for us.
+    - the activity is not too easy and not too hard for us.
     correct_answer: 2
-    question: >
-      It is easiest to enter the state of flow when:
+    question: It is easiest to enter the state of flow when ...
   - answers:
-      - limiting distractions.
-      - focusing on achieving the state of flow.
-      - setting clear goals.
-      - breaking down the task into smaller tasks, which are easier to track.
+    - limiting distractions.
+    - focusing on achieving the state of flow.
+    - setting clear goals.
+    - breaking down the task into smaller tasks, which are easier to track.
     correct_answer: 1
-    question: >
-      Which of these is not a strategy to reach the state of flow:
+    question: Which of these is not a strategy to reach the state of flow ...
 - name: food expiration
   video_id: jDg8DQl7ZeQ
   questions:
@@ -1005,16 +999,14 @@ tests:
     - Packaging innovations masked signs of spoilage.
     - Food labeling regulations removed expiration dates from products.
     correct_answer: 0
-    question: >
-      It became harder to assess the freshness of food, because:
+    question: It became harder to assess the freshness of food, because ...
   - answers:
     - How many people had touched a certain food product.
     - How long food had been on the shelves.
     - The temperature at which the food was stored during transportation.
     - The number of times the food was restocked on the shelves.
     correct_answer: 1
-    question: >
-      In the US groceries used packing codes to track:
+    question: In the US groceries used packing codes to track ...
   - answers:
     - 'true'
     - 'false'
@@ -1027,8 +1019,7 @@ tests:
     - Keep bacteria that cause food poisoning in check.
     - Ensure that food remains fresh without any packaging.
     correct_answer: 2
-    question: >
-      The freezer temperatures:
+    question: The freezer temperatures ...
   - answers:
     - The produce contains unhealthy amounts of pathogens.
     - The produce is covered by mold.
@@ -1054,8 +1045,7 @@ tests:
     - Encourage consumers to purchase only the most visually appealing produce.
     - Mandate that all produce be sold before it reaches peak ripeness.
     correct_answer: 0
-    question: >
-      One of the ways to limit the amount of produce thrown out is:
+    question: One of the ways to limit the amount of produce thrown out is ...
   - answers:
     - 'True'
     - 'False'
@@ -1092,16 +1082,14 @@ tests:
     - CFCs have no effect on the ozone layer.
     - CFCs only affect the ozone layer in polar regions.
     correct_answer: 1
-    question: >
-      Choose the correct statement:
+    question: Choose the correct statement.
   - answers:
     - coolant for refrigerators.
     - fertilisers for crops.
     - cleaning agents for electronics.
     - fuel for jet engines.
     correct_answer: 0
-    question: >
-      CFCs were developed by three US-based corporations as:
+    question: CFCs were developed by three US-based corporations as ...
   - answers:
     - 'true'
     - 'false'
@@ -1114,8 +1102,7 @@ tests:
     - high humidity in tropical regions.
     - warmer temperatures in the stratosphere.
     correct_answer: 0
-    question: >
-      One of the factors that accelerates ozone depletion is:
+    question: One of the factors that accelerates ozone depletion is ...
   - answers:
     - rates of skin cancer would skyrocket.
     - photosynthesis would be impaired.
@@ -1130,8 +1117,529 @@ tests:
     correct_answer: 0
     question: The use of CFCs was eventually banned in the 20th century.
   - answers:
-    - true
-    - false
+    - 'true'
+    - 'false'
     - not given
     correct_answer: 0
     question: The ozone hole is predicted to disappear one day.
+- name: middle ages
+  video_id: e9-l34TcV_U
+  questions:
+  - answers:
+    - a 1,000-year timespan.
+    - a 500-year timespan.
+    - a 200-year timespan.
+    - a 100-year timespan.
+    correct_answer: 0
+    question: The “Middle Ages” refers to …
+  - answers:
+    - a 1,000-year timespan.
+    - a 500-year timespan.
+    - a 200-year timespan.
+    - a 100-year timespan.
+    correct_answer: 0
+    question: The “Middle Ages” refers to …
+  - answers:
+    - the fall of Rome / the Italian renaissance.
+    - the discovery of America / the Industrial Revolution.
+    - the birth of Jesus / the French Revolution.
+    - the Viking Age / the Age of Enlightenment.
+    correct_answer: 0
+    question: The “Middle Ages” stretch from … to …
+  - answers:
+    - no longer paid attention to spirituality.
+    - had no knowledge of medicine or healing practices.
+    - never engaged in trade or commerce.
+    - were all ignorant and uneducated.
+    correct_answer: 3
+    question: One misconception (the first mentioned in the film) is that medieval people …
+  - answers:
+    - gradually dropped.
+    - stayed the same.
+    - gradually increased.
+    correct_answer: 2
+    question: During the “Middle Ages” literacy rates …
+  - answers:
+    - 'true'
+    - 'false'
+    - not given
+    correct_answer: 1
+    question: During the “Middle Ages” scholars abandoned Greek and Roman texts.
+  - answers:
+    - Covering meat with spices.
+    - Storing them in refrigerators.
+    - Storing them in cold water.
+    - Curing meat with salt.
+    correct_answer: 3
+    question: Which method was used by medieval people to preserve meat?
+  - answers:
+    - 'true'
+    - 'false'
+    - not given
+    correct_answer: 1
+    question: Medieval people avoided taking baths altogether, considering them to be unhealthy.
+  - answers:
+    - classical / modern
+    - prehistoric / industrial
+    - stone / enlightenment
+    - ancient / futuristic
+    correct_answer: 0
+    question: The … period came before the “Middle Ages” and the … period came after.
+  - answers:
+    - Renaissance writers would romanticize the past and create a distorted image of the Middle Ages.
+    - Medieval records were written in a fictional language.
+    - All historical documents from the period were destroyed during the Renaissance.
+    - The concept of history as a discipline didn’t exist until the 18th century.
+    correct_answer: 0
+    question: One of the reasons (according to the video) for the many misconceptions about the “Middle Ages” was the fact that
+  - answers:
+    - 'true'
+    - 'false'
+    - not given
+    correct_answer: 0
+    question: Medieval people engaged in trade with Asian countries.
+- name: happiness
+  video_id: m4Ics03xzUQ
+  questions:
+  - answers:
+    - When you are happy, you are automatically grateful.
+    - Gratefulness leads to happiness.
+    - Happiness and gratefulness are intertwined but not always simultaneous.
+    - Gratefulness is a result of achieving milestones.
+    correct_answer: 2
+    question: What is the connection between happiness and gratefulness?
+  - answers:
+    - Success and recognition.
+    - Something valuable and a true gift.
+    - Achieving goals and ambitions.
+    - Material possessions and wealth.
+    correct_answer: 1
+    question: According to David Steindl-Rast, what must come together to spark gratefulness?
+  - answers:
+    - By accumulating more possessions.
+    - By being aware that every moment is a gift.
+    - By constantly pursuing happiness.
+    - By seeking recognition from others.
+    correct_answer: 1
+    question: How does David Steindl-Rast suggest we can live gratefully?
+  - answers:
+    - Experiencing gratefulness not just occasionally but continually.
+    - Accumulating wealth and status.
+    - Achieving personal goals.
+    - Being recognized by others for one's achievements.
+    correct_answer: 0
+    question: What is the "key to all this" according to David Steindl-Rast?
+  - answers:
+    - Rushing through life and seizing every opportunity.
+    - "By adopting the simple method: Stop. Look. Go."
+    - Always striving for more without stopping to appreciate.
+    - By constantly comparing oneself to others.
+    correct_answer: 1
+    question: How does David Steindl-Rast propose we initiate grateful living?
+  - answers:
+    - They become fearful of losing what they have.
+    - They become violent towards others.
+    - They act out of a sense of abundance and are willing to share.
+    - They become focused solely on their own happiness.
+    correct_answer: 2
+    question: According to David Steindl-Rast, what happens when people are grateful?
+  - answers:
+    - A reduction in material wealth.
+    - A shift away from fear and violence towards respect and cooperation.
+    - An increase in personal achievements.
+    - A focus on individual happiness rather than collective well-being.
+    correct_answer: 1
+    question: What change does David Steindl-Rast believe gratefulness can bring to the world?
+  - answers:
+    - It encourages competition and rivalry.
+    - It fosters enjoyment of differences and respect for everyone.
+    - It leads to isolation and loneliness.
+    - It promotes selfishness and greed.
+    correct_answer: 1
+    question: According to David Steindl-Rast, what role does gratefulness play in our interactions with others?
+  - answers:
+    - By avoiding them whenever possible.
+    - By rising to the occasion and recognizing the opportunity presented.
+    - By complaining and lamenting our misfortune.
+    - By seeking immediate solutions without reflection.
+    correct_answer: 1
+    question: How does David Steindl-Rast suggest we respond to difficult situations?
+  - answers:
+    - Constantly pursuing new experiences and opportunities.
+    - Adopting the practice of stopping, looking, and then acting with gratitude.
+    - Ignoring past experiences and focusing on future goals.
+    - Surrounding oneself with material wealth and possessions.
+    correct_answer: 1
+    question: What does David Steindl-Rast propose as a solution to living gratefully?
+- name: hear best
+  video_id: VElc-9Xa1f0
+  questions:
+  - answers:
+    - They have unique adaptations that allow them to hear frequencies beyond human perception.
+    - They hear exactly the same range of sounds as humans.
+    - They rely solely on their vision to detect sounds.
+    - They have no special hearing abilities beyond what humans possess.
+    correct_answer: 0
+    question:  How can certain animals detect sounds that humans cannot perceive?
+  - answers:
+    - External sensors detect vibrations without involving the brain.
+    - Sound waves cause vibrations in ear structures, which stimulate sensory cells that send signals to the brain.
+    - Animals process sound directly through their muscles, bypassing the brain.
+    - The brain detects sound waves without any intermediary processes.
+    correct_answer: 1
+    question:  What is the fundamental process of hearing?
+  - answers:
+    - Their wings are designed to amplify sound.
+    - They funnel sound using their facial structure and have exceptionally sensitive ears.
+    - They are unable to determine the direction of sound.
+    - They primarily rely on their wings for sound detection.
+    correct_answer: 1
+    question:  How do owls enhance their ability to hear?
+  - answers:
+    - Their large ears are primarily for cooling purposes.
+    - They use their large ears to detect low-frequency sounds and to help regulate their body temperature.
+    - Their ears serve only to cool them, not for hearing.
+    - They can detect only high-frequency sounds with their ears.
+    correct_answer: 1
+    question:  What dual purpose do the large ears of the long-eared jerboa serve?
+  - answers:
+    - Ogre-faced spiders capture prey using their exceptional eyesight.
+    - Ogre-faced spiders depend solely on their hearing to catch prey.
+    - Ogre-faced spiders detect sound waves as faint as those from mosquito flight using receptors on their legs.
+    - Ogre-faced spiders are unable to hear and use other senses to locate prey.
+    correct_answer: 2
+    question:  How do ogre-faced spiders sense airborne prey?
+  - answers:
+    - Their middle ear bones are softer to enhance low-frequency detection.
+    - Their rigid middle ear bones allow them to efficiently transmit high-frequency vibrations.
+    - They are unable to hear high-frequency sounds.
+    - Their middle ear bones are specialized for detecting low-frequency vibrations.
+    correct_answer: 1
+    question:  How do toothed whales, such as dolphins and sperm whales, detect high-frequency sounds?
+  - answers:
+    - Baleen whales produce the highest-frequency sounds of any animal.
+    - Baleen whales emit sounds that are limited in travel distance.
+    - Baleen whales produce low-frequency sounds, around 14 hertz, that can travel for thousands of kilometers.
+    - Baleen whales do not have any special adaptations for sound emission.
+    correct_answer: 2
+    question:  What is notable about the sounds emitted by baleen whales?
+  - answers:
+    - By detecting vibrations through their jawbones.
+    - By sensing vibrations with their tongues.
+    - By hearing through their eyes.
+    - By relying solely on airborne sounds to locate prey.
+    correct_answer: 0
+    question:  How do snakes perceive ground vibrations?
+  - answers:
+    - Katydids detect ultrasonic sounds with sensors in their back legs.
+    - Katydids detect ultrasonic sounds with specialized sensors in their front legs.
+    - Katydids are incapable of detecting ultrasonic sounds.
+    - Katydids use their antennae to sense ultrasonic sounds.
+    correct_answer: 1
+    question:  How do katydids detect ultrasonic sounds?
+  - answers:
+    - By emitting high-frequency sounds from their thorax.
+    - By using eardrums located on their front legs.
+    - By detecting low-frequency vibrations in the ground with their middle ear bones.
+    - By perceiving sound through their eyes.
+    correct_answer: 2
+    question:  How do Namib Desert golden moles detect low-frequency vibrations in the sand?
+  - answers:
+    - By using thin, vibration-sensitive membranes on their abdomens.
+    - By having small ears located on their thorax.
+    - By utilizing their wings for sound detection.
+    - By lacking any specialized organs for hearing.
+    correct_answer: 0
+    question:  How do greater wax moths detect high-frequency sounds of up to 300,000 hertz?
+- name: ketchup
+  video_id: mAxFB3vbt7c
+  questions:
+  - answers:
+    - It was a sweet and savory brown sauce without tomatoes.
+    - England had just discovered tomatoes.
+    - It was always made with tomatoes.
+    - It was a dessert sauce.
+    correct_answer: 0
+    question: What was ketchup like in England in the mid-18th century?
+  - answers:
+    - Vinegar.
+    - Mustard.
+    - Mayonnaise.
+    - Fish sauce.
+    correct_answer: 3
+    question: Which condiment is considered a cousin to ketchup?
+  - answers:
+    - They salted and stored the fish, creating a fermented liquid.
+    - They buried the fish in the ground to ferment.
+    - They dried and ate the fish immediately.
+    - They turned the fish into a soup.
+    correct_answer: 0
+    question: How did Chinese fishermen in 300 BCE preserve their excess catch?
+  - answers:
+    - Garum was used exclusively in desserts.
+    - Garum was a sauce made from tomatoes.
+    - Garum was a sweet syrup.
+    - Garum was a fish sauce that was central to Roman cuisine.
+    correct_answer: 3
+    question: What was garum in ancient Roman cuisine?
+  - answers:
+    - Fish sauce remained popular in Europe even after the fall of the Roman Empire.
+    - The Romans exported fish sauce to Asia.
+    - The fall of the Roman Empire ended the use of fish sauce in Europe for a thousand years.
+    - Europeans never stopped using fish sauce after the fall of Rome.
+    correct_answer: 2
+    question: What happened to fish sauce in Europe after the Roman Empire collapsed?
+  - answers:
+    - Ketchup was originally made from mushrooms.
+    - Ketchup was always made from tomatoes in Europe.
+    - Ketchup was introduced to Europe from South America.
+    - Ketchup in the 1700s became a catch-all name for brown sauces made from various ingredients.
+    correct_answer: 3
+    question: How did the concept of ketchup change in the 1700s in England?
+  - answers:
+    - He introduced ketchup made from fish.
+    - He made ketchup a popular dessert topping.
+    - He developed a ketchup based on walnuts.
+    - He created the first tomato-based ketchup.
+    correct_answer: 3
+    question: What did James Mease contribute to the evolution of ketchup?
+  - answers:
+    - He introduced ketchup to the Asian market.
+    - He made ketchup a less popular condiment.
+    - He started a business selling pickled vegetables.
+    - He replaced sodium benzoate with riper tomatoes and more vinegar.
+    correct_answer: 3
+    question: How did Henry J. Heinz revolutionize ketchup production?
+  - answers:
+    - Most American households do not use ketchup anymore.
+    - Ketchup is now rarely found in American households.
+    - Ketchup has become the base for many other sauces and dressings worldwide.
+    - Ketchup is still made from fish sauce in most places.
+    correct_answer: 2
+    question: What is the significance of Heinz's ketchup in modern cuisine?
+  - answers:
+    - Worcestershire sauce was the first condiment to be made from tomatoes.
+    - The original ketchup was always sweet and made from fruits.
+    - Fish sauce was primarily used in desserts in ancient times.
+    - The history of ketchup can be traced back to fish sauce.
+    correct_answer: 3S
+    question: What is the historical connection between ketchup and fish sauce?
+- name: basketball
+  video_id: aa2Fmr7sKIA
+  questions:
+  - answers:
+    - To automatically adjust its skill level.
+    - To demonstrate its ability to shoot baskets.
+    - To challenge a human player to a one-on-one game.
+    - To play basketball perfectly every time.
+    correct_answer: 0
+    question: What was the Dunk-O-Matic expected to do according to the CEO's overpromised advertisement?
+  - answers:
+    - Adjust the robot's probability of success based on the opponent.
+    - Install a new AI system.
+    - Change the robot’s shooting angle.
+    - Make the robot shoot faster.
+    correct_answer: 0
+    question: What solution did the engineer implement to make the game fair for each opponent?
+  - answers:
+    - The robot always wins.
+    - The game is unfair.
+    - The human always wins.
+    - The first player always wins.
+    correct_answer: 3
+    question: What happens when both the human and robot have a 100% chance of making a basket?
+  - answers:
+    - Probability of failure for both players and the next round of attempts.
+    - Adding the chances of multiple successful shots.
+    - Creating a perfect sequence of shots.
+    - Using a linear function to calculate success.
+    correct_answer: 0
+    question: What does a geometric series help calculate in the context of this problem?
+  - answers:
+    - 1 minus the ratio of misses.
+    - p divided by 1 minus p.
+    - q multiplied by p.
+    - The ratio of successful shots.
+    correct_answer: 1
+    question: What is the formula for calculating q to make the game fair?
+  - answers:
+    - The human player cannot lose.
+    - A fair game is impossible because the human will always win.
+    - The robot has no chance of winning.
+    - The human will definitely lose.
+    correct_answer: 1
+    question: What happens if the human's probability of success is greater than 50%?
+  - answers:
+    - p times 1 minus q.
+    - The same series as the human's chances.
+    - q times 1 minus p.
+    - p times q.
+    correct_answer: 1
+    question: How does the robot's series compare to the human's series?
+  - answers:
+    - They have the same sum and are effectively the same series.
+    - The robot has a higher probability in later rounds.
+    - The human's chances are always lower.
+    - The robot's series is more complex.
+    correct_answer: 0
+    question: What is true about the geometric series when q equals p over 1-minus-p?
+  - answers:
+    - The competitors' chances reset to being equal.
+    - The robot gains an advantage.
+    - The human gains an advantage.
+    - The game becomes unfair after the first round.
+    correct_answer: 0
+    question: What happens to the competitors' chances in each round of the game?
+  - answers:
+    - The presentation leads to a promotion.
+    - The engineer ends up working at a better company.
+    - The robot is destroyed.
+    - The engineer becomes famous for inventing the Dunk-O-Matic.
+    correct_answer: 1
+    question: What is the final outcome for the engineer after the conference?
+- name: poseidon
+  video_id: 1siE5_Q9vs0
+  questions:
+  - answers:
+    - Hades.
+    - Zeus.
+    - Poseidon.
+    - Apollo.
+    correct_answer: 2
+    question: Which deity is considering retirement and selling the ocean?
+  - answers:
+    - To build his real estate portfolio and expand his domain.
+    - To create a new habitat for souls.
+    - To convert the ocean into a lake of fire.
+    - To merge the ocean with the Underworld.
+    correct_answer: 0
+    question: Why is Hades interested in buying the ocean?
+  - answers:
+    - The ocean's fishing industry employs over 500 million people.
+    - The ocean produces half of the world's oxygen.
+    - The ocean generates over $14 trillion annually from marine shipping alone.
+    - The ocean covers 90% of Earth's surface.
+    correct_answer: 2
+    question: What is one of the ocean’s economic contributions mentioned by the accountant?
+  - answers:
+    - It directly provides energy to all life on Earth.
+    - It creates new marine species through evolution.
+    - It prevents $500 billion in damages annually.
+    - It has absorbed more than 90% of excess heat since 1955.
+    correct_answer: 3
+    question: What is one of the ocean’s environmental roles that the accountant highlights?
+  - answers:
+    - An increase in coastal populations and rising tourism.
+    - Climate change, pollution, overfishing, and seabed extraction.
+    - The depletion of marine resources due to tourism.
+    - The expanding interest in coral reef conservation.
+    correct_answer: 1
+    question: What are the recent developments impacting the ocean that must be factored into its value?
+  - answers:
+    - It helps humanity transition from fossil fuels.
+    - It’s the primary source of water for all living beings.
+    - It’s one of the largest ecosystems on Earth.
+    - It supports more life than all terrestrial ecosystems combined.
+    correct_answer: 0
+    question: How does the ocean contribute to humanity’s shift to renewable energy?
+  - answers:
+    - $36 trillion.
+    - $5.7 trillion.
+    - $83 billion.
+    - $24 trillion.
+    correct_answer: 3
+    question: What is the estimated current value of the ocean according to the accountant?
+  - answers:
+    - Up to 500% in profits.
+    - Up to 600% in profits.
+    - Up to 300% in profits.
+    - Up to 200% in profits.
+    correct_answer: 1
+    question: What potential profit could humanity gain by reinvesting in the ocean's health?
+  - answers:
+    - Poseidon sells the ocean to Hades.
+    - Poseidon creates a new ocean entirely.
+    - Poseidon decides to retire and pass on his duties.
+    - Poseidon reaffirms his eternal vow to protect the ocean.
+    correct_answer: 3
+    question: What does Poseidon ultimately decide after the accountant's presentation?
+  - answers:
+    - A betrayal by his brother Hades.
+    - A last-minute change of heart.
+    - A trick by other gods to take his domain.
+    - A much-needed intervention by Hades and the accountant.
+    correct_answer: 3
+    question: What does Poseidon eventually realize about the meeting with Hades and the accountant?
+- name: milky way
+  video_id: iyOVbs_mO7o
+  questions:
+  - answers:
+    - The Fermi Bubbles.
+    - The Sagittarius Bubbles.
+    - The eROSITA Bubbles.
+    - The Andromeda Bubbles.
+    correct_answer: 0
+    question: What are the two gigantic gaseous bubbles discovered by NASA in 2010 called?
+  - answers:
+    - They were formed by a massive burst of star formation.
+    - They were caused by a supernova explosion.
+    - They are the result of a powerful outburst from the supermassive black hole.
+    - They are created by cosmic ray collisions.
+    correct_answer: 2
+    question: What is one of the theories about the origin of the Fermi Bubbles?
+  - answers:
+    - They extend nearly 25,000 light years in each direction.
+    - They are fully encapsulated by the eROSITA Bubbles.
+    - They are the largest structures ever discovered in space.
+    - They emit gamma rays and soft X-rays.
+    correct_answer: 1
+    question: How do the Fermi Bubbles relate to the eROSITA Bubbles?
+  - answers:
+    - The Fermi Bubbles are formed by recent star formation bursts.
+    - The eROSITA Bubbles are the result of stellar winds.
+    - The Fermi Bubbles are created by jets of energy from a black hole.
+    - The eROSITA Bubbles are made of ultra-fast particles.
+    correct_answer: 0
+    question: According to the first theory, what is the origin of the Fermi Bubbles?
+  - answers:
+    - About 1 million times the energy of the Sun.
+    - About 10 million times the energy of the Sun.
+    - About 100 million times the energy of the Sun.
+    - About 500,000 times the energy of the Sun.
+    correct_answer: 0
+    question: How much energy is estimated to have been generated by the event that formed the bubbles?
+  - answers:
+    - Less than 3 million years ago.
+    - Less than 5 million years ago.
+    - About 10 million years ago.
+    - About 50 million years ago.
+    correct_answer: 0
+    question: When did the event that likely formed the bubbles occur?
+  - answers:
+    - Star formation creates massive outflows of gas.
+    - Black holes eject gas from their centers.
+    - Galactic winds push away surrounding material.
+    - All of the above.
+    correct_answer: 3
+    question: What are the factors involved in the formation of the bubbles according to the theories?
+  - answers:
+    - Evidence of circumgalactic medium winds.
+    - Evidence of nearby supernova explosions.
+    - Evidence of dark matter interactions.
+    - Evidence of collisions with other galaxies.
+    correct_answer: 0
+    question: What other factor might explain some unique features of the bubbles?
+  - answers:
+    - They might be active galactic nuclei known as quasars.
+    - They might be related to cosmic microwave background radiation.
+    - They might be created by collisions between galaxies.
+    - They might be remnants of ancient cosmic events.
+    correct_answer: 0
+    question: What do similar jets of energy in other distant galaxies indicate about the Fermi Bubbles?
+  - answers:
+    - New telescopes will help provide more answers.
+    - Future missions to the Fermi Bubbles are planned.
+    - Additional studies on dark matter will be conducted.
+    - Further analysis of the cosmic microwave background is needed.
+    correct_answer: 0
+    question: What is expected to improve our understanding of the bubbles in the future?

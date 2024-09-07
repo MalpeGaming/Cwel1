@@ -7,6 +7,7 @@ import '../../your_activities.dart';
 import 'classic.dart';
 import 'business.dart';
 import 'personal_development.dart';
+import 'package:page_transition/page_transition.dart';
 
 class Reading extends StatefulWidget {
   const Reading({super.key});
@@ -137,8 +138,11 @@ class _Reading extends State<Reading> {
                 debugPrint('Received click');
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const ReadingStreak(),
+                  PageTransition(
+                    type: PageTransitionType.fade,
+                    child: const ReadingStreak(),
+                    reverseDuration: const Duration(milliseconds: 100),
+                    opaque: true,
                   ),
                 );
               },
@@ -203,7 +207,6 @@ class _Reading extends State<Reading> {
                 ],
               ),
             ),
-            Text(day.toString()),
           ],
         ),
       ),

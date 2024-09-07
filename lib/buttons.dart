@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'language_level_selection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:page_transition/page_transition.dart';
 
 void nuthin() {}
 
@@ -280,8 +281,11 @@ class _ImprovementButtonState extends State<ImprovementButton> {
 
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => widget.route,
+                  PageTransition(
+                    type: PageTransitionType.fade,
+                    child: widget.route,
+                    reverseDuration: const Duration(milliseconds: 100),
+                    opaque: true,
                   ),
                 );
               },

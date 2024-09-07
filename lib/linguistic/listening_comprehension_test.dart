@@ -240,7 +240,7 @@ class _Test extends State<ListeningComprehensionTest> {
                                         "Exercise 1 - Listening Comprehension",
                                     exercise: 2,
                                     yourScore: score,
-                                    maximum: 10,
+                                    maximum: questions.length.toDouble(),
                                     page: const ReadingComprehensionInfo(
                                       initialTest: true,
                                     ),
@@ -257,7 +257,7 @@ class _Test extends State<ListeningComprehensionTest> {
                                         "Exercise 1 - Listening Comprehension",
                                     exercise: 2,
                                     yourScore: score,
-                                    maximum: 10,
+                                    maximum: questions.length.toDouble(),
                                     page: const ReadingComprehensionInfo(
                                       endingTest: true,
                                     ),

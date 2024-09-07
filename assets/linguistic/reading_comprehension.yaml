@@ -1106,3 +1106,447 @@ tests:
       - She left the room quietly.
       correct_answer: 2
       question: How did Beth act as a peacemaker at the end of the passage?
+  11:
+  - title: Crime and Punishment
+    author: Fyodor Dostoevsky
+    text: |-
+      On an exceptionally hot evening early in July, a young man emerged from the garret where he lodged in S. Place. He walked slowly, as though hesitating, towards K. Bridge. He had successfully avoided encountering his landlady on the staircase. His garret, situated under the roof of a tall, five-story building, was more akin to a cupboard than a room. The landlady, who provided him with his garret, dinners, and other necessities, lived on the floor below. Every time he left the building, he was forced to pass her kitchen, the door of which was always open. Each time he passed, a sick, frightened feeling overcame him, causing him to scowl and feel ashamed. He was hopelessly in debt to his landlady and dreaded the thought of meeting her.
+
+      This fear was not due to cowardice or an abject nature—quite the contrary. For some time, he had been in an overstrained, irritable state, verging on hypochondria. He had become so absorbed in himself and isolated from others that he feared meeting anyone, not just his landlady. Crushed by poverty, he had reached a point where the anxieties of his situation no longer weighed on him. He had given up attending to practical matters and lost all desire to do so. Nothing the landlady could do truly terrified him. However, the thought of being stopped on the stairs, forced to listen to her trivial, irrelevant gossip, pestering demands for payment, threats, and complaints, and having to rack his brains for excuses, prevaricate, or lie—no, rather than endure that, he would creep down the stairs like a cat and slip out unseen.
+
+      This evening, however, as he stepped into the street, he became acutely aware of his fears.
+
+      “I want to attempt something like that and yet I’m frightened by these trifles,” he thought with an odd smile. “Hmm… yes, everything is within a man’s power, yet he lets it all slip away from cowardice—that’s an axiom. It would be interesting to know what men fear the most. Taking a new step, uttering a new word—that’s what they fear most… But I’m talking too much. It’s because I chatter that I do nothing. Or perhaps it’s that I chatter because I do nothing. I’ve learned to chatter over this last month, lying for days on end in my den, thinking… of Jack the Giant-killer. Why am I going there now? Am I capable of that? Is it serious? It’s not serious at all. It’s simply a fantasy to amuse myself; a plaything! Yes, maybe it’s just a plaything.”
+
+      The heat in the street was oppressive. The airlessness, the bustle, the plaster, scaffolding, bricks, and dust all around him, combined with that peculiar Petersburg stench familiar to those unable to escape the city in summer, all worked painfully on the young man’s already overwrought nerves. The insufferable stench from the pot-houses, which were particularly numerous in that part of town, and the drunken men he encountered continually, even though it was a working day, completed the revolting misery of the scene. For a moment, an expression of profound disgust flickered across the young man’s refined face. He was, incidentally, exceptionally handsome, above average in height, slim, well-built, with beautiful dark eyes and dark brown hair. Soon he sank into deep thought, or more accurately, into a complete blankness of mind. He walked along, oblivious to his surroundings, and had no desire to take notice of them. From time to time, he muttered something, a habit he had developed from talking to himself, as he had just admitted. During these moments, he became aware that his thoughts were sometimes tangled and that he was very weak; for two days, he had scarcely eaten anything.
+
+      He was so poorly dressed that even someone accustomed to shabbiness would have been ashamed to be seen in the street in such rags. However, in that part of town, few would have noticed his shortcomings in dress.
+    questions:
+    - answers:
+      - He was irritated by the heat and noise of the city.
+      - He was angry at his landlady.
+      - He was afraid of meeting someone he knew.
+      - He was lost in thought and unaware of his surroundings.
+      correct_answer: 0
+      question: Why did the young man feel discomfort upon stepping into the street?
+    - answers:
+      - The landlady had raised the rent.
+      - He was in debt to his landlady.
+      - He had quarreled with his neighbors.
+      - He disliked the garret where he lived.
+      correct_answer: 1
+      question: What was the primary reason for the young man's fear of encountering his landlady?
+    - answers:
+      - He was ashamed of his appearance.
+      - He feared being seen by a creditor.
+      - He was afraid of being arrested.
+      - He was worried about being late for an appointment.
+      correct_answer: 0
+      question: Why would the young man have been embarrassed to be seen on the street?
+    - answers:
+      - Taking a new step and uttering a new word.
+      - Making a mistake in public.
+      - Meeting someone important.
+      - Losing his way in the city.
+      correct_answer: 0
+      question: What did the young man believe most people feared the most?
+    - answers:
+      - His mind was racing with ideas.
+      - He was afraid of confronting his problems.
+      - He was weak from hunger and had trouble thinking clearly.
+      - He was excited about a new opportunity.
+      correct_answer: 2
+      question: What caused the young man to realize that his thoughts were sometimes tangled?
+    - answers:
+      - The oppressive heat in the city.
+      - The fact that he had lost his job.
+      - His isolation from others.
+      - His obsession with a fantasy.
+      correct_answer: 3
+      question: What did the young man consider as a plaything to amuse himself?
+    - answers:
+      - He was planning to visit a friend.
+      - He was going to buy food.
+      - He was unsure if he was capable of carrying out a certain act.
+      - He wanted to escape the city.
+      correct_answer: 3
+      question: What was the young man questioning his ability to do?
+    - answers:
+      - He was contemplating an important decision.
+      - He was eager to see someone.
+      - He was searching for a job.
+      - He was running from someone.
+      correct_answer: 0
+      question: What was the young man lost in thought about as he walked through the city?
+    - answers:
+      - He had been lying in his garret for days, thinking.
+      - He had just recovered from an illness.
+      - He was weak from having worked too hard.
+      - He had been wandering the streets all night.
+      correct_answer: 0
+      question: Why had the young man developed a habit of talking to himself?
+    - answers:
+      - Because of the oppressive heat.
+      - Due to the noise and stench of the city.
+      - Because he had not eaten in two days.
+      - Due to the fear of encountering someone he knew.
+      correct_answer: 2
+      question: What contributed to the young man's feeling of weakness as he walked through the streets?
+  12:
+  - title: The Picture of Dorian Gray
+    author: Oscar Wilde
+    text: |-
+      The studio was filled with the rich odor of roses, and as the light summer wind stirred amidst the trees in the garden, the heavy scent of lilac or the delicate perfume of pink-flowering thorn wafted through the open door.
+
+      From the corner of the divan, covered with Persian saddle-bags, where he lay smoking innumerable cigarettes, as was his custom, Lord Henry Wotton could just catch the gleam of the honey-sweet, honey-colored blossoms of a laburnum. The tremulous branches of the tree seemed hardly able to bear the burden of such flamelike beauty. Now and then, the fantastic shadows of birds in flight flitted across the long tussore-silk curtains that stretched in front of the huge window, producing a kind of momentary Japanese effect. These shadows made him think of the pallid, jade-faced painters of Tokyo, who, through the medium of an art that is necessarily immobile, seek to convey a sense of swiftness and motion.
+
+      The sullen murmur of bees, shouldering their way through the long unmown grass or circling with monotonous insistence around the dusty gilt horns of the straggling woodbine, seemed to make the stillness even more oppressive. The dim roar of London was like the bourdon note of a distant organ.
+
+      In the center of the room, clamped to an upright easel, stood the full-length portrait of a young man of extraordinary personal beauty. A short distance away sat the artist himself, Basil Hallward, whose sudden disappearance some years ago had caused a public sensation and led to many strange conjectures.
+
+      As the painter gazed at the gracious and comely form he had so skillfully captured in his art, a smile of pleasure crossed his face and seemed about to linger there. But suddenly, he started up, closed his eyes, and placed his fingers upon his lids, as though trying to imprison within his brain some curious dream from which he feared he might awaken.
+
+      "It is your best work, Basil, the best thing you have ever done," said Lord Henry languidly. "You must certainly send it to the Grosvenor next year. The Academy is too large and too vulgar. Whenever I've gone there, there have been either so many people that I couldn't see the pictures, which was dreadful, or so many pictures that I couldn't see the people, which was worse. The Grosvenor is really the only place."
+
+      "I don't think I shall send it anywhere," replied Basil, tossing his head back in that odd way that used to make his friends laugh at him at Oxford. "No, I won't send it anywhere."
+
+      Lord Henry elevated his eyebrows and looked at him in amazement through the thin blue wreaths of smoke that curled up in such fanciful whorls from his heavy, opium-tainted cigarette. "Not send it anywhere? My dear fellow, why? Have you any reason? What odd chaps you painters are! You do anything in the world to gain a reputation, and as soon as you have one, you seem to want to throw it away. It's silly of you, for there's only one thing in the world worse than being talked about, and that is not being talked about. A portrait like this would set you far above all the young men in England and make the old men quite jealous—if old men are ever capable of any emotion."
+
+      "I know you will laugh at me," Basil replied, "but I really can't exhibit it. I've put too much of myself into it."
+    questions:
+    - answers:
+      - The scent of roses.
+      - The scent of lilac.
+      - The scent of laburnum.
+      - The scent of pink-flowering thorn.
+      correct_answer: 1
+      question: What scent entered the studio through the open door when the wind stirred?
+    - answers:
+      - Persian rugs.
+      - Silk curtains.
+      - Saddle-bags.
+      - Paintings.
+      correct_answer: 2
+      question: What was the divan in the studio covered with?
+    - answers:
+      - Because it reminded him of London.
+      - Because it made him think of Japanese art.
+      - Because it created a shadowy effect.
+      - Because it made him feel melancholic.
+      correct_answer: 2
+      question: Why did the shadows of birds flitting across the curtains intrigue Lord Henry?
+    - answers:
+      - The murmur of bees.
+      - The dim roar of London.
+      - The rustling of trees.
+      - The hum of the wind.
+      correct_answer: 1
+      question: What sound did Lord Henry compare to the bourdon note of a distant organ?
+    - answers:
+      - A portrait of Lord Henry.
+      - A landscape of the garden.
+      - A full-length portrait of a young man.
+      - A still life of roses.
+      correct_answer: 2
+      question: What was the subject of the painting clamped to the easel?
+    - answers:
+      - His imminent departure.
+      - His sudden disappearance years ago.
+      - His mysterious identity.
+      - His secretive habits.
+      correct_answer: 1
+      question: What aspect of Basil Hallward caused public excitement and strange conjectures?
+    - answers:
+      - He wanted to fix a mistake.
+      - He wanted to make it more perfect.
+      - He wanted to trap a dream within his mind.
+      - He wanted to change the background.
+      correct_answer: 2
+      question: Why did Basil suddenly close his eyes and place his fingers on his lids?
+    - answers:
+      - He disliked the Academy's crowds.
+      - He felt the painting was too personal.
+      - He wanted to surprise the public later.
+      - He thought the painting wasn’t good enough.
+      correct_answer: 1
+      question: Why did Basil decide not to exhibit the painting?
+    - answers:
+      - He disliked painters in general.
+      - He believed no one would understand the painting.
+      - He was puzzled by Basil's decision.
+      - He thought the painting was too controversial.
+      correct_answer: 2
+      question: What was Lord Henry's reaction to Basil's decision not to exhibit the painting?
+    - answers:
+      - His fear of rejection.
+      - His deep connection to the portrait.
+      - His lack of confidence in his work.
+      - His desire to keep it private.
+      correct_answer: 1
+      question: What reason did Basil give for not wanting to exhibit the portrait?
+  13:
+  - title: The Tenant of Wildfell Hall
+    author: Anne Brontë
+    text: |-
+      You must accompany me back to the autumn of 1827. My father, as you may know, was a gentleman farmer in ——shire, and, by his explicit wish, I succeeded him in the same quiet occupation. However, this was not my preference, for my ambitions urged me toward higher goals, and my self-conceit convinced me that by ignoring these ambitions, I was burying my talent and hiding my light under a bushel. My mother did her utmost to persuade me that I was capable of great achievements, but my father, who believed that ambition led to ruin and that change was synonymous with destruction, dismissed any plans for bettering either my own situation or that of others. He assured me it was all nonsense and, with his dying breath, exhorted me to continue in the good old way, to follow in his footsteps and those of his father before him, and to let my highest ambition be to walk honestly through life, without looking to the right or to the left, and to pass on the family estate to my children in, at least, as good a condition as he left it to me.
+
+      “Well!” I thought, “an honest and industrious farmer is one of the most useful members of society. If I dedicate my talents to cultivating my farm and improving agriculture, I will benefit not only my immediate family and dependents but, in some small way, mankind at large. Thus, I will not have lived in vain.”
+
+      With these reflections, I tried to console myself as I trudged home from the fields one cold, damp, and cloudy evening near the end of October. However, the sight of a bright red fire gleaming through the parlor window did more to lift my spirits and silence my ungrateful complaints than all the wise reflections and good resolutions I had forced myself to consider—for remember, I was young then, only twenty-four, and I had not yet acquired half the self-control I now possess, trivial as that may be.
+
+      Still, I could not enter that haven of bliss until I had exchanged my muddy boots for a clean pair of shoes, my rough coat for a respectable one, and generally made myself presentable to polite society; for my mother, despite all her kindness, was quite particular about such things.
+
+      As I ascended to my room, I was met on the stairs by a smart, pretty girl of nineteen, with a neat, petite figure, a round face, bright, rosy cheeks, glossy, clustering curls, and merry brown eyes. I need not tell you this was my sister Rose. She is, I know, still a comely matron and doubtless no less lovely in your eyes than on the happy day you first saw her. At that time, nothing hinted to me that she would, a few years later, become the wife of someone entirely unknown to me then, but destined to become a closer friend than even herself, more intimate than that unruly lad of seventeen who collared me in the passage as I came down and nearly knocked me off balance. In retaliation for his impudence, he received a resounding whack over the head, which fortunately caused no serious harm, as his head was more than commonly thick and was well protected by a shock of short, reddish curls that my mother called auburn.
+
+      Upon entering the parlor, we found our honored mother seated in her armchair by the fireside, knitting away as she usually did when she had nothing else to occupy her. She had swept the hearth and made a bright, blazing fire in preparation for our return. The servant had just brought in the tea tray, and Rose was retrieving the sugar basin and tea caddy from the cupboard in the black oak sideboard, which shone like polished ebony in the cheerful parlor twilight.
+    questions:
+    - answers:
+      - He believed ambition led to ruin.
+      - He thought ambition was a noble pursuit.
+      - He had no opinion on ambition.
+      - He encouraged ambition but only in moderation.
+      correct_answer: 0
+      question: What was the father's opinion on ambition?
+    - answers:
+      - To inherit the family farm.
+      - To pursue a career in law.
+      - To become a merchant.
+      - To move to the city.
+      correct_answer: 0
+      question: What was the father's explicit wish for his son?
+    - answers:
+      - A secure and stable life.
+      - The excitement of a new career.
+      - A life of travel and exploration.
+      - The pursuit of great academic achievements.
+      correct_answer: 1
+      question: What did the son secretly desire instead of farming?
+    - answers:
+      - She believed he was incapable of great achievements.
+      - She thought farming was the best life for him.
+      - She did not express any opinion.
+      - She believed he was capable of great achievements.
+      correct_answer: 3
+      question: What was the mother’s belief regarding her son’s potential?
+    - answers:
+      - His father wanted him to preserve the family estate.
+      - His father wanted him to explore new opportunities.
+      - His father thought farming was unimportant.
+      - His father wished for him to become a scholar.
+      correct_answer: 0
+      question: Why did the father want his son to continue farming?
+    - answers:
+      - The scent of the autumn air.
+      - The sight of the family farm.
+      - The reflection on his wise decisions.
+      - The gleam of a bright red fire through the window.
+      correct_answer: 3
+      question: What ultimately lifted the son’s spirits as he returned home?
+    - answers:
+      - Twenty-four.
+      - Nineteen.
+      - Seventeen.
+      - Twenty.
+      correct_answer: 0
+      question: How old was the narrator during the events of the passage?
+    - answers:
+      - His sister Rose.
+      - His mother.
+      - His father.
+      - The servant.
+      correct_answer: 0
+      question: Who did the narrator encounter on the stairs as he went to his room?
+    - answers:
+      - A clean pair of boots.
+      - A neat scarf.
+      - A clean pair of shoes and a respectable coat.
+      - A pair of gloves.
+      correct_answer: 2
+      question: What did the narrator have to change into before entering the parlor?
+    - answers:
+      - The mother was knitting by the fire.
+      - The mother was preparing dinner.
+      - The mother was reading a book.
+      - The mother was sweeping the floor.
+      correct_answer: 0
+      question: What was the mother doing when the narrator entered the parlor?
+  14:
+  - title: Agnes Gray
+    author: Acton Bell
+    text: |-
+      All true histories offer instruction, though in some, the valuable lesson may be difficult to uncover, and when found, so meager in quantity that the effort hardly seems worth it. Whether this is true of my own history, I am not fully qualified to say. At times, I think it may prove useful to some and entertaining to others, but I will leave that for the world to decide. Protected by my own obscurity, the passage of time, and the use of a few fictitious names, I feel no fear in sharing this story with the public, even though I would not reveal it to my closest friend.
+
+      My father was a clergyman in the north of England, respected by all who knew him. In his younger days, he lived comfortably on the combined income of a small incumbency and a modest property of his own. My mother, who married him against the wishes of her family, was a squire’s daughter and a woman of strong will. Despite warnings that if she became the poor parson’s wife, she would have to give up her carriage, lady’s-maid, and all the luxuries that were nearly essential to her, she remained resolute. A carriage and a lady’s-maid were convenient, but she was thankful she had feet to carry her and hands to take care of her needs. An elegant house and spacious grounds were appealing, but she would rather live in a cottage with Richard Grey than in a palace with any other man in the world.
+
+      When arguments failed, her father eventually told the lovers they could marry if they wished, but doing so would mean his daughter would forfeit her entire fortune. He expected this to dampen their enthusiasm, but he was mistaken. My father knew my mother’s exceptional worth and realized she was a treasure in her own right. He would gladly welcome her into his modest home on any terms. She, in turn, would rather work with her own hands than be separated from the man she loved, whose happiness she was determined to ensure, and with whom she was already united in heart and soul. Thus, her fortune went to a more prudent sister who had married a wealthy nabob, while my mother, to the amazement and pity of all who knew her, chose to bury herself in the humble village parsonage among the hills of ——. Yet, despite all of this, and despite my mother’s strong will and my father’s quirks, I believe you could search all of England and not find a happier couple.
+
+      Of their six children, only my sister Mary and I survived the dangers of infancy and early childhood. Being younger by five or six years, I was always seen as the child and the darling of the family. My father, mother, and sister all contributed to spoiling me—not through foolish indulgence that would make me unruly, but through constant kindness that left me too dependent and ill-prepared for the hardships of life.
+
+      Mary and I were raised in strict seclusion. My mother, who was highly accomplished, well-informed, and fond of keeping busy, took complete charge of our education, except for Latin, which my father taught us. We never attended school, and since there was little society nearby, our only interaction with the world was the occasional stately tea party with the local farmers and tradespeople (to avoid being labeled as too proud to associate with our neighbors) and an annual visit to our paternal grandfather’s. There, we saw only him, our kind grandmother, a maiden aunt, and two or three elderly ladies and gentlemen. Occasionally, our mother would entertain us with stories and anecdotes from her youth, which, while they delighted us, often stirred in me, at least, a secret desire to see more of the world.
+    questions:
+    - answers:
+      - The difficulty in finding valuable lessons in some histories.
+      - The personal success of the narrator's family.
+      - The insignificance of true histories.
+      - The importance of financial wealth.
+      correct_answer: 0
+      question: What does the narrator suggest about true histories in the opening of the passage?
+    - answers:
+      - It is highly respected.
+      - It is insignificant.
+      - It is rarely taken seriously.
+      - It is largely forgotten.
+      correct_answer: 0
+      question: How is the narrator's father's role as a clergyman perceived by those who knew him?
+    - answers:
+      - She was persuaded by her father to marry a wealthy man.
+      - She married a poor clergyman despite her family's objections.
+      - She chose to live in luxury rather than marry for love.
+      - She married someone of her own social standing.
+      correct_answer: 1
+      question: What decision did the narrator’s mother make regarding her marriage?
+    - answers:
+      - Relinquish all the luxuries she was accustomed to.
+      - Inherit a fortune from her family.
+      - Marry a wealthy nabob.
+      - Live in a large estate with her husband.
+      correct_answer: 0
+      question: What did the narrator’s mother have to give up when she married the narrator’s father?
+    - answers:
+      - His fortune would grow.
+      - His daughter would regret her decision.
+      - Their love for each other would diminish.
+      - Both would lose interest in the marriage.
+      correct_answer: 1
+      question: What did the mother’s father expect would happen if his daughter married the narrator’s father?
+    - answers:
+      - Her father disapproved of her decision.
+      - Her mother tried to dissuade her.
+      - She valued love and happiness over wealth.
+      - She was forced to marry a wealthy man.
+      correct_answer: 2
+      question: What does the narrator’s mother’s decision to marry reveal about her character?
+    - answers:
+      - They were both unhappy with their life choices.
+      - They lived a life of regret and poverty.
+      - They were a very happy couple despite their circumstances.
+      - They eventually separated due to financial struggles.
+      correct_answer: 3
+      question: What was the ultimate outcome of the narrator’s parents’ marriage?
+    - answers:
+      - All six children survived into adulthood.
+      - Mary and the narrator were the only two children who survived.
+      - Only Mary survived past infancy.
+      - The narrator was an only child.
+      correct_answer: 1
+      question: What is said about the survival of the narrator and their siblings?
+    - answers:
+      - They were spoiled with material wealth.
+      - They were spoiled with indulgence that made them unruly.
+      - They were treated with constant kindness that made them dependent.
+      - They were neglected by their parents.
+      correct_answer: 2
+      question: How does the narrator describe the treatment they received from their family during childhood?
+    - answers:
+      - Their father provided them with a formal education.
+      - They received a strict and comprehensive education at home.
+      - They attended school with other children in the village.
+      - They were educated by tutors hired by their parents.
+      correct_answer: 1
+      question: How were the narrator and their sister educated?
+    - answers:
+      - They had many friends and social engagements.
+      - They were secluded with limited social interaction.
+      - They frequently traveled to see the world.
+      - They were constantly surrounded by family and friends.
+      correct_answer: 1
+      question: How does the narrator describe their social life during childhood?
+  15:
+  - title: Moby-Dick; or, The Whale
+    author: Herman Melville
+    text: |-
+      Call me Ishmael. Some years ago—never mind exactly how long—having little or no money in my pocket, and nothing in particular to keep me on shore, I decided to sail about a bit and explore the watery part of the world. It’s a method I use to shake off melancholy and improve my mood. Whenever I feel myself growing grim; whenever there’s a damp, drizzly November in my soul; whenever I find myself lingering in front of coffin warehouses or following every funeral I come across; and especially whenever my anxiety becomes so overwhelming that it takes a strong moral effort to stop myself from stepping into the street and knocking off people’s hats—then I know it’s time to get to sea as soon as possible. This is my alternative to drastic measures. Where Cato might have thrown himself on his sword, I simply board a ship. There’s nothing unusual in this. If they were aware of it, most men, at some point, have probably felt nearly the same way about the ocean as I do.
+
+      Consider the island city of Manhattan, surrounded by wharves like Indian isles by coral reefs—commerce encircles it like surf. The streets lead you toward the water from every direction. At the southern tip of the island lies the Battery, where the noble pier is washed by waves and cooled by breezes that were far out at sea just a few hours before. Look at the crowds of people gazing at the water there.
+
+      Walk around the city on a dreamy Sunday afternoon. Go from Corlears Hook to Coenties Slip, and then north by Whitehall. What do you see? Like silent sentinels posted around the town, thousands upon thousands of people stand absorbed in thoughts of the ocean. Some lean against the piers; some sit on the pier-heads; some peer over the sides of ships from China; some even climb high into the rigging, as if trying to get a better view of the sea. But these are all landsmen; on weekdays, they’re confined to offices, shops, and desks. So what is it that draws them here? Are the green fields gone? What are they seeking?
+
+      But wait, look! More crowds are coming, heading straight for the water, as if preparing to dive in. Strange! Nothing will satisfy them but the very edge of the land; loitering in the shade of nearby warehouses won’t do. No, they have to get as close to the water as possible without actually falling in. And there they stand—miles of them, leagues. They come from every direction—north, east, south, and west. Yet here they all gather. Tell me, is it the magnetic pull of the compasses on all those ships that draws them here?
+    questions:
+    - answers:
+      - He is wealthy and seeking adventure.
+      - He is financially struggling and looking for a change.
+      - He is mourning the loss of a loved one.
+      - He is curious about different cultures.
+      correct_answer: 1
+      question: What is Ishmael’s primary reason for deciding to sail and see the "watery part of the world"?
+    - answers:
+      - To explore new lands.
+      - To avoid succumbing to despair and melancholy.
+      - To escape from his creditors.
+      - To find employment on a ship.
+      correct_answer: 2
+      question: What does Ishmael hope to achieve by going to sea?
+    - answers:
+      - Walking aimlessly in the streets.
+      - Feeling a strong urge to be near water.
+      - Being overly cheerful.
+      - Avoiding social gatherings.
+      correct_answer: 1
+      question: Which of the following is a sign that Ishmael needs to go to sea?
+    - answers:
+      - An aggressive and violent attitude.
+      - A calm and peaceful demeanor.
+      - A deep fascination with the ocean.
+      - A desire to isolate himself from others.
+      correct_answer: 0
+      question: How does Ishmael describe his mood when he feels the need to go to sea?
+    - answers:
+      - He plans to take extreme measures like Cato.
+      - He quietly boards a ship as his escape.
+      - He confronts his problems directly.
+      - He seeks the company of friends to lift his spirits.
+      correct_answer: 1
+      question: What is Ishmael's alternative to drastic measures like Cato’s?
+    - answers:
+      - New York City.
+      - The island of Manhattan.
+      - An island in the Pacific.
+      - A remote coastal town.
+      correct_answer: 1
+      question: Which location does Ishmael describe as "your insular city of the Manhattoes"?
+    - answers:
+      - Because of its strategic position for trade.
+      - Because of its connection to the ocean.
+      - Because it is a bustling and crowded city.
+      - Because it is surrounded by coral reefs.
+      correct_answer: 1
+      question: Why does Ishmael compare Manhattan to islands surrounded by coral reefs?
+    - answers:
+      - Curious tourists.
+      - Fishermen preparing to sail.
+      - People absorbed in thoughts of the ocean.
+      - Traders engaged in commerce.
+      correct_answer: 2
+      question: What does Ishmael observe about the people standing near the water in Manhattan?
+    - answers:
+      - They are locals.
+      - They are sailors.
+      - They are landsmen tied to their jobs during the week.
+      - They are merchants.
+      correct_answer: 2
+      question: Who are the people Ishmael sees standing by the water?
+    - answers:
+      - The people are driven by an unconscious urge to be near water.
+      - The people are eager to board ships and travel.
+      - The people are waiting for someone to arrive.
+      - The people are escaping from something.
+      correct_answer: 0
+      question: What does Ishmael suggest about the people who gather at the water’s edge?
+    - answers:
+      - To highlight the city's connection to the ocean.
+      - To describe the dangers of living by the sea.
+      - To explain why people are drawn to ships.
+      - To speculate on the magnetic pull of the ocean on people's minds.
+      correct_answer: 3
+      question: What is the purpose of Ishmael’s rhetorical question about the "magnetic virtue of the needles of the compasses"?
