@@ -7,10 +7,10 @@ class ScrabbleInfo extends StatefulWidget {
   });
 
   @override
-  State<ScrabbleInfo> createState() => _ScrabbleInfo();
+  State<ScrabbleInfo> createState() => _ScrabbleInfoState();
 }
 
-class _ScrabbleInfo extends State<ScrabbleInfo> {
+class _ScrabbleInfoState extends State<ScrabbleInfo> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
