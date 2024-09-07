@@ -136,41 +136,18 @@ class _ChooseBestWord extends State<ChooseBestWord> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Center(
-                      child: RichText(
-                        text: TextSpan(
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.onSecondary,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: "LINGUISTIC\n",
-                              style: TextStyle(
-                                fontSize: size.width / 8,
-                              ),
-                            ),
-                            TextSpan(
-                              text: "INTELLIGENCE",
-                              style: TextStyle(
-                                fontSize: size.width / 16,
-                              ),
-                            ),
-                          ],
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    SizedBox(
-                      height: size.height / 30,
-                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Exercise 1 - Choose best word.",
-                          style: TextStyle(fontSize: size.width / 22),
+                          "Choose best word.",
+                          style: TextStyle(
+                            fontSize: size.width / 15,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
+                        SizedBox(height: size.height / 40),
                         round == 0
                             ? const SizedBox()
                             : Column(
@@ -208,6 +185,7 @@ class _ChooseBestWord extends State<ChooseBestWord> {
                                       ),
                                     ),
                                   ),
+                                  SizedBox(height: size.height / 40),
                                 ],
                               ),
                       ],
@@ -226,10 +204,47 @@ class _ChooseBestWord extends State<ChooseBestWord> {
                           )
                         : Column(
                             children: [
-                              Text(
-                                questions[questionId],
-                                style: TextStyle(
-                                  fontSize: size.width / 22,
+                              Center(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: const BorderRadius.all(
+                                      Radius.circular(20),
+                                    ),
+                                    gradient: LinearGradient(
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                      colors: <Color>[
+                                        Theme.of(context).colorScheme.primary,
+                                        Theme.of(context).colorScheme.onPrimary,
+                                      ],
+                                      tileMode: TileMode.decal,
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .shadow
+                                            .withOpacity(1),
+                                        spreadRadius: 5,
+                                        blurRadius: 7,
+                                        offset: const Offset(5, 5),
+                                      ),
+                                    ],
+                                  ),
+                                  width: size.width * 0.8,
+                                  child: Container(
+                                    margin: const EdgeInsets.all(15),
+                                    child: Center(
+                                      child: Text(
+                                        questions[questionId],
+                                        style: TextStyle(
+                                          fontSize: size.width / 22,
+                                          color: Colors.white,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ),
                               SizedBox(
