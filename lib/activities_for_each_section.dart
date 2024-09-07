@@ -19,7 +19,7 @@ import 'package:brain_train_app/well_being/yoga.dart';
 import 'package:brain_train_app/attention/short_term_concentration.dart';
 import 'package:brain_train_app/attention/find_the_number.dart';
 import 'package:brain_train_app/linguistic/poems_reading/poems_info.dart';
-import 'package:brain_train_app/linguistic/reading_comprehension_info.dart';
+import 'package:brain_train_app/linguistic/reading_comprehension.dart';
 import 'package:brain_train_app/linguistic/spelling_mistakes.dart';
 import 'package:brain_train_app/linguistic/grammar_mcq_test.dart';
 import 'package:brain_train_app/linguistic/choose_best_word.dart';
@@ -116,7 +116,7 @@ var attentionAllList = [
 var linguisticBaseList = [
   [Memory, "Memory", 10],
   [PoemsInfo, "PoemsInfo", 5],
-  [ReadingComprehensionInfo, "ReadingComprehensionInfo", 10],
+  [ReadingComprehension, "ReadingComprehension", 10],
   [ListeningComprehensionVideo, "ListeningComprehensionVideo", 10],
   [const SpellingMistakes(exerciseId: 0), "SpellingMistakes", 5],
   [const CorrectAWord(), "CorrectAWord", 5],
@@ -144,7 +144,7 @@ var linguisticRestList = [
 var linguisticAllList = [
   'Memory',
   'PoemsInfo',
-  'ReadingComprehensionInfo',
+  'ReadingComprehension',
   'ListeningComprehensionVideo',
   'SpellingMistakes',
   'CorrectAWord',
@@ -272,7 +272,7 @@ var sectionTimes = {
   'ShortTermConcentration': 5,
   'FindTheNumber': 5,
   'PoemsInfo': 5,
-  'ReadingComprehensionInfo': 10,
+  'ReadingComprehension': 10,
   'ListeningComprehensionVideo': 10,
   'SpellingMistakes': 5,
   'CorrectAWord': 5,
@@ -296,7 +296,7 @@ var sectionNames = {
   'ShortTermConcentration': 'Short Term Concentration',
   'FindTheNumber': 'Find The Number',
   'PoemsInfo': 'Poem reading',
-  'ReadingComprehensionInfo': 'Reading Comprehension',
+  'ReadingComprehension': 'Reading Comprehension',
   'ListeningComprehensionVideo': 'Listening Comprehension',
   'SpellingMistakes': 'Spelling Mistakes',
   'CorrectAWord': 'Correct a Word',
