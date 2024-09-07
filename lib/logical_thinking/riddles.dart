@@ -50,6 +50,12 @@ class _RiddlesTest extends State<RiddlesTest> {
   }
 
   @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
     init();
@@ -90,67 +96,59 @@ class _RiddlesTest extends State<RiddlesTest> {
 
   void startTimer() {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (!mounted) {
-        timer.cancel();
-      } else {
-        setState(() {
-          if (_remainingTime > 0) {
-            _remainingTime--;
-          } else {
-            _timer.cancel();
-            Navigator.pop(context);
+      setState(() {
+        if (_remainingTime > 0) {
+          _remainingTime--;
+        } else {
+          Navigator.pop(context);
 
-            if (widget.initialTest) {
-              _timer.cancel();
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ShowScore(
-                    title: "Riddles",
-                    description: "Exercise 1 - Short Term Concentration",
-                    exercise: 1,
-                    yourScore: score,
-                    maximum: 10,
-                    page: const Home(),
-                    clearAllWindows: true,
-                  ),
+          if (widget.initialTest) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ShowScore(
+                  title: "Riddles",
+                  description: "Exercise 1 - Short Term Concentration",
+                  exercise: 1,
+                  yourScore: score,
+                  maximum: 10,
+                  page: const Home(),
+                  clearAllWindows: true,
                 ),
-              );
-            } else if (widget.endingTest) {
-              _timer.cancel();
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ShowImprovement(
-                    title: "Riddles",
-                    description: "Exercise 1 - Short Term Concentration",
-                    exercise: 1,
-                    yourScore: score,
-                    maximum: 10,
-                    page: const TitlePage(
-                      title: 'The Brain Train App',
-                    ),
-                    lastin: true,
+              ),
+            );
+          } else if (widget.endingTest) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ShowImprovement(
+                  title: "Riddles",
+                  description: "Exercise 1 - Short Term Concentration",
+                  exercise: 1,
+                  yourScore: score,
+                  maximum: 10,
+                  page: const TitlePage(
+                    title: 'The Brain Train App',
                   ),
+                  lastin: true,
                 ),
-              );
-            } else {
-              _timer.cancel();
-              write((score.toInt() == 10) ? 1 : 0);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ProgressScreen(
-                    name: "long_term_concentration",
-                    score: score,
-                    exercise: 'Riddles',
-                  ),
+              ),
+            );
+          } else {
+            write((score.toInt() == 10) ? 1 : 0);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProgressScreen(
+                  name: "long_term_concentration",
+                  score: score,
+                  exercise: 'Riddles',
                 ),
-              );
-            }
+              ),
+            );
           }
-        });
-      }
+        }
+      });
     });
   }
 
@@ -311,8 +309,6 @@ class _RiddlesTest extends State<RiddlesTest> {
                                   });
                                   return;
                                 }
-
-                                _timer.cancel();
                                 write((score.toInt() == 10) ? 1 : 0);
                                 Navigator.pop(context);
                                 Navigator.push(
@@ -343,7 +339,6 @@ class _RiddlesTest extends State<RiddlesTest> {
                                 onClick: () {
                                   Navigator.pop(context);
                                   if (widget.initialTest) {
-                                    _timer.cancel();
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
@@ -360,7 +355,6 @@ class _RiddlesTest extends State<RiddlesTest> {
                                       ),
                                     );
                                   } else {
-                                    _timer.cancel();
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
