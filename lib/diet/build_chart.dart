@@ -43,8 +43,9 @@ buildChart(
           );
         },
       ),
-      primaryXAxis:
-          const CategoryAxis(majorGridLines: MajorGridLines(width: 0)),
+      primaryXAxis: const CategoryAxis(
+        majorGridLines: MajorGridLines(width: 0),
+      ),
       primaryYAxis: NumericAxis(
         labelRotation: 310,
         labelFormat: '{value} $unit',
@@ -52,7 +53,11 @@ buildChart(
       ),
       series: <CartesianSeries>[
         BarSeries<ChartData, String>(
-          color: const Color.fromARGB(255, 28, 137, 187),
+          borderRadius: const BorderRadius.only(
+            bottomRight: Radius.circular(5),
+            topRight: Radius.circular(5),
+          ),
+          color: Theme.of(context).colorScheme.primary,
           width: 0.8,
           name: 'Female',
           dataSource: chartData,
@@ -60,7 +65,13 @@ buildChart(
           yValueMapper: (ChartData data, _) => data.y!,
         ),
         BarSeries<ChartData, String>(
-          color: const Color.fromARGB(255, 21, 220, 255),
+          borderRadius: const BorderRadius.only(
+            bottomRight: Radius.circular(5),
+            topRight: Radius.circular(5),
+          ),
+          color: (Theme.of(context).brightness == Brightness.dark)
+              ? const Color.fromARGB(255, 75, 31, 102)
+              : const Color.fromARGB(255, 31, 76, 145),
           width: 0.8,
           name: 'Male',
           dataSource: chartData2,
