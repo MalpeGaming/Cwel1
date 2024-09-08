@@ -34,6 +34,7 @@ import 'linguistic/idioms.dart';
 import 'package:brain_train_app/activities_for_each_section.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:icon_decoration/icon_decoration.dart';
+import 'dart:math' as math;
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -125,14 +126,17 @@ GestureDetector createActivity(
                         if (star && plan.contains(exerciseName))
                           Align(
                             alignment: Alignment.topRight,
-                            child: DecoratedIcon(
-                              icon: Icon(
-                                Icons.star,
-                                color: const Color.fromARGB(255, 255, 208, 0),
-                                size: 0.05 * size.height,
+                            child: Transform.rotate(
+                              angle: math.pi / 0.07,
+                              child: DecoratedIcon(
+                                icon: Icon(
+                                  Icons.star,
+                                  color: const Color.fromARGB(255, 255, 208, 0),
+                                  size: 0.05 * size.height,
+                                ),
+                                decoration:
+                                    const IconDecoration(border: IconBorder()),
                               ),
-                              decoration:
-                                  const IconDecoration(border: IconBorder()),
                             ),
                           ),
                         Column(
@@ -328,14 +332,17 @@ class _YourActivities extends State<YourActivities> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            DecoratedIcon(
-                              icon: Icon(
-                                Icons.star,
-                                color: const Color.fromARGB(255, 255, 208, 0),
-                                size: 0.03 * size.height,
+                            Transform.rotate(
+                              angle: math.pi / 0.07,
+                              child: DecoratedIcon(
+                                icon: Icon(
+                                  Icons.star,
+                                  color: const Color.fromARGB(255, 255, 208, 0),
+                                  size: 0.03 * size.height,
+                                ),
+                                decoration:
+                                    const IconDecoration(border: IconBorder()),
                               ),
-                              decoration:
-                                  const IconDecoration(border: IconBorder()),
                             ),
                             SizedBox(width: 0.02 * size.width),
                             Text(
