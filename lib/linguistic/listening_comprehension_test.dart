@@ -7,6 +7,7 @@ import '../score_n_progress/progress_screen.dart';
 import '../score_n_progress/show_score.dart';
 import '../buttons.dart';
 import '../score_n_progress/show_improvement.dart';
+import 'dart:async';
 import '../create_dot.dart';
 
 class ListeningComprehensionTest extends StatefulWidget {
@@ -32,11 +33,85 @@ class _Test extends State<ListeningComprehensionTest> {
   List<int> correctAnswers = [];
   List<String> questions = [];
   List<List<String>> answers = [];
+  late Timer _timer;
+  int _time = 60;
 
   @override
   void initState() {
     super.initState();
     readData();
+    startTimer();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  void startTimer() {
+    _timer = Timer.periodic(
+      const Duration(seconds: 1),
+      (timer) {
+        setState(
+          () {
+            _time--;
+            if (_time <= 0) {
+              if (selectedOption == -1) return;
+
+              if (selectedOption == correctAnswers[questionIndex]) {
+                score += 1;
+              }
+              Navigator.pop(context);
+              if (widget.initialTest) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ShowScore(
+                      title: "LINGUISTIC",
+                      description: "Exercise 1 - Listening Comprehension",
+                      exercise: 2,
+                      yourScore: score,
+                      maximum: questions.length.toDouble(),
+                      page: const ReadingComprehensionInfo(
+                        initialTest: true,
+                      ),
+                    ),
+                  ),
+                );
+              } else if (widget.endingTest) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ShowImprovement(
+                      title: "LINGUISTIC",
+                      description: "Exercise 1 - Listening Comprehension",
+                      exercise: 2,
+                      yourScore: score,
+                      maximum: questions.length.toDouble(),
+                      page: const ReadingComprehensionInfo(
+                        endingTest: true,
+                      ),
+                    ),
+                  ),
+                );
+              } else {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProgressScreen(
+                      name: "listening_comprehension",
+                      score: score,
+                      exercise: 'ListeningComprehensionVideo',
+                    ),
+                  ),
+                );
+              }
+            }
+          },
+        );
+      },
+    );
   }
 
   void readData() async {
@@ -152,7 +227,29 @@ class _Test extends State<ListeningComprehensionTest> {
                           style: TextStyle(fontSize: size.width / 22),
                         ),
                         SizedBox(
-                          height: size.height / 20,
+                          height: size.height / 40,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.timer,
+                              size: 0.08 * size.width,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                            const SizedBox(width: 10.0),
+                            Text(
+                              "${_time.toString()}s",
+                              style: TextStyle(fontSize: size.width / 20),
+                              textAlign: TextAlign.start,
+                            ),
+                            SizedBox(
+                              height: size.height / 25,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: size.height / 40,
                         ),
                         Center(
                           child: Container(
