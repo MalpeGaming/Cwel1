@@ -212,6 +212,9 @@ class _Idioms extends State<Idioms> {
                         )
                       : Column(
                           children: [
+                            SizedBox(
+                              height: size.height / 30,
+                            ),
                             Center(
                               child: Container(
                                 decoration: BoxDecoration(

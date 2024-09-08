@@ -5,6 +5,7 @@ import 'package:yaml/yaml.dart';
 import '../score_n_progress/progress_screen.dart';
 import '/app_bar.dart';
 import '../create_dot.dart';
+import 'dart:async';
 
 class Grammar extends StatefulWidget {
   const Grammar({
@@ -32,11 +33,55 @@ class _Grammar extends State<Grammar> {
   int correct = 0;
   int incorrect = 0;
   List<int> shuffledNumbers = [];
+  late Timer _timer;
+  int _time = 60;
 
   @override
   void initState() {
     super.initState();
     readData();
+    startTimer();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  void startTimer() {
+    _timer = Timer.periodic(
+      const Duration(seconds: 1),
+      (timer) {
+        setState(
+          () {
+            _time--;
+            if (_time <= 0) {
+              if (selectedOption ==
+                  correctAnswers[shuffledNumbers[questionIndex]]) {
+                score += 1;
+                correct += 1;
+              } else {
+                incorrect += 1;
+              }
+
+              Navigator.pop(context);
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProgressScreen(
+                    name: "grammar_mcq",
+                    score: score,
+                    exercise: 'Grammar',
+                  ),
+                ),
+              );
+            }
+          },
+        );
+      },
+    );
   }
 
   void readData() async {
@@ -195,7 +240,7 @@ class _Grammar extends State<Grammar> {
                           ),
                           SizedBox(height: size.height / 30),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Container(
                                 height: size.width / 7,
@@ -258,6 +303,26 @@ class _Grammar extends State<Grammar> {
                                     ),
                                   ),
                                 ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Icon(
+                                    Icons.timer,
+                                    size: 0.08 * size.width,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                  ),
+                                  const SizedBox(width: 10.0),
+                                  Text(
+                                    "${_time.toString()}s",
+                                    style: TextStyle(fontSize: size.width / 20),
+                                    textAlign: TextAlign.start,
+                                  ),
+                                  SizedBox(
+                                    height: size.height / 25,
+                                  ),
+                                ],
                               ),
                             ],
                           ),

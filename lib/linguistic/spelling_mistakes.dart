@@ -6,6 +6,7 @@ import '../score_n_progress/progress_screen.dart';
 import 'package:dictionaryx/dictionary_msa_json_flutter.dart';
 import 'package:brain_train_app/app_bar.dart';
 import '../create_dot.dart';
+import 'dart:async';
 
 class SpellingMistakes extends StatefulWidget {
   const SpellingMistakes({
@@ -26,11 +27,51 @@ class _SpellingMistakes extends State<SpellingMistakes> {
   List<String> questions = [];
   List<List<String>> answers = [];
   final dMSAJson = DictionaryMSAFlutter();
+  late Timer _timer;
+  int _time = 60;
 
   @override
   void initState() {
     super.initState();
     readData();
+    startTimer();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  void startTimer() {
+    _timer = Timer.periodic(
+      const Duration(seconds: 1),
+      (timer) {
+        setState(
+          () {
+            _time--;
+            if (_time <= 0) {
+              if (selectedOption ==
+                  correctAnswers[shuffledNumbers[questionIndex]]) {
+                score += 1;
+              }
+
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProgressScreen(
+                    name: "long_term_concentration",
+                    score: score.toDouble(),
+                    exercise: 'SpellingMistakes',
+                  ),
+                ),
+              );
+            }
+          },
+        );
+      },
+    );
   }
 
   Future<bool> wordExistsInDict(word2) async {
@@ -160,7 +201,29 @@ class _SpellingMistakes extends State<SpellingMistakes> {
                           ),
                         ),
                         SizedBox(
-                          height: size.height / 20,
+                          height: size.height / 40,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.timer,
+                              size: 0.08 * size.width,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                            const SizedBox(width: 10.0),
+                            Text(
+                              "${_time.toString()}s",
+                              style: TextStyle(fontSize: size.width / 20),
+                              textAlign: TextAlign.start,
+                            ),
+                            SizedBox(
+                              height: size.height / 25,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: size.height / 40,
                         ),
                         Container(
                           decoration: BoxDecoration(
