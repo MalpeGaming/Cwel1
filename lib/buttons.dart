@@ -22,6 +22,46 @@ class StartButton extends StatefulWidget {
   State<StartButton> createState() => _StartButtonState();
 }
 
+class InstructionsButton extends StatefulWidget {
+  final Widget functionToRun;
+
+  const InstructionsButton(
+    this.functionToRun, {
+    super.key,
+  });
+
+  @override
+  State<InstructionsButton> createState() => _InstructionsButtonState();
+}
+
+class _InstructionsButtonState extends State<InstructionsButton> {
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => widget.functionToRun,
+          ),
+        );
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Theme.of(context).colorScheme.background,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
+      ),
+      child: Text(
+        '? Instructions ?',
+        style: TextStyle(
+          color: Theme.of(context).colorScheme.onSecondary,
+        ),
+      ),
+    );
+  }
+}
+
 class _StartButtonState extends State<StartButton> {
   bool hovered = false;
   late SharedPreferences prefs;

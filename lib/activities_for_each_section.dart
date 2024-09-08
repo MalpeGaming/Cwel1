@@ -10,7 +10,7 @@ import 'package:brain_train_app/memory/memory_game1.dart';
 import 'package:brain_train_app/memory/working_memory.dart';
 import 'package:brain_train_app/attention/reading/reading.dart';
 import 'package:brain_train_app/linguistic/scrabble.dart';
-import 'package:brain_train_app/logical_thinking/sudoku_info.dart';
+import 'package:brain_train_app/logical_thinking/sudoku.dart';
 import 'package:brain_train_app/logical_thinking/2048/game_2048.dart';
 import 'package:brain_train_app/well_being/memes.dart';
 import 'package:brain_train_app/well_being/meditation/meditation.dart';
@@ -18,8 +18,8 @@ import 'package:brain_train_app/well_being/sport.dart';
 import 'package:brain_train_app/well_being/yoga.dart';
 import 'package:brain_train_app/attention/short_term_concentration.dart';
 import 'package:brain_train_app/attention/find_the_number.dart';
-import 'package:brain_train_app/linguistic/poems_reading/info.dart';
-import 'package:brain_train_app/linguistic/reading_comprehension_info.dart';
+import 'package:brain_train_app/linguistic/poems_reading/poems_info.dart';
+import 'package:brain_train_app/linguistic/reading_comprehension.dart';
 import 'package:brain_train_app/linguistic/spelling_mistakes.dart';
 import 'package:brain_train_app/linguistic/grammar_mcq_test.dart';
 import 'package:brain_train_app/linguistic/choose_best_word.dart';
@@ -40,7 +40,7 @@ var memoryRestList = [
   const Reading(),
   const Scrabble(iteration: 1, allPoints: 0),
   const Hangman(),
-  const SudokuInfo(),
+  const SudokuGame(),
   const Wordly(),
   const Game2048(),
   const Meditation(),
@@ -60,7 +60,7 @@ var memoryAllList = [
   'Reading',
   'Scrabble',
   'Hangman',
-  'SudokuInfo',
+  'SudokuGame',
   'Wordly',
   'Game2048',
   'Meditation',
@@ -83,7 +83,7 @@ var attentionRestList = [
   const Reading(),
   const Scrabble(iteration: 1, allPoints: 0),
   const Hangman(),
-  const SudokuInfo(),
+  const SudokuGame(),
   const Wordly(),
   const Game2048(),
   const InvestingMenu(),
@@ -103,7 +103,7 @@ var attentionAllList = [
   'Reading',
   'Scrabble',
   'Hangman',
-  'SudokuInfo',
+  'SudokuGame',
   'Wordly',
   'Game2048',
   'InvestingMenu',
@@ -115,8 +115,8 @@ var attentionAllList = [
 
 var linguisticBaseList = [
   [Memory, "Memory", 10],
-  [Info, "Info", 5],
-  [ReadingComprehensionInfo, "ReadingComprehensionInfo", 10],
+  [PoemsInfo, "PoemsInfo", 5],
+  [ReadingComprehension, "ReadingComprehension", 10],
   [ListeningComprehensionVideo, "ListeningComprehensionVideo", 10],
   [const SpellingMistakes(exerciseId: 0), "SpellingMistakes", 5],
   [const CorrectAWord(), "CorrectAWord", 5],
@@ -131,7 +131,7 @@ var linguisticBaseList = [
 
 var linguisticRestList = [
   const Reading(),
-  const SudokuInfo(),
+  const SudokuGame(),
   const Game2048(),
   const InvestingMenu(),
   const Meditation(),
@@ -143,8 +143,8 @@ var linguisticRestList = [
 
 var linguisticAllList = [
   'Memory',
-  'Info',
-  'ReadingComprehensionInfo',
+  'PoemsInfo',
+  'ReadingComprehension',
   'ListeningComprehensionVideo',
   'SpellingMistakes',
   'CorrectAWord',
@@ -156,7 +156,7 @@ var linguisticAllList = [
   'Hangman',
   'Wordly',
   'Reading',
-  'SudokuInfo',
+  'SudokuGame',
   'Game2048',
   'InvestingMenu',
   'Meditation',
@@ -171,7 +171,7 @@ var logicalBaseList = [
   [const StrongConcentrationDesc(), "StrongConcentrationDesc", 5],
   [const Riddles(), "Riddles", 10],
   [const Game2048(), "Game2048", 5],
-  [const SudokuInfo(), "SudokuInfo", 10],
+  [const SudokuGame(), "SudokuGame", 10],
   [const InvestingMenu(), "InvestingMenu", 15],
 ];
 var logicalRestList = [
@@ -190,7 +190,7 @@ var logicalAllList = [
   'StrongConcentrationDesc',
   'Riddles',
   'Game2048',
-  'SudokuInfo',
+  'SudokuGame',
   'Scrabble',
   'Hangman',
   'Wordly',
@@ -209,13 +209,13 @@ var gamesBaseList = [
   [const Hangman(), "Hangman", 5],
   [const Wordly(), "Wordly", 5],
   [const Game2048(), "Game2048", 5],
-  [const SudokuInfo(), "SudokuInfo", 5],
+  [const SudokuGame(), "SudokuGame", 5],
   [const FindTheNumber(), "FindTheNumber", 5],
   [const MemoryGame1(), "MemoryGame1", 5],
 ];
 var gamesRestList = [
   const Reading(),
-  const Info(),
+  const PoemsInfo(),
   const Meditation(),
   const Meme(),
   const Sport(),
@@ -227,11 +227,11 @@ var gamesAllList = [
   'Hangman',
   'Wordly',
   'Game2048',
-  'SudokuInfo',
+  'SudokuGame',
   'FindTheNumber',
   'MemoryGame1',
   'Reading',
-  'Info',
+  'PoemsInfo',
   'Meditation',
   'Meme',
   'Sport',
@@ -271,8 +271,8 @@ var sectionTimes = {
   'StrongConcentrationDesc': 5,
   'ShortTermConcentration': 5,
   'FindTheNumber': 5,
-  'Info': 5,
-  'ReadingComprehensionInfo': 10,
+  'PoemsInfo': 5,
+  'ReadingComprehension': 10,
   'ListeningComprehensionVideo': 10,
   'SpellingMistakes': 5,
   'CorrectAWord': 5,
@@ -284,7 +284,7 @@ var sectionTimes = {
   'Wordly': 5,
   'Riddles': 10,
   'Game2048': 5,
-  'SudokuInfo': 10,
+  'SudokuGame': 10,
   'InvestingMenu': 15,
 };
 
@@ -295,8 +295,8 @@ var sectionNames = {
   'StrongConcentrationDesc': 'Strong Concentration',
   'ShortTermConcentration': 'Short Term Concentration',
   'FindTheNumber': 'Find The Number',
-  'Info': 'Poem reading',
-  'ReadingComprehensionInfo': 'Reading Comprehension',
+  'PoemsInfo': 'Poem reading',
+  'ReadingComprehension': 'Reading Comprehension',
   'ListeningComprehensionVideo': 'Listening Comprehension',
   'SpellingMistakes': 'Spelling Mistakes',
   'CorrectAWord': 'Correct a Word',
@@ -308,7 +308,7 @@ var sectionNames = {
   'Wordly': 'Wordly',
   'Riddles': 'Riddles',
   'Game2048': '2048',
-  'SudokuInfo': 'Sudoku',
+  'SudokuGame': 'Sudoku',
   'WorkingMemory': 'Working memory',
   'MemoryGame1': 'Memory Game',
   'InvestingMenu': 'Short Learning Course',

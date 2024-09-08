@@ -14,6 +14,7 @@ class FindTheNumber extends StatefulWidget {
 
 class _FindTheNumber extends State<FindTheNumber> {
   double score = 0;
+  late Timer _timer;
   int _time = 20;
   int excludedNumber = Random().nextInt(10);
 
@@ -107,8 +108,14 @@ class _FindTheNumber extends State<FindTheNumber> {
     });
   }
 
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
   void startTimer() {
-    Timer.periodic(
+    _timer = Timer.periodic(
       const Duration(seconds: 1),
       (timer) {
         setState(

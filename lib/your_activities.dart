@@ -1,6 +1,6 @@
 import 'package:brain_train_app/attention/find_the_number.dart';
 import 'package:brain_train_app/linguistic/choose_best_word.dart';
-import 'package:brain_train_app/linguistic/reading_comprehension_info.dart';
+import 'package:brain_train_app/linguistic/reading_comprehension.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'navbar.dart';
@@ -16,7 +16,7 @@ import 'attention/long_term_concentration_video.dart';
 import 'attention/short_term_concentration.dart';
 import 'attention/strong_concentration_desc.dart';
 import 'attention/reading/reading.dart';
-import 'logical_thinking/sudoku_info.dart';
+import 'logical_thinking/sudoku.dart';
 import 'linguistic/wordly.dart';
 import 'linguistic/hangman.dart';
 import 'logical_thinking/riddles.dart';
@@ -29,7 +29,7 @@ import 'well_being/memes.dart';
 import 'linguistic/grammar_mcq_test.dart';
 import 'linguistic/correct_a_word.dart';
 import 'investing/menu.dart';
-import 'linguistic/poems_reading/info.dart';
+import 'linguistic/poems_reading/poems_info.dart';
 import 'linguistic/idioms.dart';
 import 'package:brain_train_app/activities_for_each_section.dart';
 import 'package:page_transition/page_transition.dart';
@@ -387,16 +387,16 @@ class _YourActivities extends State<YourActivities> {
                           "reading",
                           "READING",
                           "Comprehension",
-                          const ReadingComprehensionInfo(),
-                          "ReadingComprehensionInfo",
+                          const ReadingComprehension(),
+                          "ReadingComprehension",
                         ),
                         createActivity2(
                           context,
                           "poems",
                           "POEMS",
                           "Reading",
-                          const Info(),
-                          "Info",
+                          const PoemsInfo(),
+                          "PoemsInfo",
                         ),
                         createActivity2(
                           context,
@@ -408,14 +408,6 @@ class _YourActivities extends State<YourActivities> {
                           ),
                           "SpellingMistakes",
                         ),
-                        /*
-                        createActivity2(
-                          context,
-                          "math",
-                          "MATH",
-                          "Exercises",
-                          const ProblemSelection(),
-                        ),*/
                         createActivity2(
                           context,
                           "riddles",
@@ -430,8 +422,8 @@ class _YourActivities extends State<YourActivities> {
                           "sudoku",
                           "SUDOKU",
                           "",
-                          const SudokuInfo(),
-                          "SudokuInfo",
+                          const SudokuGame(),
+                          "SudokuGame",
                           zero: 0,
                         ),
                         createActivity2(

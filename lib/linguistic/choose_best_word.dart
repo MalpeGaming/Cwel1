@@ -65,8 +65,6 @@ class _ChooseBestWord extends State<ChooseBestWord> {
               _remainingTime--;
             } else {
               Navigator.pop(context);
-              _timer.cancel();
-
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -114,6 +112,12 @@ class _ChooseBestWord extends State<ChooseBestWord> {
   void initState() {
     super.initState();
     readData();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 
   @override

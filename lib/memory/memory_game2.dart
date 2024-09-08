@@ -24,6 +24,13 @@ class _MemoryGame2 extends State<MemoryGame2> {
 
   int _time = 0;
   int flipped = 0;
+  late Timer _timer;
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
 
   @override
   void initState() {
@@ -40,7 +47,7 @@ class _MemoryGame2 extends State<MemoryGame2> {
   }
 
   void startTimer() {
-    Timer.periodic(
+    _timer = Timer.periodic(
       const Duration(seconds: 1),
       (timer) {
         setState(
