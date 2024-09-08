@@ -33,6 +33,8 @@ import 'linguistic/poems_reading/poems_info.dart';
 import 'linguistic/idioms.dart';
 import 'package:brain_train_app/activities_for_each_section.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:icon_decoration/icon_decoration.dart';
+import 'dart:math' as math;
 
 class YourActivities extends StatefulWidget {
   const YourActivities({super.key});
@@ -53,6 +55,10 @@ GestureDetector createActivity(
   bool blocked = false,
   double textWidth = 0.45,
   title = false,
+  bool star = false,
+  String exerciseName = "",
+  String skill = "",
+  List<String> plan = const [],
 }) {
   Size size = MediaQuery.of(context).size;
   return GestureDetector(
@@ -69,100 +75,128 @@ GestureDetector createActivity(
         );
       }
     },
-    child: Column(
+    child: Stack(
       children: [
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(20)),
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: <Color>[
-                color1,
-                color2,
-              ],
-              tileMode: TileMode.decal,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Theme.of(context).colorScheme.shadow.withOpacity(1),
-                spreadRadius: 5,
-                blurRadius: 7,
-                offset: const Offset(5, 5),
-              ),
-            ],
-          ),
-          height: 0.115 * size.height,
-          child: Row(
-            children: [
-              SizedBox(
-                height: 0.115 * size.height, // Określenie wysokości
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20), // Zaokrąglenie rogów
-                  child: FadeInImage(
-                    placeholder: const AssetImage(
-                      'assets/placeholder.png',
-                    ), // Placeholder
-                    image: AssetImage('assets/$img.png'), // Obraz docelowy
-                    fit: BoxFit.cover, // Dopasowanie obrazu
-                    fadeInDuration: const Duration(milliseconds: 200),
-                  ),
-                ),
-              ),
-              SizedBox(width: 0.045 * size.width),
-              SizedBox(
-                width: size.width * textWidth,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      text1,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: fontSize,
-                        fontWeight: FontWeight.bold,
-                        height: 1.2,
-                        fontStyle:
-                            (title) ? FontStyle.italic : FontStyle.normal,
-                        shadows: [
-                          Shadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            offset: const Offset(5, 5),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Text(
-                      text2,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: zero * fontSize,
-                        fontWeight: FontWeight.bold,
-                        height: 1.2,
-                        shadows: [
-                          Shadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            offset: const Offset(5, 5),
-                          ),
-                        ],
-                      ),
-                    ),
+        Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[
+                    color1,
+                    color2,
                   ],
+                  tileMode: TileMode.decal,
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Theme.of(context).colorScheme.shadow.withOpacity(1),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(5, 5),
+                  ),
+                ],
               ),
-            ],
-          ),
+              height: 0.115 * size.height,
+              child: Row(
+                children: [
+                  SizedBox(
+                    height: 0.115 * size.height,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: FadeInImage(
+                        placeholder: (Theme.of(context).brightness ==
+                                Brightness.light)
+                            ? const AssetImage('assets/placeholder.png')
+                            : const AssetImage('assets/placeholder_dark.png'),
+                        image: AssetImage('assets/$img.png'),
+                        fit: BoxFit.cover,
+                        fadeInDuration: const Duration(milliseconds: 200),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 0.045 * size.width),
+                  SizedBox(
+                    width: size.width * textWidth,
+                    child: Stack(
+                      children: [
+                        if (star && plan.contains(exerciseName))
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: Transform.rotate(
+                              angle: math.pi / 0.07,
+                              child: DecoratedIcon(
+                                icon: Icon(
+                                  Icons.star,
+                                  color: const Color.fromARGB(255, 255, 208, 0),
+                                  size: 0.05 * size.height,
+                                ),
+                                decoration:
+                                    const IconDecoration(border: IconBorder()),
+                              ),
+                            ),
+                          ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              text1,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: fontSize,
+                                fontWeight: FontWeight.bold,
+                                height: 1.2,
+                                fontStyle: (title)
+                                    ? FontStyle.italic
+                                    : FontStyle.normal,
+                                shadows: [
+                                  Shadow(
+                                    color: Colors.black.withOpacity(0.1),
+                                    blurRadius: 10,
+                                    offset: const Offset(5, 5),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Text(
+                              text2,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: zero * fontSize,
+                                fontWeight: FontWeight.bold,
+                                height: 1.2,
+                                shadows: [
+                                  Shadow(
+                                    color: Colors.black.withOpacity(0.1),
+                                    blurRadius: 10,
+                                    offset: const Offset(5, 5),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 0.025 * size.height),
+          ],
         ),
-        SizedBox(height: 0.025 * size.height),
       ],
     ),
   );
 }
 
 class _YourActivities extends State<YourActivities> {
+  List<String> plan = [];
+
   Widget createActivity2(
     BuildContext context,
     String img,
@@ -191,10 +225,26 @@ class _YourActivities extends State<YourActivities> {
         blocked: false,
         textWidth: 0.45,
         title: false,
+        star: true,
+        exerciseName: activityName,
+        skill: skill,
+        plan: plan,
       );
     }
 
     return const SizedBox();
+  }
+
+  Future<void> getPlan() async {
+    prefs = await SharedPreferences.getInstance();
+    List<String> newPlan = prefs.getStringList("basePlanDay$day") ?? [];
+    print("poczatek newPlan: $newPlan");
+    if (newPlan.isNotEmpty) {
+      setState(() {
+        plan = newPlan;
+      });
+      return;
+    }
   }
 
   int day = 1;
@@ -229,6 +279,7 @@ class _YourActivities extends State<YourActivities> {
     super.initState();
     getSkill();
     calcDay();
+    getPlan();
   }
 
   @override
@@ -267,7 +318,7 @@ class _YourActivities extends State<YourActivities> {
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: 0.02 * size.height),
+            SizedBox(height: 0.01 * size.height),
             Expanded(
               child: ListView(
                 children: [
@@ -278,6 +329,34 @@ class _YourActivities extends State<YourActivities> {
                     ),
                     child: Column(
                       children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Transform.rotate(
+                              angle: math.pi / 0.07,
+                              child: DecoratedIcon(
+                                icon: Icon(
+                                  Icons.star,
+                                  color: const Color.fromARGB(255, 255, 208, 0),
+                                  size: 0.03 * size.height,
+                                ),
+                                decoration:
+                                    const IconDecoration(border: IconBorder()),
+                              ),
+                            ),
+                            SizedBox(width: 0.02 * size.width),
+                            Text(
+                              "Do Today",
+                              style: TextStyle(
+                                fontSize: 0.02 * size.height,
+                                color:
+                                    Theme.of(context).colorScheme.onSecondary,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 0.02 * size.height),
                         createActivity2(
                           context,
                           "learning_words",
