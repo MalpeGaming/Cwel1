@@ -5,6 +5,7 @@ import '../../score_n_progress/show_score.dart';
 import '../working_memory.dart';
 import '../../score_n_progress/progress_screen.dart';
 import '../../score_n_progress/show_improvement.dart';
+import 'dart:async';
 import '../../app_bar.dart';
 
 class MemoryQuiz extends StatefulWidget {
@@ -15,7 +16,7 @@ class MemoryQuiz extends StatefulWidget {
 
   const MemoryQuiz(
     this.picked,
-    this.score,{
+    this.score, {
     super.key,
     this.initialTest = false,
     this.endingTest = false,
@@ -33,6 +34,8 @@ class _MemoryQuizState extends State<MemoryQuiz> {
   int questionIndex = 0;
   String word = "";
   String definition = "";
+  late Timer _timer;
+  int _time = 60;
 
   bool check(int selected) {
     return (defs[selected] == definition);
@@ -141,7 +144,8 @@ class _MemoryQuizState extends State<MemoryQuiz> {
               groupValue: selectedOption,
               activeColor: Theme.of(context).colorScheme.primary,
               fillColor: MaterialStateProperty.all(
-                  Theme.of(context).colorScheme.primary,),
+                Theme.of(context).colorScheme.primary,
+              ),
               splashRadius: 25,
               onChanged: (value) {
                 setState(() {
@@ -157,6 +161,54 @@ class _MemoryQuizState extends State<MemoryQuiz> {
     );
   }
 
+  void startTimer() {
+    _timer = Timer.periodic(
+      const Duration(seconds: 1),
+      (timer) {
+        setState(
+          () {
+            _time--;
+            if (_time <= 0) {
+              if (selectedOption != null && check(selectedOption!)) {
+                ++score;
+              }
+              Navigator.pop(context);
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => (widget.initialTest)
+                      ? ShowScore(
+                          title: "MEMORY",
+                          description: "Exercise 1 - Learning",
+                          exercise: 1,
+                          yourScore: score.toDouble(),
+                          maximum: 14,
+                          page: const WorkingMemory(initialTest: true),
+                        )
+                      : (widget.endingTest
+                          ? ShowImprovement(
+                              title: "MEMORY",
+                              description: "Exercise 1 - Learning",
+                              exercise: 1,
+                              yourScore: score.toDouble(),
+                              maximum: 14,
+                              page: const WorkingMemory(endingTest: true),
+                            )
+                          : ProgressScreen(
+                              name: "learning_words",
+                              score: score.toDouble(),
+                              exercise: 'Memory',
+                            )),
+                ),
+              );
+            }
+          },
+        );
+      },
+    );
+  }
+
   @override
   void initState() {
     picked = widget.picked;
@@ -164,6 +216,13 @@ class _MemoryQuizState extends State<MemoryQuiz> {
 
     super.initState();
     loadQuestion();
+    startTimer();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 
   @override
@@ -205,14 +264,34 @@ class _MemoryQuizState extends State<MemoryQuiz> {
                           textAlign: TextAlign.start,
                         ),
                         SizedBox(height: 0.02 * size.height),
-                        Text(
-                          "Choose the definition.",
-                          style: TextStyle(fontSize: 0.02 * size.height),
-                        ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 0.07 * size.height),
+                  SizedBox(height: 0.02 * size.height),
+                  Row(
+                    children: [
+                      Text(
+                        "Choose the definition.",
+                        style: TextStyle(fontSize: 0.02 * size.height),
+                      ),
+                      const Spacer(),
+                      Icon(
+                        Icons.timer,
+                        size: 0.08 * size.width,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                      const SizedBox(width: 10.0),
+                      Text(
+                        "${_time.toString()}s",
+                        style: TextStyle(fontSize: size.width / 20),
+                        textAlign: TextAlign.start,
+                      ),
+                      SizedBox(
+                        height: size.height / 25,
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 0.02 * size.height),
                   Container(
                     height: 0.04 * size.height,
                     width: 0.8 * size.width,
@@ -265,6 +344,7 @@ class _MemoryQuizState extends State<MemoryQuiz> {
                   onClick: handleContinue,
                   text: 'Continue',
                   width: size.width,
+                  requirement: selectedOption != null,
                 ),
               ),
             ],
