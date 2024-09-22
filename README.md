@@ -10,5 +10,5 @@ Improve your brain in 30 days!
 
 ## Design
 
-https://www.canva.com/design/DAFx0rKpE0I/tgoDqNOUAFxFh7kQRZl_Gg/edit
+https://www.canva.com/design/DAGRdcjwAGQ/qo1N8ozrEoEZN7P_pxaAgw/edit
 
