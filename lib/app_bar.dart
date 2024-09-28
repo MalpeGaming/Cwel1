@@ -9,8 +9,8 @@ AppBar appBar(
 }) {
   Size size = MediaQuery.of(context).size;
   return AppBar(
-    surfaceTintColor: Theme.of(context).colorScheme.background,
-    backgroundColor: Theme.of(context).colorScheme.background.withOpacity(0),
+    surfaceTintColor: Theme.of(context).colorScheme.surface,
+    backgroundColor: Theme.of(context).colorScheme.surface.withOpacity(0),
     leading: canReturn
         ? IconButton(
             color: (!meditation)
@@ -35,7 +35,7 @@ AppBar appBar(
                   MyApp.of(context).switchTheme();
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Theme.of(context).colorScheme.background,
+                  backgroundColor: Theme.of(context).colorScheme.surface,
                   foregroundColor: Colors.yellow,
                 ),
                 child: const Icon(

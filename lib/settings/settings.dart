@@ -112,7 +112,7 @@ class _Settings extends State<Settings> {
                 width: 4.0,
               ),
               color: (Theme.of(context).brightness == Brightness.dark)
-                  ? Theme.of(context).colorScheme.background
+                  ? Theme.of(context).colorScheme.surface
                   : Theme.of(context).colorScheme.secondary,
               borderRadius: BorderRadius.circular(2137.0),
             ),

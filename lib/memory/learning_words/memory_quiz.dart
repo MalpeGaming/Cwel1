@@ -143,7 +143,7 @@ class _MemoryQuizState extends State<MemoryQuiz> {
               value: indx,
               groupValue: selectedOption,
               activeColor: Theme.of(context).colorScheme.primary,
-              fillColor: MaterialStateProperty.all(
+              fillColor: WidgetStateProperty.all(
                 Theme.of(context).colorScheme.primary,
               ),
               splashRadius: 25,
