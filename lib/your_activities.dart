@@ -303,6 +303,7 @@ class _YourActivities extends State<YourActivities> {
           children: <Widget>[
             Center(
               child: Text(
+                SizedBox(height: 0.005 * size.height), 
                 "YOUR ACTIVITIES",
                 style: TextStyle(
                   fontSize: size.width / 12,
@@ -318,7 +319,7 @@ class _YourActivities extends State<YourActivities> {
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: 0.01 * size.height),
+            SizedBox(height: 0.005 * size.height),
             Expanded(
               child: ListView(
                 children: [
