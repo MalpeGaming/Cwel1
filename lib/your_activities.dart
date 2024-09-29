@@ -301,9 +301,9 @@ class _YourActivities extends State<YourActivities> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            SizedBox(height: 0.005 * size.height),
             Center(
               child: Text(
-                SizedBox(height: 0.005 * size.height), 
                 "YOUR ACTIVITIES",
                 style: TextStyle(
                   fontSize: size.width / 12,
@@ -322,6 +322,9 @@ class _YourActivities extends State<YourActivities> {
             SizedBox(height: 0.005 * size.height),
             Expanded(
               child: ListView(
+                padding: EdgeInsets.only(
+                  top: 0.02 * size.height, // space between "Do Today" and activities list
+                ),
                 children: [
                   Container(
                     margin: EdgeInsets.only(
