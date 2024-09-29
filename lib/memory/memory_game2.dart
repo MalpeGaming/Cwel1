@@ -119,8 +119,8 @@ class _MemoryGame2 extends State<MemoryGame2> {
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: <Color>[
-                          Theme.of(context).colorScheme.background,
-                          Theme.of(context).colorScheme.background,
+                          Theme.of(context).colorScheme.surface,
+                          Theme.of(context).colorScheme.surface,
                         ],
                         tileMode: TileMode.decal,
                       )

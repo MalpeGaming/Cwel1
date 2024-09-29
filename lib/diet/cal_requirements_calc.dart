@@ -49,23 +49,23 @@ class _CalRequirementsCalc extends State<CalRequirementsCalc> {
           });
         },
         style: ButtonStyle(
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),
           ),
-          backgroundColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-              return states.contains(MaterialState.pressed)
+          backgroundColor: WidgetStateProperty.resolveWith<Color>(
+            (Set<WidgetState> states) {
+              return states.contains(WidgetState.pressed)
                   ? Theme.of(context).colorScheme.secondary
                   : oneOption ||
                           (!isGender && onclick == pressedNum) ||
                           (isGender && !isMan == pressedNum)
                       ? Theme.of(context).colorScheme.primary.withOpacity(0.5)
-                      : Theme.of(context).colorScheme.background;
+                      : Theme.of(context).colorScheme.surface;
             },
           ),
-          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+          padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
             const EdgeInsets.all(8.0),
           ),
         ),

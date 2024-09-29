@@ -81,7 +81,7 @@ class _FindTheNumber extends State<FindTheNumber> {
         width: MediaQuery.of(context).size.width / 10,
         height: MediaQuery.of(context).size.height / 22,
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.background,
+          color: Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Center(

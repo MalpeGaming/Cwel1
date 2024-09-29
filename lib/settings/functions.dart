@@ -54,7 +54,7 @@ Future<void> popUp(
               ElevatedButton(
                 onPressed: () => Navigator.pop(context),
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
+                  backgroundColor: WidgetStateProperty.all(
                     Theme.of(context).colorScheme.primary,
                   ),
                 ),
@@ -77,7 +77,7 @@ Future<void> popUp(
                   fn(context);
                 },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
+                  backgroundColor: WidgetStateProperty.all(
                     Theme.of(context).colorScheme.primary,
                   ),
                 ),
@@ -157,7 +157,7 @@ Future<void> restartAppButton(BuildContext context) async {
               ElevatedButton(
                 onPressed: () => Navigator.pop(context),
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
+                  backgroundColor: WidgetStateProperty.all(
                     Theme.of(context).colorScheme.primary,
                   ),
                 ),
@@ -189,7 +189,7 @@ Future<void> restartAppButton(BuildContext context) async {
                   });
                 },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
+                  backgroundColor: WidgetStateProperty.all(
                     Theme.of(context).colorScheme.primary,
                   ),
                 ),
