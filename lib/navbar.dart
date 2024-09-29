@@ -59,7 +59,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         ),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Theme.of(context).colorScheme.background,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           selectedFontSize: 13,
           unselectedFontSize: 12,
           unselectedItemColor: Theme.of(context).colorScheme.primary,

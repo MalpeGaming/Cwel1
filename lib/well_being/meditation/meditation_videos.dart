@@ -38,7 +38,7 @@ class _VideoListItemState extends State<VideoListItem> {
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              color: Theme.of(context).colorScheme.background,
+              color: Theme.of(context).colorScheme.surface,
               //color: Colors.black.withOpacity(0.35),
               spreadRadius: 2,
               blurRadius: 5,

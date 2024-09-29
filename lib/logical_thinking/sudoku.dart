@@ -155,7 +155,7 @@ class _SudokuGame extends State<SudokuGame> {
                     const Color.fromARGB(255, 225, 220, 233),
                   ]
                 : <Color>[
-                    Theme.of(context).colorScheme.background,
+                    Theme.of(context).colorScheme.surface,
                     const Color.fromARGB(255, 31, 0, 56),
                   ],
             tileMode: TileMode.decal,
@@ -276,7 +276,7 @@ class _SudokuGame extends State<SudokuGame> {
               SizedBox(height: 0.01 * size.height),
               Container(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.background,
+                  color: Theme.of(context).colorScheme.surface,
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
@@ -342,7 +342,7 @@ class _SudokuGame extends State<SudokuGame> {
                                               129,
                                             )
                                           : const Color.fromARGB(255, 38, 0, 70)
-                                  : Theme.of(context).colorScheme.background,
+                                  : Theme.of(context).colorScheme.surface,
                               borderRadius:
                                   _getBorderRadius(rowIndex, colIndex),
                               border: Border(
