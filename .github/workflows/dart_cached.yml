@@ -32,13 +32,6 @@ jobs:
           
       - name: Install dependencies
         run: flutter pub get
-
-      # ??
-      - name: Cache android sdk
-        uses: actions/cache@v1
-        with:
-          path: /usr/local/lib/android/sdk
-          key: ${{ runner.OS }}-android-sdk-cache-${{ env.flutter_version }}
         
       - name: Debug Build
         run: flutter build apk --debug
