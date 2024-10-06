@@ -94,6 +94,7 @@ class _SpellingMistakes extends State<SpellingMistakes> {
 
   List<int> shuffledNumbers = [];
   List<int> correctAnswers = [];
+
   Future<void> saveCorrectAnswer(List<String> answers, int questionId) async {
     for (var i = 0; i < answers.length; ++i) {
       if (await lookupWord(answers[i])) {
@@ -117,6 +118,7 @@ class _SpellingMistakes extends State<SpellingMistakes> {
         for (var answer in tasks[i]["answers"]) {
           newAnswers[newAnswers.length - 1].add(answer.toString());
         }
+        newAnswers[newAnswers.length - 1].shuffle(); // random answer order
         correctAnswers.add(-1);
         saveCorrectAnswer(newAnswers[newAnswers.length - 1], i);
       }
