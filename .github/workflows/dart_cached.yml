@@ -19,17 +19,17 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: ${{ env.java_version }}
+
+      - uses: subosito/flutter-action@v2.14.0
+        with:
+          flutter-version: ${{ env.flutter_version }}
           
       - name: Cache Flutter dependencies
         uses: actions/cache@v1
         with:
           path: /opt/hostedtoolcache/flutter
           key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
-          
-      - uses: subosito/flutter-action@v2.14.0
-        with:
-          flutter-version: ${{ env.flutter_version }}
-          
+
       - name: Install dependencies
         run: flutter pub get
         

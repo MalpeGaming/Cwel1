@@ -103,8 +103,7 @@ class _Grammar extends State<Grammar> {
           newAnswers[newAnswers.length - 1].add(answer.toString());
         }
       }
-      shuffledNumbers =
-          List.generate(newAnswers.length - 1, (index) => index + 1);
+      shuffledNumbers = List.generate(newAnswers.length - 1, (index) => index);  // why index + 1 ?
       shuffledNumbers.shuffle();
 
       setState(() {
@@ -141,7 +140,7 @@ class _Grammar extends State<Grammar> {
             : createDot(
                 context,
                 selectedOption,
-                correctAnswers[questionIndex],
+                correctAnswers[shuffledNumbers[questionIndex]],
                 val,
               ),
       );
@@ -212,8 +211,7 @@ class _Grammar extends State<Grammar> {
                                     margin: const EdgeInsets.all(15),
                                     child: Center(
                                       child: Text(
-                                        questions[
-                                            shuffledNumbers[questionIndex]],
+                                        questions[shuffledNumbers[questionIndex]],
                                         style: TextStyle(
                                           fontSize: size.width / 22,
                                           color: Colors.white,
@@ -227,12 +225,7 @@ class _Grammar extends State<Grammar> {
                               SizedBox(
                                 height: size.height / 25,
                               ),
-                              for (int i = 0;
-                                  i <
-                                      answers[shuffledNumbers[questionIndex]]
-                                          .length;
-                                  i++)
-                                createListTitle(
+                              for (int i = 0; i < answers[shuffledNumbers[questionIndex]].length; i++) createListTitle(
                                   i,
                                   answers[shuffledNumbers[questionIndex]][i],
                                 ),
@@ -336,6 +329,9 @@ class _Grammar extends State<Grammar> {
                                   onClick: () {
                                     if (selectedOption == -1) return;
 
+                                    // print("Selected option: $selectedOption");
+                                    // print("Correct option: ${correctAnswers[shuffledNumbers[questionIndex]]}");
+
                                     if (selectedOption ==
                                         correctAnswers[
                                             shuffledNumbers[questionIndex]]) {
@@ -349,8 +345,8 @@ class _Grammar extends State<Grammar> {
                                       setState(() {
                                         questionIndex += 1;
                                         selectedOption = -1;
-                                        print(questionIndex);
-                                        print(answers.join("\n"));
+                                        // print(questionIndex);
+                                        // print(answers.join("\n"));
                                       });
                                       return;
                                     }
