@@ -239,7 +239,7 @@ class _WorkingMemory extends State<WorkingMemory> {
                           description: "Exercise 2 -  Working memory",
                           exercise: 2,
                           yourScore: score,
-                          maximum: 10,
+                          maximum: 3,
                           page: const Home(),
                           clearAllWindows: true,
                         )
@@ -249,7 +249,7 @@ class _WorkingMemory extends State<WorkingMemory> {
                               description: "Exercise 2 -  Working memory",
                               exercise: 2,
                               yourScore: score,
-                              maximum: 10,
+                              maximum: 3,
                               page: const TitlePage(
                                 title: 'The Brain Train App',
                               ),
