@@ -29,9 +29,9 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
               return const YourActivities();
             } else if (index == 1) {
               return const Progress();
-            } else if (index == 3) {
-              return const NutritionTips();
-            } else if (index == 4) {
+            //} else if (index == 3) {
+            //  return const NutritionTips();
+            } else if (index == 3) { // temp navbar fix
               return const Settings();
             } else {
               return const Home();
@@ -68,8 +68,8 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
             buildMenuIcon(0, "Activities"),
             buildMenuIcon(1, "Progress"),
             buildMenuIcon(2, "Home"),
-            buildMenuIcon(3, "Diet"),
-            buildMenuIcon(4, "Settings"),
+            //buildMenuIcon(3, "Diet"),
+            buildMenuIcon(3, "Settings"), // temp navbar fix
           ],
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
