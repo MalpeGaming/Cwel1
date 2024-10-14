@@ -8,7 +8,7 @@ import 'package:home_widget/home_widget.dart';
 import 'package:path_provider/path_provider.dart';
 
 
-class TodoHomeWidgetConfig {
+class PortHomeTasksWidgetConfig {
   static Future<void> update(context, Widget widget) async {
     Uint8List bytes = await DavinciCapture.offStage(widget,
       context: context,
@@ -21,7 +21,7 @@ class TodoHomeWidgetConfig {
     await tempFile.writeAsBytes(bytes);
 
     await HomeWidget.saveWidgetData('filename', tempFile.path);
-    await HomeWidget.updateWidget(iOSName: 'home_widget_demo', androidName: 'CustomHomeView');
+    await HomeWidget.updateWidget(iOSName: 'home_widget_demo', androidName: 'PortHomeTasksWidget');
   }
 
   static Future<void> initialize() async {
