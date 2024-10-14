@@ -1,5 +1,6 @@
 package com.pro.brainace
 
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
@@ -31,10 +32,13 @@ class ListRemoteViewsFactory(private val context: Context) : RemoteViewsService.
         views.setTextViewText(R.id.plan_task_list_item, items[position])
         views.setTextViewText(R.id.plan_task_item_check, checks[position])
 
+
+        val intent = Intent(context, MainActivity::class.java)
+        intent.putExtra("item_position", position)
         // Optionally set an intent to handle item clicks
-        val fillInIntent = Intent()
-        views.setOnClickFillInIntent(R.id.plan_task_list_item, fillInIntent)
-        views.setOnClickFillInIntent(R.id.plan_task_item_check, fillInIntent)
+        val fillInIntent = PendingIntent.getActivity(context, position, intent, PendingIntent.FLAG_IMMUTABLE)
+        views.setOnClickPendingIntent(R.id.plan_task_list_item, fillInIntent)
+        views.setOnClickPendingIntent(R.id.plan_task_item_check, fillInIntent)
 
         return views
     }

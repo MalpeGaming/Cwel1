@@ -1,5 +1,6 @@
 package com.pro.brainace
 
+import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
@@ -58,6 +59,10 @@ class TodoHomeScreenWidget : AppWidgetProvider() {
             val intent = Intent(context, ListWidgetService::class.java)
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
             views.setRemoteAdapter(R.id.plan_tasks_list, intent)
+
+            views.setOnClickPendingIntent(R.id.todo_home_screen_widget,
+                PendingIntent.getActivity(context, 0, Intent(context, MainActivity::class.java),
+                    PendingIntent.FLAG_IMMUTABLE)) // czy nie powinno być FLAG.MUTABLE?
 
             appWidgetManager.updateAppWidget(appWidgetId, views)
             AppWidgetManager.getInstance(context).notifyAppWidgetViewDataChanged(appWidgetId, R.id.plan_tasks_list)
