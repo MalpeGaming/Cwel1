@@ -38,7 +38,7 @@ class PortHomeTasksWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          SizedBox(height: size.height / 10),
+          SizedBox(height: size.height / 8),
           Flexible(
             child: Text(
               "To - Do List",
@@ -46,10 +46,11 @@ class PortHomeTasksWidget extends StatelessWidget {
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
                 fontSize: size.width / 6.5,
+                fontFamily: "OpenSauceTwo",
               ),
             ),
           ),
-          SizedBox(height: size.height / 25),
+          SizedBox(height: size.height / 28),
           for (int i = 0; i < plan.length; i++)
             Padding(padding: EdgeInsets.only(top: 8, bottom: 8, left: size.width / 10),
             child: Row(
@@ -71,8 +72,9 @@ class PortHomeTasksWidget extends StatelessWidget {
                     child: Text(
                       sectionNames[plan[i]]!,
                       style: TextStyle(
-                      fontSize: size.width / 11,
-                      fontWeight: FontWeight.bold,
+                        fontSize: size.width / 12,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "OpenSauceTwo",
                       ),
                     ),
                   ),
