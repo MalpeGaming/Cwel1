@@ -101,12 +101,12 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Horizon
-      fonts:
-        - asset: 'assets/Horizon-updated/Horizon.otf'
-    - family: Arial
-      fonts:
-        - asset: assets/fonts/Arial.ttf
+#    - family: Horizon
+#      fonts:
+#        - asset: 'assets/Horizon-updated/Horizon.otf'
+#    - family: Arial
+#      fonts:
+#        - asset: assets/fonts/Arial.ttf
     - family: OpenSauceOne
       fonts:
         - asset: assets/fonts/OpenSauceOne-Regular.ttf
