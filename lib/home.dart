@@ -1,5 +1,8 @@
 import 'dart:async';
+import 'package:brain_train_app/widgets/port_home_tasks_widget.dart';
+import 'package:brain_train_app/widgets/port_home_tasks_widget_config.dart';
 import 'package:flutter/material.dart';
+import 'package:home_widget/home_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:circular_chart_flutter/circular_chart_flutter.dart';
 import 'package:intl/intl.dart';
@@ -266,6 +269,31 @@ class _Home extends State<Home> {
     );
   }
 
+  void callHomeWidgetUpdate() {
+    List<String> widgetItems = [];
+    for (int i = 0; i < plan.length; i++)
+    {
+      widgetItems.add("${basePlanTicked[i] == "1" ? "◉" : "○"}:${sectionNames[plan[i]]}");
+      print("plan[$i] ${plan[i]} ${sectionNames[plan[i]]} ${basePlanTicked[i]}");
+    }
+
+    HomeWidget.saveWidgetData("plan_title", "To - Do List");
+    HomeWidget.saveWidgetData("plan_tasks", widgetItems.join(','));
+    //HomeWidget.saveWidgetData("plan_tasks", "○:sudoku,◉:traintest");
+    HomeWidget.updateWidget(
+      androidName: "TodoHomeScreenWidget",
+    );
+
+    PortHomeTasksWidgetConfig.update(
+      context,
+      PortHomeTasksWidget(
+        plan: plan,
+          basePlanTicked: basePlanTicked,
+          sectionNames: sectionNames,
+      ),
+    );
+  }
+
   Widget createWellBeing(
     BuildContext context,
   ) {
@@ -287,6 +315,7 @@ class _Home extends State<Home> {
                 });
                 setWellBeingTicked();
                 updatePoints();
+                callHomeWidgetUpdate();
               },
               child: Column(
                 children: [

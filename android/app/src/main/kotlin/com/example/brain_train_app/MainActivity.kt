@@ -1,4 +1,4 @@
-package com.the.brain_train_app
+package com.pro.brainace
 
 import io.flutter.embedding.android.FlutterActivity
 
