@@ -21,10 +21,10 @@ class PortHomeTasksWidgetConfig {
     await tempFile.writeAsBytes(bytes);
 
     await HomeWidget.saveWidgetData('filename', tempFile.path);
-    await HomeWidget.updateWidget(iOSName: 'home_widget_demo', androidName: 'PortHomeTasksWidget');
+    await HomeWidget.updateWidget(iOSName: 'home_tasks_widget', androidName: 'PortHomeTasksWidget');
   }
 
   static Future<void> initialize() async {
-    await HomeWidget.setAppGroupId('group.brain_ace_widget_group');
+    await HomeWidget.setAppGroupId('group.brainace_home_tasks_widget');
   }
 }

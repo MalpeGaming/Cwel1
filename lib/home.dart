@@ -214,6 +214,11 @@ class _Home extends State<Home> {
 
   @override
   initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timestamp) {
+    PortHomeTasksWidgetConfig.initialize().then((value) async {
+        callHomeWidgetUpdate();
+        });
+    });
     super.initState();
     readMemory();
   }
