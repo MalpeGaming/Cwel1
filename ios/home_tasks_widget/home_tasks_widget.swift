@@ -43,7 +43,20 @@ struct home_tasks_widgetEntryView : View {
             let image = Image(uiImage: uiImage)
                 .resizable()
                 .scaledToFill()
-            return AnyView(image)
+            let targetSize = CGSize(width: 350, height: 350)
+            let widthScaleRatio = targetSize.width / uiImage.size.width
+            let heightScaleRatio = targetSize.height / uiImage.size.height
+            let scaleRatio = min(widthScaleRatio, heightScaleRatio)
+            let scaledImageSize = CGSize(
+                width: uiImage.size.width * scaleRatio,
+                height: uiImage.size.height * scaleRatio
+                )
+            let renderer = UIGraphicsImageRenderer(size: scaledImageSize)
+            let scaledImage = renderer.image { _ in
+                uiImage.draw(in: CGRect(origin: .zero, size: scaledImageSize))
+            }
+            let simage = Image(uiImage: scaledImage).aspectRatio(contentMode: .fill)
+            return AnyView(simage)
         }
         print("The image file could not be loaded")
         return AnyView(EmptyView())
