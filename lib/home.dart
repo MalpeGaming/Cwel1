@@ -215,9 +215,11 @@ class _Home extends State<Home> {
 
   @override
   initState() {
+
+    NotificationService.showInstantNotification("testt", "bdedsrwrts t g ert t");
     print("INIT");
     DateTime selectedTime = DateTime.now().add(Duration(seconds: 10)); // For testing purposes
-    NotificationService.scheduleDailyNotification(0, "ASD", "TEstbody", selectedTime);
+    NotificationService.scheduleNotification(0, "ASD", "TEstbody", selectedTime);
 
     WidgetsBinding.instance.addPostFrameCallback((timestamp) {
     PortHomeTasksWidgetConfig.initialize().then((value) async {

@@ -7,18 +7,11 @@ import 'package:flutter/material.dart';
 
 class NotificationService {
   static final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
-  // static final NotificationService _instance = NotificationService._internal();
 
   static Future<void> onDidReceiveBackgroundNotificationResponse(NotificationResponse notificationResponse) async {
     print("Notification receive");
     print(["onDidReceiveNotificationResponse", notificationResponse.actionId]);
   }
-
-  // factory NotificationService() {
-  //   return _instance;
-  // }
-
-  NotificationService._internal();
 
   static Future<void> init() async {
     const AndroidInitializationSettings initializationSettingsAndroid =
@@ -52,7 +45,26 @@ class NotificationService {
     tz.setLocalLocation(tz.getLocation("Europe/Warsaw"));
   }
 
-  static Future<void> scheduleDailyNotification(int id, String title, String body, DateTime selectedTime) async {
+  static Future<void> showInstantNotification(String title, String body) async {
+    const NotificationDetails platformChannelSpecifics = NotificationDetails(
+        android: AndroidNotificationDetails(
+          'instant_notification_channel_id',
+          'Instant Notifications',
+          importance: Importance.max,
+          priority: Priority.high,
+        ),
+        iOS: DarwinNotificationDetails());
+
+    await flutterLocalNotificationsPlugin.show(
+      0,
+      title,
+      body,
+      platformChannelSpecifics,
+      payload: 'instant_notification',
+    );
+  }
+
+  static Future<void> scheduleNotification(int id, String title, String body, DateTime selectedTime) async {
     if (selectedTime.isBefore(DateTime.now())) {
       print("BEFORE");
       selectedTime = selectedTime.add(const Duration(days: 1));
@@ -92,22 +104,4 @@ class NotificationService {
       print('Error scheduling notification: $e');
     }
   }
-
-  // NotificationDetails _notificationDetails() {
-  //   return NotificationDetails(
-  //     android: AndroidNotificationDetails(
-  //       'your_channel_id',
-  //       'your_channel_name',
-  //       //'your_channel_description',
-  //       importance: Importance.max,
-  //       priority: Priority.high,
-  //       showWhen: false,
-  //     ),
-  //     //iOS: IOSNotificationDetails(),
-  //     iOS: DarwinNotificationDetails(
-  //       interruptionLevel: InterruptionLevel.timeSensitive,
-  //       presentSound: true,
-  //     ),
-  //   );
-  // }
 }
