@@ -11,6 +11,7 @@ import 'activities_for_each_section.dart';
 import 'dart:math';
 import 'score_n_progress/finish_screen.dart';
 import '/memory/faces.dart';
+import 'package:brain_train_app/notification.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -214,6 +215,10 @@ class _Home extends State<Home> {
 
   @override
   initState() {
+    print("INIT");
+    DateTime selectedTime = DateTime.now().add(Duration(seconds: 10)); // For testing purposes
+    NotificationService.scheduleDailyNotification(0, "ASD", "TEstbody", selectedTime);
+
     WidgetsBinding.instance.addPostFrameCallback((timestamp) {
     PortHomeTasksWidgetConfig.initialize().then((value) async {
         callHomeWidgetUpdate();

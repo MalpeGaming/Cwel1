@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'title_page.dart';
 import 'package:flutter/services.dart';
+import 'package:brain_train_app/notification.dart';
 
-void main() {
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService.init();
   SystemChrome.setPreferredOrientations(
     [
       DeviceOrientation.portraitUp,
