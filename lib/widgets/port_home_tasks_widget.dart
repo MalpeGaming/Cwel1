@@ -1,8 +1,6 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'dart:math';
 
 class PortHomeTasksWidget extends StatelessWidget {
   //todoList
@@ -18,6 +16,11 @@ class PortHomeTasksWidget extends StatelessWidget {
     required this.sectionNames,
   }) : super(key: key);
 
+  static List<List<Color>> gradients = [
+    [ Color(0xFF5D228E), Color(0xFF734894) ],
+    [ Color(0xFF8A94FB), Color(0xFF5E6BEA) ],
+  ];
+  
   @override
   Widget build(BuildContext context) {
     //Size size = MediaQuery.of(context).size;
@@ -30,9 +33,10 @@ class PortHomeTasksWidget extends StatelessWidget {
       //height: size.height / 8,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.blue, Colors.purple, Colors.red ],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
+          colors: gradients[ Random().nextInt(2) ],
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          transform: GradientRotation(0.25),
           //stops: [0.2, 0.6, 1],
         ),
       ),

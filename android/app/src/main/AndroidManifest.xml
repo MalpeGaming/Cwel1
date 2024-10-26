@@ -12,7 +12,7 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:label="The BrainTrainApp"
+        android:label="BrainAce.pro"
         android:usesCleartextTraffic="true"
         android:enableOnBackInvokedCallback="true"
         >

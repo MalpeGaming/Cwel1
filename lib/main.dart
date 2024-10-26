@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'The Brain Train App',
+      title: 'BrainAce.pro',
       theme: ThemeData(
         brightness: Brightness.light,
         colorScheme: const ColorScheme.light(
@@ -68,7 +68,7 @@ class _MyAppState extends State<MyApp> {
         fontFamily: 'Arial',
       ),
       themeMode: _themeMode,
-      home: const TitlePage(title: 'The Brain Train App'),
+      home: const TitlePage(title: 'BrainAce.pro'),
     );
   }
 

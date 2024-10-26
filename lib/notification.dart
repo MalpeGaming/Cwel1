@@ -8,6 +8,26 @@ import 'package:flutter/material.dart';
 class NotificationService {
   static final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
+  static const AndroidNotificationDetails androidNotificationDetails = AndroidNotificationDetails(
+    'brainace_channel_name',
+    'BrainAce.pro',
+    //channelDescription: 'your_channel_description',
+    //icon: "@drawable/notification",
+    importance: Importance.max,
+    priority: Priority.high,
+    showWhen: false,
+  );
+
+  static const DarwinNotificationDetails iOSNotificationDetails = DarwinNotificationDetails(
+    interruptionLevel: InterruptionLevel.timeSensitive,
+    presentSound: true,
+  );
+
+  static const NotificationDetails notificationDetails = NotificationDetails(
+    android: androidNotificationDetails,
+    iOS: iOSNotificationDetails,
+  );
+
   static Future<void> onDidReceiveBackgroundNotificationResponse(NotificationResponse notificationResponse) async {
     print("Notification receive");
     print(["onDidReceiveNotificationResponse", notificationResponse.actionId]);
@@ -15,7 +35,7 @@ class NotificationService {
 
   static Future<void> init() async {
     const AndroidInitializationSettings initializationSettingsAndroid =
-    AndroidInitializationSettings('@mipmap/ic_launcher');
+    AndroidInitializationSettings('@drawable/notification');
     final DarwinInitializationSettings initializationSettingsIOS = DarwinInitializationSettings(
       requestSoundPermission: false,
       requestBadgePermission: false,
@@ -46,20 +66,11 @@ class NotificationService {
   }
 
   static Future<void> showInstantNotification(String title, String body) async {
-    const NotificationDetails platformChannelSpecifics = NotificationDetails(
-        android: AndroidNotificationDetails(
-          'instant_notification_channel_id',
-          'Instant Notifications',
-          importance: Importance.max,
-          priority: Priority.high,
-        ),
-        iOS: DarwinNotificationDetails());
-
     await flutterLocalNotificationsPlugin.show(
       0,
       title,
       body,
-      platformChannelSpecifics,
+      notificationDetails,
       payload: 'instant_notification',
     );
   }
@@ -79,20 +90,7 @@ class NotificationService {
         title,
         body,
         scheduledTime,
-        const NotificationDetails(
-          iOS: DarwinNotificationDetails(
-            interruptionLevel: InterruptionLevel.timeSensitive,
-            presentSound: true,
-          ),
-          android: AndroidNotificationDetails(
-            'your_channel_id',
-            'your_channel_name',
-            //'your_channel_description',
-            importance: Importance.max,
-            priority: Priority.high,
-            showWhen: false,
-          ),
-        ),
+        notificationDetails,
         androidAllowWhileIdle: true,
         uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
         matchDateTimeComponents: DateTimeComponents.dateAndTime,
