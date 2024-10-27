@@ -68,7 +68,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                       yourScore: countScore(),
                       maximum: 10,
                       page: const TitlePage(
-                        title: 'The Brain Train App',
+                        title: 'BrainAce.pro',
                       ),
                       lastin: true,
                     ),
@@ -309,7 +309,7 @@ class _StrongConcentration extends State<StrongConcentration> {
                               yourScore: countScore(),
                               maximum: 10,
                               page: const TitlePage(
-                                title: 'The Brain Train App',
+                                title: 'BrainAce.pro',
                               ),
                               lastin: true,
                             )

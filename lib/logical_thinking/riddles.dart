@@ -128,7 +128,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                   yourScore: score,
                   maximum: 10,
                   page: const TitlePage(
-                    title: 'The Brain Train App',
+                    title: 'BrainAce.pro',
                   ),
                   lastin: true,
                 ),
@@ -366,7 +366,7 @@ class _RiddlesTest extends State<RiddlesTest> {
                                           yourScore: score,
                                           maximum: 10,
                                           page: const TitlePage(
-                                            title: 'The Brain Train App',
+                                            title: 'BrainAce.pro',
                                           ),
                                           lastin: true,
                                         ),

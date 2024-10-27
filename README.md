@@ -1,4 +1,4 @@
-# The Brain Train App
+# ~~The Brain Train App~~ BrainAce.pro
 
 App for brain training.
 

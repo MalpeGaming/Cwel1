@@ -251,7 +251,7 @@ class _WorkingMemory extends State<WorkingMemory> {
                               yourScore: score,
                               maximum: 3,
                               page: const TitlePage(
-                                title: 'The Brain Train App',
+                                title: 'BrainAce.pro',
                               ),
                               lastin: true,
                             )

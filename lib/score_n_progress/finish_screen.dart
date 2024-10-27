@@ -50,7 +50,7 @@ class _Finish extends State<Finish> {
         );
       } else if (skill == "games") {
         functionToRun = const TitlePage(
-          title: 'The Brain Train App',
+          title: 'BrainAce.pro',
         );
       }
     });
