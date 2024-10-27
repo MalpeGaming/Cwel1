@@ -300,8 +300,8 @@ class _Home extends State<Home> {
       context,
       PortHomeTasksWidget(
         plan: plan,
-          basePlanTicked: basePlanTicked,
-          sectionNames: sectionNames,
+        basePlanTicked: basePlanTicked,
+        sectionNames: sectionNames,
       ),
     );
   }
@@ -327,7 +327,6 @@ class _Home extends State<Home> {
                 });
                 setWellBeingTicked();
                 updatePoints();
-                callHomeWidgetUpdate();
               },
               child: Column(
                 children: [
