@@ -272,7 +272,7 @@ class _ReadingComprehension extends State<ReadingComprehension> {
                                       yourScore: score.toDouble(),
                                       maximum: 10,
                                       page: const TitlePage(
-                                        title: 'The Brain Train App',
+                                        title: 'BrainAce.pro',
                                       ),
                                       lastin: true,
                                     ),

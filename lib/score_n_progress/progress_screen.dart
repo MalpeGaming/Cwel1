@@ -1,8 +1,13 @@
+import 'package:brain_train_app/base_plan_data.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:flutter/material.dart';
 import 'package:confetti/confetti.dart';
 import '../app_bar.dart';
+import 'package:brain_train_app/widgets/port_home_tasks_widget.dart';
+import 'package:brain_train_app/widgets/port_home_tasks_widget_config.dart';
+import 'package:home_widget/home_widget.dart';
+import 'package:brain_train_app/activities_for_each_section.dart';
 
 class ProgressScreen extends StatefulWidget {
   const ProgressScreen({
@@ -46,6 +51,12 @@ class _ProgressScreen extends State<ProgressScreen>
     _confettiController =
         ConfettiController(duration: const Duration(seconds: 1));
     _confettiController.play();
+
+    WidgetsBinding.instance.addPostFrameCallback((timestamp) {
+      PortHomeTasksWidgetConfig.initialize().then((value) async {
+        callHomeWidgetUpdate();
+      });
+    });
   }
 
   Future<void> readMemory() async {
@@ -113,9 +124,39 @@ class _ProgressScreen extends State<ProgressScreen>
 
     prefs.setString("${widget.exercise}TickedDay$day", "1");
 
+    callHomeWidgetUpdate();
+
     setState(() {
       chartData = newChartData;
     });
+  }
+
+  Future<void> callHomeWidgetUpdate() async {
+    BasePlanData basePlanData = BasePlanData();
+    await basePlanData.initState();
+
+    List<String> widgetItems = [];
+    for (int i = 0; i < basePlanData.plan.length; i++)
+    {
+      widgetItems.add("${basePlanData.basePlanTicked[i] == "1" ? "◉" : "○"}:${sectionNames[basePlanData.plan[i]]}");
+      print("plan[$i] ${basePlanData.plan[i]} ${sectionNames[basePlanData.plan[i]]} ${basePlanData.basePlanTicked[i]}");
+    }
+
+    HomeWidget.saveWidgetData("plan_title", "To - Do List");
+    HomeWidget.saveWidgetData("plan_tasks", widgetItems.join(','));
+    //HomeWidget.saveWidgetData("plan_tasks", "○:sudoku,◉:traintest");
+    HomeWidget.updateWidget(
+      androidName: "TodoHomeScreenWidget",
+    );
+
+    PortHomeTasksWidgetConfig.update(
+      context,
+      PortHomeTasksWidget(
+        plan: basePlanData.plan,
+        basePlanTicked: basePlanData.basePlanTicked,
+        sectionNames: sectionNames,
+      ),
+    );
   }
 
   @override

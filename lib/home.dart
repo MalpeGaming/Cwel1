@@ -11,6 +11,7 @@ import 'activities_for_each_section.dart';
 import 'dart:math';
 import 'score_n_progress/finish_screen.dart';
 import '/memory/faces.dart';
+import 'package:brain_train_app/notification.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -214,6 +215,17 @@ class _Home extends State<Home> {
 
   @override
   initState() {
+
+    NotificationService.showInstantNotification("testt", "bdedsrwrts t g ert t");
+    print("INIT");
+    DateTime selectedTime = DateTime.now().add(Duration(seconds: 10)); // For testing purposes
+    NotificationService.scheduleNotification(0, "ASD", "TEstbody", selectedTime);
+
+    WidgetsBinding.instance.addPostFrameCallback((timestamp) {
+    PortHomeTasksWidgetConfig.initialize().then((value) async {
+        callHomeWidgetUpdate();
+        });
+    });
     super.initState();
     readMemory();
   }
@@ -288,8 +300,8 @@ class _Home extends State<Home> {
       context,
       PortHomeTasksWidget(
         plan: plan,
-          basePlanTicked: basePlanTicked,
-          sectionNames: sectionNames,
+        basePlanTicked: basePlanTicked,
+        sectionNames: sectionNames,
       ),
     );
   }
@@ -315,7 +327,6 @@ class _Home extends State<Home> {
                 });
                 setWellBeingTicked();
                 updatePoints();
-                callHomeWidgetUpdate();
               },
               child: Column(
                 children: [

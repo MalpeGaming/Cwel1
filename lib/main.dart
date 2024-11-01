@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'title_page.dart';
 import 'package:flutter/services.dart';
+import 'package:brain_train_app/notification.dart';
 
-void main() {
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService.init();
   SystemChrome.setPreferredOrientations(
     [
       DeviceOrientation.portraitUp,
@@ -33,7 +36,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'The Brain Train App',
+      title: 'BrainAce.pro',
       theme: ThemeData(
         brightness: Brightness.light,
         colorScheme: const ColorScheme.light(
@@ -65,7 +68,7 @@ class _MyAppState extends State<MyApp> {
         fontFamily: 'Arial',
       ),
       themeMode: _themeMode,
-      home: const TitlePage(title: 'The Brain Train App'),
+      home: const TitlePage(title: 'BrainAce.pro'),
     );
   }
 

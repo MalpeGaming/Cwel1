@@ -183,7 +183,7 @@ Future<void> restartAppButton(BuildContext context) async {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            const TitlePage(title: 'The Brain Train App'),
+                            const TitlePage(title: 'BrainAce.pro'),
                       ),
                     );
                   });
@@ -221,7 +221,7 @@ void restartApp(BuildContext context) {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => const TitlePage(title: 'The Brain Train App'),
+        builder: (context) => const TitlePage(title: 'BrainAce.pro'),
       ),
     );
   });

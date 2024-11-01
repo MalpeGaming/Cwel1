@@ -38,7 +38,7 @@ class _Contact extends State<Contact> {
 
 Phone Number: **+48 577 568 833**
 
-On Facebook: **The Brain Train App**
+On Facebook: **BrainAce.pro**
 
 &nbsp;
 ## Contact the leader.
