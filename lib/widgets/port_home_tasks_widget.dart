@@ -25,7 +25,7 @@ class PortHomeTasksWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     //Size size = MediaQuery.of(context).size;
     //Size size = MediaQuery.sizeOf(context);
-    Size size = Size(120, 120);
+    Size size = Size(500, 500);
     return Container(
       width: size.width,
       //width: size.height / 8,
