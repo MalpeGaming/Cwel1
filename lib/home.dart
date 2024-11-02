@@ -31,6 +31,44 @@ class _Home extends State<Home> {
   List<bool> wellBeingTicked = [false, false, false, false];
   int points = 0;
   int procent = 0;
+  int strikeDays = 0;
+
+  Future<void> initStrikeCounter() async {
+    @override
+    initState() {
+      super.initState();
+      initStrikeCounter(); // Dodaj tę linię
+      readMemory();
+    }
+
+    final prefs = await SharedPreferences.getInstance();
+    final currentDate = DateTime.now();
+    final lastOpenDate =
+        DateTime.tryParse(prefs.getString('last_open_date') ?? '');
+
+    // Jeśli aplikacja jest otwierana po raz pierwszy
+    if (lastOpenDate == null) {
+      await prefs.setInt('strike_days', 1);
+      await prefs.setString('last_open_date', currentDate.toIso8601String());
+      setState(() {
+        strikeDays = 1;
+      });
+    } else {
+      final difference = currentDate.difference(lastOpenDate).inDays;
+      if (difference == 1) {
+        // Zwiększ licznik dni o 1
+        strikeDays = prefs.getInt('strike_days') ?? 0;
+        strikeDays++;
+        await prefs.setInt('strike_days', strikeDays);
+      } else if (difference > 1) {
+        // Resetuje licznik, jeśli była przerwa
+        strikeDays = 1;
+        await prefs.setInt('strike_days', 1);
+      }
+      await prefs.setString('last_open_date', currentDate.toIso8601String());
+      setState(() {});
+    }
+  }
 
   GlobalKey<AnimatedCircularChartState> key =
       GlobalKey<AnimatedCircularChartState>();
@@ -468,6 +506,21 @@ class _Home extends State<Home> {
                     ),
                   ),
                 ],
+              ),
+              Container(
+                padding: EdgeInsets.all(8.0), // Dodaj margines wewnętrzny
+                decoration: BoxDecoration(
+                  color: Colors.green, // Ustaw kolor tła na zielony
+                  borderRadius: BorderRadius.circular(12.0), // Zaokrąglij rogi
+                ),
+                child: Text(
+                  "Strike Days: $strikeDays", // Dodaj zmienną strikeDays
+                  style: TextStyle(
+                    fontSize: size.width / 20,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white, // Ustaw kolor tekstu na biały
+                  ),
+                ),
               ),
               SizedBox(height: 0.05 * size.height),
               Text(
