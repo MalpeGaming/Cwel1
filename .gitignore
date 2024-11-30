@@ -42,4 +42,8 @@ pubspec.lock
 build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin
 build/test_cache/build/cache.dill.track.dill
 build/app/outputs/flutter-apk/app-debug.apk
-build/app/outputs/flutter-apk/app-debug.apk
+
+# Ignoruj folder build i pliki APK
+build/
+*.apk
+
