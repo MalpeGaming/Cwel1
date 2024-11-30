@@ -1,0 +1,70 @@
+[
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/layout_plan_task_item.xml.flat",
+        "source": "com.pro.brainace.app-main-50:/layout/plan_task_item.xml"
+    },
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.pro.brainace.app-main-50:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/layout_todo_home_screen_widget.xml.flat",
+        "source": "com.pro.brainace.app-main-50:/layout/todo_home_screen_widget.xml"
+    },
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.pro.brainace.app-main-50:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/drawable_notification.png.flat",
+        "source": "com.pro.brainace.app-main-50:/drawable/notification.png"
+    },
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/layout_port_home_tasks_widget.xml.flat",
+        "source": "com.pro.brainace.app-main-50:/layout/port_home_tasks_widget.xml"
+    },
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/xml_todo_home_screen_widget_info.xml.flat",
+        "source": "com.pro.brainace.app-main-50:/xml/todo_home_screen_widget_info.xml"
+    },
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.pro.brainace.app-main-50:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.pro.brainace.app-main-50:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/drawable_port_home_tasks_widget_layout.xml.flat",
+        "source": "com.pro.brainace.app-main-50:/drawable/port_home_tasks_widget_layout.xml"
+    },
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/drawable_todo_home_screen_widget_layout.xml.flat",
+        "source": "com.pro.brainace.app-main-50:/drawable/todo_home_screen_widget_layout.xml"
+    },
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/xml_port_home_tasks_widget_info.xml.flat",
+        "source": "com.pro.brainace.app-main-50:/xml/port_home_tasks_widget_info.xml"
+    },
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.pro.brainace.app-main-50:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/drawable-v21_launch_background.xml.flat",
+        "source": "com.pro.brainace.app-main-50:/drawable-v21/launch_background.xml"
+    },
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/drawable-nodpi_example_appwidget_preview.png.flat",
+        "source": "com.pro.brainace.app-main-50:/drawable-nodpi/example_appwidget_preview.png"
+    },
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/drawable-v21_app_widget_background.xml.flat",
+        "source": "com.pro.brainace.app-main-50:/drawable-v21/app_widget_background.xml"
+    },
+    {
+        "merged": "com.pro.brainace.app-merged_res-56:/drawable-v21_app_widget_inner_view_background.xml.flat",
+        "source": "com.pro.brainace.app-main-50:/drawable-v21/app_widget_inner_view_background.xml"
+    }
+]

@@ -2,9 +2,9 @@ name: Dart Cached (faster)
 
 on:
   push:
-    branches: [ "main" , "test" , "test2" , "aloealez" , "aloealez2" , "aloealez-actions-test" ]
+    branches: [ "main" , "test" , "aloealez" , "aloealez-actions-test" ]
   pull_request:
-    branches: [ "main" , "test" , "test2" , "aloealez" , "aloealez2" , "aloealez-actions-test" ]
+    branches: [ "main" , "test" , "aloealez" , "aloealez-actions-test" ]
 
 env:
   flutter_version: "3.24.3"
@@ -41,4 +41,3 @@ jobs:
         with:
           name: Debug-apk-cached
           path: build/app/outputs/flutter-apk/app-debug.apk
-          retention-days: 3
